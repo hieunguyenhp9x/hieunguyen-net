@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hiếu Nguyễn — Sĩ quan boong tàu viễn dương | Deck Officer</title>
+<meta name="description" content="Nguyễn Chí Hiếu — sĩ quan boong tàu viễn dương (Second Officer), đang trên hành trình chinh phục chức danh Đại phó. Chia sẻ kiến thức và kinh nghiệm nghề đi biển cho thuyền viên Việt Nam.">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-2: #10203a;
+    --navy-3: #1a3050;
+    --gold: #d4a95a;
+    --gold-light: #e8c88a;
+    --text: #e8edf4;
+    --text-dim: #9fb0c4;
+    --line: rgba(212, 169, 90, 0.25);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(10, 22, 40, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  nav .container { display: flex; align-items: center; justify-content: space-between; height: 60px; }
+  nav .logo { font-weight: 700; letter-spacing: 2px; color: var(--gold); text-decoration: none; font-size: 15px; }
+  nav .links a {
+    color: var(--text-dim); text-decoration: none; margin-left: 22px; font-size: 14px;
+    transition: color 0.2s;
+  }
+  nav .links a:hover { color: var(--gold-light); }
+  @media (max-width: 640px) { nav .links a { margin-left: 14px; font-size: 12.5px; } }
+
+  /* ===== HERO ===== */
+  header {
+    min-height: 92vh;
+    display: flex; align-items: center;
+    position: relative;
+    background: linear-gradient(100deg, rgba(10,22,40,0.97) 0%, rgba(10,22,40,0.88) 45%, rgba(10,22,40,0.55) 100%), url("assets/03-suez-canal.jpg?v=2") center 40% / cover no-repeat, var(--navy-2);
+    padding: 100px 0 60px;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; width: 100%;
+  }
+  @media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+  .hero-inner { max-width: 700px; }
+  .hero-portrait { text-align: center; }
+  .hero-portrait img {
+    width: 100%; max-width: 360px; aspect-ratio: 1/1; object-fit: cover;
+    border-radius: 14px; border: 3px solid var(--gold);
+    box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+    display: inline-block;
+  }
+  .hero-portrait figcaption { margin-top: 12px; font-size: 13px; color: var(--text-dim); }
+  .hero-kicker {
+    color: var(--gold); letter-spacing: 4px; font-size: 13px; text-transform: uppercase;
+    margin-bottom: 16px; font-weight: 600;
+  }
+  h1 { font-size: clamp(36px, 6vw, 58px); line-height: 1.15; font-weight: 800; margin-bottom: 18px; }
+  h1 .accent { color: var(--gold-light); }
+  .hero-sub { font-size: clamp(16px, 2.4vw, 20px); color: var(--text-dim); margin-bottom: 12px; }
+  .hero-sub-en { font-size: 14px; color: var(--text-dim); opacity: 0.75; font-style: italic; margin-bottom: 32px; }
+  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 13px 28px; border-radius: 6px; text-decoration: none;
+    font-weight: 600; font-size: 15px; transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-gold { background: var(--gold); color: var(--navy); }
+  .btn-outline { border: 1.5px solid var(--gold); color: var(--gold-light); }
+
+  /* ===== SECTIONS ===== */
+  section { padding: 80px 0; }
+  section.alt { background: var(--navy-2); }
+  .section-kicker { color: var(--gold); letter-spacing: 3px; font-size: 12px; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; }
+  h2 { font-size: clamp(26px, 4vw, 36px); margin-bottom: 8px; }
+  .section-sub-en { color: var(--text-dim); font-style: italic; font-size: 14px; margin-bottom: 34px; }
+
+  /* ===== STORY / TIMELINE ===== */
+  .story-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
+  @media (max-width: 800px) { .story-grid { grid-template-columns: 1fr; } }
+  .story-text p { margin-bottom: 16px; color: var(--text-dim); }
+  .story-text p strong { color: var(--text); }
+  .timeline { border-left: 2px solid var(--line); padding-left: 24px; margin-top: 8px; }
+  .tl-item { position: relative; padding-bottom: 26px; }
+  .tl-item::before {
+    content: ""; position: absolute; left: -30px; top: 7px;
+    width: 10px; height: 10px; border-radius: 50%; background: var(--gold);
+  }
+  .tl-item:last-child { padding-bottom: 0; }
+  .tl-year { color: var(--gold-light); font-weight: 700; font-size: 14px; letter-spacing: 1px; }
+  .tl-title { font-weight: 600; margin: 2px 0; }
+  .tl-desc { color: var(--text-dim); font-size: 14.5px; }
+
+  /* ===== PHOTOS ===== */
+  .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
+  @media (max-width: 700px) { .photo-grid { grid-template-columns: 1fr; } }
+  figure.photo {
+    background: var(--navy-3); border-radius: 10px; overflow: hidden;
+    border: 1px solid var(--line);
+  }
+  figure.photo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+  figure.photo figcaption { padding: 12px 14px; font-size: 13px; color: var(--text-dim); }
+
+  /* ===== CHANNEL ===== */
+  .channel-msg {
+    font-size: clamp(18px, 3vw, 24px); font-weight: 600; line-height: 1.5;
+    border-left: 4px solid var(--gold); padding-left: 20px; margin: 26px 0 34px;
+    max-width: 780px;
+  }
+  .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 720px; }
+  @media (max-width: 700px) { .social-grid { grid-template-columns: 1fr; } }
+  .social-card {
+    display: block; background: var(--navy-3); border: 1px solid var(--line);
+    border-radius: 10px; padding: 22px; text-decoration: none; color: var(--text);
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .social-card:hover { transform: translateY(-3px); border-color: var(--gold); }
+  .social-card .icon { font-size: 26px; margin-bottom: 8px; }
+  .social-card .name { font-weight: 700; margin-bottom: 4px; }
+  .social-card .desc { font-size: 13px; color: var(--text-dim); }
+
+  /* ===== PROFESSIONAL (EN) ===== */
+  .pro-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 30px; }
+  @media (max-width: 700px) { .pro-grid { grid-template-columns: 1fr; } }
+  .pro-card {
+    background: var(--navy-2); border: 1px solid var(--line); border-radius: 10px; padding: 24px;
+  }
+  section.alt .pro-card { background: var(--navy); }
+  .pro-card h3 { color: var(--gold-light); font-size: 16px; margin-bottom: 12px; letter-spacing: 0.5px; }
+  .pro-card ul { list-style: none; }
+  .pro-card li { padding: 5px 0 5px 22px; position: relative; color: var(--text-dim); font-size: 14.5px; }
+  .pro-card li::before { content: "⚓"; position: absolute; left: 0; font-size: 11px; color: var(--gold); top: 9px; }
+
+  /* ===== BEYOND ===== */
+  .beyond-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  @media (max-width: 700px) { .beyond-grid { grid-template-columns: 1fr; } }
+
+  /* ===== CONTACT / FOOTER ===== */
+  .contact-box { text-align: center; max-width: 620px; margin: 0 auto; }
+  footer {
+    border-top: 1px solid var(--line); padding: 28px 0; text-align: center;
+    color: var(--text-dim); font-size: 13px;
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container">
+    <a class="logo" href="#top">HIẾU NGUYỄN</a>
+    <div class="links">
+      <a href="#story">Hành trình</a>
+      <a href="#channel">Kênh</a>
+      <a href="#professional">Professional</a>
+      <a href="#contact">Liên hệ</a>
+    </div>
+  </div>
+</nav>
+
+<header id="top">
+  <div class="container">
+    <div class="hero-grid">
+    <div class="hero-inner">
+      <div class="hero-kicker">Sĩ quan boong tàu viễn dương</div>
+      <h1>Nguyễn Chí Hiếu<br><span class="accent">Hành trình chinh phục Đại phó</span></h1>
+      <p class="hero-sub">Phó hai (Second Officer) tàu hàng viễn dương — đang học chương trình sĩ quan quản lý, hướng tới chức danh Đại phó (Chief Officer).</p>
+      <p class="hero-sub-en">Ocean-going Deck Officer · Second Officer · Chief Mate in progress</p>
+      <div class="btn-row">
+        <a class="btn btn-gold" href="#channel">Xem kênh của tôi</a>
+        <a class="btn btn-outline" href="#professional">Professional profile (EN)</a>
+      </div>
+    </div>
+    <figure class="hero-portrait">
+      <img src="assets/portrait.jpg" alt="Nguyễn Chí Hiếu — sĩ quan boong tàu viễn dương">
+      <figcaption>Sinh nhật trên tàu — thời Phó ba (3/O)</figcaption>
+    </figure>
+    </div>
+  </div>
+</header>
+
+<section id="story" class="alt">
+  <div class="container">
+    <div class="section-kicker">Về tôi</div>
+    <h2>Từ cadet đến sĩ quan</h2>
+    <p class="section-sub-en">From cadet to officer — a journey at sea</p>
+    <div class="story-grid">
+      <div class="story-text">
+        <p>Tôi là <strong>Hiếu</strong> — sĩ quan boong tàu viễn dương. Tôi bắt đầu từ vị trí <strong>cadet (thực tập sinh boong)</strong>, đi qua những tuyến hàng hải quốc tế như kênh đào Suez, rồi từng bước trưởng thành lên <strong>Phó ba</strong>, <strong>Phó hai</strong>.</p>
+        <p>Năm 2026, tôi bước vào chặng quan trọng nhất của sự nghiệp: <strong>khóa sĩ quan quản lý</strong> — nền tảng để đảm nhận chức danh <strong>Đại phó (Chief Officer)</strong> một cách vững vàng và minh bạch, không đi đường tắt.</p>
+        <p>Song song với nghề biển, tôi xây dựng kênh chia sẻ dành cho thuyền viên Việt Nam — nơi tôi kể lại những gì mình đã sống, đã học và đã trả giá trên tàu, để anh em đi sau đỡ vất vả hơn.</p>
+      </div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-year">NHỮNG NĂM ĐẦU</div>
+          <div class="tl-title">Cadet — thực tập sinh boong</div>
+          <div class="tl-desc">Những chuyến đi đầu tiên trên tàu hàng viễn dương, qua kênh đào Suez và các tuyến quốc tế.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">TIẾP THEO</div>
+          <div class="tl-title">Phó ba (Third Officer)</div>
+          <div class="tl-desc">Sĩ quan trực ca, phụ trách thiết bị cứu sinh — cứu hỏa.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">HIỆN TẠI</div>
+          <div class="tl-title">Phó hai (Second Officer)</div>
+          <div class="tl-desc">Sĩ quan hàng hải, phụ trách hải đồ và kế hoạch chuyến đi.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">2026</div>
+          <div class="tl-title">Học sĩ quan quản lý → Đại phó</div>
+          <div class="tl-desc">Khóa đào tạo mức quản lý (management level) — mục tiêu: Chief Officer thực chất.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="photo-grid">
+      <figure class="photo">
+        <img src="assets/02-cadet-captain.jpg?v=2" alt="Thời cadet — chụp cùng thuyền trưởng trên boong tàu">
+        <figcaption>Thời cadet — chụp cùng thuyền trưởng trên boong tàu.</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="assets/03-suez-canal.jpg?v=2" alt="Cadet — tàu hành trình qua kênh đào Suez">
+        <figcaption>Hành trình qua kênh đào Suez thời cadet.</figcaption>
+      </figure>
+      <figure class="photo">
+        <img src="assets/01-third-officer.jpg?v=2" alt="Sinh nhật trên tàu khi là Phó ba">
+        <figcaption>Sinh nhật trên tàu — khi đó là Phó ba (3/O).</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="channel">
+  <div class="container">
+    <div class="section-kicker">Kênh thuyền viên</div>
+    <h2>Nhật ký chinh phục Đại phó</h2>
+    <p class="section-sub-en">Sharing real seafaring knowledge with Vietnamese seafarers</p>
+    <div class="channel-msg">
+      Giúp thuyền viên đậu phỏng vấn, vững chuyên môn, lên chức danh, tăng thu nhập, giữ được tiền và có ngày về bờ.
+    </div>
+    <div class="social-grid">
+      <a class="social-card" href="https://www.youtube.com/channel/UCMFkPxeYE0IbHBfrgmVegmA" target="_blank" rel="noopener">
+        <div class="icon">▶️</div>
+        <div class="name">YouTube</div>
+        <div class="desc">Video kiến thức nghề biển, phỏng vấn, hành trình học Đại phó.</div>
+      </a>
+      <a class="social-card" href="https://www.tiktok.com/@nguyenhieuofficialtv" target="_blank" rel="noopener">
+        <div class="icon">🎵</div>
+        <div class="name">TikTok</div>
+        <div class="desc">Video ngắn — hỏi đáp nhanh chuyện nghề thuyền viên.</div>
+      </a>
+      <a class="social-card" href="https://www.facebook.com/profile.php?id=61591261070173" target="_blank" rel="noopener">
+        <div class="icon">📘</div>
+        <div class="name">Facebook</div>
+        <div class="desc">Kết nối cộng đồng thuyền viên Việt Nam.</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="professional" class="alt">
+  <div class="container">
+    <div class="section-kicker">For employers &amp; crewing partners</div>
+    <h2>Professional Profile</h2>
+    <p class="section-sub-en">Phần này viết bằng tiếng Anh dành cho nhà tuyển dụng và công ty quản lý tàu.</p>
+    <p style="color: var(--text-dim); max-width: 760px;">
+      I am a Vietnamese ocean-going deck officer, currently sailing as <strong style="color: var(--text);">Second Officer</strong> on dry cargo vessels. I am completing my <strong style="color: var(--text);">Management Level (STCW II/2) training in 2026</strong>, preparing for the Chief Officer position — step by step, with real sea time and real competence.
+    </p>
+    <div class="pro-grid">
+      <div class="pro-card">
+        <h3>Experience</h3>
+        <ul>
+          <li>Deck cadet → Third Officer → Second Officer on ocean-going dry cargo vessels</li>
+          <li>International trading routes, incl. Suez Canal transits</li>
+          <li>Navigation watchkeeping, passage planning &amp; chart correction</li>
+        </ul>
+      </div>
+      <div class="pro-card">
+        <h3>Current focus</h3>
+        <ul>
+          <li>Management Level course (STCW II/2) — expected completion Sep 2026</li>
+          <li>Cargo operations, stability &amp; ballast management for bulk / general cargo</li>
+          <li>Shipboard documentation: NOR, B/L, Mate's Receipt, LOP</li>
+        </ul>
+      </div>
+      <div class="pro-card">
+        <h3>Working principles</h3>
+        <ul>
+          <li>No shortcuts — promotion through real competence and real sea time</li>
+          <li>Safety-first watchkeeping and teamwork across multinational crews</li>
+          <li>Continuous learner: daily study routine, structured self-review</li>
+        </ul>
+      </div>
+      <div class="pro-card">
+        <h3>Beyond the bridge</h3>
+        <ul>
+          <li>Marathon runner in training — discipline built on and off the ship</li>
+          <li>Content creator: maritime knowledge channel for Vietnamese seafarers</li>
+          <li>Family man — the reason behind every voyage</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container">
+    <div class="contact-box">
+      <div class="section-kicker">Liên hệ · Contact</div>
+      <h2>Kết nối với tôi</h2>
+      <p style="color: var(--text-dim); margin: 18px 0 28px;">
+        Hợp tác, câu hỏi về nghề biển, hoặc đơn giản là chào một tiếng — cứ nhắn cho tôi qua các kênh mạng xã hội phía trên, hoặc gửi email.
+      </p>
+      <a class="btn btn-gold" href="mailto:hieunc6666@gmail.com">Gửi email</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    © 2026 Nguyễn Chí Hiếu · hieunguyen.net — Sĩ quan boong tàu viễn dương
+  </div>
+</footer>
+
+</body>
+</html>
