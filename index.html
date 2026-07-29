@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Hieu Nguyen — Ocean-going Deck Officer</title>
-<meta name="description" content="Nguyen Chi Hieu — ocean-going deck officer (Second Officer), on the journey to Chief Mate. Sharing real seafaring knowledge and experience with fellow seafarers.">
+<title>Hieu Nguyen — My Journey to Captain</title>
+<meta name="description" content="Nguyen Chi Hieu — ocean-going deck officer (Second Officer) on the long road to Captain. Sharing real seafaring knowledge and experience with fellow seafarers.">
 <style>
   :root {
     --navy: #0a1628;
@@ -143,6 +143,42 @@
   .pro-card li { padding: 5px 0 5px 22px; position: relative; color: var(--text-dim); font-size: 14.5px; }
   .pro-card li::before { content: "⚓"; position: absolute; left: 0; font-size: 11px; color: var(--gold); top: 9px; }
 
+  /* ===== FREE GUIDE / EMAIL CAPTURE ===== */
+  .lead-grid { display: grid; grid-template-columns: 1fr 0.95fr; gap: 44px; align-items: start; }
+  @media (max-width: 800px) { .lead-grid { grid-template-columns: 1fr; gap: 32px; } }
+  .lead-list { list-style: none; margin-top: 8px; }
+  .lead-list li { padding: 7px 0 7px 26px; position: relative; color: var(--text-dim); font-size: 15px; }
+  .lead-list li::before { content: "⚓"; position: absolute; left: 0; top: 10px; font-size: 11px; color: var(--gold); }
+  .lead-card {
+    background: var(--navy-3); border: 1px solid var(--line); border-radius: 12px; padding: 28px;
+  }
+  .lead-card h3 { font-size: 18px; margin-bottom: 6px; }
+  .lead-card .lead-card-sub { color: var(--text-dim); font-size: 14px; margin-bottom: 20px; }
+  .lead-form { display: grid; gap: 12px; }
+  .lead-form label { font-size: 13px; color: var(--gold-light); letter-spacing: 0.5px; }
+  .lead-form input {
+    width: 100%; padding: 12px 14px; border-radius: 6px; font-size: 15px;
+    background: var(--navy); color: var(--text);
+    border: 1px solid var(--line); font-family: inherit;
+  }
+  .lead-form input:focus { outline: none; border-color: var(--gold); }
+  .lead-form button {
+    margin-top: 4px; padding: 13px 22px; border: none; border-radius: 6px; cursor: pointer;
+    background: var(--gold); color: var(--navy); font-weight: 700; font-size: 15px;
+    font-family: inherit; transition: transform 0.15s;
+  }
+  .lead-form button:hover { transform: translateY(-2px); }
+  /* honeypot: ẩn khỏi mắt người nhưng vẫn tồn tại với bot (không dùng display:none — nhiều bot bỏ qua) */
+  .lead-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .lead-note { margin-top: 14px; font-size: 12.5px; color: var(--text-dim); opacity: 0.85; line-height: 1.6; }
+  .lead-alt { margin-top: 12px; font-size: 12.5px; }
+  .lead-alt a { color: var(--text-dim); }
+  .lead-success { display: none; text-align: center; }
+  .lead-success .tick { font-size: 34px; margin-bottom: 6px; }
+  .lead-success h3 { margin-bottom: 8px; }
+  .lead-success p { color: var(--text-dim); font-size: 14.5px; margin-bottom: 20px; }
+  .lead-success .btn-row { justify-content: center; }
+
   /* ===== CONTACT / FOOTER ===== */
   .contact-box { text-align: center; max-width: 620px; margin: 0 auto; }
   footer {
@@ -157,6 +193,7 @@
   <div class="container">
     <a class="logo" href="#top">HIEU NGUYEN</a>
     <div class="links">
+      <a href="#free">Free Guide</a>
       <a href="#story">My Journey</a>
       <a href="#channel">Channel</a>
       <a href="#professional">Professional</a>
@@ -170,11 +207,12 @@
     <div class="hero-grid">
     <div class="hero-inner">
       <div class="hero-kicker">Ocean-going Deck Officer</div>
-      <h1>Nguyen Chi Hieu<br><span class="accent">The Journey to Chief Mate</span></h1>
-      <p class="hero-sub">Second Officer on ocean-going cargo vessels — currently completing Management Level training, working my way up to Chief Officer.</p>
-      <p class="hero-sub-en">Cadet → Third Officer → Second Officer → Chief Mate in progress</p>
+      <h1>Nguyen Chi Hieu<br><span class="accent">My Journey to Captain</span></h1>
+      <p class="hero-sub">Second Officer on ocean-going cargo vessels — completing Management Level training, on the long road from Chief Mate to Captain.</p>
+      <p class="hero-sub-en">Cadet → Third Officer → Second Officer → Chief Mate → Captain</p>
       <div class="btn-row">
-        <a class="btn btn-gold" href="#channel">Watch my channel</a>
+        <a class="btn btn-gold" href="#free">Free: 55 interview questions</a>
+        <a class="btn btn-outline" href="#channel">Watch my channel</a>
         <a class="btn btn-outline" href="#professional">Professional profile</a>
       </div>
     </div>
@@ -186,15 +224,85 @@
   </div>
 </header>
 
+<section id="free">
+  <div class="container">
+    <div class="section-kicker">Free for seafarers</div>
+    <h2>55 interview questions — with model answers</h2>
+    <p class="section-sub-en">The questions I was actually asked on the way up, and how I answer them today</p>
+    <div class="lead-grid">
+      <div>
+        <p style="color: var(--text-dim); max-width: 560px;">
+          Most seafarers fail the interview not because they lack knowledge, but because nobody ever told them what the questions sound like. This is the list I wish I had as a cadet.
+        </p>
+        <ul class="lead-list">
+          <li>40 questions for Third Officer and Second Officer positions</li>
+          <li>15 questions asked at Chief Mate level</li>
+          <li>Model answers in plain English — usable if English is not your first language</li>
+          <li>Free, no strings attached</li>
+        </ul>
+      </div>
+
+      <div class="lead-card">
+        <!-- ================= FORM ==================
+             KHI ANH CÓ TÀI KHOẢN KIT (ConvertKit):
+             Cách 1 (gọn nhất) — dán mã nhúng của Kit thay cho toàn bộ khối <form> + <div id="leadDone"> bên dưới.
+             Cách 2 (giữ nguyên giao diện này) — chỉ cần:
+               a) thêm  action="<URL form của Kit>" method="post"  vào thẻ <form>
+               b) xoá thuộc tính onsubmit="return leadDemo(event)"
+             Tên 2 ô đã đặt đúng chuẩn Kit: fields[first_name] và email_address → không phải sửa gì thêm.
+        ========================================== -->
+        <form class="lead-form" id="leadForm">
+          <h3>Send it to me</h3>
+          <p class="lead-card-sub">Enter your details and the PDF lands in your inbox.</p>
+
+          <label for="leadName">First name</label>
+          <input id="leadName" type="text" name="fields[first_name]" placeholder="Hieu" autocomplete="given-name" maxlength="40" required>
+
+          <label for="leadEmail">Email</label>
+          <input id="leadEmail" type="email" name="email_address" placeholder="you@example.com" autocomplete="email" required>
+
+          <!-- HONEYPOT — bẫy bot. Người KHÔNG nhìn thấy ô này; bot điền tự động.
+               Có chữ trong đây = vứt, không gửi. Đừng xoá, đừng đổi tên ô. -->
+          <div class="lead-hp" aria-hidden="true">
+            <label for="leadWebsite">Website</label>
+            <input id="leadWebsite" type="text" name="website" tabindex="-1" autocomplete="off">
+          </div>
+
+          <button type="submit">Send me the PDF</button>
+        </form>
+
+        <p class="lead-note" id="leadNote">
+          I'll send you the guide and about one email a month — what I'm learning on the way to Captain. No spam, and you can unsubscribe from any email in one click.
+        </p>
+        <p class="lead-alt" id="leadAlt">
+          <!-- TODO: thay # bằng link PDF trực tiếp khi free doc đóng xong -->
+          Rather not leave your email? <a href="#">Download it directly</a>.
+        </p>
+
+        <div class="lead-success" id="leadDone">
+          <div class="tick">⚓</div>
+          <h3>Check your inbox</h3>
+          <p>The PDF is on its way. If it isn't there in a few minutes, have a look in your spam folder.</p>
+          <div class="btn-row">
+            <!-- TODO: thay # bằng t.me/<username> khi anh lập xong group Telegram -->
+            <a class="btn btn-gold" href="#">Join the Telegram group</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="story" class="alt">
   <div class="container">
     <div class="section-kicker">About me</div>
-    <h2>From cadet to officer</h2>
+    <h2>From cadet to captain — one rank at a time</h2>
     <p class="section-sub-en">A journey built one contract at a time</p>
     <div class="story-grid">
       <div class="story-text">
         <p>I'm <strong>Hieu</strong> — an ocean-going deck officer from Vietnam. I started at the very bottom as a <strong>deck cadet</strong>, sailing international routes and transiting the Suez Canal, then worked my way up to <strong>Third Officer</strong> and <strong>Second Officer</strong>.</p>
-        <p>In 2026, I entered the most important stage of my career: the <strong>Management Level course (STCW II/2)</strong> — the foundation for taking on the <strong>Chief Officer</strong> position properly and transparently. No shortcuts, no faked sea time.</p>
+        <p>In 2026, I entered the most important stage of my career so far: the <strong>Management Level course (STCW II/2)</strong> — the foundation for taking on the <strong>Chief Mate</strong> position properly and transparently. No shortcuts, no faked sea time.</p>
+        <p>Chief Mate is the next rank. <strong>Captain</strong> is where this road is heading — and I plan to earn it the same way: through real sea time, real competence, and the discipline to keep learning after every contract.</p>
         <p>Alongside my life at sea, I run a channel for seafarers — where I share what I've lived, learned and paid for on board, so the next generation has an easier road than I did.</p>
       </div>
       <div class="timeline">
@@ -216,7 +324,12 @@
         <div class="tl-item">
           <div class="tl-year">2026</div>
           <div class="tl-title">Management Level → Chief Mate</div>
-          <div class="tl-desc">STCW II/2 management-level training — target: a Chief Officer who truly earned the rank.</div>
+          <div class="tl-desc">STCW II/2 management-level training — the next rank, earned the honest way.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-year">THE GOAL</div>
+          <div class="tl-title">Captain (Master Mariner)</div>
+          <div class="tl-desc">The long road. Every contract, every lesson, every rank in between is a step toward this.</div>
         </div>
       </div>
     </div>
@@ -241,16 +354,16 @@
 <section id="channel">
   <div class="container">
     <div class="section-kicker">My channel</div>
-    <h2>The Chief Mate Journey</h2>
+    <h2>My Journey to Captain</h2>
     <p class="section-sub-en">Real seafaring knowledge, from someone still sailing</p>
     <div class="channel-msg">
-      Helping seafarers pass interviews, master their profession, climb the ranks, grow their income, keep their money — and one day, come home for good.
+      Helping seafarers pass interviews, master their profession, climb the ranks all the way to Captain, grow their income, keep their money — and one day, come home for good.
     </div>
     <div class="social-grid">
       <a class="social-card" href="https://www.youtube.com/@nguyenchihieuofficialtv" target="_blank" rel="noopener">
         <div class="icon">▶️</div>
         <div class="name">YouTube</div>
-        <div class="desc">Maritime knowledge, interview prep, and my journey to Chief Mate.</div>
+        <div class="desc">Maritime knowledge, interview prep, and the road from Chief Mate to Captain.</div>
       </a>
       <a class="social-card" href="https://www.tiktok.com/@nguyenhieuofficialtv" target="_blank" rel="noopener">
         <div class="icon">🎵</div>
@@ -272,7 +385,7 @@
     <h2>Professional Profile</h2>
     <p class="section-sub-en">Who you get when I step on board</p>
     <p style="color: var(--text-dim); max-width: 760px;">
-      I am a Vietnamese ocean-going deck officer, currently sailing as <strong style="color: var(--text);">Second Officer</strong> on dry cargo vessels. I am completing my <strong style="color: var(--text);">Management Level (STCW II/2) training in 2026</strong>, preparing for the Chief Officer position — step by step, with real sea time and real competence.
+      I am a Vietnamese ocean-going deck officer, currently sailing as <strong style="color: var(--text);">Second Officer</strong> on dry cargo vessels. I am completing my <strong style="color: var(--text);">Management Level (STCW II/2) training in 2026</strong>, preparing for the Chief Mate position — and, in time, Master Mariner. Step by step, with real sea time and real competence.
     </p>
     <div class="pro-grid">
       <div class="pro-card">
@@ -294,7 +407,7 @@
       <div class="pro-card">
         <h3>Working principles</h3>
         <ul>
-          <li>No shortcuts — promotion through real competence and real sea time</li>
+          <li>No shortcuts — every rank earned through real competence and real sea time</li>
           <li>Safety-first watchkeeping and teamwork across multinational crews</li>
           <li>Continuous learner: daily study routine, structured self-review</li>
         </ul>
@@ -329,6 +442,54 @@
     © 2026 Nguyen Chi Hieu · hieunguyen.net — Ocean-going Deck Officer
   </div>
 </footer>
+
+<script>
+  /* ===== LỌC DỮ LIỆU TRƯỚC KHI GỬI — GIỮ LẠI KHI NỐI KIT =====
+     Chạy ở mọi trường hợp, kể cả sau khi đã gắn action= của Kit.
+     Hai việc: (1) chặn bot qua honeypot, (2) dọn tên rác về dạng dùng được. */
+
+  function cleanFirstName(raw) {
+    var n = (raw || "").trim().replace(/\s+/g, " ");
+    // rác rõ ràng → trả về rỗng để email rơi về fallback "there"
+    if (!n) return "";
+    if (n.length > 30) return "";
+    if (/[@\d]/.test(n)) return "";          // có số hoặc @ = không phải tên
+    if (!/[a-zA-ZÀ-ỹ]/.test(n)) return "";   // không có lấy một chữ cái
+    // NGUYEN VAN A → Nguyen Van A (viết hoa hết là kiểu điền phổ biến nhất của tệp này)
+    if (n === n.toUpperCase()) {
+      n = n.toLowerCase().replace(/(^|[\s'-])([a-zà-ỹ])/g, function (m, sep, ch) {
+        return sep + ch.toUpperCase();
+      });
+    }
+    return n;
+  }
+
+  /* NỐI KIT XONG THÌ ĐỔI DÒNG NÀY THÀNH false (và thêm action= vào thẻ <form>).
+     Đang true = chạy thử trên máy, không gửi đi đâu cả. */
+  var DEMO_MODE = true;
+
+  document.getElementById("leadForm").addEventListener("submit", function (e) {
+    // (1) honeypot: chỉ bot mới điền được ô này → nuốt luôn, không gửi
+    if (document.getElementById("leadWebsite").value !== "") {
+      e.preventDefault();
+      return false;
+    }
+
+    // (2) dọn tên trước khi gửi sang Kit
+    var nameField = document.getElementById("leadName");
+    nameField.value = cleanFirstName(nameField.value);
+
+    // (3) chỉ khi chạy thử: chặn gửi thật và hiện luôn màn cảm ơn
+    if (DEMO_MODE) {
+      e.preventDefault();
+      ["leadForm", "leadNote", "leadAlt"].forEach(function (id) {
+        document.getElementById(id).style.display = "none";
+      });
+      document.getElementById("leadDone").style.display = "block";
+      return false;
+    }
+  });
+</script>
 
 </body>
 </html>
