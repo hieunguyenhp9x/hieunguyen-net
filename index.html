@@ -245,14 +245,12 @@
 
       <div class="lead-card">
         <!-- ================= FORM ==================
-             HIỆN TẠI: form kiểm tra tên + email hợp lệ rồi mở khóa link Telegram
-             ngay tại chỗ. CHƯA lưu email đi đâu (site tĩnh, không backend).
-             KHI ANH CÓ TÀI KHOẢN KIT (ConvertKit) để LƯU EMAIL THẬT:
-               a) thêm  action="<URL form của Kit>" method="post"  vào thẻ <form>
-               b) trong <script> cuối trang, đổi  HAVE_BACKEND = true
-             Tên 2 ô đã đặt đúng chuẩn Kit: fields[first_name] và email_address → không phải sửa gì thêm.
+             ĐÃ NỐI KIT 01/08/2026 — form 9750089 (uid b62151fcb5).
+             Nhập hợp lệ → gửi AJAX về Kit (lưu email) → mở khóa link Telegram tại chỗ.
+             Kit lỗi/mạng rớt vẫn mở khóa (không bắt người ta trả giá vì backend).
+             action= bên dưới là fallback khi trình duyệt tắt JS (Kit hiện trang cảm ơn của nó).
         ========================================== -->
-        <form class="lead-form" id="leadForm" novalidate>
+        <form class="lead-form" id="leadForm" novalidate action="https://app.kit.com/forms/9750089/subscriptions" method="post">
           <h3>Get free access</h3>
           <p class="lead-card-sub">Enter your name and email — the private Telegram link unlocks right here.</p>
 
@@ -484,11 +482,9 @@
     document.getElementById("leadDone").style.display = "block";
   }
 
-  /* KHI NỐI KIT: đổi HAVE_BACKEND = true và thêm action="<URL form của Kit>" method="post"
-     vào thẻ <form>. Màn "You're in" + link Telegram khi đó nên chuyển sang trang cảm ơn
-     của Kit (hoặc giữ nguyên nếu dùng Kit dạng AJAX). Đang false = chỉ mở khóa link
-     Telegram tại chỗ, KHÔNG gửi dữ liệu đi đâu. */
-  var HAVE_BACKEND = false;
+  /* Kit (ConvertKit) — nối 01/08/2026. Gửi AJAX thẳng về endpoint của form,
+     không nhúng ck.5.js (giữ giao diện + tốc độ trang của mình). */
+  var KIT_ACTION = "https://app.kit.com/forms/9750089/subscriptions";
 
   document.getElementById("leadForm").addEventListener("submit", function (e) {
     // (1) honeypot: chỉ bot mới điền được ô này → nuốt luôn, không gửi
@@ -519,12 +515,19 @@
     showLeadError("", []);
     document.getElementById("leadError").style.display = "none";
 
-    // (3) chưa có backend: chặn gửi và mở khóa link Telegram tại chỗ
-    if (!HAVE_BACKEND) {
-      e.preventDefault();
-      unlockTelegram();
-      return false;
-    }
+    // (3) gửi về Kit bằng AJAX rồi mở khóa link Telegram tại chỗ.
+    // Kit chết/mạng rớt vẫn mở khóa — mất 1 email còn hơn mất 1 người vào kênh.
+    e.preventDefault();
+    var btn = document.querySelector("#leadForm button[type=submit]");
+    btn.disabled = true;
+    btn.textContent = "Unlocking…";
+    var fd = new FormData();
+    fd.append("fields[first_name]", cleanedName);
+    fd.append("email_address", emailField.value);
+    fetch(KIT_ACTION, { method: "POST", body: fd, headers: { "Accept": "application/json" } })
+      .catch(function () {})
+      .then(function () { unlockTelegram(); });
+    return false;
   });
 </script>
 
