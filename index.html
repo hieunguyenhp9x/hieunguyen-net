@@ -171,8 +171,8 @@
   /* honeypot: ẩn khỏi mắt người nhưng vẫn tồn tại với bot (không dùng display:none — nhiều bot bỏ qua) */
   .lead-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .lead-note { margin-top: 14px; font-size: 12.5px; color: var(--text-dim); opacity: 0.85; line-height: 1.6; }
-  .lead-alt { margin-top: 12px; font-size: 12.5px; }
-  .lead-alt a { color: var(--text-dim); }
+  .lead-error { display: none; color: #f0a0a0; font-size: 13px; line-height: 1.5; }
+  .lead-form input.invalid { border-color: #c96a6a; }
   .lead-success { display: none; text-align: center; }
   .lead-success .tick { font-size: 34px; margin-bottom: 6px; }
   .lead-success h3 { margin-bottom: 8px; }
@@ -238,22 +238,23 @@
           <li>40 questions for Third Officer and Second Officer positions</li>
           <li>15 questions asked at Chief Mate level</li>
           <li>Model answers in plain English — usable if English is not your first language</li>
+          <li>Bonus: the career salary spreadsheet from my videos <span style="opacity:0.75;">(estimates — for information purposes only, not financial advice)</span></li>
           <li>Free, no strings attached</li>
         </ul>
       </div>
 
       <div class="lead-card">
         <!-- ================= FORM ==================
-             KHI ANH CÓ TÀI KHOẢN KIT (ConvertKit):
-             Cách 1 (gọn nhất) — dán mã nhúng của Kit thay cho toàn bộ khối <form> + <div id="leadDone"> bên dưới.
-             Cách 2 (giữ nguyên giao diện này) — chỉ cần:
+             HIỆN TẠI: form kiểm tra tên + email hợp lệ rồi mở khóa link Telegram
+             ngay tại chỗ. CHƯA lưu email đi đâu (site tĩnh, không backend).
+             KHI ANH CÓ TÀI KHOẢN KIT (ConvertKit) để LƯU EMAIL THẬT:
                a) thêm  action="<URL form của Kit>" method="post"  vào thẻ <form>
-               b) xoá thuộc tính onsubmit="return leadDemo(event)"
+               b) trong <script> cuối trang, đổi  HAVE_BACKEND = true
              Tên 2 ô đã đặt đúng chuẩn Kit: fields[first_name] và email_address → không phải sửa gì thêm.
         ========================================== -->
-        <form class="lead-form" id="leadForm">
-          <h3>Send it to me</h3>
-          <p class="lead-card-sub">Enter your details and the PDF lands in your inbox.</p>
+        <form class="lead-form" id="leadForm" novalidate>
+          <h3>Get free access</h3>
+          <p class="lead-card-sub">Enter your name and email — the private Telegram link unlocks right here.</p>
 
           <label for="leadName">First name</label>
           <input id="leadName" type="text" name="fields[first_name]" placeholder="Hieu" autocomplete="given-name" maxlength="40" required>
@@ -268,24 +269,21 @@
             <input id="leadWebsite" type="text" name="website" tabindex="-1" autocomplete="off">
           </div>
 
-          <button type="submit">Send me the PDF</button>
+          <p class="lead-error" id="leadError" role="alert"></p>
+
+          <button type="submit">Unlock the Telegram link</button>
         </form>
 
         <p class="lead-note" id="leadNote">
-          I'll send you the guide and about one email a month — what I'm learning on the way to Captain. No spam, and you can unsubscribe from any email in one click.
-        </p>
-        <p class="lead-alt" id="leadAlt">
-          <!-- TODO: thay # bằng link PDF trực tiếp khi free doc đóng xong -->
-          Rather not leave your email? <a href="#">Download it directly</a>.
+          You'll also get about one email a month — what I'm learning on the way to Captain. No spam, and you can unsubscribe from any email in one click.
         </p>
 
         <div class="lead-success" id="leadDone">
           <div class="tick">⚓</div>
-          <h3>Check your inbox</h3>
-          <p>The PDF is on its way. If it isn't there in a few minutes, have a look in your spam folder.</p>
+          <h3 id="leadDoneTitle">You're in</h3>
+          <p>The 55 questions and the salary spreadsheet are pinned inside my Telegram channel. Tap below to join:</p>
           <div class="btn-row">
-            <!-- TODO: thay # bằng t.me/<username> khi anh lập xong group Telegram -->
-            <a class="btn btn-gold" href="#">Join the Telegram group</a>
+            <a class="btn btn-gold" href="https://t.me/nguyenchihieuofficial" target="_blank" rel="noopener">Join the Telegram channel</a>
           </div>
         </div>
       </div>
@@ -464,9 +462,33 @@
     return n;
   }
 
-  /* NỐI KIT XONG THÌ ĐỔI DÒNG NÀY THÀNH false (và thêm action= vào thẻ <form>).
-     Đang true = chạy thử trên máy, không gửi đi đâu cả. */
-  var DEMO_MODE = true;
+  function validEmail(raw) {
+    var v = (raw || "").trim();
+    // đủ chặt để loại "abc", "a@b", "a@b." — không cần chặt hơn cho form lead
+    return /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(v);
+  }
+
+  function showLeadError(msg, fieldIds) {
+    var err = document.getElementById("leadError");
+    err.textContent = msg;
+    err.style.display = "block";
+    ["leadName", "leadEmail"].forEach(function (id) {
+      document.getElementById(id).classList.toggle("invalid", fieldIds.indexOf(id) !== -1);
+    });
+  }
+
+  function unlockTelegram() {
+    ["leadForm", "leadNote"].forEach(function (id) {
+      document.getElementById(id).style.display = "none";
+    });
+    document.getElementById("leadDone").style.display = "block";
+  }
+
+  /* KHI NỐI KIT: đổi HAVE_BACKEND = true và thêm action="<URL form của Kit>" method="post"
+     vào thẻ <form>. Màn "You're in" + link Telegram khi đó nên chuyển sang trang cảm ơn
+     của Kit (hoặc giữ nguyên nếu dùng Kit dạng AJAX). Đang false = chỉ mở khóa link
+     Telegram tại chỗ, KHÔNG gửi dữ liệu đi đâu. */
+  var HAVE_BACKEND = false;
 
   document.getElementById("leadForm").addEventListener("submit", function (e) {
     // (1) honeypot: chỉ bot mới điền được ô này → nuốt luôn, không gửi
@@ -475,17 +497,32 @@
       return false;
     }
 
-    // (2) dọn tên trước khi gửi sang Kit
+    // (2) kiểm tra "nhập đúng" — sai thì báo lỗi, không mở khóa
     var nameField = document.getElementById("leadName");
-    nameField.value = cleanFirstName(nameField.value);
-
-    // (3) chỉ khi chạy thử: chặn gửi thật và hiện luôn màn cảm ơn
-    if (DEMO_MODE) {
+    var emailField = document.getElementById("leadEmail");
+    var cleanedName = cleanFirstName(nameField.value);
+    var badFields = [];
+    if (!cleanedName) badFields.push("leadName");
+    if (!validEmail(emailField.value)) badFields.push("leadEmail");
+    if (badFields.length) {
       e.preventDefault();
-      ["leadForm", "leadNote", "leadAlt"].forEach(function (id) {
-        document.getElementById(id).style.display = "none";
-      });
-      document.getElementById("leadDone").style.display = "block";
+      showLeadError(
+        badFields.indexOf("leadEmail") !== -1 && badFields.length === 1
+          ? "That email doesn't look right — please check it."
+          : "Please enter your real first name and a valid email.",
+        badFields
+      );
+      return false;
+    }
+    nameField.value = cleanedName;
+    emailField.value = emailField.value.trim();
+    showLeadError("", []);
+    document.getElementById("leadError").style.display = "none";
+
+    // (3) chưa có backend: chặn gửi và mở khóa link Telegram tại chỗ
+    if (!HAVE_BACKEND) {
+      e.preventDefault();
+      unlockTelegram();
       return false;
     }
   });
