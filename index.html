@@ -154,14 +154,29 @@
   }
   .lead-card h3 { font-size: 18px; margin-bottom: 6px; }
   .lead-card .lead-card-sub { color: var(--text-dim); font-size: 14px; margin-bottom: 20px; }
-  .lead-head { display: flex; gap: 14px; align-items: center; margin-bottom: 16px; }
-  .lead-head h3 { margin-bottom: 4px; }
-  .lead-head .lead-card-sub { margin-bottom: 0; }
-  .lead-avatar {
-    width: 56px; height: 56px; border-radius: 50%; object-fit: cover;
-    border: 2px solid var(--gold); flex-shrink: 0;
+  /* card lead ở hero — khung nổi bật + ảnh minh hoạ + chữ SPREADSHEET to */
+  .hero-lead {
+    position: relative;
+    border: 2px solid var(--gold);
+    background: linear-gradient(165deg, #1d3556 0%, #10203a 55%, #0d1a2e 100%);
+    box-shadow: 0 0 0 5px rgba(212, 169, 90, 0.12), 0 22px 60px rgba(0, 0, 0, 0.6), 0 0 45px rgba(212, 169, 90, 0.18);
   }
-  .hero-lead { box-shadow: 0 18px 50px rgba(0,0,0,0.45); }
+  .free-badge {
+    position: absolute; top: -15px; left: 22px; z-index: 1;
+    background: var(--gold); color: var(--navy);
+    font-weight: 800; font-size: 12.5px; letter-spacing: 2.5px;
+    padding: 5px 16px; border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+  }
+  .lead-illu {
+    width: 100%; display: block; border-radius: 8px;
+    border: 1px solid var(--line); margin-bottom: 16px;
+  }
+  .lead-card h3.lead-title { font-size: 19px; line-height: 1.25; margin-bottom: 6px; font-weight: 600; }
+  .lead-title .spread {
+    display: block; color: var(--gold-light);
+    font-size: clamp(30px, 3.4vw, 36px); font-weight: 800; letter-spacing: 1.5px; line-height: 1.15;
+  }
   .lead-form { display: grid; gap: 12px; }
   .lead-form label { font-size: 13px; color: var(--gold-light); letter-spacing: 0.5px; }
   .lead-form input {
@@ -227,14 +242,11 @@
     <!-- Ô LEAD NGAY MÀN HÌNH ĐẦU — bản sao của form khu #free, cùng Kit form 9750089.
          JS xử lý theo class (.lead-card) nên cả 2 form cùng chạy. -->
     <div class="lead-card hero-lead">
+      <span class="free-badge">FREE</span>
       <form class="lead-form" novalidate action="https://app.kit.com/forms/9750089/subscriptions" method="post">
-        <div class="lead-head">
-          <img class="lead-avatar" src="assets/portrait.jpg" alt="Nguyen Chi Hieu">
-          <div>
-            <h3>Free: the Financial Freedom spreadsheet</h3>
-            <p class="lead-card-sub">Enter your name and email — the private Telegram link unlocks right here.</p>
-          </div>
-        </div>
+        <img class="lead-illu" src="assets/spreadsheet-preview.svg" alt="Preview of the Financial Freedom spreadsheet — career table and balance curve reaching $518,573 at age 35">
+        <h3 class="lead-title">The Financial Freedom<span class="spread">SPREADSHEET</span></h3>
+        <p class="lead-card-sub">Enter your name and email — the private Telegram link unlocks right here.</p>
 
         <label for="leadNameHero">First name</label>
         <input id="leadNameHero" type="text" name="fields[first_name]" placeholder="Hieu" autocomplete="given-name" maxlength="40" required>
