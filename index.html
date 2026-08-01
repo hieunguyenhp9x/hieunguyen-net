@@ -154,6 +154,14 @@
   }
   .lead-card h3 { font-size: 18px; margin-bottom: 6px; }
   .lead-card .lead-card-sub { color: var(--text-dim); font-size: 14px; margin-bottom: 20px; }
+  .lead-head { display: flex; gap: 14px; align-items: center; margin-bottom: 16px; }
+  .lead-head h3 { margin-bottom: 4px; }
+  .lead-head .lead-card-sub { margin-bottom: 0; }
+  .lead-avatar {
+    width: 56px; height: 56px; border-radius: 50%; object-fit: cover;
+    border: 2px solid var(--gold); flex-shrink: 0;
+  }
+  .hero-lead { box-shadow: 0 18px 50px rgba(0,0,0,0.45); }
   .lead-form { display: grid; gap: 12px; }
   .lead-form label { font-size: 13px; color: var(--gold-light); letter-spacing: 0.5px; }
   .lead-form input {
@@ -211,15 +219,53 @@
       <p class="hero-sub">Second Officer on ocean-going cargo vessels — completing Management Level training, on the long road from Chief Mate to Captain.</p>
       <p class="hero-sub-en">Cadet → Third Officer → Second Officer → Chief Mate → Captain</p>
       <div class="btn-row">
-        <a class="btn btn-gold" href="#free">Free: the Financial Freedom spreadsheet</a>
         <a class="btn btn-outline" href="#channel">Watch my channel</a>
         <a class="btn btn-outline" href="#professional">Professional profile</a>
       </div>
     </div>
-    <figure class="hero-portrait">
-      <img src="assets/portrait.jpg" alt="Nguyen Chi Hieu — ocean-going deck officer">
-      <figcaption>Birthday on board — as Third Officer (3/O)</figcaption>
-    </figure>
+
+    <!-- Ô LEAD NGAY MÀN HÌNH ĐẦU — bản sao của form khu #free, cùng Kit form 9750089.
+         JS xử lý theo class (.lead-card) nên cả 2 form cùng chạy. -->
+    <div class="lead-card hero-lead">
+      <form class="lead-form" novalidate action="https://app.kit.com/forms/9750089/subscriptions" method="post">
+        <div class="lead-head">
+          <img class="lead-avatar" src="assets/portrait.jpg" alt="Nguyen Chi Hieu">
+          <div>
+            <h3>Free: the Financial Freedom spreadsheet</h3>
+            <p class="lead-card-sub">Enter your name and email — the private Telegram link unlocks right here.</p>
+          </div>
+        </div>
+
+        <label for="leadNameHero">First name</label>
+        <input id="leadNameHero" type="text" name="fields[first_name]" placeholder="Hieu" autocomplete="given-name" maxlength="40" required>
+
+        <label for="leadEmailHero">Email</label>
+        <input id="leadEmailHero" type="email" name="email_address" placeholder="you@example.com" autocomplete="email" required>
+
+        <!-- HONEYPOT — bẫy bot, người không nhìn thấy. Đừng xoá, đừng đổi tên ô. -->
+        <div class="lead-hp" aria-hidden="true">
+          <label for="leadWebsiteHero">Website</label>
+          <input id="leadWebsiteHero" type="text" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <p class="lead-error" role="alert"></p>
+
+        <button type="submit">Unlock the Telegram link</button>
+      </form>
+
+      <p class="lead-note">
+        You'll also get about one email a month — what I'm learning on the way to Captain. No spam, and you can unsubscribe from any email in one click.
+      </p>
+
+      <div class="lead-success">
+        <div class="tick">⚓</div>
+        <h3>You're in</h3>
+        <p>The spreadsheet is pinned inside my Telegram channel. Tap below to join:</p>
+        <div class="btn-row">
+          <a class="btn btn-gold" href="https://t.me/nguyenchihieuofficial" target="_blank" rel="noopener">Join the Telegram channel</a>
+        </div>
+      </div>
+    </div>
     </div>
   </div>
 </header>
@@ -466,68 +512,74 @@
     return /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(v);
   }
 
-  function showLeadError(msg, fieldIds) {
-    var err = document.getElementById("leadError");
-    err.textContent = msg;
-    err.style.display = "block";
-    ["leadName", "leadEmail"].forEach(function (id) {
-      document.getElementById(id).classList.toggle("invalid", fieldIds.indexOf(id) !== -1);
-    });
-  }
-
-  function unlockTelegram() {
-    ["leadForm", "leadNote"].forEach(function (id) {
-      document.getElementById(id).style.display = "none";
-    });
-    document.getElementById("leadDone").style.display = "block";
-  }
-
   /* Kit (ConvertKit) — nối 01/08/2026. Gửi AJAX thẳng về endpoint của form,
-     không nhúng ck.5.js (giữ giao diện + tốc độ trang của mình). */
+     không nhúng ck.5.js (giữ giao diện + tốc độ trang của mình).
+     Từ 01/08 có 2 form (hero + khu #free) → xử lý theo class .lead-card. */
   var KIT_ACTION = "https://app.kit.com/forms/9750089/subscriptions";
 
-  document.getElementById("leadForm").addEventListener("submit", function (e) {
-    // (1) honeypot: chỉ bot mới điền được ô này → nuốt luôn, không gửi
-    if (document.getElementById("leadWebsite").value !== "") {
-      e.preventDefault();
-      return false;
+  document.querySelectorAll(".lead-card").forEach(function (card) {
+    var form = card.querySelector(".lead-form");
+    if (!form) return;
+    var err = card.querySelector(".lead-error");
+    var note = card.querySelector(".lead-note");
+    var done = card.querySelector(".lead-success");
+    var nameField = form.querySelector('input[name="fields[first_name]"]');
+    var emailField = form.querySelector('input[name="email_address"]');
+    var hp = form.querySelector('input[name="website"]');
+
+    function showError(msg, badFields) {
+      err.textContent = msg;
+      err.style.display = msg ? "block" : "none";
+      nameField.classList.toggle("invalid", badFields.indexOf("name") !== -1);
+      emailField.classList.toggle("invalid", badFields.indexOf("email") !== -1);
     }
 
-    // (2) kiểm tra "nhập đúng" — sai thì báo lỗi, không mở khóa
-    var nameField = document.getElementById("leadName");
-    var emailField = document.getElementById("leadEmail");
-    var cleanedName = cleanFirstName(nameField.value);
-    var badFields = [];
-    if (!cleanedName) badFields.push("leadName");
-    if (!validEmail(emailField.value)) badFields.push("leadEmail");
-    if (badFields.length) {
-      e.preventDefault();
-      showLeadError(
-        badFields.indexOf("leadEmail") !== -1 && badFields.length === 1
-          ? "That email doesn't look right — please check it."
-          : "Please enter your real first name and a valid email.",
-        badFields
-      );
-      return false;
+    function unlockTelegram() {
+      form.style.display = "none";
+      if (note) note.style.display = "none";
+      done.style.display = "block";
     }
-    nameField.value = cleanedName;
-    emailField.value = emailField.value.trim();
-    showLeadError("", []);
-    document.getElementById("leadError").style.display = "none";
 
-    // (3) gửi về Kit bằng AJAX rồi mở khóa link Telegram tại chỗ.
-    // Kit chết/mạng rớt vẫn mở khóa — mất 1 email còn hơn mất 1 người vào kênh.
-    e.preventDefault();
-    var btn = document.querySelector("#leadForm button[type=submit]");
-    btn.disabled = true;
-    btn.textContent = "Unlocking…";
-    var fd = new FormData();
-    fd.append("fields[first_name]", cleanedName);
-    fd.append("email_address", emailField.value);
-    fetch(KIT_ACTION, { method: "POST", body: fd, headers: { "Accept": "application/json" } })
-      .catch(function () {})
-      .then(function () { unlockTelegram(); });
-    return false;
+    form.addEventListener("submit", function (e) {
+      // (1) honeypot: chỉ bot mới điền được ô này → nuốt luôn, không gửi
+      if (hp.value !== "") {
+        e.preventDefault();
+        return false;
+      }
+
+      // (2) kiểm tra "nhập đúng" — sai thì báo lỗi, không mở khóa
+      var cleanedName = cleanFirstName(nameField.value);
+      var badFields = [];
+      if (!cleanedName) badFields.push("name");
+      if (!validEmail(emailField.value)) badFields.push("email");
+      if (badFields.length) {
+        e.preventDefault();
+        showError(
+          badFields.length === 1 && badFields[0] === "email"
+            ? "That email doesn't look right — please check it."
+            : "Please enter your real first name and a valid email.",
+          badFields
+        );
+        return false;
+      }
+      nameField.value = cleanedName;
+      emailField.value = emailField.value.trim();
+      showError("", []);
+
+      // (3) gửi về Kit bằng AJAX rồi mở khóa link Telegram tại chỗ.
+      // Kit chết/mạng rớt vẫn mở khóa — mất 1 email còn hơn mất 1 người vào kênh.
+      e.preventDefault();
+      var btn = form.querySelector("button[type=submit]");
+      btn.disabled = true;
+      btn.textContent = "Unlocking…";
+      var fd = new FormData();
+      fd.append("fields[first_name]", cleanedName);
+      fd.append("email_address", emailField.value);
+      fetch(KIT_ACTION, { method: "POST", body: fd, headers: { "Accept": "application/json" } })
+        .catch(function () {})
+        .then(function () { unlockTelegram(); });
+      return false;
+    });
   });
 </script>
 
