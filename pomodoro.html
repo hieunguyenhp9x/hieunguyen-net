@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Pomodoro</title>
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-2: #10203a;
+    --navy-3: #1a3050;
+    --gold: #d4a95a;
+    --gold-light: #e8c88a;
+    --green: #6fbf8f;
+    --text: #e8edf4;
+    --text-dim: #9fb0c4;
+    --line: rgba(212, 169, 90, 0.25);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    background: var(--navy);
+    color: var(--text);
+    min-height: 100vh;
+    display: flex; align-items: center; justify-content: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .card {
+    width: min(420px, 92vw);
+    background: var(--navy-2);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 36px 28px 32px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  }
+  .phase {
+    font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--text-dim); margin-bottom: 6px; min-height: 18px;
+  }
+  .phase.focus { color: var(--gold); }
+  .phase.break { color: var(--green); }
+
+  .ring-wrap { position: relative; width: 260px; height: 260px; margin: 14px auto 20px; }
+  svg { transform: rotate(-90deg); width: 100%; height: 100%; }
+  .ring-bg { fill: none; stroke: var(--navy-3); stroke-width: 10; }
+  .ring-fg {
+    fill: none; stroke: var(--gold); stroke-width: 10; stroke-linecap: round;
+    transition: stroke-dashoffset 0.5s linear, stroke 0.4s;
+  }
+  .ring-fg.break { stroke: var(--green); }
+  .time {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+  }
+  .time .digits { font-size: 56px; font-weight: 700; letter-spacing: 2px; font-variant-numeric: tabular-nums; }
+  .time .sub { font-size: 13px; color: var(--text-dim); margin-top: 2px; }
+
+  .dots { display: flex; gap: 10px; justify-content: center; margin-bottom: 24px; }
+  .dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--navy-3); border: 1px solid var(--line);
+    transition: background 0.3s;
+  }
+  .dot.done { background: var(--gold); border-color: var(--gold); }
+  .dot.current { border-color: var(--gold-light); box-shadow: 0 0 8px rgba(212,169,90,0.5); }
+
+  .btns { display: flex; gap: 12px; justify-content: center; }
+  button {
+    font-family: inherit; font-size: 15px; font-weight: 600;
+    padding: 12px 28px; border-radius: 10px; cursor: pointer;
+    border: 1px solid var(--line); letter-spacing: 1px;
+    transition: transform 0.1s, background 0.2s;
+  }
+  button:active { transform: scale(0.97); }
+  #startBtn { background: var(--gold); color: var(--navy); border-color: var(--gold); min-width: 140px; }
+  #startBtn:hover { background: var(--gold-light); }
+  #resetBtn, #skipBtn { background: transparent; color: var(--text-dim); }
+  #resetBtn:hover, #skipBtn:hover { color: var(--text); border-color: var(--gold-light); }
+
+  .hint { margin-top: 20px; font-size: 12.5px; color: var(--text-dim); line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="phase" id="phaseLabel">Sẵn sàng</div>
+
+  <div class="ring-wrap">
+    <svg viewBox="0 0 260 260">
+      <circle class="ring-bg" cx="130" cy="130" r="118"></circle>
+      <circle class="ring-fg" id="ringFg" cx="130" cy="130" r="118"></circle>
+    </svg>
+    <div class="time">
+      <div class="digits" id="digits">25:00</div>
+      <div class="sub" id="cycleInfo">Phiên 1 / 4</div>
+    </div>
+  </div>
+
+  <div class="dots" id="dots">
+    <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
+  </div>
+
+  <div class="btns">
+    <button id="startBtn">BẮT ĐẦU</button>
+    <button id="skipBtn" title="Bỏ qua phiên này">BỎ QUA</button>
+    <button id="resetBtn">ĐẶT LẠI</button>
+  </div>
+
+  <div class="hint">25′ tập trung · 5′ nghỉ ngắn · ×4 → nghỉ dài 10′<br>Hết giờ tự chuyển phiên, có chuông báo.</div>
+</div>
+
+<script>
+(function () {
+  var FOCUS = 25 * 60, SHORT = 5 * 60, LONG = 10 * 60, CYCLES = 4;
+
+  var ring = document.getElementById('ringFg');
+  var CIRC = 2 * Math.PI * 118;
+  ring.style.strokeDasharray = CIRC;
+  ring.style.strokeDashoffset = 0;
+
+  // state: phase 'focus' | 'short' | 'long'; cycle 1..4
+  var phase = 'focus', cycle = 1, remaining = FOCUS, total = FOCUS;
+  var running = false, endAt = null, tickId = null;
+
+  var digits = document.getElementById('digits');
+  var phaseLabel = document.getElementById('phaseLabel');
+  var cycleInfo = document.getElementById('cycleInfo');
+  var startBtn = document.getElementById('startBtn');
+  var dots = document.getElementById('dots').children;
+
+  function fmt(s) {
+    var m = Math.floor(s / 60), ss = s % 60;
+    return (m < 10 ? '0' : '') + m + ':' + (ss < 10 ? '0' : '') + ss;
+  }
+
+  function beep(times) {
+    try {
+      var ctx = new (window.AudioContext || window.webkitAudioContext)();
+      for (var i = 0; i < times; i++) {
+        var o = ctx.createOscillator(), g = ctx.createGain();
+        o.connect(g); g.connect(ctx.destination);
+        o.type = 'sine'; o.frequency.value = 880;
+        var t = ctx.currentTime + i * 0.35;
+        g.gain.setValueAtTime(0.0001, t);
+        g.gain.exponentialRampToValueAtTime(0.35, t + 0.02);
+        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.28);
+        o.start(t); o.stop(t + 0.3);
+      }
+    } catch (e) {}
+  }
+
+  function render() {
+    digits.textContent = fmt(remaining);
+    ring.style.strokeDashoffset = CIRC * (1 - remaining / total);
+
+    if (phase === 'focus') {
+      phaseLabel.textContent = 'Tập trung';
+      phaseLabel.className = 'phase focus';
+      ring.classList.remove('break');
+      cycleInfo.textContent = 'Phiên ' + cycle + ' / ' + CYCLES;
+    } else if (phase === 'short') {
+      phaseLabel.textContent = 'Nghỉ ngắn';
+      phaseLabel.className = 'phase break';
+      ring.classList.add('break');
+      cycleInfo.textContent = 'Sau phiên ' + cycle;
+    } else {
+      phaseLabel.textContent = 'Nghỉ dài';
+      phaseLabel.className = 'phase break';
+      ring.classList.add('break');
+      cycleInfo.textContent = 'Hết 4 phiên — nghỉ 10 phút';
+    }
+
+    for (var i = 0; i < CYCLES; i++) {
+      var d = dots[i];
+      var doneCount = (phase === 'focus') ? cycle - 1 : cycle;
+      if (phase === 'long') doneCount = CYCLES;
+      d.className = 'dot' + (i < doneCount ? ' done' : '') +
+        (phase === 'focus' && i === cycle - 1 ? ' current' : '');
+    }
+
+    document.title = (running ? fmt(remaining) + ' · ' : '') +
+      (phase === 'focus' ? 'Tập trung' : 'Nghỉ') + ' — Pomodoro';
+    startBtn.textContent = running ? 'TẠM DỪNG' : (remaining === total ? 'BẮT ĐẦU' : 'TIẾP TỤC');
+  }
+
+  function nextPhase() {
+    if (phase === 'focus') {
+      if (cycle === CYCLES) { phase = 'long'; total = LONG; }
+      else { phase = 'short'; total = SHORT; }
+    } else if (phase === 'short') {
+      cycle += 1; phase = 'focus'; total = FOCUS;
+    } else { // long break done -> new round
+      cycle = 1; phase = 'focus'; total = FOCUS;
+    }
+    remaining = total;
+  }
+
+  function tick() {
+    remaining = Math.max(0, Math.round((endAt - Date.now()) / 1000));
+    if (remaining <= 0) {
+      beep(phase === 'focus' && cycle === CYCLES ? 3 : 2);
+      nextPhase();
+      endAt = Date.now() + remaining * 1000; // auto-continue
+    }
+    render();
+  }
+
+  function start() {
+    running = true;
+    endAt = Date.now() + remaining * 1000;
+    tickId = setInterval(tick, 250);
+    render();
+  }
+  function pause() {
+    running = false;
+    clearInterval(tickId);
+    render();
+  }
+
+  startBtn.addEventListener('click', function () { running ? pause() : start(); });
+
+  document.getElementById('skipBtn').addEventListener('click', function () {
+    nextPhase();
+    if (running) endAt = Date.now() + remaining * 1000;
+    render();
+  });
+
+  document.getElementById('resetBtn').addEventListener('click', function () {
+    pause();
+    phase = 'focus'; cycle = 1; total = FOCUS; remaining = FOCUS;
+    document.title = 'Pomodoro';
+    render();
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.code === 'Space') { e.preventDefault(); running ? pause() : start(); }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
