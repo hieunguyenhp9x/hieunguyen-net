@@ -6,7 +6,8 @@
 <meta name="robots" content="noindex, nofollow">
 <title>Pomodoro</title>
 
-<!-- Microsoft Clarity. Bỏ qua thiết bị đã mở ?notrack=1 (máy của anh), bật lại bằng ?track=1 -->
+<!-- Đo lường: Google Analytics 4 + Microsoft Clarity.
+     Thiết bị đã mở ?notrack=1 (máy của anh) thì không tải gì cả; bật lại bằng ?track=1 -->
 <script type="text/javascript">
 (function () {
   try {
@@ -15,6 +16,18 @@
     else if (p.has('track')) localStorage.removeItem('hn_notrack');
     if (localStorage.getItem('hn_notrack') === '1') return;
   } catch (e) {}
+
+  // GA4 — bao nhiêu người, đến từ nền nào, bấm đi đâu
+  var ga = document.createElement('script');
+  ga.async = 1;
+  ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK';
+  document.head.appendChild(ga);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', 'G-TNVKB32ZPK');
+
+  // Clarity — xem lại phiên + bản đồ nhiệt
   (function(c,l,a,r,i,t,y){
       c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
       t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
