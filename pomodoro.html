@@ -227,8 +227,10 @@
       hint: '25′ focus · 5′ short break · ×4 → 10′ long break<br>Auto-switches with a chime. Ambient sound plays while running.'
     }
   };
-  var lang = localStorage.getItem('pomo_lang') ||
-    (((navigator.language || '').toLowerCase().indexOf('vi') === 0) ? 'vi' : 'en');
+  // 'hn_lang' dùng chung với index.html — chọn ngôn ngữ ở trang chủ thì sang đây giữ nguyên.
+  // 'pomo_lang' là khoá cũ, giữ để người đã chọn trước 02/08/2026 không bị nhảy ngược về EN.
+  // Chưa chọn bao giờ → MẶC ĐỊNH TIẾNG ANH (anh chốt 02/08/2026), không đoán theo trình duyệt.
+  var lang = localStorage.getItem('hn_lang') || localStorage.getItem('pomo_lang') || 'en';
   function T() { return STR[lang]; }
 
   function applyLang() {
@@ -250,7 +252,7 @@
 
   document.getElementById('langTab').addEventListener('click', function () {
     lang = (lang === 'vi') ? 'en' : 'vi';
-    localStorage.setItem('pomo_lang', lang);
+    localStorage.setItem('hn_lang', lang);
     applyLang();
   });
 

@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Hieu Nguyen — My Journey to Captain</title>
 <meta name="description" content="Nguyen Chi Hieu — ocean-going deck officer (Second Officer) on the long road to Captain. Sharing real seafaring knowledge and experience with fellow seafarers.">
+
+<!-- SONG NGỮ: đặt ngôn ngữ TRƯỚC khi trang vẽ ra, tránh nháy chữ.
+     MẶC ĐỊNH LUÔN LÀ TIẾNG ANH (anh chốt 02/08/2026) — KHÔNG đoán theo navigator.language.
+     Chỉ đổi sang VI khi người xem tự bấm nút (lưu ở hn_lang, dùng chung với pomodoro.html). -->
+<script type="text/javascript">
+(function () {
+  var l = null;
+  try { l = localStorage.getItem('hn_lang') || localStorage.getItem('pomo_lang'); } catch (e) {}
+  if (l !== 'vi' && l !== 'en') l = 'en';
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.lang = l;
+})();
+</script>
 
 <!-- Đo lường: Google Analytics 4 + Microsoft Clarity.
      Thiết bị đã mở ?notrack=1 (máy của anh) thì không tải gì cả; bật lại bằng ?track=1 -->
@@ -57,6 +70,13 @@
   }
   .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
 
+  /* ===== SONG NGỮ =====
+     Mỗi mẩu chữ có 2 bản .lg-en / .lg-vi nằm sẵn trong HTML; đổi ngôn ngữ chỉ là ẩn/hiện,
+     không dựng lại DOM → không nháy, không mất trạng thái form.
+     Không đặt display cho bản đang hiện — để nó giữ nguyên kiểu gốc (block/inline/list-item). */
+  html[data-lang="en"] .lg-vi { display: none !important; }
+  html[data-lang="vi"] .lg-en { display: none !important; }
+
   /* ===== NAV ===== */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
@@ -64,14 +84,44 @@
     backdrop-filter: blur(8px);
     border-bottom: 1px solid var(--line);
   }
-  nav .container { display: flex; align-items: center; justify-content: space-between; height: 60px; }
-  nav .logo { font-weight: 700; letter-spacing: 2px; color: var(--gold); text-decoration: none; font-size: 15px; }
+  nav .container { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
+  nav .logo { font-weight: 700; letter-spacing: 2px; color: var(--gold); text-decoration: none; font-size: 15px; flex: none; }
+  .nav-right { display: flex; align-items: center; gap: 14px; min-width: 0; }
+  /* màn hẹp: hàng link tự trượt ngang, nút đổi ngôn ngữ luôn đứng yên bên phải */
+  nav .links {
+    display: flex; align-items: center; white-space: nowrap;
+    overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
+  }
+  nav .links::-webkit-scrollbar { display: none; }
   nav .links a {
     color: var(--text-dim); text-decoration: none; margin-left: 22px; font-size: 14px;
     transition: color 0.2s;
   }
   nav .links a:hover { color: var(--gold-light); }
-  @media (max-width: 640px) { nav .links a { margin-left: 14px; font-size: 12.5px; } }
+  .lang-tab {
+    flex: none; cursor: pointer; font-family: inherit;
+    font-size: 12.5px; letter-spacing: 1px;
+    color: var(--text-dim); background: transparent;
+    border: 1px solid var(--line); border-radius: 8px;
+    padding: 6px 11px; line-height: 1;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .lang-tab:hover { color: var(--gold-light); border-color: var(--gold); }
+  .lang-tab b { color: var(--gold); font-weight: 700; }
+  /* màn hẹp: bóp logo + đệm để chừa chỗ cho hàng link, và làm mờ mép phải
+     cho người xem thấy là còn link phía sau, vuốt được. */
+  @media (max-width: 640px) {
+    .container { padding: 0 16px; }
+    nav .logo { font-size: 13px; letter-spacing: 1px; }
+    nav .container { gap: 8px; }
+    nav .links a { margin-left: 14px; font-size: 12.5px; }
+    nav .links {
+      -webkit-mask-image: linear-gradient(to right, #000 82%, transparent 100%);
+      mask-image: linear-gradient(to right, #000 82%, transparent 100%);
+    }
+    .nav-right { gap: 8px; }
+    .lang-tab { font-size: 11.5px; padding: 6px 8px; letter-spacing: 0.5px; }
+  }
 
   /* ===== HERO ===== */
   header {
@@ -208,6 +258,8 @@
     display: block; color: var(--gold-light);
     font-size: clamp(30px, 3.4vw, 36px); font-weight: 800; letter-spacing: 1.5px; line-height: 1.15;
   }
+  /* bản tiếng Việt của dòng to dài hơn 1 từ → hạ cỡ chút cho khỏi tràn khung */
+  .lead-title .spread.spread-vi { font-size: clamp(26px, 3vw, 32px); letter-spacing: 1px; }
   .lead-form { display: grid; gap: 12px; }
   .lead-form label { font-size: 13px; color: var(--gold-light); letter-spacing: 0.5px; }
   .lead-form input {
@@ -246,12 +298,15 @@
 <nav>
   <div class="container">
     <a class="logo" href="#top">HIEU NGUYEN</a>
-    <div class="links">
-      <a href="#free">Free Spreadsheet</a>
-      <a href="#story">My Journey</a>
-      <a href="#channel">Channel</a>
-      <a href="#professional">Professional</a>
-      <a href="#contact">Contact</a>
+    <div class="nav-right">
+      <div class="links">
+        <a href="#free"><span class="lg-en">Free Spreadsheet</span><span class="lg-vi">Bảng tính</span></a>
+        <a href="#story"><span class="lg-en">My Journey</span><span class="lg-vi">Hành trình</span></a>
+        <a href="#channel"><span class="lg-en">Channel</span><span class="lg-vi">Kênh</span></a>
+        <a href="#professional"><span class="lg-en">Professional</span><span class="lg-vi">Hồ sơ nghề</span></a>
+        <a href="#contact"><span class="lg-en">Contact</span><span class="lg-vi">Liên hệ</span></a>
+      </div>
+      <button class="lang-tab" id="langTab" type="button" title="Tiếng Việt / English"></button>
     </div>
   </div>
 </nav>
@@ -260,27 +315,43 @@
   <div class="container">
     <div class="hero-grid">
     <div class="hero-inner">
-      <div class="hero-kicker">Ocean-going Deck Officer</div>
-      <h1>Nguyen Chi Hieu<br><span class="accent">My Journey to Captain</span></h1>
-      <p class="hero-sub">Second Officer on ocean-going cargo vessels — completing Management Level training, on the long road from Chief Mate to Captain.</p>
-      <p class="hero-sub-en">Cadet → Third Officer → Second Officer → Chief Mate → Captain</p>
+      <div class="hero-kicker">
+        <span class="lg-en">Ocean-going Deck Officer</span>
+        <span class="lg-vi">Sĩ quan boong tàu viễn dương</span>
+      </div>
+      <h1>
+        <span class="lg-en">Nguyen Chi Hieu<br><span class="accent">My Journey to Captain</span></span>
+        <span class="lg-vi">Nguyễn Chí Hiếu<br><span class="accent">Hành trình lên Thuyền trưởng</span></span>
+      </h1>
+      <p class="hero-sub lg-en">Second Officer on ocean-going cargo vessels — completing Management Level training, on the long road from Chief Mate to Captain.</p>
+      <p class="hero-sub lg-vi">Phó hai tàu hàng viễn dương, đang học khoá quản lý (STCW II/2). Chặng kế tiếp là đại phó, đích đến là thuyền trưởng.</p>
+      <p class="hero-sub-en lg-en">Cadet → Third Officer → Second Officer → Chief Mate → Captain</p>
+      <p class="hero-sub-en lg-vi">Thực tập sinh → Phó ba → Phó hai → Đại phó → Thuyền trưởng</p>
       <div class="btn-row">
-        <a class="btn btn-outline" href="#channel">Watch my channel</a>
-        <a class="btn btn-outline" href="#professional">Professional profile</a>
+        <a class="btn btn-outline" href="#channel"><span class="lg-en">Watch my channel</span><span class="lg-vi">Xem kênh của tôi</span></a>
+        <a class="btn btn-outline" href="#professional"><span class="lg-en">Professional profile</span><span class="lg-vi">Hồ sơ chuyên môn</span></a>
       </div>
     </div>
 
     <!-- Ô LEAD NGAY MÀN HÌNH ĐẦU — bản sao của form khu #free, cùng Kit form 9750089.
          JS xử lý theo class (.lead-card) nên cả 2 form cùng chạy. -->
     <div class="lead-card hero-lead">
-      <span class="free-badge">FREE</span>
+      <span class="free-badge lg-en">FREE</span>
+      <span class="free-badge lg-vi">MIỄN PHÍ</span>
       <form class="lead-form" novalidate action="https://app.kit.com/forms/9750089/subscriptions" method="post">
-        <img class="lead-illu" src="assets/spreadsheet-preview.svg" alt="Preview of the Financial Freedom spreadsheet — career table and balance curve reaching $518,573 at age 35">
-        <h3 class="lead-title">The Financial Freedom<span class="spread">SPREADSHEET</span></h3>
-        <p class="lead-card-sub">Enter your name and email — the private Telegram link unlocks right here.</p>
+        <img class="lead-illu" src="assets/spreadsheet-preview.svg"
+             alt="Preview of the Financial Freedom spreadsheet — career table and balance curve reaching $518,573 at age 35"
+             data-en-alt="Preview of the Financial Freedom spreadsheet — career table and balance curve reaching $518,573 at age 35"
+             data-vi-alt="Xem trước bảng tính Tự do tài chính — bảng so sánh hướng đi nghề và đường tài sản chạm mốc 518.573 đô la ở tuổi 35">
+        <h3 class="lead-title lg-en">The Financial Freedom<span class="spread">SPREADSHEET</span></h3>
+        <h3 class="lead-title lg-vi">Bảng tính<span class="spread spread-vi">TỰ DO TÀI CHÍNH</span></h3>
+        <p class="lead-card-sub lg-en">Enter your name and email — the private Telegram link unlocks right here.</p>
+        <p class="lead-card-sub lg-vi">Điền tên và email, link Telegram riêng hiện ra ngay tại đây.</p>
 
-        <label for="leadNameHero">First name</label>
-        <input id="leadNameHero" type="text" name="fields[first_name]" placeholder="Hieu" autocomplete="given-name" maxlength="40" required>
+        <label for="leadNameHero"><span class="lg-en">First name</span><span class="lg-vi">Tên</span></label>
+        <input id="leadNameHero" type="text" name="fields[first_name]" placeholder="Hieu"
+               data-en-placeholder="Hieu" data-vi-placeholder="Hiếu"
+               autocomplete="given-name" maxlength="40" required>
 
         <label for="leadEmailHero">Email</label>
         <input id="leadEmailHero" type="email" name="email_address" placeholder="you@example.com" autocomplete="email" required>
@@ -293,19 +364,25 @@
 
         <p class="lead-error" role="alert"></p>
 
-        <button type="submit">Unlock the Telegram link</button>
+        <button type="submit"><span class="lg-en">Unlock the Telegram link</span><span class="lg-vi">Mở khoá link Telegram</span></button>
       </form>
 
       <p class="lead-note">
-        You'll also get about one email a month — what I'm learning on the way to Captain. No spam, and you can unsubscribe from any email in one click.
+        <span class="lg-en">You'll also get about one email a month — what I'm learning on the way to Captain. No spam, and you can unsubscribe from any email in one click.</span>
+        <span class="lg-vi">Mỗi tháng tôi gửi khoảng một email, kể lại những gì học được trên đường lên thuyền trưởng. Không spam, không muốn nhận nữa thì bấm huỷ ngay trong email.</span>
       </p>
 
       <div class="lead-success">
         <div class="tick">⚓</div>
-        <h3>You're in</h3>
-        <p>The spreadsheet is pinned inside my Telegram channel. Tap below to join:</p>
+        <h3><span class="lg-en">You're in</span><span class="lg-vi">Xong rồi</span></h3>
+        <p>
+          <span class="lg-en">The spreadsheet is pinned inside my Telegram channel. Tap below to join:</span>
+          <span class="lg-vi">Bảng tính được ghim sẵn trong kênh Telegram của tôi. Bấm vào đây để vào kênh:</span>
+        </p>
         <div class="btn-row">
-          <a class="btn btn-gold" href="https://t.me/nguyenchihieuofficial" target="_blank" rel="noopener">Join the Telegram channel</a>
+          <a class="btn btn-gold" href="https://t.me/nguyenchihieuofficial" target="_blank" rel="noopener">
+            <span class="lg-en">Join the Telegram channel</span><span class="lg-vi">Vào kênh Telegram</span>
+          </a>
         </div>
       </div>
     </div>
@@ -315,20 +392,42 @@
 
 <section id="free">
   <div class="container">
-    <div class="section-kicker">Free for seafarers</div>
-    <h2>The Financial Freedom spreadsheet</h2>
-    <p class="section-sub-en">The exact model behind my "Financial Freedom at 35" video</p>
+    <div class="section-kicker">
+      <span class="lg-en">Free for seafarers</span>
+      <span class="lg-vi">Miễn phí cho thuyền viên</span>
+    </div>
+    <h2><span class="lg-en">The Financial Freedom spreadsheet</span><span class="lg-vi">Bảng tính Tự do tài chính</span></h2>
+    <p class="section-sub-en lg-en">The exact model behind my "Financial Freedom at 35" video</p>
+    <p class="section-sub-en lg-vi">Chính file tính tôi đã dùng trong video "Tự do tài chính ở tuổi 35"</p>
     <div class="lead-grid">
       <div>
-        <p style="color: var(--text-dim); max-width: 560px;">
+        <p class="lg-en" style="color: var(--text-dim); max-width: 560px;">
           In the video I compared four career paths and showed how a seafarer could reach financial freedom by 35. This is the working model behind every number — not a summary, the actual spreadsheet.
         </p>
+        <p class="lg-vi" style="color: var(--text-dim); max-width: 560px;">
+          Trong video đó tôi đặt bốn hướng đi sự nghiệp cạnh nhau và tính xem một thuyền viên có thể tự do tài chính ở tuổi 35 bằng cách nào. Đây là file đã tính ra từng con số trong video — không phải bản tóm tắt, mà đúng file gốc.
+        </p>
         <ul class="lead-list">
-          <li>Four career paths compared side by side, month by month</li>
-          <li>Editable copy — change the salary, spending and return numbers to see your own freedom age</li>
-          <li>More free resources for seafarers will land in the same channel</li>
-          <li>All figures are estimates — for information purposes only, not financial advice</li>
-          <li>Free, no strings attached</li>
+          <li>
+            <span class="lg-en">Four career paths compared side by side, month by month</span>
+            <span class="lg-vi">Bốn hướng đi sự nghiệp đặt cạnh nhau, tính theo từng tháng</span>
+          </li>
+          <li>
+            <span class="lg-en">Editable copy — change the salary, spending and return numbers to see your own freedom age</span>
+            <span class="lg-vi">Sửa được trực tiếp — điền lương, mức chi tiêu và lãi suất của bạn vào là ra tuổi tự do tài chính của chính mình</span>
+          </li>
+          <li>
+            <span class="lg-en">More free resources for seafarers will land in the same channel</span>
+            <span class="lg-vi">Các tài liệu miễn phí khác cho thuyền viên cũng sẽ đăng trong kênh đó</span>
+          </li>
+          <li>
+            <span class="lg-en">All figures are estimates — for information purposes only, not financial advice</span>
+            <span class="lg-vi">Mọi con số đều là ước tính, chỉ để tham khảo — không phải lời khuyên đầu tư (for information purposes only — not financial advice)</span>
+          </li>
+          <li>
+            <span class="lg-en">Free, no strings attached</span>
+            <span class="lg-vi">Miễn phí, không kèm điều kiện gì</span>
+          </li>
         </ul>
       </div>
 
@@ -340,11 +439,14 @@
              action= bên dưới là fallback khi trình duyệt tắt JS (Kit hiện trang cảm ơn của nó).
         ========================================== -->
         <form class="lead-form" id="leadForm" novalidate action="https://app.kit.com/forms/9750089/subscriptions" method="post">
-          <h3>Get free access</h3>
-          <p class="lead-card-sub">Enter your name and email — the private Telegram link unlocks right here.</p>
+          <h3><span class="lg-en">Get free access</span><span class="lg-vi">Nhận miễn phí</span></h3>
+          <p class="lead-card-sub lg-en">Enter your name and email — the private Telegram link unlocks right here.</p>
+          <p class="lead-card-sub lg-vi">Điền tên và email, link Telegram riêng hiện ra ngay tại đây.</p>
 
-          <label for="leadName">First name</label>
-          <input id="leadName" type="text" name="fields[first_name]" placeholder="Hieu" autocomplete="given-name" maxlength="40" required>
+          <label for="leadName"><span class="lg-en">First name</span><span class="lg-vi">Tên</span></label>
+          <input id="leadName" type="text" name="fields[first_name]" placeholder="Hieu"
+                 data-en-placeholder="Hieu" data-vi-placeholder="Hiếu"
+                 autocomplete="given-name" maxlength="40" required>
 
           <label for="leadEmail">Email</label>
           <input id="leadEmail" type="email" name="email_address" placeholder="you@example.com" autocomplete="email" required>
@@ -358,19 +460,25 @@
 
           <p class="lead-error" id="leadError" role="alert"></p>
 
-          <button type="submit">Unlock the Telegram link</button>
+          <button type="submit"><span class="lg-en">Unlock the Telegram link</span><span class="lg-vi">Mở khoá link Telegram</span></button>
         </form>
 
         <p class="lead-note" id="leadNote">
-          You'll also get about one email a month — what I'm learning on the way to Captain. No spam, and you can unsubscribe from any email in one click.
+          <span class="lg-en">You'll also get about one email a month — what I'm learning on the way to Captain. No spam, and you can unsubscribe from any email in one click.</span>
+          <span class="lg-vi">Mỗi tháng tôi gửi khoảng một email, kể lại những gì học được trên đường lên thuyền trưởng. Không spam, không muốn nhận nữa thì bấm huỷ ngay trong email.</span>
         </p>
 
         <div class="lead-success" id="leadDone">
           <div class="tick">⚓</div>
-          <h3 id="leadDoneTitle">You're in</h3>
-          <p>The spreadsheet is pinned inside my Telegram channel. Tap below to join:</p>
+          <h3 id="leadDoneTitle"><span class="lg-en">You're in</span><span class="lg-vi">Xong rồi</span></h3>
+          <p>
+            <span class="lg-en">The spreadsheet is pinned inside my Telegram channel. Tap below to join:</span>
+            <span class="lg-vi">Bảng tính được ghim sẵn trong kênh Telegram của tôi. Bấm vào đây để vào kênh:</span>
+          </p>
           <div class="btn-row">
-            <a class="btn btn-gold" href="https://t.me/nguyenchihieuofficial" target="_blank" rel="noopener">Join the Telegram channel</a>
+            <a class="btn btn-gold" href="https://t.me/nguyenchihieuofficial" target="_blank" rel="noopener">
+              <span class="lg-en">Join the Telegram channel</span><span class="lg-vi">Vào kênh Telegram</span>
+            </a>
           </div>
         </div>
       </div>
@@ -380,57 +488,105 @@
 
 <section id="story" class="alt">
   <div class="container">
-    <div class="section-kicker">About me</div>
-    <h2>From cadet to captain — one rank at a time</h2>
-    <p class="section-sub-en">A journey built one contract at a time</p>
+    <div class="section-kicker"><span class="lg-en">About me</span><span class="lg-vi">Về tôi</span></div>
+    <h2>
+      <span class="lg-en">From cadet to captain — one rank at a time</span>
+      <span class="lg-vi">Từ thực tập sinh tới thuyền trưởng — lên từng cấp một</span>
+    </h2>
+    <p class="section-sub-en lg-en">A journey built one contract at a time</p>
+    <p class="section-sub-en lg-vi">Hành trình xây bằng từng hợp đồng đi tàu</p>
     <div class="story-grid">
       <div class="story-text">
-        <p>I'm <strong>Hieu</strong> — an ocean-going deck officer from Vietnam. I started at the very bottom as a <strong>deck cadet</strong>, sailing international routes and transiting the Suez Canal, then worked my way up to <strong>Third Officer</strong> and <strong>Second Officer</strong>.</p>
-        <p>In 2026, I entered the most important stage of my career so far: the <strong>Management Level course (STCW II/2)</strong> — the foundation for taking on the <strong>Chief Mate</strong> position properly and transparently. No shortcuts, no faked sea time.</p>
-        <p>Chief Mate is the next rank. <strong>Captain</strong> is where this road is heading — and I plan to earn it the same way: through real sea time, real competence, and the discipline to keep learning after every contract.</p>
-        <p>Alongside my life at sea, I run a channel for seafarers — where I share what I've lived, learned and paid for on board, so the next generation has an easier road than I did.</p>
+        <div class="lg-en">
+          <p>I'm <strong>Hieu</strong> — an ocean-going deck officer from Vietnam. I started at the very bottom as a <strong>deck cadet</strong>, sailing international routes and transiting the Suez Canal, then worked my way up to <strong>Third Officer</strong> and <strong>Second Officer</strong>.</p>
+          <p>In 2026, I entered the most important stage of my career so far: the <strong>Management Level course (STCW II/2)</strong> — the foundation for taking on the <strong>Chief Mate</strong> position properly and transparently. No shortcuts, no faked sea time.</p>
+          <p>Chief Mate is the next rank. <strong>Captain</strong> is where this road is heading — and I plan to earn it the same way: through real sea time, real competence, and the discipline to keep learning after every contract.</p>
+          <p>Alongside my life at sea, I run a channel for seafarers — where I share what I've lived, learned and paid for on board, so the next generation has an easier road than I did.</p>
+        </div>
+        <div class="lg-vi">
+          <p>Tôi là <strong>Hiếu</strong>, sĩ quan boong tàu viễn dương người Việt Nam. Tôi bắt đầu từ vị trí thấp nhất — <strong>thực tập sinh boong</strong> — chạy tuyến quốc tế, qua kênh đào Suez, rồi đi lên <strong>phó ba</strong> và <strong>phó hai</strong>.</p>
+          <p>Năm 2026, tôi bước vào chặng quan trọng nhất từ trước tới nay: <strong>khoá quản lý (STCW II/2)</strong> — nền tảng để nhận chức <strong>đại phó</strong> một cách đàng hoàng, minh bạch. Không đi tắt, không khai khống thời gian đi biển.</p>
+          <p>Đại phó là chức kế tiếp. <strong>Thuyền trưởng</strong> là đích của con đường này — và tôi sẽ đi tới đó theo đúng cách này: đi biển thật, năng lực thật, và giữ kỷ luật học tiếp sau mỗi hợp đồng.</p>
+          <p>Song song với đời đi biển, tôi làm một kênh cho thuyền viên — kể lại những gì đã trải, đã học và đã trả giá trên tàu, để lớp sau đi đỡ vất vả hơn tôi.</p>
+        </div>
       </div>
       <div class="timeline">
         <div class="tl-item">
-          <div class="tl-year">THE EARLY YEARS</div>
-          <div class="tl-title">Deck Cadet</div>
-          <div class="tl-desc">First voyages on ocean-going cargo ships — international routes, including Suez Canal transits.</div>
+          <div class="tl-year"><span class="lg-en">THE EARLY YEARS</span><span class="lg-vi">NHỮNG NĂM ĐẦU</span></div>
+          <div class="tl-title"><span class="lg-en">Deck Cadet</span><span class="lg-vi">Thực tập sinh boong</span></div>
+          <div class="tl-desc">
+            <span class="lg-en">First voyages on ocean-going cargo ships — international routes, including Suez Canal transits.</span>
+            <span class="lg-vi">Những chuyến đi đầu tiên trên tàu hàng viễn dương — tuyến quốc tế, có cả những lần qua kênh đào Suez.</span>
+          </div>
         </div>
         <div class="tl-item">
-          <div class="tl-year">NEXT</div>
-          <div class="tl-title">Third Officer (3/O)</div>
-          <div class="tl-desc">Navigation watchkeeper, in charge of life-saving and fire-fighting equipment.</div>
+          <div class="tl-year"><span class="lg-en">NEXT</span><span class="lg-vi">TIẾP THEO</span></div>
+          <div class="tl-title"><span class="lg-en">Third Officer (3/O)</span><span class="lg-vi">Phó ba (3/O)</span></div>
+          <div class="tl-desc">
+            <span class="lg-en">Navigation watchkeeper, in charge of life-saving and fire-fighting equipment.</span>
+            <span class="lg-vi">Sĩ quan trực ca hàng hải, phụ trách trang thiết bị cứu sinh và cứu hoả.</span>
+          </div>
         </div>
         <div class="tl-item">
-          <div class="tl-year">NOW</div>
-          <div class="tl-title">Second Officer (2/O)</div>
-          <div class="tl-desc">Navigation officer — passage planning and chart correction.</div>
+          <div class="tl-year"><span class="lg-en">NOW</span><span class="lg-vi">HIỆN TẠI</span></div>
+          <div class="tl-title"><span class="lg-en">Second Officer (2/O)</span><span class="lg-vi">Phó hai (2/O)</span></div>
+          <div class="tl-desc">
+            <span class="lg-en">Navigation officer — passage planning and chart correction.</span>
+            <span class="lg-vi">Sĩ quan hàng hải — lập kế hoạch hải trình và tu chỉnh hải đồ.</span>
+          </div>
         </div>
         <div class="tl-item">
           <div class="tl-year">2026</div>
-          <div class="tl-title">Management Level → Chief Mate</div>
-          <div class="tl-desc">STCW II/2 management-level training — the next rank, earned the honest way.</div>
+          <div class="tl-title">
+            <span class="lg-en">Management Level → Chief Mate</span>
+            <span class="lg-vi">Khoá quản lý → Đại phó</span>
+          </div>
+          <div class="tl-desc">
+            <span class="lg-en">STCW II/2 management-level training — the next rank, earned the honest way.</span>
+            <span class="lg-vi">Khoá quản lý STCW II/2 — chức kế tiếp, lấy bằng con đường tử tế.</span>
+          </div>
         </div>
         <div class="tl-item">
-          <div class="tl-year">THE GOAL</div>
-          <div class="tl-title">Captain (Master Mariner)</div>
-          <div class="tl-desc">The long road. Every contract, every lesson, every rank in between is a step toward this.</div>
+          <div class="tl-year"><span class="lg-en">THE GOAL</span><span class="lg-vi">ĐÍCH ĐẾN</span></div>
+          <div class="tl-title">
+            <span class="lg-en">Captain (Master Mariner)</span>
+            <span class="lg-vi">Thuyền trưởng (Master Mariner)</span>
+          </div>
+          <div class="tl-desc">
+            <span class="lg-en">The long road. Every contract, every lesson, every rank in between is a step toward this.</span>
+            <span class="lg-vi">Đường còn dài. Mỗi hợp đồng, mỗi bài học, mỗi cấp bậc đi qua đều là một bước tới đây.</span>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="photo-grid">
       <figure class="photo">
-        <img src="assets/02-cadet-captain.jpg?v=2" alt="Cadet days — with my Captain on deck">
-        <figcaption>Cadet days — with my Captain on deck.</figcaption>
+        <img src="assets/02-cadet-captain.jpg?v=2" alt="Cadet days — with my Captain on deck"
+             data-en-alt="Cadet days — with my Captain on deck"
+             data-vi-alt="Thời thực tập — chụp cùng thuyền trưởng trên boong">
+        <figcaption>
+          <span class="lg-en">Cadet days — with my Captain on deck.</span>
+          <span class="lg-vi">Thời thực tập — cùng thuyền trưởng trên boong.</span>
+        </figcaption>
       </figure>
       <figure class="photo">
-        <img src="assets/03-suez-canal.jpg?v=2" alt="Transiting the Suez Canal as a cadet">
-        <figcaption>Transiting the Suez Canal as a cadet.</figcaption>
+        <img src="assets/03-suez-canal.jpg?v=2" alt="Transiting the Suez Canal as a cadet"
+             data-en-alt="Transiting the Suez Canal as a cadet"
+             data-vi-alt="Qua kênh đào Suez khi còn là thực tập sinh">
+        <figcaption>
+          <span class="lg-en">Transiting the Suez Canal as a cadet.</span>
+          <span class="lg-vi">Qua kênh đào Suez khi còn là thực tập sinh.</span>
+        </figcaption>
       </figure>
       <figure class="photo">
-        <img src="assets/01-third-officer.jpg?v=2" alt="Birthday on board as Third Officer">
-        <figcaption>Birthday on board — as Third Officer (3/O).</figcaption>
+        <img src="assets/01-third-officer.jpg?v=2" alt="Birthday on board as Third Officer"
+             data-en-alt="Birthday on board as Third Officer"
+             data-vi-alt="Sinh nhật trên tàu khi làm phó ba">
+        <figcaption>
+          <span class="lg-en">Birthday on board — as Third Officer (3/O).</span>
+          <span class="lg-vi">Sinh nhật trên tàu — khi làm phó ba (3/O).</span>
+        </figcaption>
       </figure>
     </div>
   </div>
@@ -438,27 +594,38 @@
 
 <section id="channel">
   <div class="container">
-    <div class="section-kicker">My channel</div>
-    <h2>My Journey to Captain</h2>
-    <p class="section-sub-en">Real seafaring knowledge, from someone still sailing</p>
+    <div class="section-kicker"><span class="lg-en">My channel</span><span class="lg-vi">Kênh của tôi</span></div>
+    <h2><span class="lg-en">My Journey to Captain</span><span class="lg-vi">Hành trình lên Thuyền trưởng</span></h2>
+    <p class="section-sub-en lg-en">Real seafaring knowledge, from someone still sailing</p>
+    <p class="section-sub-en lg-vi">Kiến thức đi biển thật, từ người vẫn đang đi tàu</p>
     <div class="channel-msg">
-      Helping seafarers pass interviews, master their profession, climb the ranks all the way to Captain, grow their income, keep their money — and one day, come home for good.
+      <span class="lg-en">Helping seafarers pass interviews, master their profession, climb the ranks all the way to Captain, grow their income, keep their money — and one day, come home for good.</span>
+      <span class="lg-vi">Giúp anh em thuyền viên qua được phỏng vấn, vững nghề, lên chức tới thuyền trưởng, tăng thu nhập, giữ được tiền — và một ngày nào đó, lên bờ ở hẳn với gia đình.</span>
     </div>
     <div class="social-grid">
       <a class="social-card" href="https://www.youtube.com/@nguyenchihieuofficialtv" target="_blank" rel="noopener">
         <div class="icon">▶️</div>
         <div class="name">YouTube</div>
-        <div class="desc">Maritime knowledge, interview prep, and the road from Chief Mate to Captain.</div>
+        <div class="desc">
+          <span class="lg-en">Maritime knowledge, interview prep, and the road from Chief Mate to Captain.</span>
+          <span class="lg-vi">Kiến thức hàng hải, luyện phỏng vấn, và chặng đường từ đại phó lên thuyền trưởng.</span>
+        </div>
       </a>
       <a class="social-card" href="https://www.tiktok.com/@nguyenhieuofficialtv" target="_blank" rel="noopener">
         <div class="icon">🎵</div>
         <div class="name">TikTok</div>
-        <div class="desc">Short Q&amp;A videos — quick answers about life and work at sea.</div>
+        <div class="desc">
+          <span class="lg-en">Short Q&amp;A videos — quick answers about life and work at sea.</span>
+          <span class="lg-vi">Video hỏi đáp ngắn về nghề và đời sống trên tàu.</span>
+        </div>
       </a>
       <a class="social-card" href="https://www.facebook.com/nguyenchihieuofficialtv" target="_blank" rel="noopener">
         <div class="icon">📘</div>
         <div class="name">Facebook</div>
-        <div class="desc">Connecting the seafarer community.</div>
+        <div class="desc">
+          <span class="lg-en">Connecting the seafarer community.</span>
+          <span class="lg-vi">Nơi kết nối cộng đồng thuyền viên.</span>
+        </div>
       </a>
     </div>
   </div>
@@ -466,43 +633,86 @@
 
 <section id="professional" class="alt">
   <div class="container">
-    <div class="section-kicker">For employers &amp; crewing partners</div>
-    <h2>Professional Profile</h2>
-    <p class="section-sub-en">Who you get when I step on board</p>
-    <p style="color: var(--text-dim); max-width: 760px;">
+    <div class="section-kicker">
+      <span class="lg-en">For employers &amp; crewing partners</span>
+      <span class="lg-vi">Dành cho chủ tàu &amp; công ty cung ứng thuyền viên</span>
+    </div>
+    <h2><span class="lg-en">Professional Profile</span><span class="lg-vi">Hồ sơ chuyên môn</span></h2>
+    <p class="section-sub-en lg-en">Who you get when I step on board</p>
+    <p class="section-sub-en lg-vi">Khi tôi lên tàu, bạn nhận được một người thế nào</p>
+    <p class="lg-en" style="color: var(--text-dim); max-width: 760px;">
       I am a Vietnamese ocean-going deck officer, currently sailing as <strong style="color: var(--text);">Second Officer</strong> on dry cargo vessels. I am completing my <strong style="color: var(--text);">Management Level (STCW II/2) training in 2026</strong>, preparing for the Chief Mate position — and, in time, Master Mariner. Step by step, with real sea time and real competence.
+    </p>
+    <p class="lg-vi" style="color: var(--text-dim); max-width: 760px;">
+      Tôi là sĩ quan boong tàu viễn dương người Việt Nam, hiện đi <strong style="color: var(--text);">phó hai</strong> trên tàu hàng khô. Trong năm 2026 tôi hoàn thành <strong style="color: var(--text);">khoá quản lý (STCW II/2)</strong>, chuẩn bị cho chức đại phó — và sau đó là thuyền trưởng. Đi từng bước, bằng thời gian đi biển thật và năng lực thật.
     </p>
     <div class="pro-grid">
       <div class="pro-card">
-        <h3>Experience</h3>
+        <h3><span class="lg-en">Experience</span><span class="lg-vi">Kinh nghiệm</span></h3>
         <ul>
-          <li>Deck cadet → Third Officer → Second Officer on ocean-going dry cargo vessels</li>
-          <li>International trading routes, incl. Suez Canal transits</li>
-          <li>Navigation watchkeeping, passage planning &amp; chart correction</li>
+          <li>
+            <span class="lg-en">Deck cadet → Third Officer → Second Officer on ocean-going dry cargo vessels</span>
+            <span class="lg-vi">Thực tập sinh boong → phó ba → phó hai trên tàu hàng khô viễn dương</span>
+          </li>
+          <li>
+            <span class="lg-en">International trading routes, incl. Suez Canal transits</span>
+            <span class="lg-vi">Chạy tuyến quốc tế, có qua kênh đào Suez</span>
+          </li>
+          <li>
+            <span class="lg-en">Navigation watchkeeping, passage planning &amp; chart correction</span>
+            <span class="lg-vi">Trực ca hàng hải, lập kế hoạch hải trình và tu chỉnh hải đồ</span>
+          </li>
         </ul>
       </div>
       <div class="pro-card">
-        <h3>Current focus</h3>
+        <h3><span class="lg-en">Current focus</span><span class="lg-vi">Đang tập trung</span></h3>
         <ul>
-          <li>Management Level course (STCW II/2) — expected completion Sep 2026</li>
-          <li>Cargo operations, stability &amp; ballast management for bulk / general cargo</li>
-          <li>Shipboard documentation: NOR, B/L, Mate's Receipt, LOP</li>
+          <li>
+            <span class="lg-en">Management Level course (STCW II/2) — expected completion Sep 2026</span>
+            <span class="lg-vi">Khoá quản lý (STCW II/2) — dự kiến xong tháng 9/2026</span>
+          </li>
+          <li>
+            <span class="lg-en">Cargo operations, stability &amp; ballast management for bulk / general cargo</span>
+            <span class="lg-vi">Làm hàng, ổn định tàu và quản lý nước dằn cho tàu hàng rời / hàng bách hoá</span>
+          </li>
+          <li>
+            <span class="lg-en">Shipboard documentation: NOR, B/L, Mate's Receipt, LOP</span>
+            <span class="lg-vi">Giấy tờ trên tàu: NOR, B/L, Mate's Receipt, LOP</span>
+          </li>
         </ul>
       </div>
       <div class="pro-card">
-        <h3>Working principles</h3>
+        <h3><span class="lg-en">Working principles</span><span class="lg-vi">Nguyên tắc làm việc</span></h3>
         <ul>
-          <li>No shortcuts — every rank earned through real competence and real sea time</li>
-          <li>Safety-first watchkeeping and teamwork across multinational crews</li>
-          <li>Continuous learner: daily study routine, structured self-review</li>
+          <li>
+            <span class="lg-en">No shortcuts — every rank earned through real competence and real sea time</span>
+            <span class="lg-vi">Không đi tắt — mỗi cấp bậc đều lấy bằng năng lực thật và thời gian đi biển thật</span>
+          </li>
+          <li>
+            <span class="lg-en">Safety-first watchkeeping and teamwork across multinational crews</span>
+            <span class="lg-vi">Trực ca lấy an toàn làm đầu, phối hợp được với thuyền bộ đa quốc tịch</span>
+          </li>
+          <li>
+            <span class="lg-en">Continuous learner: daily study routine, structured self-review</span>
+            <span class="lg-vi">Học liên tục: có lịch học mỗi ngày, tự rà lại theo hệ thống</span>
+          </li>
         </ul>
       </div>
       <div class="pro-card">
-        <h3>Beyond the bridge</h3>
+        <h3><span class="lg-en">Beyond the bridge</span><span class="lg-vi">Ngoài buồng lái</span></h3>
         <ul>
-          <li>Marathon runner in training — discipline built on and off the ship</li>
-          <li>Content creator: maritime knowledge channel for seafarers</li>
-          <li>Family man — the reason behind every voyage</li>
+          <li>
+            <span class="lg-en">Marathon runner in training — discipline built on and off the ship</span>
+            <span class="lg-vi">Đang tập chạy marathon — kỷ luật rèn cả trên tàu lẫn trên bờ</span>
+          </li>
+          <li>
+            <span class="lg-en">Content creator: maritime knowledge channel for seafarers</span>
+            <span class="lg-vi">Làm nội dung: kênh kiến thức hàng hải cho thuyền viên</span>
+          </li>
+          <li>
+            <span class="lg-en">Family man — the reason behind every voyage</span>
+            <span class="lg-vi">Người của gia đình — lý do phía sau mỗi chuyến đi</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -512,23 +722,84 @@
 <section id="contact">
   <div class="container">
     <div class="contact-box">
-      <div class="section-kicker">Contact</div>
-      <h2>Get in touch</h2>
+      <div class="section-kicker"><span class="lg-en">Contact</span><span class="lg-vi">Liên hệ</span></div>
+      <h2><span class="lg-en">Get in touch</span><span class="lg-vi">Kết nối với tôi</span></h2>
       <p style="color: var(--text-dim); margin: 18px 0 28px;">
-        Collaboration, questions about life at sea, or just want to say hello — reach me on any of the channels above, or drop me an email.
+        <span class="lg-en">Collaboration, questions about life at sea, or just want to say hello — reach me on any of the channels above, or drop me an email.</span>
+        <span class="lg-vi">Hợp tác, hỏi chuyện nghề đi biển, hay chỉ muốn chào một câu — nhắn cho tôi qua bất kỳ kênh nào ở trên, hoặc gửi email.</span>
       </p>
-      <a class="btn btn-gold" href="mailto:hieunc6666@gmail.com">Send an email</a>
+      <a class="btn btn-gold" href="mailto:hieunc6666@gmail.com"><span class="lg-en">Send an email</span><span class="lg-vi">Gửi email</span></a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="container">
-    © 2026 Nguyen Chi Hieu · hieunguyen.net — Ocean-going Deck Officer
+    <span class="lg-en">© 2026 Nguyen Chi Hieu · hieunguyen.net — Ocean-going Deck Officer</span>
+    <span class="lg-vi">© 2026 Nguyễn Chí Hiếu · hieunguyen.net — Sĩ quan boong tàu viễn dương</span>
   </div>
 </footer>
 
 <script>
+  /* ===== SONG NGỮ — nút đổi VI/EN =====
+     Chữ trong thân trang do CSS ẩn/hiện (.lg-en/.lg-vi). Ở đây chỉ xử lý phần CSS không với tới:
+     tiêu đề tab, meta description, và các thuộc tính alt/placeholder/title. */
+  var LANG = {
+    en: {
+      title: 'Hieu Nguyen — My Journey to Captain',
+      desc: 'Nguyen Chi Hieu — ocean-going deck officer (Second Officer) on the long road to Captain. Sharing real seafaring knowledge and experience with fellow seafarers.',
+      tab: 'VI · <b>EN</b>',
+      switchTo: 'Chuyển sang tiếng Việt',
+      unlocking: 'Unlocking…',
+      errEmail: "That email doesn't look right — please check it.",
+      errBoth: 'Please enter your real first name and a valid email.'
+    },
+    vi: {
+      title: 'Nguyễn Chí Hiếu — Hành trình lên Thuyền trưởng',
+      desc: 'Nguyễn Chí Hiếu — sĩ quan boong tàu viễn dương (phó hai), đang trên đường lên thuyền trưởng. Chia sẻ kiến thức và kinh nghiệm đi biển thật cho anh em thuyền viên.',
+      tab: '<b>VI</b> · EN',
+      switchTo: 'Switch to English',
+      unlocking: 'Đang mở khoá…',
+      errEmail: 'Email này chưa đúng — bạn kiểm tra lại giúp tôi.',
+      errBoth: 'Bạn điền giúp tôi tên thật và một email dùng được.'
+    }
+  };
+
+  function curLang() {
+    return document.documentElement.getAttribute('data-lang') === 'vi' ? 'vi' : 'en';
+  }
+
+  function applyLang(l) {
+    var t = LANG[l];
+    document.documentElement.setAttribute('data-lang', l);
+    document.documentElement.lang = l;
+    document.title = t.title;
+    var meta = document.querySelector('meta[name="description"]');
+    if (meta) meta.setAttribute('content', t.desc);
+
+    // thuộc tính không ẩn/hiện được bằng CSS
+    ['alt', 'placeholder', 'title'].forEach(function (attr) {
+      document.querySelectorAll('[data-' + l + '-' + attr + ']').forEach(function (el) {
+        el.setAttribute(attr, el.getAttribute('data-' + l + '-' + attr));
+      });
+    });
+
+    var tab = document.getElementById('langTab');
+    tab.innerHTML = t.tab;
+    tab.setAttribute('aria-label', t.switchTo);
+  }
+
+  document.getElementById('langTab').addEventListener('click', function () {
+    var l = curLang() === 'vi' ? 'en' : 'vi';
+    try { localStorage.setItem('hn_lang', l); } catch (e) {}
+    applyLang(l);
+    // đếm xem người xem thật sự dùng bản nào (máy ?notrack=1 hoặc chặn quảng cáo thì bỏ qua)
+    try { if (window.gtag) gtag('event', 'switch_language', { language: l }); } catch (e) {}
+    try { if (window.clarity) clarity('set', 'lang', l); } catch (e) {}
+  });
+
+  applyLang(curLang());
+
   /* ===== LỌC DỮ LIỆU TRƯỚC KHI GỬI — GIỮ LẠI KHI NỐI KIT =====
      Chạy ở mọi trường hợp, kể cả sau khi đã gắn action= của Kit.
      Hai việc: (1) chặn bot qua honeypot, (2) dọn tên rác về dạng dùng được. */
@@ -591,6 +862,8 @@
     }
 
     form.addEventListener("submit", function (e) {
+      var t = LANG[curLang()];
+
       // (1) honeypot: chỉ bot mới điền được ô này → nuốt luôn, không gửi
       if (hp.value !== "") {
         e.preventDefault();
@@ -605,9 +878,7 @@
       if (badFields.length) {
         e.preventDefault();
         showError(
-          badFields.length === 1 && badFields[0] === "email"
-            ? "That email doesn't look right — please check it."
-            : "Please enter your real first name and a valid email.",
+          badFields.length === 1 && badFields[0] === "email" ? t.errEmail : t.errBoth,
           badFields
         );
         return false;
@@ -621,7 +892,7 @@
       e.preventDefault();
       var btn = form.querySelector("button[type=submit]");
       btn.disabled = true;
-      btn.textContent = "Unlocking…";
+      btn.textContent = t.unlocking;
       var fd = new FormData();
       fd.append("fields[first_name]", cleanedName);
       fd.append("email_address", emailField.value);
