@@ -306,6 +306,14 @@
     border-top: 1px solid var(--line); padding: 28px 0; text-align: center;
     color: var(--text-dim); font-size: 13px;
   }
+  /* Link công cụ phụ ở chân trang — kín đáo, chủ yếu để anh bấm vào cho nhanh */
+  footer .tool-link {
+    display: inline-block; margin-top: 10px;
+    color: var(--text-dim); text-decoration: none; font-size: 12.5px;
+    border-bottom: 1px dotted var(--line); padding-bottom: 1px;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  footer .tool-link:hover { color: var(--gold-light); border-color: var(--gold); }
 </style>
 </head>
 <body>
@@ -764,6 +772,12 @@
   <div class="container">
     <span class="lg-en">© 2026 Nguyen Chi Hieu · hieunguyen.net — Ocean-going Deck Officer</span>
     <span class="lg-vi">© 2026 Nguyễn Chí Hiếu · hieunguyen.net — Sĩ quan boong tàu viễn dương</span>
+    <div>
+      <a class="tool-link" href="/pomodoro.html">
+        <span class="lg-en">⏱ Focus timer (Pomodoro)</span>
+        <span class="lg-vi">⏱ Đồng hồ tập trung (Pomodoro)</span>
+      </a>
+    </div>
   </div>
 </footer>
 

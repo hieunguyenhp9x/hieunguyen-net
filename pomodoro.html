@@ -213,7 +213,7 @@
       skipTitle: 'Bỏ qua phiên này',
       snd: 'ÂM NỀN', waves: 'Sóng biển', rain: 'Mưa', mute: 'Tắt âm nền', vol: 'Âm lượng',
       home: '← Trang chủ',
-      hint: '25′ tập trung · 5′ nghỉ ngắn · ×4 → nghỉ dài 10′<br>Hết giờ tự chuyển phiên, có chuông báo. Âm nền phát khi đồng hồ chạy.'
+      hint: '25′ tập trung · 5′ nghỉ ngắn · ×4 → nghỉ dài 10′<br>Chuông chánh niệm thỉnh lúc vào phiên và lúc hết giờ (hết 4 phiên: 3 hồi).'
     },
     en: {
       focus: 'Focus', shortBreak: 'Short break', longBreak: 'Long break', breakWord: 'Break',
@@ -224,7 +224,7 @@
       skipTitle: 'Skip this session',
       snd: 'AMBIENT', waves: 'Ocean waves', rain: 'Rain', mute: 'Mute ambient', vol: 'Volume',
       home: '← Home',
-      hint: '25′ focus · 5′ short break · ×4 → 10′ long break<br>Auto-switches with a chime. Ambient sound plays while running.'
+      hint: '25′ focus · 5′ short break · ×4 → 10′ long break<br>A mindfulness bell rings as each session starts and ends (three rings after the 4th).'
     }
   };
   // 'hn_lang' dùng chung với index.html — chọn ngôn ngữ ở trang chủ thì sang đây giữ nguyên.
@@ -261,18 +261,73 @@
     return (m < 10 ? '0' : '') + m + ':' + (ss < 10 ? '0' : '') + ss;
   }
 
-  function beep(times) {
-    try {
-      var ctx = new (window.AudioContext || window.webkitAudioContext)();
-      for (var i = 0; i < times; i++) {
+  function getCtx() {
+    if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
+    if (actx.state === 'suspended') actx.resume();
+    return actx;
+  }
+
+  // ===== CHUÔNG CHÁNH NIỆM =====
+  // Chuông đồng KHÔNG có hoạ âm bội số nguyên như dây đàn — chúng lệch nhau,
+  // và đó chính là thứ làm tai nhận ra "chuông" thay vì tiếng bíp điện tử.
+  // Bộ tỷ lệ dưới đây theo mô hình chuông của Jean-Claude Risset.
+  // Hoạ âm càng cao tắt càng nhanh, để lại đuôi ngân trầm — giống chuông thật.
+  var BELL_PARTIALS = [
+    { r: 0.56, a: 1.00, d: 1.00 },
+    { r: 0.92, a: 0.67, d: 0.90 },
+    { r: 1.19, a: 1.00, d: 0.65 },
+    { r: 1.71, a: 0.80, d: 0.55 },
+    { r: 2.00, a: 1.20, d: 0.33 },
+    { r: 2.74, a: 0.70, d: 0.35 },
+    { r: 3.76, a: 0.50, d: 0.20 },
+    { r: 4.07, a: 0.45, d: 0.15 }
+  ];
+  var BELL_DUR = 7;   // đuôi ngân ~7 giây, để lặng nghe hết tiếng rồi mới vào phiên
+
+  function strikeBell(ctx, t0, f0, vol) {
+    var out = ctx.createGain();
+    out.gain.value = vol;
+    var lp = ctx.createBiquadFilter();   // bỏ bớt cạnh gắt cho ấm như đồng
+    lp.type = 'lowpass'; lp.frequency.value = 4200;
+    out.connect(lp); lp.connect(ctx.destination);
+
+    var tong = 0;
+    BELL_PARTIALS.forEach(function (p) { tong += p.a; });
+
+    BELL_PARTIALS.forEach(function (p, i) {
+      // 2 dao động lệch nhau vài phần nghìn → tiếng ngân "rung rung" của chuông đồng
+      [-1, 1].forEach(function (sign) {
         var o = ctx.createOscillator(), g = ctx.createGain();
-        o.connect(g); g.connect(ctx.destination);
-        o.type = 'sine'; o.frequency.value = 880;
-        var t = ctx.currentTime + i * 0.35;
-        g.gain.setValueAtTime(0.0001, t);
-        g.gain.exponentialRampToValueAtTime(0.35, t + 0.02);
-        g.gain.exponentialRampToValueAtTime(0.0001, t + 0.28);
-        o.start(t); o.stop(t + 0.3);
+        o.type = 'sine';
+        o.frequency.value = f0 * p.r * (1 + sign * 0.0012 * (i + 1));
+        var dur = BELL_DUR * p.d;
+        var amp = (p.a / tong) * 0.45;
+        g.gain.setValueAtTime(0.0001, t0);
+        g.gain.exponentialRampToValueAtTime(amp, t0 + 0.006);   // gõ vào: dựng gần như tức thì
+        g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);  // rồi tan dần
+        o.connect(g); g.connect(out);
+        o.start(t0); o.stop(t0 + dur + 0.05);
+      });
+    });
+
+    // tiếng chày gỗ chạm vành chuông — rất ngắn, nhưng thiếu nó nghe như đàn organ
+    var nlen = Math.floor(ctx.sampleRate * 0.05);
+    var nbuf = ctx.createBuffer(1, nlen, ctx.sampleRate);
+    var nd = nbuf.getChannelData(0);
+    for (var k = 0; k < nlen; k++) nd[k] = (Math.random() * 2 - 1) * (1 - k / nlen);
+    var ns = ctx.createBufferSource(); ns.buffer = nbuf;
+    var nf = ctx.createBiquadFilter();
+    nf.type = 'bandpass'; nf.frequency.value = f0 * 3.5; nf.Q.value = 1.2;
+    var ng = ctx.createGain(); ng.gain.value = 0.10;
+    ns.connect(nf); nf.connect(ng); ng.connect(out);
+    ns.start(t0); ns.stop(t0 + 0.06);
+  }
+
+  function ringBell(times) {
+    try {
+      var ctx = getCtx();
+      for (var i = 0; i < (times || 1); i++) {
+        strikeBell(ctx, ctx.currentTime + i * 2.6, 448, 0.7);
       }
     } catch (e) {}
   }
@@ -327,7 +382,8 @@
   function tick() {
     remaining = Math.max(0, Math.round((endAt - Date.now()) / 1000));
     if (remaining <= 0) {
-      beep(phase === 'focus' && cycle === CYCLES ? 3 : 2);
+      // hết trọn 4 phiên: 3 tiếng chuông (theo lệ thỉnh 3 hồi), còn lại 1 tiếng
+      ringBell(phase === 'focus' && cycle === CYCLES ? 3 : 1);
       nextPhase();
       endAt = Date.now() + remaining * 1000; // auto-continue
     }
@@ -355,8 +411,7 @@
 
   function ambientOn() {
     if (sndMode === 'off' || ambMaster) return;
-    if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
-    if (actx.state === 'suspended') actx.resume();
+    getCtx();
 
     ambMaster = actx.createGain();
     ambMaster.gain.setValueAtTime(0.0001, actx.currentTime);
@@ -439,6 +494,7 @@
     running = true;
     endAt = Date.now() + remaining * 1000;
     tickId = setInterval(tick, 250);
+    ringBell(1);   // thỉnh chuông vào phiên
     ambientOn();
     render();
   }
