@@ -301,7 +301,26 @@
   .lead-success .btn-row { justify-content: center; }
 
   /* ===== CONTACT / FOOTER ===== */
-  .contact-box { text-align: center; max-width: 620px; margin: 0 auto; }
+  .contact-box { text-align: center; max-width: 780px; margin: 0 auto; }
+  .contact-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+    margin-top: 8px; text-align: left;
+  }
+  @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-card {
+    display: flex; align-items: center; gap: 14px;
+    background: var(--navy-3); border: 1px solid var(--line);
+    border-radius: 10px; padding: 16px 18px;
+    text-decoration: none; color: var(--text);
+    transition: transform 0.15s, border-color 0.15s;
+  }
+  .contact-card:hover { transform: translateY(-2px); border-color: var(--gold); }
+  .contact-card .icon { font-size: 24px; flex-shrink: 0; }
+  .contact-card .label {
+    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 700; margin-bottom: 2px;
+  }
+  .contact-card .value { font-size: 14px; color: var(--text); word-break: break-all; }
   footer {
     border-top: 1px solid var(--line); padding: 28px 0; text-align: center;
     color: var(--text-dim); font-size: 13px;
@@ -759,11 +778,33 @@
     <div class="contact-box">
       <div class="section-kicker"><span class="lg-en">Contact</span><span class="lg-vi">Liên hệ</span></div>
       <h2><span class="lg-en">Get in touch</span><span class="lg-vi">Kết nối với tôi</span></h2>
-      <p style="color: var(--text-dim); margin: 18px 0 28px;">
-        <span class="lg-en">Collaboration, questions about life at sea, or just want to say hello — reach me on any of the channels above, or drop me an email.</span>
-        <span class="lg-vi">Hợp tác, hỏi chuyện nghề đi biển, hay chỉ muốn chào một câu — nhắn cho tôi qua bất kỳ kênh nào ở trên, hoặc gửi email.</span>
+      <p style="color: var(--text-dim); margin: 18px 0 32px;">
+        <span class="lg-en">Collaboration, questions about life at sea, or just want to say hello — reach me on any of the channels above, or pick the one that suits you below.</span>
+        <span class="lg-vi">Hợp tác, hỏi chuyện nghề đi biển, hay chỉ muốn chào một câu — nhắn cho tôi qua bất kỳ kênh nào ở trên, hoặc chọn kênh liên lạc bên dưới.</span>
       </p>
-      <a class="btn btn-gold" href="mailto:hieunc6666@gmail.com"><span class="lg-en">Send an email</span><span class="lg-vi">Gửi email</span></a>
+      <div class="contact-grid">
+        <a class="contact-card" href="mailto:hieunc6666@gmail.com">
+          <div class="icon">✉️</div>
+          <div>
+            <div class="label">Email</div>
+            <div class="value">hieunc6666@gmail.com</div>
+          </div>
+        </a>
+        <a class="contact-card" href="https://zalo.me/84869989030" target="_blank" rel="noopener">
+          <div class="icon">💬</div>
+          <div>
+            <div class="label">Zalo</div>
+            <div class="value">+84 869 989 030</div>
+          </div>
+        </a>
+        <a class="contact-card" href="https://wa.me/84869989030" target="_blank" rel="noopener">
+          <div class="icon">📱</div>
+          <div>
+            <div class="label">WhatsApp</div>
+            <div class="value">+84 869 989 030</div>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
