@@ -3,12 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>COLREG-72 bằng hình — Vòng đèn | hieunguyen.net</title>
-<meta name="description" content="Học COLREG-72 bằng hình vẽ: nhìn đèn tàu kia là ra vai trò và hành động. Vòng đèn kéo được, 12 hình, tín hiệu còi và đèn tàu đặc biệt — mọi con số lấy từ bản hợp nhất Công ước 1972.">
+<title>COLREG-72 in diagrams — the light ring</title>
+<meta name="description" content="Learn COLREG-72 from diagrams: read her lights and you know your role and your action. A draggable light ring, 12 figures, whistle signals and the lights of special vessels — every number taken from the consolidated 1972 Convention.">
 <link rel="canonical" href="https://hieunguyen.net/colreg.html">
 <meta property="og:type" content="article">
-<meta property="og:title" content="COLREG-72 bằng hình — Vòng đèn | hieunguyen.net">
-<meta property="og:description" content="Học COLREG-72 bằng hình vẽ: nhìn đèn tàu kia là ra vai trò và hành động. Vòng đèn kéo được, 12 hình, tín hiệu còi và đèn tàu đặc biệt — mọi con số lấy từ bản hợp nhất Công ước 1972.">
+<meta property="og:site_name" content="hieunguyen.net">
+<meta property="og:title" content="COLREG-72 in diagrams — the light ring">
+<meta property="og:description" content="Learn COLREG-72 from diagrams: read her lights and you know your role and your action. A draggable light ring, 12 figures, whistle signals and the lights of special vessels — every number taken from the consolidated 1972 Convention.">
 <meta property="og:url" content="https://hieunguyen.net/colreg.html">
 
 <!-- Đo lường: Google Analytics 4 + Microsoft Clarity.
@@ -54,6 +55,9 @@
     color:#d4a95a;text-decoration:none;font-weight:700;font-size:15.5px;letter-spacing:.01em;
     border:1px solid rgba(212,169,90,.45);border-radius:3px;padding:6px 13px;
   }
+  /* .lg-en/.lg-vi mac dinh la inline; the nut phai giu inline-block */
+  a.site-back.lg-en,a.site-back.lg-vi{display:inline-block}
+  html[data-lang="vi"] a.site-back.lg-en,html:not([data-lang="vi"]) a.site-back.lg-vi{display:none!important}
   .site-back:hover,.site-back:focus-visible{background:rgba(212,169,90,.14);color:#e8c88a}
   .site-tag{color:#9fb0c4;font-size:13.5px;letter-spacing:.02em}
   .site-foot span{color:#9fb0c4}
@@ -64,7 +68,8 @@
 
 <header class="site-bar">
   <a class="site-back" href="/">← hieunguyen.net</a>
-  <span class="site-tag">Trang học COLREG-72 · Vietnamese-language study page</span>
+  <span class="site-tag lg-en">COLREG-72 · a study page for seafarers</span>
+  <span class="site-tag lg-vi">COLREG-72 · trang học cho thuyền viên</span>
 </header>
 
 <style>
@@ -138,6 +143,13 @@
   --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.35);
 }
 
+/* ============ SONG NGU / BILINGUAL ============
+   Moi mau chu nam SAN ca 2 ban trong HTML. Khong dat display cho ban dang hien
+   de no giu nguyen kieu goc (block / inline / list-item / SVG text).
+   Khong co data-lang => hien TIENG ANH (giong mac dinh cua hieunguyen.net). */
+html:not([data-lang="vi"]) .lg-vi{display:none!important}
+html[data-lang="vi"] .lg-en{display:none!important}
+
 /* ============ BASE ============ */
 *{box-sizing:border-box}
 body{
@@ -149,7 +161,6 @@ body{
 @media print{
   .nav{display:none}
   figure,.card,.stack-card,.golden,.rule-box,details,.tbl-wrap{break-inside:avoid}
-  section{break-before:auto}
 }
 .wrap{
   display:grid;
@@ -171,15 +182,23 @@ a{color:var(--deep)}
 }
 .nav-in{
   max-width:1080px;margin:0 auto;padding:8px 16px;
-  display:flex;gap:6px;overflow-x:auto;align-items:center;
+  display:flex;gap:6px;align-items:center;
   font-family:var(--mono);font-size:12.5px;
 }
-.nav-in a{
+.nav-links{display:flex;gap:6px;align-items:center;overflow-x:auto;flex:1 1 auto}
+.nav-links a{
   white-space:nowrap;text-decoration:none;color:var(--ink-2);
   padding:4px 9px;border:1px solid var(--rule);border-radius:2px;
 }
-.nav-in a:hover{color:var(--ink);border-color:var(--deep)}
-.nav-in b{color:var(--ink-3);font-weight:400;padding-right:4px;letter-spacing:.08em}
+.nav-links a:hover{color:var(--ink);border-color:var(--deep)}
+.nav-in b.navlabel{color:var(--ink-3);font-weight:400;padding-right:4px;letter-spacing:.08em;white-space:nowrap}
+.lang-tab{
+  flex:none;cursor:pointer;font-family:var(--mono);font-size:12.5px;letter-spacing:1px;
+  color:var(--ink-3);background:var(--surface);border:1px solid var(--rule);border-radius:3px;
+  padding:5px 10px;line-height:1;margin-left:8px;
+}
+.lang-tab:hover{color:var(--ink);border-color:var(--deep)}
+.lang-tab b{color:var(--deep);font-weight:700}
 
 /* ============ HERO ============ */
 .hero{grid-column:wide;padding:52px 0 8px}
@@ -219,14 +238,12 @@ figcaption b{color:var(--ink)}
 /* ============ CARDS ============ */
 .grid{display:grid;gap:14px;margin:22px 0}
 .g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.g3{grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
 .g4{grid-template-columns:repeat(auto-fit,minmax(168px,1fr))}
 .card{
   background:var(--surface);border:1px solid var(--rule-soft);border-radius:4px;
   padding:16px 16px 14px;box-shadow:var(--shadow);
 }
 .card p{margin:0;font-size:16px;line-height:1.55;color:var(--ink-2)}
-.card p + p{margin-top:8px}
 .tag{
   font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-3);
   display:block;margin-bottom:6px;
@@ -257,7 +274,6 @@ figcaption b{color:var(--ink)}
 .golden .lamp.g{background:var(--stbd);border-color:var(--stbd)}
 .golden .lamp.w{background:var(--lamp)}
 .golden .lamp.rg{background:linear-gradient(90deg,var(--port) 50%,var(--stbd) 50%);border:none}
-.golden b{white-space:nowrap}
 
 /* ============ TABLE ============ */
 .tbl-wrap{overflow-x:auto;margin:22px 0;border:1px solid var(--rule-soft);border-radius:4px;background:var(--surface)}
@@ -327,40 +343,59 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
 
+<script>
+/* Dat ngon ngu TRUOC khi trang ve ra, tranh nhay chu.
+   MAC DINH LA TIENG ANH; chi sang VI khi nguoi xem tu bam nut.
+   Dung chung khoa hn_lang voi hieunguyen.net. */
+(function(){
+  var l=null;
+  try{l=localStorage.getItem('hn_lang');}catch(e){}
+  if(l!=='vi'&&l!=='en')l='en';
+  document.documentElement.setAttribute('data-lang',l);
+  document.documentElement.lang=l;
+})();
+</script>
+
 <div class="wrap">
 
 <nav class="nav">
   <div class="nav-in">
-    <b>ĐI TỚI</b>
-    <a href="#vong">Vòng đèn</a>
-    <a href="#nen">Đ.5–8</a>
-    <a href="#den">Đ.21–23</a>
-    <a href="#ba">Đ.13/14/15</a>
-    <a href="#vai">Đ.16/17</a>
-    <a href="#thang">Đ.18</a>
-    <a href="#mu">Đ.19</a>
-    <a href="#coi">Đ.32–35</a>
-    <a href="#cot">Đ.24–30</a>
-    <a href="#kiem">Tự kiểm</a>
+    <b class="navlabel lg-en">GO TO</b><b class="navlabel lg-vi">ĐI TỚI</b>
+    <div class="nav-links">
+      <a href="#vong"><span class="lg-en">Light ring</span><span class="lg-vi">Vòng đèn</span></a>
+      <a href="#nen"><span class="lg-en">R.5–8</span><span class="lg-vi">Đ.5–8</span></a>
+      <a href="#den"><span class="lg-en">R.21–23</span><span class="lg-vi">Đ.21–23</span></a>
+      <a href="#ba"><span class="lg-en">R.13/14/15</span><span class="lg-vi">Đ.13/14/15</span></a>
+      <a href="#vai"><span class="lg-en">R.16/17</span><span class="lg-vi">Đ.16/17</span></a>
+      <a href="#thang"><span class="lg-en">R.18</span><span class="lg-vi">Đ.18</span></a>
+      <a href="#mu"><span class="lg-en">R.19</span><span class="lg-vi">Đ.19</span></a>
+      <a href="#coi"><span class="lg-en">R.32–35</span><span class="lg-vi">Đ.32–35</span></a>
+      <a href="#cot"><span class="lg-en">R.24–30</span><span class="lg-vi">Đ.24–30</span></a>
+      <a href="#kiem"><span class="lg-en">Test yourself</span><span class="lg-vi">Tự kiểm</span></a>
+    </div>
+    <button class="lang-tab" id="langTab" type="button" title="Tiếng Việt / English"></button>
   </div>
 </nav>
 
 <header class="hero">
-  <p class="kicker">COLREG-72 · 41 điều · 4 phụ lục · dạy bằng hình</p>
-  <h1>Đèn <em>đỏ</em> hay đèn <i>xanh</i> — ai phải tránh ai</h1>
-  <p class="lede">Cả bộ luật đi đường được mã hoá sẵn vào đèn tàu. Nhìn thấy đèn nào là biết mình đang đứng ở cung nào của tàu kia; biết cung là biết vai; biết vai là biết phải làm gì. Trang này dạy đúng đường đó — mọi con số lấy từ bản hợp nhất COLREG 1972.</p>
+  <p class="kicker lg-en">COLREG-72 · 41 rules · 4 annexes · taught in diagrams</p>
+  <p class="kicker lg-vi">COLREG-72 · 41 điều · 4 phụ lục · dạy bằng hình</p>
+  <h1 class="lg-en">Her <em>red</em> light or her <i>green</i> — who gives way</h1>
+  <h1 class="lg-vi">Đèn <em>đỏ</em> hay đèn <i>xanh</i> — ai phải tránh ai</h1>
+  <p class="lede lg-en">The whole of the steering and sailing rules is already encoded in a ship's lights. See which light she shows and you know which sector of her you are standing in; know the sector and you know your role; know your role and you know what to do. This page teaches exactly that path — every figure and number taken from the consolidated 1972 Convention.</p>
+  <p class="lede lg-vi">Cả bộ luật đi đường được mã hoá sẵn vào đèn tàu. Nhìn thấy đèn nào là biết mình đang đứng ở cung nào của tàu kia; biết cung là biết vai; biết vai là biết phải làm gì. Trang này dạy đúng đường đó — mọi con số lấy từ bản hợp nhất COLREG 1972.</p>
 </header>
 
 <!-- ================= HERO TOOL ================= -->
 <section id="vong" style="padding-top:24px">
 <div class="ring-tool">
   <div>
-    <svg id="ring" viewBox="0 0 520 400" role="img" aria-label="Vòng tròn quanh tàu B chia 4 vùng: đối hướng, mình nhường, mình giữ nguyên, mình vượt">
-      <!-- vung: mình NHUONG (mạn trái nó) -->
+    <svg id="ring" viewBox="0 0 520 400" role="img" aria-label="A ring around vessel B divided into four zones: head-on, you give way, you stand on, you are overtaking">
+      <!-- vung: minh NHUONG (man trai no) -->
       <path d="M260 215 L119.6 273.2 A152 152 0 0 1 244.1 63.8 Z" fill="var(--port-wash)"/>
-      <!-- vung: mình GIU NGUYEN (mạn phải nó) -->
+      <!-- vung: minh GIU NGUYEN (man phai no) -->
       <path d="M260 215 L275.9 63.8 A152 152 0 0 1 400.4 273.2 Z" fill="var(--stbd-wash)"/>
-      <!-- vung: mình VUOT -->
+      <!-- vung: minh VUOT -->
       <path d="M260 215 L400.4 273.2 A152 152 0 0 1 119.6 273.2 Z" fill="var(--deep-wash)"/>
       <!-- vung: DOI HUONG (±6°) -->
       <path d="M260 215 L244.1 63.8 A152 152 0 0 1 275.9 63.8 Z" fill="var(--sand-wash)"/>
@@ -371,16 +406,25 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
       <!-- ranh 112,5 -->
       <line x1="260" y1="215" x2="400.4" y2="273.2" stroke="var(--ink-3)" stroke-width="1.6"/>
       <line x1="260" y1="215" x2="119.6" y2="273.2" stroke="var(--ink-3)" stroke-width="1.6"/>
-      <text x="408" y="288" font-family="var(--mono)" font-size="15.8" fill="var(--ink-3)">112,5°</text>
-      <text x="112" y="288" font-family="var(--mono)" font-size="15.8" fill="var(--ink-3)" text-anchor="end">112,5°</text>
+      <text class="lg-en" x="408" y="288" font-family="var(--mono)" font-size="15.8" fill="var(--ink-3)">112.5°</text>
+      <text class="lg-vi" x="408" y="288" font-family="var(--mono)" font-size="15.8" fill="var(--ink-3)">112,5°</text>
+      <text class="lg-en" x="112" y="288" font-family="var(--mono)" font-size="15.8" fill="var(--ink-3)" text-anchor="end">112.5°</text>
+      <text class="lg-vi" x="112" y="288" font-family="var(--mono)" font-size="15.8" fill="var(--ink-3)" text-anchor="end">112,5°</text>
       <!-- nhan vung -->
-      <text x="176" y="150" font-family="var(--sans)" font-size="17.2" font-weight="700" fill="var(--port)" text-anchor="middle">MÌNH NHƯỜNG</text>
-      <text x="176" y="167" font-family="var(--mono)" font-size="15.2" fill="var(--port)" text-anchor="middle">thấy ĐỎ</text>
-      <text x="348" y="150" font-family="var(--sans)" font-size="17.2" font-weight="700" fill="var(--stbd)" text-anchor="middle">MÌNH GIỮ</text>
-      <text x="348" y="167" font-family="var(--mono)" font-size="15.2" fill="var(--stbd)" text-anchor="middle">thấy XANH</text>
-      <text x="260" y="332" font-family="var(--sans)" font-size="17.2" font-weight="700" fill="var(--deep)" text-anchor="middle">MÌNH VƯỢT</text>
-      <text x="260" y="349" font-family="var(--mono)" font-size="15.2" fill="var(--deep)" text-anchor="middle">chỉ thấy đèn lái TRẮNG</text>
-      <text x="260" y="46" font-family="var(--sans)" font-size="16.5" font-weight="700" fill="var(--sand)" text-anchor="middle">ĐỐI HƯỚNG — cả hai bẻ phải</text>
+      <text class="lg-en" x="176" y="150" font-family="var(--sans)" font-size="17.2" font-weight="700" fill="var(--port)" text-anchor="middle">YOU GIVE WAY</text>
+      <text class="lg-vi" x="176" y="150" font-family="var(--sans)" font-size="17.2" font-weight="700" fill="var(--port)" text-anchor="middle">MÌNH NHƯỜNG</text>
+      <text class="lg-en" x="176" y="167" font-family="var(--mono)" font-size="15.2" fill="var(--port)" text-anchor="middle">you see RED</text>
+      <text class="lg-vi" x="176" y="167" font-family="var(--mono)" font-size="15.2" fill="var(--port)" text-anchor="middle">thấy ĐỎ</text>
+      <text class="lg-en" x="348" y="150" font-family="var(--sans)" font-size="17.2" font-weight="700" fill="var(--stbd)" text-anchor="middle">YOU STAND ON</text>
+      <text class="lg-vi" x="348" y="150" font-family="var(--sans)" font-size="17.2" font-weight="700" fill="var(--stbd)" text-anchor="middle">MÌNH GIỮ</text>
+      <text class="lg-en" x="348" y="167" font-family="var(--mono)" font-size="15.2" fill="var(--stbd)" text-anchor="middle">you see GREEN</text>
+      <text class="lg-vi" x="348" y="167" font-family="var(--mono)" font-size="15.2" fill="var(--stbd)" text-anchor="middle">thấy XANH</text>
+      <text class="lg-en" x="260" y="332" font-family="var(--sans)" font-size="17.2" font-weight="700" fill="var(--deep)" text-anchor="middle">YOU ARE OVERTAKING</text>
+      <text class="lg-vi" x="260" y="332" font-family="var(--sans)" font-size="17.2" font-weight="700" fill="var(--deep)" text-anchor="middle">MÌNH VƯỢT</text>
+      <text class="lg-en" x="260" y="349" font-family="var(--mono)" font-size="15.2" fill="var(--deep)" text-anchor="middle">only her WHITE sternlight</text>
+      <text class="lg-vi" x="260" y="349" font-family="var(--mono)" font-size="15.2" fill="var(--deep)" text-anchor="middle">chỉ thấy đèn lái TRẮNG</text>
+      <text class="lg-en" x="260" y="46" font-family="var(--sans)" font-size="16.5" font-weight="700" fill="var(--sand)" text-anchor="middle">HEAD-ON — both alter to starboard</text>
+      <text class="lg-vi" x="260" y="46" font-family="var(--sans)" font-size="16.5" font-weight="700" fill="var(--sand)" text-anchor="middle">ĐỐI HƯỚNG — cả hai bẻ phải</text>
       <!-- tau B o tam -->
       <g>
         <polygon points="260,187 272,207 272,239 248,239 248,207" fill="currentColor"/>
@@ -396,99 +440,131 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
       <text id="labelA" x="0" y="0" font-family="var(--sans)" font-size="18.5" font-weight="700" fill="var(--deep)" text-anchor="middle">A</text>
     </svg>
     <div class="ring-ctl">
-      <label for="ang">KÉO ĐỂ ĐỔI CHỖ ĐỨNG — góc mạn của A nhìn từ mũi B: <span id="angtxt" class="num"></span></label>
+      <label for="ang">
+        <span class="lg-en">DRAG TO MOVE YOUR SHIP — bearing of A from B's bow: </span>
+        <span class="lg-vi">KÉO ĐỂ ĐỔI CHỖ ĐỨNG — góc mạn của A nhìn từ mũi B: </span>
+        <span id="angtxt" class="num"></span>
+      </label>
       <input type="range" id="ang" min="-180" max="180" step="1" value="-40">
-      <p style="font-family:var(--sans);font-size:13.5px;color:var(--ink-3);margin:10px 0 0;line-height:1.5">A = tàu mình · B = tàu kia · mũi A luôn chĩa về B (có nguy cơ đâm va) · hai tàu đều là tàu máy và nhìn thấy nhau</p>
+      <p class="lg-en" style="font-family:var(--sans);font-size:13.5px;color:var(--ink-3);margin:10px 0 0;line-height:1.5">A = your ship · B = the other ship · A's bow always points at B (risk of collision exists) · both are power-driven vessels in sight of one another</p>
+      <p class="lg-vi" style="font-family:var(--sans);font-size:13.5px;color:var(--ink-3);margin:10px 0 0;line-height:1.5">A = tàu mình · B = tàu kia · mũi A luôn chĩa về B (có nguy cơ đâm va) · hai tàu đều là tàu máy và nhìn thấy nhau</p>
     </div>
   </div>
   <div class="readout">
     <div class="ro-block">
-      <div class="lab">Ban đêm anh nhìn thấy</div>
+      <div class="lab"><span class="lg-en">What you see at night</span><span class="lg-vi">Ban đêm anh nhìn thấy</span></div>
       <div class="ro-lights" id="ro-lights"></div>
     </div>
     <div class="ro-block" id="ro-wrap">
-      <div class="lab">Vai của anh</div>
+      <div class="lab"><span class="lg-en">Your role</span><span class="lg-vi">Vai của anh</span></div>
       <div id="ro-role">—</div>
       <div id="ro-rule">—</div>
     </div>
     <div class="ro-block">
-      <div class="lab">Làm gì</div>
+      <div class="lab"><span class="lg-en">What to do</span><span class="lg-vi">Làm gì</span></div>
       <div id="ro-act">—</div>
     </div>
   </div>
 </div>
-<p class="sub" style="font-size:15.5px;margin-top:6px">Vùng đối hướng vẽ ±6° cho dễ nhìn — <b>COLREG không cho con số</b>, Đ.14(b) chỉ nói "ngược hướng hoặc gần như ngược hướng", và Đ.14(c) chốt: nghi ngờ thì <b>coi như là đối hướng</b>.</p>
+<p class="sub lg-en" style="font-size:15.5px;margin-top:6px">The head-on wedge is drawn at ±6° so it can be seen — <b>COLREG gives no figure</b>. Rule 14(b) says only "reciprocal or nearly reciprocal courses", and Rule 14(c) settles it: if in doubt, <b>assume it is head-on</b>.</p>
+<p class="sub lg-vi" style="font-size:15.5px;margin-top:6px">Vùng đối hướng vẽ ±6° cho dễ nhìn — <b>COLREG không cho con số</b>, Đ.14(b) chỉ nói "ngược hướng hoặc gần như ngược hướng", và Đ.14(c) chốt: nghi ngờ thì <b>coi như là đối hướng</b>.</p>
 </section>
 
 <div class="golden">
-  <h4>Câu vàng — nhớ đúng một dòng này là chạy được 80% ca trực</h4>
+  <h4><span class="lg-en">The golden lines — get these four right and you run most of a watch</span><span class="lg-vi">Câu vàng — nhớ đúng một dòng này là chạy được 80% ca trực</span></h4>
   <ul>
-    <li><span class="lamp r"></span><span>Thấy đèn <b>ĐỎ</b> của nó → <b>mình nhường</b> (đỏ = dừng lại, nhường)</span></li>
-    <li><span class="lamp g"></span><span>Thấy đèn <b>XANH LỤC</b> → <b>mình giữ nguyên</b> hướng và tốc độ (nó phải nhường)</span></li>
-    <li><span class="lamp rg"></span><span>Thấy <b>CẢ ĐỎ CẢ XANH</b> (mũi đối mũi) → <b>cả hai bẻ phải</b>, qua nhau mạn trái</span></li>
-    <li><span class="lamp w"></span><span>Chỉ thấy <b>ĐÈN LÁI TRẮNG</b> → <b>mình đang vượt</b> → mình nhường, giữ tới khi thoát hẳn</span></li>
+    <li><span class="lamp r"></span><span class="lg-en">You see her <b>RED</b> light → <b>you give way</b> (red = stop, give way)</span><span class="lg-vi">Thấy đèn <b>ĐỎ</b> của nó → <b>mình nhường</b> (đỏ = dừng lại, nhường)</span></li>
+    <li><span class="lamp g"></span><span class="lg-en">You see her <b>GREEN</b> light → <b>you stand on</b>, keep course and speed (she gives way)</span><span class="lg-vi">Thấy đèn <b>XANH LỤC</b> → <b>mình giữ nguyên</b> hướng và tốc độ (nó phải nhường)</span></li>
+    <li><span class="lamp rg"></span><span class="lg-en">You see <b>BOTH RED AND GREEN</b> (bow to bow) → <b>both alter to starboard</b>, pass port to port</span><span class="lg-vi">Thấy <b>CẢ ĐỎ CẢ XANH</b> (mũi đối mũi) → <b>cả hai bẻ phải</b>, qua nhau mạn trái</span></li>
+    <li><span class="lamp w"></span><span class="lg-en">You see only her <b>WHITE STERNLIGHT</b> → <b>you are overtaking</b> → you give way, and keep clear until finally past and clear</span><span class="lg-vi">Chỉ thấy <b>ĐÈN LÁI TRẮNG</b> → <b>mình đang vượt</b> → mình nhường, giữ tới khi thoát hẳn</span></li>
   </ul>
-  <p style="margin:16px 0 0;font-size:16px;color:var(--ink-2)">Hai chỗ câu vàng <b>không</b> áp được: khi tàu kia trưng đèn/dấu hiệu tàu đặc biệt (Đ.18 — xem mục thang bậc), và khi nó nằm <b>sau trục ngang</b> mình đuổi lên mình (khi đó nó là tàu vượt, mình giữ nguyên dù thấy đèn gì).</p>
+  <p class="lg-en" style="margin:16px 0 0;font-size:16px;color:var(--ink-2)">Two places where the golden lines do <b>not</b> apply: when she shows the lights or shapes of a special vessel (Rule 18 — see the ladder below), and when she is <b>abaft your beam</b> and coming up on you (then she is the overtaking vessel and you stand on, whatever light you see).</p>
+  <p class="lg-vi" style="margin:16px 0 0;font-size:16px;color:var(--ink-2)">Hai chỗ câu vàng <b>không</b> áp được: khi tàu kia trưng đèn/dấu hiệu tàu đặc biệt (Đ.18 — xem mục thang bậc), và khi nó nằm <b>sau trục ngang</b> mình đuổi lên mình (khi đó nó là tàu vượt, mình giữ nguyên dù thấy đèn gì).</p>
 </div>
 
 <hr class="sep">
 
 <!-- ================= 1. NEN ================= -->
 <section id="nen">
-<span class="eyebrow">Đ.5 · Đ.6 · Đ.7 · Đ.8</span>
-<h2>Bốn điều luôn chạy nền, không bao giờ tắt</h2>
-<p class="sub">Bốn điều này áp cho <b>mọi tàu, mọi lúc, mọi tầm nhìn</b>. Tất cả các điều còn lại chỉ là cách phân vai sau khi bốn điều này đã chạy.</p>
+<span class="eyebrow">R.5 · R.6 · R.7 · R.8</span>
+<h2 class="lg-en">Four rules always running underneath, never switched off</h2>
+<h2 class="lg-vi">Bốn điều luôn chạy nền, không bao giờ tắt</h2>
+<p class="sub lg-en">These four apply to <b>every vessel, at all times, in any visibility</b>. Everything else in the rules is only a way of assigning roles after these four are already running.</p>
+<p class="sub lg-vi">Bốn điều này áp cho <b>mọi tàu, mọi lúc, mọi tầm nhìn</b>. Tất cả các điều còn lại chỉ là cách phân vai sau khi bốn điều này đã chạy.</p>
 
 <div class="grid g4">
-  <div class="card deep"><span class="tag">Đ.5</span><h4>Cảnh giới</h4><p>Bằng <b>mắt, tai</b> và mọi phương tiện sẵn có phù hợp — radar là "mọi phương tiện", không thay được mắt và tai.</p></div>
-  <div class="card deep"><span class="tag">Đ.6</span><h4>Tốc độ an toàn</h4><p>Tốc độ mà tàu <b>dừng được trong cự ly phù hợp</b>. Có radar thì phải tính thêm giới hạn của chính radar.</p></div>
-  <div class="card deep"><span class="tag">Đ.7</span><h4>Nguy cơ đâm va</h4><p><b>Nghi ngờ là coi như CÓ.</b> Phương vị la bàn không đổi ⇒ có nguy cơ. Cấm suy đoán từ thông tin sơ sài.</p></div>
-  <div class="card deep"><span class="tag">Đ.8</span><h4>Hành động tránh va</h4><p>Sớm, dứt khoát, <b>đủ lớn để tàu kia nhận ra bằng mắt hoặc radar</b>. Kiểm tra tới khi qua hẳn và thoát hẳn.</p></div>
+  <div class="card deep"><span class="tag">R.5 · Đ.5</span>
+    <h4 class="lg-en">Look-out</h4><h4 class="lg-vi">Cảnh giới</h4>
+    <p class="lg-en">By <b>sight and hearing</b> and by all available means appropriate — radar is one of the "available means", it does not replace eyes and ears.</p>
+    <p class="lg-vi">Bằng <b>mắt, tai</b> và mọi phương tiện sẵn có phù hợp — radar là "mọi phương tiện", không thay được mắt và tai.</p></div>
+  <div class="card deep"><span class="tag">R.6 · Đ.6</span>
+    <h4 class="lg-en">Safe speed</h4><h4 class="lg-vi">Tốc độ an toàn</h4>
+    <p class="lg-en">The speed at which you can <b>stop within a distance appropriate</b> to the conditions. With radar you must also weigh the limitations of the radar itself.</p>
+    <p class="lg-vi">Tốc độ mà tàu <b>dừng được trong cự ly phù hợp</b>. Có radar thì phải tính thêm giới hạn của chính radar.</p></div>
+  <div class="card deep"><span class="tag">R.7 · Đ.7</span>
+    <h4 class="lg-en">Risk of collision</h4><h4 class="lg-vi">Nguy cơ đâm va</h4>
+    <p class="lg-en"><b>If in doubt, risk shall be deemed to exist.</b> Compass bearing not appreciably changing ⇒ risk exists. No assumptions from scanty information.</p>
+    <p class="lg-vi"><b>Nghi ngờ là coi như CÓ.</b> Phương vị la bàn không đổi ⇒ có nguy cơ. Cấm suy đoán từ thông tin sơ sài.</p></div>
+  <div class="card deep"><span class="tag">R.8 · Đ.8</span>
+    <h4 class="lg-en">Action to avoid collision</h4><h4 class="lg-vi">Hành động tránh va</h4>
+    <p class="lg-en">Early, positive, <b>large enough to be readily apparent</b> to the other vessel visually or by radar. Check it works until finally past and clear.</p>
+    <p class="lg-vi">Sớm, dứt khoát, <b>đủ lớn để tàu kia nhận ra bằng mắt hoặc radar</b>. Kiểm tra tới khi qua hẳn và thoát hẳn.</p></div>
 </div>
 
 <figure>
-<svg viewBox="0 0 700 292" role="img" aria-label="Ba lần quan sát: hai tàu cùng tiến, ba đường ngắm song song nghĩa là phương vị không đổi và cự ly giảm dần, có nguy cơ đâm va">
+<svg viewBox="0 0 700 292" role="img" aria-label="Three observations: both ships stand on, the three lines of sight stay parallel, so the bearing does not change while the range falls">
   <defs><marker id="a7" markerWidth="9" markerHeight="9" refX="4.5" refY="3.6" orient="auto"><path d="M0 0 L9 3.6 L0 7.2 z" fill="currentColor"/></marker></defs>
-  <!-- duong di tau minh -->
   <line x1="120" y1="252" x2="120" y2="104" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".35" marker-end="url(#a7)"/>
-  <!-- 3 duong ngam SONG SONG -->
   <line x1="120" y1="230" x2="500" y2="140" stroke="var(--port)" stroke-width="1.3" stroke-dasharray="6 4"/>
   <line x1="120" y1="187" x2="405" y2="120" stroke="var(--port)" stroke-width="1.3" stroke-dasharray="6 4"/>
   <line x1="120" y1="145" x2="310" y2="100" stroke="var(--port)" stroke-width="1.3" stroke-dasharray="6 4"/>
-  <!-- tau minh: 3 thoi diem -->
   <g fill="currentColor">
     <polygon points="120,214 130,230 130,248 110,248 110,230"/>
     <polygon points="120,171 130,187 130,205 110,205 110,187" opacity=".62"/>
     <polygon points="120,129 130,145 130,163 110,163 110,145" opacity=".38"/>
   </g>
-  <text x="98" y="252" font-size="13" font-family="var(--sans)" fill="currentColor" text-anchor="end">tàu mình</text>
-  <!-- tau kia: 3 thoi diem, chay ve phia trai -->
+  <text class="lg-en" x="98" y="252" font-size="13" font-family="var(--sans)" fill="currentColor" text-anchor="end">your ship</text>
+  <text class="lg-vi" x="98" y="252" font-size="13" font-family="var(--sans)" fill="currentColor" text-anchor="end">tàu mình</text>
   <g fill="var(--port)">
     <g transform="rotate(-78 500 140)"><polygon points="500,124 510,140 510,158 490,158 490,140"/></g>
     <g transform="rotate(-78 405 120)" opacity=".62"><polygon points="405,104 415,120 415,138 395,138 395,120"/></g>
     <g transform="rotate(-78 310 100)" opacity=".38"><polygon points="310,84 320,100 320,118 300,118 300,100"/></g>
   </g>
-  <text x="524" y="146" font-size="13" font-family="var(--mono)" fill="var(--ink-3)">0800 · PV 040° · 8 hl</text>
-  <text x="430" y="112" font-size="13" font-family="var(--mono)" fill="var(--ink-3)">0812 · PV 040° · 6 hl</text>
-  <text x="336" y="90" font-size="13" font-family="var(--mono)" fill="var(--ink-3)">0824 · PV 040° · 4 hl</text>
-  <text x="400" y="278" font-size="15" font-family="var(--sans)" font-weight="700" fill="var(--port)" text-anchor="middle">BA ĐƯỜNG NGẮM SONG SONG = PHƯƠNG VỊ KHÔNG ĐỔI = CÓ NGUY CƠ ĐÂM VA</text>
+  <text class="lg-en" x="524" y="146" font-size="13" font-family="var(--mono)" fill="var(--ink-3)">0800 · brg 040° · 8 nm</text>
+  <text class="lg-vi" x="524" y="146" font-size="13" font-family="var(--mono)" fill="var(--ink-3)">0800 · PV 040° · 8 hl</text>
+  <text class="lg-en" x="430" y="112" font-size="13" font-family="var(--mono)" fill="var(--ink-3)">0812 · brg 040° · 6 nm</text>
+  <text class="lg-vi" x="430" y="112" font-size="13" font-family="var(--mono)" fill="var(--ink-3)">0812 · PV 040° · 6 hl</text>
+  <text class="lg-en" x="336" y="90" font-size="13" font-family="var(--mono)" fill="var(--ink-3)">0824 · brg 040° · 4 nm</text>
+  <text class="lg-vi" x="336" y="90" font-size="13" font-family="var(--mono)" fill="var(--ink-3)">0824 · PV 040° · 4 hl</text>
+  <text class="lg-en" x="400" y="278" font-size="15" font-family="var(--sans)" font-weight="700" fill="var(--port)" text-anchor="middle">THREE PARALLEL SIGHT LINES = BEARING NOT CHANGING = RISK OF COLLISION</text>
+  <text class="lg-vi" x="400" y="278" font-size="15" font-family="var(--sans)" font-weight="700" fill="var(--port)" text-anchor="middle">BA ĐƯỜNG NGẮM SONG SONG = PHƯƠNG VỊ KHÔNG ĐỔI = CÓ NGUY CƠ ĐÂM VA</text>
 </svg>
-<figcaption><b>Đ.7(d)(i) — dấu hiệu duy nhất phải thuộc lòng.</b> Ba lần đo, phương vị la bàn vẫn 040°, cự ly tụt 8 → 6 → 4 hải lý: hai tàu đang chạy về cùng một điểm. Cảnh báo của Đ.7(d)(ii): với <b>tàu rất lớn, đoàn lai kéo, hoặc ở cự ly gần</b>, phương vị có đổi rõ vẫn có thể va.</figcaption>
+<figcaption>
+<span class="lg-en"><b>Rule 7(d)(i) — the one sign to know by heart.</b> Three fixes, compass bearing still 040°, range falling 8 → 6 → 4 miles: both ships are running to the same point. The warning in 7(d)(ii): with <b>a very large vessel, a tow, or at close range</b>, risk may exist even when the bearing is clearly changing.</span>
+<span class="lg-vi"><b>Đ.7(d)(i) — dấu hiệu duy nhất phải thuộc lòng.</b> Ba lần đo, phương vị la bàn vẫn 040°, cự ly tụt 8 → 6 → 4 hải lý: hai tàu đang chạy về cùng một điểm. Cảnh báo của Đ.7(d)(ii): với <b>tàu rất lớn, đoàn lai kéo, hoặc ở cự ly gần</b>, phương vị có đổi rõ vẫn có thể va.</span>
+</figcaption>
 </figure>
 
 <figure>
-<svg viewBox="0 0 700 210" role="img" aria-label="So sánh nhiều lần bẻ lái nhỏ khó nhận biết với một lần bẻ lái lớn dứt khoát">
+<svg viewBox="0 0 700 210" role="img" aria-label="A succession of small alterations compared with one large, early alteration">
   <line x1="350" y1="16" x2="350" y2="194" stroke="currentColor" stroke-width="1" opacity=".2"/>
-  <text x="24" y="30" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--port)">✗ Nhiều lần bẻ nhỏ</text>
-  <path d="M40 160 L110 150 L180 136 L250 118 L316 96" fill="none" stroke="var(--port)" stroke-width="2.6" stroke-dasharray="1 0"/>
+  <text class="lg-en" x="24" y="30" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--port)">✗ A succession of small alterations</text>
+  <text class="lg-vi" x="24" y="30" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--port)">✗ Nhiều lần bẻ nhỏ</text>
+  <path d="M40 160 L110 150 L180 136 L250 118 L316 96" fill="none" stroke="var(--port)" stroke-width="2.6"/>
   <circle cx="110" cy="150" r="3.5" fill="var(--port)"/><circle cx="180" cy="136" r="3.5" fill="var(--port)"/><circle cx="250" cy="118" r="3.5" fill="var(--port)"/>
-  <text x="40" y="186" font-size="13" font-family="var(--sans)" fill="var(--ink-2)">Trên radar tàu kia gần như không thấy gì đổi</text>
-  <text x="378" y="30" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">✓ Một lần bẻ lớn, sớm</text>
+  <text class="lg-en" x="40" y="186" font-size="13" font-family="var(--sans)" fill="var(--ink-2)">On her radar almost nothing seems to change</text>
+  <text class="lg-vi" x="40" y="186" font-size="13" font-family="var(--sans)" fill="var(--ink-2)">Trên radar tàu kia gần như không thấy gì đổi</text>
+  <text class="lg-en" x="378" y="30" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">✓ One large alteration, made early</text>
+  <text class="lg-vi" x="378" y="30" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">✓ Một lần bẻ lớn, sớm</text>
   <path d="M392 160 L470 154 Q536 150 560 92" fill="none" stroke="var(--stbd)" stroke-width="3.4"/>
   <path d="M556 104 L566 84 L572 106 z" fill="var(--stbd)"/>
-  <text x="378" y="186" font-size="13" font-family="var(--sans)" fill="var(--ink-2)">Đổi hướng lớn, nhìn phát ra ngay — Đ.8(b)</text>
+  <text class="lg-en" x="378" y="186" font-size="13" font-family="var(--sans)" fill="var(--ink-2)">Readily apparent at a glance — Rule 8(b)</text>
+  <text class="lg-vi" x="378" y="186" font-size="13" font-family="var(--sans)" fill="var(--ink-2)">Đổi hướng lớn, nhìn phát ra ngay — Đ.8(b)</text>
 </svg>
-<figcaption><b>Đ.8(b) — cấm bẻ lái vụn.</b> Hành động phải "đủ lớn để tàu khác quan sát bằng mắt hoặc radar nhận ra ngay"; một chuỗi bẻ nhỏ là điều luật bảo phải tránh. Nếu đủ vùng nước, <b>đổi hướng một mình</b> thường hiệu quả nhất (Đ.8(c)); cần thì giảm tốc, dừng, chạy lùi (Đ.8(e)).</figcaption>
+<figcaption>
+<span class="lg-en"><b>Rule 8(b) — small nibbles at the wheel are what the rule tells you to avoid.</b> Action must be "large enough to be readily apparent to another vessel observing visually or by radar"; a succession of small alterations should be avoided. With sea room, <b>an alteration of course alone</b> is often the most effective action (8(c)); if needed, slacken speed, stop, or reverse (8(e)).</span>
+<span class="lg-vi"><b>Đ.8(b) — cấm bẻ lái vụn.</b> Hành động phải "đủ lớn để tàu khác quan sát bằng mắt hoặc radar nhận ra ngay"; một chuỗi bẻ nhỏ là điều luật bảo phải tránh. Nếu đủ vùng nước, <b>đổi hướng một mình</b> thường hiệu quả nhất (Đ.8(c)); cần thì giảm tốc, dừng, chạy lùi (Đ.8(e)).</span>
+</figcaption>
 </figure>
 </section>
 
@@ -496,177 +572,224 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 
 <!-- ================= 2. DEN ================= -->
 <section id="den">
-<span class="eyebrow">Đ.21 · Đ.22 · Đ.23</span>
-<h2>Cung đèn — vì sao 112,5° là con số quan trọng nhất của COLREG</h2>
-<p class="sub">Đèn không chiếu tròn. Mỗi đèn có một cung cố định, và <b>ranh giới của các cung đó chính là ranh giới của các điều luật</b>. Nhìn thấy đèn nào là đã biết mình nằm ở cung nào.</p>
+<span class="eyebrow">R.21 · R.22 · R.23</span>
+<h2 class="lg-en">Light sectors — why 112.5° is the most important number in COLREG</h2>
+<h2 class="lg-vi">Cung đèn — vì sao 112,5° là con số quan trọng nhất của COLREG</h2>
+<p class="sub lg-en">Lights do not shine all round. Each one covers a fixed arc, and <b>the edges of those arcs are the edges of the rules</b>. See which light she shows and you already know where you stand.</p>
+<p class="sub lg-vi">Đèn không chiếu tròn. Mỗi đèn có một cung cố định, và <b>ranh giới của các cung đó chính là ranh giới của các điều luật</b>. Nhìn thấy đèn nào là đã biết mình nằm ở cung nào.</p>
 
 <figure>
-<svg viewBox="0 0 640 418" role="img" aria-label="Cung chiếu của đèn tàu nhìn từ trên: đèn cột 225 độ, hai đèn mạn 112,5 độ mỗi bên, đèn lái 135 độ">
-  <!-- den man phai 0..112,5 -->
+<svg viewBox="0 0 640 418" role="img" aria-label="Light arcs seen from above: masthead light 225 degrees, two sidelights of 112.5 degrees each, sternlight 135 degrees">
   <path d="M300 220 L300 100 A120 120 0 0 1 410.9 265.9 Z" fill="var(--stbd-wash)" stroke="var(--stbd)" stroke-width="1.2"/>
-  <!-- den man trai -112,5..0 -->
   <path d="M300 220 L189.1 265.9 A120 120 0 0 1 300 100 Z" fill="var(--port-wash)" stroke="var(--port)" stroke-width="1.2"/>
-  <!-- den lai 135 -->
   <path d="M300 220 L410.9 265.9 A120 120 0 0 1 189.1 265.9 Z" fill="var(--rule-soft)" stroke="var(--ink-3)" stroke-width="1.2"/>
-  <!-- den cot 225 -->
   <path d="M161.4 277.4 A150 150 0 1 1 438.6 277.4" fill="none" stroke="var(--sand)" stroke-width="7" stroke-linecap="round" opacity=".85"/>
-  <!-- truc ngang -->
   <line x1="150" y1="220" x2="450" y2="220" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".4"/>
-  <text x="144" y="216" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">trục ngang</text>
-  <!-- tau -->
+  <text class="lg-en" x="144" y="216" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">the beam</text>
+  <text class="lg-vi" x="144" y="216" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">trục ngang</text>
   <polygon points="300,192 313,214 313,248 287,248 287,214" fill="currentColor"/>
   <circle cx="287.5" cy="219" r="5" fill="var(--port)"/>
   <circle cx="312.5" cy="219" r="5" fill="var(--stbd)"/>
   <circle cx="300" cy="248" r="4.6" fill="var(--lamp)" stroke="var(--lamp-ring)"/>
-  <!-- nhan -->
-  <text x="300" y="52" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--sand)" text-anchor="middle">ĐÈN CỘT trắng · 225°</text>
-  <text x="424" y="180" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">ĐÈN MẠN PHẢI</text>
-  <text x="424" y="198" font-size="13" font-family="var(--mono)" fill="var(--stbd)">xanh lục · 112,5°</text>
-  <text x="176" y="180" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--port)" text-anchor="end">ĐÈN MẠN TRÁI</text>
-  <text x="176" y="198" font-size="13" font-family="var(--mono)" fill="var(--port)" text-anchor="end">đỏ · 112,5°</text>
-  <text x="300" y="358" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--ink-2)" text-anchor="middle">ĐÈN LÁI trắng · 135°</text>
-  <text x="300" y="376" font-size="13" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle">67,5° mỗi bên tính từ chính lái</text>
-  <!-- moc 22,5 -->
-  <line x1="410.9" y1="265.9" x2="452" y2="283" stroke="var(--ink)" stroke-width="1.6"/>
-  <line x1="189.1" y1="265.9" x2="148" y2="283" stroke="var(--ink)" stroke-width="1.6"/>
-  <text x="462" y="288" font-size="12.5" font-family="var(--mono)" fill="currentColor">22,5° sau trục ngang</text>
-  <text x="138" y="288" font-size="12.5" font-family="var(--mono)" fill="currentColor" text-anchor="end">22,5° sau trục ngang</text>
-  <text x="300" y="404" font-size="13" font-family="var(--sans)" fill="var(--ink-3)" text-anchor="middle">112,5 + 112,5 + 135 = 360° · đèn cột 225° = đúng hai cung đèn mạn cộng lại</text>
+  <text class="lg-en" x="300" y="52" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--sand)" text-anchor="middle">MASTHEAD white · 225°</text>
+  <text class="lg-vi" x="300" y="52" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--sand)" text-anchor="middle">ĐÈN CỘT trắng · 225°</text>
+  <text class="lg-en" x="424" y="180" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">STARBOARD LIGHT</text>
+  <text class="lg-vi" x="424" y="180" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">ĐÈN MẠN PHẢI</text>
+  <text class="lg-en" x="424" y="198" font-size="13" font-family="var(--mono)" fill="var(--stbd)">green · 112.5°</text>
+  <text class="lg-vi" x="424" y="198" font-size="13" font-family="var(--mono)" fill="var(--stbd)">xanh lục · 112,5°</text>
+  <text class="lg-en" x="176" y="180" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--port)" text-anchor="end">PORT LIGHT</text>
+  <text class="lg-vi" x="176" y="180" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--port)" text-anchor="end">ĐÈN MẠN TRÁI</text>
+  <text class="lg-en" x="176" y="198" font-size="13" font-family="var(--mono)" fill="var(--port)" text-anchor="end">red · 112.5°</text>
+  <text class="lg-vi" x="176" y="198" font-size="13" font-family="var(--mono)" fill="var(--port)" text-anchor="end">đỏ · 112,5°</text>
+  <text class="lg-en" x="300" y="358" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--ink-2)" text-anchor="middle">STERNLIGHT white · 135°</text>
+  <text class="lg-vi" x="300" y="358" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--ink-2)" text-anchor="middle">ĐÈN LÁI trắng · 135°</text>
+  <text class="lg-en" x="300" y="376" font-size="13" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle">67.5° from right aft on each side</text>
+  <text class="lg-vi" x="300" y="376" font-size="13" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle">67,5° mỗi bên tính từ chính lái</text>
+  <line x1="410.9" y1="265.9" x2="452" y2="283" stroke="currentColor" stroke-width="1.6"/>
+  <line x1="189.1" y1="265.9" x2="148" y2="283" stroke="currentColor" stroke-width="1.6"/>
+  <text class="lg-en" x="462" y="288" font-size="12.5" font-family="var(--mono)" fill="currentColor">22.5° abaft the beam</text>
+  <text class="lg-vi" x="462" y="288" font-size="12.5" font-family="var(--mono)" fill="currentColor">22,5° sau trục ngang</text>
+  <text class="lg-en" x="138" y="288" font-size="12.5" font-family="var(--mono)" fill="currentColor" text-anchor="end">22.5° abaft the beam</text>
+  <text class="lg-vi" x="138" y="288" font-size="12.5" font-family="var(--mono)" fill="currentColor" text-anchor="end">22,5° sau trục ngang</text>
+  <text class="lg-en" x="300" y="404" font-size="13" font-family="var(--sans)" fill="var(--ink-3)" text-anchor="middle">112.5 + 112.5 + 135 = 360° · the masthead arc 225° = exactly the two sidelight arcs added together</text>
+  <text class="lg-vi" x="300" y="404" font-size="13" font-family="var(--sans)" fill="var(--ink-3)" text-anchor="middle">112,5 + 112,5 + 135 = 360° · đèn cột 225° = đúng hai cung đèn mạn cộng lại</text>
 </svg>
-<figcaption><b>Đ.21 — ba cung, một vòng tròn khép kín.</b> Đèn mạn dừng đúng ở <b>22,5° sau trục ngang</b>; qua mốc đó tàu kia chỉ còn thấy đèn lái trắng. Chính vì thế Đ.13(b) định nghĩa tàu vượt là tàu đến gần <b>từ hướng lớn hơn 22,5° sau trục ngang</b> — tức <b>112,5°</b> tính từ mũi. Ranh giới đèn và ranh giới luật là một.</figcaption>
+<figcaption>
+<span class="lg-en"><b>Rule 21 — three arcs, one closed circle.</b> The sidelights stop exactly <b>22.5° abaft the beam</b>; past that point she shows you only her white sternlight. That is precisely why Rule 13(b) defines the overtaking vessel as one coming up <b>from a direction more than 22.5° abaft her beam</b> — that is, <b>112.5°</b> from the bow. The edge of the light and the edge of the rule are the same line.</span>
+<span class="lg-vi"><b>Đ.21 — ba cung, một vòng tròn khép kín.</b> Đèn mạn dừng đúng ở <b>22,5° sau trục ngang</b>; qua mốc đó tàu kia chỉ còn thấy đèn lái trắng. Chính vì thế Đ.13(b) định nghĩa tàu vượt là tàu đến gần <b>từ hướng lớn hơn 22,5° sau trục ngang</b> — tức <b>112,5°</b> tính từ mũi. Ranh giới đèn và ranh giới luật là một.</span>
+</figcaption>
 </figure>
 
-<h3>Đèn tàu máy đang hành trình (Đ.23)</h3>
+<h3 class="lg-en">Lights of a power-driven vessel underway (Rule 23)</h3>
+<h3 class="lg-vi">Đèn tàu máy đang hành trình (Đ.23)</h3>
 <figure>
-<svg viewBox="0 0 700 250" role="img" aria-label="Tàu máy hành trình nhìn ngang: đèn cột trước thấp, đèn cột sau cao hơn, đèn mạn và đèn lái">
+<svg viewBox="0 0 700 260" role="img" aria-label="Power-driven vessel seen from the side: forward masthead light, second masthead light higher and abaft, sidelight and sternlight">
   <line x1="40" y1="196" x2="660" y2="196" stroke="var(--deep)" stroke-width="2" opacity=".55"/>
   <path d="M180 196 L560 196 L536 172 L206 172 Z" fill="currentColor" opacity=".9"/>
   <rect x="470" y="126" width="66" height="46" fill="currentColor" opacity=".9"/>
-  <!-- cot -->
   <line x1="250" y1="172" x2="250" y2="96" stroke="currentColor" stroke-width="3"/>
   <line x1="503" y1="126" x2="503" y2="60" stroke="currentColor" stroke-width="3"/>
   <circle cx="250" cy="92" r="8" fill="var(--lamp)" stroke="var(--lamp-ring)" stroke-width="1.5"/>
   <circle cx="503" cy="56" r="8" fill="var(--lamp)" stroke="var(--lamp-ring)" stroke-width="1.5"/>
   <circle cx="196" cy="182" r="7" fill="var(--stbd)"/>
   <circle cx="556" cy="186" r="7" fill="var(--lamp)" stroke="var(--lamp-ring)" stroke-width="1.5"/>
-  <text x="250" y="72" font-size="13" font-family="var(--sans)" fill="currentColor" text-anchor="middle">đèn cột TRƯỚC</text>
-  <text x="503" y="36" font-size="13" font-family="var(--sans)" fill="currentColor" text-anchor="middle">đèn cột SAU — cao hơn</text>
-  <text x="150" y="176" font-size="13" font-family="var(--sans)" fill="var(--stbd)" text-anchor="end">đèn mạn</text>
-  <text x="600" y="190" font-size="13" font-family="var(--sans)" fill="currentColor">đèn lái</text>
-  <text x="370" y="232" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">Tàu &lt; 50 m không bắt buộc đèn cột sau — nên đêm thấy 1 đèn cột thường là tàu nhỏ</text>
+  <text class="lg-en" x="250" y="72" font-size="13" font-family="var(--sans)" fill="currentColor" text-anchor="middle">FORWARD masthead light</text>
+  <text class="lg-vi" x="250" y="72" font-size="13" font-family="var(--sans)" fill="currentColor" text-anchor="middle">đèn cột TRƯỚC</text>
+  <text class="lg-en" x="503" y="36" font-size="13" font-family="var(--sans)" fill="currentColor" text-anchor="middle">AFTER masthead light — higher</text>
+  <text class="lg-vi" x="503" y="36" font-size="13" font-family="var(--sans)" fill="currentColor" text-anchor="middle">đèn cột SAU — cao hơn</text>
+  <text class="lg-en" x="150" y="176" font-size="13" font-family="var(--sans)" fill="var(--stbd)" text-anchor="end">sidelight</text>
+  <text class="lg-vi" x="150" y="176" font-size="13" font-family="var(--sans)" fill="var(--stbd)" text-anchor="end">đèn mạn</text>
+  <text class="lg-en" x="600" y="190" font-size="13" font-family="var(--sans)" fill="currentColor">sternlight</text>
+  <text class="lg-vi" x="600" y="190" font-size="13" font-family="var(--sans)" fill="currentColor">đèn lái</text>
+  <text class="lg-en" x="370" y="224" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">A vessel under 50 m need not carry the after masthead light —</text>
+  <text class="lg-en" x="370" y="243" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">so one masthead light at night usually means a smaller ship</text>
+  <text class="lg-vi" x="370" y="224" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">Tàu &lt; 50 m không bắt buộc đèn cột sau —</text>
+  <text class="lg-vi" x="370" y="243" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">nên đêm thấy 1 đèn cột thường là tàu nhỏ</text>
 </svg>
-<figcaption><b>Hai đèn cột là cái la bàn của mắt.</b> Đèn cột sau <b>cao hơn và lùi về phía lái</b>, nên nhìn hai đèn cột chồng thẳng hàng nghĩa là tàu đó đang chĩa mũi vào anh (Đ.14(b) — đối hướng); hai đèn tách xa nhau nghĩa là nó đang cắt ngang, và đèn cột sau nằm về phía nào thì lái nó quay về phía đó.</figcaption>
+<figcaption>
+<span class="lg-en"><b>The two masthead lights are a compass for the eye.</b> The after one is <b>higher and further aft</b>, so when the two are in line she is pointing at you (Rule 14(b) — head-on); when they are well apart she is crossing, and whichever side the after light sits on is the side her stern is swinging towards.</span>
+<span class="lg-vi"><b>Hai đèn cột là cái la bàn của mắt.</b> Đèn cột sau <b>cao hơn và lùi về phía lái</b>, nên nhìn hai đèn cột chồng thẳng hàng nghĩa là tàu đó đang chĩa mũi vào anh (Đ.14(b) — đối hướng); hai đèn tách xa nhau nghĩa là nó đang cắt ngang, và đèn cột sau nằm về phía nào thì lái nó quay về phía đó.</span>
+</figcaption>
 </figure>
 
-<h3>Tầm nhìn xa tối thiểu của đèn (Đ.22)</h3>
+<h3 class="lg-en">Minimum visibility of lights (Rule 22)</h3>
+<h3 class="lg-vi">Tầm nhìn xa tối thiểu của đèn (Đ.22)</h3>
 <div class="tbl-wrap">
 <table>
-<tr><th>Đèn</th><th>Tàu ≥ 50 m</th><th>12 – 50 m</th><th>&lt; 12 m</th></tr>
-<tr><td>Đèn cột</td><td class="num">6 hải lý</td><td class="num">5 (nếu &lt;20 m: 3)</td><td class="num">2</td></tr>
-<tr><td>Đèn mạn</td><td class="num">3</td><td class="num">2</td><td class="num">1</td></tr>
-<tr><td>Đèn lái</td><td class="num">3</td><td class="num">2</td><td class="num">2</td></tr>
-<tr><td>Đèn lai kéo (vàng)</td><td class="num">3</td><td class="num">2</td><td class="num">2</td></tr>
-<tr><td>Đèn chiếu vòng quanh</td><td class="num">3</td><td class="num">2</td><td class="num">2</td></tr>
+<tr>
+  <th><span class="lg-en">Light</span><span class="lg-vi">Đèn</span></th>
+  <th><span class="lg-en">Vessel ≥ 50 m</span><span class="lg-vi">Tàu ≥ 50 m</span></th>
+  <th>12 – 50 m</th>
+  <th>&lt; 12 m</th>
+</tr>
+<tr><td><span class="lg-en">Masthead light</span><span class="lg-vi">Đèn cột</span></td>
+  <td class="num"><span class="lg-en">6 miles</span><span class="lg-vi">6 hải lý</span></td>
+  <td class="num"><span class="lg-en">5 (if &lt;20 m: 3)</span><span class="lg-vi">5 (nếu &lt;20 m: 3)</span></td><td class="num">2</td></tr>
+<tr><td><span class="lg-en">Sidelight</span><span class="lg-vi">Đèn mạn</span></td><td class="num">3</td><td class="num">2</td><td class="num">1</td></tr>
+<tr><td><span class="lg-en">Sternlight</span><span class="lg-vi">Đèn lái</span></td><td class="num">3</td><td class="num">2</td><td class="num">2</td></tr>
+<tr><td><span class="lg-en">Towing light (yellow)</span><span class="lg-vi">Đèn lai kéo (vàng)</span></td><td class="num">3</td><td class="num">2</td><td class="num">2</td></tr>
+<tr><td><span class="lg-en">All-round light</span><span class="lg-vi">Đèn chiếu vòng quanh</span></td><td class="num">3</td><td class="num">2</td><td class="num">2</td></tr>
 </table>
 </div>
-<p class="sub" style="font-size:16px">Đọc bảng theo cách dùng được: đèn cột <b>bao giờ cũng thấy trước</b> đèn mạn. Đêm nhìn thấy một đèn trắng đơn độc chưa nói lên gì — phải chờ đèn mạn hiện ra mới biết vai. Đó là lý do Đ.5 bắt cảnh giới liên tục chứ không nhìn một phát rồi kết luận.</p>
+<p class="sub lg-en" style="font-size:16px">Read the table the way you use it: the masthead light <b>always shows up first</b>. A single white light on the horizon tells you nothing yet — you must wait for a sidelight before you know your role. That is exactly why Rule 5 demands a continuous look-out rather than one glance and a conclusion.</p>
+<p class="sub lg-vi" style="font-size:16px">Đọc bảng theo cách dùng được: đèn cột <b>bao giờ cũng thấy trước</b> đèn mạn. Đêm nhìn thấy một đèn trắng đơn độc chưa nói lên gì — phải chờ đèn mạn hiện ra mới biết vai. Đó là lý do Đ.5 bắt cảnh giới liên tục chứ không nhìn một phát rồi kết luận.</p>
 </section>
 
 <hr class="sep">
 
 <!-- ================= 3. BA TINH HUONG ================= -->
 <section id="ba">
-<span class="eyebrow">Đ.14 · Đ.15 · Đ.13</span>
-<h2>Ba tình huống — và chỉ ba</h2>
-<p class="sub">Khi hai tàu máy <b>nhìn thấy nhau</b> và có nguy cơ đâm va, chỉ có ba khả năng. Việc của anh là xếp đúng ô, phần còn lại luật đã viết sẵn.</p>
+<span class="eyebrow">R.14 · R.15 · R.13</span>
+<h2 class="lg-en">Three situations — and only three</h2>
+<h2 class="lg-vi">Ba tình huống — và chỉ ba</h2>
+<p class="sub lg-en">When two power-driven vessels are <b>in sight of one another</b> with risk of collision, there are only three possibilities. Your job is to file the case in the right box; the rest is already written.</p>
+<p class="sub lg-vi">Khi hai tàu máy <b>nhìn thấy nhau</b> và có nguy cơ đâm va, chỉ có ba khả năng. Việc của anh là xếp đúng ô, phần còn lại luật đã viết sẵn.</p>
 
 <figure>
-<svg viewBox="0 0 640 300" role="img" aria-label="Tình huống đối hướng: hai tàu mũi đối mũi, cả hai bẻ phải và đi qua nhau mạn trái">
+<svg viewBox="0 0 640 300" role="img" aria-label="Head-on situation: two ships bow to bow, each alters to starboard and they pass port to port">
+  <defs><marker id="a14" markerWidth="9" markerHeight="9" refX="4.5" refY="3.6" orient="auto"><path d="M0 0 L9 3.6 L0 7.2 z" fill="var(--stbd)"/></marker></defs>
   <line x1="320" y1="20" x2="320" y2="266" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".25"/>
-  <!-- tau duoi di len -->
   <polygon points="320,222 332,240 332,262 308,262 308,240" fill="currentColor"/>
   <circle cx="308.5" cy="245" r="4.4" fill="var(--port)"/><circle cx="331.5" cy="245" r="4.4" fill="var(--stbd)"/>
-  <!-- tau tren di xuong -->
   <g transform="rotate(180 320 62)">
     <polygon points="320,22 332,40 332,62 308,62 308,40" fill="currentColor"/>
     <circle cx="308.5" cy="45" r="4.4" fill="var(--port)"/><circle cx="331.5" cy="45" r="4.4" fill="var(--stbd)"/>
   </g>
-  <!-- 2 mui ten be phai -->
   <path d="M336 216 Q392 196 404 140" fill="none" stroke="var(--stbd)" stroke-width="3.4" marker-end="url(#a14)"/>
   <path d="M304 88 Q248 108 236 164" fill="none" stroke="var(--stbd)" stroke-width="3.4" marker-end="url(#a14)"/>
-  <defs><marker id="a14" markerWidth="9" markerHeight="9" refX="4.5" refY="3.6" orient="auto"><path d="M0 0 L9 3.6 L0 7.2 z" fill="var(--stbd)"/></marker></defs>
-  <text x="424" y="150" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">bẻ PHẢI</text>
-  <text x="222" y="160" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--stbd)" text-anchor="end">bẻ PHẢI</text>
-  <text x="54" y="150" font-size="14.5" font-family="var(--sans)" font-weight="700" fill="currentColor">Đ.14</text>
-  <text x="54" y="172" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">Cả hai thấy</text>
-  <text x="54" y="190" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">CẢ 2 đèn mạn</text>
-  <text x="54" y="208" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">+ 2 đèn cột</text>
-  <text x="54" y="226" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">thẳng hàng</text>
-  <text x="320" y="292" font-size="13.5" font-family="var(--sans)" fill="var(--ink-3)" text-anchor="middle">Qua nhau MẠN TRÁI — không ai là tàu được nhường đường, cả hai cùng có nghĩa vụ</text>
+  <text class="lg-en" x="424" y="150" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">to STARBOARD</text>
+  <text class="lg-vi" x="424" y="150" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">bẻ PHẢI</text>
+  <text class="lg-en" x="222" y="160" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--stbd)" text-anchor="end">to STARBOARD</text>
+  <text class="lg-vi" x="222" y="160" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--stbd)" text-anchor="end">bẻ PHẢI</text>
+  <text x="54" y="150" font-size="14.5" font-family="var(--sans)" font-weight="700" fill="currentColor"><tspan class="lg-en">R.14</tspan><tspan class="lg-vi">Đ.14</tspan></text>
+  <text class="lg-en" x="54" y="172" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">Each sees</text>
+  <text class="lg-vi" x="54" y="172" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">Cả hai thấy</text>
+  <text class="lg-en" x="54" y="190" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">BOTH sidelights</text>
+  <text class="lg-vi" x="54" y="190" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">CẢ 2 đèn mạn</text>
+  <text class="lg-en" x="54" y="208" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">+ 2 masthead</text>
+  <text class="lg-vi" x="54" y="208" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">+ 2 đèn cột</text>
+  <text class="lg-en" x="54" y="226" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">lights in line</text>
+  <text class="lg-vi" x="54" y="226" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">thẳng hàng</text>
+  <text class="lg-en" x="320" y="292" font-size="13.5" font-family="var(--sans)" fill="var(--ink-3)" text-anchor="middle">Pass PORT TO PORT — neither is the stand-on vessel, both carry the duty</text>
+  <text class="lg-vi" x="320" y="292" font-size="13.5" font-family="var(--sans)" fill="var(--ink-3)" text-anchor="middle">Qua nhau MẠN TRÁI — không ai là tàu được nhường đường, cả hai cùng có nghĩa vụ</text>
 </svg>
-<figcaption><b>ĐỐI HƯỚNG (Đ.14) — tình huống duy nhất không có tàu nào được giữ nguyên.</b> Cả hai đều là tàu phải hành động, và cách hành động đã bị luật ấn định: <b>bẻ phải, đi qua nhau mạn trái</b>. Nghi ngờ có phải đối hướng không? Đ.14(c): coi như phải.</figcaption>
+<figcaption>
+<span class="lg-en"><b>HEAD-ON (Rule 14) — the only situation with no stand-on vessel.</b> Both must act, and the rule fixes how: <b>alter to starboard and pass on the port side of the other</b>. In any doubt whether it is head-on? Rule 14(c): assume it is.</span>
+<span class="lg-vi"><b>ĐỐI HƯỚNG (Đ.14) — tình huống duy nhất không có tàu nào được giữ nguyên.</b> Cả hai đều là tàu phải hành động, và cách hành động đã bị luật ấn định: <b>bẻ phải, đi qua nhau mạn trái</b>. Nghi ngờ có phải đối hướng không? Đ.14(c): coi như phải.</span>
+</figcaption>
 </figure>
 
 <figure>
-<svg viewBox="0 0 640 320" role="img" aria-label="Tình huống cắt hướng: tàu có tàu kia ở mạn phải phải nhường đường và đi qua phía sau lái tàu kia">
+<svg viewBox="0 0 640 320" role="img" aria-label="Crossing situation: the vessel which has the other on her starboard side gives way and passes astern of her">
   <defs><marker id="a15" markerWidth="9" markerHeight="9" refX="4.5" refY="3.6" orient="auto"><path d="M0 0 L9 3.6 L0 7.2 z" fill="var(--port)"/></marker>
   <marker id="a15b" markerWidth="9" markerHeight="9" refX="4.5" refY="3.6" orient="auto"><path d="M0 0 L9 3.6 L0 7.2 z" fill="var(--stbd)"/></marker>
   <marker id="a15c" markerWidth="8" markerHeight="8" refX="4" refY="3.2" orient="auto"><path d="M0 0 L8 3.2 L0 6.4 z" fill="currentColor"/></marker></defs>
-  <!-- tau X di len (nhuong) -->
   <polygon points="230,244 242,262 242,286 218,286 218,262" fill="currentColor"/>
   <circle cx="218.5" cy="267" r="4.4" fill="var(--port)"/><circle cx="241.5" cy="267" r="4.4" fill="var(--stbd)"/>
-  <text x="230" y="308" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--port)" text-anchor="middle">X — NHƯỜNG ĐƯỜNG</text>
+  <text class="lg-en" x="230" y="308" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--port)" text-anchor="middle">X — GIVE-WAY VESSEL</text>
+  <text class="lg-vi" x="230" y="308" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--port)" text-anchor="middle">X — NHƯỜNG ĐƯỜNG</text>
   <line x1="230" y1="244" x2="230" y2="96" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".3"/>
-  <!-- tau Y cat tu phai sang trai -->
   <g transform="rotate(-90 470 120)">
     <polygon points="470,96 482,114 482,138 458,138 458,114" fill="currentColor"/>
     <circle cx="458.5" cy="119" r="4.4" fill="var(--port)"/><circle cx="481.5" cy="119" r="4.4" fill="var(--stbd)"/>
   </g>
-  <text x="470" y="72" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--stbd)" text-anchor="middle">Y — GIỮ NGUYÊN</text>
+  <text class="lg-en" x="470" y="72" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--stbd)" text-anchor="middle">Y — STAND-ON VESSEL</text>
+  <text class="lg-vi" x="470" y="72" font-size="14" font-family="var(--sans)" font-weight="700" fill="var(--stbd)" text-anchor="middle">Y — GIỮ NGUYÊN</text>
   <line x1="446" y1="120" x2="262" y2="120" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".3" marker-end="url(#a15c)"/>
-  <text x="286" y="106" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle">Y chạy hướng này</text>
-  <!-- X thay den do cua Y -->
+  <text class="lg-en" x="286" y="106" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle">Y is heading this way</text>
+  <text class="lg-vi" x="286" y="106" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle">Y chạy hướng này</text>
   <line x1="238" y1="248" x2="456" y2="134" stroke="var(--port)" stroke-width="1.4" stroke-dasharray="6 4"/>
-  <text x="344" y="236" font-size="13" font-family="var(--mono)" fill="var(--port)" text-anchor="middle">X thấy đèn ĐỎ của Y</text>
-  <!-- duong di sau lai: dung -->
+  <text class="lg-en" x="344" y="236" font-size="13" font-family="var(--mono)" fill="var(--port)" text-anchor="middle">X sees Y's RED light</text>
+  <text class="lg-vi" x="344" y="236" font-size="13" font-family="var(--mono)" fill="var(--port)" text-anchor="middle">X thấy đèn ĐỎ của Y</text>
   <path d="M246 254 Q420 268 540 178" fill="none" stroke="var(--stbd)" stroke-width="3.2" marker-end="url(#a15b)"/>
-  <text x="516" y="238" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)" text-anchor="middle">✓ vòng qua SAU LÁI Y</text>
-  <!-- cat ngang mui: sai -->
+  <text class="lg-en" x="516" y="238" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)" text-anchor="middle">✓ pass ASTERN of Y</text>
+  <text class="lg-vi" x="516" y="238" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)" text-anchor="middle">✓ vòng qua SAU LÁI Y</text>
   <path d="M222 240 Q212 168 288 128" fill="none" stroke="var(--port)" stroke-width="2.4" stroke-dasharray="7 5" marker-end="url(#a15)"/>
-  <text x="26" y="152" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--port)">✗ cắt ngang mũi Y</text>
-  <text x="26" y="170" font-size="12.5" font-family="var(--sans)" fill="var(--ink-3)">Đ.15 buộc tránh</text>
+  <text class="lg-en" x="26" y="152" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--port)">✗ crossing ahead of Y</text>
+  <text class="lg-vi" x="26" y="152" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--port)">✗ cắt ngang mũi Y</text>
+  <text class="lg-en" x="26" y="170" font-size="12.5" font-family="var(--sans)" fill="var(--ink-3)">R.15 says avoid it</text>
+  <text class="lg-vi" x="26" y="170" font-size="12.5" font-family="var(--sans)" fill="var(--ink-3)">Đ.15 buộc tránh</text>
 </svg>
-<figcaption><b>CẮT HƯỚNG (Đ.15) — "tàu nào có tàu kia ở mạn PHẢI mình thì tàu đó nhường".</b> X có Y ở mạn phải ⇒ X nhường, và X nhìn thấy <b>đèn đỏ</b> của Y (đúng câu vàng). Đ.15 còn buộc thêm: khi hoàn cảnh cho phép, <b>tránh cắt ngang mũi</b> tàu kia — nên đường đúng là vòng qua sau lái.</figcaption>
+<figcaption>
+<span class="lg-en"><b>CROSSING (Rule 15) — "the vessel which has the other on her own STARBOARD side shall keep out of the way".</b> X has Y to starboard ⇒ X gives way, and X sees Y's <b>red</b> light (the golden line again). Rule 15 adds one more duty: if circumstances admit, <b>avoid crossing ahead</b> of the other vessel — so the correct track goes round her stern.</span>
+<span class="lg-vi"><b>CẮT HƯỚNG (Đ.15) — "tàu nào có tàu kia ở mạn PHẢI mình thì tàu đó nhường".</b> X có Y ở mạn phải ⇒ X nhường, và X nhìn thấy <b>đèn đỏ</b> của Y (đúng câu vàng). Đ.15 còn buộc thêm: khi hoàn cảnh cho phép, <b>tránh cắt ngang mũi</b> tàu kia — nên đường đúng là vòng qua sau lái.</span>
+</figcaption>
 </figure>
 
 <figure>
-<svg viewBox="0 0 640 330" role="img" aria-label="Tình huống vượt: tàu đến từ cung lớn hơn 112,5 độ tính từ mũi tàu bị vượt là tàu vượt và phải nhường đường">
+<svg viewBox="0 0 640 330" role="img" aria-label="Overtaking: a vessel coming up from more than 112.5 degrees from the bow of the vessel ahead is the overtaking vessel and must keep out of the way">
   <defs><marker id="a13" markerWidth="9" markerHeight="9" refX="4.5" refY="3.6" orient="auto"><path d="M0 0 L9 3.6 L0 7.2 z" fill="var(--stbd)"/></marker></defs>
-  <!-- vung vuot: 112,5° -> 180° ca hai man -->
   <path d="M250 120 L425.5 192.7 A190 190 0 0 1 250 310 Z" fill="var(--deep-wash)"/>
   <path d="M250 120 L74.5 192.7 A190 190 0 0 0 250 310 Z" fill="var(--deep-wash)"/>
-  <!-- truc ngang B -->
   <line x1="60" y1="120" x2="440" y2="120" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".35"/>
-  <text x="62" y="112" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)">trục ngang của B</text>
-  <!-- ranh 112,5 -->
+  <text class="lg-en" x="62" y="112" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)">B's beam</text>
+  <text class="lg-vi" x="62" y="112" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)">trục ngang của B</text>
   <line x1="250" y1="120" x2="425.5" y2="192.7" stroke="var(--deep)" stroke-width="2"/>
   <line x1="250" y1="120" x2="74.5" y2="192.7" stroke="var(--deep)" stroke-width="2"/>
-  <!-- tau B -->
   <polygon points="250,96 262,114 262,138 238,138 238,114" fill="currentColor"/>
   <circle cx="238.5" cy="119" r="4.4" fill="var(--port)"/><circle cx="261.5" cy="119" r="4.4" fill="var(--stbd)"/>
   <circle cx="250" cy="138" r="4.2" fill="var(--lamp)" stroke="var(--lamp-ring)"/>
-  <text x="250" y="82" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="currentColor" text-anchor="middle">B — bị vượt, GIỮ NGUYÊN</text>
-  <!-- tau A trong vung -->
+  <text class="lg-en" x="250" y="82" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="currentColor" text-anchor="middle">B — overtaken, STANDS ON</text>
+  <text class="lg-vi" x="250" y="82" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="currentColor" text-anchor="middle">B — bị vượt, GIỮ NGUYÊN</text>
   <polygon points="340,238 352,256 352,278 328,278 328,256" fill="var(--deep)"/>
-  <text x="340" y="298" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--deep)" text-anchor="middle">A — tàu VƯỢT</text>
+  <text class="lg-en" x="340" y="298" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--deep)" text-anchor="middle">A — OVERTAKING VESSEL</text>
+  <text class="lg-vi" x="340" y="298" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--deep)" text-anchor="middle">A — tàu VƯỢT</text>
   <path d="M356 254 Q416 250 456 208" fill="none" stroke="var(--stbd)" stroke-width="3.2" marker-end="url(#a13)"/>
-  <text x="472" y="206" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">bẻ phải, vượt</text>
-  <text x="472" y="224" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">ở cự ly an toàn</text>
-  <text x="434" y="184" font-size="12.5" font-family="var(--mono)" fill="var(--deep)">112,5°</text>
-  <text x="66" y="184" font-size="12.5" font-family="var(--mono)" fill="var(--deep)" text-anchor="end">112,5°</text>
-  <text x="320" y="322" font-size="13" font-family="var(--sans)" fill="var(--ink-3)" text-anchor="middle">Vùng xanh = cung VƯỢT: từ 112,5° tới 180° cả hai mạn — trong đó chỉ thấy đèn lái trắng</text>
+  <text class="lg-en" x="472" y="206" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">alter to starboard,</text>
+  <text class="lg-vi" x="472" y="206" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">bẻ phải, vượt</text>
+  <text class="lg-en" x="472" y="224" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">overtake at a safe distance</text>
+  <text class="lg-vi" x="472" y="224" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)">ở cự ly an toàn</text>
+  <text class="lg-en" x="434" y="184" font-size="12.5" font-family="var(--mono)" fill="var(--deep)">112.5°</text>
+  <text class="lg-vi" x="434" y="184" font-size="12.5" font-family="var(--mono)" fill="var(--deep)">112,5°</text>
+  <text class="lg-en" x="66" y="184" font-size="12.5" font-family="var(--mono)" fill="var(--deep)" text-anchor="end">112.5°</text>
+  <text class="lg-vi" x="66" y="184" font-size="12.5" font-family="var(--mono)" fill="var(--deep)" text-anchor="end">112,5°</text>
+  <text class="lg-en" x="320" y="322" font-size="13" font-family="var(--sans)" fill="var(--ink-3)" text-anchor="middle">Blue zone = the overtaking sector: 112.5° to 180° on both sides — inside it only the white sternlight is visible</text>
+  <text class="lg-vi" x="320" y="322" font-size="13" font-family="var(--sans)" fill="var(--ink-3)" text-anchor="middle">Vùng xanh = cung VƯỢT: từ 112,5° tới 180° cả hai mạn — trong đó chỉ thấy đèn lái trắng</text>
 </svg>
-<figcaption><b>VƯỢT (Đ.13) — điều luật mạnh nhất bộ.</b> Đ.13(a) mở đầu bằng "bất kể mọi quy định khác của Mục I và Mục II": tàu vượt <b>luôn</b> phải nhường đường, kể cả khi tàu bị vượt là tàu mất khả năng điều khiển hay tàu đánh cá. Đ.13(d): đổi phương vị về sau <b>không</b> biến tàu vượt thành tàu cắt hướng — nghĩa vụ giữ tới khi <b>qua hẳn và thoát hẳn</b>.</figcaption>
+<figcaption>
+<span class="lg-en"><b>OVERTAKING (Rule 13) — the strongest rule in the book.</b> Rule 13(a) opens with "notwithstanding anything contained in the Rules of Part B, Sections I and II": the overtaking vessel <b>always</b> keeps out of the way, even of a vessel not under command or a vessel engaged in fishing. Rule 13(d): a later change of bearing does <b>not</b> turn her into a crossing vessel — the duty holds until <b>finally past and clear</b>.</span>
+<span class="lg-vi"><b>VƯỢT (Đ.13) — điều luật mạnh nhất bộ.</b> Đ.13(a) mở đầu bằng "bất kể mọi quy định khác của Mục I và Mục II": tàu vượt <b>luôn</b> phải nhường đường, kể cả khi tàu bị vượt là tàu mất khả năng điều khiển hay tàu đánh cá. Đ.13(d): đổi phương vị về sau <b>không</b> biến tàu vượt thành tàu cắt hướng — nghĩa vụ giữ tới khi <b>qua hẳn và thoát hẳn</b>.</span>
+</figcaption>
 </figure>
 </section>
 
@@ -674,53 +797,71 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 
 <!-- ================= 4. VAI ================= -->
 <section id="vai">
-<span class="eyebrow">Đ.16 · Đ.17</span>
-<h2>Đã biết vai rồi thì mỗi bên làm gì</h2>
+<span class="eyebrow">R.16 · R.17</span>
+<h2 class="lg-en">Once you know the role, what each side does</h2>
+<h2 class="lg-vi">Đã biết vai rồi thì mỗi bên làm gì</h2>
 
 <div class="grid g2">
   <div class="card port">
-    <span class="tag">Đ.16 · TÀU NHƯỜNG ĐƯỜNG</span>
-    <h4>Một câu, hết</h4>
-    <p>Hành động <b>sớm và dứt khoát</b> để tránh xa hẳn ra. Không có nấc, không có điều kiện. Càng sớm càng ít phải bẻ.</p>
+    <span class="tag lg-en">R.16 · GIVE-WAY VESSEL</span><span class="tag lg-vi">Đ.16 · TÀU NHƯỜNG ĐƯỜNG</span>
+    <h4 class="lg-en">One sentence, that's all</h4><h4 class="lg-vi">Một câu, hết</h4>
+    <p class="lg-en">Take <b>early and substantial action</b> to keep well clear. No steps, no conditions. The earlier you act, the less wheel you need.</p>
+    <p class="lg-vi">Hành động <b>sớm và dứt khoát</b> để tránh xa hẳn ra. Không có nấc, không có điều kiện. Càng sớm càng ít phải bẻ.</p>
   </div>
   <div class="card stbd">
-    <span class="tag">Đ.17 · TÀU ĐƯỢC NHƯỜNG ĐƯỜNG</span>
-    <h4>Bốn nấc, phải đi đúng thứ tự</h4>
-    <p>Đây là chỗ sĩ quan trẻ hay sai: "được nhường đường" <b>không</b> có nghĩa là ngồi yên tới cùng.</p>
+    <span class="tag lg-en">R.17 · STAND-ON VESSEL</span><span class="tag lg-vi">Đ.17 · TÀU ĐƯỢC NHƯỜNG ĐƯỜNG</span>
+    <h4 class="lg-en">Four steps, in this order</h4><h4 class="lg-vi">Bốn nấc, phải đi đúng thứ tự</h4>
+    <p class="lg-en">This is where junior officers go wrong: "stand-on" does <b>not</b> mean sitting still to the end.</p>
+    <p class="lg-vi">Đây là chỗ sĩ quan trẻ hay sai: "được nhường đường" <b>không</b> có nghĩa là ngồi yên tới cùng.</p>
   </div>
 </div>
 
 <figure>
-<svg viewBox="0 0 700 260" role="img" aria-label="Bốn nấc leo thang của tàu được nhường đường theo Điều 17">
+<svg viewBox="0 0 700 260" role="img" aria-label="The four escalating steps of the stand-on vessel under Rule 17">
   <defs><marker id="a17" markerWidth="9" markerHeight="9" refX="4.5" refY="3.6" orient="auto"><path d="M0 0 L9 3.6 L0 7.2 z" fill="var(--ink-3)"/></marker></defs>
   <line x1="40" y1="196" x2="648" y2="196" stroke="var(--ink-3)" stroke-width="1.4" marker-end="url(#a17)"/>
-  <text x="656" y="214" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">cự ly giảm dần →</text>
+  <text class="lg-en" x="656" y="214" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">range closing →</text>
+  <text class="lg-vi" x="656" y="214" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">cự ly giảm dần →</text>
   <g font-family="var(--sans)">
     <rect x="40" y="120" width="140" height="60" rx="3" fill="var(--stbd-wash)" stroke="var(--stbd)" stroke-width="1.4"/>
-    <text x="110" y="144" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle">1 · GIỮ NGUYÊN</text>
-    <text x="110" y="164" font-size="12.5" fill="var(--ink-2)" text-anchor="middle">hướng đi và tốc độ</text>
-    <text x="110" y="106" font-size="12" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle">Đ.17(a)(i)</text>
+    <text class="lg-en" x="110" y="144" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle">1 · STAND ON</text>
+    <text class="lg-vi" x="110" y="144" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle">1 · GIỮ NGUYÊN</text>
+    <text class="lg-en" x="110" y="164" font-size="12.5" fill="var(--ink-2)" text-anchor="middle">keep course and speed</text>
+    <text class="lg-vi" x="110" y="164" font-size="12.5" fill="var(--ink-2)" text-anchor="middle">hướng đi và tốc độ</text>
+    <text x="110" y="106" font-size="12" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle"><tspan class="lg-en">R.17(a)(i)</tspan><tspan class="lg-vi">Đ.17(a)(i)</tspan></text>
 
     <rect x="196" y="120" width="140" height="60" rx="3" fill="var(--sand-wash)" stroke="var(--sand)" stroke-width="1.4"/>
-    <text x="266" y="144" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle">2 · CÒI NGHI NGỜ</text>
-    <text x="266" y="164" font-size="12.5" fill="var(--ink-2)" text-anchor="middle">≥5 tiếng ngắn nhanh</text>
-    <text x="266" y="106" font-size="12" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle">Đ.34(d)</text>
+    <text class="lg-en" x="266" y="144" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle">2 · DOUBT SIGNAL</text>
+    <text class="lg-vi" x="266" y="144" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle">2 · CÒI NGHI NGỜ</text>
+    <text class="lg-en" x="266" y="164" font-size="12.5" fill="var(--ink-2)" text-anchor="middle">≥5 short rapid blasts</text>
+    <text class="lg-vi" x="266" y="164" font-size="12.5" fill="var(--ink-2)" text-anchor="middle">≥5 tiếng ngắn nhanh</text>
+    <text x="266" y="106" font-size="12" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle"><tspan class="lg-en">R.34(d)</tspan><tspan class="lg-vi">Đ.34(d)</tspan></text>
 
     <rect x="352" y="120" width="140" height="60" rx="3" fill="var(--deep-wash)" stroke="var(--deep)" stroke-width="1.4"/>
-    <text x="422" y="144" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle">3 · ĐƯỢC tự tránh</text>
-    <text x="422" y="164" font-size="12" fill="var(--ink-2)" text-anchor="middle">khi nó không hành động</text>
-    <text x="422" y="106" font-size="12" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle">Đ.17(a)(ii)</text>
+    <text class="lg-en" x="422" y="144" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle">3 · MAY manoeuvre</text>
+    <text class="lg-vi" x="422" y="144" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle">3 · ĐƯỢC tự tránh</text>
+    <text class="lg-en" x="422" y="164" font-size="12" fill="var(--ink-2)" text-anchor="middle">when she is not acting</text>
+    <text class="lg-vi" x="422" y="164" font-size="12" fill="var(--ink-2)" text-anchor="middle">khi nó không hành động</text>
+    <text x="422" y="106" font-size="12" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle"><tspan class="lg-en">R.17(a)(ii)</tspan><tspan class="lg-vi">Đ.17(a)(ii)</tspan></text>
 
     <rect x="508" y="120" width="140" height="60" rx="3" fill="var(--port-wash)" stroke="var(--port)" stroke-width="1.4"/>
-    <text x="578" y="144" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle">4 · PHẢI tự tránh</text>
-    <text x="578" y="164" font-size="12.5" fill="var(--ink-2)" text-anchor="middle">quá gần, làm mọi cách</text>
-    <text x="578" y="106" font-size="12" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle">Đ.17(b)</text>
+    <text class="lg-en" x="578" y="144" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle">4 · SHALL act</text>
+    <text class="lg-vi" x="578" y="144" font-size="14" font-weight="700" fill="currentColor" text-anchor="middle">4 · PHẢI tự tránh</text>
+    <text class="lg-en" x="578" y="164" font-size="12.5" fill="var(--ink-2)" text-anchor="middle">too close — best aid</text>
+    <text class="lg-vi" x="578" y="164" font-size="12.5" fill="var(--ink-2)" text-anchor="middle">quá gần, làm mọi cách</text>
+    <text x="578" y="106" font-size="12" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="middle"><tspan class="lg-en">R.17(b)</tspan><tspan class="lg-vi">Đ.17(b)</tspan></text>
   </g>
-  <text x="344" y="46" font-size="15" font-family="var(--sans)" font-weight="700" fill="currentColor" text-anchor="middle">Nấc 3 và 4 khác nhau ở một chữ: ĐƯỢC PHÉP tránh, và BẮT BUỘC tránh</text>
-  <text x="344" y="70" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">Đ.17(c): tàu máy khi tự tránh ở nấc 3 thì KHÔNG được bẻ trái với tàu ở mạn trái mình</text>
-  <text x="344" y="240" font-size="13" font-family="var(--sans)" fill="var(--ink-3)" text-anchor="middle">Đ.17(d): mọi nấc trên đây đều không giải phóng tàu kia khỏi nghĩa vụ nhường đường của nó</text>
+  <text class="lg-en" x="344" y="46" font-size="15" font-family="var(--sans)" font-weight="700" fill="currentColor" text-anchor="middle">Steps 3 and 4 differ by one word: MAY take action, and SHALL take action</text>
+  <text class="lg-vi" x="344" y="46" font-size="15" font-family="var(--sans)" font-weight="700" fill="currentColor" text-anchor="middle">Nấc 3 và 4 khác nhau ở một chữ: ĐƯỢC PHÉP tránh, và BẮT BUỘC tránh</text>
+  <text class="lg-en" x="344" y="70" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">R.17(c): a power-driven vessel acting under (a)(ii) shall NOT alter course to port for a vessel on her own port side</text>
+  <text class="lg-vi" x="344" y="70" font-size="13.5" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">Đ.17(c): tàu máy khi tự tránh ở nấc 3 thì KHÔNG được bẻ trái với tàu ở mạn trái mình</text>
+  <text class="lg-en" x="344" y="240" font-size="13" font-family="var(--sans)" fill="var(--ink-3)" text-anchor="middle">R.17(d): none of these steps relieves the give-way vessel of her obligation to keep out of the way</text>
+  <text class="lg-vi" x="344" y="240" font-size="13" font-family="var(--sans)" fill="var(--ink-3)" text-anchor="middle">Đ.17(d): mọi nấc trên đây đều không giải phóng tàu kia khỏi nghĩa vụ nhường đường của nó</text>
 </svg>
-<figcaption><b>Bốn nấc của Đ.17.</b> Đứng ở nấc 1 tới lúc va là sai luật; nhảy thẳng lên nấc 3 khi tàu kia vẫn còn thời gian hành động cũng sai. Nấc 2 (còi ≥5 tiếng ngắn) là cái đo được: <b>nếu phải bấm còi nghi ngờ thì đã tới lúc chuẩn bị tự tránh</b>.</figcaption>
+<figcaption>
+<span class="lg-en"><b>The four steps of Rule 17.</b> Staying on step 1 until impact is a breach; jumping to step 3 while she still has time to act is also wrong. Step 2 is the measurable one: <b>if you have to sound the doubt signal, it is time to get ready to manoeuvre yourself.</b></span>
+<span class="lg-vi"><b>Bốn nấc của Đ.17.</b> Đứng ở nấc 1 tới lúc va là sai luật; nhảy thẳng lên nấc 3 khi tàu kia vẫn còn thời gian hành động cũng sai. Nấc 2 (còi ≥5 tiếng ngắn) là cái đo được: <b>nếu phải bấm còi nghi ngờ thì đã tới lúc chuẩn bị tự tránh</b>.</span>
+</figcaption>
 </figure>
 </section>
 
@@ -728,47 +869,65 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 
 <!-- ================= 5. THANG ================= -->
 <section id="thang">
-<span class="eyebrow">Đ.18</span>
-<h2>Thang bậc: ai phải tránh ai</h2>
-<p class="sub">Đ.18 chỉ chạy khi hai tàu <b>khác loại</b> gặp nhau. Đọc thang từ trên xuống: tàu ở dưới phải tránh mọi tàu ở trên nó.</p>
+<span class="eyebrow">R.18</span>
+<h2 class="lg-en">The ladder: who keeps out of the way of whom</h2>
+<h2 class="lg-vi">Thang bậc: ai phải tránh ai</h2>
+<p class="sub lg-en">Rule 18 only runs when two vessels of <b>different kinds</b> meet. Read it downwards: a vessel on a lower rung keeps out of the way of every vessel above her.</p>
+<p class="sub lg-vi">Đ.18 chỉ chạy khi hai tàu <b>khác loại</b> gặp nhau. Đọc thang từ trên xuống: tàu ở dưới phải tránh mọi tàu ở trên nó.</p>
 
 <figure>
-<svg viewBox="0 0 700 400" role="img" aria-label="Thang bậc ưu tiên theo Điều 18: tàu mất khả năng điều khiển trên cùng, rồi tàu hạn chế khả năng điều động, tàu đánh cá, tàu buồm, tàu máy dưới cùng">
+<svg viewBox="0 0 700 400" role="img" aria-label="Rule 18 ladder: not under command at the top, then restricted in ability to manoeuvre, fishing, sailing, and power-driven at the bottom">
   <g font-family="var(--sans)">
     <rect x="30" y="20" width="640" height="48" rx="3" fill="var(--port-wash)" stroke="var(--port)" stroke-width="1.5"/>
-    <text x="50" y="50" font-size="16.5" font-weight="700" fill="currentColor">1 · Tàu MẤT KHẢ NĂNG ĐIỀU KHIỂN (NUC)</text>
-    <text x="650" y="50" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">2 đèn đỏ · Đ.27(a)</text>
+    <text class="lg-en" x="50" y="50" font-size="16.5" font-weight="700" fill="currentColor">1 · Vessel NOT UNDER COMMAND (NUC)</text>
+    <text class="lg-vi" x="50" y="50" font-size="16.5" font-weight="700" fill="currentColor">1 · Tàu MẤT KHẢ NĂNG ĐIỀU KHIỂN (NUC)</text>
+    <text class="lg-en" x="650" y="50" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">2 red lights · R.27(a)</text>
+    <text class="lg-vi" x="650" y="50" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">2 đèn đỏ · Đ.27(a)</text>
 
     <rect x="30" y="80" width="640" height="48" rx="3" fill="var(--port-wash)" stroke="var(--port)" stroke-width="1.2" opacity=".85"/>
-    <text x="50" y="110" font-size="16.5" font-weight="700" fill="currentColor">2 · Tàu HẠN CHẾ KHẢ NĂNG ĐIỀU ĐỘNG (RAM)</text>
-    <text x="650" y="110" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">đỏ–trắng–đỏ · Đ.27(b)</text>
+    <text class="lg-en" x="50" y="110" font-size="16.5" font-weight="700" fill="currentColor">2 · RESTRICTED IN ABILITY TO MANOEUVRE (RAM)</text>
+    <text class="lg-vi" x="50" y="110" font-size="16.5" font-weight="700" fill="currentColor">2 · Tàu HẠN CHẾ KHẢ NĂNG ĐIỀU ĐỘNG (RAM)</text>
+    <text class="lg-en" x="650" y="110" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">red–white–red · R.27(b)</text>
+    <text class="lg-vi" x="650" y="110" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">đỏ–trắng–đỏ · Đ.27(b)</text>
 
     <rect x="30" y="140" width="640" height="48" rx="3" fill="var(--sand-wash)" stroke="var(--sand)" stroke-width="1.2"/>
-    <text x="50" y="170" font-size="16.5" font-weight="700" fill="currentColor">3 · Tàu ĐANG ĐÁNH CÁ</text>
-    <text x="650" y="170" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">xanh/đỏ trên trắng · Đ.26</text>
+    <text class="lg-en" x="50" y="170" font-size="16.5" font-weight="700" fill="currentColor">3 · Vessel ENGAGED IN FISHING</text>
+    <text class="lg-vi" x="50" y="170" font-size="16.5" font-weight="700" fill="currentColor">3 · Tàu ĐANG ĐÁNH CÁ</text>
+    <text class="lg-en" x="650" y="170" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">green/red over white · R.26</text>
+    <text class="lg-vi" x="650" y="170" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">xanh/đỏ trên trắng · Đ.26</text>
 
     <rect x="30" y="200" width="640" height="48" rx="3" fill="var(--deep-wash)" stroke="var(--deep)" stroke-width="1.2"/>
-    <text x="50" y="230" font-size="16.5" font-weight="700" fill="currentColor">4 · Tàu BUỒM</text>
-    <text x="650" y="230" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">không có đèn cột · Đ.25</text>
+    <text class="lg-en" x="50" y="230" font-size="16.5" font-weight="700" fill="currentColor">4 · SAILING VESSEL</text>
+    <text class="lg-vi" x="50" y="230" font-size="16.5" font-weight="700" fill="currentColor">4 · Tàu BUỒM</text>
+    <text class="lg-en" x="650" y="230" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">no masthead light · R.25</text>
+    <text class="lg-vi" x="650" y="230" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">không có đèn cột · Đ.25</text>
 
     <rect x="30" y="260" width="640" height="48" rx="3" fill="var(--rule-soft)" stroke="var(--ink-3)" stroke-width="1.2"/>
-    <text x="50" y="290" font-size="16.5" font-weight="700" fill="currentColor">5 · Tàu MÁY — tránh tất cả bên trên</text>
-    <text x="650" y="290" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">Đ.18(a)</text>
+    <text class="lg-en" x="50" y="290" font-size="16.5" font-weight="700" fill="currentColor">5 · POWER-DRIVEN VESSEL — keeps clear of all above</text>
+    <text class="lg-vi" x="50" y="290" font-size="16.5" font-weight="700" fill="currentColor">5 · Tàu MÁY — tránh tất cả bên trên</text>
+    <text x="650" y="290" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end"><tspan class="lg-en">R.18(a)</tspan><tspan class="lg-vi">Đ.18(a)</tspan></text>
 
-    <!-- CBD: khong nam trong thang -->
     <rect x="30" y="326" width="640" height="58" rx="3" fill="var(--surface-2)" stroke="var(--sand)" stroke-width="1.6" stroke-dasharray="7 4"/>
-    <text x="50" y="352" font-size="15" font-weight="700" fill="currentColor">Tàu BỊ HẠN CHẾ BỞI MỚN NƯỚC (CBD) — KHÔNG nằm trong thang</text>
-    <text x="50" y="372" font-size="13.5" fill="var(--ink-2)">Các tàu khác chỉ phải "tránh cản trở" nó, nhẹ hơn "nhường đường"</text>
-    <text x="650" y="372" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">3 đèn đỏ · Đ.18(d)</text>
+    <text class="lg-en" x="50" y="352" font-size="15" font-weight="700" fill="currentColor">Vessel CONSTRAINED BY HER DRAUGHT (CBD) — NOT on the ladder</text>
+    <text class="lg-vi" x="50" y="352" font-size="15" font-weight="700" fill="currentColor">Tàu BỊ HẠN CHẾ BỞI MỚN NƯỚC (CBD) — KHÔNG nằm trong thang</text>
+    <text class="lg-en" x="50" y="372" font-size="13.5" fill="var(--ink-2)">Others must only "avoid impeding" her — a lighter duty than keeping out of the way</text>
+    <text class="lg-vi" x="50" y="372" font-size="13.5" fill="var(--ink-2)">Các tàu khác chỉ phải "tránh cản trở" nó, nhẹ hơn "nhường đường"</text>
+    <text class="lg-en" x="650" y="372" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">3 red lights · R.18(d)</text>
+    <text class="lg-vi" x="650" y="372" font-size="12.5" font-family="var(--mono)" fill="var(--ink-3)" text-anchor="end">3 đèn đỏ · Đ.18(d)</text>
   </g>
 </svg>
-<figcaption><b>Đ.18 có một cái bẫy ở ngay dòng đầu:</b> "<b>Trừ khi Đ.9, Đ.10 và Đ.13 quy định khác</b>". Nghĩa là trong <b>luồng hẹp</b>, trong <b>hệ thống phân luồng</b>, và khi <b>vượt</b>, thang này không đảo vai — anh vượt một tàu đánh cá thì anh vẫn là tàu phải nhường đường.</figcaption>
+<figcaption>
+<span class="lg-en"><b>Rule 18 has a trap in its very first line:</b> "<b>Except where Rules 9, 10 and 13 otherwise require</b>". So in a <b>narrow channel</b>, in a <b>traffic separation scheme</b>, and when <b>overtaking</b>, this ladder does not reverse the roles — overtake a fishing vessel and you are still the one who keeps out of the way.</span>
+<span class="lg-vi"><b>Đ.18 có một cái bẫy ở ngay dòng đầu:</b> "<b>Trừ khi Đ.9, Đ.10 và Đ.13 quy định khác</b>". Nghĩa là trong <b>luồng hẹp</b>, trong <b>hệ thống phân luồng</b>, và khi <b>vượt</b>, thang này không đảo vai — anh vượt một tàu đánh cá thì anh vẫn là tàu phải nhường đường.</span>
+</figcaption>
 </figure>
 
 <div class="rule-box warn">
-<h4>Phân biệt hai chữ dễ lẫn</h4>
-<p><b>"Phải nhường đường" (keep out of the way)</b> — nghĩa vụ đầy đủ, tàu kia có quyền giữ nguyên hướng đi và tốc độ.</p>
-<p style="margin-bottom:0"><b>"Không được cản trở" (not impede)</b> — nhẹ hơn: điều động <b>sớm</b> để chừa đủ nước cho nó đi, nhưng nếu đã đến mức có nguy cơ đâm va thì <b>hai bên quay lại đủ các điều đi đường bình thường</b> (Đ.8(f)). Dùng cho tàu bị hạn chế bởi mớn nước, luồng hẹp, phân luồng.</p>
+<h4><span class="lg-en">Two phrases that are easy to confuse</span><span class="lg-vi">Phân biệt hai chữ dễ lẫn</span></h4>
+<p class="lg-en"><b>"Keep out of the way"</b> — the full duty; the other vessel is entitled to keep her course and speed.</p>
+<p class="lg-vi"><b>"Phải nhường đường" (keep out of the way)</b> — nghĩa vụ đầy đủ, tàu kia có quyền giữ nguyên hướng đi và tốc độ.</p>
+<p class="lg-en" style="margin-bottom:0"><b>"Not impede"</b> — lighter: take <b>early</b> action to leave enough sea room for her safe passage; but once risk of collision exists, <b>both are back under the full steering and sailing rules</b> (Rule 8(f)). Used for vessels constrained by draught, narrow channels and separation schemes.</p>
+<p class="lg-vi" style="margin-bottom:0"><b>"Không được cản trở" (not impede)</b> — nhẹ hơn: điều động <b>sớm</b> để chừa đủ nước cho nó đi, nhưng nếu đã đến mức có nguy cơ đâm va thì <b>hai bên quay lại đủ các điều đi đường bình thường</b> (Đ.8(f)). Dùng cho tàu bị hạn chế bởi mớn nước, luồng hẹp, phân luồng.</p>
 </div>
 </section>
 
@@ -776,49 +935,63 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 
 <!-- ================= 6. TAM NHIN HAN CHE ================= -->
 <section id="mu">
-<span class="eyebrow">Đ.19</span>
-<h2>Sương mù: luật đổi hẳn, không phải đổi một ít</h2>
-<p class="sub">Đ.19 áp cho tàu <b>không nhìn thấy nhau</b>. Vừa mất mắt là toàn bộ Mục II (Đ.11–18) tắt: không còn tàu nhường đường, không còn tàu được nhường đường.</p>
+<span class="eyebrow">R.19</span>
+<h2 class="lg-en">Fog: the rules change completely, not a little</h2>
+<h2 class="lg-vi">Sương mù: luật đổi hẳn, không phải đổi một ít</h2>
+<p class="sub lg-en">Rule 19 applies to vessels <b>not in sight of one another</b>. The moment you lose sight, the whole of Section II (Rules 11–18) switches off: there is no give-way vessel and no stand-on vessel.</p>
+<p class="sub lg-vi">Đ.19 áp cho tàu <b>không nhìn thấy nhau</b>. Vừa mất mắt là toàn bộ Mục II (Đ.11–18) tắt: không còn tàu nhường đường, không còn tàu được nhường đường.</p>
 
 <figure>
-<svg viewBox="0 0 700 326" role="img" aria-label="So sánh: khi nhìn thấy nhau có phân vai nhường đường, khi tầm nhìn hạn chế không còn phân vai và có hai điều phải tránh khi bẻ lái">
+<svg viewBox="0 0 700 326" role="img" aria-label="Comparison: in sight of one another there are roles; in restricted visibility there are no roles and two alterations to avoid">
   <defs>
     <marker id="ok19" markerWidth="9" markerHeight="9" refX="4.5" refY="3.6" orient="auto"><path d="M0 0 L9 3.6 L0 7.2 z" fill="var(--stbd)"/></marker>
     <marker id="no19" markerWidth="9" markerHeight="9" refX="4.5" refY="3.6" orient="auto"><path d="M0 0 L9 3.6 L0 7.2 z" fill="var(--port)"/></marker>
   </defs>
   <line x1="350" y1="16" x2="350" y2="300" stroke="currentColor" stroke-width="1" opacity=".2"/>
-  <!-- trai -->
-  <text x="30" y="36" font-size="14.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">NHÌN THẤY NHAU — Mục II</text>
+  <text class="lg-en" x="30" y="36" font-size="14.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">IN SIGHT OF ONE ANOTHER — Section II</text>
+  <text class="lg-vi" x="30" y="36" font-size="14.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)">NHÌN THẤY NHAU — Mục II</text>
   <polygon points="120,196 132,214 132,238 108,238 108,214" fill="currentColor"/>
   <circle cx="108.5" cy="219" r="4.2" fill="var(--port)"/><circle cx="131.5" cy="219" r="4.2" fill="var(--stbd)"/>
   <polygon points="250,112 262,130 262,154 238,154 238,130" fill="currentColor"/>
-  <text x="120" y="262" font-size="13" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">nhường đường</text>
-  <text x="250" y="102" font-size="13" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">giữ nguyên</text>
+  <text class="lg-en" x="120" y="262" font-size="13" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">gives way</text>
+  <text class="lg-vi" x="120" y="262" font-size="13" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">nhường đường</text>
+  <text class="lg-en" x="250" y="102" font-size="13" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">stands on</text>
+  <text class="lg-vi" x="250" y="102" font-size="13" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">giữ nguyên</text>
   <line x1="128" y1="200" x2="238" y2="140" stroke="var(--stbd)" stroke-width="1.4" stroke-dasharray="6 4"/>
-  <text x="176" y="182" font-size="12.5" font-family="var(--mono)" fill="var(--stbd)" text-anchor="middle">CÓ vai</text>
-  <!-- phai -->
-  <text x="380" y="36" font-size="14.5" font-family="var(--sans)" font-weight="700" fill="var(--port)">KHÔNG NHÌN THẤY NHAU — Đ.19</text>
+  <text class="lg-en" x="176" y="182" font-size="12.5" font-family="var(--mono)" fill="var(--stbd)" text-anchor="middle">roles EXIST</text>
+  <text class="lg-vi" x="176" y="182" font-size="12.5" font-family="var(--mono)" fill="var(--stbd)" text-anchor="middle">CÓ vai</text>
+  <text class="lg-en" x="380" y="36" font-size="14.5" font-family="var(--sans)" font-weight="700" fill="var(--port)">NOT IN SIGHT — Rule 19</text>
+  <text class="lg-vi" x="380" y="36" font-size="14.5" font-family="var(--sans)" font-weight="700" fill="var(--port)">KHÔNG NHÌN THẤY NHAU — Đ.19</text>
   <circle cx="520" cy="166" r="104" fill="var(--rule-soft)" opacity=".5"/>
   <circle cx="520" cy="166" r="70" fill="none" stroke="var(--ink-3)" stroke-width="1" stroke-dasharray="4 4" opacity=".6"/>
   <circle cx="520" cy="166" r="36" fill="none" stroke="var(--ink-3)" stroke-width="1" stroke-dasharray="4 4" opacity=".6"/>
   <line x1="410" y1="166" x2="634" y2="166" stroke="var(--ink-3)" stroke-width="1.2" stroke-dasharray="6 4"/>
-  <text x="410" y="158" font-size="12" font-family="var(--mono)" fill="var(--ink-3)">trục ngang</text>
+  <text class="lg-en" x="410" y="158" font-size="12" font-family="var(--mono)" fill="var(--ink-3)">the beam</text>
+  <text class="lg-vi" x="410" y="158" font-size="12" font-family="var(--mono)" fill="var(--ink-3)">trục ngang</text>
   <polygon points="520,140 532,158 532,182 508,182 508,158" fill="currentColor"/>
   <circle cx="480" cy="116" r="7" fill="var(--ink)"/>
   <text x="498" y="112" font-size="13" font-family="var(--sans)" font-weight="700" fill="currentColor">B</text>
   <path d="M506 136 C486 124, 470 116, 452 104" fill="none" stroke="var(--port)" stroke-width="2.6" stroke-dasharray="7 4" marker-end="url(#no19)"/>
   <path d="M534 136 C556 126, 574 114, 588 100" fill="none" stroke="var(--stbd)" stroke-width="3" marker-end="url(#ok19)"/>
-  <text x="440" y="80" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--port)" text-anchor="end">✗ bẻ TRÁI</text>
-  <text x="632" y="80" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)" text-anchor="end">✓ bẻ PHẢI</text>
-  <text x="520" y="292" font-size="13" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">✗ tránh bẻ trái với tàu ở TRƯỚC trục ngang</text>
-  <text x="520" y="310" font-size="13" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">✗ tránh bẻ VỀ PHÍA tàu ở ngang / sau trục ngang</text>
+  <text class="lg-en" x="440" y="80" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--port)" text-anchor="end">✗ to PORT</text>
+  <text class="lg-vi" x="440" y="80" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--port)" text-anchor="end">✗ bẻ TRÁI</text>
+  <text class="lg-en" x="632" y="80" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)" text-anchor="end">✓ to STARBOARD</text>
+  <text class="lg-vi" x="632" y="80" font-size="13.5" font-family="var(--sans)" font-weight="700" fill="var(--stbd)" text-anchor="end">✓ bẻ PHẢI</text>
+  <text class="lg-en" x="520" y="292" font-size="13" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">✗ avoid altering to port for a vessel FORWARD of the beam</text>
+  <text class="lg-vi" x="520" y="292" font-size="13" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">✗ tránh bẻ trái với tàu ở TRƯỚC trục ngang</text>
+  <text class="lg-en" x="520" y="310" font-size="13" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">✗ avoid altering TOWARDS a vessel abeam / abaft the beam</text>
+  <text class="lg-vi" x="520" y="310" font-size="13" font-family="var(--sans)" fill="var(--ink-2)" text-anchor="middle">✗ tránh bẻ VỀ PHÍA tàu ở ngang / sau trục ngang</text>
 </svg>
-<figcaption><b>Hai điều tránh của Đ.19(d)</b> chỉ áp cho tàu <b>phát hiện bằng radar</b> (chưa nhìn thấy nhau) và nguyên văn là "chừng nào có thể, <b>phải tránh</b>" chứ không phải cấm tuyệt đối: <b>(i)</b> tránh bẻ trái với tàu trước trục ngang — trừ tàu đang bị vượt; <b>(ii)</b> tránh bẻ về phía tàu ở ngang hoặc sau trục ngang.</figcaption>
+<figcaption>
+<span class="lg-en"><b>The two alterations to avoid under Rule 19(d)</b> apply to a vessel detected <b>by radar alone</b> (not yet in sight), and the wording is "so far as possible <b>shall be avoided</b>" — not an absolute prohibition: <b>(i)</b> altering to port for a vessel forward of the beam, other than for a vessel being overtaken; <b>(ii)</b> altering towards a vessel abeam or abaft the beam.</span>
+<span class="lg-vi"><b>Hai điều tránh của Đ.19(d)</b> chỉ áp cho tàu <b>phát hiện bằng radar</b> (chưa nhìn thấy nhau) và nguyên văn là "chừng nào có thể, <b>phải tránh</b>" chứ không phải cấm tuyệt đối: <b>(i)</b> tránh bẻ trái với tàu trước trục ngang — trừ tàu đang bị vượt; <b>(ii)</b> tránh bẻ về phía tàu ở ngang hoặc sau trục ngang.</span>
+</figcaption>
 </figure>
 
 <div class="rule-box">
-<h4>Đ.19(e) — cái phanh cuối cùng</h4>
-<p style="margin-bottom:0">Nghe tín hiệu sương mù <b>ở phía trước trục ngang</b>, hoặc không tránh được tình huống quá gần với tàu ở trước trục ngang ⇒ <b>giảm tới tốc độ tối thiểu còn giữ được hướng</b>; nếu cần thì <b>phá hết trớn</b>, và điều động cực kỳ thận trọng cho tới khi hết nguy cơ. Không có ngoại lệ "vì tôi là tàu được nhường đường" — trong sương mù không ai được nhường đường cả.</p>
+<h4><span class="lg-en">Rule 19(e) — the last brake</span><span class="lg-vi">Đ.19(e) — cái phanh cuối cùng</span></h4>
+<p class="lg-en" style="margin-bottom:0">If you hear a fog signal <b>apparently forward of your beam</b>, or cannot avoid a close-quarters situation with a vessel forward of the beam ⇒ <b>reduce to the minimum speed at which you can be kept on course</b>; if necessary <b>take all way off</b>, and navigate with extreme caution until the danger of collision is over. There is no "but I am the stand-on vessel" — in fog nobody stands on.</p>
+<p class="lg-vi" style="margin-bottom:0">Nghe tín hiệu sương mù <b>ở phía trước trục ngang</b>, hoặc không tránh được tình huống quá gần với tàu ở trước trục ngang ⇒ <b>giảm tới tốc độ tối thiểu còn giữ được hướng</b>; nếu cần thì <b>phá hết trớn</b>, và điều động cực kỳ thận trọng cho tới khi hết nguy cơ. Không có ngoại lệ "vì tôi là tàu được nhường đường" — trong sương mù không ai được nhường đường cả.</p>
 </div>
 </section>
 
@@ -826,64 +999,90 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 
 <!-- ================= 7. COI ================= -->
 <section id="coi">
-<span class="eyebrow">Đ.32 · Đ.34 · Đ.35</span>
-<h2>Còi — đọc bằng mắt thay vì học vẹt</h2>
-<p class="sub">Đ.32: <b>tiếng ngắn ≈ 1 giây</b>; <b>tiếng dài 4–6 giây</b>. Vẽ ra thì cả bảng tín hiệu chỉ là hai loại gạch.</p>
+<span class="eyebrow">R.32 · R.34 · R.35</span>
+<h2 class="lg-en">Whistle signals — read them with your eyes, don't memorise them</h2>
+<h2 class="lg-vi">Còi — đọc bằng mắt thay vì học vẹt</h2>
+<p class="sub lg-en">Rule 32: a <b>short blast is about 1 second</b>; a <b>prolonged blast is 4 to 6 seconds</b>. Drawn out, the whole signal table is just two kinds of bar.</p>
+<p class="sub lg-vi">Đ.32: <b>tiếng ngắn ≈ 1 giây</b>; <b>tiếng dài 4–6 giây</b>. Vẽ ra thì cả bảng tín hiệu chỉ là hai loại gạch.</p>
 
-<h3>Khi NHÌN THẤY NHAU — tín hiệu điều động (Đ.34)</h3>
+<h3 class="lg-en">In sight of one another — manoeuvring signals (Rule 34)</h3>
+<h3 class="lg-vi">Khi NHÌN THẤY NHAU — tín hiệu điều động (Đ.34)</h3>
 <div class="tbl-wrap">
 <table>
-<tr><th style="width:190px">Tín hiệu</th><th>Nghĩa</th><th style="width:96px">Điều</th></tr>
-<tr><td><span class="sig"><i class="s"></i></span></td><td><b>Tôi đang bẻ phải</b></td><td class="num">34(a)</td></tr>
-<tr><td><span class="sig"><i class="s"></i><i class="s"></i></span></td><td><b>Tôi đang bẻ trái</b></td><td class="num">34(a)</td></tr>
-<tr><td><span class="sig"><i class="s"></i><i class="s"></i><i class="s"></i></span></td><td><b>Tôi đang chạy lùi</b> (chân vịt lùi — chưa chắc tàu đã lùi)</td><td class="num">34(a)</td></tr>
-<tr><td><span class="sig"><i class="s"></i><i class="s"></i><i class="s"></i><i class="s"></i><i class="s"></i></span></td><td><b>Tôi không hiểu ý anh / anh làm chưa đủ để tránh va</b> — ít nhất 5 tiếng ngắn và nhanh</td><td class="num">34(d)</td></tr>
-<tr><td><span class="sig"><i class="l"></i><i class="l"></i><i class="s"></i></span></td><td>Luồng hẹp: <b>tôi định vượt qua mạn PHẢI của anh</b></td><td class="num">34(c)(i)</td></tr>
-<tr><td><span class="sig"><i class="l"></i><i class="l"></i><i class="s"></i><i class="s"></i></span></td><td>Luồng hẹp: <b>tôi định vượt qua mạn TRÁI của anh</b></td><td class="num">34(c)(i)</td></tr>
-<tr><td><span class="sig"><i class="l"></i><i class="s"></i><i class="l"></i><i class="s"></i></span></td><td>Tàu bị vượt trả lời: <b>đồng ý, mời vượt</b></td><td class="num">34(c)(ii)</td></tr>
-<tr><td><span class="sig"><i class="l"></i></span></td><td>Sắp tới <b>khúc quanh</b> khuất tầm nhìn — tàu bên kia khúc quanh phải đáp lại 1 tiếng dài</td><td class="num">34(e)</td></tr>
+<tr><th style="width:190px"><span class="lg-en">Signal</span><span class="lg-vi">Tín hiệu</span></th>
+    <th><span class="lg-en">Meaning</span><span class="lg-vi">Nghĩa</span></th>
+    <th style="width:96px"><span class="lg-en">Rule</span><span class="lg-vi">Điều</span></th></tr>
+<tr><td><span class="sig"><i class="s"></i></span></td>
+  <td><b class="lg-en">I am altering my course to starboard</b><b class="lg-vi">Tôi đang bẻ phải</b></td><td class="num">34(a)</td></tr>
+<tr><td><span class="sig"><i class="s"></i><i class="s"></i></span></td>
+  <td><b class="lg-en">I am altering my course to port</b><b class="lg-vi">Tôi đang bẻ trái</b></td><td class="num">34(a)</td></tr>
+<tr><td><span class="sig"><i class="s"></i><i class="s"></i><i class="s"></i></span></td>
+  <td><span class="lg-en"><b>I am operating astern propulsion</b> (the engine is going astern — the ship may not be yet)</span><span class="lg-vi"><b>Tôi đang chạy lùi</b> (chân vịt lùi — chưa chắc tàu đã lùi)</span></td><td class="num">34(a)</td></tr>
+<tr><td><span class="sig"><i class="s"></i><i class="s"></i><i class="s"></i><i class="s"></i><i class="s"></i></span></td>
+  <td><span class="lg-en"><b>I do not understand your intentions / you are not taking sufficient action</b> — at least five short and rapid blasts</span><span class="lg-vi"><b>Tôi không hiểu ý anh / anh làm chưa đủ để tránh va</b> — ít nhất 5 tiếng ngắn và nhanh</span></td><td class="num">34(d)</td></tr>
+<tr><td><span class="sig"><i class="l"></i><i class="l"></i><i class="s"></i></span></td>
+  <td><span class="lg-en">Narrow channel: <b>I intend to overtake you on your STARBOARD side</b></span><span class="lg-vi">Luồng hẹp: <b>tôi định vượt qua mạn PHẢI của anh</b></span></td><td class="num">34(c)(i)</td></tr>
+<tr><td><span class="sig"><i class="l"></i><i class="l"></i><i class="s"></i><i class="s"></i></span></td>
+  <td><span class="lg-en">Narrow channel: <b>I intend to overtake you on your PORT side</b></span><span class="lg-vi">Luồng hẹp: <b>tôi định vượt qua mạn TRÁI của anh</b></span></td><td class="num">34(c)(i)</td></tr>
+<tr><td><span class="sig"><i class="l"></i><i class="s"></i><i class="l"></i><i class="s"></i></span></td>
+  <td><span class="lg-en">The vessel to be overtaken answers: <b>agreed, come on</b></span><span class="lg-vi">Tàu bị vượt trả lời: <b>đồng ý, mời vượt</b></span></td><td class="num">34(c)(ii)</td></tr>
+<tr><td><span class="sig"><i class="l"></i></span></td>
+  <td><span class="lg-en">Nearing a <b>blind bend</b> — any vessel round the bend answers with one prolonged blast</span><span class="lg-vi">Sắp tới <b>khúc quanh</b> khuất tầm nhìn — tàu bên kia khúc quanh phải đáp lại 1 tiếng dài</span></td><td class="num">34(e)</td></tr>
 </table>
 </div>
 
-<h3>Khi KHÔNG nhìn thấy nhau — tín hiệu sương mù (Đ.35)</h3>
+<h3 class="lg-en">Not in sight of one another — fog signals (Rule 35)</h3>
+<h3 class="lg-vi">Khi KHÔNG nhìn thấy nhau — tín hiệu sương mù (Đ.35)</h3>
 <div class="tbl-wrap">
 <table>
-<tr><th style="width:190px">Tín hiệu · chu kỳ</th><th>Ai phát</th><th style="width:80px">Điều</th></tr>
-<tr><td><span class="sig"><i class="l"></i><span class="sig-note">≤ 2 phút</span></span></td><td>Tàu máy <b>đang có trớn</b></td><td class="num">35(a)</td></tr>
-<tr><td><span class="sig"><i class="l"></i><i class="l"></i><span class="sig-note">≤ 2 phút</span></span></td><td>Tàu máy <b>hành trình nhưng đã dừng trớn</b> (hai tiếng cách nhau ~2 giây)</td><td class="num">35(b)</td></tr>
-<tr><td><span class="sig"><i class="l"></i><i class="s"></i><i class="s"></i><span class="sig-note">≤ 2 phút</span></span></td><td><b>NUC · RAM · bị hạn chế mớn nước · buồm · đánh cá · đang lai kéo</b> — một tín hiệu cho cả nhóm "tàu tôi khó tránh"</td><td class="num">35(c)</td></tr>
-<tr><td><span class="sig"><i class="l"></i><i class="s"></i><i class="s"></i><i class="s"></i></span></td><td><b>Tàu bị lai</b> (nếu có người), phát ngay sau tàu lai</td><td class="num">35(e)</td></tr>
-<tr><td><span class="sig"><i class="bell"></i><i class="bell"></i><i class="bell"></i><i class="bell"></i><span class="sig-note">chuông 5 giây · ≤ 1 phút</span></span></td><td><b>Tàu neo</b>. Tàu ≥ 100 m: chuông ở mũi rồi <b>cồng ở lái</b>. Có thể thêm ngắn–dài–ngắn để cảnh báo tàu đang tới gần</td><td class="num">35(g)</td></tr>
-<tr><td><span class="sig"><i class="bell"></i><span class="sig-note">3 tiếng rời</span><i class="bell"></i><i class="bell"></i><i class="bell"></i><span class="sig-note">3 tiếng rời</span></span></td><td><b>Tàu mắc cạn</b>: 3 tiếng chuông rời — rung chuông — 3 tiếng chuông rời</td><td class="num">35(h)</td></tr>
+<tr><th style="width:190px"><span class="lg-en">Signal · interval</span><span class="lg-vi">Tín hiệu · chu kỳ</span></th>
+    <th><span class="lg-en">Who sounds it</span><span class="lg-vi">Ai phát</span></th>
+    <th style="width:80px"><span class="lg-en">Rule</span><span class="lg-vi">Điều</span></th></tr>
+<tr><td><span class="sig"><i class="l"></i><span class="sig-note lg-en">≤ 2 min</span><span class="sig-note lg-vi">≤ 2 phút</span></span></td>
+  <td><span class="lg-en">Power-driven vessel <b>making way</b> through the water</span><span class="lg-vi">Tàu máy <b>đang có trớn</b></span></td><td class="num">35(a)</td></tr>
+<tr><td><span class="sig"><i class="l"></i><i class="l"></i><span class="sig-note lg-en">≤ 2 min</span><span class="sig-note lg-vi">≤ 2 phút</span></span></td>
+  <td><span class="lg-en">Power-driven vessel <b>underway but stopped, making no way</b> (about 2 s between blasts)</span><span class="lg-vi">Tàu máy <b>hành trình nhưng đã dừng trớn</b> (hai tiếng cách nhau ~2 giây)</span></td><td class="num">35(b)</td></tr>
+<tr><td><span class="sig"><i class="l"></i><i class="s"></i><i class="s"></i><span class="sig-note lg-en">≤ 2 min</span><span class="sig-note lg-vi">≤ 2 phút</span></span></td>
+  <td><span class="lg-en"><b>NUC · RAM · constrained by draught · sailing · fishing · towing or pushing</b> — one signal for the whole "I can't get out of your way" group</span><span class="lg-vi"><b>NUC · RAM · bị hạn chế mớn nước · buồm · đánh cá · đang lai kéo</b> — một tín hiệu cho cả nhóm "tàu tôi khó tránh"</span></td><td class="num">35(c)</td></tr>
+<tr><td><span class="sig"><i class="l"></i><i class="s"></i><i class="s"></i><i class="s"></i></span></td>
+  <td><span class="lg-en"><b>Vessel being towed</b> (if manned), immediately after the towing vessel</span><span class="lg-vi"><b>Tàu bị lai</b> (nếu có người), phát ngay sau tàu lai</span></td><td class="num">35(e)</td></tr>
+<tr><td><span class="sig"><i class="bell"></i><i class="bell"></i><i class="bell"></i><i class="bell"></i><span class="sig-note lg-en">bell 5 s · ≤ 1 min</span><span class="sig-note lg-vi">chuông 5 giây · ≤ 1 phút</span></span></td>
+  <td><span class="lg-en"><b>Vessel at anchor</b>. If ≥ 100 m: bell forward then <b>gong aft</b>. May add short–prolonged–short to warn an approaching vessel</span><span class="lg-vi"><b>Tàu neo</b>. Tàu ≥ 100 m: chuông ở mũi rồi <b>cồng ở lái</b>. Có thể thêm ngắn–dài–ngắn để cảnh báo tàu đang tới gần</span></td><td class="num">35(g)</td></tr>
+<tr><td><span class="sig"><i class="bell"></i><span class="sig-note lg-en">3 strokes</span><span class="sig-note lg-vi">3 tiếng rời</span><i class="bell"></i><i class="bell"></i><i class="bell"></i><span class="sig-note lg-en">3 strokes</span><span class="sig-note lg-vi">3 tiếng rời</span></span></td>
+  <td><span class="lg-en"><b>Vessel aground</b>: three separate strokes — rapid ringing — three separate strokes</span><span class="lg-vi"><b>Tàu mắc cạn</b>: 3 tiếng chuông rời — rung chuông — 3 tiếng chuông rời</span></td><td class="num">35(h)</td></tr>
 </table>
 </div>
-<p class="sub" style="font-size:16px"><b>Mẹo nhớ Đ.35(c):</b> một tiếng dài là "tôi đang chạy"; thêm hai tiếng ngắn là "nhưng tôi không tránh được cho anh". Ai không tránh được thì cùng phát một tín hiệu — khỏi phải nhớ sáu loại tàu riêng lẻ.</p>
+<p class="sub lg-en" style="font-size:16px"><b>A way to remember Rule 35(c):</b> one prolonged blast says "I am under way"; the two short blasts after it say "but I cannot get out of your way". Everyone who can't manoeuvre freely sounds the same signal — no need to memorise six separate types of vessel.</p>
+<p class="sub lg-vi" style="font-size:16px"><b>Mẹo nhớ Đ.35(c):</b> một tiếng dài là "tôi đang chạy"; thêm hai tiếng ngắn là "nhưng tôi không tránh được cho anh". Ai không tránh được thì cùng phát một tín hiệu — khỏi phải nhớ sáu loại tàu riêng lẻ.</p>
 </section>
 
 <hr class="sep">
 
 <!-- ================= 8. COT DEN ================= -->
 <section id="cot">
-<span class="eyebrow">Đ.24 – Đ.30</span>
-<h2>Nhìn cột đèn, gọi tên tàu</h2>
-<p class="sub">Các đèn dưới đây là <b>đèn chiếu vòng quanh 360°</b> treo thẳng đứng ở chỗ dễ thấy nhất, nên nhìn từ hướng nào cũng đọc được. Ban ngày mỗi loại có một bộ dấu hiệu tương ứng.</p>
+<span class="eyebrow">R.24 – R.30</span>
+<h2 class="lg-en">Read the light stack, name the vessel</h2>
+<h2 class="lg-vi">Nhìn cột đèn, gọi tên tàu</h2>
+<p class="sub lg-en">The lights below are <b>all-round lights</b> in a vertical line, carried where they are best seen — so they read the same from any direction. By day each has its own set of shapes.</p>
+<p class="sub lg-vi">Các đèn dưới đây là <b>đèn chiếu vòng quanh 360°</b> treo thẳng đứng ở chỗ dễ thấy nhất, nên nhìn từ hướng nào cũng đọc được. Ban ngày mỗi loại có một bộ dấu hiệu tương ứng.</p>
 
 <div class="grid g4">
 
   <div class="stack-card">
-    <svg viewBox="0 0 100 130" role="img" aria-label="Hai đèn đỏ thẳng đứng: tàu mất khả năng điều khiển">
+    <svg viewBox="0 0 100 130" role="img" aria-label="Two red lights in a vertical line: vessel not under command">
       <line x1="50" y1="18" x2="50" y2="112" stroke="currentColor" stroke-width="2.5"/>
       <circle cx="50" cy="34" r="11" fill="var(--port)"/>
       <circle cx="50" cy="66" r="11" fill="var(--port)"/>
       <circle cx="82" cy="34" r="9" fill="currentColor"/><circle cx="82" cy="60" r="9" fill="currentColor"/>
     </svg>
-    <h4>Mất khả năng điều khiển</h4>
-    <span class="rl">NUC · Đ.27(a)</span>
-    <p class="hook">Hai đèn <b>đỏ</b>. Ngày: <b>2 quả cầu đen</b>. Nhớ: <i>hai đỏ — tàu chết máy</i>.</p>
+    <h4 class="lg-en">Not under command</h4><h4 class="lg-vi">Mất khả năng điều khiển</h4>
+    <span class="rl"><span class="lg-en">NUC · R.27(a)</span><span class="lg-vi">NUC · Đ.27(a)</span></span>
+    <p class="hook lg-en">Two <b>red</b> lights. By day: <b>2 black balls</b>. Remember: <i>red over red — the captain is dead</i>.</p>
+    <p class="hook lg-vi">Hai đèn <b>đỏ</b>. Ngày: <b>2 quả cầu đen</b>. Nhớ: <i>hai đỏ — tàu chết máy</i>.</p>
   </div>
 
   <div class="stack-card">
-    <svg viewBox="0 0 100 130" role="img" aria-label="Đèn đỏ trắng đỏ thẳng đứng: tàu hạn chế khả năng điều động">
+    <svg viewBox="0 0 100 130" role="img" aria-label="Red, white and red lights in a vertical line: vessel restricted in her ability to manoeuvre">
       <line x1="50" y1="18" x2="50" y2="112" stroke="currentColor" stroke-width="2.5"/>
       <circle cx="50" cy="30" r="11" fill="var(--port)"/>
       <circle cx="50" cy="58" r="11" fill="var(--lamp)" stroke="var(--lamp-ring)" stroke-width="1.5"/>
@@ -892,99 +1091,109 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
       <polygon points="82,50 90,58 82,66 74,58" fill="currentColor"/>
       <circle cx="82" cy="86" r="8.5" fill="currentColor"/>
     </svg>
-    <h4>Hạn chế khả năng điều động</h4>
-    <span class="rl">RAM · Đ.27(b)</span>
-    <p class="hook"><b>Đỏ–trắng–đỏ</b>. Ngày: <b>cầu–thoi–cầu</b>. Nạo vét, rải cáp, tiếp dầu trên biển.</p>
+    <h4 class="lg-en">Restricted in ability to manoeuvre</h4><h4 class="lg-vi">Hạn chế khả năng điều động</h4>
+    <span class="rl"><span class="lg-en">RAM · R.27(b)</span><span class="lg-vi">RAM · Đ.27(b)</span></span>
+    <p class="hook lg-en"><b>Red–white–red</b>. By day: <b>ball–diamond–ball</b>. Dredging, cable-laying, replenishment at sea.</p>
+    <p class="hook lg-vi"><b>Đỏ–trắng–đỏ</b>. Ngày: <b>cầu–thoi–cầu</b>. Nạo vét, rải cáp, tiếp dầu trên biển.</p>
   </div>
 
   <div class="stack-card">
-    <svg viewBox="0 0 100 130" role="img" aria-label="Ba đèn đỏ thẳng đứng: tàu bị hạn chế bởi mớn nước">
+    <svg viewBox="0 0 100 130" role="img" aria-label="Three red lights in a vertical line: vessel constrained by her draught">
       <line x1="50" y1="18" x2="50" y2="112" stroke="currentColor" stroke-width="2.5"/>
       <circle cx="50" cy="30" r="11" fill="var(--port)"/>
       <circle cx="50" cy="58" r="11" fill="var(--port)"/>
       <circle cx="50" cy="86" r="11" fill="var(--port)"/>
       <rect x="74" y="44" width="17" height="28" fill="currentColor"/>
     </svg>
-    <h4>Bị hạn chế bởi mớn nước</h4>
-    <span class="rl">CBD · Đ.28</span>
-    <p class="hook"><b>Ba đèn đỏ</b>. Ngày: <b>hình trụ</b>. Đèn này là "được phép", không bắt buộc.</p>
+    <h4 class="lg-en">Constrained by her draught</h4><h4 class="lg-vi">Bị hạn chế bởi mớn nước</h4>
+    <span class="rl"><span class="lg-en">CBD · R.28</span><span class="lg-vi">CBD · Đ.28</span></span>
+    <p class="hook lg-en"><b>Three red lights</b>. By day: a <b>cylinder</b>. Note the rule says "may exhibit" — it is optional.</p>
+    <p class="hook lg-vi"><b>Ba đèn đỏ</b>. Ngày: <b>hình trụ</b>. Đèn này là "được phép", không bắt buộc.</p>
   </div>
 
   <div class="stack-card">
-    <svg viewBox="0 0 100 130" role="img" aria-label="Đèn xanh lục trên trắng: tàu đang kéo lưới vét">
+    <svg viewBox="0 0 100 130" role="img" aria-label="Green over white lights: vessel engaged in trawling">
       <line x1="50" y1="18" x2="50" y2="112" stroke="currentColor" stroke-width="2.5"/>
       <circle cx="50" cy="36" r="11" fill="var(--stbd)"/>
       <circle cx="50" cy="66" r="11" fill="var(--lamp)" stroke="var(--lamp-ring)" stroke-width="1.5"/>
       <polygon points="73,29 91,29 82,46" fill="currentColor"/>
       <polygon points="82,46 91,63 73,63" fill="currentColor"/>
     </svg>
-    <h4>Đánh cá — lưới vét</h4>
-    <span class="rl">Trawler · Đ.26(b)</span>
-    <p class="hook"><b>Xanh lục trên trắng</b>. Ngày: <b>hai nón chụm đỉnh</b>.</p>
+    <h4 class="lg-en">Fishing — trawling</h4><h4 class="lg-vi">Đánh cá — lưới vét</h4>
+    <span class="rl"><span class="lg-en">Trawler · R.26(b)</span><span class="lg-vi">Trawler · Đ.26(b)</span></span>
+    <p class="hook lg-en"><b>Green over white</b>. By day: <b>two cones apexes together</b>.</p>
+    <p class="hook lg-vi"><b>Xanh lục trên trắng</b>. Ngày: <b>hai nón chụm đỉnh</b>.</p>
   </div>
 
   <div class="stack-card">
-    <svg viewBox="0 0 100 130" role="img" aria-label="Đèn đỏ trên trắng: tàu đánh cá không phải lưới vét">
+    <svg viewBox="0 0 100 130" role="img" aria-label="Red over white lights: vessel engaged in fishing other than trawling">
       <line x1="50" y1="18" x2="50" y2="112" stroke="currentColor" stroke-width="2.5"/>
       <circle cx="50" cy="36" r="11" fill="var(--port)"/>
       <circle cx="50" cy="66" r="11" fill="var(--lamp)" stroke="var(--lamp-ring)" stroke-width="1.5"/>
       <polygon points="73,29 91,29 82,46" fill="currentColor"/>
       <polygon points="82,46 91,63 73,63" fill="currentColor"/>
     </svg>
-    <h4>Đánh cá — loại khác</h4>
-    <span class="rl">Đ.26(c)</span>
-    <p class="hook"><b>Đỏ trên trắng</b>. Ngư cụ vươn xa hơn <b>150 m</b> thì thêm 1 đèn trắng (ngày: nón đỉnh hướng lên) chỉ về phía ngư cụ.</p>
+    <h4 class="lg-en">Fishing — other than trawling</h4><h4 class="lg-vi">Đánh cá — loại khác</h4>
+    <span class="rl"><span class="lg-en">R.26(c)</span><span class="lg-vi">Đ.26(c)</span></span>
+    <p class="hook lg-en"><b>Red over white</b>. With gear extending more than <b>150 m</b> horizontally, add a white light (by day a cone apex up) in the direction of the gear.</p>
+    <p class="hook lg-vi"><b>Đỏ trên trắng</b>. Ngư cụ vươn xa hơn <b>150 m</b> thì thêm 1 đèn trắng (ngày: nón đỉnh hướng lên) chỉ về phía ngư cụ.</p>
   </div>
 
   <div class="stack-card">
-    <svg viewBox="0 0 100 130" role="img" aria-label="Đèn trắng trên đỏ: tàu hoa tiêu đang làm nhiệm vụ">
+    <svg viewBox="0 0 100 130" role="img" aria-label="White over red lights: pilot vessel on pilotage duty">
       <line x1="50" y1="18" x2="50" y2="112" stroke="currentColor" stroke-width="2.5"/>
       <circle cx="50" cy="36" r="11" fill="var(--lamp)" stroke="var(--lamp-ring)" stroke-width="1.5"/>
       <circle cx="50" cy="66" r="11" fill="var(--port)"/>
     </svg>
-    <h4>Tàu hoa tiêu</h4>
-    <span class="rl">Đ.29</span>
-    <p class="hook"><b>Trắng trên đỏ</b> ở đỉnh cột. Sương mù có thể thêm <b>4 tiếng ngắn</b> để xưng danh.</p>
+    <h4 class="lg-en">Pilot vessel</h4><h4 class="lg-vi">Tàu hoa tiêu</h4>
+    <span class="rl"><span class="lg-en">R.29</span><span class="lg-vi">Đ.29</span></span>
+    <p class="hook lg-en"><b>White over red</b> at the masthead. In fog she may add <b>four short blasts</b> as an identity signal.</p>
+    <p class="hook lg-vi"><b>Trắng trên đỏ</b> ở đỉnh cột. Sương mù có thể thêm <b>4 tiếng ngắn</b> để xưng danh.</p>
   </div>
 
   <div class="stack-card">
-    <svg viewBox="0 0 100 130" role="img" aria-label="Đèn trắng ở mũi và đèn trắng thấp hơn ở lái: tàu neo">
+    <svg viewBox="0 0 100 130" role="img" aria-label="A white light forward and a lower white light aft: vessel at anchor">
       <line x1="26" y1="30" x2="26" y2="112" stroke="currentColor" stroke-width="2.5"/>
       <line x1="70" y1="56" x2="70" y2="112" stroke="currentColor" stroke-width="2.5"/>
       <circle cx="26" cy="30" r="10" fill="var(--lamp)" stroke="var(--lamp-ring)" stroke-width="1.5"/>
       <circle cx="70" cy="56" r="10" fill="var(--lamp)" stroke="var(--lamp-ring)" stroke-width="1.5"/>
       <circle cx="26" cy="88" r="8.5" fill="currentColor"/>
     </svg>
-    <h4>Tàu neo</h4>
-    <span class="rl">Đ.30(a)</span>
-    <p class="hook">Đèn trắng <b>phía mũi</b> + đèn trắng <b>thấp hơn phía lái</b>. Ngày: <b>1 quả cầu đen</b>. Tàu ≥ 100 m <b>phải</b> bật đèn boong.</p>
+    <h4 class="lg-en">Vessel at anchor</h4><h4 class="lg-vi">Tàu neo</h4>
+    <span class="rl"><span class="lg-en">R.30(a)</span><span class="lg-vi">Đ.30(a)</span></span>
+    <p class="hook lg-en">White light <b>forward</b> + a <b>lower</b> white light aft. By day: <b>1 black ball</b>. A vessel ≥ 100 m <b>shall</b> also light her decks.</p>
+    <p class="hook lg-vi">Đèn trắng <b>phía mũi</b> + đèn trắng <b>thấp hơn phía lái</b>. Ngày: <b>1 quả cầu đen</b>. Tàu ≥ 100 m <b>phải</b> bật đèn boong.</p>
   </div>
 
   <div class="stack-card">
-    <svg viewBox="0 0 100 130" role="img" aria-label="Hai đèn đỏ cộng đèn neo: tàu mắc cạn">
+    <svg viewBox="0 0 100 130" role="img" aria-label="Two red lights plus anchor light: vessel aground">
       <line x1="50" y1="14" x2="50" y2="112" stroke="currentColor" stroke-width="2.5"/>
       <circle cx="50" cy="30" r="11" fill="var(--port)"/>
       <circle cx="50" cy="58" r="11" fill="var(--port)"/>
       <circle cx="50" cy="88" r="9" fill="var(--lamp)" stroke="var(--lamp-ring)" stroke-width="1.5"/>
       <circle cx="82" cy="26" r="8" fill="currentColor"/><circle cx="82" cy="50" r="8" fill="currentColor"/><circle cx="82" cy="74" r="8" fill="currentColor"/>
     </svg>
-    <h4>Tàu mắc cạn</h4>
-    <span class="rl">Đ.30(d)</span>
-    <p class="hook"><b>Hai đèn đỏ + đèn neo</b>. Ngày: <b>3 quả cầu đen</b>.</p>
+    <h4 class="lg-en">Vessel aground</h4><h4 class="lg-vi">Tàu mắc cạn</h4>
+    <span class="rl"><span class="lg-en">R.30(d)</span><span class="lg-vi">Đ.30(d)</span></span>
+    <p class="hook lg-en"><b>Two red lights + anchor lights</b>. By day: <b>3 black balls</b>.</p>
+    <p class="hook lg-vi"><b>Hai đèn đỏ + đèn neo</b>. Ngày: <b>3 quả cầu đen</b>.</p>
   </div>
 
 </div>
 
 <div class="grid g2">
   <div class="card sand">
-    <span class="tag">Đ.24 · LAI KÉO</span>
-    <h4>Đếm đèn cột là ra chiều dài đoàn lai</h4>
-    <p><b>2 đèn cột thẳng đứng</b> = đoàn lai ≤ 200 m; <b>3 đèn cột</b> = đoàn lai <b>dài hơn 200 m</b>. Tàu lai còn có <b>đèn lai màu vàng</b> nằm ngay trên đèn lái — thấy vàng trên trắng là biết phía sau nó còn thứ khác đang bị kéo. Ngày, khi đoàn dài hơn 200 m: <b>dấu hiệu hình thoi</b> trên cả tàu lai và vật bị lai.</p>
+    <span class="tag lg-en">R.24 · TOWING</span><span class="tag lg-vi">Đ.24 · LAI KÉO</span>
+    <h4 class="lg-en">Count the masthead lights to get the length of the tow</h4>
+    <h4 class="lg-vi">Đếm đèn cột là ra chiều dài đoàn lai</h4>
+    <p class="lg-en"><b>2 masthead lights in a vertical line</b> = tow of 200 m or less; <b>3</b> = tow <b>longer than 200 m</b>. The towing vessel also shows a <b>yellow towing light</b> right above her sternlight — yellow over white means there is still something behind her being dragged. By day, when the tow exceeds 200 m: a <b>diamond shape</b> on both the tug and the tow.</p>
+    <p class="lg-vi"><b>2 đèn cột thẳng đứng</b> = đoàn lai ≤ 200 m; <b>3 đèn cột</b> = đoàn lai <b>dài hơn 200 m</b>. Tàu lai còn có <b>đèn lai màu vàng</b> nằm ngay trên đèn lái — thấy vàng trên trắng là biết phía sau nó còn thứ khác đang bị kéo. Ngày, khi đoàn dài hơn 200 m: <b>dấu hiệu hình thoi</b> trên cả tàu lai và vật bị lai.</p>
   </div>
   <div class="card sand">
-    <span class="tag">Đ.25 · BUỒM</span>
-    <h4>Không có đèn cột</h4>
-    <p>Tàu buồm chỉ có <b>đèn mạn + đèn lái</b> — thấy đèn mạn mà <b>không</b> có đèn cột trắng phía trên là tàu buồm. Có thể thêm tuỳ chọn <b>đỏ trên xanh lục</b> ở đỉnh cột. Quan trọng: tàu buồm mà <b>đang chạy máy</b> thì về luật là <b>tàu máy</b>, ban ngày phải trưng <b>hình nón đỉnh chúc xuống</b>.</p>
+    <span class="tag lg-en">R.25 · SAILING</span><span class="tag lg-vi">Đ.25 · BUỒM</span>
+    <h4 class="lg-en">No masthead light</h4><h4 class="lg-vi">Không có đèn cột</h4>
+    <p class="lg-en">A sailing vessel shows only <b>sidelights and a sternlight</b> — sidelights with <b>no</b> white masthead light above them means a sailing vessel. She may add an optional <b>red over green</b> at the masthead. Important: a sailing vessel <b>under machinery</b> is legally a <b>power-driven vessel</b>, and by day must show a <b>cone, apex downwards</b>.</p>
+    <p class="lg-vi">Tàu buồm chỉ có <b>đèn mạn + đèn lái</b> — thấy đèn mạn mà <b>không</b> có đèn cột trắng phía trên là tàu buồm. Có thể thêm tuỳ chọn <b>đỏ trên xanh lục</b> ở đỉnh cột. Quan trọng: tàu buồm mà <b>đang chạy máy</b> thì về luật là <b>tàu máy</b>, ban ngày phải trưng <b>hình nón đỉnh chúc xuống</b>.</p>
   </div>
 </div>
 </section>
@@ -993,43 +1202,64 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 
 <!-- ================= 9. TU KIEM ================= -->
 <section id="kiem">
-<span class="eyebrow">Tự kiểm</span>
-<h2>Sáu câu — trả lời trong đầu trước khi mở</h2>
+<span class="eyebrow"><span class="lg-en">Test yourself</span><span class="lg-vi">Tự kiểm</span></span>
+<h2 class="lg-en">Six questions — answer in your head before you open them</h2>
+<h2 class="lg-vi">Sáu câu — trả lời trong đầu trước khi mở</h2>
 
 <details>
-<summary>Đêm, anh thấy phía trước mũi bên mạn trái một đèn đỏ và một đèn trắng cao hơn ở phía trên. Anh là ai?</summary>
-<div class="ans">Đèn trắng cao = đèn cột ⇒ <b>tàu máy</b>. Thấy <b>đèn đỏ</b> ⇒ anh đang ở phía mạn trái nó ⇒ nó ở mạn phải anh ⇒ <b>anh là tàu nhường đường</b> (Đ.15). Hành động: bẻ phải sớm và lớn, <b>không cắt ngang mũi nó</b>, đi qua sau lái. Thấy 1 đèn cột thôi cũng gợi ý tàu ngắn hơn 50 m.</div>
+<summary><span class="lg-en">At night, fine on your port bow, you see one red light and one white light higher above it. Who are you?</span><span class="lg-vi">Đêm, anh thấy phía trước mũi bên mạn trái một đèn đỏ và một đèn trắng cao hơn ở phía trên. Anh là ai?</span></summary>
+<div class="ans">
+<span class="lg-en">The high white light is a masthead light ⇒ <b>a power-driven vessel</b>. You see her <b>red</b> light ⇒ you are on her port side ⇒ she is on your starboard side ⇒ <b>you are the give-way vessel</b> (Rule 15). Action: alter to starboard early and boldly, <b>do not cross ahead of her</b>, pass astern. One masthead light only also hints at a vessel under 50 m.</span>
+<span class="lg-vi">Đèn trắng cao = đèn cột ⇒ <b>tàu máy</b>. Thấy <b>đèn đỏ</b> ⇒ anh đang ở phía mạn trái nó ⇒ nó ở mạn phải anh ⇒ <b>anh là tàu nhường đường</b> (Đ.15). Hành động: bẻ phải sớm và lớn, <b>không cắt ngang mũi nó</b>, đi qua sau lái. Thấy 1 đèn cột thôi cũng gợi ý tàu ngắn hơn 50 m.</span>
+</div>
 </details>
 
 <details>
-<summary>Anh thấy hai đèn cột thẳng hàng và cả hai đèn mạn đỏ, xanh cùng lúc. Làm gì?</summary>
-<div class="ans"><b>Đối hướng (Đ.14)</b> — không ai là tàu được nhường đường. <b>Cả hai bẻ phải</b>, đi qua nhau mạn trái, phát <b>1 tiếng còi ngắn</b> khi bẻ (Đ.34(a)). Nếu còn phân vân có phải đối hướng không: Đ.14(c) buộc coi như <b>đúng là đối hướng</b> và hành động theo.</div>
+<summary><span class="lg-en">You see two masthead lights in line and both sidelights, red and green together. What do you do?</span><span class="lg-vi">Anh thấy hai đèn cột thẳng hàng và cả hai đèn mạn đỏ, xanh cùng lúc. Làm gì?</span></summary>
+<div class="ans">
+<span class="lg-en"><b>Head-on (Rule 14)</b> — neither vessel is the stand-on vessel. <b>Both alter to starboard</b>, pass port to port, and sound <b>one short blast</b> while altering (Rule 34(a)). Still unsure whether it is really head-on? Rule 14(c) obliges you to <b>assume that it is</b> and act accordingly.</span>
+<span class="lg-vi"><b>Đối hướng (Đ.14)</b> — không ai là tàu được nhường đường. <b>Cả hai bẻ phải</b>, đi qua nhau mạn trái, phát <b>1 tiếng còi ngắn</b> khi bẻ (Đ.34(a)). Nếu còn phân vân có phải đối hướng không: Đ.14(c) buộc coi như <b>đúng là đối hướng</b> và hành động theo.</span>
+</div>
 </details>
 
 <details>
-<summary>Anh đuổi kịp một tàu đánh cá và định vượt nó. Đ.18 nói tàu máy phải nhường tàu đánh cá — vậy ai nhường ai?</summary>
-<div class="ans"><b>Anh nhường</b> — nhưng không phải vì Đ.18. Mở đầu Đ.18 ghi "trừ khi Đ.9, 10 và <b>13</b> quy định khác", và Đ.13(a) mở đầu bằng "bất kể mọi quy định khác của Mục I và Mục II". Ở đây <b>Đ.13 chạy</b>: tàu vượt nhường đường cho tàu bị vượt, <b>bất kể tàu bị vượt là loại gì</b>. Đ.13(d): giữ nghĩa vụ tới khi <b>qua hẳn và thoát hẳn</b>.</div>
+<summary><span class="lg-en">You are coming up on a fishing vessel and intend to overtake. Rule 18 says a power-driven vessel keeps clear of a fishing vessel — so who gives way?</span><span class="lg-vi">Anh đuổi kịp một tàu đánh cá và định vượt nó. Đ.18 nói tàu máy phải nhường tàu đánh cá — vậy ai nhường ai?</span></summary>
+<div class="ans">
+<span class="lg-en"><b>You do</b> — but not because of Rule 18. Rule 18 opens with "except where Rules 9, 10 and <b>13</b> otherwise require", and Rule 13(a) opens with "notwithstanding anything contained in the Rules of Part B, Sections I and II". <b>Rule 13 governs</b>: the overtaking vessel keeps out of the way of the vessel being overtaken, <b>whatever kind of vessel she is</b>. Rule 13(d): the duty holds until <b>finally past and clear</b>.</span>
+<span class="lg-vi"><b>Anh nhường</b> — nhưng không phải vì Đ.18. Mở đầu Đ.18 ghi "trừ khi Đ.9, 10 và <b>13</b> quy định khác", và Đ.13(a) mở đầu bằng "bất kể mọi quy định khác của Mục I và Mục II". Ở đây <b>Đ.13 chạy</b>: tàu vượt nhường đường cho tàu bị vượt, <b>bất kể tàu bị vượt là loại gì</b>. Đ.13(d): giữ nghĩa vụ tới khi <b>qua hẳn và thoát hẳn</b>.</span>
+</div>
 </details>
 
 <details>
-<summary>Sương mù dày. Radar báo một vệt phía mũi bên mạn trái, cự ly giảm, phương vị không đổi. Anh là tàu được nhường đường không?</summary>
-<div class="ans"><b>Không có khái niệm đó trong sương mù.</b> Không nhìn thấy nhau ⇒ Đ.19 chạy, Mục II (Đ.13–18) tắt hết, hai tàu nghĩa vụ ngang nhau. Hành động: <b>bẻ phải</b> (Đ.19(d)(i) buộc tránh bẻ trái với tàu trước trục ngang) và/hoặc giảm tốc mạnh; nghe tín hiệu sương mù trước trục ngang thì <b>Đ.19(e)</b>: giảm tới tốc độ tối thiểu giữ được hướng, cần thì phá hết trớn.</div>
+<summary><span class="lg-en">Dense fog. Radar shows a target fine on the port bow, range decreasing, bearing steady. Are you the stand-on vessel?</span><span class="lg-vi">Sương mù dày. Radar báo một vệt phía mũi bên mạn trái, cự ly giảm, phương vị không đổi. Anh là tàu được nhường đường không?</span></summary>
+<div class="ans">
+<span class="lg-en"><b>There is no such thing in fog.</b> Not in sight of one another ⇒ Rule 19 governs, Section II (Rules 13–18) is switched off, and both vessels carry an equal duty. Action: <b>alter to starboard</b> (Rule 19(d)(i) requires you to avoid altering to port for a vessel forward of the beam) and/or make a substantial reduction of speed; if you hear a fog signal forward of the beam, <b>Rule 19(e)</b>: reduce to the minimum speed at which you can be kept on course, and take all way off if necessary.</span>
+<span class="lg-vi"><b>Không có khái niệm đó trong sương mù.</b> Không nhìn thấy nhau ⇒ Đ.19 chạy, Mục II (Đ.13–18) tắt hết, hai tàu nghĩa vụ ngang nhau. Hành động: <b>bẻ phải</b> (Đ.19(d)(i) buộc tránh bẻ trái với tàu trước trục ngang) và/hoặc giảm tốc mạnh; nghe tín hiệu sương mù trước trục ngang thì <b>Đ.19(e)</b>: giảm tới tốc độ tối thiểu giữ được hướng, cần thì phá hết trớn.</span>
+</div>
 </details>
 
 <details>
-<summary>Anh giữ nguyên hướng đi và tốc độ đúng luật, nhưng tàu nhường đường vẫn không làm gì. Anh được phép làm gì, và cấm làm gì?</summary>
-<div class="ans">Trước hết bấm còi <b>ít nhất 5 tiếng ngắn nhanh</b> (Đ.34(d)). Khi rõ ràng nó không hành động thoả đáng, Đ.17(a)(ii) cho anh <b>được tự điều động</b>; quá gần tới mức một mình nó không cứu được nữa thì Đ.17(b) <b>buộc</b> anh làm mọi cách tốt nhất. Cấm: Đ.17(c) — tàu máy tự điều động theo (a)(ii) thì <b>không bẻ trái với tàu ở mạn trái mình</b>. Và Đ.17(d): việc anh hành động <b>không</b> xoá nghĩa vụ của nó.</div>
+<summary><span class="lg-en">You are standing on, correctly and lawfully, but the give-way vessel is doing nothing. What may you do, and what is forbidden?</span><span class="lg-vi">Anh giữ nguyên hướng đi và tốc độ đúng luật, nhưng tàu nhường đường vẫn không làm gì. Anh được phép làm gì, và cấm làm gì?</span></summary>
+<div class="ans">
+<span class="lg-en">First sound <b>at least five short and rapid blasts</b> (Rule 34(d)). When it becomes apparent she is not taking appropriate action, Rule 17(a)(ii) allows you to <b>take action by your manoeuvre alone</b>; when so close that collision cannot be avoided by her action alone, Rule 17(b) <b>obliges</b> you to take such action as will best aid to avoid collision. Forbidden: Rule 17(c) — a power-driven vessel acting under (a)(ii) shall <b>not alter course to port for a vessel on her own port side</b>. And Rule 17(d): your action does <b>not</b> relieve her of her duty.</span>
+<span class="lg-vi">Trước hết bấm còi <b>ít nhất 5 tiếng ngắn nhanh</b> (Đ.34(d)). Khi rõ ràng nó không hành động thoả đáng, Đ.17(a)(ii) cho anh <b>được tự điều động</b>; quá gần tới mức một mình nó không cứu được nữa thì Đ.17(b) <b>buộc</b> anh làm mọi cách tốt nhất. Cấm: Đ.17(c) — tàu máy tự điều động theo (a)(ii) thì <b>không bẻ trái với tàu ở mạn trái mình</b>. Và Đ.17(d): việc anh hành động <b>không</b> xoá nghĩa vụ của nó.</span>
+</div>
 </details>
 
 <details>
-<summary>Ban ngày, một tàu treo hình thoi giữa hai quả cầu đen. Nó là gì, và anh xử sao?</summary>
-<div class="ans"><b>Cầu – thoi – cầu = tàu hạn chế khả năng điều động (RAM, Đ.27(b))</b> — ban đêm là đỏ–trắng–đỏ. Theo Đ.18(a), <b>tàu máy phải nhường đường cho nó</b>. Nhưng nhớ ngoại lệ: nếu anh đang <b>vượt</b> nó thì Đ.13 vẫn chạy, và trong <b>sương mù</b> thì không phân vai, chỉ còn Đ.19.</div>
+<summary><span class="lg-en">By day, a vessel shows a diamond shape between two black balls. What is she, and how do you handle her?</span><span class="lg-vi">Ban ngày, một tàu treo hình thoi giữa hai quả cầu đen. Nó là gì, và anh xử sao?</span></summary>
+<div class="ans">
+<span class="lg-en"><b>Ball – diamond – ball = a vessel restricted in her ability to manoeuvre (RAM, Rule 27(b))</b> — by night, red–white–red. Under Rule 18(a), <b>a power-driven vessel keeps out of her way</b>. But remember the exceptions: if you are <b>overtaking</b> her, Rule 13 still governs, and in <b>fog</b> there are no roles at all — only Rule 19.</span>
+<span class="lg-vi"><b>Cầu – thoi – cầu = tàu hạn chế khả năng điều động (RAM, Đ.27(b))</b> — ban đêm là đỏ–trắng–đỏ. Theo Đ.18(a), <b>tàu máy phải nhường đường cho nó</b>. Nhưng nhớ ngoại lệ: nếu anh đang <b>vượt</b> nó thì Đ.13 vẫn chạy, và trong <b>sương mù</b> thì không phân vai, chỉ còn Đ.19.</span>
+</div>
 </details>
 </section>
 
 <footer>
-  <p style="margin:0 0 6px"><b>Nguồn:</b> COLREG 1972 bản hợp nhất (bản đã nạp trong kho: <code>raw/quy-dinh-thiet-bi/quocte/colreg-1972-consolidated-2018.pdf</code>). Mọi con số góc, cự ly, thời lượng còi trên trang đều lấy nguyên từ điều luật, không suy diễn.</p>
-  <p style="margin:0">Trang học — không thay thế văn bản gốc. Khi cần trích cho báo cáo, kiểm tra hay tranh chấp, luôn mở đúng điều luật trong bản gốc.</p>
+  <p class="lg-en" style="margin:0 0 6px"><b>Source:</b> COLREG 1972, consolidated edition (the copy held in this library: <code>raw/quy-dinh-thiet-bi/quocte/colreg-1972-consolidated-2018.pdf</code>). Every angle, range and blast duration on this page is taken straight from the rule text, not inferred.</p>
+  <p class="lg-vi" style="margin:0 0 6px"><b>Nguồn:</b> COLREG 1972 bản hợp nhất (bản đã nạp trong kho: <code>raw/quy-dinh-thiet-bi/quocte/colreg-1972-consolidated-2018.pdf</code>). Mọi con số góc, cự ly, thời lượng còi trên trang đều lấy nguyên từ điều luật, không suy diễn.</p>
+  <p class="lg-en" style="margin:0">A study page — it does not replace the Convention. For a report, an examination or a dispute, always open the rule itself.</p>
+  <p class="lg-vi" style="margin:0">Trang học — không thay thế văn bản gốc. Khi cần trích cho báo cáo, kiểm tra hay tranh chấp, luôn mở đúng điều luật trong bản gốc.</p>
 </footer>
 
 </div>
@@ -1047,46 +1277,77 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
   var ruleEl = document.getElementById('ro-rule');
   var actEl = document.getElementById('ro-act');
   var wrapEl = document.getElementById('ro-wrap');
+  var langBtn = document.getElementById('langTab');
 
   var CASES = {
-    head: {
-      cls:'is-head',
-      lights:[['r','đèn mạn ĐỎ'],['g','đèn mạn XANH'],['w','hai đèn cột thẳng hàng']],
-      role:'ĐỐI HƯỚNG — không ai được giữ nguyên',
-      rule:'Đ.14 · nghi ngờ thì coi như đối hướng (14c)',
-      act:'Bẻ PHẢI, đi qua nhau mạn trái. Phát 1 tiếng còi ngắn khi bẻ (Đ.34a).'
+    en: {
+      head: {cls:'is-head',
+        lights:[['r','her RED sidelight'],['g','her GREEN sidelight'],['w','two masthead lights in line']],
+        role:'HEAD-ON — neither vessel stands on',
+        rule:'R.14 · in doubt, assume head-on (14c)',
+        act:'Alter to STARBOARD and pass port to port. Sound one short blast while altering (R.34a).'},
+      give: {cls:'is-give',
+        lights:[['r','her RED sidelight'],['w','masthead light'],['off','no green light']],
+        role:'YOU GIVE WAY',
+        rule:'R.15 · R.16 — she is on your starboard side',
+        act:'Take EARLY and SUBSTANTIAL action: a bold alteration to starboard and/or a reduction of speed. Avoid crossing ahead of her — go round her stern.'},
+      stand:{cls:'is-stand',
+        lights:[['g','her GREEN sidelight'],['w','masthead light'],['off','no red light']],
+        role:'YOU STAND ON — keep course and speed',
+        rule:'R.15 · R.17 — you are on her starboard side',
+        act:'Keep course and speed, and keep watching. If she does not act: at least 5 short blasts (R.34d), then you may manoeuvre alone (17a-ii); when too close you must act (17b). Never alter to port for a vessel on your port side (17c).'},
+      over: {cls:'is-over',
+        lights:[['w','ONLY her white sternlight'],['off','neither sidelight']],
+        role:'YOU ARE OVERTAKING — you keep out of the way',
+        rule:'R.13 · overrides R.15 and R.18',
+        act:'Overtake at a safe distance, preferably altering to starboard, and watch for interaction between the hulls. The duty holds until FINALLY PAST AND CLEAR (13d). In any doubt whether you are overtaking — assume you are (13c).'}
     },
-    give: {
-      cls:'is-give',
-      lights:[['r','đèn mạn ĐỎ'],['w','đèn cột'],['off','không thấy đèn xanh']],
-      role:'ANH NHƯỜNG ĐƯỜNG',
-      rule:'Đ.15 · Đ.16 — nó ở mạn phải anh',
-      act:'Hành động SỚM và DỨT KHOÁT: bẻ phải lớn và/hoặc giảm tốc. Tránh cắt ngang mũi nó — vòng qua sau lái.'
-    },
-    stand: {
-      cls:'is-stand',
-      lights:[['g','đèn mạn XANH LỤC'],['w','đèn cột'],['off','không thấy đèn đỏ']],
-      role:'ANH GIỮ NGUYÊN hướng và tốc độ',
-      rule:'Đ.15 · Đ.17 — anh ở mạn phải nó',
-      act:'Giữ nguyên, theo dõi liên tục. Nó không hành động ⇒ còi ≥5 tiếng ngắn (Đ.34d), rồi được tự tránh (17a-ii); quá gần thì buộc phải tránh (17b). Cấm bẻ trái với tàu ở mạn trái (17c).'
-    },
-    over: {
-      cls:'is-over',
-      lights:[['w','CHỈ đèn lái trắng'],['off','không đèn mạn nào']],
-      role:'ANH LÀ TÀU VƯỢT — anh nhường đường',
-      rule:'Đ.13 · gạt cả Đ.15 và Đ.18',
-      act:'Vượt ở cự ly an toàn, ưu tiên bẻ phải, đề phòng lực hút–đẩy. Giữ nghĩa vụ tới khi QUA HẲN VÀ THOÁT HẲN (13d). Nghi ngờ có phải vượt không ⇒ coi như vượt (13c).'
+    vi: {
+      head: {cls:'is-head',
+        lights:[['r','đèn mạn ĐỎ'],['g','đèn mạn XANH'],['w','hai đèn cột thẳng hàng']],
+        role:'ĐỐI HƯỚNG — không ai được giữ nguyên',
+        rule:'Đ.14 · nghi ngờ thì coi như đối hướng (14c)',
+        act:'Bẻ PHẢI, đi qua nhau mạn trái. Phát 1 tiếng còi ngắn khi bẻ (Đ.34a).'},
+      give: {cls:'is-give',
+        lights:[['r','đèn mạn ĐỎ'],['w','đèn cột'],['off','không thấy đèn xanh']],
+        role:'ANH NHƯỜNG ĐƯỜNG',
+        rule:'Đ.15 · Đ.16 — nó ở mạn phải anh',
+        act:'Hành động SỚM và DỨT KHOÁT: bẻ phải lớn và/hoặc giảm tốc. Tránh cắt ngang mũi nó — vòng qua sau lái.'},
+      stand:{cls:'is-stand',
+        lights:[['g','đèn mạn XANH LỤC'],['w','đèn cột'],['off','không thấy đèn đỏ']],
+        role:'ANH GIỮ NGUYÊN hướng và tốc độ',
+        rule:'Đ.15 · Đ.17 — anh ở mạn phải nó',
+        act:'Giữ nguyên, theo dõi liên tục. Nó không hành động ⇒ còi ≥5 tiếng ngắn (Đ.34d), rồi được tự tránh (17a-ii); quá gần thì buộc phải tránh (17b). Cấm bẻ trái với tàu ở mạn trái (17c).'},
+      over: {cls:'is-over',
+        lights:[['w','CHỈ đèn lái trắng'],['off','không đèn mạn nào']],
+        role:'ANH LÀ TÀU VƯỢT — anh nhường đường',
+        rule:'Đ.13 · gạt cả Đ.15 và Đ.18',
+        act:'Vượt ở cự ly an toàn, ưu tiên bẻ phải, đề phòng lực hút–đẩy. Giữ nghĩa vụ tới khi QUA HẲN VÀ THOÁT HẲN (13d). Nghi ngờ có phải vượt không ⇒ coi như vượt (13c).'}
     }
   };
 
-  function classify(t){
+  var TXT = {
+    en: {title:'COLREG-72 in diagrams — the light ring', tab:'VI · <b>EN</b>',
+         sw:'Chuyển sang tiếng Việt', side:['right ahead','starboard','port'],
+         desc:'Learn COLREG-72 from diagrams: read her lights and you know your role and your action. A draggable light ring, 12 figures, whistle signals and the lights of special vessels — every number taken from the consolidated 1972 Convention.'},
+    vi: {title:'COLREG-72 bằng hình — Vòng đèn', tab:'<b>VI</b> · EN',
+         sw:'Switch to English', side:['chính mũi','mạn phải','mạn trái'],
+         desc:'Học COLREG-72 bằng hình vẽ: nhìn đèn tàu kia là ra vai trò và hành động. Vòng đèn kéo được, 12 hình, tín hiệu còi và đèn tàu đặc biệt — mọi con số lấy từ bản hợp nhất Công ước 1972.'}
+  };
+
+  function curLang(){
+    return document.documentElement.getAttribute('data-lang') === 'vi' ? 'vi' : 'en';
+  }
+
+  function classify(t, L){
     var a = Math.abs(t);
-    if (a <= 6) return CASES.head;
-    if (a > 112.5) return CASES.over;
-    return t > 0 ? CASES.stand : CASES.give;
+    if (a <= 6) return CASES[L].head;
+    if (a > 112.5) return CASES[L].over;
+    return t > 0 ? CASES[L].stand : CASES[L].give;
   }
 
   function render(t){
+    var L = curLang();
     var rad = t * Math.PI / 180;
     var x = CX + R * Math.sin(rad);
     var y = CY - R * Math.cos(rad);
@@ -1098,16 +1359,17 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
     los.setAttribute('x2', x.toFixed(1));
     los.setAttribute('y2', y.toFixed(1));
 
-    var side = t === 0 ? 'chính mũi' : (t > 0 ? 'mạn phải' : 'mạn trái');
+    var s = TXT[L].side;
+    var side = t === 0 ? s[0] : (t > 0 ? s[1] : s[2]);
     angtxt.textContent = Math.abs(t) + '° ' + side;
 
-    var c = classify(t);
+    var c = classify(t, L);
     lightsEl.innerHTML = '';
-    c.lights.forEach(function(L){
+    c.lights.forEach(function(Lt){
       var it = document.createElement('span'); it.className = 'ro-item';
-      var d = document.createElement('span'); d.className = 'dot ' + L[0];
-      var s = document.createElement('span'); s.textContent = L[1];
-      it.appendChild(d); it.appendChild(s); lightsEl.appendChild(it);
+      var d = document.createElement('span'); d.className = 'dot ' + Lt[0];
+      var sp = document.createElement('span'); sp.textContent = Lt[1];
+      it.appendChild(d); it.appendChild(sp); lightsEl.appendChild(it);
     });
     roleEl.textContent = c.role;
     ruleEl.textContent = c.rule;
@@ -1115,13 +1377,30 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
     wrapEl.className = 'ro-block ' + c.cls;
   }
 
+  function applyLang(l){
+    document.documentElement.setAttribute('data-lang', l);
+    document.documentElement.lang = l;
+    try { localStorage.setItem('hn_lang', l); } catch(e) {}
+    document.title = TXT[l].title;
+    var meta = document.querySelector('meta[name="description"]');
+    if (meta && TXT[l].desc) meta.setAttribute('content', TXT[l].desc);
+    langBtn.innerHTML = TXT[l].tab;
+    langBtn.setAttribute('aria-label', TXT[l].sw);
+    langBtn.title = TXT[l].sw;
+    render(parseInt(ang.value, 10));
+  }
+
+  langBtn.addEventListener('click', function(){
+    applyLang(curLang() === 'vi' ? 'en' : 'vi');
+  });
+
   ang.addEventListener('input', function(){ render(parseInt(ang.value,10)); });
 
   var svg = document.getElementById('ring');
   svg.addEventListener('pointerdown', function(e){
     var r = svg.getBoundingClientRect();
     var sx = (e.clientX - r.left) / r.width * 520;
-    var sy = (e.clientY - r.top) / r.height * 430;
+    var sy = (e.clientY - r.top) / r.height * 400;
     var deg = Math.round(Math.atan2(sx - CX, CY - sy) * 180 / Math.PI);
     if (deg > 180) deg -= 360;
     if (deg < -180) deg += 360;
@@ -1129,13 +1408,15 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
     render(deg);
   });
 
-  render(parseInt(ang.value,10));
+  applyLang(curLang());
 })();
 </script>
 
 <footer class="site-foot">
-  <a class="site-back" href="/">← Về trang chủ hieunguyen.net</a>
-  <span>© 2026 Nguyễn Chí Hiếu · Sĩ quan boong tàu viễn dương</span>
+  <a class="site-back lg-en" href="/">← Back to hieunguyen.net</a>
+  <a class="site-back lg-vi" href="/">← Về trang chủ hieunguyen.net</a>
+  <span class="lg-en">© 2026 Nguyen Chi Hieu · hieunguyen.net — Ocean-going Deck Officer</span>
+  <span class="lg-vi">© 2026 Nguyễn Chí Hiếu · hieunguyen.net — Sĩ quan boong tàu viễn dương</span>
 </footer>
 
 </body>
