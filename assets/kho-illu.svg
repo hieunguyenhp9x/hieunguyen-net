@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 190" role="img"
+     aria-labelledby="khoIlluTitle" preserveAspectRatio="xMidYMid slice">
+  <title id="khoIlluTitle">Chồng tài liệu làm việc — bảng tính và biểu mẫu dùng trên tàu</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#16294a"/>
+      <stop offset="1" stop-color="#0c1a30"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#22385a"/>
+      <stop offset="1" stop-color="#16283f"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#d4a95a"/>
+      <stop offset="1" stop-color="#e8c88a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="640" height="190" fill="url(#bg)"/>
+
+  <!-- đường chân trời mờ, gợi mặt biển -->
+  <path d="M0 150 Q160 138 320 148 T640 142 L640 190 L0 190 Z" fill="#0a1628" opacity=".55"/>
+
+  <!-- neo chìm ở nền, rất mờ -->
+  <g opacity=".07" fill="none" stroke="#d4a95a" stroke-width="7" stroke-linecap="round">
+    <circle cx="547" cy="44" r="12"/>
+    <path d="M547 58 L547 140"/>
+    <path d="M519 78 L575 78"/>
+    <path d="M505 108 Q547 156 589 108"/>
+  </g>
+
+  <!-- chồng tài liệu: 2 thẻ sau, 1 thẻ trước -->
+  <g transform="translate(58 26)">
+    <rect x="26" y="6"  width="252" height="140" rx="9" fill="url(#card)" opacity=".45"
+          stroke="#d4a95a" stroke-opacity=".16"/>
+    <rect x="13" y="16" width="252" height="140" rx="9" fill="url(#card)" opacity=".7"
+          stroke="#d4a95a" stroke-opacity=".2"/>
+    <rect x="0"  y="26" width="252" height="140" rx="9" fill="url(#card)"
+          stroke="#d4a95a" stroke-opacity=".34"/>
+
+    <!-- ruột thẻ trước: một bảng số + đường tăng dần -->
+    <rect x="20" y="46" width="86" height="9" rx="4.5" fill="url(#gold)" opacity=".85"/>
+    <g fill="#9fb0c4" opacity=".55">
+      <rect x="20" y="68"  width="150" height="6" rx="3"/>
+      <rect x="20" y="84"  width="120" height="6" rx="3"/>
+      <rect x="20" y="100" width="164" height="6" rx="3"/>
+      <rect x="20" y="116" width="104" height="6" rx="3"/>
+    </g>
+    <g stroke="#d4a95a" stroke-opacity=".22" stroke-width="1">
+      <line x1="20" y1="60" x2="232" y2="60"/>
+      <line x1="20" y1="132" x2="232" y2="132"/>
+    </g>
+    <polyline points="188,124 202,112 214,116 232,88" fill="none"
+              stroke="url(#gold)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="232" cy="88" r="4" fill="#e8c88a"/>
+  </g>
+
+  <!-- thước / bút kẻ chéo, gợi "công cụ làm việc" -->
+  <g transform="translate(392 40) rotate(-18)" opacity=".9">
+    <rect x="0" y="0" width="150" height="26" rx="5" fill="#16283f" stroke="#d4a95a" stroke-opacity=".3"/>
+    <g stroke="#d4a95a" stroke-opacity=".45" stroke-width="1.5">
+      <line x1="16"  y1="0" x2="16"  y2="10"/>
+      <line x1="38"  y1="0" x2="38"  y2="14"/>
+      <line x1="60"  y1="0" x2="60"  y2="10"/>
+      <line x1="82"  y1="0" x2="82"  y2="14"/>
+      <line x1="104" y1="0" x2="104" y2="10"/>
+      <line x1="126" y1="0" x2="126" y2="14"/>
+    </g>
+  </g>
+</svg>

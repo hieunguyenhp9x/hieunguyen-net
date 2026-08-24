@@ -134,7 +134,17 @@
   .hero-grid {
     display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; width: 100%;
   }
-  @media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; gap: 40px; } }
+  @media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; gap: 32px; } }
+  /* MOBILE: xếp 1 cột thì khối kể chuyện đứng trên form, đẩy nút gửi xuống rất sâu.
+     Siết lại + ẩn dòng "Cadet → … → Captain" (trùng ý với câu ngay trên nó). */
+  @media (max-width: 820px) {
+    header { min-height: auto; padding: 84px 0 44px; }
+    .hero-inner .hero-sub-en { display: none; }
+    .hero-signature { margin-top: 20px; padding-top: 16px; }
+    .hero-signature img { width: 58px; height: 58px; }
+    .hero-lead { padding: 24px 20px; }
+    .tool-chip { padding: 8px 11px; font-size: 12.5px; }
+  }
   .hero-inner { max-width: 700px; }
   .hero-signature {
     display: flex; align-items: center; gap: 16px;
@@ -250,31 +260,51 @@
   }
   .lead-card h3 { font-size: 18px; margin-bottom: 6px; }
   .lead-card .lead-card-sub { color: var(--text-dim); font-size: 14px; margin-bottom: 20px; }
-  /* card lead ở hero — khung nổi bật + ảnh minh hoạ + chữ SPREADSHEET to */
+  /* Card lead ở hero — dựng lại 24/08.
+     Bỏ: viền vàng 2px + 3 lớp đổ bóng + quầng sáng + ảnh mock bảng tính.
+     Ảnh mock là ảnh bảng tính TÀI CHÍNH, mà tiêu đề nói "công cụ trên tàu" —
+     ảnh và lời hứa đá nhau. Thay bằng 3 dòng gọi tên thẳng 3 công cụ. */
   .hero-lead {
     position: relative;
-    border: 2px solid var(--gold);
-    background: linear-gradient(165deg, #1d3556 0%, #10203a 55%, #0d1a2e 100%);
-    box-shadow: 0 0 0 5px rgba(212, 169, 90, 0.12), 0 22px 60px rgba(0, 0, 0, 0.6), 0 0 45px rgba(212, 169, 90, 0.18);
+    border: 1px solid rgba(212, 169, 90, 0.30);
+    background: rgba(14, 28, 50, 0.86);
+    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+    padding: 30px 26px;
   }
   .free-badge {
-    position: absolute; top: -15px; left: 22px; z-index: 1;
-    background: var(--gold); color: var(--navy);
-    font-weight: 800; font-size: 12.5px; letter-spacing: 2.5px;
-    padding: 5px 16px; border-radius: 999px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+    /* badge là con của .lead-form (grid) → PHẢI có justify-self, không thì bị
+       kéo giãn hết chiều ngang và trông như một thanh xám. */
+    display: inline-block; justify-self: start; margin-bottom: 2px;
+    background: rgba(212, 169, 90, 0.14); color: var(--gold-light);
+    border: 1px solid rgba(212, 169, 90, 0.35);
+    font-weight: 700; font-size: 11px; letter-spacing: 1.6px;
+    padding: 4px 11px; border-radius: 4px;
   }
+  /* Hình minh hoạ thẻ form. KHÔNG phải ảnh chụp file nào — vẽ chung chung để kho
+     dày lên cũng không phải thay. Ẩn trên mobile: ở đó chỗ trống không phải vấn
+     đề, mà thêm 120px là đẩy nút bấm ra khỏi màn hình đầu. */
   .lead-illu {
-    width: 100%; display: block; border-radius: 8px;
-    border: 1px solid var(--line); margin-bottom: 16px;
+    width: 100%; height: 112px; object-fit: cover; display: block;
+    border-radius: 9px; border: 1px solid rgba(212,169,90,.22);
+    margin-bottom: 18px;
   }
-  .lead-card h3.lead-title { font-size: 19px; line-height: 1.25; margin-bottom: 6px; font-weight: 600; }
-  .lead-title .spread {
-    display: block; color: var(--gold-light);
-    font-size: clamp(30px, 3.4vw, 36px); font-weight: 800; letter-spacing: 1.5px; line-height: 1.15;
+  @media (max-width: 820px) { .lead-illu { display: none; } }
+
+  .lead-card h3.lead-title {
+    font-size: clamp(21px, 2.4vw, 25px); line-height: 1.2; font-weight: 700;
+    letter-spacing: -0.01em; margin-bottom: 18px;
   }
-  /* bản tiếng Việt của dòng to dài hơn 1 từ → hạ cỡ chút cho khỏi tràn khung */
-  .lead-title .spread.spread-vi { font-size: clamp(26px, 3vw, 32px); letter-spacing: 1px; }
+  .lead-title .hl { color: var(--gold-light); }
+  /* 3 công cụ gọi tên thẳng — thay chỗ ảnh mock cũ */
+  .tool-chips { display: grid; gap: 7px; margin-bottom: 20px; }
+  .tool-chip {
+    padding: 9px 12px; border-radius: 8px; font-size: 13px; line-height: 1.45;
+    color: var(--text-dim);
+    background: rgba(255, 255, 255, 0.035);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .tool-chip b { color: var(--text); font-weight: 600; }
   .lead-form { display: grid; gap: 12px; }
   .lead-form label { font-size: 13px; color: var(--gold-light); letter-spacing: 0.5px; }
   .lead-form input {
@@ -284,14 +314,14 @@
   }
   .lead-form input:focus { outline: none; border-color: var(--gold); }
   .lead-form button {
-    margin-top: 4px; padding: 13px 22px; border: none; border-radius: 6px; cursor: pointer;
-    background: var(--gold); color: var(--navy); font-weight: 700; font-size: 15px;
+    margin-top: 6px; padding: 15px 22px; border: none; border-radius: 8px; cursor: pointer;
+    background: var(--gold); color: var(--navy); font-weight: 800; font-size: 16px;
     font-family: inherit; transition: transform 0.15s;
   }
   .lead-form button:hover { transform: translateY(-2px); }
   /* honeypot: ẩn khỏi mắt người nhưng vẫn tồn tại với bot (không dùng display:none — nhiều bot bỏ qua) */
   .lead-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-  .lead-note { margin-top: 14px; font-size: 12.5px; color: var(--text-dim); opacity: 0.85; line-height: 1.6; }
+  .lead-note { margin-top: 12px; font-size: 12.2px; color: var(--text-dim); opacity: 0.8; line-height: 1.55; }
   .lead-error { display: none; color: #f0a0a0; font-size: 13px; line-height: 1.5; }
   .lead-form input.invalid { border-color: #c96a6a; }
   .lead-success { display: none; text-align: center; }
@@ -343,7 +373,7 @@
     <a class="logo" href="#top">HIEU NGUYEN</a>
     <div class="nav-right">
       <div class="links">
-        <a href="#free"><span class="lg-en">Free Spreadsheet</span><span class="lg-vi">Bảng tính</span></a>
+        <a href="#free"><span class="lg-en">Free tools</span><span class="lg-vi">Công cụ miễn phí</span></a>
         <a href="#story"><span class="lg-en">My Journey</span><span class="lg-vi">Hành trình</span></a>
         <a href="#channel"><span class="lg-en">Channel</span><span class="lg-vi">Kênh</span></a>
         <a href="#professional"><span class="lg-en">Professional</span><span class="lg-vi">Hồ sơ nghề</span></a>
@@ -379,10 +409,9 @@
              data-en-alt="Nguyen Chi Hieu — Second Officer"
              data-vi-alt="Nguyễn Chí Hiếu — Phó hai">
         <div>
-          <div class="sig-name">Nguyen Chi Hieu</div>
           <div class="sig-role">
-            <span class="lg-en">Second Officer · Chief Mate in progress</span>
-            <span class="lg-vi">Phó hai · đang học đại phó</span>
+            <span class="lg-en">Second Officer &middot; bulk carrier &amp; tanker experience &middot; C/O in progress</span>
+            <span class="lg-vi">Phó hai &middot; kinh nghiệm tàu hàng rời và tàu dầu &middot; đang học đại phó</span>
           </div>
         </div>
       </div>
@@ -391,15 +420,16 @@
     <!-- Ô LEAD NGAY MÀN HÌNH ĐẦU — bản sao của form khu #free, cùng Kit form 9750089.
          JS xử lý theo class (.lead-card) nên cả 2 form cùng chạy. -->
     <div class="lead-card hero-lead">
-      <span class="free-badge lg-en">FREE</span>
-      <span class="free-badge lg-vi">MIỄN PHÍ</span>
       <form class="lead-form" novalidate action="https://app.kit.com/forms/9750089/subscriptions" method="post">
-        <img class="lead-illu" src="assets/spreadsheet-preview.svg"
-             alt="Preview of the Financial Freedom spreadsheet — career table and balance curve reaching $518,573 at age 35"
-             data-en-alt="Preview of the Financial Freedom spreadsheet — career table and balance curve reaching $518,573 at age 35"
-             data-vi-alt="Xem trước bảng tính Tự do tài chính — bảng so sánh hướng đi nghề và đường tài sản chạm mốc 518.573 đô la ở tuổi 35">
-        <h3 class="lead-title lg-en">The tools I use<span class="spread">ON BOARD</span></h3>
-        <h3 class="lead-title lg-vi">Công cụ tôi dùng<span class="spread spread-vi">TRÊN TÀU</span></h3>
+        <img class="lead-illu" src="assets/kho-illu.svg" alt=""
+             role="presentation" aria-hidden="true">
+        <span class="free-badge lg-en">FREE</span>
+        <span class="free-badge lg-vi">MIỄN PHÍ</span>
+        <h3 class="lead-title lg-en">The tools I actually use <span class="hl">on board</span></h3>
+        <h3 class="lead-title lg-vi">Công cụ tôi dùng thật <span class="hl">trên tàu</span></h3>
+
+        <p class="lead-card-sub lg-en">Everything I share on the channel is in here &mdash; the working files I built for myself at sea.</p>
+        <p class="lead-card-sub lg-vi">Tất cả tài liệu mình chia sẻ trên kênh đều nằm ở đây &mdash; mấy file mình tự dựng để làm việc trên tàu.</p>
         <p class="lead-card-sub lg-en">Name and email once &mdash; the library opens right here, and the link lands in your inbox so you can find it again.</p>
         <p class="lead-card-sub lg-vi">Tên và email một lần &mdash; kho mở ngay tại đây, link cũng về hộp thư để lần sau bạn khỏi đi tìm.</p>
 
@@ -423,8 +453,8 @@
       </form>
 
       <p class="lead-note">
-        <span class="lg-en">You'll also get about one email a month — what I'm learning on the way to Captain. No spam, and you can unsubscribe from any email in one click.</span>
-        <span class="lg-vi">Mỗi tháng tôi gửi khoảng một email, kể lại những gì học được trên đường lên thuyền trưởng. Không spam, không muốn nhận nữa thì bấm huỷ ngay trong email.</span>
+        <span class="lg-en">About one email a month. No spam, unsubscribe in one click.</span>
+        <span class="lg-vi">Khoảng một email mỗi tháng. Không spam, huỷ nhận bằng một chạm.</span>
       </p>
 
       <div class="lead-success">
@@ -452,28 +482,28 @@
       <span class="lg-vi">Miễn phí cho thuyền viên</span>
     </div>
     <h2><span class="lg-en">The tools I actually use on board</span><span class="lg-vi">Công cụ tôi dùng thật trên tàu</span></h2>
-    <p class="section-sub-en lg-en">Three files, one link, one email &mdash; and it stays open</p>
-    <p class="section-sub-en lg-vi">Ba file, một đường link, một lần để lại email &mdash; rồi mở được mãi</p>
+    <p class="section-sub-en lg-en">One link, one email &mdash; and it stays open</p>
+    <p class="section-sub-en lg-vi">Một đường link, một lần để lại email &mdash; rồi mở được mãi</p>
     <div class="lead-grid">
       <div>
         <p class="lg-en" style="color: var(--text-dim); max-width: 560px;">
-          Everything in here I built for my own work, not for a course. The cargo sheet I run before a load. The interpolation sheet for when the number I need falls between two rows of a table. And the model behind my &ldquo;Financial Freedom at 35&rdquo; video &mdash; the working file, not a summary. They sit in one folder; leave your email once and it stays open to you.
+          Everything I share on the channel ends up in here &mdash; the working files I built for myself at sea, not teaching material made for an audience. They sit in one folder that keeps growing. Leave your email once and it stays open to you.
         </p>
         <p class="lg-vi" style="color: var(--text-dim); max-width: 560px;">
-          Mấy file trong này tôi dựng ra để tự làm việc, không phải để mở lớp. Bảng tính hàng chạy trước mỗi lần xếp. Bảng nội suy cho lúc con số cần tra rơi vào giữa hai dòng. Và chính file đã tính ra từng con số trong video &ldquo;Tự do tài chính ở tuổi 35&rdquo; &mdash; file gốc, không phải bản tóm tắt. Tất cả nằm chung một folder; để lại email một lần là mở được mãi.
+          Tất cả tài liệu tôi chia sẻ trên kênh đều dồn về đây &mdash; mấy file tôi dựng ra để tự làm việc trên tàu, không phải giáo trình soạn cho người khác học. Chúng nằm chung một folder và mỗi lúc một dày thêm. Để lại email một lần là mở được mãi.
         </p>
         <ul class="lead-list">
           <li>
-            <span class="lg-en"><b>Max Cargo Intake</b> &mdash; from your draft restriction and load line zone to the tonnage you can actually load</span>
-            <span class="lg-vi"><b>Max Cargo Intake</b> &mdash; từ mớn nước cho phép và load line zone ra đúng số hàng xếp được lên tàu</span>
+            <span class="lg-en">Everything from the channel in one place &mdash; no hunting back through old posts</span>
+            <span class="lg-vi">Mọi thứ từ kênh dồn về một chỗ &mdash; khỏi phải lùng lại từng bài cũ</span>
           </li>
           <li>
-            <span class="lg-en"><b>Interpolation for nautical tables</b> &mdash; linear, three-point parabolic and two-way, for hydrostatics, trim correction and tides</span>
-            <span class="lg-vi"><b>Bảng nội suy tra bảng hàng hải</b> &mdash; tuyến tính, parabol 3 điểm và nội suy kép, dùng cho hydrostatic, trim correction, thuỷ triều</span>
+            <span class="lg-en">Open in Excel and they run &mdash; nothing to install</span>
+            <span class="lg-vi">Mở bằng Excel là chạy &mdash; không phải cài thêm gì</span>
           </li>
           <li>
-            <span class="lg-en"><b>The Financial Freedom spreadsheet</b> &mdash; four career paths month by month; put your own salary and spending in and it gives you your freedom age</span>
-            <span class="lg-vi"><b>Bảng tính Tự do tài chính</b> &mdash; bốn hướng đi sự nghiệp tính theo từng tháng; điền lương và mức chi của bạn vào là ra tuổi tự do tài chính của chính mình</span>
+            <span class="lg-en">One click to download &mdash; no access request, no waiting for me to approve anything</span>
+            <span class="lg-vi">Bấm là tải &mdash; không phải xin quyền, không chờ tôi duyệt gì cả</span>
           </li>
           <li>
             <span class="lg-en">New files go into that same folder, so you never sign up twice</span>
@@ -519,8 +549,8 @@
         </form>
 
         <p class="lead-note" id="leadNote">
-          <span class="lg-en">You'll also get about one email a month — what I'm learning on the way to Captain. No spam, and you can unsubscribe from any email in one click.</span>
-          <span class="lg-vi">Mỗi tháng tôi gửi khoảng một email, kể lại những gì học được trên đường lên thuyền trưởng. Không spam, không muốn nhận nữa thì bấm huỷ ngay trong email.</span>
+          <span class="lg-en">About one email a month. No spam, unsubscribe in one click.</span>
+          <span class="lg-vi">Khoảng một email mỗi tháng. Không spam, huỷ nhận bằng một chạm.</span>
         </p>
 
         <div class="lead-success" id="leadDone">
@@ -696,18 +726,18 @@
     <p class="section-sub-en lg-en">Who you get when I step on board</p>
     <p class="section-sub-en lg-vi">Khi tôi lên tàu, bạn nhận được một người thế nào</p>
     <p class="lg-en" style="color: var(--text-dim); max-width: 760px;">
-      I am a Vietnamese ocean-going deck officer, currently sailing as <strong style="color: var(--text);">Second Officer</strong> on dry cargo vessels, after sailing as <strong style="color: var(--text);">Third Officer on oil tankers</strong>. I am completing my <strong style="color: var(--text);">Management Level (STCW II/2) training in 2026</strong>, preparing for the Chief Mate position — and, in time, Master Mariner. Step by step, with real sea time and real competence.
+      I am a Vietnamese ocean-going deck officer, currently sailing as <strong style="color: var(--text);">Second Officer</strong> on bulk carriers, after sailing as <strong style="color: var(--text);">Third Officer on oil tankers</strong>. I am completing my <strong style="color: var(--text);">Management Level (STCW II/2) training in 2026</strong>, preparing for the Chief Mate position — and, in time, Master Mariner. Step by step, with real sea time and real competence.
     </p>
     <p class="lg-vi" style="color: var(--text-dim); max-width: 760px;">
-      Tôi là sĩ quan boong tàu viễn dương người Việt Nam, hiện đi <strong style="color: var(--text);">phó hai</strong> trên tàu hàng khô, trước đó đi <strong style="color: var(--text);">phó ba trên tàu dầu</strong>. Trong năm 2026 tôi hoàn thành <strong style="color: var(--text);">khoá quản lý (STCW II/2)</strong>, chuẩn bị cho chức đại phó — và sau đó là thuyền trưởng. Đi từng bước, bằng thời gian đi biển thật và năng lực thật.
+      Tôi là sĩ quan boong tàu viễn dương người Việt Nam, hiện đi <strong style="color: var(--text);">phó hai</strong> trên tàu hàng rời, trước đó đi <strong style="color: var(--text);">phó ba trên tàu dầu</strong>. Trong năm 2026 tôi hoàn thành <strong style="color: var(--text);">khoá quản lý (STCW II/2)</strong>, chuẩn bị cho chức đại phó — và sau đó là thuyền trưởng. Đi từng bước, bằng thời gian đi biển thật và năng lực thật.
     </p>
     <div class="pro-grid">
       <div class="pro-card">
         <h3><span class="lg-en">Experience</span><span class="lg-vi">Kinh nghiệm</span></h3>
         <ul>
           <li>
-            <span class="lg-en">Deck cadet → Third Officer → Second Officer on ocean-going vessels: <strong>Third Officer on oil tankers</strong>, Second Officer on dry cargo</span>
-            <span class="lg-vi">Thực tập sinh boong → phó ba → phó hai trên tàu viễn dương: <strong>phó ba tàu dầu</strong>, phó hai tàu hàng khô</span>
+            <span class="lg-en">Deck cadet → Third Officer → Second Officer on ocean-going vessels: <strong>Third Officer on oil tankers</strong>, Second Officer on bulk carriers</span>
+            <span class="lg-vi">Thực tập sinh boong → phó ba → phó hai trên tàu viễn dương: <strong>phó ba tàu dầu</strong>, phó hai tàu hàng rời</span>
           </li>
           <li>
             <span class="lg-en">International trading routes, incl. Suez Canal transits</span>

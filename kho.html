@@ -182,13 +182,15 @@ var FILES = [
             en: "Excel · linear · three-point parabolic · two-way double interpolation" },
     id: "16TuOT63vz1IhfbTQChXJbyH_Z_5LvkGf" },
   // Bảng tính Tự do tài chính — trước 24/08 là magnet RIÊNG của trang chủ.
-  // Gom về kho để cả site chỉ còn MỘT lời hứa (anh chốt 24/08). Đây là Google
-  // Sheets nên đi bằng "url", không nằm trong folder Drive như 2 file trên.
+  // Gom về kho để cả site chỉ còn MỘT lời hứa (anh chốt 24/08).
+  // 24/08 chiều: anh đã upload bản .xlsx VÀO FOLDER DRIVE → bỏ được ngoại lệ
+  // "url" trỏ ra Google Sheets. Giờ cả 3 file cùng nằm 1 chỗ, nên bật CÁCH 1
+  // (Drive API) sau này KHÔNG file nào biến mất.
   { name: { vi: "Bảng tính Tự do tài chính",
             en: "The Financial Freedom spreadsheet" },
-    meta: { vi: "Google Sheets · 4 hướng đi sự nghiệp tính theo từng tháng · sửa số của bạn vào là ra tuổi tự do tài chính",
-            en: "Google Sheets · four career paths month by month · put your own numbers in for your freedom age" },
-    url: "https://docs.google.com/spreadsheets/d/1XrYG_Qn4gVMPTxhCaMtRrob6njX33V2F/edit?usp=sharing" },
+    meta: { vi: "Excel · 4 hướng đi sự nghiệp tính theo từng tháng · sửa số của bạn vào là ra tuổi tự do tài chính",
+            en: "Excel · four career paths month by month · put your own numbers in for your freedom age" },
+    id: "11KItVWjahcbs0FteisbSqYZj4mgYj4Gu" },
 ];
 
 /* ---------------------------------------------------------------------- */
