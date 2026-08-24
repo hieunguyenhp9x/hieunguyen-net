@@ -68,12 +68,19 @@
     border:1px solid rgba(212,169,90,.45); border-radius:3px; padding:6px 13px;
   }
   .site-back:hover{background:rgba(212,169,90,.14); color:var(--gold-light)}
-  .lang-btn{
-    background:none; border:1px solid rgba(212,169,90,.45); color:var(--gold);
-    border-radius:3px; padding:6px 13px; font-weight:700; font-size:14px; cursor:pointer;
-    font-family:inherit;
+  /* ---- NUT CHUYEN NGU — can GIUA, to, ro (anh chot 24/08) ---- */
+  .lang-switch{display:flex; justify-content:center; padding:20px 20px 0}
+  .lang-switch .seg{
+    display:inline-flex; background:var(--navy-2);
+    border:1px solid var(--line); border-radius:999px; padding:4px; gap:4px;
   }
-  .lang-btn:hover{background:rgba(212,169,90,.14)}
+  .lang-switch button{
+    font-family:inherit; font-size:14px; font-weight:700; letter-spacing:.03em;
+    color:var(--text-dim); background:none; border:none; cursor:pointer;
+    padding:9px 22px; border-radius:999px; white-space:nowrap;
+  }
+  .lang-switch button:hover{color:var(--text)}
+  .lang-switch button[aria-pressed="true"]{background:var(--gold); color:var(--navy)}
 
   .wrap{max-width:680px; margin:0 auto; padding:40px 20px 0}
   h1{font-size:clamp(22px,5.5vw,29px); line-height:1.25; margin-bottom:6px}
@@ -93,25 +100,38 @@
   .btn:hover{background:var(--gold-light)}
   .state{color:var(--text-dim); padding:26px 0; text-align:center; font-size:14.5px}
   .frame{width:100%; height:460px; border:1px solid var(--line); border-radius:12px; background:#fff}
+  .disclaimer{color:var(--text-dim); font-size:12.3px; line-height:1.55; margin-top:26px;
+              padding-top:16px; border-top:1px solid rgba(255,255,255,.07)}
 </style>
 </head>
 <body>
 
 <header class="site-bar">
   <a class="site-back" href="/">&larr; hieunguyen.net</a>
-  <button class="lang-btn" id="langBtn" type="button">EN</button>
 </header>
+
+<div class="lang-switch">
+  <div class="seg" role="group" aria-label="Ngôn ngữ / Language">
+    <button type="button" data-set-lang="vi">TIẾNG VIỆT</button>
+    <button type="button" data-set-lang="en">ENGLISH</button>
+  </div>
+</div>
 
 <div class="wrap">
   <h1><span class="lg-vi">&#128218; Kho tài liệu thuyền viên</span><span class="lg-en">&#128218; The seafarer document library</span></h1>
   <p class="sub">
-    <span class="lg-vi">Tải miễn phí. File mới được thêm liên tục — cứ quay lại đây, khỏi điền form lần nữa.</span>
-    <span class="lg-en">Free to download. New files go in all the time &mdash; just come back here, no form again.</span>
+    <span class="lg-vi">Bấm là tải. Đường link này không đổi — mình bỏ thêm file mới vào đây, bạn cứ quay lại, khỏi điền form lần nữa.</span>
+    <span class="lg-en">One click to download. This link never changes &mdash; new files go in here, so just come back; no form again.</span>
   </p>
 
   <div id="list">
     <div class="state"><span class="lg-vi">Đang tải danh sách tài liệu…</span><span class="lg-en">Loading the file list…</span></div>
   </div>
+
+  <p class="disclaimer">
+    <span class="lg-vi">Đây là công cụ cá nhân mình tự dựng để dùng, không phải tài liệu chính thức của bất kỳ tổ chức nào. Số cuối cùng khi làm hàng luôn phải theo hồ sơ tàu, loading manual và lệnh của thuyền trưởng.</span>
+    <span class="lg-en">These are personal tools I built for my own use, not official documentation from any organisation. Final figures for any cargo operation must always come from the vessel's own documents, the loading manual and the Master's orders.</span>
+  </p>
 </div>
 
 <footer class="site-foot">
@@ -159,22 +179,31 @@ var FILES = [
 var TXT = {
   vi:{ empty:"Kho đang trống — tài liệu sẽ được thêm sớm.",
        errNet:"Không tải được danh sách (kiểm tra kết nối / API key).",
-       errApi:"Lỗi tải danh sách: ", dl:"Tải", other:"EN" },
+       errApi:"Lỗi tải danh sách: ", dl:"Tải" },
   en:{ empty:"The library is empty for now — files coming soon.",
        errNet:"Could not load the list (check your connection / the API key).",
-       errApi:"Could not load the list: ", dl:"Get", other:"VI" }
+       errApi:"Could not load the list: ", dl:"Get" }
 };
 function curLang(){ return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'vi'; }
 
-document.getElementById('langBtn').addEventListener('click', function(){
-  var next = curLang() === 'vi' ? 'en' : 'vi';
-  document.documentElement.setAttribute('data-lang', next);
-  document.documentElement.lang = next;
-  try { localStorage.setItem('hn_lang', next); } catch(e){}
-  document.getElementById('langBtn').textContent = TXT[next].other;
-  load();                                   // vẽ lại danh sách theo ngôn ngữ mới
+function markLangButtons(){
+  var l = curLang();
+  document.documentElement.lang = l;
+  document.querySelectorAll('[data-set-lang]').forEach(function(b){
+    b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === l ? 'true' : 'false');
+  });
+}
+document.querySelectorAll('[data-set-lang]').forEach(function(b){
+  b.addEventListener('click', function(){
+    var next = b.getAttribute('data-set-lang');
+    if (next === curLang()) return;
+    document.documentElement.setAttribute('data-lang', next);
+    try { localStorage.setItem('hn_lang', next); } catch(e){}
+    markLangButtons();
+    load();                                 // ve lai danh sach theo ngon ngu moi
+  });
 });
-document.getElementById('langBtn').textContent = TXT[curLang()].other;
+markLangButtons();
 
 var listEl = document.getElementById('list');
 
