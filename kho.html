@@ -225,6 +225,17 @@ function fmtSize(b){
 
 function say(msg){ listEl.innerHTML = '<div class="state">'+esc(msg)+'</div>'; }
 
+/* Dựng link tải cho 1 file Drive.
+   ⚠️ File Google-native (Sheets/Docs/Slides) KHÔNG tải được bằng uc?export=download —
+   nó không phải file nhị phân, đường đó trả về trang lỗi. Với mấy loại này phải mở
+   bằng webViewLink (người xem tự File → Tải xuống nếu muốn bản Excel/Word).
+   Bẫy này chỉ lộ ra khi bật CÁCH 1 (Drive API) — nên xử sẵn ở đây. */
+function driveUrl(f){
+  var native = f.mimeType && f.mimeType.indexOf('application/vnd.google-apps.') === 0;
+  if (native) return f.webViewLink || ('https://drive.google.com/open?id=' + f.id);
+  return 'https://drive.google.com/uc?export=download&id=' + f.id;
+}
+
 function render(files){
   var t = TXT[curLang()];
   if(!files.length){ say(t.empty); return; }
@@ -260,7 +271,7 @@ async function load(){
     var q = encodeURIComponent("'"+DRIVE_FOLDER_ID+"' in parents and trashed=false");
     var url = 'https://www.googleapis.com/drive/v3/files?q='+q+
       '&key='+DRIVE_API_KEY+'&orderBy=modifiedTime desc'+
-      '&fields=files(id,name,mimeType,size,modifiedTime)&pageSize=100';
+      '&fields=files(id,name,mimeType,size,modifiedTime,webViewLink)&pageSize=100';
     try{
       var r = await fetch(url), d = await r.json();
       if (d.error){ say(t.errApi + d.error.message); return; }
@@ -270,7 +281,7 @@ async function load(){
           var dt = f.modifiedTime ? new Date(f.modifiedTime).toLocaleDateString(curLang()==='en'?'en-GB':'vi-VN') : '';
           return { name:f.name,
                    meta:[dt, fmtSize(f.size)].filter(Boolean).join(' · '),
-                   url:'https://drive.google.com/uc?export=download&id='+f.id };
+                   url:driveUrl(f) };
         });
       render(files);
     }catch(e){ say(t.errNet); }
