@@ -155,6 +155,11 @@
 
    CÁCH 3 (TAY, chạy được NGAY hôm nay — 0 cấu hình):
        điền thẳng vào mảng FILES bên dưới. Thêm file mới = thêm 1 dòng + push.
+       name/meta viết dạng { vi: "…", en: "…" } để đổi theo nút chuyển ngữ.
+
+   ⚠️ ĐÁNH ĐỔI CỦA CÁCH 1: tên file lấy thẳng từ Drive nên CHỈ CÓ MỘT BẢN,
+       không song ngữ được. Muốn giữ song ngữ khi bật cách 1 thì đặt tên file
+       trên Drive kiểu "Max Cargo Intake — Bảng tính lượng hàng.xlsx".
 
    Folder Drive phải để "Bất kỳ ai có đường liên kết = Người xem" thì cách 1 và 2 mới đọc được.
    ========================================================================== */
@@ -166,17 +171,23 @@ var USE_EMBED       = false; // true = dùng cách 2 khi có Folder ID mà chưa
 /* CÁCH 3 — danh sách tay. Lấy link chia sẻ của từng file trên Drive rồi dán vào "id"
    (phần XXXXX trong drive.google.com/file/d/XXXXX/view), hoặc dán thẳng URL vào "url". */
 var FILES = [
-  { name: "Bảng tính Max Cargo Intake",
-    meta: "Excel · từ mớn nước cho phép ra số hàng xếp được (Displacement → DWT → cargo)",
+  { name: { vi: "Bảng tính Max Cargo Intake",
+            en: "Max Cargo Intake sheet" },
+    meta: { vi: "Excel · từ mớn nước cho phép ra số hàng xếp được (Displacement → DWT → cargo)",
+            en: "Excel · from your draft restriction to the tonnage you can load (displacement → DWT → cargo)" },
     id: "1qK99mCCmupqC3vV3AtPL2dvpYkldbAuz" },
-  { name: "Bảng nội suy tra bảng hàng hải",
-    meta: "Excel · nội suy tuyến tính · parabol 3 điểm · nội suy kép 2 chiều",
+  { name: { vi: "Bảng nội suy tra bảng hàng hải",
+            en: "Interpolation sheet for nautical tables" },
+    meta: { vi: "Excel · nội suy tuyến tính · parabol 3 điểm · nội suy kép 2 chiều",
+            en: "Excel · linear · three-point parabolic · two-way double interpolation" },
     id: "16TuOT63vz1IhfbTQChXJbyH_Z_5LvkGf" },
   // Bảng tính Tự do tài chính — trước 24/08 là magnet RIÊNG của trang chủ.
   // Gom về kho để cả site chỉ còn MỘT lời hứa (anh chốt 24/08). Đây là Google
   // Sheets nên đi bằng "url", không nằm trong folder Drive như 2 file trên.
-  { name: "Bảng tính Tự do tài chính",
-    meta: "Google Sheets · 4 hướng đi sự nghiệp tính theo từng tháng · sửa số của bạn vào là ra tuổi tự do tài chính",
+  { name: { vi: "Bảng tính Tự do tài chính",
+            en: "The Financial Freedom spreadsheet" },
+    meta: { vi: "Google Sheets · 4 hướng đi sự nghiệp tính theo từng tháng · sửa số của bạn vào là ra tuổi tự do tài chính",
+            en: "Google Sheets · four career paths month by month · put your own numbers in for your freedom age" },
     url: "https://docs.google.com/spreadsheets/d/1XrYG_Qn4gVMPTxhCaMtRrob6njX33V2F/edit?usp=sharing" },
 ];
 
@@ -236,14 +247,26 @@ function driveUrl(f){
   return 'https://drive.google.com/uc?export=download&id=' + f.id;
 }
 
+/* Tên và mô tả file nhận 2 dạng:
+     - chuỗi thường  -> dùng chung cho cả 2 ngôn ngữ (tên từ Drive API chỉ có 1 bản)
+     - { vi:…, en:… } -> chọn theo ngôn ngữ đang xem
+   Thiếu bản của ngôn ngữ đang xem thì rơi về bản kia, không để trống. */
+function ngonNgu(v){
+  if (v == null) return '';
+  if (typeof v === 'string') return v;
+  return v[curLang()] || v.vi || v.en || '';
+}
+
 function render(files){
   var t = TXT[curLang()];
   if(!files.length){ say(t.empty); return; }
   listEl.innerHTML = files.map(function(f){
-    return '<div class="file"><div><div class="name">'+esc(f.name)+'</div>'+
-      (f.meta ? '<div class="meta">'+esc(f.meta)+'</div>' : '')+'</div>'+
+    var ten  = ngonNgu(f.name);
+    var mota = ngonNgu(f.meta);
+    return '<div class="file"><div><div class="name">'+esc(ten)+'</div>'+
+      (mota ? '<div class="meta">'+esc(mota)+'</div>' : '')+'</div>'+
       '<a class="btn" href="'+esc(f.url)+'" target="_blank" rel="noopener" '+
-      'data-fname="'+esc(f.name)+'">'+esc(t.dl)+'</a></div>';
+      'data-fname="'+esc(ngonNgu(f.name && f.name.vi ? f.name.vi : f.name))+'">'+esc(t.dl)+'</a></div>';
   }).join('');
 
   // đếm lượt tải từng file — để biết magnet nào thật sự kéo được người
