@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="vi" data-lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">  <!-- không cho Google index trang kho -->
+<title>Kho tài liệu thuyền viên — Nguyễn Chí Hiếu</title>
+
+<!-- NGÔN NGỮ: đặt TRƯỚC khi trang vẽ. Mặc định TIẾNG VIỆT (cùng phễu với /tai-lieu.html),
+     dùng chung localStorage hn_lang với cả site. -->
+<script type="text/javascript">
+(function () {
+  var l = null;
+  try { l = localStorage.getItem('hn_lang') || localStorage.getItem('pomo_lang'); } catch (e) {}
+  if (l !== 'vi' && l !== 'en') l = 'vi';
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.lang = l;
+})();
+</script>
+
+<!-- Đo lường: GA4 + Clarity. Thiết bị đã mở ?notrack=1 (máy của anh) thì không tải gì. -->
+<script type="text/javascript">
+(function () {
+  try {
+    var p = new URLSearchParams(location.search);
+    if (p.has('notrack')) localStorage.setItem('hn_notrack', '1');
+    else if (p.has('track')) localStorage.removeItem('hn_notrack');
+    if (localStorage.getItem('hn_notrack') === '1') return;
+  } catch (e) {}
+  var ga = document.createElement('script');
+  ga.async = 1;
+  ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK';
+  document.head.appendChild(ga);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', 'G-TNVKB32ZPK');
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xvzwl9diz8");
+})();
+</script>
+
+<style>
+  :root{
+    --navy:#0a1628; --navy-2:#10203a; --navy-3:#1a3050;
+    --gold:#d4a95a; --gold-light:#e8c88a;
+    --text:#e8edf4; --text-dim:#9fb0c4; --line:rgba(212,169,90,.22);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{
+    background:var(--navy); color:var(--text); line-height:1.6;
+    font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  html[data-lang="vi"] .lg-en, html:not([data-lang="vi"]) .lg-vi { display:none !important; }
+
+  .site-bar,.site-foot{
+    background:var(--navy); display:flex; flex-wrap:wrap; gap:10px 20px;
+    align-items:center; justify-content:space-between; padding:14px 22px;
+  }
+  .site-bar{border-bottom:2px solid var(--gold)}
+  .site-foot{border-top:2px solid var(--gold); margin-top:48px; padding:22px; font-size:14px; color:var(--text-dim)}
+  .site-back{
+    color:var(--gold); text-decoration:none; font-weight:700; font-size:15.5px;
+    border:1px solid rgba(212,169,90,.45); border-radius:3px; padding:6px 13px;
+  }
+  .site-back:hover{background:rgba(212,169,90,.14); color:var(--gold-light)}
+  .lang-btn{
+    background:none; border:1px solid rgba(212,169,90,.45); color:var(--gold);
+    border-radius:3px; padding:6px 13px; font-weight:700; font-size:14px; cursor:pointer;
+    font-family:inherit;
+  }
+  .lang-btn:hover{background:rgba(212,169,90,.14)}
+
+  .wrap{max-width:680px; margin:0 auto; padding:40px 20px 0}
+  h1{font-size:clamp(22px,5.5vw,29px); line-height:1.25; margin-bottom:6px}
+  .sub{color:var(--text-dim); font-size:15px; margin-bottom:28px}
+
+  .file{
+    display:flex; align-items:center; justify-content:space-between; gap:14px;
+    background:var(--navy-2); border:1px solid var(--line); border-radius:12px;
+    padding:16px 18px; margin-bottom:12px;
+  }
+  .file .name{font-weight:600; font-size:15.5px}
+  .file .meta{color:var(--text-dim); font-size:12.5px; margin-top:2px}
+  .btn{
+    background:var(--gold); color:var(--navy); text-decoration:none; font-weight:800;
+    padding:9px 17px; border-radius:8px; white-space:nowrap; font-size:14px;
+  }
+  .btn:hover{background:var(--gold-light)}
+  .state{color:var(--text-dim); padding:26px 0; text-align:center; font-size:14.5px}
+  .frame{width:100%; height:460px; border:1px solid var(--line); border-radius:12px; background:#fff}
+</style>
+</head>
+<body>
+
+<header class="site-bar">
+  <a class="site-back" href="/">&larr; hieunguyen.net</a>
+  <button class="lang-btn" id="langBtn" type="button">EN</button>
+</header>
+
+<div class="wrap">
+  <h1><span class="lg-vi">&#128218; Kho tài liệu thuyền viên</span><span class="lg-en">&#128218; The seafarer document library</span></h1>
+  <p class="sub">
+    <span class="lg-vi">Tải miễn phí. File mới được thêm liên tục — cứ quay lại đây, khỏi điền form lần nữa.</span>
+    <span class="lg-en">Free to download. New files go in all the time &mdash; just come back here, no form again.</span>
+  </p>
+
+  <div id="list">
+    <div class="state"><span class="lg-vi">Đang tải danh sách tài liệu…</span><span class="lg-en">Loading the file list…</span></div>
+  </div>
+</div>
+
+<footer class="site-foot">
+  <span class="lg-vi">Nguyễn Chí Hiếu · tài liệu chia sẻ cho anh em đi biển</span>
+  <span class="lg-en">Nguyen Chi Hieu · shared with fellow seafarers</span>
+  <span>hieunguyen.net</span>
+</footer>
+
+<script>
+/* ============================================================================
+   KHO CHẠY ĐƯỢC THEO 3 CÁCH — cứ điền cách nào có sẵn, trang tự chọn theo thứ tự:
+
+   CÁCH 1 (AUTO, đẹp nhất — cần Folder ID + API key):
+       thả file vào folder Drive là web tự hiện, không phải sửa code lần nào nữa.
+       Lấy API key: console.cloud.google.com → Enable Google Drive API →
+       Credentials → API key → Restrict: HTTP referrers hieunguyen.net/* + chỉ Drive API.
+
+   CÁCH 2 (AUTO, KHÔNG cần API key — chỉ cần Folder ID):
+       nhúng khung xem folder của Google. Xấu hơn, giao diện Google, nhưng
+       bỏ được cả bước dựng project Google Cloud. Bật bằng USE_EMBED = true.
+
+   CÁCH 3 (TAY, chạy được NGAY hôm nay — 0 cấu hình):
+       điền thẳng vào mảng FILES bên dưới. Thêm file mới = thêm 1 dòng + push.
+
+   Folder Drive phải để "Bất kỳ ai có đường liên kết = Người xem" thì cách 1 và 2 mới đọc được.
+   ========================================================================== */
+
+var DRIVE_FOLDER_ID = "14FT6FZtM5gJc6XEmGqgvkNM79hffxB0I";   // folder "Tài Liệu - Materials", anh chia sẻ 24/08/2026 (ai có link = Người xem)
+var DRIVE_API_KEY   = "";   // để rỗng = bỏ qua cách 1
+var USE_EMBED       = false; // true = dùng cách 2 khi có Folder ID mà chưa có API key
+
+/* CÁCH 3 — danh sách tay. Lấy link chia sẻ của từng file trên Drive rồi dán vào "id"
+   (phần XXXXX trong drive.google.com/file/d/XXXXX/view), hoặc dán thẳng URL vào "url". */
+var FILES = [
+  { name: "Bảng tính Max Cargo Intake",
+    meta: "Excel · từ mớn nước cho phép ra số hàng xếp được (Displacement → DWT → cargo)",
+    id: "1qK99mCCmupqC3vV3AtPL2dvpYkldbAuz" },
+  { name: "Bảng nội suy tra bảng hàng hải",
+    meta: "Excel · nội suy tuyến tính · parabol 3 điểm · nội suy kép 2 chiều",
+    id: "16TuOT63vz1IhfbTQChXJbyH_Z_5LvkGf" },
+];
+
+/* ---------------------------------------------------------------------- */
+
+var TXT = {
+  vi:{ empty:"Kho đang trống — tài liệu sẽ được thêm sớm.",
+       errNet:"Không tải được danh sách (kiểm tra kết nối / API key).",
+       errApi:"Lỗi tải danh sách: ", dl:"Tải", other:"EN" },
+  en:{ empty:"The library is empty for now — files coming soon.",
+       errNet:"Could not load the list (check your connection / the API key).",
+       errApi:"Could not load the list: ", dl:"Get", other:"VI" }
+};
+function curLang(){ return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'vi'; }
+
+document.getElementById('langBtn').addEventListener('click', function(){
+  var next = curLang() === 'vi' ? 'en' : 'vi';
+  document.documentElement.setAttribute('data-lang', next);
+  document.documentElement.lang = next;
+  try { localStorage.setItem('hn_lang', next); } catch(e){}
+  document.getElementById('langBtn').textContent = TXT[next].other;
+  load();                                   // vẽ lại danh sách theo ngôn ngữ mới
+});
+document.getElementById('langBtn').textContent = TXT[curLang()].other;
+
+var listEl = document.getElementById('list');
+
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+function fmtSize(b){
+  if(!b) return '';
+  var u=['B','KB','MB','GB'], i=0, n=+b;
+  while(n>=1024 && i<u.length-1){ n/=1024; i++; }
+  return n.toFixed(n<10 && i>0 ? 1 : 0)+' '+u[i];
+}
+
+function say(msg){ listEl.innerHTML = '<div class="state">'+esc(msg)+'</div>'; }
+
+function render(files){
+  var t = TXT[curLang()];
+  if(!files.length){ say(t.empty); return; }
+  listEl.innerHTML = files.map(function(f){
+    return '<div class="file"><div><div class="name">'+esc(f.name)+'</div>'+
+      (f.meta ? '<div class="meta">'+esc(f.meta)+'</div>' : '')+'</div>'+
+      '<a class="btn" href="'+esc(f.url)+'" target="_blank" rel="noopener" '+
+      'data-fname="'+esc(f.name)+'">'+esc(t.dl)+'</a></div>';
+  }).join('');
+
+  // đếm lượt tải từng file — để biết magnet nào thật sự kéo được người
+  listEl.querySelectorAll('a.btn').forEach(function(a){
+    a.addEventListener('click', function(){
+      try { if (window.gtag) gtag('event','file_download',{ file_name: a.getAttribute('data-fname') }); } catch(e){}
+    });
+  });
+}
+
+function manualFiles(){
+  return FILES.filter(function(f){ return f && (f.url || (f.id && f.id.indexOf('PASTE') !== 0)); })
+              .map(function(f){
+    return { name:f.name,
+             meta:f.meta || '',
+             url:f.url || ('https://drive.google.com/uc?export=download&id='+f.id) };
+  });
+}
+
+async function load(){
+  var t = TXT[curLang()];
+
+  // CÁCH 1 — Drive API
+  if (DRIVE_FOLDER_ID && DRIVE_API_KEY){
+    var q = encodeURIComponent("'"+DRIVE_FOLDER_ID+"' in parents and trashed=false");
+    var url = 'https://www.googleapis.com/drive/v3/files?q='+q+
+      '&key='+DRIVE_API_KEY+'&orderBy=modifiedTime desc'+
+      '&fields=files(id,name,mimeType,size,modifiedTime)&pageSize=100';
+    try{
+      var r = await fetch(url), d = await r.json();
+      if (d.error){ say(t.errApi + d.error.message); return; }
+      var files = (d.files||[])
+        .filter(function(f){ return f.mimeType !== 'application/vnd.google-apps.folder'; })
+        .map(function(f){
+          var dt = f.modifiedTime ? new Date(f.modifiedTime).toLocaleDateString(curLang()==='en'?'en-GB':'vi-VN') : '';
+          return { name:f.name,
+                   meta:[dt, fmtSize(f.size)].filter(Boolean).join(' · '),
+                   url:'https://drive.google.com/uc?export=download&id='+f.id };
+        });
+      render(files);
+    }catch(e){ say(t.errNet); }
+    return;
+  }
+
+  // CÁCH 2 — nhúng khung folder của Google (không cần API key)
+  if (DRIVE_FOLDER_ID && USE_EMBED){
+    listEl.innerHTML = '<iframe class="frame" title="Drive" '+
+      'src="https://drive.google.com/embeddedfolderview?id='+esc(DRIVE_FOLDER_ID)+'#list"></iframe>';
+    return;
+  }
+
+  // CÁCH 3 — danh sách tay
+  render(manualFiles());
+}
+load();
+</script>
+</body>
+</html>
