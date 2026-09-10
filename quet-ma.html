@@ -341,9 +341,12 @@ function showDone(track){
   try { if (window.clarity) clarity('set','signup','qr_pdf'); } catch(e){}
 }
 
-/* Đã điền lần trước rồi → khỏi bắt điền lại, cho vào kho luôn (bớt ma sát).
-   Không bắn lại event sign_up, nếu không GA sẽ đếm trùng 1 người thành nhiều lead. */
-try { if (localStorage.getItem('hn_lead') === '1') showDone(false); } catch(e){}
+/* ⛔ TRANG NÀY KHÔNG BỎ QUA FORM — khác tai-lieu.html (chốt 10/09/2026).
+   Bên kia có tắt: ai điền rồi thì vào thẳng kho cho bớt ma sát. Ở đây thì KHÔNG,
+   vì trang này sinh ra chỉ để làm MỘT việc: tờ PDF được chuyền tay, người cầm tờ
+   quét mã thì phải để lại tên + email. Người đã đăng ký cũ điền lại cũng không mất
+   gì (Kit tự gộp trùng email), còn bỏ qua nhầm một lần là mất hẳn một lead —
+   và chính anh mở thử đã bị nó cho vào thẳng vì máy còn cờ hn_lead từ hôm quay b-roll. */
 
 form.addEventListener('submit', function(e){
   var t = TXT[curLang()];
