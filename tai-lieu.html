@@ -434,9 +434,17 @@ function veMotFile(f){
     '</div><div class="acts">'+nut+'</div></div>';
 }
 
+var daBaoList = false;                   // chỉ báo GA lần vẽ ĐẦU, đổi ngôn ngữ vẽ lại không tính
 function veDanhSach(){
   var t = TXT[curLang()], files = danhSach();
-  if (!files.length){ listEl.innerHTML = '<div class="state">'+esc(t.empty)+'</div>'; return; }
+  if (!files.length){
+    listEl.innerHTML = '<div class="state">'+esc(t.empty)+'</div>';
+    // Không có event này thì trang HỎNG và trang KHÔNG AI THÈM BẤM trông giống hệt nhau
+    // trong GA4 — cả hai đều chỉ có page_view. Sửa nhầm chỗ là vì đây.
+    if (!daBaoList){ daBaoList = true; baoGA('list_error', { so_file: 0 }); }
+    return;
+  }
+  if (!daBaoList){ daBaoList = true; baoGA('list_ready', { so_file: files.length }); }
   var html = '';
   (window.NHOM || []).forEach(function(g){
     var trong = files.filter(function(f){ return (f.nhom || 'moi') === g.key; });
@@ -501,6 +509,10 @@ function onBamFile(e){
   gateAsk.hidden = false;
   gateDone.hidden = true;
   showError('', []);
+  // Mốc "đã NHÌN THẤY cái form". Phải có riêng: gate_abandon chỉ bắn khi người ta
+  // bấm đóng, còn người đóng luôn cả tab thì không bắn gì — thiếu mốc này thì tỉ lệ
+  // rơi ở form trông đẹp giả.
+  baoGA('gate_open', { file_name: dangCho.track });
   moCua();
 }
 
@@ -565,6 +577,31 @@ form.addEventListener('submit', function(e){
   if (w) { try { w.focus(); } catch(err){} }
   return false;
 });
+
+/* ---------------- mốc cuộn ----------------
+   GA4 bản mặc định chỉ bắn `scroll` ở 90% — trang này cao gấp 2,5 màn điện thoại nên
+   gần như không ai chạm tới, tức là mù cả đoạn giữa. Bắn thêm 25/50/75 để biết người
+   ta đọc tới đâu rồi mới quay đi.                                                    */
+(function(){
+  var moc = [25, 50, 75], daBan = {};
+  function do1(){
+    var h = document.documentElement;
+    var cao = h.scrollHeight - window.innerHeight;
+    if (cao <= 0) return;
+    var pc = (window.scrollY || h.scrollTop) / cao * 100;
+    for (var i = 0; i < moc.length; i++){
+      if (pc >= moc[i] && !daBan[moc[i]]){
+        daBan[moc[i]] = 1;
+        baoGA('cuon_trang', { phan_tram: moc[i] });
+      }
+    }
+  }
+  var cho = null;
+  window.addEventListener('scroll', function(){
+    if (cho) return;
+    cho = setTimeout(function(){ cho = null; do1(); }, 250);
+  }, { passive: true });
+})();
 
 veDanhSach();
 </script>
