@@ -94,7 +94,7 @@
   .lang-switch button:hover{color:var(--text)}
   .lang-switch button[aria-pressed="true"]{background:var(--gold); color:var(--navy)}
 
-  .wrap{max-width:600px; margin:0 auto; padding:28px 20px 0}
+  .wrap{max-width:640px; margin:0 auto; padding:28px 20px 0}
   .badge{
     display:inline-block; background:var(--gold); color:var(--navy);
     font-weight:800; font-size:11.5px; letter-spacing:.09em; text-transform:uppercase;
@@ -102,36 +102,66 @@
   }
   h1{font-size:clamp(26px,6.2vw,36px); line-height:1.2; letter-spacing:-.015em; margin-bottom:14px}
   h1 .hl{color:var(--gold)}
-  .sub{color:var(--text-dim); font-size:16.5px; margin-bottom:28px}
-
-  /* thẻ nêu ĐÍCH DANH từng file — thứ có sức bán nhất, không được giấu */
-  .item{
-    display:flex; gap:14px; align-items:flex-start;
-    background:var(--navy-2); border:1px solid var(--line);
-    border-radius:12px; padding:16px 18px; margin-bottom:12px;
-  }
-  .item .ico{font-size:22px; line-height:1.3}
-  .item .t{font-weight:700; font-size:16px; margin-bottom:3px}
-  .item .d{color:var(--text-dim); font-size:14px; line-height:1.5}
-
-  .note-line{color:var(--text-dim); font-size:14.5px; margin:16px 0 24px; padding-left:26px; position:relative}
-  .note-line::before{content:"\2693"; position:absolute; left:0; top:2px; font-size:11px; color:var(--gold)}
-
-  .card{background:var(--navy-2); border:1px solid var(--line); border-radius:12px; padding:24px 22px}
+  .sub{color:var(--text-dim); font-size:16.5px; margin-bottom:22px}
 
   /* AI đang xin email của bạn — không có mặt mũi thì không ai đưa mail */
-  .who{display:flex; gap:13px; align-items:center; margin-bottom:20px;
+  .who{display:flex; gap:13px; align-items:center; margin-bottom:18px;
        padding-bottom:18px; border-bottom:1px solid rgba(255,255,255,.07)}
   .who img{width:46px; height:46px; border-radius:50%; object-fit:cover; flex:none;
            border:1px solid rgba(212,169,90,.4)}
   .who .n{font-weight:700; font-size:15px}
   .who .r{color:var(--text-dim); font-size:13px}
 
+  .note-line{color:var(--text-dim); font-size:14.5px; margin:0 0 24px; padding-left:26px; position:relative}
+  .note-line::before{content:"\2693"; position:absolute; left:0; top:2px; font-size:11px; color:var(--gold)}
+  .note-line b{color:var(--text)}
+
+  /* ---- DANH SÁCH FILE ---- */
+  .group{margin-bottom:26px}
+  .group h2{font-size:17px; letter-spacing:-.01em; margin-bottom:4px}
+  .gsub{color:var(--text-dim); font-size:13.6px; line-height:1.5; margin-bottom:12px}
+  .file{
+    display:flex; gap:14px; align-items:flex-start;
+    background:var(--navy-2); border:1px solid var(--line);
+    border-radius:12px; padding:16px 18px; margin-bottom:12px;
+  }
+  .file .ico{font-size:22px; line-height:1.3}
+  .file .body{flex:1; min-width:0}
+  .file .name{font-weight:700; font-size:16px; margin-bottom:3px}
+  .file .meta{color:var(--text-dim); font-size:14px; line-height:1.5}
+  .file .tag{color:var(--gold); font-size:12px; letter-spacing:.04em; margin-top:6px; text-transform:uppercase}
+  .acts{display:flex; flex-direction:column; gap:8px; flex:none}
+  .btn{
+    display:inline-block; background:var(--gold); color:var(--navy); text-decoration:none;
+    font-weight:800; font-size:14.5px; padding:11px 18px; border-radius:8px;
+    white-space:nowrap; border:none; font-family:inherit; cursor:pointer;
+  }
+  .btn:hover{background:var(--gold-light)}
+  .btn.ghost{background:none; color:var(--gold); border:1px solid rgba(212,169,90,.45); font-weight:700}
+  .btn.ghost:hover{background:rgba(212,169,90,.14)}
+  .state{color:var(--text-dim); text-align:center; padding:26px 0}
+
+  .disclaimer{color:var(--text-dim); font-size:12.3px; line-height:1.55; margin-top:6px;
+              padding-top:16px; border-top:1px solid rgba(255,255,255,.07)}
+
+  /* ---- CỬA: hiện SAU khi bấm Tải ngay ---- */
+  .modal{position:fixed; inset:0; background:rgba(4,10,20,.78); z-index:50;
+         display:flex; align-items:center; justify-content:center; padding:18px;
+         overflow-y:auto; -webkit-overflow-scrolling:touch}
+  .modal[hidden]{display:none}
+  .sheet{background:var(--navy-2); border:1px solid var(--line); border-radius:14px;
+         padding:24px 22px; width:100%; max-width:440px; position:relative; margin:auto}
+  .sheet .x{position:absolute; top:10px; right:12px; background:none; border:none;
+            color:var(--text-dim); font-size:26px; line-height:1; cursor:pointer; font-family:inherit}
+  .sheet .x:hover{color:var(--text)}
+  .taking{color:var(--text-dim); font-size:13px; margin-bottom:4px}
+  .taking-name{font-weight:800; font-size:17.5px; color:var(--gold); line-height:1.3; margin-bottom:16px}
+
   label{display:block; font-size:13px; font-weight:600; color:var(--text-dim); margin:0 0 6px}
   input[type=text],input[type=email]{
     width:100%; background:var(--navy-3); border:1px solid rgba(255,255,255,.10);
     color:var(--text); font-size:16px; font-family:inherit;
-    padding:12px 14px; border-radius:8px; margin-bottom:16px;
+    padding:12px 14px; border-radius:8px; margin-bottom:14px;
   }
   input:focus{outline:none; border-color:var(--gold)}
   input.invalid{border-color:#e05c5c}
@@ -145,37 +175,37 @@
   }
   button[type=submit]:hover{background:var(--gold-light)}
   button[type=submit]:disabled{opacity:.6; cursor:default}
-  .err{display:none; color:#ff8a8a; font-size:13.5px; margin:-6px 0 12px}
+  .err{display:none; color:#ff8a8a; font-size:13.5px; margin:-4px 0 12px}
 
-  .disclaimer{color:var(--text-dim); font-size:12.3px; line-height:1.55; margin-top:20px;
-              padding-top:16px; border-top:1px solid rgba(255,255,255,.07)}
-
-  .done{display:none; text-align:center}
+  .done{text-align:center}
+  .done[hidden]{display:none}
   .done .tick{font-size:38px; margin-bottom:8px}
   .done h2{font-size:20px; margin-bottom:8px}
-  .done p{color:var(--text-dim); font-size:14.5px; margin-bottom:20px}
+  .done p{color:var(--text-dim); font-size:14.5px; margin-bottom:18px}
   .btn-kho{
     display:inline-block; background:var(--gold); color:var(--navy); text-decoration:none;
     font-weight:800; font-size:16px; padding:14px 26px; border-radius:8px;
   }
   .btn-kho:hover{background:var(--gold-light)}
-  /* MOBILE: toan bo luu luong den tu TikTok/FB tren dien thoai — form phai len cao,
-     khong de nguoi ta cuon 1,5 man hinh moi thay cho dien. */
+  .done .after{font-size:13px; margin:14px 0 0}
+
+  /* MOBILE: toàn bộ lưu lượng đến từ TikTok/FB trên điện thoại. Nút TẢI NGAY phải
+     nằm cùng dòng với tên file và luôn với tới được bằng ngón cái. */
   @media (max-width:520px){
     .lang-switch{padding:14px 20px 0}
     .lang-switch button{padding:8px 18px; font-size:13px}
     .wrap{padding:18px 16px 0}
     .badge{margin-bottom:12px}
     h1{margin-bottom:10px}
-    .sub{font-size:15.5px; margin-bottom:18px}
-    .item{padding:13px 14px; margin-bottom:9px; gap:11px}
-    .item .ico{font-size:19px}
-    .item .t{font-size:15px}
-    .item .d{font-size:13.3px; line-height:1.45}
-    .note-line{font-size:13.8px; margin:13px 0 18px}
-    .card{padding:18px 16px}
-    .who{margin-bottom:16px; padding-bottom:14px}
-    input[type=text],input[type=email]{margin-bottom:13px}
+    .sub{font-size:15.5px; margin-bottom:16px}
+    .note-line{font-size:13.8px; margin-bottom:18px}
+    .file{padding:14px 14px; margin-bottom:10px; gap:11px; flex-wrap:wrap}
+    .file .ico{font-size:19px}
+    .file .name{font-size:15px}
+    .file .meta{font-size:13.3px; line-height:1.45}
+    .acts{flex-direction:row; width:100%; gap:8px}
+    .acts .btn{flex:1; text-align:center; padding:12px 10px}
+    .sheet{padding:20px 16px}
   }
 </style>
 </head>
@@ -204,67 +234,29 @@
   <p class="sub lg-vi">Tất cả tài liệu mình chia sẻ trên kênh đều nằm ở đây — đều là những tài liệu mình tự dựng để học tập và làm việc trên tàu. Sẽ còn update thêm.</p>
   <p class="sub lg-en">Everything I share on the channel is in here &mdash; the working files I built for myself at sea. The library keeps growing; just come back.</p>
 
+  <div class="who">
+    <img src="assets/portrait.jpg?v=2" alt="Nguyen Chi Hieu"
+         data-vi-alt="Nguyễn Chí Hiếu — sĩ quan boong" data-en-alt="Nguyen Chi Hieu — deck officer">
+    <div>
+      <div class="n">Nguyễn Chí Hiếu</div>
+      <div class="r lg-vi">Phó hai &middot; kinh nghiệm tàu hàng rời và tàu dầu &middot; đang học đại phó</div>
+      <div class="r lg-en">Second Officer &middot; bulk carrier &amp; tanker experience &middot; C/O in progress</div>
+    </div>
+  </div>
+
   <p class="note-line">
-    <span class="lg-vi">Bấm là tải &mdash; không cần xin cấp quyền, không cần ai duyệt. File mới vào cùng đường link đó, khỏi phải điền lại.</span>
-    <span class="lg-en">One click to download &mdash; no access request, no waiting for approval. New files go to that same link, so you never sign up twice.</span>
+    <span class="lg-vi"><b>Bấm Tải ngay ở món bạn cần.</b> Điền tên và email một lần là mở cả kho — các file sau bấm tải thẳng, không hỏi lại.</span>
+    <span class="lg-en"><b>Hit Get it now on whatever you need.</b> Name and email once opens the whole library &mdash; every file after that downloads straight away.</span>
   </p>
 
-  <div class="card">
-    <div class="who">
-      <img src="assets/portrait.jpg?v=2" alt="Nguyen Chi Hieu"
-           data-vi-alt="Nguyễn Chí Hiếu — sĩ quan boong" data-en-alt="Nguyen Chi Hieu — deck officer">
-      <div>
-        <div class="n">Nguyễn Chí Hiếu</div>
-        <div class="r lg-vi">Phó hai &middot; kinh nghiệm tàu hàng rời và tàu dầu &middot; đang học đại phó</div>
-        <div class="r lg-en">Second Officer &middot; bulk carrier &amp; tanker experience &middot; C/O in progress</div>
-      </div>
-    </div>
-
-    <form id="leadForm" novalidate action="https://app.kit.com/forms/9750089/subscriptions" method="post">
-      <label for="leadName"><span class="lg-vi">Tên</span><span class="lg-en">First name</span></label>
-      <input id="leadName" type="text" name="fields[first_name]" placeholder="Hiếu"
-             data-vi-placeholder="Hiếu" data-en-placeholder="Hieu"
-             autocomplete="given-name" maxlength="40" required>
-
-      <label for="leadEmail">Email</label>
-      <input id="leadEmail" type="email" name="email_address" placeholder="you@example.com"
-             autocomplete="email" required>
-
-      <!-- HONEYPOT — bẫy bot, người không nhìn thấy. Đừng xoá, đừng đổi tên ô. -->
-      <div class="hp" aria-hidden="true">
-        <label for="leadWebsite">Website</label>
-        <input id="leadWebsite" type="text" name="website" tabindex="-1" autocomplete="off">
-      </div>
-
-      <p class="err" id="leadErr" role="alert"></p>
-
-      <p class="promise" id="leadPromise">
-        <span class="lg-vi">Email của bạn mình chỉ dùng để gửi link kho. Khoảng một tháng một thư, không thích thì bấm huỷ.</span>
-        <span class="lg-en">Your email is only used to send you the library link. About one email a month, unsubscribe in one click.</span>
-      </p>
-
-      <button type="submit">
-        <span class="lg-vi">Lấy file về máy</span><span class="lg-en">Get the files</span>
-      </button>
-    </form>
-
-    <div class="done" id="leadDone">
-      <div class="tick">&#128218;</div>
-      <h2><span class="lg-vi">Xong — kho mở rồi</span><span class="lg-en">Done &mdash; the library is open</span></h2>
-      <p>
-        <span class="lg-vi">Bấm nút dưới là vào kho luôn. Link mình gửi thêm vào email của bạn, lần sau khỏi phải đi tìm.</span>
-        <span class="lg-en">Tap below to go straight in. I've also emailed you this link so you can find it again later.</span>
-      </p>
-      <a class="btn-kho" id="khoBtn" href="/kho.html">
-        <span class="lg-vi">Vào kho tài liệu &rarr;</span><span class="lg-en">Open the library &rarr;</span>
-      </a>
-    </div>
-
-    <p class="disclaimer">
-      <span class="lg-vi">Đây là công cụ cá nhân mình tự dựng để dùng, không phải tài liệu chính thức của bất kỳ tổ chức nào. Số cuối cùng khi làm hàng luôn phải theo hồ sơ tàu, loading manual và lệnh của thuyền trưởng.</span>
-      <span class="lg-en">These are personal tools I built for my own use, not official documentation from any organisation. Final figures for any cargo operation must always come from the vessel's own documents, the loading manual and the Master's orders.</span>
-    </p>
+  <div id="list">
+    <div class="state"><span class="lg-vi">Đang tải danh sách tài liệu…</span><span class="lg-en">Loading the file list…</span></div>
   </div>
+
+  <p class="disclaimer">
+    <span class="lg-vi">Đây là công cụ cá nhân mình tự dựng để dùng, không phải tài liệu chính thức của bất kỳ tổ chức nào. Số cuối cùng khi làm hàng luôn phải theo hồ sơ tàu, loading manual và lệnh của thuyền trưởng.</span>
+    <span class="lg-en">These are personal tools I built for my own use, not official documentation from any organisation. Final figures for any cargo operation must always come from the vessel's own documents, the loading manual and the Master's orders.</span>
+  </p>
 </div>
 
 <footer class="site-foot">
@@ -273,24 +265,105 @@
   <span>hieunguyen.net</span>
 </footer>
 
+<!-- ===== CỬA: chỉ hiện SAU khi người ta đã bấm vào một file cụ thể ===== -->
+<div class="modal" id="gate" hidden role="dialog" aria-modal="true" aria-labelledby="gateFile">
+  <div class="sheet">
+    <button class="x" id="gateClose" type="button" aria-label="Đóng / Close">&times;</button>
+
+    <div id="gateAsk">
+      <p class="taking"><span class="lg-vi">Bạn đang lấy</span><span class="lg-en">You're getting</span></p>
+      <p class="taking-name" id="gateFile"></p>
+
+      <form id="leadForm" novalidate action="https://app.kit.com/forms/9750089/subscriptions" method="post">
+        <label for="leadName"><span class="lg-vi">Tên</span><span class="lg-en">First name</span></label>
+        <input id="leadName" type="text" name="fields[first_name]" placeholder="Hiếu"
+               data-vi-placeholder="Hiếu" data-en-placeholder="Hieu"
+               autocomplete="given-name" maxlength="40" required>
+
+        <label for="leadEmail">Email</label>
+        <input id="leadEmail" type="email" name="email_address" placeholder="you@example.com"
+               autocomplete="email" required>
+
+        <!-- HONEYPOT — bẫy bot, người không nhìn thấy. Đừng xoá, đừng đổi tên ô. -->
+        <div class="hp" aria-hidden="true">
+          <label for="leadWebsite">Website</label>
+          <input id="leadWebsite" type="text" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <p class="err" id="leadErr" role="alert"></p>
+
+        <p class="promise">
+          <span class="lg-vi">Email của bạn mình chỉ dùng để gửi link kho. Khoảng một tháng một thư, không thích thì bấm huỷ.</span>
+          <span class="lg-en">Your email is only used to send you the library link. About one email a month, unsubscribe in one click.</span>
+        </p>
+
+        <button type="submit" id="gateSubmit">
+          <span class="lg-vi">Tải ngay</span><span class="lg-en">Get it now</span>
+        </button>
+      </form>
+    </div>
+
+    <div class="done" id="gateDone" hidden>
+      <div class="tick">&#128218;</div>
+      <h2 id="gateTitle"><span class="lg-vi">Xong — kho mở rồi</span><span class="lg-en">Done &mdash; the library is open</span></h2>
+      <p id="gateDoneMsg">
+        <span class="lg-vi">File đang tải về máy bạn. Không thấy thì bấm nút dưới.</span>
+        <span class="lg-en">Your file is downloading. If nothing happened, tap below.</span>
+      </p>
+      <a class="btn-kho" id="gateDl" href="#" target="_blank" rel="noopener">
+        <span class="lg-vi">Tải file &rarr;</span><span class="lg-en">Download &rarr;</span>
+      </a>
+      <p class="after">
+        <span class="lg-vi">Cả kho đã mở — bấm tải món khác không phải điền lại. Link kho mình gửi vào email cho bạn giữ.</span>
+        <span class="lg-en">The whole library is open now &mdash; any other file downloads straight away. I've emailed you the link so you can find it again.</span>
+      </p>
+    </div>
+  </div>
+</div>
+
+<script src="assets/kho-data.js"></script>
 <script>
-/* ================= CẤU HÌNH ================= */
-/* Kit (ConvertKit) — DÙNG CHUNG form 9750089 với index.html (nối 01/08/2026).
-   Muốn kho có email welcome RIÊNG: tạo form mới trong Kit, đặt incentive email
-   cho form đó rồi thay số ID ở dòng dưới. Kho vẫn mở NGAY tại chỗ nên email
-   chỉ là bản lưu, không phải cửa bắt buộc. Xem production/website/kit-email-welcome.md */
+/* ============================================================================
+   CỬA "BẤM RỒI MỚI HỎI" — đổi ngày 11/09/2026 theo ý anh.
+
+   Trước: trang này đòi tên + email TRƯỚC, lúc người ta còn chưa biết trong kho
+   có gì → email là PHÍ VÀO CỬA trả cho một thứ mơ hồ.
+   Nay:   danh sách hiện ngay, bấm "Tải ngay" ở MỘT MÓN CỤ THỂ mới hỏi → email
+          thành GIÁ CỦA MÓN ĐANG MUỐN, và người ta đã trót bấm một bước rồi.
+
+   Ba chỗ dễ làm hỏng, đã xử ở đây:
+     1. Điền xong phải tải được ĐÚNG MÓN VỪA BẤM, ngay tại chỗ — không bắt đi
+        mở mail (họ đang cầm điện thoại). `window.open` gọi ĐỒNG BỘ trong lúc
+        submit để trình duyệt còn coi là thao tác của người dùng; chặn popup thì
+        vẫn còn nút "Tải file" bấm tay.
+     2. Lần sau KHÔNG hỏi lại (`hn_lead`) — dùng chung khoá cũ, nên ai đã điền
+        hồi trước vào đây là tải thẳng, không bị hỏi vòng hai.
+     3. Kit chết / mạng rớt vẫn mở file — mất một email còn hơn mất một người.
+
+   Đo: `file_click` bắn ở MỌI cú bấm (kèm gated=1 nếu lúc đó chưa mở khoá) và
+   `sign_up` bắn khi điền xong. Chênh lệch hai số này = số người bấm rồi bỏ ở
+   form — trước đây không đo được, chỉ thấy tổng số email.
+   ========================================================================== */
+
 var KIT_ACTION = "https://app.kit.com/forms/9750089/subscriptions";
-/* ============================================ */
 
 var TXT = {
-  vi: { errEmail:"Email trông chưa đúng — kiểm tra lại giúp mình nhé.",
-        errBoth:"Điền giúp mình tên và email hợp lệ.",
-        working:"Đang mở kho…" },
-  en: { errEmail:"That email doesn't look right — mind checking it?",
-        errBoth:"Please enter a name and a valid email.",
-        working:"Opening…" }
+  vi:{ empty:"Kho đang trống — tài liệu sẽ được thêm sớm.",
+       dl:"Tải ngay", view:"Đọc trước",
+       errEmail:"Email trông chưa đúng — kiểm tra lại giúp mình nhé.",
+       errBoth:"Điền giúp mình tên và email hợp lệ.",
+       working:"Đang mở…" },
+  en:{ empty:"The library is empty for now — files coming soon.",
+       dl:"Get it now", view:"Preview",
+       errEmail:"That email doesn't look right — mind checking it?",
+       errBoth:"Please enter a name and a valid email.",
+       working:"Opening…" }
 };
 function curLang(){ return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'vi'; }
+
+function daMoKhoa(){
+  try { return localStorage.getItem('hn_lead') === '1'; } catch(e){ return false; }
+}
 
 /* thuộc tính (placeholder, alt) không ẩn được bằng CSS → gán bằng JS */
 function applyLang(){
@@ -309,24 +382,131 @@ function applyLang(){
 document.querySelectorAll('[data-set-lang]').forEach(function(b){
   b.addEventListener('click', function(){
     var next = b.getAttribute('data-set-lang');
+    if (next === curLang()) return;
     document.documentElement.setAttribute('data-lang', next);
     try { localStorage.setItem('hn_lang', next); } catch(e){}
     applyLang();
+    veDanhSach();                       // vẽ lại danh sách theo ngôn ngữ mới
   });
 });
 applyLang();
 
+/* ---------------- danh sách ---------------- */
+var listEl = document.getElementById('list');
+
+function esc(s){ return String(s).replace(/[&<>"]/g, function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+
+function ngonNgu(v){
+  if (v == null) return '';
+  if (typeof v === 'string') return v;
+  return v[curLang()] || v.vi || v.en || '';
+}
+function tenTheoDoi(f){                  // tên gửi GA4: luôn bản tiếng Việt, khỏi đẻ 2 dòng báo cáo
+  if (!f.name) return '';
+  return typeof f.name === 'string' ? f.name : (f.name.vi || f.name.en || '');
+}
+function urlTai(f){ return f.url || ('https://drive.google.com/uc?export=download&id=' + f.id); }
+function urlDoc(f){ return 'https://drive.google.com/file/d/' + f.id + '/view'; }
+
+function danhSach(){
+  return (window.FILES || []).filter(function(f){
+    return f && (f.url || (f.id && f.id.indexOf('PASTE') !== 0));
+  });
+}
+
+function veMotFile(f){
+  var t = TXT[curLang()];
+  var ten = ngonNgu(f.name), mota = ngonNgu(f.meta), tag = ngonNgu(f.tag);
+  var nut = '<a class="btn" href="'+esc(urlTai(f))+'" target="_blank" rel="noopener" '+
+            'data-act="download" data-fname="'+esc(tenTheoDoi(f))+'" data-label="'+esc(ten)+'">'+
+            esc(t.dl)+'</a>';
+  if (f.pdf && f.id){
+    nut += '<a class="btn ghost" href="'+esc(urlDoc(f))+'" target="_blank" rel="noopener" '+
+           'data-act="preview" data-fname="'+esc(tenTheoDoi(f))+'" data-label="'+esc(ten)+'">'+
+           esc(t.view)+'</a>';
+  }
+  return '<div class="file">'+
+    (f.ico ? '<div class="ico">'+f.ico+'</div>' : '')+
+    '<div class="body"><div class="name">'+esc(ten)+'</div>'+
+    (mota ? '<div class="meta">'+esc(mota)+'</div>' : '')+
+    (tag  ? '<div class="tag">'+esc(tag)+'</div>'   : '')+
+    '</div><div class="acts">'+nut+'</div></div>';
+}
+
+function veDanhSach(){
+  var t = TXT[curLang()], files = danhSach();
+  if (!files.length){ listEl.innerHTML = '<div class="state">'+esc(t.empty)+'</div>'; return; }
+  var html = '';
+  (window.NHOM || []).forEach(function(g){
+    var trong = files.filter(function(f){ return (f.nhom || 'moi') === g.key; });
+    if (!trong.length) return;
+    html += '<div class="group"><h2>'+esc(ngonNgu(g.ten))+'</h2>'+
+            '<div class="gsub">'+esc(ngonNgu(g.mota))+'</div>'+
+            trong.map(veMotFile).join('')+'</div>';
+  });
+  listEl.innerHTML = html;
+  listEl.querySelectorAll('a.btn').forEach(function(a){
+    a.addEventListener('click', onBamFile);
+  });
+}
+
+/* ---------------- cửa ---------------- */
+var gate      = document.getElementById('gate');
+var gateAsk   = document.getElementById('gateAsk');
+var gateDone  = document.getElementById('gateDone');
+var gateFile  = document.getElementById('gateFile');
+var gateDl    = document.getElementById('gateDl');
+var form      = document.getElementById('leadForm');
+var errEl     = document.getElementById('leadErr');
+var nameF     = document.getElementById('leadName');
+var mailF     = document.getElementById('leadEmail');
+var hp        = document.getElementById('leadWebsite');
+var dangCho   = null;                   // {url, ten, track, act} — món người ta vừa bấm
+
+function moCua(){
+  gate.hidden = false;
+  document.body.style.overflow = 'hidden';
+  setTimeout(function(){ nameF.focus(); }, 60);
+}
+function dongCua(){
+  // bỏ dở ở form = con số đáng giá nhất của thiết kế này: biết người rơi ở CỬA,
+  // khác hẳn với người không thèm bấm file nào.
+  if (!gate.hidden && !gateAsk.hidden && dangCho){
+    baoGA('gate_abandon', { file_name: dangCho.track });
+  }
+  gate.hidden = true;
+  document.body.style.overflow = '';
+}
+document.getElementById('gateClose').addEventListener('click', dongCua);
+gate.addEventListener('click', function(e){ if (e.target === gate) dongCua(); });
+document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !gate.hidden) dongCua(); });
+
+function baoGA(ev, obj){ try { if (window.gtag) gtag('event', ev, obj || {}); } catch(e){} }
+
+function onBamFile(e){
+  var a = e.currentTarget;
+  var act = a.getAttribute('data-act');
+  var mo  = daMoKhoa();
+  baoGA('file_click', { file_name:a.getAttribute('data-fname'), action:act, gated: mo ? 0 : 1 });
+  if (mo){
+    baoGA(act === 'preview' ? 'file_preview' : 'file_download',
+          { file_name:a.getAttribute('data-fname') });
+    return;                             // đã điền rồi → để link chạy thẳng
+  }
+  e.preventDefault();                   // chưa điền → giữ lại, hỏi tên + email
+  dangCho = { url:a.getAttribute('href'), ten:a.getAttribute('data-label'),
+              track:a.getAttribute('data-fname'), act:act };
+  gateFile.textContent = dangCho.ten;
+  gateAsk.hidden = false;
+  gateDone.hidden = true;
+  showError('', []);
+  moCua();
+}
+
 /* ---- kiểm tra nhập ---- */
 function cleanFirstName(v){ return (v||'').trim().replace(/\s+/g,' ').slice(0,40); }
 function validEmail(v){ return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test((v||'').trim()); }
-
-var form    = document.getElementById('leadForm');
-var errEl   = document.getElementById('leadErr');
-var promise = document.getElementById('leadPromise');
-var done    = document.getElementById('leadDone');
-var nameF   = document.getElementById('leadName');
-var mailF   = document.getElementById('leadEmail');
-var hp      = document.getElementById('leadWebsite');
 
 function showError(msg, bad){
   errEl.textContent = msg || '';
@@ -335,27 +515,13 @@ function showError(msg, bad){
   mailF.classList.toggle('invalid', bad.indexOf('email') !== -1);
 }
 
-function showDone(track){
-  form.style.display = 'none';
-  if (promise) promise.style.display = 'none';
-  done.style.display = 'block';
-  if (!track) return;
-  try { localStorage.setItem('hn_lead','1'); } catch(e){}
-  try { if (window.gtag) gtag('event','sign_up',{ method:'kit_form', form_location:'tai_lieu' }); } catch(e){}
-  try { if (window.clarity) clarity('set','signup','tai_lieu'); } catch(e){}
-}
-
-/* Đã điền lần trước rồi → khỏi bắt điền lại, cho vào kho luôn (bớt ma sát).
-   Không bắn lại event sign_up, nếu không GA sẽ đếm trùng 1 người thành nhiều lead. */
-try { if (localStorage.getItem('hn_lead') === '1') showDone(false); } catch(e){}
-
 form.addEventListener('submit', function(e){
   var t = TXT[curLang()];
 
   // (1) honeypot: chỉ bot mới điền được ô này → nuốt luôn, không gửi
   if (hp.value !== '') { e.preventDefault(); return false; }
 
-  // (2) nhập sai thì báo lỗi, chưa mở kho
+  // (2) nhập sai thì báo lỗi, chưa mở gì cả
   var name = cleanFirstName(nameF.value);
   var bad = [];
   if (!name) bad.push('name');
@@ -367,20 +533,40 @@ form.addEventListener('submit', function(e){
   }
   nameF.value = name; mailF.value = mailF.value.trim();
   showError('', []);
-
-  // (3) gửi về Kit bằng AJAX rồi mở kho TẠI CHỖ.
-  // Kit chết / mạng rớt vẫn mở kho — mất 1 email còn hơn mất 1 người.
   e.preventDefault();
-  var btn = form.querySelector('button[type=submit]');
+
+  // (3) MỞ FILE NGAY TẠI ĐÂY — phải gọi đồng bộ trong lúc còn là thao tác của
+  // người dùng, gọi trong .then() của fetch là trình duyệt chặn popup.
+  var url = dangCho ? dangCho.url : '/kho.html';
+  var w = null;
+  try { w = window.open(url, '_blank', 'noopener'); } catch(err){}
+
+  var btn = document.getElementById('gateSubmit');
   btn.disabled = true; btn.textContent = t.working;
+
+  // (4) gửi Kit ngầm. Hỏng cũng kệ — người đã cầm được file rồi.
   var fd = new FormData();
   fd.append('fields[first_name]', name);
   fd.append('email_address', mailF.value);
   fetch(KIT_ACTION, { method:'POST', body:fd, headers:{ 'Accept':'application/json' } })
-    .catch(function(){})
-    .then(function(){ showDone(true); });
+    .catch(function(){});
+
+  try { localStorage.setItem('hn_lead','1'); } catch(err){}
+  baoGA('sign_up', { method:'kit_form', form_location:'tai_lieu_gate',
+                     file_name: dangCho ? dangCho.track : '' });
+  baoGA(dangCho && dangCho.act === 'preview' ? 'file_preview' : 'file_download',
+        { file_name: dangCho ? dangCho.track : '' });
+  try { if (window.clarity) clarity('set','signup','tai_lieu'); } catch(err){}
+
+  // (5) màn "xong" — nút dự phòng cho trường hợp popup bị chặn
+  gateDl.href = url;
+  gateAsk.hidden = true;
+  gateDone.hidden = false;
+  if (w) { try { w.focus(); } catch(err){} }
   return false;
 });
+
+veDanhSach();
 </script>
 </body>
 </html>
