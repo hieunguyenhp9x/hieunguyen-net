@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="vi" data-lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,8 +7,10 @@
 <meta name="description" content="Nguyen Chi Hieu — ocean-going deck officer (Second Officer) on the long road to Captain. Sharing real seafaring knowledge and experience with fellow seafarers.">
 
 <!-- SONG NGỮ: đặt ngôn ngữ TRƯỚC khi trang vẽ ra, tránh nháy chữ.
-     MẶC ĐỊNH LUÔN LÀ TIẾNG ANH (anh chốt 02/08/2026) — KHÔNG đoán theo navigator.language.
-     Chỉ đổi sang VI khi người xem tự bấm nút (lưu ở hn_lang, dùng chung với pomodoro.html). -->
+     MẶC ĐỊNH TIẾNG VIỆT (anh chốt 11/09/2026, ĐẢO lại quyết định EN ngày 02/08) — người
+     đổ về đây đến từ bio TikTok/FB Việt, bắt họ bấm thêm một nút là rơi người.
+     VẪN KHÔNG đoán theo navigator.language. Khách tiếng Anh có cửa riêng /materials (ép ?lang=en),
+     hoặc tự bấm nút ENGLISH (lưu ở hn_lang, dùng chung cả site). -->
 <script type="text/javascript">
 (function () {
   var l = null;
@@ -17,7 +19,7 @@
   var m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
   if (m) { l = m[1]; try { localStorage.setItem('hn_lang', l); } catch (e) {} }
   if (!l) { try { l = localStorage.getItem('hn_lang') || localStorage.getItem('pomo_lang'); } catch (e) {} }
-  if (l !== 'vi' && l !== 'en') l = 'en';
+  if (l !== 'vi' && l !== 'en') l = 'vi';
   document.documentElement.setAttribute('data-lang', l);
   document.documentElement.lang = l;
 })();
@@ -430,12 +432,12 @@
         <span class="free-badge lg-en">FREE</span>
         <span class="free-badge lg-vi">MIỄN PHÍ</span>
         <h3 class="lead-title lg-en">The tools I actually use <span class="hl">on board</span></h3>
-        <h3 class="lead-title lg-vi">Công cụ tôi dùng thật <span class="hl">trên tàu</span></h3>
+        <h3 class="lead-title lg-vi">Công cụ mình dùng thật <span class="hl">trên tàu</span></h3>
 
         <p class="lead-card-sub lg-en">Everything I share on the channel is in here &mdash; the working files I built for myself at sea.</p>
-        <p class="lead-card-sub lg-vi">Tất cả tài liệu mình chia sẻ trên kênh đều nằm ở đây &mdash; mấy file mình tự dựng để làm việc trên tàu.</p>
+        <p class="lead-card-sub lg-vi">Tất cả tài liệu mình chia sẻ trên kênh đều nằm ở đây &mdash; đều là những tài liệu mình tự dựng để học tập và làm việc trên tàu. Sẽ còn update thêm.</p>
         <p class="lead-card-sub lg-en">Name and email once &mdash; the library opens right here, and the link lands in your inbox so you can find it again.</p>
-        <p class="lead-card-sub lg-vi">Tên và email một lần &mdash; kho mở ngay tại đây, link cũng về hộp thư để lần sau bạn khỏi đi tìm.</p>
+        <p class="lead-card-sub lg-vi">Để lại tên và email một lần, kho mở ngay tại đây. Link mình gửi luôn vào hộp thư, lần sau bạn khỏi đi tìm.</p>
 
         <label for="leadNameHero"><span class="lg-en">First name</span><span class="lg-vi">Tên</span></label>
         <input id="leadNameHero" type="text" name="fields[first_name]" placeholder="Hieu"
@@ -453,12 +455,12 @@
 
         <p class="lead-error" role="alert"></p>
 
-        <button type="submit"><span class="lg-en">Open the library</span><span class="lg-vi">Mở kho cho tôi</span></button>
+        <button type="submit"><span class="lg-en">Open the library</span><span class="lg-vi">Mở kho tài liệu</span></button>
       </form>
 
       <p class="lead-note">
         <span class="lg-en">About one email a month. No spam, unsubscribe in one click.</span>
-        <span class="lg-vi">Khoảng một email mỗi tháng. Không spam, huỷ nhận bằng một chạm.</span>
+        <span class="lg-vi">Khoảng một tháng một email. Không spam, không thích thì bấm huỷ.</span>
       </p>
 
       <div class="lead-success">
@@ -466,7 +468,7 @@
         <h3><span class="lg-en">The library is open</span><span class="lg-vi">Kho mở rồi</span></h3>
         <p>
           <span class="lg-en">Go straight in below. I've also emailed you the link &mdash; if it isn't there in a minute, check spam or promotions.</span>
-          <span class="lg-vi">Bấm nút dưới là vào thẳng. Tôi cũng gửi link vào email của bạn &mdash; một phút chưa thấy thì xem thư mục spam hoặc quảng cáo.</span>
+          <span class="lg-vi">Bấm nút dưới là vào thẳng. Link mình gửi luôn vào email của bạn &mdash; một phút chưa thấy thì ngó thử mục spam hoặc quảng cáo.</span>
         </p>
         <div class="btn-row lead-kho-row" style="display:none;">
           <a class="btn btn-gold lead-kho-btn" href="/kho.html">
@@ -485,16 +487,16 @@
       <span class="lg-en">Free for seafarers</span>
       <span class="lg-vi">Miễn phí cho thuyền viên</span>
     </div>
-    <h2><span class="lg-en">The tools I actually use on board</span><span class="lg-vi">Công cụ tôi dùng thật trên tàu</span></h2>
+    <h2><span class="lg-en">The tools I actually use on board</span><span class="lg-vi">Công cụ mình dùng thật trên tàu</span></h2>
     <p class="section-sub-en lg-en">One link, one email &mdash; and it stays open</p>
-    <p class="section-sub-en lg-vi">Một đường link, một lần để lại email &mdash; rồi mở được mãi</p>
+    <p class="section-sub-en lg-vi">Để lại email một lần, mở được mãi</p>
     <div class="lead-grid">
       <div>
         <p class="lg-en" style="color: var(--text-dim); max-width: 560px;">
           Everything I share on the channel ends up in here &mdash; the working files I built for myself at sea, not teaching material made for an audience. They sit in one folder that keeps growing. Leave your email once and it stays open to you.
         </p>
         <p class="lg-vi" style="color: var(--text-dim); max-width: 560px;">
-          Tất cả tài liệu tôi chia sẻ trên kênh đều dồn về đây &mdash; mấy file tôi dựng ra để tự làm việc trên tàu, không phải giáo trình soạn cho người khác học. Chúng nằm chung một folder và mỗi lúc một dày thêm. Để lại email một lần là mở được mãi.
+          Tất cả tài liệu mình chia sẻ trên kênh đều nằm ở đây &mdash; đều là những tài liệu mình tự dựng để học tập và làm việc trên tàu, không phải giáo trình soạn cho người khác học. Tất cả nằm chung một folder, sẽ còn update thêm. Để lại email một lần là mở được mãi.
         </p>
         <ul class="lead-list">
           <li>
@@ -503,19 +505,19 @@
           </li>
           <li>
             <span class="lg-en">Open in Excel and they run &mdash; nothing to install</span>
-            <span class="lg-vi">Mở bằng Excel là chạy &mdash; không phải cài thêm gì</span>
+            <span class="lg-vi">Mở bằng Excel là chạy, không cần cài thêm gì</span>
           </li>
           <li>
             <span class="lg-en">One click to download &mdash; no access request, no waiting for me to approve anything</span>
-            <span class="lg-vi">Bấm là tải &mdash; không phải xin quyền, không chờ tôi duyệt gì cả</span>
+            <span class="lg-vi">Bấm là tải &mdash; không cần xin cấp quyền, không cần ai duyệt</span>
           </li>
           <li>
             <span class="lg-en">New files go into that same folder, so you never sign up twice</span>
-            <span class="lg-vi">File mới tôi bỏ vào đúng folder đó, nên bạn không phải đăng ký lần thứ hai</span>
+            <span class="lg-vi">File mới mình bỏ vào đúng folder đó, bạn không phải đăng ký lần thứ hai</span>
           </li>
           <li>
             <span class="lg-en">Free, no strings. These are personal working tools, not official documentation: cargo figures always come from the ship&rsquo;s own papers and the Master&rsquo;s orders, and the spreadsheet&rsquo;s numbers are estimates for information only &mdash; not financial advice</span>
-            <span class="lg-vi">Miễn phí, không kèm điều kiện. Đây là công cụ cá nhân tôi tự dựng, không phải tài liệu chính thức: số làm hàng luôn phải theo hồ sơ tàu và lệnh của thuyền trưởng, còn số trong bảng tính là ước tính chỉ để tham khảo &mdash; không phải lời khuyên đầu tư</span>
+            <span class="lg-vi">Miễn phí, không kèm điều kiện. Đây là công cụ cá nhân mình tự dựng, không phải tài liệu chính thức: số làm hàng luôn phải theo hồ sơ tàu và lệnh của thuyền trưởng, còn số trong bảng tính là ước tính chỉ để tham khảo &mdash; không phải lời khuyên đầu tư</span>
           </li>
         </ul>
       </div>
@@ -530,7 +532,7 @@
         <form class="lead-form" id="leadForm" novalidate action="https://app.kit.com/forms/9750089/subscriptions" method="post">
           <h3><span class="lg-en">Open the library</span><span class="lg-vi">Mở kho tài liệu</span></h3>
           <p class="lead-card-sub lg-en">Name and email once &mdash; the library opens right here, and the link lands in your inbox so you can find it again.</p>
-          <p class="lead-card-sub lg-vi">Tên và email một lần &mdash; kho mở ngay tại đây, link cũng về hộp thư để lần sau bạn khỏi đi tìm.</p>
+          <p class="lead-card-sub lg-vi">Để lại tên và email một lần, kho mở ngay tại đây. Link mình gửi luôn vào hộp thư, lần sau bạn khỏi đi tìm.</p>
 
           <label for="leadName"><span class="lg-en">First name</span><span class="lg-vi">Tên</span></label>
           <input id="leadName" type="text" name="fields[first_name]" placeholder="Hieu"
@@ -549,12 +551,12 @@
 
           <p class="lead-error" id="leadError" role="alert"></p>
 
-          <button type="submit"><span class="lg-en">Open the library</span><span class="lg-vi">Mở kho cho tôi</span></button>
+          <button type="submit"><span class="lg-en">Open the library</span><span class="lg-vi">Mở kho tài liệu</span></button>
         </form>
 
         <p class="lead-note" id="leadNote">
           <span class="lg-en">About one email a month. No spam, unsubscribe in one click.</span>
-          <span class="lg-vi">Khoảng một email mỗi tháng. Không spam, huỷ nhận bằng một chạm.</span>
+          <span class="lg-vi">Khoảng một tháng một email. Không spam, không thích thì bấm huỷ.</span>
         </p>
 
         <div class="lead-success" id="leadDone">
@@ -562,7 +564,7 @@
           <h3 id="leadDoneTitle"><span class="lg-en">The library is open</span><span class="lg-vi">Kho mở rồi</span></h3>
           <p>
             <span class="lg-en">Go straight in below. I've also emailed you the link &mdash; if it isn't there in a minute, check spam or promotions.</span>
-            <span class="lg-vi">Bấm nút dưới là vào thẳng. Tôi cũng gửi link vào email của bạn &mdash; một phút chưa thấy thì xem thư mục spam hoặc quảng cáo.</span>
+            <span class="lg-vi">Bấm nút dưới là vào thẳng. Link mình gửi luôn vào email của bạn &mdash; một phút chưa thấy thì ngó thử mục spam hoặc quảng cáo.</span>
           </p>
           <div class="btn-row lead-kho-row" style="display:none;">
             <a class="btn btn-gold lead-kho-btn" href="/kho.html">
