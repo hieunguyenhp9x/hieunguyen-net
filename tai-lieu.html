@@ -18,7 +18,11 @@
 <script type="text/javascript">
 (function () {
   var l = null;
-  try { l = localStorage.getItem('hn_lang') || localStorage.getItem('pomo_lang'); } catch (e) {}
+  // ?lang=vi|en - cho cua ngan song ngu (/tai-lieu mo VI, /materials mo EN).
+  // Thang ca localStorage, va GHI LAI de cac trang sau trong pheu giu dung ngon ngu.
+  var m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
+  if (m) { l = m[1]; try { localStorage.setItem('hn_lang', l); } catch (e) {} }
+  if (!l) { try { l = localStorage.getItem('hn_lang') || localStorage.getItem('pomo_lang'); } catch (e) {} }
   if (l !== 'vi' && l !== 'en') l = 'vi';
   document.documentElement.setAttribute('data-lang', l);
   document.documentElement.lang = l;
