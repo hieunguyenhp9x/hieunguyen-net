@@ -211,12 +211,12 @@ var TXT = {
   vi:{ empty:"Kho đang trống — tài liệu sẽ được thêm sớm.",
        errNet:"Không tải được danh sách (kiểm tra kết nối / API key).",
        errApi:"Lỗi tải danh sách: ", dl:"Tải", view:"Đọc trước",
-       dlPhu:"Tải về máy", viewChinh:"Đọc ngay",
+       dlPhu:"Tải về máy", viewChinh:"Đọc ngay", ngheChinh:"Nghe ngay",
        inApp:"Bạn đang mở trang này trong app. Bấm tải mà không thấy file về máy thì bấm dấu ⋯ (hoặc ⋮) ở góc màn hình rồi chọn “Mở bằng trình duyệt”. File PDF thì bấm “Đọc ngay” là xem được luôn tại đây." },
   en:{ empty:"The library is empty for now — files coming soon.",
        errNet:"Could not load the list (check your connection / the API key).",
        errApi:"Could not load the list: ", dl:"Get", view:"Preview",
-       dlPhu:"Download", viewChinh:"Read it now",
+       dlPhu:"Download", viewChinh:"Read it now", ngheChinh:"Listen now",
        inApp:"You're viewing this inside an app. If a download doesn't land on your device, tap ⋯ (or ⋮) in the corner and choose “Open in browser”. For the PDFs, “Read it now” opens right here." }
 };
 function curLang(){ return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'vi'; }
@@ -291,9 +291,10 @@ function veMotFile(f){
   var ten_theo_doi = f.track || ten;
   // PDF: DOC la nut chinh, TAI la nut phu - trang xem cua Google hien duoc ngay trong app,
   // con tai file ve may moi la cai hay chet. Excel khong co cua nao khac nen giu nguyen.
-  var doc = (f.pdf && f.id)
+  // MP3 (nghe:true): giong PDF nhung nut chinh la NGHE NGAY - Drive tu phat trong trinh duyet.
+  var doc = ((f.pdf || f.nghe) && f.id)
     ? '<a class="btn" href="'+esc(viewUrl(f.id))+'" target="_blank" rel="noopener" '+
-      'data-fname="'+esc(ten_theo_doi)+'" data-act="preview">'+esc(t.viewChinh)+'</a>'
+      'data-fname="'+esc(ten_theo_doi)+'" data-act="preview">'+esc(f.nghe ? t.ngheChinh : t.viewChinh)+'</a>'
     : '';
   var nut = doc + '<a class="btn'+(doc ? ' ghost' : '')+'" href="'+esc(f.url)+'" '+
             'target="_blank" rel="noopener" data-fname="'+esc(ten_theo_doi)+'" '+
@@ -341,7 +342,7 @@ function tenTheoDoi(f){
 function manualFiles(){
   return FILES.filter(function(f){ return f && (f.url || (f.id && f.id.indexOf('PASTE') !== 0)); })
               .map(function(f){
-    return { nhom:f.nhom || 'moi', ico:f.ico, pdf:f.pdf, id:f.id,
+    return { nhom:f.nhom || 'moi', ico:f.ico, pdf:f.pdf, nghe:f.nghe, id:f.id,
              name:f.name, meta:f.meta || '', tag:f.tag || '',
              track:tenTheoDoi(f),
              url:f.url || ('https://drive.google.com/uc?export=download&id='+f.id) };

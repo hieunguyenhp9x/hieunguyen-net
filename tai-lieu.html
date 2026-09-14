@@ -357,14 +357,14 @@ var KIT_ACTION = "https://app.kit.com/forms/9750089/subscriptions";
 var TXT = {
   vi:{ empty:"Kho đang trống — tài liệu sẽ được thêm sớm.",
        dl:"Tải ngay", view:"Đọc trước",
-       dlPhu:"Tải về máy", viewChinh:"Đọc ngay",
+       dlPhu:"Tải về máy", viewChinh:"Đọc ngay", ngheChinh:"Nghe ngay",
        inApp:"Bạn đang mở trang này trong app. Bấm tải mà không thấy file về máy thì bấm dấu ⋯ (hoặc ⋮) ở góc màn hình rồi chọn “Mở bằng trình duyệt”. File PDF thì bấm “Đọc ngay” là xem được luôn tại đây.",
        errEmail:"Email trông chưa đúng — kiểm tra lại giúp mình nhé.",
        errBoth:"Điền giúp mình tên và email hợp lệ.",
        working:"Đang mở…" },
   en:{ empty:"The library is empty for now — files coming soon.",
        dl:"Get it now", view:"Preview",
-       dlPhu:"Download", viewChinh:"Read it now",
+       dlPhu:"Download", viewChinh:"Read it now", ngheChinh:"Listen now",
        inApp:"You're viewing this inside an app. If a download doesn't land on your device, tap ⋯ (or ⋮) in the corner and choose “Open in browser”. For the PDFs, “Read it now” opens right here.",
        errEmail:"That email doesn't look right — mind checking it?",
        errBoth:"Please enter a name and a valid email.",
@@ -441,10 +441,11 @@ function veMotFile(f){
   // PDF: ĐỌC là nút chính, TẢI là nút phụ. Đọc đi bằng trang xem của Google nên hiện được
   // ngay trong app; tải file về máy mới là cái hay chết. Excel thì không có cửa nào khác
   // ngoài tải, nên giữ nguyên.
-  var doc = (f.pdf && f.id)
+  // MP3 (nghe:true): giống PDF nhưng nút chính là NGHE NGAY — Drive tự phát trong trình duyệt.
+  var doc = ((f.pdf || f.nghe) && f.id)
     ? '<a class="btn" href="'+esc(urlDoc(f))+'" target="_blank" rel="noopener" '+
       'data-act="preview" data-fname="'+esc(tenTheoDoi(f))+'" data-label="'+esc(ten)+'">'+
-      esc(t.viewChinh)+'</a>'
+      esc(f.nghe ? t.ngheChinh : t.viewChinh)+'</a>'
     : '';
   var nut = doc + '<a class="btn'+(doc ? ' ghost' : '')+'" href="'+esc(urlTai(f))+'" '+
             'target="_blank" rel="noopener" data-act="download" '+

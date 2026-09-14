@@ -20,6 +20,10 @@ var NHOM = [
     ten:  { vi:"Bảng tính để dùng việc", en:"Spreadsheets to work with" },
     mota: { vi:"File Excel mình dựng để tự dùng trên tàu — điền số của bạn vào là ra kết quả.",
             en:"Excel files I built for my own work at sea — put your own numbers in and read the answer." } },
+  { key:"nghe",
+    ten:  { vi:"Ghi âm để nghe", en:"Recordings to listen to" },
+    mota: { vi:"File âm thanh thật, không dàn dựng. Bấm Nghe ngay là phát luôn trong trình duyệt.",
+            en:"Real audio, nothing staged. Hit Listen now and it plays right in the browser." } },
   { key:"moi",
     ten:  { vi:"Mới thêm vào kho", en:"Recently added" },
     mota: { vi:"File vừa bỏ vào folder, mình chưa kịp viết mô tả.",
@@ -54,6 +58,15 @@ var FILES = [
             en: "Companion sheet to “How to Become a Ship Officer” · the twenty questions I was asked on the way to the Third Officer chair · for each one: what the interviewer is really testing, the answer I would give, and a blank space for yours" },
     tag:  { vi: "PDF · 10 trang · Anh–Việt", en: "PDF · 10 pages · EN–VI" },
     id: "1MlOEUHtvcX6YJNDK7vlJMDin4xJEKr89" },
+
+  // --- Ghi âm phỏng vấn 2/O Zodiac (MP3) — anh upload 14/09/2026. nghe:true -> nút "Nghe ngay" ---
+  { nhom:"nghe", nghe:true, ico:"&#127911;",
+    name: { vi: "Buổi phỏng vấn Phó hai thật của mình — Zodiac, 2022",
+            en: "My real Second Officer interview — Zodiac, 2022" },
+    meta: { vi: "Bản ghi âm thật buổi phỏng vấn chức danh Phó hai (2/O) của mình với công ty Zodiac năm 2022 — sau buổi này mình nhận chức danh 2/O. Nghe để biết một buổi phỏng vấn sĩ quan thật diễn ra thế nào: người ta hỏi gì, hỏi tới đâu, và ứng viên trả lời ra sao khi không có kịch bản.",
+            en: "The actual recording of my Second Officer (2/O) interview with Zodiac in 2022 — the interview that got me the rank. Listen to how a real officer interview goes: what they ask, how far they push, and how a candidate answers with no script." },
+    tag:  { vi: "MP3 · ghi âm thật · 2022", en: "MP3 · real recording · 2022" },
+    id: "1cLgcCPRrejNBe7jQ7E4YRc7pN-fZ3joi" },
 
   // --- Bảng tính (Excel) ---
   { nhom:"dung", ico:"&#128202;",
