@@ -120,6 +120,12 @@
   .group{margin-bottom:26px}
   .group h2{font-size:17px; letter-spacing:-.01em; margin-bottom:4px}
   .gsub{color:var(--text-dim); font-size:13.6px; line-height:1.5; margin-bottom:12px}
+  /* nhóm nổi bật (phần cadet 15/09): khung vàng + nhãn, đứng đầu trang */
+  .group.noibat{border:1px solid rgba(212,169,90,.55); background:rgba(212,169,90,.06);
+                border-radius:14px; padding:16px 14px 4px; margin-bottom:30px}
+  .group .nhan{display:inline-block; background:var(--gold); color:var(--navy); font-weight:800;
+               font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+               padding:3px 10px; border-radius:3px; margin-bottom:8px}
   .file{
     display:flex; gap:14px; align-items:flex-start;
     background:var(--navy-2); border:1px solid var(--line);
@@ -481,7 +487,9 @@ function veDanhSach(){
   (window.NHOM || []).forEach(function(g){
     var trong = files.filter(function(f){ return (f.nhom || 'moi') === g.key; });
     if (!trong.length) return;
-    html += '<div class="group"><h2>'+esc(ngonNgu(g.ten))+'</h2>'+
+    html += '<div class="group'+(g.noibat ? ' noibat' : '')+'">'+
+            (g.nhan ? '<div class="nhan">'+esc(ngonNgu(g.nhan))+'</div>' : '')+
+            '<h2>'+esc(ngonNgu(g.ten))+'</h2>'+
             '<div class="gsub">'+esc(ngonNgu(g.mota))+'</div>'+
             trong.map(veMotFile).join('')+'</div>';
   });

@@ -12,6 +12,13 @@
 
 /* Ba NHÓM của kho. Thứ tự ở đây là thứ tự hiện trên trang. */
 var NHOM = [
+  // noibat:true -> khung vàng + nhãn riêng, đứng ĐẦU trang (anh chốt 15/09: cadet có phần riêng
+  // ở đầu trang tài liệu, vì 10 video list cadet đổ người về đây).
+  { key:"cadet", noibat:true,
+    nhan: { vi:"Cadet & sinh viên sắp ra trường", en:"Cadets & final-year students" },
+    ten:  { vi:"Date đầu và buổi phỏng vấn đầu tiên", en:"Your first contract and your first interview" },
+    mota: { vi:"Ba tài liệu cho người sắp đi date đầu: cần làm gì từ lúc rời nhà tới ngày rời tàu, phỏng vấn cadet hỏi gì, và bộ đồ nghề trên tàu. PDF song ngữ Anh–Việt, đọc ngay trên điện thoại.",
+            en:"Three guides for your first contract: what to do from leaving home to signing off, what a cadet interview asks, and the kit for life on board. Bilingual English–Vietnamese PDFs, readable on your phone." } },
   { key:"doc",
     ten:  { vi:"Cẩm nang để đọc",  en:"Guides to read" },
     mota: { vi:"PDF song ngữ Anh–Việt. Đọc trên điện thoại được, in ra mang lên tàu cũng được.",
@@ -42,8 +49,26 @@ var FILES = [
     tag:  { vi: "PDF · 80 trang · Anh–Việt", en: "PDF · 80 pages · EN–VI" },
     id: "18VwwkYbCj38eRrBrXWN12n-ebesuIJyG" },
 
+  // --- Phần CADET (15/09/2026) — PDF dựng ở production/magnet/, anh upload Drive rồi dán ID ---
+  // Còn "PASTE_" ở đầu id thì trang tự ẩn món đó, không lộ nút chết.
+  { nhom:"cadet", pdf:true, ico:"&#129517;",
+    name: { vi: "Date đầu — cần làm gì, từ lúc rời nhà tới ngày rời tàu",
+            en: "Your First Contract — what to do, from leaving home to signing off" },
+    meta: { vi: "Lo gì trước khi rời nhà · tuần đầu trên tàu · tự xẻ giờ học từ tháng đầu · những ngày thấy mình vô dụng · nhớ nhà · tháng cuối gom gì để mang vào buổi phỏng vấn lên sĩ quan",
+            en: "Before you leave home · the first week on board · making study time from month one · the days you feel useless · missing home · what to collect in the last month for your officer interview" },
+    tag:  { vi: "PDF · 5 trang · Anh–Việt", en: "PDF · 5 pages · EN–VI" },
+    id: "1Lu5oxuje6gZ964jJrARz4V9QOhmtVHfg" },
+
+  { nhom:"cadet", pdf:true, ico:"&#127919;",
+    name: { vi: "Phỏng vấn cadet — COLREG, MARPOL Phụ lục V & VI, thái độ",
+            en: "The Cadet Interview — COLREG, MARPOL Annex V & VI, attitude" },
+    meta: { vi: "20 câu hay gặp kèm câu trả lời mẫu · 5 tình huống tránh va có hình vẽ · rác và khí thải theo MARPOL · nhóm câu thái độ quyết định đậu hay trượt · mọi điều luật đã đối chiếu văn bản IMO",
+            en: "20 common questions with model answers · 5 collision situations with diagrams · garbage and air pollution under MARPOL · the attitude questions that decide it · every rule checked against IMO texts" },
+    tag:  { vi: "PDF · 11 trang · Anh–Việt", en: "PDF · 11 pages · EN–VI" },
+    id: "1IExpeaoooGkb0Mw88TLzVEFG96-sy3SM" },
+
   // --- Cẩm nang (PDF) — 2 tờ đi kèm 2 video, anh upload 11/09/2026 ---
-  { nhom:"doc", pdf:true, ico:"&#128213;",
+  { nhom:"cadet", pdf:true, ico:"&#128213;",
     name: { vi: "Bộ đồ nghề cho thực tập sinh boong",
             en: "The Deck Cadet Kit" },
     meta: { vi: "Tờ đi kèm video “Một ngày thật của thực tập sinh boong” · kiểm gì trước khi ký hợp đồng · một ngày trên tàu thật ra thế nào · cái sai làm mình mất trắng một năm",
