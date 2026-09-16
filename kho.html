@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" data-lang="en">
+<html lang="vi" data-lang="vi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">  <!-- không cho Google index trang kho -->
 <title>Kho tài liệu thuyền viên — Nguyễn Chí Hiếu</title>
 
-<!-- NGÔN NGỮ: đặt TRƯỚC khi trang vẽ. Mặc định TIẾNG ANH (đồng bộ với index.html, anh chốt 16/09/2026).
-     Khách VN đến qua phễu /tai-lieu.html (ép ?lang=vi) → localStorage đã có 'vi' nên sẽ giữ VI.
-     Khách vào thẳng /kho.html (bookmark, share link) mà chưa từng vào /tai-lieu → thấy EN.
-     Dùng chung localStorage hn_lang với cả site. -->
+<!-- NGÔN NGỮ: đặt TRƯỚC khi trang vẽ. Mặc định TIẾNG VIỆT (cùng phễu với /tai-lieu.html).
+     KHÁC index.html (default EN từ 16/09/2026): kho.html giữ VI vì cửa ngắn /tai-lieu
+     KHÔNG ép ?lang=vi, nên khách bio Việt để email xong tới kho — localStorage rỗng —
+     phải fallback về VI mới không bị đá sang EN. Dùng chung localStorage hn_lang với cả site. -->
 <script type="text/javascript">
 (function () {
   var l = null;
@@ -18,7 +18,7 @@
   var m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
   if (m) { l = m[1]; try { localStorage.setItem('hn_lang', l); } catch (e) {} }
   if (!l) { try { l = localStorage.getItem('hn_lang') || localStorage.getItem('pomo_lang'); } catch (e) {} }
-  if (l !== 'vi' && l !== 'en') l = 'en';
+  if (l !== 'vi' && l !== 'en') l = 'vi';
   document.documentElement.setAttribute('data-lang', l);
   document.documentElement.lang = l;
 })();
