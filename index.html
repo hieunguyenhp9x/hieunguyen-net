@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="vi" data-lang="vi">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +7,9 @@
 <meta name="description" content="Nguyen Chi Hieu — ocean-going deck officer (Second Officer) on the long road to Captain. Sharing real seafaring knowledge and experience with fellow seafarers.">
 
 <!-- SONG NGỮ: đặt ngôn ngữ TRƯỚC khi trang vẽ ra, tránh nháy chữ.
-     MẶC ĐỊNH TIẾNG VIỆT (anh chốt 11/09/2026, ĐẢO lại quyết định EN ngày 02/08) — người
-     đổ về đây đến từ bio TikTok/FB Việt, bắt họ bấm thêm một nút là rơi người.
-     VẪN KHÔNG đoán theo navigator.language. Khách tiếng Anh có cửa riêng /materials (ép ?lang=en),
-     hoặc tự bấm nút ENGLISH (lưu ở hn_lang, dùng chung cả site). -->
+     MẶC ĐỊNH TIẾNG ANH (anh chốt 16/09/2026, đảo lại quyết định VI 11/09 - trước đó đã EN 02/08).
+     Vẫn KHÔNG đoán theo navigator.language. Khách VN có cửa riêng /tai-lieu (ép ?lang=vi),
+     hoặc tự bấm nút TIẾNG VIỆT (lưu ở hn_lang, dùng chung cả site). -->
 <script type="text/javascript">
 (function () {
   var l = null;
@@ -19,7 +18,7 @@
   var m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
   if (m) { l = m[1]; try { localStorage.setItem('hn_lang', l); } catch (e) {} }
   if (!l) { try { l = localStorage.getItem('hn_lang') || localStorage.getItem('pomo_lang'); } catch (e) {} }
-  if (l !== 'vi' && l !== 'en') l = 'vi';
+  if (l !== 'vi' && l !== 'en') l = 'en';
   document.documentElement.setAttribute('data-lang', l);
   document.documentElement.lang = l;
 })();
