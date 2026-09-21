@@ -953,6 +953,36 @@
      Từ 01/08 có 2 form (hero + khu #free) → xử lý theo class .lead-card. */
   var KIT_ACTION = "https://app.kit.com/forms/9750089/subscriptions";
 
+/* TRƯỜNG ẨN GỬI KIT (vá 21/09/2026) — trước đây form chỉ gửi tên + email nên
+   không biết email nào lấy file nào / đến từ nền nào. Giờ gửi thêm 4 custom field.
+   ⚠️ Kit chỉ NHẬN field đã được tạo sẵn trong tài khoản (Subscribers → mở 1 người →
+   Add a new field): file_dau_tien · ngon_ngu · nguon · trang. Chưa tạo thì Kit lặng lẽ bỏ qua.
+   `nguon` = lần chạm ĐẦU TIÊN (utm_source, không có thì tên miền giới thiệu), nhớ bằng localStorage. */
+function hnNguon(){
+  try {
+    // utm trên URL luôn thắng; không có thì giữ cái đã nhớ; 'direct' KHÔNG lưu
+    // (kẻo lần đầu vào trần rồi lần sau vào bằng link bio vẫn bị ghi là direct).
+    var u = new URLSearchParams(location.search).get('utm_source');
+    if (u){ localStorage.setItem('hn_src', u); return u; }
+    var cu = localStorage.getItem('hn_src');
+    if (cu) return cu;
+    if (document.referrer){
+      var h = new URL(document.referrer).hostname.replace(/^www\./,'');
+      if (h && h !== location.hostname){ localStorage.setItem('hn_src', 'ref:' + h); return 'ref:' + h; }
+    }
+    return 'direct';
+  } catch(e){ return 'unknown'; }
+}
+hnNguon();
+function hnKitThem(fd, fileName){
+  try {
+    fd.append('fields[file_dau_tien]', fileName || '');
+    fd.append('fields[ngon_ngu]', document.documentElement.getAttribute('data-lang') || 'vi');
+    fd.append('fields[nguon]', hnNguon());
+    fd.append('fields[trang]', location.pathname);
+  } catch(e){}
+}
+
   /* VỀ 1 MỐI (anh chốt 24/08/2026): cả site chỉ còn MỘT lời hứa = KHO TÀI LIỆU.
      Bảng tính Tự do tài chính thôi làm magnet riêng, nó thành một món TRONG kho
      (xem danh sách trong kho.html). Nút màn cảm ơn LUÔN hiện và trỏ về kho —
@@ -1031,6 +1061,7 @@
       var fd = new FormData();
       fd.append("fields[first_name]", cleanedName);
       fd.append("email_address", emailField.value);
+      hnKitThem(fd, "");
       fetch(KIT_ACTION, { method: "POST", body: fd, headers: { "Accept": "application/json" } })
         .catch(function () {})
         .then(function () { showThankYou(); });
