@@ -369,8 +369,9 @@ function hnNguon(){
   try {
     // utm trên URL luôn thắng; không có thì giữ cái đã nhớ; 'direct' KHÔNG lưu
     // (kẻo lần đầu vào trần rồi lần sau vào bằng link bio vẫn bị ghi là direct).
-    var u = new URLSearchParams(location.search).get('utm_source');
-    if (u){ localStorage.setItem('hn_src', u); return u; }
+    var q = new URLSearchParams(location.search), u = q.get('utm_source'), c = q.get('utm_campaign');
+    // QR riêng từng PDF (23/09/2026): utm_campaign = tên tài liệu → nguon = 'pdf:first-contract'
+    if (u){ if (c) u += ':' + c; localStorage.setItem('hn_src', u); return u; }
     var cu = localStorage.getItem('hn_src');
     if (cu) return cu;
     if (document.referrer){
