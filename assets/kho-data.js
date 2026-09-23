@@ -49,6 +49,18 @@ var FILES = [
     tag:  { vi: "PDF · 80 trang · Anh–Việt", en: "PDF · 80 pages · EN–VI" },
     id: "18VwwkYbCj38eRrBrXWN12n-ebesuIJyG" },
 
+  // --- Sổ tay nghiệp vụ Đại phó — 18 trang, anh lệnh lên kho 23/09/2026. KHÔNG nằm ở Drive:
+  // service account không tạo được file mới trong My Drive (không có quota) nên host ngay trên web
+  // (assets/pdf/). Không có "id" → không có nút "Đọc trước", nhưng link tải mở thẳng trong trình duyệt.
+  // Muốn về Drive cho đồng bộ: kéo file vào folder rồi thay "url" bằng id.
+  { nhom:"doc", pdf:true, ico:"&#128221;",
+    name: { vi: "Sổ tay nghiệp vụ Đại phó — ghi chép lúc học",
+            en: "Chief Officer Study Notes" },
+    meta: { vi: "Ghi chép mình gom lại lúc học lớp Đại phó, xếp theo tình huống thật trên tàu · 7 phần: xử lý tình huống · chuẩn bị xếp hàng (IMSBC, than, hàng hạt, thép cuộn) · tính toán (max intake, trim, ổn định, draft survey) · chứng từ & hợp đồng (B/L, LOI, NOR, laycan) · boong (neo, dây, cẩu) · luật & giấy chứng nhận (MARPOL, BWM, ISPS, MLC, ISM) · bảng số giới hạn + lỗi hay nhầm khi tính · mục lục bấm nhảy thẳng",
+            en: "Notes I compiled while studying for Chief Officer, arranged by real situations on board · 7 parts: handling situations · cargo preparation (IMSBC, coal, grain, steel coils) · calculations (max intake, trim, stability, draft survey) · documents & contracts (B/L, LOI, NOR, laycan) · deck (anchoring, mooring, cranes) · regulations & certificates (MARPOL, BWM, ISPS, MLC, ISM) · limit-figure tables + common calculation mistakes · clickable table of contents" },
+    tag:  { vi: "PDF · 18 trang · Anh–Việt", en: "PDF · 18 pages · EN–VI" },
+    url: "https://hieunguyen.net/assets/pdf/so-tay-nghiep-vu-dai-pho-hieunguyen.pdf" },
+
   // --- Phần CADET (15/09/2026) — PDF dựng ở production/magnet/, anh upload Drive rồi dán ID ---
   // Còn "PASTE_" ở đầu id thì trang tự ẩn món đó, không lộ nút chết.
   { nhom:"cadet", pdf:true, ico:"&#129517;",
