@@ -87,11 +87,11 @@ var FILES = [
     id: "14UibAoJkq9dE_dqaqGjuI5X4DJwQQicD" },
 
   { nhom:"doc", pdf:true, ico:"&#128214;",
-    name: { vi: "20 câu phỏng vấn sĩ quan boong — kèm câu trả lời",
-            en: "The Officer Questions" },
-    meta: { vi: "Tờ đi kèm video “Làm sao để lên sĩ quan” · 20 câu mình đã gặp trên đường lên ghế Phó ba · mỗi câu có: người phỏng vấn đang thử cái gì, câu mình sẽ trả lời, và chỗ trống để bạn viết câu của mình",
-            en: "Companion sheet to “How to Become a Ship Officer” · the twenty questions I was asked on the way to the Third Officer chair · for each one: what the interviewer is really testing, the answer I would give, and a blank space for yours" },
-    tag:  { vi: "PDF · 10 trang · Anh–Việt", en: "PDF · 10 pages · EN–VI" },
+    name: { vi: "70 câu phỏng vấn sĩ quan boong — Phó ba & Phó hai, kèm câu trả lời",
+            en: "The Deck Officer Interview — 70 questions, 3/O & 2/O" },
+    meta: { vi: "Phần 1: 20 câu mình đã gặp trên đường lên ghế Phó ba · Phần 2: 50 câu cho ghế Phó hai, 18 câu trong đó người ta hỏi chính mình ở buổi phỏng vấn Phó hai năm 2022 · mỗi câu có: người phỏng vấn đang thử cái gì và một câu trả lời mẫu hoàn chỉnh để học thuộc",
+            en: "Part 1: the twenty questions I was asked on the way to the Third Officer chair · Part 2: fifty for the Second Officer chair, eighteen of them asked in my own 2/O interview in 2022 · for each one: what the interviewer is really testing and a full sample answer to learn by heart" },
+    tag:  { vi: "PDF · 32 trang · Anh–Việt", en: "PDF · 32 pages · EN–VI" },
     id: "1MlOEUHtvcX6YJNDK7vlJMDin4xJEKr89" },
 
   // --- Ghi âm phỏng vấn 2/O Zodiac (MP3) — anh upload 14/09/2026. nghe:true -> nút "Nghe ngay" ---
