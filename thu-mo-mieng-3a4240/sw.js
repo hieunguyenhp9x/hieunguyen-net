@@ -1,6 +1,6 @@
 // Máy chạy ngầm của app Mở Miệng: giữ vỏ app + bài đã tải để học khi không có mạng.
 // Sửa code app thì TĂNG số phiên bản VO để máy người học lấy bản mới.
-const VO = 'mm-vo-v1';
+const VO = 'mm-vo-v2';
 const VO_FILES = [
   './', './index.html', './manifest.webmanifest',
   './icon-192.png', './icon-512.png', './apple-touch-icon.png',

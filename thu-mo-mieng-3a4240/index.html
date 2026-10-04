@@ -305,7 +305,7 @@ fetch('bai-01.json').then(r => r.json()).then(d => {
   BAI = d; DIR = 'audio/' + d.id + '/';
   $('#tieuDe').textContent = d.tieu_de;
   $('#chuDe').textContent = d.chu_de;
-  fetch(DIR + 'kich-thuoc.json').then(r => r.json()).then(k => { KT = k; veMang(); }).catch(() => {});
+  fetch(DIR + 'kich-thuoc.json').then(r => r.json()).then(k => { KT = k; veMang(); capNhatOff(); }).catch(() => {});
   dungNghe(); dungPhatAm(); dungCauMau(); dungDoiDap();
   chonMuc(M); capNhatOff(); moBuoc(load('buoc') || 'nghe'); veDau();
 });
@@ -628,7 +628,7 @@ async function capNhatOff(){
     $('#offChu').innerHTML = `<b>${mang}✅ Đã tải mức ${M} về máy</b>Tắt mạng, bật chế độ máy bay vẫn học được bài này.`;
     $('#offTai').hidden = true;
   } else {
-    $('#offChu').innerHTML = `<b>${mang}Học không cần mạng</b>${navigator.onLine ? `Tải mức ${M} về máy một lần (${mb}), lúc có wifi.` : 'Đang mất mạng. Có mạng lại thì bấm tải.'}`;
+    $('#offChu').innerHTML = `<b>${mang}Học không cần mạng</b>${navigator.onLine ? `Tải mức ${M} về máy một lần${mb ? ' (' + mb + ')' : ''}, lúc có wifi.` : 'Đang mất mạng. Có mạng lại thì bấm tải.'}`;
     $('#offTai').hidden = false; $('#offTai').disabled = !navigator.onLine;
     $('#offTai').textContent = n < tong ? `⬇ Tải nốt ${n} file` : '⬇ Tải bài';
   }
