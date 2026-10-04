@@ -328,7 +328,7 @@
 
   <!-- MỞ KHOÁ BẰNG MÃ KÍCH HOẠT -->
   <section id="s-kichhoat">
-    <p class="hd">Tuần 1 học thử miễn phí. Từ tuần 2 trở đi cần <b>mã kích hoạt</b>: nhập một lần, rồi tải cả khoá về máy và học không cần mạng.</p>
+    <p class="hd">Nhập <b>mã kích hoạt</b> một lần để mở cả 12 tuần, rồi tải cả khoá về máy và học không cần mạng.</p>
     <div class="card form">
       <label>Mã kích hoạt<input id="khMa" placeholder="MM-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false" style="font-size:20px;letter-spacing:.06em;text-transform:uppercase"></label>
       <button class="btn to" id="khNut">Kích hoạt</button>
@@ -440,10 +440,10 @@ let KQ = {};
 let MUC = [];
 let BUOC = 'nha', HS_VE = 'nha', PHIEN = 0;
 // ---------- MÃ KÍCH HOẠT ----------
-let CH = {khoa: false, mien_phi_tuan: 1};              // cau-hinh.json: bản bán bật khoa, bản thử thì không
+let CH = {khoa: false, mien_phi_tuan: 0};              // cau-hinh.json: bản bán bật khoa (không có học thử), bản test của anh thì không
 let LIC = load('lic');                                 // {ma, ten, ve} sau khi kích hoạt
 const MAY = load('may') || (() => { const id = [...crypto.getRandomValues(new Uint8Array(16))].map(x => x.toString(16).padStart(2, '0')).join(''); save('may', id); return id; })();
-const canMaTuan = w => !!CH.khoa && !LIC && w > (CH.mien_phi_tuan || 1);
+const canMaTuan = w => !!CH.khoa && !LIC && w > (CH.mien_phi_tuan || 0);
 const canMa = id => { const m = MUC.find(x => x.id === id); return !!m && canMaTuan(m.tuan); };
 const hVe = () => LIC && LIC.ve ? {'X-MM-Ve': LIC.ve} : {};
 const dsTai = () => MUC.filter(x => !canMa(x.id));     // bài máy này được tải
@@ -705,6 +705,7 @@ async function taoAo(loai, t){
   try { MUC = await fetch('muc-luc.json').then(r => r.json()); } catch(e){ MUC = []; }
   kiemMa();
   chonMuc(M);
+  if (qs.has('xepmuc') && CH.khoa && !LIC){ moBuoc('kichhoat'); return; }
   if (qs.has('xepmuc')){
     BAI = await layBai('c1-05'); BID = 'xep-muc'; DIR = 'audio/c1-05/';
     moBuoc('xepmuc'); veNutCongCu(); return;
@@ -750,7 +751,7 @@ function moBuoc(s){
   $('#duoi').hidden = !trongBai || s === 'ketqua';
   $('#nutVe').hidden = s === 'nha';
   $('#nutCaiDat').hidden = $('#topChuoi').hidden = s !== 'nha';
-  const T = {nha: ['Phỏng vấn học bổng cadet boong', 'Mở Miệng'], caidat: ['Mở Miệng', 'Cài đặt'], hoso: ['Cài đặt', 'Hồ sơ của tôi'], xepmuc: ['3 phút · nghe và trả lời', 'Bài test xếp mức'], kichhoat: ['Tuần 1 học thử miễn phí', 'Mở khoá khoá học']};
+  const T = {nha: ['Phỏng vấn học bổng cadet boong', 'Mở Miệng'], caidat: ['Mở Miệng', 'Cài đặt'], hoso: ['Cài đặt', 'Hồ sơ của tôi'], xepmuc: ['3 phút · nghe và trả lời', 'Bài test xếp mức'], kichhoat: ['Mở Miệng · 12 tuần, 60 bài', 'Nhập mã kích hoạt']};
   if (trongBai){
     const m = MUC.find(x => x.id === BAI.id);
     $('#tieuNho').textContent = BAI._ao ? 'Tuần ' + BAI._tuan : (m ? `Tuần ${m.tuan} · Bài ${m.so}` : '');
@@ -1145,7 +1146,7 @@ async function veNutCongCu(){
   if (!on) ccBao(`Đang mất mạng · đã tải ${so}/${tong} bài mức ${M}, học được các bài đã tải.`);
   else if (so < tong) ccBao(`Mức ${M}: đã tải ${so}/${tong} bài${mb ? ` · cả bộ khoảng ${Math.round(mb)} MB, nên tải khi có wifi` : ''}.`);
   else ccBao(`Mức ${M}: đã tải đủ ${tong} bài · tắt mạng vẫn học được.`);
-  if (CH.khoa && !LIC) $('#ccChu').insertAdjacentHTML('beforeend', ' Tuần 2–12 tải được sau khi kích hoạt.');
+  if (CH.khoa && !LIC) $('#ccChu').textContent = 'Kích hoạt mã xong mới tải được bài.';
 }
 
 $('#taiHet').onclick = async () => {
@@ -1242,7 +1243,11 @@ function veHomNay(){
   const ch = chuoiNgay(); $('#topChuoi').textContent = '🔥 ' + ch; $('#topChuoi').style.visibility = ch ? '' : 'hidden';
   const moi = !soXong && !load('xep-muc') && !load('kq-' + MUC[0].id);
   let html;
-  if (moi) html = `<div class="tt"><span>Bắt đầu</span><span>Đang ở Mức ${M}</span></div>
+  if (CH.khoa && !LIC) html = `<div class="tt"><span>Bộ MỞ MIỆNG</span><span>12 tuần · 60 bài</span></div>
+      <h3>Nhập mã kích hoạt để bắt đầu học</h3>
+      <button class="btn to" data-mo="kichhoat">🔑 Nhập mã kích hoạt</button>
+      <p class="hd" style="margin:10px 0 0">Kích hoạt một lần, tải cả khoá về máy, học không cần mạng.</p>`;
+  else if (moi) html = `<div class="tt"><span>Bắt đầu</span><span>Đang ở Mức ${M}</span></div>
       <h3>Làm bài test 3 phút để máy chọn mức cho bạn</h3>
       <button class="btn to" data-q="?xepmuc=1">🎯 Làm bài test</button>
       <button class="lk" id="boTest">Bỏ qua — học luôn ở Mức ${M}</button>`;
@@ -1253,7 +1258,7 @@ function veHomNay(){
   else html = `<h3>🎉 Bạn đã đạt toàn bộ ${MUC.length} bài</h3><p class="hd" style="margin:0">Ôn lại bài điểm thấp, hoặc làm lại kiểm tra các tuần.</p>` + tuan7Html();
   $('#homNay').innerHTML = html;
   const bo = $('#boTest'); if (bo) bo.onclick = () => { save('xep-muc', {bo: 1, muc: M, d: homNayStr()}); veHomNay(); };
-  $('#nhacHs').innerHTML = !moi && !Object.keys(HS()).length
+  $('#nhacHs').innerHTML = !moi && !(CH.khoa && !LIC) && !Object.keys(HS()).length
     ? '<button class="nhac" data-mo="hoso"><span>👤 Điền hồ sơ 1 phút — câu mẫu sẽ là câu <b>của bạn</b></span><span>›</span></button>' : '';
   veLoTrinh(tuanHT);
   $('#bqChan').innerHTML = LIC ? 'Bản quyền của <b>' + esc(LIC.ten || LIC.ma) + '</b>' : '';
@@ -1267,7 +1272,7 @@ function veLoTrinh(tuanHT){
   for (let w = 1; w <= maxT; w++){
     const bt = MUC.filter(m => m.tuan === w); if (!bt.length) continue;
     if (bt[0].chang !== chang){ chang = bt[0].chang; html += `<div class="chang">${TEN_CHANG[chang] || 'Chặng ' + chang}</div>`; }
-    if (canMaTuan(w) && !canMaTuan(w - 1)) html += `<button class="nhac" data-mo="kichhoat"><span>🔑 Tuần ${w - 1} học thử miễn phí. <b>Nhập mã kích hoạt</b> để mở tuần ${w}–${maxT}</span><span>›</span></button>`;
+    if (canMaTuan(w) && !canMaTuan(w - 1)) html += `<button class="nhac" data-mo="kichhoat"><span>🔑 ${w > 1 ? `Tuần 1–${w - 1} mở sẵn. ` : ''}<b>Nhập mã kích hoạt</b> để mở ${w > 1 ? `tuần ${w}–${maxT}` : `cả ${maxT} tuần`}</span><span>›</span></button>`;
     const key = canMaTuan(w) ? ' data-key="1"' : '';
     const datKT = !!(kt[w] && kt[w].dat), khoaT = !moKhoa(bt[0].id), soDat = bt.filter(m => x[m.id]).length;
     const du = datKT || bt.every(m => x[m.id]);
@@ -1300,7 +1305,7 @@ function veCaiDat(){
   $('#cdBq').hidden = !CH.khoa;
   $('#cdBq').innerHTML = LIC
     ? `<h3>Bản quyền</h3><p style="margin:0">Bản quyền của <b>${esc(LIC.ten || 'bạn')}</b></p><p class="dem" style="margin:4px 0 0">Mã ${esc(LIC.ma.slice(0, 7))}-•••• · dùng tối đa 2 máy</p>`
-    : '<h3>Bản quyền</h3><p class="hd" style="margin:0 0 8px">Đang học thử tuần 1.</p><button class="btn" id="cdKh">🔑 Nhập mã kích hoạt</button>';
+    : '<h3>Bản quyền</h3><p class="hd" style="margin:0 0 8px">Máy này chưa kích hoạt.</p><button class="btn" id="cdKh">🔑 Nhập mã kích hoạt</button>';
   const kh = $('#cdKh'); if (kh) kh.onclick = () => moBuoc('kichhoat');
   const h = HS();
   $('#cdHsChu').innerHTML = Object.keys(h).length ? `Đã điền${h.ten ? ': <b>' + esc(h.ten) + '</b>' : ''}${h.que ? ', ' + esc(h.que) : ''}. Câu mẫu đang dùng thông tin của bạn.` : 'Tên, quê, trường, gia đình… để câu mẫu là câu <b>của bạn</b>.';
