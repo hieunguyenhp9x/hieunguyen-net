@@ -1,0 +1,16 @@
+{
+  "name": "Mở Miệng — Tiếng Anh đi biển",
+  "short_name": "Mở Miệng",
+  "description": "Học tiếng Anh phỏng vấn và làm việc trên tàu, 30 phút mỗi ngày, học được khi không có mạng.",
+  "lang": "vi",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f2a44",
+  "theme_color": "#0f2a44",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

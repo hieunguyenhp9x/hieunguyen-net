@@ -6,6 +6,13 @@
 <title>Mở Miệng</title>
 <meta name="robots" content="noindex,nofollow">
 <meta name="theme-color" content="#0f2a44">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Mở Miệng">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <style>
   :root{
     --bg:#f4f6f9; --card:#ffffff; --ink:#14212e; --mute:#5b6b7b; --line:#dde3ea;
@@ -25,6 +32,7 @@
       --bad:#ef7a6c; --bad-soft:#3a1d1a; --gold:#e6b14a; --gold-soft:#3a2d12; color-scheme:dark;
   }
   *{box-sizing:border-box}
+  [hidden]{display:none!important}
   html,body{margin:0}
   body{background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
   header{background:var(--navy);color:#fff;padding:14px 16px 12px}
@@ -107,6 +115,17 @@
   .bxh tr.toi{background:var(--gold-soft);font-weight:700}
   .tag{font-size:11px;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--mute)}
   .chan{font-size:12px;color:var(--mute);text-align:center;margin-top:18px}
+  .cai{background:var(--gold-soft);border:1px solid var(--gold);border-radius:14px;padding:12px 14px;margin-bottom:12px}
+  .cai h3{margin:0 0 4px;font-size:16px}
+  .cai ol{margin:6px 0 8px;padding-left:20px;font-size:14px}
+  .cai .row{margin-top:6px}
+  .cai .x{background:none;border:0;color:var(--mute);font:inherit;font-size:13px;cursor:pointer;text-decoration:underline;padding:6px 0}
+  .off{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:10px 14px;margin-bottom:12px}
+  .off .tt{font-size:14px;min-width:0;flex:1 1 180px}
+  .off .tt b{display:block;font-size:15px}
+  .off .btn{padding:8px 12px;min-height:40px;font-size:14px}
+  .mang{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:6px;vertical-align:middle}
+  .mang.mat{background:var(--bad)}
   .canh{font-size:14px;background:var(--bad-soft);color:var(--bad);border-radius:10px;padding:10px;display:none}
 </style>
 </head>
@@ -133,6 +152,11 @@
 </nav>
 
 <main>
+  <div class="cai" id="caiThe" hidden></div>
+  <div class="off" id="offThe">
+    <div class="tt" id="offChu"><b>Học không cần mạng</b>Tải bài này về máy một lần.</div>
+    <button class="btn" id="offTai">⬇ Tải bài</button>
+  </div>
   <!-- ① NGHE HIỂU -->
   <section id="s-nghe">
     <h2>① Nghe hiểu</h2>
@@ -283,7 +307,7 @@ fetch('bai-01.json').then(r => r.json()).then(d => {
   $('#chuDe').textContent = d.chu_de;
   fetch(DIR + 'kich-thuoc.json').then(r => r.json()).then(k => { KT = k; veMang(); }).catch(() => {});
   dungNghe(); dungPhatAm(); dungCauMau(); dungDoiDap();
-  chonMuc(M); moBuoc(load('buoc') || 'nghe'); veDau();
+  chonMuc(M); capNhatOff(); moBuoc(load('buoc') || 'nghe'); veDau();
 });
 
 $$('#mucChon button').forEach(b => b.onclick = () => chonMuc(+b.dataset.m));
@@ -296,7 +320,7 @@ function chonMuc(m){
     "chon": "Nghe câu hỏi rồi bấm câu trả lời ngắn đúng trong " + bo.giay + " giây.",
     "mo": "Hội đồng hỏi bằng giọng Ấn Độ. Bạn có " + bo.giay + " giây để trả lời <b>trong đầu hoặc nói khẽ</b>, rồi xem câu trả lời mẫu và tự chấm."}[bo.kieu];
   $('#pxHd').innerHTML = kieu + ' Tốc độ đọc: ' + ({"1":"chậm","2":"hơi chậm","3":"tốc độ thật"})[m] + '.';
-  datLaiPhanXa(); veMang();
+  datLaiPhanXa(); veMang(); capNhatOff();
 }
 
 $$('#buoc button').forEach(b => b.onclick = () => moBuoc(b.dataset.s));
@@ -576,6 +600,97 @@ function veMang(){
   $('#kqMang').innerHTML = (kt ? `Bài này ở mức ${M}: <b>${(kt / 1024 / 1024).toFixed(1)} MB</b> tải một lần (bản mẫu, chưa nén kỹ — bản thật nhẹ hơn khoảng 1/3). ` : '') +
     'Phát lại, ghi âm, nghe giọng mình: <b>0 MB</b> — tất cả nằm trên máy. Bản thật: tải gói 30 ngày khi có wifi ở bờ/cảng, trên tàu chỉ gửi 1 bài nói/tuần.';
 }
+// ---------- HỌC OFFLINE: tải bài vào máy ----------
+const GOI = () => 'mm-' + BAI.id;
+function dsAudio(m){
+  const f = [];
+  BAI.truyen.forEach((_, i) => f.push(`truyen-m${m}-${pad(i)}.mp3`));
+  BAI.hoi[m].cau.forEach((_, i) => f.push(`hoi-m${m}-${pad(i)}.mp3`));
+  BAI.tu_khoa.forEach((_, i) => f.push(`tu-${pad(i)}.mp3`));
+  BAI.phat_am.cap_tu.forEach((_, i) => { f.push(`pa-${pad(i)}-a.mp3`, `pa-${pad(i)}-b.mp3`); });
+  BAI.cau_mau.forEach((_, i) => { f.push(`mau-${pad(i)}.mp3`, `mau-${pad(i)}-cham.mp3`); });
+  BAI.doi_dap.forEach((_, i) => f.push(`dd-${pad(i)}.mp3`));
+  return f.map(x => DIR + x);
+}
+const coCache = 'caches' in window && 'serviceWorker' in navigator && window.isSecureContext;
+async function thieu(m){
+  const c = await caches.open(GOI()); const ds = dsAudio(m); let n = 0;
+  for (const u of ds) if (!(await c.match(u))) n++;
+  return {n, tong: ds.length};
+}
+async function capNhatOff(){
+  const mang = navigator.onLine ? '<span class="mang"></span>' : '<span class="mang mat"></span>';
+  if (!BAI) return;
+  if (!coCache){ $('#offThe').hidden = true; return; }
+  const {n, tong} = await thieu(M);
+  const mb = KT[M] ? (KT[M] / 1048576).toFixed(1) + ' MB' : '';
+  if (n === 0){
+    $('#offChu').innerHTML = `<b>${mang}✅ Đã tải mức ${M} về máy</b>Tắt mạng, bật chế độ máy bay vẫn học được bài này.`;
+    $('#offTai').hidden = true;
+  } else {
+    $('#offChu').innerHTML = `<b>${mang}Học không cần mạng</b>${navigator.onLine ? `Tải mức ${M} về máy một lần (${mb}), lúc có wifi.` : 'Đang mất mạng. Có mạng lại thì bấm tải.'}`;
+    $('#offTai').hidden = false; $('#offTai').disabled = !navigator.onLine;
+    $('#offTai').textContent = n < tong ? `⬇ Tải nốt ${n} file` : '⬇ Tải bài';
+  }
+}
+$('#offTai').onclick = async () => {
+  const b = $('#offTai'); b.disabled = true;
+  const c = await caches.open(GOI()); const ds = dsAudio(M); let xong = 0, loi = 0;
+  for (const u of ds){
+    if (!(await c.match(u))){
+      try { const r = await fetch(u, {cache: 'no-store'}); if (r.ok) await c.put(u, r); else loi++; } catch(e){ loi++; }
+    }
+    xong++; b.textContent = `Đang tải ${Math.round(xong / ds.length * 100)}%`;
+  }
+  if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
+  if (loi) b.textContent = `Lỗi ${loi} file — bấm tải lại`;
+  b.disabled = false; capNhatOff();
+};
+addEventListener('online', capNhatOff); addEventListener('offline', capNhatOff);
+if ('serviceWorker' in navigator && window.isSecureContext)
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+
+// ---------- CÀI RA MÀN HÌNH CHÍNH ----------
+const ua = navigator.userAgent;
+const daCai = matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+const trongApp = /FBAN|FBAV|FB_IAB|FBIOS|Instagram|Zalo|musical_ly|Bytedance|TikTok|Line\//i.test(ua);
+const laIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+let nhacCai = null;
+addEventListener('beforeinstallprompt', e => { e.preventDefault(); nhacCai = e; veCai(); });
+addEventListener('appinstalled', () => { $('#caiThe').hidden = true; });
+function veCai(){
+  const the = $('#caiThe');
+  if (daCai || load('an-cai')) { the.hidden = true; return; }
+  let html;
+  if (trongApp){
+    html = `<h3>📲 Mở bằng trình duyệt để cài app</h3>
+      <ol><li>Bấm nút <b>⋯</b> (góc trên bên phải)</li>
+      <li>Chọn <b>Mở bằng trình duyệt</b> (Chrome / Safari)</li>
+      <li>Ở trang vừa mở, làm theo hướng dẫn cài</li></ol>
+      <div class="row"><button class="btn ghost" id="caiChep">Chép link</button></div>`;
+  } else if (laIOS){
+    html = `<h3>📲 Cài Mở Miệng lên màn hình iPhone</h3>
+      <ol><li>Bấm nút <b>Chia sẻ</b> (ô vuông có mũi tên lên)</li>
+      <li>Kéo xuống, chọn <b>Thêm vào MH chính</b></li>
+      <li>Bấm <b>Thêm</b>, rồi mở app từ icon trên màn hình</li></ol>`;
+  } else if (nhacCai){
+    html = `<h3>📲 Cài Mở Miệng như một app</h3>
+      <p style="margin:0;font-size:14px">Có icon trên màn hình, mở toàn màn hình, học được khi không có mạng.</p>
+      <div class="row"><button class="btn" id="caiNut">Cài app</button></div>`;
+  } else {
+    html = `<h3>📲 Cài Mở Miệng như một app</h3>
+      <ol><li>Bấm nút <b>⋮</b> của Chrome (góc trên bên phải)</li>
+      <li>Chọn <b>Thêm vào màn hình chính</b> hoặc <b>Cài đặt ứng dụng</b></li></ol>`;
+  }
+  the.innerHTML = html + '<button class="x" id="caiAn">Để sau</button>';
+  the.hidden = false;
+  const nut = $('#caiNut'); if (nut) nut.onclick = async () => { nhacCai.prompt(); await nhacCai.userChoice; nhacCai = null; veCai(); };
+  const chep = $('#caiChep'); if (chep) chep.onclick = () => {
+    navigator.clipboard && navigator.clipboard.writeText(location.href).then(() => chep.textContent = 'Đã chép — dán vào Chrome/Safari').catch(() => {});
+  };
+  $('#caiAn').onclick = () => { save('an-cai', 1); the.hidden = true; };
+}
+veCai();
 })();
 </script>
 </body>
