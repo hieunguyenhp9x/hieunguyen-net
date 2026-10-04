@@ -1,0 +1,289 @@
+{
+  "id": "c3-52",
+  "chang": 3,
+  "tuan": 11,
+  "so": 52,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 11 · Bài 52 — Phụ lục I · dầu",
+  "chu_de": "Câu hỏi số 41 · Oil Record Book · thiết bị 15 ppm",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Annex I of MARPOL is about the prevention of pollution by oil.",
+      "vi": "Phụ lục I của MARPOL nói về ngăn ngừa ô nhiễm do dầu."
+    },
+    {
+      "en": "In the engine room, oil and water collect at the bottom. This is called oily bilge water.",
+      "vi": "Trong buồng máy, dầu và nước đọng lại dưới đáy. Đó gọi là nước la canh lẫn dầu."
+    },
+    {
+      "en": "Oily bilge water must not go into the sea directly.",
+      "vi": "Nước la canh lẫn dầu không được xả thẳng ra biển."
+    },
+    {
+      "en": "It can go overboard only through the 15 ppm bilge separator and alarm, and only under the strict conditions of MARPOL. Otherwise, it stays on board and goes ashore.",
+      "vi": "Nó chỉ được xả qua thiết bị phân ly và báo động 15 ppm, và chỉ khi đáp ứng các điều kiện chặt chẽ của MARPOL. Nếu không, nó được giữ lại trên tàu và chuyển lên bờ."
+    },
+    {
+      "en": "ppm means parts per million.",
+      "vi": "ppm nghĩa là phần triệu."
+    },
+    {
+      "en": "Oil operations, like bunkering and handling sludge, are recorded in the Oil Record Book.",
+      "vi": "Các hoạt động liên quan đến dầu, như nhận nhiên liệu và xử lý cặn dầu, được ghi vào Nhật ký dầu."
+    },
+    {
+      "en": "Inspectors check this book carefully when the ship is in port.",
+      "vi": "Khi tàu ở cảng, thanh tra kiểm tra cuốn sổ này rất kỹ."
+    },
+    {
+      "en": "The deck crew also help: when the ship takes fuel, the scuppers are plugged, and they watch the deck.",
+      "vi": "Thuỷ thủ boong cũng góp phần: khi tàu nhận nhiên liệu, các lỗ thoát nước mặt boong được bịt kín, và họ canh boong."
+    },
+    {
+      "en": "If oil goes on deck, they stop it before it goes into the sea.",
+      "vi": "Nếu dầu tràn ra boong, họ chặn lại trước khi nó xuống biển."
+    },
+    {
+      "en": "Nam learns: a small oil spill can mean a big problem for the ship and the company.",
+      "vi": "Nam hiểu: một vụ tràn dầu nhỏ cũng có thể là rắc rối lớn cho con tàu và công ty."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "oily bilge water",
+      "am": "/ˈɔɪ.li bɪldʒ ˈwɔː.tə/",
+      "doc": "OI-li bil-dj UO-tờ",
+      "nghia": "nước la canh lẫn dầu"
+    },
+    {
+      "tu": "bilge separator",
+      "am": "/bɪldʒ ˈsep.ər.eɪ.tə/",
+      "doc": "bil-dj XÉ-pờ-rây-tờ",
+      "nghia": "thiết bị phân ly dầu nước la canh"
+    },
+    {
+      "tu": "ppm",
+      "am": "/ˌpiː.piːˈem/",
+      "doc": "PI-PI-EM",
+      "nghia": "parts per million — phần triệu"
+    },
+    {
+      "tu": "Oil Record Book",
+      "am": "/ɔɪl ˈrek.ɔːd bʊk/",
+      "doc": "oi-l RÉ-cọt búc",
+      "nghia": "Nhật ký dầu"
+    },
+    {
+      "tu": "oil spill",
+      "am": "/ɔɪl spɪl/",
+      "doc": "oi-l xpiu",
+      "nghia": "sự cố tràn dầu"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Is Annex I about oil?",
+          "dap": "yes"
+        },
+        {
+          "en": "Can oily bilge water go directly into the sea?",
+          "dap": "no"
+        },
+        {
+          "en": "Can it go overboard only through the 15 ppm equipment?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does ppm mean parts per million?",
+          "dap": "yes"
+        },
+        {
+          "en": "Are oil operations recorded in the Oil Record Book?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do inspectors ignore the Oil Record Book?",
+          "dap": "no"
+        },
+        {
+          "en": "Do the deck crew watch the deck when the ship takes fuel?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is a small oil spill never a problem?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What is Annex I about?",
+          "chon": [
+            "Garbage",
+            "Oil",
+            "Air"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "Where is oily bilge water?",
+          "chon": [
+            "At the bottom of the engine room",
+            "On the bridge",
+            "In the galley"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does ppm mean?",
+          "chon": [
+            "Pounds per minute",
+            "Pump per meter",
+            "Parts per million"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "Where are oil operations written?",
+          "chon": [
+            "In the Oil Record Book",
+            "In the menu",
+            "On the radar"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What happens to the scuppers when taking fuel?",
+          "chon": [
+            "They are opened",
+            "They are plugged",
+            "Nothing"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What is Annex I about?",
+          "mau": "Annex I is about the prevention of pollution by oil."
+        },
+        {
+          "en": "Where do you record oil operations?",
+          "mau": "In the Oil Record Book."
+        },
+        {
+          "en": "What happens to oily bilge water?",
+          "mau": "It can go overboard only through the 15 ppm equipment, under strict MARPOL conditions. Otherwise it stays on board and goes ashore."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/θ/ – /f/",
+    "vi_sao": "Thiếu âm /θ/, nhiều người thay bằng /f/: \"three\" thành \"free\", \"thin\" thành \"fin\".",
+    "nhan_a": "/θ/ (lưỡi giữa răng)",
+    "nhan_b": "/f/ (răng chạm môi)",
+    "am": [
+      {
+        "ky_hieu": "/θ/",
+        "goi_y": "lưỡi giữa hai răng",
+        "cach": [
+          "Lưỡi thò nhẹ giữa răng",
+          "Môi KHÔNG chạm răng"
+        ]
+      },
+      {
+        "ky_hieu": "/f/",
+        "goi_y": "răng trên chạm môi dưới",
+        "cach": [
+          "Răng trên chạm môi dưới",
+          "Lưỡi không thò ra"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "three",
+        "b": "free",
+        "nghia_a": "số 3",
+        "nghia_b": "miễn phí"
+      },
+      {
+        "a": "thin",
+        "b": "fin",
+        "nghia_a": "mỏng",
+        "nghia_b": "vây cá"
+      },
+      {
+        "a": "thought",
+        "b": "fought",
+        "nghia_a": "đã nghĩ",
+        "nghia_b": "đã đánh nhau"
+      },
+      {
+        "a": "death",
+        "b": "deaf",
+        "nghia_a": "cái chết",
+        "nghia_b": "điếc"
+      },
+      {
+        "a": "thirst",
+        "b": "first",
+        "nghia_a": "cơn khát",
+        "nghia_b": "thứ nhất"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "Annex I is about the prevention of pollution by oil.",
+      "vi": "Phụ lục I nói về ngăn ngừa ô nhiễm do dầu.",
+      "nhan": "Phụ lục I",
+      "luu_y": "Câu hỏi số 41."
+    },
+    {
+      "en": "Oil operations, like bunkering, are recorded in the Oil Record Book.",
+      "vi": "Các hoạt động liên quan đến dầu, như nhận nhiên liệu, được ghi vào Nhật ký dầu.",
+      "nhan": "Nhật ký dầu",
+      "luu_y": "Câu hỏi dồn hay gặp. Nhấn: OIL REC-ord book."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What is Annex I about?",
+      "giay": 7,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "Where do you record oil operations?",
+      "giay": 6,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Good.",
+      "giay": 0
+    }
+  ]
+}

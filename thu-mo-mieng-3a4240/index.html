@@ -398,16 +398,19 @@ $('#pxBat').onclick = async () => {
   const bo = BAI.hoi[M];
   px = {dung: 0, ms: [], kieu: bo.kieu};
   $('#pxBat').style.display = 'none'; $('#pxKq').style.display = 'none';
-  for (let i = 0; i < bo.cau.length; i++){
-    await hoiMot(bo, i);
+  // xáo thứ tự câu mỗi lượt làm, để người học không thuộc lòng vị trí
+  const thuTu = tron([...bo.cau.keys()]);
+  for (let k = 0; k < thuTu.length; k++){
+    await hoiMot(bo, thuTu[k], k);
     await sleep(900);
   }
   ketPhanXa(bo);
 };
-function hoiMot(bo, i){
+function tron(a){ for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
+function hoiMot(bo, i, k){
   return new Promise(async res => {
     const c = bo.cau[i];
-    $('#pxSo').textContent = `Câu ${i + 1}/${bo.cau.length}`;
+    $('#pxSo').textContent = `Câu ${k + 1}/${bo.cau.length}`;
     $('#pxChu').className = 'q-chu an'; $('#pxChu').textContent = '🔊 Đang hỏi…';
     $('#pxTraLoi').innerHTML = ''; $('#pxBar').style.width = '0%';
     await phat(`hoi-m${M}-${pad(i)}.mp3`);
@@ -419,8 +422,10 @@ function hoiMot(bo, i){
       setTimeout(res, bo.kieu === 'mo' ? 0 : 1100); };
 
     if (bo.kieu === 'yes-no' || bo.kieu === 'chon'){
-      const nhan = bo.kieu === 'yes-no' ? ['YES', 'NO'] : c.chon;
-      const dap = bo.kieu === 'yes-no' ? (c.dap === 'yes' ? 0 : 1) : c.dap;
+      // lựa chọn được xáo vị trí mỗi lần hỏi; YES/NO giữ cố định
+      const xep = bo.kieu === 'yes-no' ? [0, 1] : tron([...c.chon.keys()]);
+      const nhan = bo.kieu === 'yes-no' ? ['YES', 'NO'] : xep.map(j => c.chon[j]);
+      const dap = bo.kieu === 'yes-no' ? (c.dap === 'yes' ? 0 : 1) : xep.indexOf(c.dap);
       $('#pxTraLoi').innerHTML = `<div class="chon ${bo.kieu === 'yes-no' ? 'yn' : ''}">` +
         nhan.map((n, k) => `<button data-k="${k}">${esc(n)}</button>`).join('') + '</div>';
       const nut = $$('#pxTraLoi button');

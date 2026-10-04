@@ -1,0 +1,295 @@
+{
+  "id": "c3-51",
+  "chang": 3,
+  "tuan": 11,
+  "so": 51,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 11 · Bài 51 — MARPOL và 6 phụ lục",
+  "chu_de": "Câu hỏi số 40",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "MARPOL is the International Convention for the Prevention of Pollution from Ships.",
+      "vi": "MARPOL là Công ước quốc tế về ngăn ngừa ô nhiễm từ tàu."
+    },
+    {
+      "en": "Its rules are in six annexes.",
+      "vi": "Các quy định của nó nằm trong sáu phụ lục."
+    },
+    {
+      "en": "Annex I is about oil.",
+      "vi": "Phụ lục I nói về dầu."
+    },
+    {
+      "en": "Annex II is about noxious liquid substances carried in bulk, like chemicals.",
+      "vi": "Phụ lục II nói về các chất lỏng độc chở xô, như hoá chất."
+    },
+    {
+      "en": "Annex III is about harmful substances carried in packaged form.",
+      "vi": "Phụ lục III nói về các chất độc hại chở dưới dạng bao gói."
+    },
+    {
+      "en": "Annex IV is about sewage, and Annex V is about garbage.",
+      "vi": "Phụ lục IV nói về nước thải, phụ lục V nói về rác."
+    },
+    {
+      "en": "Annex VI is about air pollution from ships.",
+      "vi": "Phụ lục VI nói về ô nhiễm không khí từ tàu."
+    },
+    {
+      "en": "Nam makes a short way to remember: oil, chemicals, packages, sewage, garbage, air.",
+      "vi": "Nam nghĩ ra cách nhớ ngắn: dầu, hoá chất, hàng bao gói, nước thải, rác, không khí."
+    },
+    {
+      "en": "He says it ten times on the bus.",
+      "vi": "Cậu đọc đi đọc lại mười lần trên xe buýt."
+    },
+    {
+      "en": "Now he can answer in five seconds.",
+      "vi": "Giờ cậu trả lời được trong năm giây."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "MARPOL",
+      "am": "/ˈmɑː.pɒl/",
+      "doc": "MA-pồl",
+      "nghia": "International Convention for the Prevention of Pollution from Ships — Công ước quốc tế về ngăn ngừa ô nhiễm từ tàu"
+    },
+    {
+      "tu": "pollution",
+      "am": "/pəˈluː.ʃən/",
+      "doc": "pờ-LU-shần",
+      "nghia": "ô nhiễm"
+    },
+    {
+      "tu": "noxious liquid substances",
+      "am": "/ˈnɒk.ʃəs ˈlɪk.wɪd ˈsʌb.stən.sɪz/",
+      "doc": "NÓC-shợt LÍ-quít XẮP-xtần-xiz",
+      "nghia": "chất lỏng độc"
+    },
+    {
+      "tu": "sewage",
+      "am": "/ˈsuː.ɪdʒ/",
+      "doc": "XU-ịdj",
+      "nghia": "nước thải sinh hoạt"
+    },
+    {
+      "tu": "garbage",
+      "am": "/ˈɡɑː.bɪdʒ/",
+      "doc": "GA-bịdj",
+      "nghia": "rác"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Is MARPOL about pollution from ships?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does MARPOL have five annexes?",
+          "dap": "no"
+        },
+        {
+          "en": "Is Annex I about oil?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is Annex IV about garbage?",
+          "dap": "no"
+        },
+        {
+          "en": "Is Annex V about garbage?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is Annex VI about air pollution?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is Annex III about sewage?",
+          "dap": "no"
+        },
+        {
+          "en": "Can Nam answer in five seconds now?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "How many annexes does MARPOL have?",
+          "chon": [
+            "Five",
+            "Six",
+            "Seven"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What is Annex VI about?",
+          "chon": [
+            "Air pollution",
+            "Oil",
+            "Sewage"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What is Annex IV about?",
+          "chon": [
+            "Garbage",
+            "Oil",
+            "Sewage"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What is Annex II about?",
+          "chon": [
+            "Noxious liquid substances in bulk",
+            "Garbage",
+            "Air"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What is Annex III about?",
+          "chon": [
+            "Oil",
+            "Harmful substances in packaged form",
+            "Sewage"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What does MARPOL stand for?",
+          "mau": "MARPOL is the International Convention for the Prevention of Pollution from Ships."
+        },
+        {
+          "en": "How many annexes does MARPOL have? Name them.",
+          "mau": "Six. Annex I oil, II noxious liquid substances, III harmful substances in packages, IV sewage, V garbage, and VI air pollution."
+        },
+        {
+          "en": "What is Annex V about?",
+          "mau": "Annex V is about garbage."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/k/ cuối – /ɡ/ cuối",
+    "vi_sao": "\"Dock\" (cầu cảng) và \"dog\" (con chó), \"tuck\" và \"tug\" (tàu lai): âm cuối /ɡ/ có rung, nguyên âm trước nó dài hơn.",
+    "nhan_a": "/k/",
+    "nhan_b": "/ɡ/ (rung)",
+    "am": [
+      {
+        "ky_hieu": "/k/ cuối",
+        "goi_y": "nguyên âm ngắn + chặn gọn",
+        "cach": [
+          "Nguyên âm ngắn",
+          "Cuống lưỡi chặn, không rung"
+        ]
+      },
+      {
+        "ky_hieu": "/ɡ/ cuối",
+        "goi_y": "nguyên âm dài hơn + chặn có rung",
+        "cach": [
+          "Nguyên âm kéo dài hơn",
+          "Cuống lưỡi chặn, cổ rung nhẹ"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "dock",
+        "b": "dog",
+        "nghia_a": "cầu cảng",
+        "nghia_b": "con chó"
+      },
+      {
+        "a": "tuck",
+        "b": "tug",
+        "nghia_a": "nhét vào",
+        "nghia_b": "tàu lai"
+      },
+      {
+        "a": "lock",
+        "b": "log",
+        "nghia_a": "khoá",
+        "nghia_b": "nhật ký, tốc độ kế"
+      },
+      {
+        "a": "back",
+        "b": "bag",
+        "nghia_a": "phía sau",
+        "nghia_b": "cái túi"
+      },
+      {
+        "a": "pick",
+        "b": "pig",
+        "nghia_a": "nhặt",
+        "nghia_b": "con lợn"
+      },
+      {
+        "a": "duck",
+        "b": "dug",
+        "nghia_a": "con vịt",
+        "nghia_b": "đã đào"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "MARPOL is the International Convention for the Prevention of Pollution from Ships.",
+      "vi": "MARPOL là Công ước quốc tế về ngăn ngừa ô nhiễm từ tàu.",
+      "nhan": "MARPOL",
+      "luu_y": "Câu hỏi số 40, vế 1. Ngắt hơi sau 'Convention'."
+    },
+    {
+      "en": "It has six annexes: oil, noxious liquid substances, harmful substances in packages, sewage, garbage, and air pollution.",
+      "vi": "Nó có sáu phụ lục: dầu, chất lỏng độc, chất độc hại dạng bao gói, nước thải, rác và ô nhiễm không khí.",
+      "nhan": "6 phụ lục",
+      "luu_y": "Câu hỏi số 40, vế 2. Đọc theo đúng thứ tự I → VI."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What does MARPOL stand for?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "How many annexes? Name them.",
+      "giay": 14,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Very good.",
+      "giay": 0
+    }
+  ]
+}

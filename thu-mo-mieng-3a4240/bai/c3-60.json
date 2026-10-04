@@ -1,0 +1,322 @@
+{
+  "id": "c3-60",
+  "chang": 3,
+  "tuan": 12,
+  "so": 60,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 12 · Bài 60 — Thi thử kiến thức",
+  "chu_de": "Ôn chặng 3 · cổng 3: câu hỏi kiến thức ở tốc độ thật",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Today is Nam's knowledge test before the real interview.",
+      "vi": "Hôm nay là buổi kiểm tra kiến thức của Nam trước buổi phỏng vấn thật."
+    },
+    {
+      "en": "A retired captain asks the questions, quickly, one after another.",
+      "vi": "Một thuyền trưởng đã nghỉ hưu đặt câu hỏi, nhanh, liên tục."
+    },
+    {
+      "en": "\"Rule 5?\" \"Proper look-out at all times, by sight and hearing and by all available means.\"",
+      "vi": "\"Quy tắc 5?\" \"Luôn cảnh giới thích đáng, bằng mắt, bằng tai và mọi phương tiện sẵn có.\""
+    },
+    {
+      "en": "\"Risk of collision?\" \"If the compass bearing does not appreciably change.\"",
+      "vi": "\"Nguy cơ đâm va?\" \"Nếu phương vị la bàn không thay đổi đáng kể.\""
+    },
+    {
+      "en": "\"Crossing?\" \"The vessel which has the other on her own starboard side keeps out of the way.\"",
+      "vi": "\"Cắt hướng?\" \"Tàu nào thấy tàu kia bên mạn phải của mình thì tránh đường.\""
+    },
+    {
+      "en": "\"MARPOL annexes?\" Nam names all six.",
+      "vi": "\"Các phụ lục MARPOL?\" Nam kể đủ cả sáu."
+    },
+    {
+      "en": "\"Rule 19?\" \"Conduct of vessels in restricted visibility.\" Then the captain asks about parallel indexing. Nam says, \"I am not sure yet, Sir, but I will learn it.\"",
+      "vi": "\"Quy tắc 19?\" \"Hành động của tàu trong tầm nhìn xa hạn chế.\" Rồi thuyền trưởng hỏi về parallel indexing. Nam nói: \"Em chưa chắc ạ, nhưng em sẽ học.\""
+    },
+    {
+      "en": "The captain smiles. \"Good. You did not guess.\"",
+      "vi": "Thuyền trưởng mỉm cười: \"Tốt. Cậu không đoán bừa.\""
+    },
+    {
+      "en": "\"On the bridge, a wrong guess can be dangerous. An honest answer is safe.\"",
+      "vi": "\"Trên buồng lái, đoán sai có thể nguy hiểm. Trả lời thật thà mới an toàn.\""
+    },
+    {
+      "en": "Nam answered almost every question, and he never stayed silent.",
+      "vi": "Nam trả lời được gần hết các câu, và chưa lần nào im lặng."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "retired",
+      "am": "/rɪˈtaɪəd/",
+      "doc": "ri-TAI-ợd",
+      "nghia": "đã nghỉ hưu"
+    },
+    {
+      "tu": "one after another",
+      "am": "/wʌn ˈɑːf.tər əˈnʌð.ə/",
+      "doc": "uăn ÁP-tờ ờ-NẮ-dhờ",
+      "nghia": "liên tục, hết câu này đến câu khác"
+    },
+    {
+      "tu": "guess",
+      "am": "/ɡes/",
+      "doc": "ghét-x",
+      "nghia": "đoán"
+    },
+    {
+      "tu": "honest",
+      "am": "/ˈɒn.ɪst/",
+      "doc": "O-nít-xt",
+      "nghia": "thật thà (chữ h câm)"
+    },
+    {
+      "tu": "knowledge",
+      "am": "/ˈnɒl.ɪdʒ/",
+      "doc": "NO-lịdj",
+      "nghia": "kiến thức (chữ k câm)"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Is this Nam's knowledge test?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does a retired captain ask the questions?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the captain ask slowly with long breaks?",
+          "dap": "no"
+        },
+        {
+          "en": "Does Nam know Rule 5?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam name all six MARPOL annexes?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam guess about parallel indexing?",
+          "dap": "no"
+        },
+        {
+          "en": "Does the captain think a wrong guess can be dangerous?",
+          "dap": "yes"
+        },
+        {
+          "en": "Did Nam stay silent?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Who asks the questions?",
+          "chon": [
+            "A teacher",
+            "A retired captain",
+            "Long"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "How does the captain ask?",
+          "chon": [
+            "Quickly, one after another",
+            "Very slowly",
+            "In Vietnamese"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does Nam do with parallel indexing?",
+          "chon": [
+            "Guesses",
+            "Stays silent",
+            "Says he is not sure but will learn it"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "Why is an honest answer better?",
+          "chon": [
+            "A wrong guess can be dangerous",
+            "It is shorter",
+            "It is funny"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What did Nam never do?",
+          "chon": [
+            "Answer",
+            "Stay silent",
+            "Smile"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What does Rule 5 say?",
+          "mau": "Every vessel must keep a proper look-out at all times, by sight and hearing and by all available means, so as to make a full appraisal of the situation and of the risk of collision."
+        },
+        {
+          "en": "How do you know there is a risk of collision?",
+          "mau": "If the compass bearing of an approaching ship does not appreciably change."
+        },
+        {
+          "en": "What do you do in a crossing situation?",
+          "mau": "When two power-driven vessels are crossing with a risk of collision, the vessel which has the other on her own starboard side keeps out of the way."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "Ôn cả chặng 3",
+    "vi_sao": "Tám cặp âm khó nhất của chặng 3. Qua bài này mà nghe đúng ≥80% là qua cổng 3 về phát âm.",
+    "nhan_a": "từ",
+    "nhan_b": "từ",
+    "am": [
+      {
+        "ky_hieu": "Nguyên âm",
+        "goi_y": "look · turn · coast · part–port",
+        "cach": [
+          "/ʊ/ ngắn",
+          "/ɜː/ dài",
+          "/əʊ/ trượt",
+          "/ɔː/ môi tròn"
+        ]
+      },
+      {
+        "ky_hieu": "Phụ âm",
+        "goi_y": "side · dock–dog · three · hold",
+        "cach": [
+          "/d/ /ɡ/ cuối có rung",
+          "/θ/ lưỡi giữa răng",
+          "/h/ thở nhẹ"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "look",
+        "b": "Luke",
+        "nghia_a": "nhìn",
+        "nghia_b": "tên Luke"
+      },
+      {
+        "a": "turn",
+        "b": "ton",
+        "nghia_a": "quay",
+        "nghia_b": "tấn"
+      },
+      {
+        "a": "cost",
+        "b": "coast",
+        "nghia_a": "chi phí",
+        "nghia_b": "bờ biển"
+      },
+      {
+        "a": "part",
+        "b": "port",
+        "nghia_a": "bộ phận",
+        "nghia_b": "mạn trái"
+      },
+      {
+        "a": "side",
+        "b": "sight",
+        "nghia_a": "mạn",
+        "nghia_b": "tầm nhìn"
+      },
+      {
+        "a": "dock",
+        "b": "dog",
+        "nghia_a": "cầu cảng",
+        "nghia_b": "con chó"
+      },
+      {
+        "a": "three",
+        "b": "free",
+        "nghia_a": "số 3",
+        "nghia_b": "miễn phí"
+      },
+      {
+        "a": "hold",
+        "b": "old",
+        "nghia_a": "hầm hàng",
+        "nghia_b": "cũ"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "I am not sure yet, Sir, but I will learn it.",
+      "vi": "Em chưa chắc ạ, nhưng em sẽ học.",
+      "nhan": "Không đoán bừa",
+      "luu_y": "Trên buồng lái, đoán sai có thể nguy hiểm. Hội đồng đánh giá cao câu trả lời thật thà."
+    },
+    {
+      "en": "Every vessel must keep a proper look-out at all times, by sight and hearing and by all available means, so as to make a full appraisal of the situation and of the risk of collision.",
+      "vi": "Mọi tàu phải luôn duy trì cảnh giới thích đáng, bằng mắt, bằng tai và mọi phương tiện sẵn có.",
+      "nhan": "Ôn Quy tắc 5",
+      "luu_y": "Nói lại không nhìn chữ."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Rule 5?",
+      "giay": 10,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Risk of collision?",
+      "giay": 9
+    },
+    {
+      "en": "Crossing situation?",
+      "giay": 10
+    },
+    {
+      "en": "MARPOL annexes?",
+      "giay": 12
+    },
+    {
+      "en": "Explain parallel indexing.",
+      "giay": 6,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "Good. You did not guess.",
+      "giay": 0
+    }
+  ]
+}

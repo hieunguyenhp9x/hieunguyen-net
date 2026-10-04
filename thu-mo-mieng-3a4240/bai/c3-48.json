@@ -1,0 +1,289 @@
+{
+  "id": "c3-48",
+  "chang": 3,
+  "tuan": 10,
+  "so": 48,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 10 · Bài 48 — Quy tắc 15 · tình huống cắt hướng",
+  "chu_de": "Câu hỏi số 35 · Rule 15 Crossing Situation",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Now two power-driven vessels are crossing, and there is a risk of collision.",
+      "vi": "Giờ hai tàu máy đang cắt hướng nhau, và có nguy cơ đâm va."
+    },
+    {
+      "en": "Rule 15 says: the vessel which has the other on her own starboard side must keep out of the way.",
+      "vi": "Quy tắc 15 nói: tàu nào thấy tàu kia ở bên mạn phải của mình thì phải tránh đường."
+    },
+    {
+      "en": "And if the circumstances of the case admit, she must avoid crossing ahead of the other vessel.",
+      "vi": "Và nếu hoàn cảnh cho phép, tàu đó phải tránh cắt qua phía trước mũi tàu kia."
+    },
+    {
+      "en": "So she usually turns to starboard, or slows down, and passes behind the other ship.",
+      "vi": "Vì vậy tàu đó thường đổi hướng sang phải, hoặc giảm tốc, và đi qua phía sau tàu kia."
+    },
+    {
+      "en": "At night, how do you know?",
+      "vi": "Ban đêm, làm sao biết?"
+    },
+    {
+      "en": "If you see the red sidelight of a ship on your starboard side, you are looking at her port side.",
+      "vi": "Nếu bạn thấy đèn mạn đỏ của một tàu ở bên mạn phải mình, nghĩa là bạn đang nhìn mạn trái của nó."
+    },
+    {
+      "en": "If there is a risk of collision, your ship is the give-way vessel. As a cadet, you report it to the Officer of the Watch at once.",
+      "vi": "Nếu có nguy cơ đâm va, tàu mình là tàu phải nhường đường. Là cadet, bạn báo ngay cho sĩ quan trực ca."
+    },
+    {
+      "en": "Old seafarers say: \"If to starboard red appear, it is your duty to keep clear.\"",
+      "vi": "Dân đi biển xưa có câu: \"Bên phải thấy đỏ hiện ra, nhiệm vụ của ta là tránh đường.\""
+    },
+    {
+      "en": "The other ship is the stand-on vessel. You are the give-way vessel.",
+      "vi": "Tàu kia là tàu được nhường đường. Bạn là tàu phải nhường đường."
+    },
+    {
+      "en": "Nam draws the two ships in his notebook, with arrows and lights.",
+      "vi": "Nam vẽ hai con tàu vào sổ, có mũi tên và đèn."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "crossing",
+      "am": "/ˈkrɒs.ɪŋ/",
+      "doc": "CRÓ-xinh",
+      "nghia": "cắt hướng"
+    },
+    {
+      "tu": "cross ahead",
+      "am": "/krɒs əˈhed/",
+      "doc": "crót-x ờ-HÉT",
+      "nghia": "cắt qua phía trước mũi"
+    },
+    {
+      "tu": "give-way vessel",
+      "am": "/ˌɡɪv ˈweɪ ˈves.əl/",
+      "doc": "ghiv UÂY VÉ-xồ",
+      "nghia": "tàu phải nhường đường"
+    },
+    {
+      "tu": "stand-on vessel",
+      "am": "/ˌstænd ˈɒn ˈves.əl/",
+      "doc": "xten-đ ON VÉ-xồ",
+      "nghia": "tàu được nhường đường (giữ hướng, giữ tốc độ)"
+    },
+    {
+      "tu": "duty",
+      "am": "/ˈdjuː.ti/",
+      "doc": "ĐIU-ti",
+      "nghia": "nhiệm vụ, bổn phận"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Is Rule 15 about crossing?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the vessel with the other on her starboard side keep out of the way?",
+          "dap": "yes"
+        },
+        {
+          "en": "Should she cross ahead of the other vessel if possible?",
+          "dap": "no"
+        },
+        {
+          "en": "Does she usually pass behind the other ship?",
+          "dap": "yes"
+        },
+        {
+          "en": "If you see a red light on your starboard side, are you looking at her port side?",
+          "dap": "yes"
+        },
+        {
+          "en": "In that case, with a risk of collision, is your ship the stand-on vessel?",
+          "dap": "no"
+        },
+        {
+          "en": "Does the cadet report it to the Officer of the Watch?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam draw the ships in his notebook?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Who keeps out of the way in a crossing situation?",
+          "chon": [
+            "The vessel with the other on her port side",
+            "The vessel with the other on her own starboard side",
+            "Both"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What should the give-way vessel avoid?",
+          "chon": [
+            "Crossing ahead of the other vessel",
+            "Slowing down",
+            "Turning to starboard"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "You see a red light on your starboard side. What are you?",
+          "chon": [
+            "The stand-on vessel",
+            "The overtaken vessel",
+            "The give-way vessel"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "The red sidelight shows which side of a ship?",
+          "chon": [
+            "Port",
+            "Starboard",
+            "Stern"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does the give-way vessel usually do?",
+          "chon": [
+            "Speed up and cross ahead",
+            "Turn to starboard or slow down and pass behind",
+            "Stop the engine forever"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What do you do in a crossing situation?",
+          "mau": "When two power-driven vessels are crossing so as to involve risk of collision, the vessel which has the other on her own starboard side must keep out of the way and, if the circumstances of the case admit, avoid crossing ahead."
+        },
+        {
+          "en": "At night, you see a red light on your starboard bow. What does it tell you?",
+          "mau": "I see her port side. If there is a risk of collision, we are the give-way vessel. I report it to the Officer of the Watch at once."
+        },
+        {
+          "en": "What does the give-way vessel usually do?",
+          "mau": "She turns to starboard or slows down, and passes behind the other ship."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/s/ – /z/ đầu từ",
+    "vi_sao": "Tiếng Việt không có âm /z/ đầu từ ('d' miền Bắc gần giống). \"Sink\" (chìm) và \"zinc\" (kẽm) khác nhau ở cổ có rung không.",
+    "nhan_a": "/s/",
+    "nhan_b": "/z/",
+    "am": [
+      {
+        "ky_hieu": "/s/",
+        "goi_y": "chỉ có hơi: sss",
+        "cach": [
+          "Thổi qua khe răng",
+          "Cổ không rung"
+        ]
+      },
+      {
+        "ky_hieu": "/z/",
+        "goi_y": "có rung: zzz",
+        "cach": [
+          "Khẩu hình như /s/",
+          "Cổ rung — như tiếng ong"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "sink",
+        "b": "zinc",
+        "nghia_a": "chìm",
+        "nghia_b": "kẽm"
+      },
+      {
+        "a": "sip",
+        "b": "zip",
+        "nghia_a": "nhấp",
+        "nghia_b": "khoá kéo"
+      },
+      {
+        "a": "sue",
+        "b": "zoo",
+        "nghia_a": "kiện",
+        "nghia_b": "sở thú"
+      },
+      {
+        "a": "seal",
+        "b": "zeal",
+        "nghia_a": "con hải cẩu",
+        "nghia_b": "nhiệt huyết"
+      },
+      {
+        "a": "said",
+        "b": "zed",
+        "nghia_a": "đã nói",
+        "nghia_b": "chữ Z (Anh)"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "When two power-driven vessels are crossing with a risk of collision, the vessel which has the other on her own starboard side must keep out of the way.",
+      "vi": "Khi hai tàu máy cắt hướng nhau và có nguy cơ đâm va, tàu nào thấy tàu kia ở bên mạn phải của mình thì phải tránh đường.",
+      "nhan": "Quy tắc 15",
+      "luu_y": "Câu hỏi số 35. Nhấn: her OWN STAR-board side."
+    },
+    {
+      "en": "If I see her red sidelight on our starboard bow and there is a risk of collision, we are the give-way vessel. I report it to the Officer of the Watch at once.",
+      "vi": "Nếu tôi thấy đèn mạn đỏ của tàu kia ở hướng mũi bên phải tàu mình và có nguy cơ đâm va, tàu mình là tàu phải nhường đường. Tôi báo ngay cho sĩ quan trực ca.",
+      "nhan": "Mẹo đèn đỏ",
+      "luu_y": "Câu hỏi số 38 dạng tình huống. Mẹo: 'If to starboard red appear, it is your duty to keep clear.'"
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What do you do in a crossing situation?",
+      "giay": 10,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "At night you see a red light on your starboard bow. What does it tell you?",
+      "giay": 10,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Excellent.",
+      "giay": 0
+    }
+  ]
+}

@@ -43,8 +43,8 @@
       "vi": "EPIRB phát tín hiệu cấp cứu kèm vị trí qua vệ tinh."
     },
     {
-      "en": "The SART helps rescuers find the survival craft on their radar.",
-      "vi": "SART giúp đội cứu hộ tìm thấy phương tiện cứu sinh trên màn radar của họ."
+      "en": "The SART helps rescuers find the survival craft on their radar or their AIS.",
+      "vi": "SART giúp đội cứu hộ tìm thấy phương tiện cứu sinh trên radar hoặc AIS của họ."
     },
     {
       "en": "Nam writes the full names in his notebook.",
@@ -117,7 +117,7 @@
           "dap": "yes"
         },
         {
-          "en": "Does the SART help rescuers find you on their radar?",
+          "en": "Does the SART help rescuers find you on their radar or AIS?",
           "dap": "yes"
         },
         {
@@ -164,7 +164,7 @@
         {
           "en": "What does the SART help rescuers do?",
           "chon": [
-            "Find survival craft on radar",
+            "Find survival craft on radar or AIS",
             "Cook food",
             "Steer the ship"
           ],
@@ -187,7 +187,7 @@
       "cau": [
         {
           "en": "What are an EPIRB and a SART for?",
-          "mau": "The EPIRB sends a distress signal with the position by satellite. The SART helps rescuers find the survival craft on their radar."
+          "mau": "The EPIRB sends a distress signal with the position by satellite. The SART helps rescuers find the survival craft on their radar or AIS."
         },
         {
           "en": "What is the difference between a lifeboat and a liferaft?",
@@ -271,10 +271,10 @@
       "luu_y": "Đọc EPIRB như một từ: 'I-pơb'. Nhấn: dis-TRESS, SA-tel-lite."
     },
     {
-      "en": "The SART helps rescuers find the survival craft on their radar.",
-      "vi": "SART giúp đội cứu hộ tìm phương tiện cứu sinh trên radar.",
+      "en": "The SART helps rescuers find the survival craft on their radar or AIS.",
+      "vi": "SART giúp đội cứu hộ tìm phương tiện cứu sinh trên radar hoặc AIS.",
       "nhan": "SART",
-      "luu_y": "Đọc SART như một từ: 'xát'."
+      "luu_y": "Đọc SART như một từ: 'xát'. Có hai loại: radar SART và AIS-SART."
     }
   ],
   "doi_dap": [

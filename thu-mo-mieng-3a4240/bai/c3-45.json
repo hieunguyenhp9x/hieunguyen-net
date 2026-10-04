@@ -1,0 +1,312 @@
+{
+  "id": "c3-45",
+  "chang": 3,
+  "tuan": 9,
+  "so": 45,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 9 · Bài 45 — Bị hỏi dồn · câu cứu nguy",
+  "chu_de": "Ôn tuần 9 · không im khi gặp câu khó",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "In the practice interview, the teacher asks Nam a hard follow-up question.",
+      "vi": "Trong buổi phỏng vấn thử, cô giáo hỏi dồn Nam một câu khó."
+    },
+    {
+      "en": "\"Explain parallel indexing on the radar.\" This is an officer-level question, and Nam has not studied it yet.",
+      "vi": "\"Giải thích kỹ thuật parallel indexing trên radar.\" Đây là câu hỏi cấp sĩ quan, và Nam chưa học."
+    },
+    {
+      "en": "He does not stay silent. He says, \"I am not sure, Madam. I have not studied it yet, but I will learn it.\"",
+      "vi": "Cậu không im lặng. Cậu nói: \"Em chưa chắc ạ. Em chưa học phần này, nhưng em sẽ học.\""
+    },
+    {
+      "en": "Then she speaks very fast, and Nam does not hear the question.",
+      "vi": "Rồi cô nói rất nhanh, và Nam không nghe kịp câu hỏi."
+    },
+    {
+      "en": "He says, \"Sorry, could you repeat the question, please?\"",
+      "vi": "Cậu nói: \"Xin lỗi, cô nhắc lại câu hỏi giúp em được không ạ?\""
+    },
+    {
+      "en": "She asks again, more slowly. Now he understands.",
+      "vi": "Cô hỏi lại chậm hơn. Giờ cậu hiểu."
+    },
+    {
+      "en": "Another time, he is not sure what she means. He asks, \"Do you mean the look-out, or the radar?\"",
+      "vi": "Lần khác, cậu không chắc cô muốn hỏi gì. Cậu hỏi: \"Ý cô là cảnh giới, hay là radar ạ?\""
+    },
+    {
+      "en": "And when he needs time, he says, \"Let me think for a moment.\"",
+      "vi": "Và khi cần thời gian, cậu nói: \"Cho em nghĩ một chút ạ.\""
+    },
+    {
+      "en": "After the interview, the teacher says, \"Good. You never stayed silent.\"",
+      "vi": "Sau buổi phỏng vấn, cô nói: \"Tốt. Em chưa lần nào im lặng.\""
+    },
+    {
+      "en": "\"Saying 'I don't know, but I will find out' is better than a wrong answer.\"",
+      "vi": "\"Nói 'em chưa biết, nhưng em sẽ tìm hiểu' tốt hơn một câu trả lời sai.\""
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "follow-up question",
+      "am": "/ˈfɒl.əʊ.ʌp ˈkwes.tʃən/",
+      "doc": "PHO-lâu-ắp QUÉT-x-chần",
+      "nghia": "câu hỏi dồn, câu hỏi tiếp theo"
+    },
+    {
+      "tu": "silent",
+      "am": "/ˈsaɪ.lənt/",
+      "doc": "XAI-lần-t",
+      "nghia": "im lặng"
+    },
+    {
+      "tu": "repeat",
+      "am": "/rɪˈpiːt/",
+      "doc": "ri-PIT",
+      "nghia": "nhắc lại"
+    },
+    {
+      "tu": "Madam",
+      "am": "/ˈmæd.əm/",
+      "doc": "ME-đầm",
+      "nghia": "thưa bà/cô (người phỏng vấn nữ)"
+    },
+    {
+      "tu": "find out",
+      "am": "/faɪnd aʊt/",
+      "doc": "phai-n-đ ao-t",
+      "nghia": "tìm hiểu, tìm ra"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Does the teacher ask a hard question?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam know parallel indexing?",
+          "dap": "no"
+        },
+        {
+          "en": "Does Nam stay silent?",
+          "dap": "no"
+        },
+        {
+          "en": "Does Nam ask her to repeat the question?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does she ask again more slowly?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam say 'Let me think for a moment' when he needs time?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is a wrong answer better than 'I don't know, but I will find out'?",
+          "dap": "no"
+        },
+        {
+          "en": "Is the teacher happy with Nam?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What does Nam say when he does not know?",
+          "chon": [
+            "Nothing",
+            "I am not sure, but I will learn it",
+            "That is a stupid question"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What does he say when he does not hear?",
+          "chon": [
+            "Sorry, could you repeat the question, please?",
+            "What?",
+            "OK, OK"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does he say when he needs time?",
+          "chon": [
+            "Wait!",
+            "Go away",
+            "Let me think for a moment"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What did the teacher like?",
+          "chon": [
+            "He never stayed silent",
+            "He spoke very fast",
+            "He knew everything"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What is better than a wrong answer?",
+          "chon": [
+            "A long answer",
+            "Saying 'I don't know, but I will find out'",
+            "A joke"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "Explain parallel indexing on the radar.",
+          "mau": "I am not sure, Sir. I have not studied it yet, but I will learn it."
+        },
+        {
+          "en": "Explain how you would use parallel indexing on the radar during a coastal passage in restricted visibility.",
+          "mau": "Sorry, could you repeat the question, please?"
+        },
+        {
+          "en": "Tell me about the radar and the look-out.",
+          "mau": "Do you mean the look-out rules, or how the radar works?"
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "Ôn tuần 9",
+    "vi_sao": "Bốn cặp âm của tuần trộn lại.",
+    "nhan_a": "từ",
+    "nhan_b": "từ",
+    "am": [
+      {
+        "ky_hieu": "/ʊ/ /uː/ · /ɪ/ /e/",
+        "goi_y": "look–Luke · lift–left",
+        "cach": [
+          "/ʊ/ ngắn",
+          "/e/ mở rộng hơn /ɪ/"
+        ]
+      },
+      {
+        "ky_hieu": "/d/ /t/ · /ɜː/ /ʌ/",
+        "goi_y": "side–sight · turn–ton",
+        "cach": [
+          "/d/ cuối có rung",
+          "/ɜː/ kéo dài"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "look",
+        "b": "Luke",
+        "nghia_a": "nhìn",
+        "nghia_b": "tên Luke"
+      },
+      {
+        "a": "left",
+        "b": "lift",
+        "nghia_a": "bên trái",
+        "nghia_b": "nâng"
+      },
+      {
+        "a": "side",
+        "b": "sight",
+        "nghia_a": "mạn",
+        "nghia_b": "tầm nhìn"
+      },
+      {
+        "a": "turn",
+        "b": "ton",
+        "nghia_a": "quay",
+        "nghia_b": "tấn"
+      },
+      {
+        "a": "ten",
+        "b": "tin",
+        "nghia_a": "số 10",
+        "nghia_b": "thiếc"
+      },
+      {
+        "a": "full",
+        "b": "fool",
+        "nghia_a": "đầy",
+        "nghia_b": "kẻ ngốc"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "Sorry, could you repeat the question, please?",
+      "vi": "Xin lỗi, nhắc lại câu hỏi giúp tôi được không ạ?",
+      "nhan": "Cứu nguy 1 — không nghe kịp",
+      "luu_y": "Bộ câu cứu nguy (lộ trình mục 7): học thuộc, dùng tới ngày phỏng vấn."
+    },
+    {
+      "en": "I am not sure, Sir. I have not studied it yet, but I will learn it.",
+      "vi": "Tôi chưa chắc ạ. Tôi chưa học phần này, nhưng tôi sẽ học.",
+      "nhan": "Cứu nguy 2 — câu vượt tầm",
+      "luu_y": "Chỉ dùng cho câu hỏi cấp sĩ quan. ĐỪNG dùng cho kiến thức lõi của sinh viên năm ba (COLREG, MARPOL)."
+    },
+    {
+      "en": "I am not sure, Sir. I would check the manual and ask the officer before doing anything.",
+      "vi": "Tôi chưa chắc ạ. Tôi sẽ xem tài liệu hướng dẫn và hỏi sĩ quan trước khi làm.",
+      "nhan": "Cứu nguy 3 — tình huống chưa chắc",
+      "luu_y": "Dùng khi được hỏi làm một việc mình chưa làm bao giờ. Nếu thấy điều BẤT THƯỜNG thì không dùng câu này — báo sĩ quan trực ca ngay."
+    },
+    {
+      "en": "Let me think for a moment. Do you mean the look-out, or the radar?",
+      "vi": "Cho tôi nghĩ một chút. Ý ông là cảnh giới, hay là radar?",
+      "nhan": "Cứu nguy 4 — xin thời gian, hỏi lại ý",
+      "luu_y": "Hỏi lại ý bằng mẫu 'Do you mean A, or B?'."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Explain how you would use parallel indexing on the radar during a coastal passage in restricted visibility.",
+      "giay": 8,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "What is the difference between parallel indexing and a clearing bearing in pilotage waters?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "The bosun asks you to use a machine you have never used. What do you say?",
+      "giay": 10,
+      "goi_y": "Câu mẫu 3"
+    },
+    {
+      "en": "Thank you. You did not stay silent.",
+      "giay": 0
+    }
+  ]
+}

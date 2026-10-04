@@ -1,0 +1,306 @@
+{
+  "id": "c3-43",
+  "chang": 3,
+  "tuan": 9,
+  "so": 43,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 9 · Bài 43 — Quy tắc 7 · nguy cơ đâm va",
+  "chu_de": "Câu hỏi số 33 · Rule 7 Risk of Collision",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "How do you know there is a risk of collision?",
+      "vi": "Làm sao biết đang có nguy cơ đâm va?"
+    },
+    {
+      "en": "Rule 7 says you must use all available means to decide.",
+      "vi": "Quy tắc 7 nói bạn phải dùng mọi phương tiện sẵn có để xác định."
+    },
+    {
+      "en": "And if there is any doubt, you must assume the risk exists.",
+      "vi": "Và nếu còn bất kỳ nghi ngờ nào, bạn phải coi là có nguy cơ."
+    },
+    {
+      "en": "One important check in Rule 7 is the compass bearing.",
+      "vi": "Một cách kiểm tra quan trọng mà Quy tắc 7 nêu là phương vị la bàn."
+    },
+    {
+      "en": "If the compass bearing of an approaching ship does not change much, there is a risk of collision.",
+      "vi": "Nếu phương vị la bàn của một tàu đang tiến lại không thay đổi đáng kể, là có nguy cơ đâm va."
+    },
+    {
+      "en": "But there is a trap.",
+      "vi": "Nhưng có một cái bẫy."
+    },
+    {
+      "en": "Sometimes the risk exists even when the bearing changes.",
+      "vi": "Đôi khi vẫn có nguy cơ dù phương vị có thay đổi."
+    },
+    {
+      "en": "This can happen, especially with a very large ship, a tow, or a ship at close range.",
+      "vi": "Chuyện này có thể xảy ra, nhất là với tàu rất lớn, đoàn lai kéo, hoặc tàu ở cự ly gần."
+    },
+    {
+      "en": "Rule 7 also says: do not decide from scanty information, especially scanty radar information.",
+      "vi": "Quy tắc 7 còn nói: đừng kết luận dựa trên thông tin ít ỏi, nhất là thông tin radar ít ỏi."
+    },
+    {
+      "en": "So the officer takes several bearings, not just one.",
+      "vi": "Vì vậy sĩ quan lấy phương vị nhiều lần, không chỉ một lần."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "risk of collision",
+      "am": "/rɪsk əv kəˈlɪʒ.ən/",
+      "doc": "rít-xk ợv cờ-LI-giần",
+      "nghia": "nguy cơ đâm va"
+    },
+    {
+      "tu": "compass bearing",
+      "am": "/ˈkʌm.pəs ˈbeə.rɪŋ/",
+      "doc": "CĂM-pợt-x BE-rinh",
+      "nghia": "phương vị la bàn"
+    },
+    {
+      "tu": "approaching",
+      "am": "/əˈprəʊ.tʃɪŋ/",
+      "doc": "ờ-PRÂU-chinh",
+      "nghia": "đang tiến lại gần"
+    },
+    {
+      "tu": "tow",
+      "am": "/təʊ/",
+      "doc": "tâu",
+      "nghia": "đoàn lai kéo"
+    },
+    {
+      "tu": "scanty",
+      "am": "/ˈskæn.ti/",
+      "doc": "XCEN-ti",
+      "nghia": "ít ỏi, không đủ"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Is Rule 7 about risk of collision?",
+          "dap": "yes"
+        },
+        {
+          "en": "Should you use all available means?",
+          "dap": "yes"
+        },
+        {
+          "en": "If there is doubt, should you think there is no risk?",
+          "dap": "no"
+        },
+        {
+          "en": "If the bearing does not change much, is there a risk?",
+          "dap": "yes"
+        },
+        {
+          "en": "Can the risk exist even when the bearing changes?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is a very large ship a special case?",
+          "dap": "yes"
+        },
+        {
+          "en": "Should you decide from one radar look?",
+          "dap": "no"
+        },
+        {
+          "en": "Does the officer take several bearings?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Which check does Rule 7 mention?",
+          "chon": [
+            "The ship's colour",
+            "The compass bearing",
+            "The weather"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "If the bearing does not change much, what does it mean?",
+          "chon": [
+            "Risk of collision",
+            "No risk",
+            "The ship is stopped"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "If there is doubt, what should you think?",
+          "chon": [
+            "There is no risk",
+            "The radar is broken",
+            "The risk exists"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "When can the risk exist even with a bearing change?",
+          "chon": [
+            "With a very large ship, a tow, or at close range",
+            "In the daytime",
+            "In port"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "How many bearings should the officer take?",
+          "chon": [
+            "Only one",
+            "Several",
+            "None"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "How do you know there is a risk of collision?",
+          "mau": "If the compass bearing of an approaching ship does not appreciably change, there is a risk of collision."
+        },
+        {
+          "en": "Can there be a risk when the bearing is changing?",
+          "mau": "Yes. With a very large ship, a tow, or a ship at close range, the risk can still exist."
+        },
+        {
+          "en": "What if you are not sure?",
+          "mau": "If there is any doubt, I assume the risk exists, and I report to the officer."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/d/ cuối – /t/ cuối",
+    "vi_sao": "\"Side\" (mạn tàu) và \"sight\" (tầm nhìn): khác nhau ở âm cuối có rung hay không, và nguyên âm trước /d/ dài hơn.",
+    "nhan_a": "/d/ (rung)",
+    "nhan_b": "/t/",
+    "am": [
+      {
+        "ky_hieu": "/d/ cuối",
+        "goi_y": "nguyên âm kéo dài hơn + chặn có rung",
+        "cach": [
+          "Nguyên âm phía trước dài hơn",
+          "Lưỡi chạm lợi, cổ rung nhẹ"
+        ]
+      },
+      {
+        "ky_hieu": "/t/ cuối",
+        "goi_y": "nguyên âm ngắn + chặn gọn",
+        "cach": [
+          "Nguyên âm ngắn",
+          "Chặn hơi gọn, không rung"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "side",
+        "b": "sight",
+        "nghia_a": "mạn, bên",
+        "nghia_b": "tầm nhìn"
+      },
+      {
+        "a": "bed",
+        "b": "bet",
+        "nghia_a": "giường",
+        "nghia_b": "đặt cược"
+      },
+      {
+        "a": "card",
+        "b": "cart",
+        "nghia_a": "thẻ",
+        "nghia_b": "xe đẩy"
+      },
+      {
+        "a": "mad",
+        "b": "mat",
+        "nghia_a": "điên",
+        "nghia_b": "tấm thảm"
+      },
+      {
+        "a": "need",
+        "b": "neat",
+        "nghia_a": "cần",
+        "nghia_b": "gọn gàng"
+      },
+      {
+        "a": "ride",
+        "b": "right",
+        "nghia_a": "cưỡi",
+        "nghia_b": "đúng"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "If the compass bearing of an approaching ship does not appreciably change, there is a risk of collision.",
+      "vi": "Nếu phương vị la bàn của tàu đang tiến lại không thay đổi đáng kể, là có nguy cơ đâm va.",
+      "nhan": "Phương vị không đổi",
+      "luu_y": "Câu hỏi số 33. 'appreciably' = đáng kể. Nhấn: ap-PRE-cia-bly."
+    },
+    {
+      "en": "The risk can still exist with a very large ship, a tow, or a ship at close range.",
+      "vi": "Vẫn có thể có nguy cơ với tàu rất lớn, đoàn lai kéo, hoặc tàu ở cự ly gần.",
+      "nhan": "Cái bẫy",
+      "luu_y": "Đây là câu hỏi dồn hội đồng hay dùng sau câu số 33."
+    },
+    {
+      "en": "If there is any doubt, I assume the risk exists.",
+      "vi": "Nếu còn nghi ngờ, tôi coi là có nguy cơ.",
+      "nhan": "Nghi ngờ thì coi là có",
+      "luu_y": "Ngắn, chắc. Dùng khi bị hỏi 'What if you are not sure?'."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "How do you know there is a risk of collision?",
+      "giay": 10,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "And if the bearing is changing?",
+      "giay": 10,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "What if you are not sure?",
+      "giay": 6,
+      "goi_y": "Câu mẫu 3"
+    },
+    {
+      "en": "Excellent.",
+      "giay": 0
+    }
+  ]
+}

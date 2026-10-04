@@ -1,0 +1,300 @@
+{
+  "id": "c3-56",
+  "chang": 3,
+  "tuan": 12,
+  "so": 56,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 12 · Bài 56 — Radar dải X và dải S · CPA, TCPA",
+  "chu_de": "Câu hỏi dồn sau câu số 24",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Many ships have two radars: an X-band radar and an S-band radar.",
+      "vi": "Nhiều tàu có hai radar: radar dải X và radar dải S."
+    },
+    {
+      "en": "The X-band radar gives a sharp picture and good detail.",
+      "vi": "Radar dải X cho hình ảnh sắc nét và chi tiết tốt."
+    },
+    {
+      "en": "The S-band radar works better in fog, rain and rough sea.",
+      "vi": "Radar dải S hoạt động tốt hơn khi có sương mù, mưa và biển động."
+    },
+    {
+      "en": "But no radar sees everything. Small boats, ice and floating objects may not show at a good range.",
+      "vi": "Nhưng không radar nào thấy được mọi thứ. Thuyền nhỏ, băng và vật trôi nổi có thể không hiện ở khoảng cách đủ xa."
+    },
+    {
+      "en": "Waves and rain can also make clutter on the screen.",
+      "vi": "Sóng và mưa cũng có thể tạo nhiễu trên màn hình."
+    },
+    {
+      "en": "The radar can track targets and show two important numbers: CPA and TCPA.",
+      "vi": "Radar có thể bám mục tiêu và hiển thị hai con số quan trọng: CPA và TCPA."
+    },
+    {
+      "en": "CPA is the closest point of approach: how close the other ship will come.",
+      "vi": "CPA là điểm tiếp cận gần nhất: tàu kia sẽ đến gần mình đến mức nào."
+    },
+    {
+      "en": "TCPA is the time to the closest point of approach: when it will happen.",
+      "vi": "TCPA là thời gian tới điểm tiếp cận gần nhất: khi nào chuyện đó xảy ra."
+    },
+    {
+      "en": "A small CPA and a short TCPA mean danger.",
+      "vi": "CPA nhỏ và TCPA ngắn nghĩa là nguy hiểm."
+    },
+    {
+      "en": "But the officer still checks with his eyes and with compass bearings.",
+      "vi": "Nhưng sĩ quan vẫn kiểm tra bằng mắt và bằng phương vị la bàn."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "X-band / S-band",
+      "am": "/eks bænd/ /es bænd/",
+      "doc": "éc-x ben-đ / ét-x ben-đ",
+      "nghia": "radar dải X (hình sắc nét) / dải S (tốt khi mưa, sương, sóng)"
+    },
+    {
+      "tu": "clutter",
+      "am": "/ˈklʌt.ə/",
+      "doc": "CLẮT-tờ",
+      "nghia": "nhiễu trên màn radar (do sóng, mưa)"
+    },
+    {
+      "tu": "target",
+      "am": "/ˈtɑː.ɡɪt/",
+      "doc": "TA-ghít",
+      "nghia": "mục tiêu"
+    },
+    {
+      "tu": "CPA",
+      "am": "/ˌsiː.piːˈeɪ/",
+      "doc": "XI-PI-ÂY",
+      "nghia": "Closest Point of Approach — điểm tiếp cận gần nhất"
+    },
+    {
+      "tu": "TCPA",
+      "am": "/ˌtiː.siː.piːˈeɪ/",
+      "doc": "TI-XI-PI-ÂY",
+      "nghia": "Time to Closest Point of Approach — thời gian tới điểm tiếp cận gần nhất"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Do many ships have two radars?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the X-band radar give a sharp picture?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the S-band radar better in rain and fog?",
+          "dap": "yes"
+        },
+        {
+          "en": "Can a radar see everything?",
+          "dap": "no"
+        },
+        {
+          "en": "Can rain make clutter on the screen?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is CPA how close the other ship will come?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do a small CPA and a short TCPA mean safety?",
+          "dap": "no"
+        },
+        {
+          "en": "Does the officer still check with his eyes?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Which radar works better in fog and rain?",
+          "chon": [
+            "X-band",
+            "S-band",
+            "Neither"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What may not show at a good range?",
+          "chon": [
+            "Small boats, ice and floating objects",
+            "Big ships",
+            "The coast"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does CPA mean?",
+          "chon": [
+            "Captain's Position Alarm",
+            "Cargo Plan Area",
+            "Closest Point of Approach"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What does TCPA tell you?",
+          "chon": [
+            "When the closest point will happen",
+            "The ship's name",
+            "The depth"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What do a small CPA and short TCPA mean?",
+          "chon": [
+            "Safety",
+            "Danger",
+            "Nothing"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What is the difference between an X-band and an S-band radar?",
+          "mau": "The X-band radar gives a sharp picture. The S-band radar works better in fog, rain and rough sea."
+        },
+        {
+          "en": "What are CPA and TCPA?",
+          "mau": "CPA is the closest point of approach. TCPA is the time to the closest point of approach."
+        },
+        {
+          "en": "Can the radar see everything?",
+          "mau": "No. Small boats, ice and floating objects may not show at a good range."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/n/ cuối – /ŋ/ cuối",
+    "vi_sao": "\"Thin\" và \"thing\", \"win\" và \"wing\": tiếng Việt có cả 'n' và 'ng' cuối, nhưng khi nói tiếng Anh nhanh hay bị lẫn.",
+    "nhan_a": "/n/ (n)",
+    "nhan_b": "/ŋ/ (ng)",
+    "am": [
+      {
+        "ky_hieu": "/n/ cuối",
+        "goi_y": "đầu lưỡi chạm lợi trên",
+        "cach": [
+          "Đầu lưỡi lên lợi răng trên",
+          "Hơi qua mũi"
+        ]
+      },
+      {
+        "ky_hieu": "/ŋ/ cuối",
+        "goi_y": "cuống lưỡi chạm vòm sau",
+        "cach": [
+          "Đầu lưỡi để yên ở dưới",
+          "Cuống lưỡi nâng lên",
+          "Không đọc thêm 'g' rõ ở cuối"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "thin",
+        "b": "thing",
+        "nghia_a": "mỏng",
+        "nghia_b": "đồ vật"
+      },
+      {
+        "a": "sin",
+        "b": "sing",
+        "nghia_a": "tội lỗi",
+        "nghia_b": "hát"
+      },
+      {
+        "a": "win",
+        "b": "wing",
+        "nghia_a": "thắng",
+        "nghia_b": "cánh"
+      },
+      {
+        "a": "ban",
+        "b": "bang",
+        "nghia_a": "cấm",
+        "nghia_b": "tiếng nổ"
+      },
+      {
+        "a": "run",
+        "b": "rung",
+        "nghia_a": "chạy",
+        "nghia_b": "bậc thang"
+      },
+      {
+        "a": "ton",
+        "b": "tongue",
+        "nghia_a": "tấn",
+        "nghia_b": "cái lưỡi"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "The X-band radar gives a sharp picture, and the S-band radar works better in fog, rain and rough sea.",
+      "vi": "Radar dải X cho hình sắc nét, radar dải S hoạt động tốt hơn khi có sương mù, mưa và biển động.",
+      "nhan": "X-band – S-band",
+      "luu_y": "Câu hỏi dồn sau câu số 24."
+    },
+    {
+      "en": "CPA is the closest point of approach, and TCPA is the time to the closest point of approach.",
+      "vi": "CPA là điểm tiếp cận gần nhất, TCPA là thời gian tới điểm đó.",
+      "nhan": "CPA – TCPA",
+      "luu_y": "Đánh vần C-P-A, T-C-P-A."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What is the difference between an X-band and an S-band radar?",
+      "giay": 10,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "What are CPA and TCPA?",
+      "giay": 9,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Can the radar see everything?",
+      "giay": 8
+    },
+    {
+      "en": "Good.",
+      "giay": 0
+    }
+  ]
+}

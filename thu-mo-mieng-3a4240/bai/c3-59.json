@@ -1,0 +1,306 @@
+{
+  "id": "c3-59",
+  "chang": 3,
+  "tuan": 12,
+  "so": 59,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 12 · Bài 59 — Người rơi xuống biển · báo động cháy",
+  "chu_de": "Câu hỏi số 47, 48 · cadet làm gì đầu tiên",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Two emergencies every cadet must know: a person overboard and a fire.",
+      "vi": "Hai tình huống khẩn cấp cadet nào cũng phải biết: người rơi xuống biển và cháy."
+    },
+    {
+      "en": "If you see a person fall overboard, you shout \"Man overboard!\" and the side, for example \"starboard side!\"",
+      "vi": "Nếu thấy người rơi xuống biển, bạn hét \"Man overboard!\" kèm mạn tàu, ví dụ \"starboard side!\""
+    },
+    {
+      "en": "You throw a lifebuoy near the person.",
+      "vi": "Bạn ném phao tròn về gần người đó."
+    },
+    {
+      "en": "You keep looking at the person and pointing, and you never lose sight of him.",
+      "vi": "Bạn luôn nhìn và chỉ tay về phía người đó, không bao giờ để mất dấu."
+    },
+    {
+      "en": "And the Officer of the Watch must be told immediately.",
+      "vi": "Và phải báo cho sĩ quan trực ca ngay lập tức."
+    },
+    {
+      "en": "If you hear the fire alarm, you go to your muster station and follow the orders.",
+      "vi": "Nếu nghe chuông báo cháy, bạn đến điểm tập trung và làm theo lệnh."
+    },
+    {
+      "en": "If you find a fire yourself, you raise the alarm first, and report.",
+      "vi": "Nếu chính bạn phát hiện đám cháy, việc đầu tiên là báo động, rồi báo cáo."
+    },
+    {
+      "en": "Every crew member must take part in at least one abandon ship drill and one fire drill every month.",
+      "vi": "Mỗi thuyền viên phải tham gia ít nhất một buổi diễn tập rời tàu và một buổi diễn tập chữa cháy mỗi tháng."
+    },
+    {
+      "en": "Drills make your body remember what to do.",
+      "vi": "Diễn tập giúp cơ thể bạn nhớ phải làm gì."
+    },
+    {
+      "en": "In a real emergency, there is no time to think slowly.",
+      "vi": "Khi có sự cố thật, không có thời gian để suy nghĩ chậm rãi."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "man overboard",
+      "am": "/ˌmæn ˈəʊ.və.bɔːd/",
+      "doc": "men ÂU-vờ-bód",
+      "nghia": "người rơi xuống biển"
+    },
+    {
+      "tu": "lose sight of",
+      "am": "/luːz saɪt əv/",
+      "doc": "luz xai-t ợv",
+      "nghia": "mất dấu, không còn nhìn thấy"
+    },
+    {
+      "tu": "immediately",
+      "am": "/ɪˈmiː.di.ət.li/",
+      "doc": "i-MI-đi-ợt-li",
+      "nghia": "ngay lập tức"
+    },
+    {
+      "tu": "abandon ship drill",
+      "am": "/əˈbæn.dən ʃɪp drɪl/",
+      "doc": "ờ-BEN-đần ship đriu",
+      "nghia": "diễn tập rời tàu"
+    },
+    {
+      "tu": "fire drill",
+      "am": "/ˈfaɪə drɪl/",
+      "doc": "PHAI-ờ đriu",
+      "nghia": "diễn tập chữa cháy"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Do you shout 'Man overboard' when someone falls into the sea?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do you also say the side?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do you throw a lifebuoy near the person?",
+          "dap": "yes"
+        },
+        {
+          "en": "Can you stop looking at the person?",
+          "dap": "no"
+        },
+        {
+          "en": "Must the Officer of the Watch be told immediately?",
+          "dap": "yes"
+        },
+        {
+          "en": "When you hear the fire alarm, do you go to your cabin?",
+          "dap": "no"
+        },
+        {
+          "en": "Is there a fire drill every month?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is there time to think slowly in a real emergency?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What do you shout?",
+          "chon": [
+            "Help me!",
+            "Man overboard, and the side",
+            "Fire!"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What do you throw?",
+          "chon": [
+            "A lifebuoy",
+            "A rope only",
+            "A helmet"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Who must be told immediately?",
+          "chon": [
+            "The cook",
+            "Your family",
+            "The Officer of the Watch"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "Where do you go when the fire alarm rings?",
+          "chon": [
+            "To your muster station",
+            "To the galley",
+            "To bed"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "How often is there a fire drill for every crew member?",
+          "chon": [
+            "Every year",
+            "At least once a month",
+            "Never"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "Someone falls overboard. What do you do?",
+          "mau": "I shout 'Man overboard' and the side, throw a lifebuoy, keep pointing at the person, and make sure the Officer of the Watch knows immediately."
+        },
+        {
+          "en": "You hear the fire alarm. What do you do?",
+          "mau": "I go to my muster station and follow the orders."
+        },
+        {
+          "en": "How often are drills held?",
+          "mau": "Every crew member takes part in at least one abandon ship drill and one fire drill every month."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/ʌ/ – /æ/",
+    "vi_sao": "\"Cut\" và \"cat\", \"cup\" và \"cap\": âm /ʌ/ ngắn gọn, âm /æ/ há rộng sang hai bên.",
+    "nhan_a": "/ʌ/ (ă)",
+    "nhan_b": "/æ/ (e bẹt)",
+    "am": [
+      {
+        "ky_hieu": "/ʌ/",
+        "goi_y": "ă ngắn",
+        "cach": [
+          "Miệng mở vừa",
+          "Ngắn, gọn"
+        ]
+      },
+      {
+        "ky_hieu": "/æ/",
+        "goi_y": "e bẹt, há rộng",
+        "cach": [
+          "Kéo môi sang hai bên",
+          "Hàm dưới hạ thấp"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "cut",
+        "b": "cat",
+        "nghia_a": "cắt",
+        "nghia_b": "con mèo"
+      },
+      {
+        "a": "fun",
+        "b": "fan",
+        "nghia_a": "vui",
+        "nghia_b": "cái quạt"
+      },
+      {
+        "a": "bug",
+        "b": "bag",
+        "nghia_a": "con bọ",
+        "nghia_b": "cái túi"
+      },
+      {
+        "a": "cup",
+        "b": "cap",
+        "nghia_a": "cái cốc",
+        "nghia_b": "mũ lưỡi trai"
+      },
+      {
+        "a": "mud",
+        "b": "mad",
+        "nghia_a": "bùn",
+        "nghia_b": "điên"
+      },
+      {
+        "a": "hut",
+        "b": "hat",
+        "nghia_a": "túp lều",
+        "nghia_b": "cái mũ"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "I shout 'Man overboard' and the side, throw a lifebuoy, and keep pointing at the person.",
+      "vi": "Tôi hét 'Man overboard' kèm mạn tàu, ném phao tròn, và luôn chỉ tay về phía người đó.",
+      "nhan": "Người rơi xuống biển",
+      "luu_y": "Câu hỏi số 47. Ba động tác: hét — ném phao — chỉ tay."
+    },
+    {
+      "en": "I make sure the Officer of the Watch knows immediately.",
+      "vi": "Tôi đảm bảo sĩ quan trực ca biết ngay lập tức.",
+      "nhan": "Báo sĩ quan",
+      "luu_y": "Luôn kết thúc bằng việc báo sĩ quan trực ca."
+    },
+    {
+      "en": "When I hear the fire alarm, I go to my muster station and follow the orders.",
+      "vi": "Khi nghe chuông báo cháy, tôi đến điểm tập trung và làm theo lệnh.",
+      "nhan": "Báo động cháy",
+      "luu_y": "Câu hỏi số 48."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Someone falls overboard on the starboard side. What do you do?",
+      "giay": 12,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "And who must know?",
+      "giay": 6,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "You hear the fire alarm. What do you do?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 3"
+    },
+    {
+      "en": "Very good.",
+      "giay": 0
+    }
+  ]
+}

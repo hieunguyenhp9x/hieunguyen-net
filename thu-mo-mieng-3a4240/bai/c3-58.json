@@ -1,0 +1,293 @@
+{
+  "id": "c3-58",
+  "chang": 3,
+  "tuan": 12,
+  "so": 58,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 12 · Bài 58 — AIS, ECDIS và máy đo sâu",
+  "chu_de": "Câu hỏi dồn sau câu số 26–29",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "A ship's AIS sends three types of information.",
+      "vi": "AIS của tàu gửi ba loại thông tin."
+    },
+    {
+      "en": "Static information, like the ship's name and her MMSI number, does not change often.",
+      "vi": "Thông tin tĩnh, như tên tàu và số MMSI, ít khi thay đổi."
+    },
+    {
+      "en": "Dynamic information, like position, course and speed, comes automatically from the ship's sensors.",
+      "vi": "Thông tin động, như vị trí, hướng đi và tốc độ, được lấy tự động từ các cảm biến của tàu."
+    },
+    {
+      "en": "Voyage-related information, like the destination, is entered by hand and must be updated.",
+      "vi": "Thông tin liên quan đến chuyến đi, như cảng đến, phải nhập tay và phải cập nhật."
+    },
+    {
+      "en": "AIS can also calculate the CPA and TCPA of other ships.",
+      "vi": "AIS cũng có thể tính CPA và TCPA của các tàu khác."
+    },
+    {
+      "en": "The ECDIS shows the electronic chart with the ship's position.",
+      "vi": "ECDIS hiển thị hải đồ điện tử kèm vị trí của tàu."
+    },
+    {
+      "en": "The officer plans the route on it, and the ECDIS gives alarms, for example near shallow water.",
+      "vi": "Sĩ quan lập tuyến đường trên đó, và ECDIS có báo động, ví dụ khi gần vùng nước nông."
+    },
+    {
+      "en": "The echo sounder measures and shows the depth of water under the ship.",
+      "vi": "Máy đo sâu đo và hiển thị độ sâu của nước dưới tàu."
+    },
+    {
+      "en": "When the water is getting shallow, the officer watches the echo sounder carefully.",
+      "vi": "Khi nước đang nông dần, sĩ quan theo dõi máy đo sâu rất kỹ."
+    },
+    {
+      "en": "Nam learns that the instruments help, but the officer must understand and check them.",
+      "vi": "Nam hiểu rằng thiết bị giúp ích, nhưng sĩ quan phải hiểu và kiểm tra chúng."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "static information",
+      "am": "/ˈstæt.ɪk ˌɪn.fəˈmeɪ.ʃən/",
+      "doc": "XTE-tíc in-phờ-MÂY-shần",
+      "nghia": "thông tin tĩnh"
+    },
+    {
+      "tu": "dynamic information",
+      "am": "/daɪˈnæm.ɪk ˌɪn.fəˈmeɪ.ʃən/",
+      "doc": "đai-NE-mic in-phờ-MÂY-shần",
+      "nghia": "thông tin động"
+    },
+    {
+      "tu": "MMSI",
+      "am": "/ˌem.em.esˈaɪ/",
+      "doc": "EM-EM-ÉT-x-AI",
+      "nghia": "Maritime Mobile Service Identity — số nhận dạng nghiệp vụ di động hàng hải"
+    },
+    {
+      "tu": "destination",
+      "am": "/ˌdes.tɪˈneɪ.ʃən/",
+      "doc": "đét-x-ti-NÂY-shần",
+      "nghia": "nơi đến, cảng đến"
+    },
+    {
+      "tu": "shallow water",
+      "am": "/ˈʃæl.əʊ ˈwɔː.tə/",
+      "doc": "SHE-lâu UO-tờ",
+      "nghia": "vùng nước nông"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Does AIS send three types of information?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the ship's name static information?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is position dynamic information?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the destination entered automatically?",
+          "dap": "no"
+        },
+        {
+          "en": "Can AIS calculate CPA and TCPA?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the ECDIS give alarms near shallow water?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the echo sounder measure the depth under the ship?",
+          "dap": "yes"
+        },
+        {
+          "en": "Can the officer trust the instruments without checking?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What type of information is the ship's name?",
+          "chon": [
+            "Dynamic",
+            "Static",
+            "Voyage-related"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "Where does dynamic information come from?",
+          "chon": [
+            "The ship's sensors",
+            "The cook",
+            "The office"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "How is the destination entered?",
+          "chon": [
+            "By satellite",
+            "By radar",
+            "By hand"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What does the echo sounder show?",
+          "chon": [
+            "The depth of water under the ship",
+            "Other ships",
+            "The weather"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What must the officer do with the instruments?",
+          "chon": [
+            "Ignore them",
+            "Understand and check them",
+            "Turn them off"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What information does AIS send?",
+          "mau": "Static information like the name and MMSI, dynamic information like position, course and speed, and voyage-related information like the destination."
+        },
+        {
+          "en": "What does the echo sounder do?",
+          "mau": "It measures and shows the depth of water under the ship."
+        },
+        {
+          "en": "Can you trust the instruments completely?",
+          "mau": "No. They help, but the officer must understand and check them."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/aʊ/ – /ɔː/",
+    "vi_sao": "\"Down\" và \"dawn\" (bình minh — ca trực sáng), \"shout\" và \"short\": âm 'ao' phải trượt rõ.",
+    "nhan_a": "/aʊ/ (ao)",
+    "nhan_b": "/ɔː/ (o dài)",
+    "am": [
+      {
+        "ky_hieu": "/aʊ/",
+        "goi_y": "ao — trượt từ a sang u",
+        "cach": [
+          "Há miệng to",
+          "Tròn môi dần về 'u'"
+        ]
+      },
+      {
+        "ky_hieu": "/ɔː/",
+        "goi_y": "o dài, giữ nguyên",
+        "cach": [
+          "Môi tròn từ đầu",
+          "Không trượt"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "down",
+        "b": "dawn",
+        "nghia_a": "xuống",
+        "nghia_b": "bình minh"
+      },
+      {
+        "a": "loud",
+        "b": "lord",
+        "nghia_a": "to (tiếng)",
+        "nghia_b": "lãnh chúa"
+      },
+      {
+        "a": "shout",
+        "b": "short",
+        "nghia_a": "hét",
+        "nghia_b": "ngắn"
+      },
+      {
+        "a": "town",
+        "b": "torn",
+        "nghia_a": "thị trấn",
+        "nghia_b": "bị rách"
+      },
+      {
+        "a": "pout",
+        "b": "port",
+        "nghia_a": "bĩu môi",
+        "nghia_b": "cảng"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "AIS sends static information like the name and MMSI, dynamic information like position, course and speed, and voyage-related information like the destination.",
+      "vi": "AIS gửi thông tin tĩnh như tên và số MMSI, thông tin động như vị trí, hướng đi, tốc độ, và thông tin chuyến đi như cảng đến.",
+      "nhan": "3 loại thông tin AIS",
+      "luu_y": "Câu dài: ngắt hơi sau mỗi loại."
+    },
+    {
+      "en": "The echo sounder measures and shows the depth of water under the ship.",
+      "vi": "Máy đo sâu đo và hiển thị độ sâu của nước dưới tàu.",
+      "nhan": "Máy đo sâu",
+      "luu_y": "Nhấn: E-cho SOUND-er."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What information does AIS send?",
+      "giay": 14,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "What does the echo sounder do?",
+      "giay": 7,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Can you trust the instruments completely?",
+      "giay": 7
+    },
+    {
+      "en": "Good.",
+      "giay": 0
+    }
+  ]
+}

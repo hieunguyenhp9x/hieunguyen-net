@@ -1,0 +1,288 @@
+{
+  "id": "c3-53",
+  "chang": 3,
+  "tuan": 11,
+  "so": 53,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 11 · Bài 53 — Phụ lục V · rác",
+  "chu_de": "Câu hỏi số 42 · cấm thải nhựa · sổ rác, kế hoạch quản lý rác",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Annex V is about garbage from ships.",
+      "vi": "Phụ lục V nói về rác từ tàu."
+    },
+    {
+      "en": "The main rule is simple: discharging garbage into the sea is prohibited.",
+      "vi": "Nguyên tắc chính rất đơn giản: cấm thải rác xuống biển."
+    },
+    {
+      "en": "There are only a few exceptions, with strict conditions, for example some food waste.",
+      "vi": "Chỉ có vài ngoại lệ với điều kiện chặt chẽ, ví dụ một số loại rác thực phẩm."
+    },
+    {
+      "en": "The discharge of all plastics into the sea is prohibited.",
+      "vi": "Việc thải mọi loại nhựa xuống biển đều bị cấm."
+    },
+    {
+      "en": "On board, the crew separate the garbage: plastics, food waste, cans, paper, and others.",
+      "vi": "Trên tàu, thuyền viên phân loại rác: nhựa, rác thực phẩm, lon, giấy và các loại khác."
+    },
+    {
+      "en": "There are bins with different colours and labels.",
+      "vi": "Có các thùng rác với màu và nhãn khác nhau."
+    },
+    {
+      "en": "The ship keeps a Garbage Record Book, and follows a Garbage Management Plan.",
+      "vi": "Tàu có Sổ ghi chép rác, và làm theo Kế hoạch quản lý rác."
+    },
+    {
+      "en": "Placards on board tell everyone the rules.",
+      "vi": "Các biển thông báo trên tàu cho mọi người biết quy định."
+    },
+    {
+      "en": "In port, the garbage goes to a reception facility on shore.",
+      "vi": "Ở cảng, rác được chuyển lên cơ sở tiếp nhận trên bờ."
+    },
+    {
+      "en": "Nam says, \"So if I am not sure, I keep it on board and ask the officer.\"",
+      "vi": "Nam nói: \"Vậy nếu không chắc, em giữ lại trên tàu và hỏi sĩ quan.\""
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "discharge",
+      "am": "/dɪsˈtʃɑːdʒ/",
+      "doc": "đít-CHA-dj",
+      "nghia": "thải, xả"
+    },
+    {
+      "tu": "prohibited",
+      "am": "/prəˈhɪb.ɪ.tɪd/",
+      "doc": "prờ-HÍ-bi-tịd",
+      "nghia": "bị cấm"
+    },
+    {
+      "tu": "Garbage Record Book",
+      "am": "/ˈɡɑː.bɪdʒ ˈrek.ɔːd bʊk/",
+      "doc": "GA-bịdj RÉ-cọt búc",
+      "nghia": "Sổ ghi chép rác"
+    },
+    {
+      "tu": "Garbage Management Plan",
+      "am": "/ˈɡɑː.bɪdʒ ˈmæn.ɪdʒ.mənt plæn/",
+      "doc": "GA-bịdj ME-nịdj-mần-t plen",
+      "nghia": "Kế hoạch quản lý rác"
+    },
+    {
+      "tu": "reception facility",
+      "am": "/rɪˈsep.ʃən fəˈsɪl.ə.ti/",
+      "doc": "ri-XÉP-shần phờ-XI-lờ-ti",
+      "nghia": "cơ sở tiếp nhận (rác, dầu thải) ở cảng"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Is Annex V about garbage?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is discharging garbage into the sea generally prohibited?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the discharge of plastics into the sea prohibited?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do the crew separate the garbage?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the ship keep a Garbage Record Book?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is there a Garbage Management Plan?",
+          "dap": "yes"
+        },
+        {
+          "en": "In port, does the garbage go to a reception facility?",
+          "dap": "yes"
+        },
+        {
+          "en": "If Nam is not sure, does he throw it into the sea?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What is the main rule of Annex V?",
+          "chon": [
+            "Throw garbage at night",
+            "Discharging garbage into the sea is prohibited",
+            "Burn everything"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "The discharge of what is always prohibited in the story?",
+          "chon": [
+            "Plastics",
+            "Water",
+            "Air"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Where is garbage recorded?",
+          "chon": [
+            "In the Oil Record Book",
+            "In the logbook of the cook",
+            "In the Garbage Record Book"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "Where does the garbage go in port?",
+          "chon": [
+            "To a reception facility",
+            "Into the sea",
+            "To the bridge"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does Nam do if he is not sure?",
+          "chon": [
+            "Throws it away",
+            "Keeps it on board and asks the officer",
+            "Hides it"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What can you throw into the sea under Annex V?",
+          "mau": "Discharging garbage into the sea is prohibited, with only a few exceptions. The discharge of all plastics into the sea is prohibited."
+        },
+        {
+          "en": "How do you manage garbage on board?",
+          "mau": "We separate it, record it in the Garbage Record Book, follow the Garbage Management Plan, and send it ashore in port."
+        },
+        {
+          "en": "You are not sure if something can go overboard. What do you do?",
+          "mau": "I keep it on board and ask the officer."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "Âm /h/ đầu từ",
+    "vi_sao": "\"Hold\" (hầm hàng) mà mất âm /h/ thành \"old\" (cũ). Âm /h/ chỉ là một hơi thở nhẹ, nhưng thiếu là đổi nghĩa.",
+    "nhan_a": "có /h/",
+    "nhan_b": "không /h/",
+    "am": [
+      {
+        "ky_hieu": "/h/",
+        "goi_y": "một hơi thở ra nhẹ: hhh",
+        "cach": [
+          "Mở miệng sẵn theo nguyên âm sau",
+          "Thở ra một hơi nhẹ trước khi nói",
+          "Không rung, không cọ xát mạnh như 'kh'"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "hold",
+        "b": "old",
+        "nghia_a": "hầm hàng",
+        "nghia_b": "cũ"
+      },
+      {
+        "a": "heat",
+        "b": "eat",
+        "nghia_a": "nhiệt",
+        "nghia_b": "ăn"
+      },
+      {
+        "a": "hair",
+        "b": "air",
+        "nghia_a": "tóc",
+        "nghia_b": "không khí"
+      },
+      {
+        "a": "harm",
+        "b": "arm",
+        "nghia_a": "gây hại",
+        "nghia_b": "cánh tay"
+      },
+      {
+        "a": "high",
+        "b": "eye",
+        "nghia_a": "cao",
+        "nghia_b": "mắt"
+      },
+      {
+        "a": "hand",
+        "b": "and",
+        "nghia_a": "bàn tay",
+        "nghia_b": "và"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "Under Annex V, discharging garbage into the sea is prohibited, with only a few exceptions. The discharge of all plastics into the sea is prohibited.",
+      "vi": "Theo phụ lục V, cấm thải rác xuống biển, chỉ có vài ngoại lệ. Việc thải mọi loại nhựa xuống biển đều bị cấm.",
+      "nhan": "Phụ lục V",
+      "luu_y": "Câu hỏi số 42. Đừng kể khoảng cách hải lý nếu không chắc — nói nguyên tắc là đủ."
+    },
+    {
+      "en": "If I am not sure, I keep the garbage on board and ask the officer.",
+      "vi": "Nếu không chắc, tôi giữ rác lại trên tàu và hỏi sĩ quan.",
+      "nhan": "Không chắc thì hỏi",
+      "luu_y": "Câu hỏi dồn hay gặp."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What can you throw into the sea under Annex V?",
+      "giay": 12,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "You are not sure if something can go overboard. What do you do?",
+      "giay": 7,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Correct.",
+      "giay": 0
+    }
+  ]
+}

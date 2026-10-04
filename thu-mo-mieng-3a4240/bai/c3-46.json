@@ -1,0 +1,289 @@
+{
+  "id": "c3-46",
+  "chang": 3,
+  "tuan": 10,
+  "so": 46,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 10 · Bài 46 — Quy tắc 13 · tàu vượt",
+  "chu_de": "Câu hỏi số 36 · Rule 13 Overtaking",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Rule 13 is about overtaking.",
+      "vi": "Quy tắc 13 nói về tàu vượt."
+    },
+    {
+      "en": "Any vessel overtaking another must keep out of the way of the vessel being overtaken.",
+      "vi": "Tàu vượt phải tránh đường cho tàu bị vượt."
+    },
+    {
+      "en": "This is true for all kinds of vessels, even a sailing vessel or a fishing vessel.",
+      "vi": "Điều này đúng với mọi loại tàu, kể cả thuyền buồm hay tàu đánh cá."
+    },
+    {
+      "en": "When are you overtaking? When you come from more than 22.5 degrees abaft the other ship's beam.",
+      "vi": "Khi nào là đang vượt? Khi bạn tiến đến từ phía sau trục ngang của tàu kia quá 22,5 độ."
+    },
+    {
+      "en": "At night, you can see only her white sternlight, not her sidelights.",
+      "vi": "Ban đêm, bạn chỉ thấy đèn lái màu trắng của tàu kia, không thấy đèn mạn."
+    },
+    {
+      "en": "If you are not sure, you must assume you are overtaking.",
+      "vi": "Nếu không chắc, bạn phải coi là mình đang vượt."
+    },
+    {
+      "en": "And you stay the overtaking ship until you are finally past and clear.",
+      "vi": "Và bạn vẫn là tàu vượt cho tới khi đã đi qua hẳn và thoát hẳn."
+    },
+    {
+      "en": "Even if the bearing changes later, you do not become a crossing vessel.",
+      "vi": "Kể cả khi phương vị thay đổi sau đó, bạn cũng không trở thành tàu cắt hướng."
+    },
+    {
+      "en": "Nam remembers it easily: \"The one behind keeps clear.\"",
+      "vi": "Nam nhớ dễ dàng: \"Tàu đi sau phải tránh.\""
+    },
+    {
+      "en": "The teacher adds, \"Yes, but remember the exact rule for the interview.\"",
+      "vi": "Thầy nói thêm: \"Đúng, nhưng phải nhớ đúng câu luật cho buổi phỏng vấn.\""
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "overtaking",
+      "am": "/ˌəʊ.vəˈteɪ.kɪŋ/",
+      "doc": "âu-vờ-TÂY-kinh",
+      "nghia": "vượt"
+    },
+    {
+      "tu": "keep out of the way",
+      "am": "/kiːp aʊt əv ðə weɪ/",
+      "doc": "kip ao-t ợv dhờ uây",
+      "nghia": "tránh đường"
+    },
+    {
+      "tu": "abaft the beam",
+      "am": "/əˈbɑːft ðə biːm/",
+      "doc": "ờ-BÁP-ph-t dhờ bim",
+      "nghia": "phía sau trục ngang của tàu"
+    },
+    {
+      "tu": "sternlight",
+      "am": "/ˈstɜːn.laɪt/",
+      "doc": "XTƠN-lai-t",
+      "nghia": "đèn lái (đèn đuôi)"
+    },
+    {
+      "tu": "sidelights",
+      "am": "/ˈsaɪd.laɪts/",
+      "doc": "XAI-đ-lai-tx",
+      "nghia": "đèn mạn"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Is Rule 13 about overtaking?",
+          "dap": "yes"
+        },
+        {
+          "en": "Must the overtaking vessel keep out of the way?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Rule 13 apply to fishing vessels too?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do you come from more than 22.5 degrees abaft the beam when overtaking?",
+          "dap": "yes"
+        },
+        {
+          "en": "At night, can you see her sidelights when overtaking?",
+          "dap": "no"
+        },
+        {
+          "en": "If you are not sure, should you think you are not overtaking?",
+          "dap": "no"
+        },
+        {
+          "en": "Do you become a crossing vessel if the bearing changes?",
+          "dap": "no"
+        },
+        {
+          "en": "Does the ship behind keep clear?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Who keeps out of the way when overtaking?",
+          "chon": [
+            "The ship being overtaken",
+            "The overtaking ship",
+            "Both ships"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "At night, what light do you see when overtaking?",
+          "chon": [
+            "Only the white sternlight",
+            "The red sidelight",
+            "Both sidelights"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "From where do you come when overtaking?",
+          "chon": [
+            "From ahead",
+            "From the side",
+            "From more than 22.5 degrees abaft the beam"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "If you are not sure, what must you assume?",
+          "chon": [
+            "I am overtaking",
+            "I am crossing",
+            "I am stopped"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Until when are you the overtaking ship?",
+          "chon": [
+            "For five minutes",
+            "Until finally past and clear",
+            "Until night"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "In overtaking, who keeps out of the way?",
+          "mau": "Any vessel overtaking another must keep out of the way of the vessel being overtaken."
+        },
+        {
+          "en": "How do you know you are overtaking?",
+          "mau": "I come from more than 22.5 degrees abaft her beam. At night, I can see only her sternlight."
+        },
+        {
+          "en": "If you are not sure?",
+          "mau": "If I am in doubt, I assume I am overtaking and keep out of the way."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/ð/ – /z/",
+    "vi_sao": "\"The\", \"other\", \"breathe\": âm /ð/ đọc thành /z/ là lỗi rất dễ nghe ra.",
+    "nhan_a": "/ð/ (lưỡi giữa răng)",
+    "nhan_b": "/z/",
+    "am": [
+      {
+        "ky_hieu": "/ð/",
+        "goi_y": "lưỡi giữa răng, cổ rung",
+        "cach": [
+          "Lưỡi thò nhẹ giữa hai răng",
+          "Cổ rung"
+        ]
+      },
+      {
+        "ky_hieu": "/z/",
+        "goi_y": "lưỡi sau răng, rung: zzz",
+        "cach": [
+          "Lưỡi sau răng",
+          "Thổi qua khe hẹp, cổ rung"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "breathe",
+        "b": "breeze",
+        "nghia_a": "thở",
+        "nghia_b": "gió nhẹ"
+      },
+      {
+        "a": "clothe",
+        "b": "close",
+        "nghia_a": "mặc quần áo",
+        "nghia_b": "đóng"
+      },
+      {
+        "a": "then",
+        "b": "zen",
+        "nghia_a": "rồi thì",
+        "nghia_b": "thiền"
+      },
+      {
+        "a": "bathe",
+        "b": "bays",
+        "nghia_a": "tắm",
+        "nghia_b": "các vịnh"
+      },
+      {
+        "a": "seethe",
+        "b": "seize",
+        "nghia_a": "sôi sục",
+        "nghia_b": "nắm lấy"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "Any vessel overtaking another must keep out of the way of the vessel being overtaken.",
+      "vi": "Tàu vượt phải tránh đường cho tàu bị vượt.",
+      "nhan": "Quy tắc 13",
+      "luu_y": "Câu hỏi số 36. Học đúng câu luật."
+    },
+    {
+      "en": "I am overtaking when I come from more than 22.5 degrees abaft her beam. At night, I see only her sternlight.",
+      "vi": "Tôi là tàu vượt khi tiến đến từ phía sau trục ngang tàu kia quá 22,5 độ. Ban đêm tôi chỉ thấy đèn lái của nó.",
+      "nhan": "Nhận biết tàu vượt",
+      "luu_y": "Đọc 22.5 là 'twenty-two point five'."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "In overtaking, who keeps out of the way?",
+      "giay": 9,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "How do you know you are overtaking?",
+      "giay": 12,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Correct.",
+      "giay": 0
+    }
+  ]
+}

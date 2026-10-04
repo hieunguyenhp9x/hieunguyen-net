@@ -280,10 +280,143 @@
   "ten": "20 từ viết tắt"
  },
  {
-  "id": "bai-01",
+  "id": "c3-41",
+  "chang": 3,
+  "tuan": 9,
+  "so": 41,
+  "ten": "COLREG là gì · Quy tắc 5 cảnh giới"
+ },
+ {
+  "id": "c3-42",
+  "chang": 3,
+  "tuan": 9,
+  "so": 42,
+  "ten": "Quy tắc 6 · tốc độ an toàn"
+ },
+ {
+  "id": "c3-43",
+  "chang": 3,
+  "tuan": 9,
+  "so": 43,
+  "ten": "Quy tắc 7 · nguy cơ đâm va"
+ },
+ {
+  "id": "c3-44",
+  "chang": 3,
+  "tuan": 9,
+  "so": 44,
+  "ten": "Quy tắc 8 · hành động tránh va"
+ },
+ {
+  "id": "c3-45",
+  "chang": 3,
+  "tuan": 9,
+  "so": 45,
+  "ten": "Bị hỏi dồn · câu cứu nguy"
+ },
+ {
+  "id": "c3-46",
   "chang": 3,
   "tuan": 10,
-  "so": 0,
-  "ten": "Bài mẫu — Buổi phỏng vấn của Nam"
+  "so": 46,
+  "ten": "Quy tắc 13 · tàu vượt"
+ },
+ {
+  "id": "c3-47",
+  "chang": 3,
+  "tuan": 10,
+  "so": 47,
+  "ten": "Quy tắc 14 · tình huống đối hướng"
+ },
+ {
+  "id": "c3-48",
+  "chang": 3,
+  "tuan": 10,
+  "so": 48,
+  "ten": "Quy tắc 15 · tình huống cắt hướng"
+ },
+ {
+  "id": "c3-49",
+  "chang": 3,
+  "tuan": 10,
+  "so": 49,
+  "ten": "Quy tắc 16–17 · nhường đường và được nhường"
+ },
+ {
+  "id": "c3-50",
+  "chang": 3,
+  "tuan": 10,
+  "so": 50,
+  "ten": "Đọc đèn tàu ban đêm"
+ },
+ {
+  "id": "c3-51",
+  "chang": 3,
+  "tuan": 11,
+  "so": 51,
+  "ten": "MARPOL và 6 phụ lục"
+ },
+ {
+  "id": "c3-52",
+  "chang": 3,
+  "tuan": 11,
+  "so": 52,
+  "ten": "Phụ lục I · dầu"
+ },
+ {
+  "id": "c3-53",
+  "chang": 3,
+  "tuan": 11,
+  "so": 53,
+  "ten": "Phụ lục V · rác"
+ },
+ {
+  "id": "c3-54",
+  "chang": 3,
+  "tuan": 11,
+  "so": 54,
+  "ten": "Phụ lục VI · khí thải"
+ },
+ {
+  "id": "c3-55",
+  "chang": 3,
+  "tuan": 11,
+  "so": 55,
+  "ten": "SOLAS, STCW, ISM, MLC"
+ },
+ {
+  "id": "c3-56",
+  "chang": 3,
+  "tuan": 12,
+  "so": 56,
+  "ten": "Radar dải X và dải S · CPA, TCPA"
+ },
+ {
+  "id": "c3-57",
+  "chang": 3,
+  "tuan": 12,
+  "so": 57,
+  "ten": "La bàn: độ lệch từ và độ lệch riêng"
+ },
+ {
+  "id": "c3-58",
+  "chang": 3,
+  "tuan": 12,
+  "so": 58,
+  "ten": "AIS, ECDIS và máy đo sâu"
+ },
+ {
+  "id": "c3-59",
+  "chang": 3,
+  "tuan": 12,
+  "so": 59,
+  "ten": "Người rơi xuống biển · báo động cháy"
+ },
+ {
+  "id": "c3-60",
+  "chang": 3,
+  "tuan": 12,
+  "so": 60,
+  "ten": "Thi thử kiến thức"
  }
 ]

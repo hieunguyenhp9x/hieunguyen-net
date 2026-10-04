@@ -1,0 +1,306 @@
+{
+  "id": "c3-55",
+  "chang": 3,
+  "tuan": 11,
+  "so": 55,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 11 · Bài 55 — SOLAS, STCW, ISM, MLC",
+  "chu_de": "Câu hỏi số 39, 44, 45 · mỗi công ước một câu",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Nam makes one card for each big rule.",
+      "vi": "Nam làm cho mỗi công ước lớn một tấm thẻ."
+    },
+    {
+      "en": "SOLAS is the International Convention for the Safety of Life at Sea.",
+      "vi": "SOLAS là Công ước quốc tế về an toàn sinh mạng con người trên biển."
+    },
+    {
+      "en": "It covers many things, for example fire protection, life-saving appliances, and safety of navigation.",
+      "vi": "Nó bao gồm nhiều mảng, ví dụ phòng chống cháy, trang bị cứu sinh, và an toàn hàng hải."
+    },
+    {
+      "en": "STCW is about the standards of training, certification and watchkeeping for seafarers.",
+      "vi": "STCW nói về tiêu chuẩn đào tạo, cấp chứng chỉ và trực ca cho thuyền viên."
+    },
+    {
+      "en": "Nam's training and his future certificate follow STCW.",
+      "vi": "Việc đào tạo của Nam và chứng chỉ sau này của cậu đều theo STCW."
+    },
+    {
+      "en": "The ISM Code is the International Safety Management Code.",
+      "vi": "ISM Code là Bộ luật quản lý an toàn quốc tế."
+    },
+    {
+      "en": "Its objectives are safety at sea, no injury or loss of life, and no damage to the environment and property.",
+      "vi": "Mục tiêu của nó là an toàn trên biển, không có thương tích hay thiệt mạng, và không gây hại cho môi trường và tài sản."
+    },
+    {
+      "en": "Every company and ship has a safety management system because of the ISM Code.",
+      "vi": "Vì có ISM Code, mỗi công ty và mỗi con tàu đều có hệ thống quản lý an toàn."
+    },
+    {
+      "en": "MLC is the Maritime Labour Convention.",
+      "vi": "MLC là Công ước lao động hàng hải."
+    },
+    {
+      "en": "It says every seafarer has a right to decent working and living conditions on board.",
+      "vi": "Nó nói mỗi thuyền viên có quyền được làm việc và sống trong điều kiện tử tế trên tàu."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "SOLAS",
+      "am": "/ˈsəʊ.ləs/",
+      "doc": "XÂU-lợt-x",
+      "nghia": "International Convention for the Safety of Life at Sea — Công ước quốc tế về an toàn sinh mạng con người trên biển"
+    },
+    {
+      "tu": "STCW",
+      "am": "/ˌes.tiː.siːˈdʌb.əl.juː/",
+      "doc": "ÉT-x-TI-XI-ĐẮP-bồ-iu",
+      "nghia": "Standards of Training, Certification and Watchkeeping for Seafarers"
+    },
+    {
+      "tu": "ISM Code",
+      "am": "/ˌaɪ.esˈem kəʊd/",
+      "doc": "AI-ÉT-x-EM câu-đ",
+      "nghia": "International Safety Management Code — Bộ luật quản lý an toàn quốc tế"
+    },
+    {
+      "tu": "MLC",
+      "am": "/ˌem.elˈsiː/",
+      "doc": "EM-EO-XI",
+      "nghia": "Maritime Labour Convention — Công ước lao động hàng hải"
+    },
+    {
+      "tu": "decent",
+      "am": "/ˈdiː.sənt/",
+      "doc": "ĐI-xần-t",
+      "nghia": "tử tế, đàng hoàng"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Is SOLAS about safety of life at sea?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does SOLAS cover fire protection?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is STCW about cargo?",
+          "dap": "no"
+        },
+        {
+          "en": "Does STCW cover training and watchkeeping?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is ISM the International Safety Management Code?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is protecting the environment an objective of the ISM Code?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is MLC about seafarers' working and living conditions?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does MLC say seafarers have no rights?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Which convention is about safety of life at sea?",
+          "chon": [
+            "MLC",
+            "SOLAS",
+            "STCW"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "Which one is about training, certification and watchkeeping?",
+          "chon": [
+            "STCW",
+            "ISM",
+            "MARPOL"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does every company have because of the ISM Code?",
+          "chon": [
+            "A football team",
+            "A new ship",
+            "A safety management system"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What is MLC about?",
+          "chon": [
+            "Seafarers' working and living conditions",
+            "Oil pollution",
+            "Radar"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does SOLAS cover?",
+          "chon": [
+            "Only food",
+            "Fire protection, life-saving appliances, safety of navigation",
+            "Only cargo prices"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What does SOLAS stand for, and what is it about?",
+          "mau": "SOLAS is the International Convention for the Safety of Life at Sea. It covers many things, for example fire protection, life-saving appliances and safety of navigation."
+        },
+        {
+          "en": "What is STCW?",
+          "mau": "STCW is about the standards of training, certification and watchkeeping for seafarers."
+        },
+        {
+          "en": "What is the ISM Code?",
+          "mau": "The International Safety Management Code. Its objectives are safety at sea, preventing injury or loss of life, and avoiding damage to the environment."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "Ôn tuần 11",
+    "vi_sao": "Bốn cặp âm của tuần trộn lại.",
+    "nhan_a": "từ",
+    "nhan_b": "từ",
+    "am": [
+      {
+        "ky_hieu": "/k/ /ɡ/ · /θ/ /f/",
+        "goi_y": "dock–dog · three–free",
+        "cach": [
+          "/ɡ/ cuối có rung",
+          "/θ/ lưỡi giữa răng"
+        ]
+      },
+      {
+        "ky_hieu": "/h/ · /s/ /ʃ/",
+        "goi_y": "hold–old · class–clash",
+        "cach": [
+          "/h/ thở ra nhẹ",
+          "/ʃ/ môi chu"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "hold",
+        "b": "old",
+        "nghia_a": "hầm hàng",
+        "nghia_b": "cũ"
+      },
+      {
+        "a": "three",
+        "b": "free",
+        "nghia_a": "số 3",
+        "nghia_b": "miễn phí"
+      },
+      {
+        "a": "dock",
+        "b": "dog",
+        "nghia_a": "cầu cảng",
+        "nghia_b": "con chó"
+      },
+      {
+        "a": "class",
+        "b": "clash",
+        "nghia_a": "lớp học",
+        "nghia_b": "va chạm"
+      },
+      {
+        "a": "tug",
+        "b": "tuck",
+        "nghia_a": "tàu lai",
+        "nghia_b": "nhét vào"
+      },
+      {
+        "a": "harm",
+        "b": "arm",
+        "nghia_a": "gây hại",
+        "nghia_b": "cánh tay"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "SOLAS is the International Convention for the Safety of Life at Sea.",
+      "vi": "SOLAS là Công ước quốc tế về an toàn sinh mạng con người trên biển.",
+      "nhan": "SOLAS",
+      "luu_y": "Câu hỏi số 39."
+    },
+    {
+      "en": "STCW is about the standards of training, certification and watchkeeping for seafarers.",
+      "vi": "STCW nói về tiêu chuẩn đào tạo, cấp chứng chỉ và trực ca cho thuyền viên.",
+      "nhan": "STCW",
+      "luu_y": "Câu hỏi số 44."
+    },
+    {
+      "en": "The ISM Code is the International Safety Management Code. Its objectives are safety at sea, preventing injury or loss of life, and avoiding damage to the environment.",
+      "vi": "ISM Code là Bộ luật quản lý an toàn quốc tế, mục tiêu là an toàn trên biển, ngăn ngừa thương tích, thiệt mạng và tránh gây hại cho môi trường.",
+      "nhan": "ISM Code",
+      "luu_y": "Câu hỏi số 45."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What does SOLAS stand for?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "What is STCW?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "And the ISM Code?",
+      "giay": 12,
+      "goi_y": "Câu mẫu 3"
+    },
+    {
+      "en": "Excellent.",
+      "giay": 0
+    }
+  ]
+}
