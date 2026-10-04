@@ -281,7 +281,7 @@ fetch('bai-01.json').then(r => r.json()).then(d => {
   BAI = d; DIR = 'audio/' + d.id + '/';
   $('#tieuDe').textContent = d.tieu_de;
   $('#chuDe').textContent = d.chu_de;
-  fetch(DIR + '_kich-thuoc.json').then(r => r.json()).then(k => { KT = k; veMang(); }).catch(() => {});
+  fetch(DIR + 'kich-thuoc.json').then(r => r.json()).then(k => { KT = k; veMang(); }).catch(() => {});
   dungNghe(); dungPhatAm(); dungCauMau(); dungDoiDap();
   chonMuc(M); moBuoc(load('buoc') || 'nghe'); veDau();
 });
