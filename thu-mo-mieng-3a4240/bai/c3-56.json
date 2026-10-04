@@ -196,6 +196,18 @@
         {
           "en": "Can the radar see everything?",
           "mau": "No. Small boats, ice and floating objects may not show at a good range."
+        },
+        {
+          "en": "What can make clutter on the radar screen?",
+          "mau": "Waves and rain."
+        },
+        {
+          "en": "What do a small CPA and a short TCPA mean?",
+          "mau": "Danger."
+        },
+        {
+          "en": "Even with radar plotting, what does the officer still do?",
+          "mau": "He still checks with his eyes and with compass bearings."
         }
       ]
     }

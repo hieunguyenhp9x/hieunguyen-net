@@ -196,6 +196,18 @@
         {
           "en": "Is the radar enough for look-out?",
           "mau": "No. The radar helps, but I must still look outside and listen."
+        },
+        {
+          "en": "When must you keep a proper look-out?",
+          "mau": "At all times."
+        },
+        {
+          "en": "What are 'all available means'?",
+          "mau": "For example the radar, the AIS and the VHF."
+        },
+        {
+          "en": "As a cadet on look-out, what do you do when you see something?",
+          "mau": "I report everything I see to the Officer of the Watch."
         }
       ]
     }

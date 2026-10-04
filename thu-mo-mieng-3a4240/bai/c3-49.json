@@ -200,6 +200,18 @@
         {
           "en": "How must the give-way vessel act?",
           "mau": "She must take early and substantial action to keep well clear."
+        },
+        {
+          "en": "Why must the stand-on vessel keep her course and speed?",
+          "mau": "So the give-way vessel knows what she will do."
+        },
+        {
+          "en": "When may the stand-on vessel act by herself?",
+          "mau": "When it becomes clear that the give-way vessel is not taking proper action."
+        },
+        {
+          "en": "In a crossing situation, if a power-driven stand-on vessel acts, what should she avoid?",
+          "mau": "If the circumstances of the case admit, a power-driven stand-on vessel should not alter course to port for a vessel on her own port side."
         }
       ]
     }

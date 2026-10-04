@@ -196,6 +196,18 @@
         {
           "en": "How often are drills held?",
           "mau": "Every crew member takes part in at least one abandon ship drill and one fire drill every month."
+        },
+        {
+          "en": "Why do you keep pointing at the person in the water?",
+          "mau": "So I never lose sight of him."
+        },
+        {
+          "en": "You find a fire yourself. What do you do first?",
+          "mau": "I raise the alarm first, and report."
+        },
+        {
+          "en": "Why are drills important?",
+          "mau": "Drills make your body remember what to do."
         }
       ]
     }

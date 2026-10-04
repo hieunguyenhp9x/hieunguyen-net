@@ -196,6 +196,18 @@
         {
           "en": "What does the give-way vessel usually do?",
           "mau": "She turns to starboard or slows down, and passes behind the other ship."
+        },
+        {
+          "en": "If you see a red light on your starboard side, which side of the ship are you looking at?",
+          "mau": "I am looking at her port side."
+        },
+        {
+          "en": "In a crossing situation, which vessel is the stand-on vessel?",
+          "mau": "The vessel which has the other on her own port side."
+        },
+        {
+          "en": "Tell me the old saying about the red light.",
+          "mau": "If to starboard red appear, it is your duty to keep clear."
         }
       ]
     }

@@ -196,6 +196,18 @@
         {
           "en": "What happens to oily bilge water?",
           "mau": "It can go overboard only through the 15 ppm equipment, under strict MARPOL conditions. Otherwise it stays on board and goes ashore."
+        },
+        {
+          "en": "What does ppm mean?",
+          "mau": "ppm means parts per million."
+        },
+        {
+          "en": "What is oily bilge water?",
+          "mau": "Oil and water that collect at the bottom of the engine room."
+        },
+        {
+          "en": "What happens to the scuppers when the ship takes fuel?",
+          "mau": "The scuppers are plugged, and the deck crew watch the deck."
         }
       ]
     }

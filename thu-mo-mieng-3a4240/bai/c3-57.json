@@ -196,6 +196,18 @@
         {
           "en": "Why does a ship need a magnetic compass?",
           "mau": "Because it works without any power supply."
+        },
+        {
+          "en": "What is the compass error?",
+          "mau": "Variation and deviation together."
+        },
+        {
+          "en": "What is a deviation card?",
+          "mau": "A card that shows the deviation on each heading."
+        },
+        {
+          "en": "How does the gyro compass show the heading?",
+          "mau": "By non-magnetic means, and it sends the heading to other equipment."
         }
       ]
     }

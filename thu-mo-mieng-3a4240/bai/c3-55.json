@@ -196,6 +196,18 @@
         {
           "en": "What is the ISM Code?",
           "mau": "The International Safety Management Code. Its objectives are safety at sea, preventing injury or loss of life, and avoiding damage to the environment."
+        },
+        {
+          "en": "What does MLC stand for?",
+          "mau": "MLC stands for the Maritime Labour Convention."
+        },
+        {
+          "en": "What right does the MLC give every seafarer?",
+          "mau": "A right to decent working and living conditions on board."
+        },
+        {
+          "en": "Why does every company have a safety management system?",
+          "mau": "Because of the ISM Code."
         }
       ]
     }

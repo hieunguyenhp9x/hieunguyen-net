@@ -196,6 +196,18 @@
         {
           "en": "Tell me about the radar and the look-out.",
           "mau": "Do you mean the look-out rules, or how the radar works?"
+        },
+        {
+          "en": "What is the difference between parallel indexing and a clearing bearing in pilotage waters?",
+          "mau": "I am not sure, Sir. I have not studied it yet, but I will learn it."
+        },
+        {
+          "en": "You must use a machine you have never used. What do you say?",
+          "mau": "I am not sure, Sir. I would check the manual and ask the officer before doing anything."
+        },
+        {
+          "en": "You need a few seconds to think. What do you say?",
+          "mau": "Let me think for a moment."
         }
       ]
     }

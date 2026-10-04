@@ -196,6 +196,18 @@
         {
           "en": "When can you stop checking?",
           "mau": "Only when the other ship is finally past and clear."
+        },
+        {
+          "en": "Why should the alteration be large enough?",
+          "mau": "So the other ship can see it by eye or on radar."
+        },
+        {
+          "en": "With enough sea room, what may be the most effective action?",
+          "mau": "A change of course alone, if it is made in good time, is substantial, and does not cause another close-quarters situation."
+        },
+        {
+          "en": "Besides altering course, what must the ship do if necessary?",
+          "mau": "If necessary, she must slow down, or stop."
         }
       ]
     }

@@ -196,6 +196,18 @@
         {
           "en": "Does only one ship turn?",
           "mau": "No. Both ships alter course to starboard."
+        },
+        {
+          "en": "What kind of vessels does Rule 14 talk about?",
+          "mau": "Two power-driven vessels on reciprocal or nearly reciprocal courses, with a risk of collision."
+        },
+        {
+          "en": "By day, how do you know it is head-on?",
+          "mau": "I see her ahead or nearly ahead, with her bow coming straight towards me."
+        },
+        {
+          "en": "In a head-on situation, does one ship wait for the other?",
+          "mau": "No. Both ships turn. Nobody waits for the other."
         }
       ]
     }

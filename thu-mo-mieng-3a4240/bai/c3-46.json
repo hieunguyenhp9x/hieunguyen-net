@@ -196,6 +196,18 @@
         {
           "en": "If you are not sure?",
           "mau": "If I am in doubt, I assume I am overtaking and keep out of the way."
+        },
+        {
+          "en": "Does Rule 13 apply to all kinds of vessels?",
+          "mau": "Yes. Any vessel overtaking another must keep out of the way, even a sailing vessel or a fishing vessel."
+        },
+        {
+          "en": "If the bearing changes later, do you become a crossing vessel?",
+          "mau": "No. I stay the overtaking vessel until I am finally past and clear."
+        },
+        {
+          "en": "How does Nam remember Rule 13?",
+          "mau": "The one behind keeps clear."
         }
       ]
     }

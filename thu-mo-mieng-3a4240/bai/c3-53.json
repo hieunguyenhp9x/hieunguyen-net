@@ -196,6 +196,18 @@
         {
           "en": "You are not sure if something can go overboard. What do you do?",
           "mau": "I keep it on board and ask the officer."
+        },
+        {
+          "en": "How is garbage separated on board?",
+          "mau": "Into plastics, food waste, cans, paper and others, in bins with different colours and labels."
+        },
+        {
+          "en": "Where does the garbage go in port?",
+          "mau": "To a reception facility on shore."
+        },
+        {
+          "en": "Where do you record garbage on board?",
+          "mau": "In the Garbage Record Book."
         }
       ]
     }

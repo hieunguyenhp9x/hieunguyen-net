@@ -196,6 +196,18 @@
         {
           "en": "Is safe speed a fixed number?",
           "mau": "No. It depends on the situation."
+        },
+        {
+          "en": "Why is the traffic density important for safe speed?",
+          "mau": "Because many ships or fishing boats mean more danger."
+        },
+        {
+          "en": "How can lights on shore affect the look-out at night?",
+          "mau": "Bright lights on shore can make it hard to see other ships."
+        },
+        {
+          "en": "What must the ship's draught be compared with?",
+          "mau": "With the depth of water."
         }
       ]
     }

@@ -196,6 +196,18 @@
         {
           "en": "On look-out at night, you see a light. What do you do?",
           "mau": "I report it at once to the Officer of the Watch: where it is and what I see."
+        },
+        {
+          "en": "What colour is the starboard sidelight?",
+          "mau": "The starboard sidelight is green."
+        },
+        {
+          "en": "What is the arc of the sternlight?",
+          "mau": "The sternlight shows over an arc of 135 degrees."
+        },
+        {
+          "en": "At night you see only a white sternlight. Where are you?",
+          "mau": "I am behind her."
         }
       ]
     }

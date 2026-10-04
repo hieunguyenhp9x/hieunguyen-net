@@ -196,6 +196,18 @@
         {
           "en": "What if you are not sure?",
           "mau": "If there is any doubt, I assume the risk exists, and I report to the officer."
+        },
+        {
+          "en": "Can you decide the risk of collision from one quick radar look?",
+          "mau": "No. Rule 7 says do not decide from scanty information, especially scanty radar information."
+        },
+        {
+          "en": "Why does the officer take several bearings?",
+          "mau": "To see if the compass bearing is changing or not."
+        },
+        {
+          "en": "What must you use to decide if there is a risk of collision?",
+          "mau": "All available means."
         }
       ]
     }

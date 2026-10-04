@@ -196,6 +196,18 @@
         {
           "en": "What is Annex V about?",
           "mau": "Annex V is about garbage."
+        },
+        {
+          "en": "Which annex is about chemicals carried in bulk?",
+          "mau": "Annex II, about noxious liquid substances carried in bulk."
+        },
+        {
+          "en": "Which annex is about air pollution?",
+          "mau": "Annex VI is about air pollution from ships."
+        },
+        {
+          "en": "How did Nam remember the six annexes?",
+          "mau": "Oil, chemicals, packages, sewage, garbage, air."
         }
       ]
     }

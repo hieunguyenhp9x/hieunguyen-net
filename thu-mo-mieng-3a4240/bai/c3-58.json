@@ -196,6 +196,18 @@
         {
           "en": "Can you trust the instruments completely?",
           "mau": "No. They help, but the officer must understand and check them."
+        },
+        {
+          "en": "What is static information in AIS? Give an example.",
+          "mau": "Information that does not change often, like the ship's name and MMSI."
+        },
+        {
+          "en": "What is voyage-related information in AIS?",
+          "mau": "Information like the destination. It is entered by hand and must be updated."
+        },
+        {
+          "en": "What can the ECDIS warn you about?",
+          "mau": "For example, shallow water."
         }
       ]
     }

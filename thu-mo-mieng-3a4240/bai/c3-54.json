@@ -196,6 +196,18 @@
         {
           "en": "What happens before a ship enters an ECA?",
           "mau": "The engineers change to low-sulphur fuel, and the officers record the time and position."
+        },
+        {
+          "en": "What are SOx and NOx?",
+          "mau": "Sulphur oxides and nitrogen oxides."
+        },
+        {
+          "en": "What is the sulphur limit in an Emission Control Area?",
+          "mau": "The limit is 0.10% sulphur in fuel oil."
+        },
+        {
+          "en": "What does a scrubber do?",
+          "mau": "It cleans the exhaust gas."
         }
       ]
     }
