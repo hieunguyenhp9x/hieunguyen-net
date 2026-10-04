@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mở Miệng</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0f2a44">
+<style>
+  :root{
+    --bg:#f4f6f9; --card:#ffffff; --ink:#14212e; --mute:#5b6b7b; --line:#dde3ea;
+    --navy:#0f2a44; --sea:#1e6fb8; --sea-soft:#e3eefa; --ok:#1f8a4c; --ok-soft:#e2f4ea;
+    --bad:#c0392b; --bad-soft:#fbe7e4; --gold:#c98a12; --gold-soft:#fbf1dc;
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#0b141d; --card:#132230; --ink:#e6edf3; --mute:#93a4b5; --line:#22364a;
+      --navy:#0a1a2a; --sea:#5aa6ea; --sea-soft:#16314a; --ok:#4cc27e; --ok-soft:#143326;
+      --bad:#ef7a6c; --bad-soft:#3a1d1a; --gold:#e6b14a; --gold-soft:#3a2d12; color-scheme:dark;
+    }
+  }
+  :root[data-theme="dark"]{
+      --bg:#0b141d; --card:#132230; --ink:#e6edf3; --mute:#93a4b5; --line:#22364a;
+      --navy:#0a1a2a; --sea:#5aa6ea; --sea-soft:#16314a; --ok:#4cc27e; --ok-soft:#143326;
+      --bad:#ef7a6c; --bad-soft:#3a1d1a; --gold:#e6b14a; --gold-soft:#3a2d12; color-scheme:dark;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
+  header{background:var(--navy);color:#fff;padding:14px 16px 12px}
+  header .k{font-size:12px;letter-spacing:.08em;opacity:.75;text-transform:uppercase}
+  header h1{margin:2px 0 2px;font-size:20px;line-height:1.25}
+  header .cd{font-size:13px;opacity:.85}
+  .muc{display:flex;gap:6px;margin-top:10px}
+  .muc button{flex:1;border:1px solid rgba(255,255,255,.35);background:transparent;color:#fff;border-radius:10px;padding:7px 4px;font:inherit;font-size:13px;line-height:1.2;cursor:pointer}
+  .muc button b{display:block;font-size:14px}
+  .muc button.on{background:#fff;color:var(--navy);border-color:#fff}
+  nav{display:flex;overflow-x:auto;gap:6px;padding:10px 16px;background:var(--card);border-bottom:1px solid var(--line);position:sticky;top:env(safe-area-inset-top,0px);z-index:5;scrollbar-width:none}
+  nav::-webkit-scrollbar{display:none}
+  nav button{flex:0 0 auto;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:999px;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer;white-space:nowrap}
+  nav button.on{background:var(--sea);border-color:var(--sea);color:#fff}
+  nav button .v{color:var(--ok);font-weight:700}
+  nav button.on .v{color:#fff}
+  main{max-width:640px;margin:0 auto;padding:14px 16px 90px}
+  section{display:none}
+  section.on{display:block}
+  h2{font-size:18px;margin:4px 0 6px}
+  .hd{color:var(--mute);font-size:14px;margin:0 0 12px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:12px}
+  .row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+  .btn{border:0;background:var(--sea);color:#fff;border-radius:10px;padding:10px 14px;font:inherit;font-size:15px;font-weight:600;cursor:pointer;min-height:44px}
+  .btn.ghost{background:var(--sea-soft);color:var(--sea)}
+  .btn.rec{background:var(--bad)}
+  .btn.ok{background:var(--ok)}
+  .btn:disabled{opacity:.45;cursor:default}
+  .sw{display:flex;align-items:center;gap:6px;font-size:14px;color:var(--mute);cursor:pointer;user-select:none}
+  .sw input{width:18px;height:18px}
+  .cau{padding:8px 10px;border-radius:10px;margin:2px 0;cursor:pointer;transition:background .15s}
+  .cau .en{font-size:17px}
+  .cau .vi{font-size:14px;color:var(--mute);display:none}
+  .hien-vi .cau .vi{display:block}
+  .cau.dang{background:var(--sea-soft)}
+  .an-chu .cau .en{color:transparent;text-shadow:0 0 9px rgba(120,130,140,.55)}
+  .an-chu .cau .vi{display:none}
+  .tu{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;padding:9px 0;border-top:1px solid var(--line);cursor:pointer}
+  .tu:first-child{border-top:0}
+  .tu .w{font-weight:700;color:var(--sea)}
+  .tu .a{font-size:13px;color:var(--mute)}
+  .tu .n{grid-column:1/-1;font-size:14px}
+  .bar{height:8px;background:var(--line);border-radius:99px;overflow:hidden;margin:10px 0}
+  .bar i{display:block;height:100%;background:var(--gold);width:0}
+  .q-so{font-size:13px;color:var(--mute)}
+  .q-chu{font-size:18px;min-height:27px;margin:4px 0 10px}
+  .q-chu.an{color:var(--mute);font-style:italic;font-size:15px}
+  .chon{display:grid;gap:8px}
+  .chon button{border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:13px;font:inherit;font-size:17px;font-weight:600;cursor:pointer;min-height:52px}
+  .yn{grid-template-columns:1fr 1fr}
+  .chon button.dung{border-color:var(--ok);background:var(--ok-soft)}
+  .chon button.sai{border-color:var(--bad);background:var(--bad-soft)}
+  .mau{background:var(--ok-soft);border-radius:10px;padding:10px;margin:8px 0;font-size:16px}
+  .so{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .so div{background:var(--bg);border-radius:12px;padding:10px;text-align:center}
+  .so b{display:block;font-size:24px}
+  .so span{font-size:13px;color:var(--mute)}
+  .moi{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .moi .card{margin:0;text-align:center}
+  .moi svg{width:100%;max-width:150px;height:auto}
+  .moi ol{text-align:left;padding-left:18px;margin:6px 0 0;font-size:14px}
+  .ky{font-size:28px;font-weight:700;color:var(--sea)}
+  .cap{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
+  .cap button{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:8px;font:inherit;cursor:pointer;text-align:left}
+  .cap button b{font-size:17px}
+  .cap button small{display:block;color:var(--mute);font-size:12px}
+  .cm .en{font-size:18px;font-weight:600;margin:4px 0}
+  .cm .vi{font-size:14px;color:var(--mute)}
+  .nhan{display:inline-block;font-size:12px;background:var(--gold-soft);color:var(--gold);border-radius:6px;padding:1px 7px;font-weight:700}
+  .luuy{font-size:13px;background:var(--bg);border-radius:8px;padding:7px 9px;margin:8px 0}
+  .dem{font-size:13px;color:var(--mute)}
+  .dem b{color:var(--ok)}
+  .dd-dong{padding:8px 10px;border-radius:10px;margin:6px 0}
+  .dd-dong.hd2{background:var(--sea-soft)}
+  .dd-dong.ban{background:var(--gold-soft);text-align:right}
+  .dd-dong small{display:block;font-size:12px;color:var(--mute)}
+  .bxh{width:100%;border-collapse:collapse;font-size:14px}
+  .bxh td,.bxh th{padding:7px 4px;border-top:1px solid var(--line);text-align:left}
+  .bxh th{font-size:12px;color:var(--mute);font-weight:600;border-top:0}
+  .bxh tr.toi{background:var(--gold-soft);font-weight:700}
+  .tag{font-size:11px;background:var(--bg);border:1px solid var(--line);border-radius:6px;padding:1px 6px;color:var(--mute)}
+  .chan{font-size:12px;color:var(--mute);text-align:center;margin-top:18px}
+  .canh{font-size:14px;background:var(--bad-soft);color:var(--bad);border-radius:10px;padding:10px;display:none}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="k">Mở Miệng · Phỏng vấn học bổng cadet boong</div>
+  <h1 id="tieuDe">Bài 1</h1>
+  <div class="cd" id="chuDe"></div>
+  <div class="muc" id="mucChon">
+    <button data-m="1"><b>Mức 1</b>Mất gốc</button>
+    <button data-m="2"><b>Mức 2</b>Nghe chậm được</button>
+    <button data-m="3"><b>Mức 3</b>Sắp phỏng vấn</button>
+  </div>
+</header>
+
+<nav id="buoc">
+  <button data-s="nghe">① Nghe hiểu <span class="v" id="v-nghe"></span></button>
+  <button data-s="phanxa">② Phản xạ <span class="v" id="v-phanxa"></span></button>
+  <button data-s="phatam">③ Phát âm <span class="v" id="v-phatam"></span></button>
+  <button data-s="caumau">④ Câu mẫu <span class="v" id="v-caumau"></span></button>
+  <button data-s="doidap">⑤ Đối đáp <span class="v" id="v-doidap"></span></button>
+  <button data-s="ketqua">Kết quả</button>
+</nav>
+
+<main>
+  <!-- ① NGHE HIỂU -->
+  <section id="s-nghe">
+    <h2>① Nghe hiểu</h2>
+    <p class="hd">Lần 1: nghe, <b>không nhìn chữ</b>. Lần 2: bật chữ lên, vừa nghe vừa đọc cho hiểu. Bấm vào câu nào để nghe lại riêng câu đó.</p>
+    <div class="card">
+      <div class="row" style="margin-bottom:10px">
+        <button class="btn" id="ngheBat">▶ Nghe cả bài</button>
+        <button class="btn ghost" id="ngheDung" disabled>⏸ Dừng</button>
+      </div>
+      <div class="row" style="gap:16px">
+        <label class="sw"><input type="checkbox" id="hienChu"> Hiện chữ</label>
+        <label class="sw"><input type="checkbox" id="hienVi"> Nghĩa tiếng Việt</label>
+      </div>
+    </div>
+    <div class="card an-chu" id="truyen"></div>
+    <div class="card">
+      <h2 style="font-size:16px">Từ khoá của bài <span class="tag">bấm để nghe</span></h2>
+      <div id="tuKhoa"></div>
+    </div>
+  </section>
+
+  <!-- ② PHẢN XẠ -->
+  <section id="s-phanxa">
+    <h2>② Phản xạ</h2>
+    <p class="hd" id="pxHd"></p>
+    <div class="card" id="pxThe">
+      <div class="q-so" id="pxSo">Sẵn sàng?</div>
+      <div class="q-chu an" id="pxChu">Câu hỏi đọc bằng tiếng — chữ chỉ hiện sau khi bạn trả lời.</div>
+      <div class="bar"><i id="pxBar"></i></div>
+      <div id="pxTraLoi"></div>
+      <div class="row" style="margin-top:12px">
+        <button class="btn" id="pxBat">▶ Bắt đầu</button>
+      </div>
+    </div>
+    <div class="card" id="pxKq" style="display:none"></div>
+  </section>
+
+  <!-- ③ PHÁT ÂM -->
+  <section id="s-phatam">
+    <h2>③ Phát âm — <span id="paCap"></span></h2>
+    <p class="hd" id="paViSao"></p>
+    <div class="moi" id="paMoi"></div>
+    <div class="card" style="margin-top:12px">
+      <h2 style="font-size:16px">Cặp từ dễ nhầm <span class="tag">bấm để nghe</span></h2>
+      <div class="cap" id="paCapTu"></div>
+    </div>
+    <div class="card">
+      <h2 style="font-size:16px">Kiểm tra tai: nghe và chọn đúng từ</h2>
+      <div class="q-so" id="ptSo">6 câu</div>
+      <div class="chon yn" id="ptChon" style="margin-top:8px"></div>
+      <div class="row" style="margin-top:12px"><button class="btn" id="ptBat">▶ Bắt đầu</button></div>
+    </div>
+  </section>
+
+  <!-- ④ CÂU MẪU -->
+  <section id="s-caumau">
+    <h2>④ Câu mẫu — nói thuộc lòng</h2>
+    <p class="hd">Nghe → nhại theo → <b>ghi âm giọng mình rồi nghe lại</b>. Mỗi câu nói đủ <b>5 lần</b> cho thuộc. Giọng bạn chỉ nằm trên máy, <b>không gửi đi đâu</b>.</p>
+    <div class="canh" id="micCanh">Không mở được micro. Trên iPhone: Cài đặt → Safari → Micro → Cho phép. Phải mở trang bằng https hoặc localhost.</div>
+    <div id="cauMau"></div>
+  </section>
+
+  <!-- ⑤ ĐỐI ĐÁP -->
+  <section id="s-doidap">
+    <h2>⑤ Đối đáp — thi thử</h2>
+    <p class="hd">Thuyền trưởng hỏi, tới lượt bạn thì máy tự ghi âm trong vài giây — trả lời bằng câu mẫu đã thuộc. Xong nghe lại cả cuộc phỏng vấn của chính mình.</p>
+    <div class="card">
+      <label class="sw" style="margin-bottom:10px"><input type="checkbox" id="ddGoiY"> Cho nhìn gợi ý câu mẫu</label>
+      <div id="ddKhung"></div>
+      <div class="bar"><i id="ddBar"></i></div>
+      <div class="row">
+        <button class="btn" id="ddBat">▶ Vào phòng phỏng vấn</button>
+        <button class="btn ghost" id="ddNghe" disabled>🎧 Nghe lại cuộc phỏng vấn</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- KẾT QUẢ -->
+  <section id="s-ketqua">
+    <h2>Kết quả bài hôm nay</h2>
+    <div class="card"><div class="so" id="kqSo"></div></div>
+    <div class="card">
+      <h2 style="font-size:16px">Bảng xếp hạng tuần <span class="tag">dữ liệu minh hoạ</span></h2>
+      <p class="hd" style="margin:0 0 6px">Xếp theo <b>hành vi</b>, không xếp theo "giỏi hay dở": số ngày học trong tuần, rồi tới điểm phản xạ. Chỉ hiện biệt danh.</p>
+      <table class="bxh" id="bxh"></table>
+    </div>
+    <div class="card">
+      <h2 style="font-size:16px">Dung lượng mạng</h2>
+      <p class="hd" style="margin:0" id="kqMang"></p>
+    </div>
+  </section>
+
+  <div class="chan">Bản mẫu · giọng máy đọc đơn giản, bản thật sẽ thay giọng có ngữ điệu</div>
+</main>
+
+<script>
+(() => {
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+const AU = new Audio();
+let BAI, KT = {}, M = +(load('muc') || 1), DIR = '';
+const KQ = load('kq') || {};
+
+function load(k){ try { return JSON.parse(localStorage.getItem('mm-' + k)); } catch(e){ return null; } }
+function save(k, v){ try { localStorage.setItem('mm-' + k, JSON.stringify(v)); } catch(e){} }
+const pad = i => String(i).padStart(2, '0');
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+// phát 1 file, trả về khi phát xong (hoặc bị dừng)
+let phatId = 0;
+function phat(ten){
+  const id = ++phatId;
+  return new Promise(res => {
+    AU.onended = () => res(true);
+    AU.onerror = () => res(false);
+    AU.src = DIR + ten;
+    AU.play().catch(() => res(false));
+    const t = setInterval(() => { if (id !== phatId){ clearInterval(t); res(false); } }, 120);
+    AU.addEventListener('ended', () => clearInterval(t), {once:true});
+  });
+}
+function dungPhat(){ phatId++; AU.pause(); }
+
+// thanh đếm giờ; trả về hàm huỷ
+function chayBar(el, giay, xong){
+  // hẹn giờ bằng setTimeout (rAF bị trình duyệt dừng khi tab ẩn), rAF chỉ để vẽ thanh
+  const t0 = performance.now(); let huy = false;
+  const hen = setTimeout(() => { if (!huy){ el.style.width = '100%'; xong && xong(); } }, giay * 1000);
+  (function buoc(){
+    if (huy) return;
+    const p = Math.min(1, (performance.now() - t0) / (giay * 1000));
+    el.style.width = (p * 100) + '%';
+    if (p < 1) requestAnimationFrame(buoc);
+  })();
+  return () => { huy = true; clearTimeout(hen); el.style.width = '0%'; };
+}
+
+function danhDau(buoc, chu){ KQ[buoc] = chu; save('kq', KQ); veDau(); }
+function veDau(){
+  ['nghe','phanxa','phatam','caumau','doidap'].forEach(b => { $('#v-' + b).textContent = KQ[b] ? '✓' : ''; });
+}
+
+// ---------- KHỞI ĐỘNG ----------
+fetch('bai-01.json').then(r => r.json()).then(d => {
+  BAI = d; DIR = 'audio/' + d.id + '/';
+  $('#tieuDe').textContent = d.tieu_de;
+  $('#chuDe').textContent = d.chu_de;
+  fetch(DIR + '_kich-thuoc.json').then(r => r.json()).then(k => { KT = k; veMang(); }).catch(() => {});
+  dungNghe(); dungPhatAm(); dungCauMau(); dungDoiDap();
+  chonMuc(M); moBuoc(load('buoc') || 'nghe'); veDau();
+});
+
+$$('#mucChon button').forEach(b => b.onclick = () => chonMuc(+b.dataset.m));
+function chonMuc(m){
+  M = m; save('muc', m);
+  $$('#mucChon button').forEach(b => b.classList.toggle('on', +b.dataset.m === m));
+  if (!BAI) return;
+  const bo = BAI.hoi[m];
+  const kieu = {"yes-no": "Nghe câu hỏi rồi bấm <b>YES / NO</b> trong " + bo.giay + " giây — trả lời trong đầu, không cần nói ra.",
+    "chon": "Nghe câu hỏi rồi bấm câu trả lời ngắn đúng trong " + bo.giay + " giây.",
+    "mo": "Hội đồng hỏi bằng giọng Ấn Độ. Bạn có " + bo.giay + " giây để trả lời <b>trong đầu hoặc nói khẽ</b>, rồi xem câu trả lời mẫu và tự chấm."}[bo.kieu];
+  $('#pxHd').innerHTML = kieu + ' Tốc độ đọc: ' + ({"1":"chậm","2":"hơi chậm","3":"tốc độ thật"})[m] + '.';
+  datLaiPhanXa(); veMang();
+}
+
+$$('#buoc button').forEach(b => b.onclick = () => moBuoc(b.dataset.s));
+function moBuoc(s){
+  dungPhat(); save('buoc', s);
+  $$('#buoc button').forEach(b => b.classList.toggle('on', b.dataset.s === s));
+  $$('main section').forEach(x => x.classList.toggle('on', x.id === 's-' + s));
+  if (s === 'ketqua') veKetQua();
+  window.scrollTo({top: 0});
+}
+
+// ---------- ① NGHE HIỂU ----------
+let ngheChay = false;
+function dungNghe(){
+  $('#truyen').innerHTML = BAI.truyen.map((c, i) =>
+    `<div class="cau" data-i="${i}"><div class="en">${esc(c.en)}</div><div class="vi">${esc(c.vi)}</div></div>`).join('');
+  $$('#truyen .cau').forEach(el => el.onclick = async () => {
+    dungNghe2(); danhCau(+el.dataset.i);
+    await phat(`truyen-m${M}-${pad(el.dataset.i)}.mp3`); danhCau(-1);
+  });
+  $('#tuKhoa').innerHTML = BAI.tu_khoa.map((t, i) =>
+    `<div class="tu" data-i="${i}"><span class="w">🔊 ${esc(t.tu)}</span><span class="a">${esc(t.am)} · đọc gần như "${esc(t.doc)}"</span><span class="n">${esc(t.nghia)}</span></div>`).join('');
+  $$('#tuKhoa .tu').forEach(el => el.onclick = () => phat(`tu-${pad(el.dataset.i)}.mp3`));
+  $('#hienChu').onchange = e => $('#truyen').classList.toggle('an-chu', !e.target.checked);
+  $('#hienVi').onchange = e => $('#truyen').classList.toggle('hien-vi', e.target.checked);
+  $('#ngheBat').onclick = async () => {
+    ngheChay = true; $('#ngheBat').disabled = true; $('#ngheDung').disabled = false;
+    let het = true;
+    for (let i = 0; i < BAI.truyen.length; i++){
+      if (!ngheChay){ het = false; break; }
+      danhCau(i);
+      const ok = await phat(`truyen-m${M}-${pad(i)}.mp3`);
+      if (!ok){ het = false; break; }
+      await sleep(350);
+    }
+    danhCau(-1); dungNghe2();
+    if (het){
+      const lan = (load('lan-nghe') || 0) + 1; save('lan-nghe', lan);
+      if (lan >= 2) danhDau('nghe', 'Nghe ' + lan + ' lượt');
+    }
+  };
+  $('#ngheDung').onclick = () => { dungNghe2(); dungPhat(); };
+}
+function dungNghe2(){ ngheChay = false; $('#ngheBat').disabled = false; $('#ngheDung').disabled = true; }
+function danhCau(i){
+  $$('#truyen .cau').forEach(el => el.classList.toggle('dang', +el.dataset.i === i));
+  const el = $(`#truyen .cau[data-i="${i}"]`);
+  if (el) el.scrollIntoView({block: 'nearest', behavior: 'smooth'});
+}
+
+// ---------- ② PHẢN XẠ ----------
+let px = null;
+function datLaiPhanXa(){
+  px = null; $('#pxKq').style.display = 'none';
+  $('#pxSo').textContent = 'Sẵn sàng? ' + BAI.hoi[M].cau.length + ' câu';
+  $('#pxChu').className = 'q-chu an';
+  $('#pxChu').textContent = 'Câu hỏi đọc bằng tiếng — chữ chỉ hiện sau khi bạn trả lời.';
+  $('#pxTraLoi').innerHTML = ''; $('#pxBar').style.width = '0%';
+  $('#pxBat').style.display = ''; $('#pxBat').textContent = '▶ Bắt đầu';
+}
+$('#pxBat').onclick = async () => {
+  const bo = BAI.hoi[M];
+  px = {dung: 0, ms: [], kieu: bo.kieu};
+  $('#pxBat').style.display = 'none'; $('#pxKq').style.display = 'none';
+  for (let i = 0; i < bo.cau.length; i++){
+    await hoiMot(bo, i);
+    await sleep(900);
+  }
+  ketPhanXa(bo);
+};
+function hoiMot(bo, i){
+  return new Promise(async res => {
+    const c = bo.cau[i];
+    $('#pxSo').textContent = `Câu ${i + 1}/${bo.cau.length}`;
+    $('#pxChu').className = 'q-chu an'; $('#pxChu').textContent = '🔊 Đang hỏi…';
+    $('#pxTraLoi').innerHTML = ''; $('#pxBar').style.width = '0%';
+    await phat(`hoi-m${M}-${pad(i)}.mp3`);
+    $('#pxChu').textContent = bo.kieu === 'mo' ? '🤔 Nghĩ câu trả lời…' : '⏱ Trả lời ngay!';
+    const t0 = performance.now(); let xong = false;
+    const hien = () => { $('#pxChu').className = 'q-chu'; $('#pxChu').textContent = c.en; };
+    const ket = (dung) => { if (xong) return; xong = true; huy(); hien();
+      if (dung){ px.dung++; px.ms.push(performance.now() - t0); }
+      setTimeout(res, bo.kieu === 'mo' ? 0 : 1100); };
+
+    if (bo.kieu === 'yes-no' || bo.kieu === 'chon'){
+      const nhan = bo.kieu === 'yes-no' ? ['YES', 'NO'] : c.chon;
+      const dap = bo.kieu === 'yes-no' ? (c.dap === 'yes' ? 0 : 1) : c.dap;
+      $('#pxTraLoi').innerHTML = `<div class="chon ${bo.kieu === 'yes-no' ? 'yn' : ''}">` +
+        nhan.map((n, k) => `<button data-k="${k}">${esc(n)}</button>`).join('') + '</div>';
+      const nut = $$('#pxTraLoi button');
+      nut.forEach(b => b.onclick = () => {
+        if (xong) return;
+        const k = +b.dataset.k;
+        nut[dap].classList.add('dung'); if (k !== dap) b.classList.add('sai');
+        ket(k === dap);
+      });
+      var huy = chayBar($('#pxBar'), bo.giay, () => { if (!xong){ nut[dap].classList.add('dung'); ket(false); } });
+    } else {
+      $('#pxTraLoi').innerHTML = '<p class="hd" style="margin:0">Trả lời trong đầu hoặc nói khẽ…</p>';
+      var huy = chayBar($('#pxBar'), bo.giay, () => {
+        if (xong) return; xong = true; hien();
+        $('#pxTraLoi').innerHTML = `<div class="mau">✅ ${esc(c.mau)}</div>
+          <div class="row"><button class="btn ok" data-d="1">Tôi trả lời được</button><button class="btn ghost" data-d="0">Chưa được</button></div>`;
+        $$('#pxTraLoi button').forEach(b => b.onclick = () => { if (+b.dataset.d) px.dung++; res(); });
+      });
+    }
+  });
+}
+function ketPhanXa(bo){
+  const n = bo.cau.length, tb = px.ms.length ? (px.ms.reduce((a, b) => a + b, 0) / px.ms.length / 1000) : null;
+  const diem = Math.round(px.dung / n * 100);
+  KQ.px = {muc: M, dung: px.dung, n, tb};
+  danhDau('phanxa', `${px.dung}/${n}`);
+  $('#pxKq').style.display = '';
+  $('#pxKq').innerHTML = `<div class="so"><div><b>${px.dung}/${n}</b><span>câu đúng</span></div>
+    <div><b>${tb ? tb.toFixed(1) + 's' : '—'}</b><span>${bo.kieu === 'mo' ? 'tự chấm' : 'phản xạ trung bình'}</span></div></div>
+    <p class="hd" style="margin:10px 0 0">${diem >= 80 ? 'Ổn. Lần sau thử mức cao hơn, hoặc làm lại cho nhanh hơn.' : 'Nghe lại bài ở bước ① một lượt có bật chữ, rồi làm lại.'}</p>`;
+  $('#pxBat').style.display = ''; $('#pxBat').textContent = '↻ Làm lại';
+  $('#pxSo').textContent = 'Xong'; $('#pxBar').style.width = '0%';
+}
+
+// ---------- ③ PHÁT ÂM ----------
+const MOI = {
+  '/s/': `<svg viewBox="0 0 160 110" aria-label="Khẩu hình âm s: môi bè ngang"><ellipse cx="80" cy="55" rx="66" ry="26" fill="#d9534f"/><ellipse cx="80" cy="55" rx="54" ry="11" fill="#3a1414"/><rect x="34" y="46" width="92" height="8" rx="3" fill="#fff"/><rect x="38" y="56" width="84" height="7" rx="3" fill="#f2f2f2"/><path d="M8 55 h18 M134 55 h18" stroke="#888" stroke-width="2"/><text x="80" y="104" font-size="12" text-anchor="middle" fill="currentColor">môi bè ngang, răng gần khép</text></svg>`,
+  '/ʃ/': `<svg viewBox="0 0 160 110" aria-label="Khẩu hình âm sh: môi tròn chu ra"><ellipse cx="80" cy="52" rx="40" ry="34" fill="#d9534f"/><ellipse cx="80" cy="52" rx="24" ry="19" fill="#3a1414"/><rect x="62" y="40" width="36" height="7" rx="3" fill="#fff"/><rect x="64" y="57" width="32" height="6" rx="3" fill="#f2f2f2"/><path d="M80 8 v8 M80 88 v8" stroke="#888" stroke-width="2"/><text x="80" y="104" font-size="12" text-anchor="middle" fill="currentColor">môi tròn, CHU ra trước</text></svg>`
+};
+let pt = null;
+function dungPhatAm(){
+  const p = BAI.phat_am;
+  $('#paCap').textContent = p.cap; $('#paViSao').textContent = p.vi_sao;
+  $('#paMoi').innerHTML = p.am.map(a => `<div class="card"><div class="ky">${esc(a.ky_hieu)}</div>${MOI[a.ky_hieu] || ''}
+    <div style="font-size:13px;color:var(--mute)">${esc(a.goi_y)}</div><ol>${a.cach.map(x => `<li>${esc(x)}</li>`).join('')}</ol></div>`).join('');
+  $('#paCapTu').innerHTML = p.cap_tu.map((c, i) =>
+    `<button data-f="pa-${pad(i)}-a.mp3"><b>🔊 ${esc(c.a)}</b><small>/ʃ/ · ${esc(c.nghia_a)}</small></button>
+     <button data-f="pa-${pad(i)}-b.mp3"><b>🔊 ${esc(c.b)}</b><small>/s/ · ${esc(c.nghia_b)}</small></button>`).join('');
+  $$('#paCapTu button').forEach(b => b.onclick = () => phat(b.dataset.f));
+  $('#ptBat').onclick = chayTestTai;
+}
+async function chayTestTai(){
+  const caps = BAI.phat_am.cap_tu;
+  const de = caps.map((c, i) => ({i, ab: Math.random() < .5 ? 'a' : 'b'})).sort(() => Math.random() - .5);
+  let dung = 0; $('#ptBat').style.display = 'none';
+  for (let k = 0; k < de.length; k++){
+    const {i, ab} = de[k], c = caps[i];
+    $('#ptSo').textContent = `Câu ${k + 1}/${de.length} — từ bạn nghe là?`;
+    $('#ptChon').innerHTML = `<button data-x="a">${esc(c.a)}</button><button data-x="b">${esc(c.b)}</button>`;
+    const nut = $$('#ptChon button');
+    await phat(`pa-${pad(i)}-${ab}.mp3`);
+    const chon = await new Promise(r => nut.forEach(b => b.onclick = () => r(b.dataset.x)));
+    nut.forEach(b => { if (b.dataset.x === ab) b.classList.add('dung'); else if (b.dataset.x === chon) b.classList.add('sai'); });
+    if (chon === ab) dung++;
+    await sleep(900);
+  }
+  KQ.pt = {dung, n: de.length};
+  danhDau('phatam', `${dung}/${de.length}`);
+  $('#ptSo').innerHTML = `Đúng <b>${dung}/${de.length}</b>. ${dung === de.length ? 'Tai đã tách được /ʃ/ và /s/.' : 'Nghe lại các cặp từ ở trên, chú ý môi chu hay bè.'}`;
+  $('#ptChon').innerHTML = ''; $('#ptBat').style.display = ''; $('#ptBat').textContent = '↻ Làm lại';
+}
+
+// ---------- GHI ÂM (chỉ trên máy) ----------
+let streamMic = null;
+async function layMic(){
+  if (streamMic) return streamMic;
+  try { streamMic = await navigator.mediaDevices.getUserMedia({audio: true}); return streamMic; }
+  catch(e){
+    $('#micCanh').textContent = window.self !== window.top
+      ? 'Khung xem thử này không cho dùng micro, nên chưa ghi âm được. Bản cài thật trên điện thoại sẽ ghi âm bình thường.'
+      : e.name === 'NotFoundError'
+      ? 'Máy này không có micro. Mở bài trên điện thoại để ghi âm.'
+      : 'Chưa được phép dùng micro. iPhone: Cài đặt → Safari → Micro → Cho phép. Android: bấm ổ khoá cạnh địa chỉ web → Quyền → Micro.';
+    $('#micCanh').style.display = 'block'; throw e;
+  }
+}
+async function ghi(giay, onBat){
+  const s = await layMic();
+  let opts = {audioBitsPerSecond: 24000};
+  const rec = new MediaRecorder(s, opts); const phan = [];
+  rec.ondataavailable = e => e.data.size && phan.push(e.data);
+  const xong = new Promise(r => rec.onstop = () => r(new Blob(phan, {type: rec.mimeType})));
+  rec.start(); onBat && onBat(rec);
+  if (giay) setTimeout(() => rec.state === 'recording' && rec.stop(), giay * 1000);
+  return {rec, xong};
+}
+
+// ---------- ④ CÂU MẪU ----------
+const demCM = load('dem-cm') || {};
+function dungCauMau(){
+  $('#cauMau').innerHTML = BAI.cau_mau.map((c, i) => `<div class="card cm" data-i="${i}">
+    <span class="nhan">${esc(c.nhan)}</span>
+    <div class="en">${esc(c.en)}</div><div class="vi">${esc(c.vi)}</div>
+    <div class="luuy">💡 ${esc(c.luu_y)}</div>
+    <div class="row">
+      <button class="btn ghost" data-a="nghe">▶ Nghe</button>
+      <button class="btn ghost" data-a="cham">🐢 Chậm</button>
+      <button class="btn rec" data-a="ghi">⏺ Ghi âm</button>
+      <button class="btn ghost" data-a="lai" disabled>🎧 Giọng tôi</button>
+    </div>
+    <div class="dem" style="margin-top:8px">Đã nói: <b data-dem>${demCM[i] || 0}</b>/5 lần</div>
+  </div>`).join('');
+  $$('#cauMau .cm').forEach(el => {
+    const i = +el.dataset.i; let blob = null, dangGhi = null;
+    const nut = a => el.querySelector(`[data-a="${a}"]`);
+    nut('nghe').onclick = () => phat(`mau-${pad(i)}.mp3`);
+    nut('cham').onclick = () => phat(`mau-${pad(i)}-cham.mp3`);
+    nut('ghi').onclick = async () => {
+      if (dangGhi){ dangGhi.rec.stop(); return; }
+      dungPhat();
+      try { dangGhi = await ghi(20); } catch(e){ return; }
+      nut('ghi').textContent = '⏹ Dừng';
+      blob = await dangGhi.xong; dangGhi = null;
+      nut('ghi').textContent = '⏺ Ghi âm'; nut('lai').disabled = false;
+      demCM[i] = (demCM[i] || 0) + 1; save('dem-cm', demCM);
+      el.querySelector('[data-dem]').textContent = demCM[i];
+      if (BAI.cau_mau.every((_, k) => (demCM[k] || 0) >= 5)) danhDau('caumau', 'Thuộc ' + BAI.cau_mau.length + ' câu');
+      phatBlob(blob);
+    };
+    nut('lai').onclick = () => blob && phatBlob(blob);
+  });
+}
+function phatBlob(b){ dungPhat(); const u = URL.createObjectURL(b); AU.src = u; AU.play().catch(() => {}); return new Promise(r => AU.onended = () => { URL.revokeObjectURL(u); r(); }); }
+
+// ---------- ⑤ ĐỐI ĐÁP ----------
+let ddBang = [];
+function dungDoiDap(){
+  $('#ddGoiY').onchange = () => {};
+  $('#ddBat').onclick = async () => {
+    try { await layMic(); } catch(e){ moBuoc('caumau'); return; }
+    ddBang = []; $('#ddKhung').innerHTML = ''; $('#ddBat').disabled = true; $('#ddNghe').disabled = true;
+    const goi = n => BAI.cau_mau[+n.replace(/\D/g, '') - 1];
+    for (let i = 0; i < BAI.doi_dap.length; i++){
+      const c = BAI.doi_dap[i];
+      $('#ddKhung').insertAdjacentHTML('beforeend', `<div class="dd-dong hd2"><small>Thuyền trưởng</small>${esc(c.en)}</div>`);
+      await phat(`dd-${pad(i)}.mp3`);
+      ddBang.push({f: `dd-${pad(i)}.mp3`});
+      if (!c.giay) break;
+      const cm = goi(c.goi_y || '');
+      const goiY = $('#ddGoiY').checked && cm ? `<br><span style="font-size:14px">${esc(cm.en)}</span>` : '';
+      $('#ddKhung').insertAdjacentHTML('beforeend', `<div class="dd-dong ban" id="dd-ban-${i}"><small>Bạn — đang ghi ${c.giay}s 🔴</small>…${goiY}</div>`);
+      const g = await ghi(c.giay);
+      const huy = chayBar($('#ddBar'), c.giay);
+      const b = await g.xong; huy();
+      ddBang.push({b});
+      $('#dd-ban-' + i).innerHTML = `<small>Bạn</small>🎙️ đã ghi${goiY}`;
+      await sleep(400);
+    }
+    danhDau('doidap', 'Thi thử xong');
+    $('#ddBat').disabled = false; $('#ddBat').textContent = '↻ Thi lại'; $('#ddNghe').disabled = false;
+  };
+  $('#ddNghe').onclick = async () => {
+    $('#ddNghe').disabled = true;
+    for (const x of ddBang){ if (x.f) await phat(x.f); else await phatBlob(x.b); await sleep(250); }
+    $('#ddNghe').disabled = false;
+  };
+}
+
+// ---------- KẾT QUẢ ----------
+function veKetQua(){
+  const xong = ['nghe','phanxa','phatam','caumau','doidap'].filter(b => KQ[b]).length;
+  const homNay = new Date().toISOString().slice(0, 10);
+  const ngay = load('ngay') || [];
+  if (xong >= 3 && !ngay.includes(homNay)){ ngay.push(homNay); save('ngay', ngay); }
+  const tuan = ngay.filter(d => (Date.now() - new Date(d)) / 864e5 < 7).length;
+  const px = KQ.px ? Math.round(KQ.px.dung / KQ.px.n * 100) : 0;
+  $('#kqSo').innerHTML = `
+    <div><b>${xong}/5</b><span>bước đã xong</span></div>
+    <div><b>${tuan}/7</b><span>ngày học tuần này</span></div>
+    <div><b>${KQ.px ? KQ.px.dung + '/' + KQ.px.n : '—'}</b><span>phản xạ (mức ${KQ.px ? KQ.px.muc : M})</span></div>
+    <div><b>${KQ.pt ? KQ.pt.dung + '/' + KQ.pt.n : '—'}</b><span>tai /ʃ/–/s/</span></div>`;
+  const ds = [['SongLam_VMU', 6, 92], ['Captain2030', 5, 88], ['Tung.deck', 5, 74], ['Bạn', tuan, px], ['MinhHP', 3, 81], ['Sailor_K66', 2, 60]]
+    .sort((a, b) => b[1] - a[1] || b[2] - a[2]);
+  $('#bxh').innerHTML = '<tr><th>#</th><th>Biệt danh</th><th>Ngày/7</th><th>Phản xạ</th></tr>' +
+    ds.map((r, i) => `<tr class="${r[0] === 'Bạn' ? 'toi' : ''}"><td>${i + 1}</td><td>${esc(r[0])}</td><td>${r[1]}</td><td>${r[2]}%</td></tr>`).join('');
+  veMang();
+}
+function veMang(){
+  const kt = KT[M];
+  $('#kqMang').innerHTML = (kt ? `Bài này ở mức ${M}: <b>${(kt / 1024 / 1024).toFixed(1)} MB</b> tải một lần (bản mẫu, chưa nén kỹ — bản thật nhẹ hơn khoảng 1/3). ` : '') +
+    'Phát lại, ghi âm, nghe giọng mình: <b>0 MB</b> — tất cả nằm trên máy. Bản thật: tải gói 30 ngày khi có wifi ở bờ/cảng, trên tàu chỉ gửi 1 bài nói/tuần.';
+}
+})();
+</script>
+</body>
+</html>
