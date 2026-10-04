@@ -1,0 +1,295 @@
+{
+  "id": "c1-15",
+  "chang": 1,
+  "tuan": 3,
+  "so": 15,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 3 · Bài 15 — Trả lời thầy về nghề biển",
+  "chu_de": "Ôn tuần 3 · ghép câu trả lời động cơ",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Nam's English teacher asks him to practise for an interview.",
+      "vi": "Cô giáo tiếng Anh bảo Nam luyện phỏng vấn."
+    },
+    {
+      "en": "She asks, \"Why do you want to work at sea?\"",
+      "vi": "Cô hỏi: \"Vì sao em muốn làm việc trên biển?\""
+    },
+    {
+      "en": "Nam answers slowly and clearly.",
+      "vi": "Nam trả lời chậm và rõ."
+    },
+    {
+      "en": "\"I grew up near the sea. I like teamwork, and I want a stable job to help my family.\"",
+      "vi": "\"Em lớn lên ở gần biển. Em thích làm việc nhóm, và em muốn có công việc ổn định để giúp gia đình.\""
+    },
+    {
+      "en": "She asks, \"Why the deck department?\"",
+      "vi": "Cô hỏi: \"Vì sao chọn bộ phận boong?\""
+    },
+    {
+      "en": "\"Because I like navigation. My dream is to become an officer.\"",
+      "vi": "\"Vì em thích hàng hải. Ước mơ của em là trở thành sĩ quan.\""
+    },
+    {
+      "en": "Then she asks a hard question: \"What is your weakness?\"",
+      "vi": "Rồi cô hỏi một câu khó: \"Điểm yếu của em là gì?\""
+    },
+    {
+      "en": "Nam thinks for a moment.",
+      "vi": "Nam suy nghĩ một lúc."
+    },
+    {
+      "en": "\"My English is not very good yet, but I practise every day.\"",
+      "vi": "\"Tiếng Anh của em chưa tốt lắm, nhưng em luyện tập mỗi ngày.\""
+    },
+    {
+      "en": "The teacher says, \"Good. An honest answer, with a plan.\"",
+      "vi": "Cô nói: \"Tốt. Câu trả lời thật thà, lại có kế hoạch.\""
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "slowly",
+      "am": "/ˈsləʊ.li/",
+      "doc": "XLÂU-li",
+      "nghia": "chậm rãi"
+    },
+    {
+      "tu": "clearly",
+      "am": "/ˈklɪə.li/",
+      "doc": "CLIA-li",
+      "nghia": "rõ ràng"
+    },
+    {
+      "tu": "weakness",
+      "am": "/ˈwiːk.nəs/",
+      "doc": "UÍC-nợt-x",
+      "nghia": "điểm yếu · strength = điểm mạnh"
+    },
+    {
+      "tu": "honest",
+      "am": "/ˈɒn.ɪst/",
+      "doc": "O-nít-xt",
+      "nghia": "thật thà (chữ h câm)"
+    },
+    {
+      "tu": "for a moment",
+      "am": "/fər ə ˈməʊ.mənt/",
+      "doc": "phơ ờ MÂU-mần-t",
+      "nghia": "một lúc"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Does the teacher ask Nam to practise an interview?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam answer fast?",
+          "dap": "no"
+        },
+        {
+          "en": "Did Nam grow up near the sea?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam want to be an engineer?",
+          "dap": "no"
+        },
+        {
+          "en": "Is 'What is your weakness?' a hard question?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam say his English is perfect?",
+          "dap": "no"
+        },
+        {
+          "en": "Does Nam practise every day?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the teacher like his answer?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Who asks the questions?",
+          "chon": [
+            "His father",
+            "His English teacher",
+            "A captain"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "How does Nam answer?",
+          "chon": [
+            "Slowly and clearly",
+            "Fast and loud",
+            "In Vietnamese"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What is Nam's weakness?",
+          "chon": [
+            "Football",
+            "Swimming",
+            "His English"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What does Nam do about it?",
+          "chon": [
+            "He practises every day",
+            "Nothing",
+            "He stops studying"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does the teacher like?",
+          "chon": [
+            "A long answer",
+            "An honest answer with a plan",
+            "A funny answer"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "Why do you want to work at sea?",
+          "mau": "I grew up near the sea. I like teamwork, and I want a stable job to help my family."
+        },
+        {
+          "en": "What is your weakness?",
+          "mau": "My English is not very good yet, but I practise every day."
+        },
+        {
+          "en": "What is your dream?",
+          "mau": "My dream is to become an officer."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "Ôn /ʃ/ /s/ /tʃ/ /dʒ/",
+    "vi_sao": "Bốn âm của cả tuần trộn lẫn — như khi nghe thật.",
+    "nhan_a": "từ",
+    "nhan_b": "từ",
+    "am": [
+      {
+        "ky_hieu": "/ʃ/ /s/",
+        "goi_y": "sh: môi chu · s: môi bè",
+        "cach": [
+          "shore — sore",
+          "she — sea"
+        ]
+      },
+      {
+        "ky_hieu": "/tʃ/ /dʒ/",
+        "goi_y": "ch: không rung · j: có rung",
+        "cach": [
+          "cheap — jeep",
+          "Tay đặt lên cổ để kiểm tra"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "ship",
+        "b": "chip",
+        "nghia_a": "con tàu",
+        "nghia_b": "con chip"
+      },
+      {
+        "a": "sea",
+        "b": "she",
+        "nghia_a": "biển",
+        "nghia_b": "cô ấy"
+      },
+      {
+        "a": "cheap",
+        "b": "jeep",
+        "nghia_a": "rẻ",
+        "nghia_b": "xe jeep"
+      },
+      {
+        "a": "sell",
+        "b": "shell",
+        "nghia_a": "bán",
+        "nghia_b": "vỏ sò"
+      },
+      {
+        "a": "wash",
+        "b": "watch",
+        "nghia_a": "rửa",
+        "nghia_b": "xem"
+      },
+      {
+        "a": "sore",
+        "b": "shore",
+        "nghia_a": "đau",
+        "nghia_b": "bờ biển"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "My English is not very good yet, but I practise every day.",
+      "vi": "Tiếng Anh của tôi chưa tốt lắm, nhưng tôi luyện tập mỗi ngày.",
+      "nhan": "Điểm yếu",
+      "luu_y": "Công thức trả lời điểm yếu: nói điểm yếu THẬT + việc đang làm để sửa. Đừng nói 'I have no weakness'."
+    },
+    {
+      "en": "I grew up near the sea. I like teamwork, and I want a stable job to help my family.",
+      "vi": "Tôi lớn lên gần biển. Tôi thích làm việc nhóm, và muốn có công việc ổn định để giúp gia đình.",
+      "nhan": "Động cơ — bản đầy đủ",
+      "luu_y": "Ba lý do, ba nhịp. Ngắt hơi sau mỗi lý do."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Why do you want to work at sea?",
+      "giay": 12,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "What is your weakness?",
+      "giay": 10,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "Thank you. That's an honest answer.",
+      "giay": 0
+    }
+  ]
+}

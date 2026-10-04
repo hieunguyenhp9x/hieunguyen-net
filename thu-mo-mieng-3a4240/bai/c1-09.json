@@ -1,0 +1,342 @@
+{
+  "id": "c1-09",
+  "chang": 1,
+  "tuan": 2,
+  "so": 9,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 2 · Bài 9 — Đánh vần quê và trường",
+  "chu_de": "Bảng chữ cái phiên âm N–Z",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Nam calls the office to register for a training course.",
+      "vi": "Nam gọi điện lên văn phòng để đăng ký một khoá huấn luyện."
+    },
+    {
+      "en": "The officer on the phone asks for his hometown.",
+      "vi": "Người cán bộ qua điện thoại hỏi quê cậu."
+    },
+    {
+      "en": "Nam says, \"Nam Dinh.\"",
+      "vi": "Nam nói: \"Nam Định.\""
+    },
+    {
+      "en": "The line is bad, so he spells it.",
+      "vi": "Đường dây kém, nên cậu đánh vần."
+    },
+    {
+      "en": "\"November, Alfa, Mike. Delta, India, November, Hotel.\"",
+      "vi": "\"November, Alfa, Mike. Delta, India, November, Hotel.\""
+    },
+    {
+      "en": "Then the officer asks for his university.",
+      "vi": "Rồi người cán bộ hỏi tên trường."
+    },
+    {
+      "en": "Nam says the short name: V, M, U.",
+      "vi": "Nam nói tên viết tắt: V, M, U.",
+      "tts": "Nam says the short name. V. M. U."
+    },
+    {
+      "en": "\"Victor, Mike, Uniform.\"",
+      "vi": "\"Victor, Mike, Uniform.\""
+    },
+    {
+      "en": "The officer says, \"Thank you. Everything is clear.\"",
+      "vi": "Người cán bộ nói: \"Cảm ơn. Mọi thứ đã rõ.\""
+    },
+    {
+      "en": "Nam is happy. Now he knows all twenty-six letters.",
+      "vi": "Nam vui lắm. Giờ cậu đã thuộc cả hai mươi sáu chữ cái."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "November",
+      "am": "/nəʊˈvem.bə/",
+      "doc": "nâu-VEM-bờ",
+      "nghia": "chữ N trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Oscar",
+      "am": "/ˈɒs.kə/",
+      "doc": "OS-cờ",
+      "nghia": "chữ O trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Papa",
+      "am": "/pəˈpɑː/",
+      "doc": "pờ-PA",
+      "nghia": "chữ P trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Quebec",
+      "am": "/kəˈbek/",
+      "doc": "kờ-BÉC",
+      "nghia": "chữ Q trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Romeo",
+      "am": "/ˈrəʊ.mi.əʊ/",
+      "doc": "RÂU-mi-âu",
+      "nghia": "chữ R trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Sierra",
+      "am": "/siˈer.ə/",
+      "doc": "xi-E-rờ",
+      "nghia": "chữ S trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Tango",
+      "am": "/ˈtæŋ.ɡəʊ/",
+      "doc": "TENG-gâu",
+      "nghia": "chữ T trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Uniform",
+      "am": "/ˈjuː.nɪ.fɔːm/",
+      "doc": "IU-ni-phom",
+      "nghia": "chữ U trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Victor",
+      "am": "/ˈvɪk.tə/",
+      "doc": "VÍC-tờ",
+      "nghia": "chữ V trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Whiskey",
+      "am": "/ˈwɪs.ki/",
+      "doc": "UÍT-ki",
+      "nghia": "chữ W trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "X-ray",
+      "am": "/ˈeks.reɪ/",
+      "doc": "ÉCX-rây",
+      "nghia": "chữ X trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Yankee",
+      "am": "/ˈjæŋ.ki/",
+      "doc": "IENG-ki",
+      "nghia": "chữ Y trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Zulu",
+      "am": "/ˈzuː.luː/",
+      "doc": "DU-lu",
+      "nghia": "chữ Z trong bảng chữ cái phiên âm"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Does Nam call the office?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the phone line good?",
+          "dap": "no"
+        },
+        {
+          "en": "Does Nam spell his hometown?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is D Delta?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is V Victor?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is U Umbrella?",
+          "dap": "no"
+        },
+        {
+          "en": "Is everything clear in the end?",
+          "dap": "yes"
+        },
+        {
+          "en": "Are there twenty letters in the alphabet?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Why does Nam spell his hometown?",
+          "chon": [
+            "The line is bad",
+            "The officer is angry",
+            "He likes spelling"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What is V in the phonetic alphabet?",
+          "chon": [
+            "Video",
+            "Victor",
+            "Victory"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What is U?",
+          "chon": [
+            "Union",
+            "Uncle",
+            "Uniform"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What is the short name of his university?",
+          "chon": [
+            "VMU",
+            "VNU",
+            "HMU"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "How many letters are there?",
+          "chon": [
+            "Twenty-four",
+            "Twenty-six",
+            "Twenty-eight"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "How do you spell your hometown?",
+          "mau": "Nam Dinh. November, Alfa, Mike. Delta, India, November, Hotel."
+        },
+        {
+          "en": "What is S in the phonetic alphabet?",
+          "mau": "S is Sierra."
+        },
+        {
+          "en": "What is the short name of your university?",
+          "mau": "V, M, U. Victor, Mike, Uniform."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "Chữ cái dễ nhầm (2)",
+    "vi_sao": "Qua bộ đàm rè, P và B, T và D gần như không phân biệt được. Vì thế mới có Papa, Bravo, Tango, Delta.",
+    "nhan_a": "chữ",
+    "nhan_b": "chữ",
+    "am": [
+      {
+        "ky_hieu": "P – B · T – D",
+        "goi_y": "P, T bật hơi mạnh · B, D không bật hơi",
+        "cach": [
+          "Đặt tay trước miệng",
+          "Đọc P: thấy luồng hơi phả vào tay",
+          "Đọc B: gần như không có hơi",
+          "T và D cũng vậy"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "P",
+        "b": "B",
+        "nghia_a": "pi",
+        "nghia_b": "bi",
+        "tts_a": "pee",
+        "tts_b": "bee"
+      },
+      {
+        "a": "T",
+        "b": "D",
+        "nghia_a": "ti",
+        "nghia_b": "đi",
+        "tts_a": "tee",
+        "tts_b": "dee"
+      },
+      {
+        "a": "S",
+        "b": "X",
+        "nghia_a": "ét-x",
+        "nghia_b": "ếch-x",
+        "tts_a": "ess",
+        "tts_b": "ex"
+      },
+      {
+        "a": "U",
+        "b": "Q",
+        "nghia_a": "iu",
+        "nghia_b": "kiu",
+        "tts_a": "you",
+        "tts_b": "queue"
+      },
+      {
+        "a": "N",
+        "b": "L",
+        "nghia_a": "en",
+        "nghia_b": "eo",
+        "tts_a": "en",
+        "tts_b": "el"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "Nam Dinh. November, Alfa, Mike. Delta, India, November, Hotel.",
+      "vi": "Nam Định: November, Alfa, Mike — Delta, India, November, Hotel.",
+      "nhan": "Đánh vần quê",
+      "luu_y": "Đánh vần quê của CHÍNH bạn. Ngắt nhịp giữa các chữ."
+    },
+    {
+      "en": "V, M, U. Victor, Mike, Uniform.",
+      "vi": "VMU: Victor, Mike, Uniform.",
+      "nhan": "Đánh vần trường",
+      "luu_y": "Thay tên viết tắt trường bạn."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Please spell your hometown.",
+      "giay": 12,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "And the short name of your university?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Thank you. Everything is clear.",
+      "giay": 0
+    }
+  ]
+}

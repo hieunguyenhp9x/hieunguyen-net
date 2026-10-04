@@ -1,0 +1,359 @@
+{
+  "id": "c1-02",
+  "chang": 1,
+  "tuan": 1,
+  "so": 2,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 1 · Bài 2 — Đánh vần tên của bạn",
+  "chu_de": "Bảng chữ cái phiên âm A–M · họ tên đầy đủ",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Nam goes to the office of the university.",
+      "vi": "Nam đến văn phòng của trường."
+    },
+    {
+      "en": "A woman asks, \"What is your full name?\"",
+      "vi": "Một cô hỏi: \"Họ tên đầy đủ của em là gì?\""
+    },
+    {
+      "en": "Nam says, \"My full name is Nguyen Van Nam.\"",
+      "vi": "Nam nói: \"Họ tên đầy đủ của em là Nguyễn Văn Nam.\"",
+      "tts": "Nam says: My full name is Nwin Van Nam."
+    },
+    {
+      "en": "She asks, \"How do you spell Nam?\"",
+      "vi": "Cô hỏi: \"Chữ Nam đánh vần thế nào?\""
+    },
+    {
+      "en": "Nam says, \"N, A, M.\"",
+      "vi": "Nam nói: \"N, A, M.\"",
+      "tts": "Nam says: N. A. M."
+    },
+    {
+      "en": "She cannot hear him well. The room is noisy.",
+      "vi": "Cô nghe không rõ. Căn phòng ồn ào."
+    },
+    {
+      "en": "So Nam uses the phonetic alphabet.",
+      "vi": "Vì vậy Nam dùng bảng chữ cái phiên âm."
+    },
+    {
+      "en": "He says, \"November, Alfa, Mike.\"",
+      "vi": "Cậu nói: \"November, Alfa, Mike.\""
+    },
+    {
+      "en": "Now she understands.",
+      "vi": "Bây giờ cô hiểu."
+    },
+    {
+      "en": "On ships, people use this alphabet on the radio.",
+      "vi": "Trên tàu, người ta dùng bảng chữ cái này khi nói qua bộ đàm."
+    },
+    {
+      "en": "Every letter has a word: A is Alfa, B is Bravo, C is Charlie.",
+      "vi": "Mỗi chữ cái có một từ: A là Alfa, B là Bravo, C là Charlie.",
+      "tts": "Every letter has a word. A is Alfa. B is Bravo. C is Charlie."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "Alfa",
+      "am": "/ˈæl.fə/",
+      "doc": "AN-phờ",
+      "nghia": "chữ A trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Bravo",
+      "am": "/ˈbrɑː.vəʊ/",
+      "doc": "BRA-vâu",
+      "nghia": "chữ B trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Charlie",
+      "am": "/ˈtʃɑː.li/",
+      "doc": "CHA-li",
+      "nghia": "chữ C trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Delta",
+      "am": "/ˈdel.tə/",
+      "doc": "ĐEN-tờ",
+      "nghia": "chữ D trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Echo",
+      "am": "/ˈek.əʊ/",
+      "doc": "É-câu",
+      "nghia": "chữ E trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Foxtrot",
+      "am": "/ˈfɒks.trɒt/",
+      "doc": "PHOX-trot",
+      "nghia": "chữ F trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Golf",
+      "am": "/ɡɒlf/",
+      "doc": "GOLF",
+      "nghia": "chữ G trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Hotel",
+      "am": "/həʊˈtel/",
+      "doc": "hâu-TEL",
+      "nghia": "chữ H trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "India",
+      "am": "/ˈɪn.di.ə/",
+      "doc": "IN-đi-ờ",
+      "nghia": "chữ I trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Juliett",
+      "am": "/ˈdʒuː.li.et/",
+      "doc": "DJU-li-ét",
+      "nghia": "chữ J trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Kilo",
+      "am": "/ˈkiː.ləʊ/",
+      "doc": "KI-lâu",
+      "nghia": "chữ K trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Lima",
+      "am": "/ˈliː.mə/",
+      "doc": "LI-mờ",
+      "nghia": "chữ L trong bảng chữ cái phiên âm"
+    },
+    {
+      "tu": "Mike",
+      "am": "/maɪk/",
+      "doc": "MAI-k",
+      "nghia": "chữ M trong bảng chữ cái phiên âm"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Does Nam go to the office?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is his full name Nguyen Van Nam?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the room quiet?",
+          "dap": "no"
+        },
+        {
+          "en": "Can the woman hear him well?",
+          "dap": "no"
+        },
+        {
+          "en": "Does Nam use the phonetic alphabet?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is M Mike?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is A Bravo?",
+          "dap": "no"
+        },
+        {
+          "en": "Do people use this alphabet on the radio?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Where does Nam go?",
+          "chon": [
+            "To the office",
+            "To the ship",
+            "To the canteen"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Why can't she hear well?",
+          "chon": [
+            "She is tired",
+            "The room is noisy",
+            "Nam speaks fast"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What is A in the phonetic alphabet?",
+          "chon": [
+            "Apple",
+            "Anna",
+            "Alfa"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What is M?",
+          "chon": [
+            "Mike",
+            "Mary",
+            "Mother"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Where do people use this alphabet?",
+          "chon": [
+            "In books",
+            "On the radio",
+            "On TV"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What is your full name?",
+          "mau": "My full name is Nguyen Van Nam."
+        },
+        {
+          "en": "How do you spell your first name?",
+          "mau": "Nam. November, Alfa, Mike."
+        },
+        {
+          "en": "What is B in the phonetic alphabet?",
+          "mau": "B is Bravo."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "Chữ cái dễ đọc nhầm",
+    "vi_sao": "Đánh vần tên, số hiệu, mã cảng mà đọc nhầm chữ cái là sai hồ sơ. A/E, E/I, G/J là 3 cặp người Việt nhầm nhiều nhất.",
+    "nhan_a": "chữ",
+    "nhan_b": "chữ",
+    "am": [
+      {
+        "ky_hieu": "A – E – I",
+        "goi_y": "A = 'ây' · E = 'i' · I = 'ai'",
+        "cach": [
+          "A đọc như 'ây' (không phải 'a')",
+          "E đọc như 'i' kéo dài",
+          "I đọc như 'ai'",
+          "Khi đọc qua bộ đàm: dùng Alfa, Echo, India cho chắc"
+        ]
+      },
+      {
+        "ky_hieu": "G – J",
+        "goi_y": "G = 'dji' · J = 'djây'",
+        "cach": [
+          "G đọc như 'dji' (không phải 'gi' kiểu miền Bắc)",
+          "J đọc như 'djây'",
+          "Hai chữ cùng mở đầu bằng âm 'dʒ'",
+          "Khác nhau ở nguyên âm cuối: 'i' và 'ây'"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "A",
+        "b": "E",
+        "nghia_a": "ây",
+        "nghia_b": "i",
+        "tts_a": "ay",
+        "tts_b": "ee"
+      },
+      {
+        "a": "E",
+        "b": "I",
+        "nghia_a": "i",
+        "nghia_b": "ai",
+        "tts_a": "ee",
+        "tts_b": "eye"
+      },
+      {
+        "a": "G",
+        "b": "J",
+        "nghia_a": "dji",
+        "nghia_b": "djây",
+        "tts_a": "gee",
+        "tts_b": "jay"
+      },
+      {
+        "a": "B",
+        "b": "V",
+        "nghia_a": "bi",
+        "nghia_b": "vi",
+        "tts_a": "bee",
+        "tts_b": "vee"
+      },
+      {
+        "a": "M",
+        "b": "N",
+        "nghia_a": "em",
+        "nghia_b": "en",
+        "tts_a": "em",
+        "tts_b": "en"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "My full name is Nguyen Van Nam.",
+      "vi": "Họ tên đầy đủ của tôi là Nguyễn Văn Nam.",
+      "nhan": "Họ tên",
+      "luu_y": "Thay tên bạn. Nói họ tên theo đúng thứ tự trên hộ chiếu.",
+      "tts": "My full name is Nwin Van Nam."
+    },
+    {
+      "en": "Nam. November, Alfa, Mike.",
+      "vi": "Nam: November, Alfa, Mike.",
+      "nhan": "Đánh vần",
+      "luu_y": "Tập đánh vần TÊN và HỌ của chính bạn bằng bảng chữ cái phiên âm."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What is your full name?",
+      "giay": 7,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "How do you spell your first name?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Thank you.",
+      "giay": 0
+    }
+  ]
+}

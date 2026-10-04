@@ -126,6 +126,10 @@
   .off .btn{padding:8px 12px;min-height:40px;font-size:14px}
   .mang{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--ok);margin-right:6px;vertical-align:middle}
   .mang.mat{background:var(--bad)}
+  .chonbai{display:flex;align-items:center;gap:8px;margin-top:10px}
+  .chonbai label{font-size:13px;opacity:.8}
+  .chonbai select{flex:1;min-width:0;font:inherit;font-size:14px;padding:7px 8px;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff}
+  .chonbai select option{color:#14212e}
   .canh{font-size:14px;background:var(--bad-soft);color:var(--bad);border-radius:10px;padding:10px;display:none}
 </style>
 </head>
@@ -135,6 +139,7 @@
   <div class="k">Mở Miệng · Phỏng vấn học bổng cadet boong</div>
   <h1 id="tieuDe">Bài 1</h1>
   <div class="cd" id="chuDe"></div>
+  <div class="chonbai"><label for="chonBai">Bài</label><select id="chonBai" aria-label="Chọn bài học"></select></div>
   <div class="muc" id="mucChon">
     <button data-m="1"><b>Mức 1</b>Mất gốc</button>
     <button data-m="2"><b>Mức 2</b>Nghe chậm được</button>
@@ -237,7 +242,7 @@
   <!-- KẾT QUẢ -->
   <section id="s-ketqua">
     <h2>Kết quả bài hôm nay</h2>
-    <div class="card"><div class="so" id="kqSo"></div></div>
+    <div class="card"><div class="so" id="kqSo"></div><div class="row" id="kqTiep" style="margin-top:12px"></div></div>
     <div class="card">
       <h2 style="font-size:16px">Bảng xếp hạng tuần <span class="tag">dữ liệu minh hoạ</span></h2>
       <p class="hd" style="margin:0 0 6px">Xếp theo <b>hành vi</b>, không xếp theo "giỏi hay dở": số ngày học trong tuần, rồi tới điểm phản xạ. Chỉ hiện biệt danh.</p>
@@ -258,7 +263,10 @@ const $ = s => document.querySelector(s);
 const $$ = s => [...document.querySelectorAll(s)];
 const AU = new Audio();
 let BAI, KT = {}, M = +(load('muc') || 1), DIR = '';
-const KQ = load('kq') || {};
+const qs = new URLSearchParams(location.search);
+const BID = String(qs.get('bai') || load('bai') || 'c1-01').replace(/[^a-z0-9-]/g, '');
+const KQ = load('kq-' + BID) || {};
+let MUC = [];
 
 function load(k){ try { return JSON.parse(localStorage.getItem('mm-' + k)); } catch(e){ return null; } }
 function save(k, v){ try { localStorage.setItem('mm-' + k, JSON.stringify(v)); } catch(e){} }
@@ -295,14 +303,19 @@ function chayBar(el, giay, xong){
   return () => { huy = true; clearTimeout(hen); el.style.width = '0%'; };
 }
 
-function danhDau(buoc, chu){ KQ[buoc] = chu; save('kq', KQ); veDau(); }
+function danhDau(buoc, chu){ KQ[buoc] = chu; save('kq-' + BID, KQ); veDau(); }
 function veDau(){
   ['nghe','phanxa','phatam','caumau','doidap'].forEach(b => { $('#v-' + b).textContent = KQ[b] ? '✓' : ''; });
 }
 
 // ---------- KHỞI ĐỘNG ----------
-fetch('bai-01.json').then(r => r.json()).then(d => {
-  BAI = d; DIR = 'audio/' + d.id + '/';
+fetch('muc-luc.json').then(r => r.json()).then(m => {
+  MUC = m;
+  $('#chonBai').innerHTML = m.map(x => `<option value="${x.id}"${x.id === BID ? ' selected' : ''}>Tuần ${x.tuan} · ${x.so ? 'Bài ' + x.so + ' — ' : ''}${esc(x.ten)}</option>`).join('');
+}).catch(() => {});
+$('#chonBai').onchange = e => { save('bai', e.target.value); location.search = '?bai=' + e.target.value; };
+fetch('bai/' + BID + '.json').then(r => { if (!r.ok) throw 0; return r.json(); }).catch(() => { save('bai', 'c1-01'); return fetch('bai/c1-01.json').then(r => r.json()); }).then(d => {
+  BAI = d; DIR = 'audio/' + d.id + '/'; save('bai', d.id);
   $('#tieuDe').textContent = d.tieu_de;
   $('#chuDe').textContent = d.chu_de;
   fetch(DIR + 'kich-thuoc.json').then(r => r.json()).then(k => { KT = k; veMang(); capNhatOff(); }).catch(() => {});
@@ -358,7 +371,7 @@ function dungNghe(){
     }
     danhCau(-1); dungNghe2();
     if (het){
-      const lan = (load('lan-nghe') || 0) + 1; save('lan-nghe', lan);
+      const lan = (load('lan-nghe-' + BID) || 0) + 1; save('lan-nghe-' + BID, lan);
       if (lan >= 2) danhDau('nghe', 'Nghe ' + lan + ' lượt');
     }
   };
@@ -454,8 +467,8 @@ function dungPhatAm(){
   $('#paMoi').innerHTML = p.am.map(a => `<div class="card"><div class="ky">${esc(a.ky_hieu)}</div>${MOI[a.ky_hieu] || ''}
     <div style="font-size:13px;color:var(--mute)">${esc(a.goi_y)}</div><ol>${a.cach.map(x => `<li>${esc(x)}</li>`).join('')}</ol></div>`).join('');
   $('#paCapTu').innerHTML = p.cap_tu.map((c, i) =>
-    `<button data-f="pa-${pad(i)}-a.mp3"><b>🔊 ${esc(c.a)}</b><small>/ʃ/ · ${esc(c.nghia_a)}</small></button>
-     <button data-f="pa-${pad(i)}-b.mp3"><b>🔊 ${esc(c.b)}</b><small>/s/ · ${esc(c.nghia_b)}</small></button>`).join('');
+    `<button data-f="pa-${pad(i)}-a.mp3"><b>🔊 ${esc(c.a)}</b><small>${esc(p.nhan_a || '')} · ${esc(c.nghia_a)}</small></button>
+     <button data-f="pa-${pad(i)}-b.mp3"><b>🔊 ${esc(c.b)}</b><small>${esc(p.nhan_b || '')} · ${esc(c.nghia_b)}</small></button>`).join('');
   $$('#paCapTu button').forEach(b => b.onclick = () => phat(b.dataset.f));
   $('#ptBat').onclick = chayTestTai;
 }
@@ -506,7 +519,7 @@ async function ghi(giay, onBat){
 }
 
 // ---------- ④ CÂU MẪU ----------
-const demCM = load('dem-cm') || {};
+const demCM = load('dem-cm-' + BID) || {};
 function dungCauMau(){
   $('#cauMau').innerHTML = BAI.cau_mau.map((c, i) => `<div class="card cm" data-i="${i}">
     <span class="nhan">${esc(c.nhan)}</span>
@@ -532,7 +545,7 @@ function dungCauMau(){
       nut('ghi').textContent = '⏹ Dừng';
       blob = await dangGhi.xong; dangGhi = null;
       nut('ghi').textContent = '⏺ Ghi âm'; nut('lai').disabled = false;
-      demCM[i] = (demCM[i] || 0) + 1; save('dem-cm', demCM);
+      demCM[i] = (demCM[i] || 0) + 1; save('dem-cm-' + BID, demCM);
       el.querySelector('[data-dem]').textContent = demCM[i];
       if (BAI.cau_mau.every((_, k) => (demCM[k] || 0) >= 5)) danhDau('caumau', 'Thuộc ' + BAI.cau_mau.length + ' câu');
       phatBlob(blob);
@@ -588,7 +601,10 @@ function veKetQua(){
     <div><b>${xong}/5</b><span>bước đã xong</span></div>
     <div><b>${tuan}/7</b><span>ngày học tuần này</span></div>
     <div><b>${KQ.px ? KQ.px.dung + '/' + KQ.px.n : '—'}</b><span>phản xạ (mức ${KQ.px ? KQ.px.muc : M})</span></div>
-    <div><b>${KQ.pt ? KQ.pt.dung + '/' + KQ.pt.n : '—'}</b><span>tai /ʃ/–/s/</span></div>`;
+    <div><b>${KQ.pt ? KQ.pt.dung + '/' + KQ.pt.n : '—'}</b><span>tai: ${esc(BAI.phat_am.cap)}</span></div>`;
+  const i = MUC.findIndex(x => x.id === BAI.id), tiep = MUC[i + 1];
+  $('#kqTiep').innerHTML = tiep ? `<button class="btn" id="kqTiepNut">Bài tiếp: ${esc(tiep.ten)} ›</button>` : '';
+  if (tiep) $('#kqTiepNut').onclick = () => { save('bai', tiep.id); location.search = '?bai=' + tiep.id; };
   const ds = [['SongLam_VMU', 6, 92], ['Captain2030', 5, 88], ['Tung.deck', 5, 74], ['Bạn', tuan, px], ['MinhHP', 3, 81], ['Sailor_K66', 2, 60]]
     .sort((a, b) => b[1] - a[1] || b[2] - a[2]);
   $('#bxh').innerHTML = '<tr><th>#</th><th>Biệt danh</th><th>Ngày/7</th><th>Phản xạ</th></tr>' +
@@ -642,6 +658,7 @@ $('#offTai').onclick = async () => {
     }
     xong++; b.textContent = `Đang tải ${Math.round(xong / ds.length * 100)}%`;
   }
+  try { await c.addAll(['bai/' + BAI.id + '.json', DIR + 'kich-thuoc.json', 'muc-luc.json']); } catch(e){ loi++; }
   if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
   if (loi) b.textContent = `Lỗi ${loi} file — bấm tải lại`;
   b.disabled = false; capNhatOff();

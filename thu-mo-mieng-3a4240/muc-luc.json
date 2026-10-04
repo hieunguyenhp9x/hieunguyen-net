@@ -1,0 +1,149 @@
+[
+ {
+  "id": "c1-01",
+  "chang": 1,
+  "tuan": 1,
+  "so": 1,
+  "ten": "Ngày khai giảng"
+ },
+ {
+  "id": "c1-02",
+  "chang": 1,
+  "tuan": 1,
+  "so": 2,
+  "ten": "Đánh vần tên của bạn"
+ },
+ {
+  "id": "c1-03",
+  "chang": 1,
+  "tuan": 1,
+  "so": 3,
+  "ten": "Quê của Nam"
+ },
+ {
+  "id": "c1-04",
+  "chang": 1,
+  "tuan": 1,
+  "so": 4,
+  "ten": "Trường và ngành học"
+ },
+ {
+  "id": "c1-05",
+  "chang": 1,
+  "tuan": 1,
+  "so": 5,
+  "ten": "Gặp bạn mới"
+ },
+ {
+  "id": "c1-06",
+  "chang": 1,
+  "tuan": 2,
+  "so": 6,
+  "ten": "Gia đình Nam"
+ },
+ {
+  "id": "c1-07",
+  "chang": 1,
+  "tuan": 2,
+  "so": 7,
+  "ten": "Bố mẹ làm nghề gì"
+ },
+ {
+  "id": "c1-08",
+  "chang": 1,
+  "tuan": 2,
+  "so": 8,
+  "ten": "Số và năm"
+ },
+ {
+  "id": "c1-09",
+  "chang": 1,
+  "tuan": 2,
+  "so": 9,
+  "ten": "Đánh vần quê và trường"
+ },
+ {
+  "id": "c1-10",
+  "chang": 1,
+  "tuan": 2,
+  "so": 10,
+  "ten": "Bố mẹ nghĩ gì về nghề biển"
+ },
+ {
+  "id": "c1-11",
+  "chang": 1,
+  "tuan": 3,
+  "so": 11,
+  "ten": "Vì sao muốn đi biển"
+ },
+ {
+  "id": "c1-12",
+  "chang": 1,
+  "tuan": 3,
+  "so": 12,
+  "ten": "Vì sao chọn boong, không chọn máy"
+ },
+ {
+  "id": "c1-13",
+  "chang": 1,
+  "tuan": 3,
+  "so": 13,
+  "ten": "Sở thích"
+ },
+ {
+  "id": "c1-14",
+  "chang": 1,
+  "tuan": 3,
+  "so": 14,
+  "ten": "Giữ sức khoẻ"
+ },
+ {
+  "id": "c1-15",
+  "chang": 1,
+  "tuan": 3,
+  "so": 15,
+  "ten": "Trả lời thầy về nghề biển"
+ },
+ {
+  "id": "c1-16",
+  "chang": 1,
+  "tuan": 4,
+  "so": 16,
+  "ten": "Một ngày ở trường"
+ },
+ {
+  "id": "c1-17",
+  "chang": 1,
+  "tuan": 4,
+  "so": 17,
+  "ten": "Các môn học"
+ },
+ {
+  "id": "c1-18",
+  "chang": 1,
+  "tuan": 4,
+  "so": 18,
+  "ten": "Lên tàu huấn luyện"
+ },
+ {
+  "id": "c1-19",
+  "chang": 1,
+  "tuan": 4,
+  "so": 19,
+  "ten": "Bài học trên tàu huấn luyện"
+ },
+ {
+  "id": "c1-20",
+  "chang": 1,
+  "tuan": 4,
+  "so": 20,
+  "ten": "Nam tập giới thiệu bản thân"
+ },
+ {
+  "id": "bai-01",
+  "chang": 3,
+  "tuan": 10,
+  "so": 0,
+  "ten": "Bài mẫu — Buổi phỏng vấn của Nam"
+ }
+]

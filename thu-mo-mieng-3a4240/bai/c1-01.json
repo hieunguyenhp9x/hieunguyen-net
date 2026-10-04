@@ -1,0 +1,293 @@
+{
+  "id": "c1-01",
+  "chang": 1,
+  "tuan": 1,
+  "so": 1,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 1 · Bài 1 — Ngày khai giảng",
+  "chu_de": "Tên · tuổi · chào hỏi",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Good morning. My name is Nam.",
+      "vi": "Chào buổi sáng. Tôi tên là Nam."
+    },
+    {
+      "en": "I am twenty-one years old.",
+      "vi": "Tôi hai mươi mốt tuổi."
+    },
+    {
+      "en": "Today is the first day of the new school year.",
+      "vi": "Hôm nay là ngày khai giảng năm học mới."
+    },
+    {
+      "en": "The university is big. There are many students here.",
+      "vi": "Trường rất rộng. Ở đây có rất nhiều sinh viên."
+    },
+    {
+      "en": "I see a ship on a poster. I see two ships in the photo.",
+      "vi": "Tôi thấy một con tàu trên tấm áp phích. Tôi thấy hai con tàu trong bức ảnh."
+    },
+    {
+      "en": "A new teacher stands at the door.",
+      "vi": "Một thầy giáo mới đứng ở cửa."
+    },
+    {
+      "en": "He says, \"Good morning. What is your name?\"",
+      "vi": "Thầy nói: \"Chào buổi sáng. Em tên là gì?\""
+    },
+    {
+      "en": "I say, \"Good morning, Sir. My name is Nam.\"",
+      "vi": "Tôi nói: \"Chào thầy ạ. Em tên là Nam.\""
+    },
+    {
+      "en": "He asks, \"How old are you?\"",
+      "vi": "Thầy hỏi: \"Em bao nhiêu tuổi?\""
+    },
+    {
+      "en": "I say, \"I am twenty-one years old.\"",
+      "vi": "Tôi nói: \"Em hai mươi mốt tuổi.\""
+    },
+    {
+      "en": "He smiles and says, \"Welcome back.\"",
+      "vi": "Thầy mỉm cười và nói: \"Chào mừng em quay lại trường.\""
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "Good morning",
+      "am": "/ɡʊd ˈmɔː.nɪŋ/",
+      "doc": "gút MO-ninh",
+      "nghia": "chào buổi sáng"
+    },
+    {
+      "tu": "Sir",
+      "am": "/sɜː/",
+      "doc": "xơ",
+      "nghia": "thưa ông/thầy — dùng khi nói với người phỏng vấn nam"
+    },
+    {
+      "tu": "maritime",
+      "am": "/ˈmær.ɪ.taɪm/",
+      "doc": "ME-ri-tai-m",
+      "nghia": "hàng hải"
+    },
+    {
+      "tu": "university",
+      "am": "/ˌjuː.nɪˈvɜː.sə.ti/",
+      "doc": "iu-ni-VƠ-xi-ti",
+      "nghia": "trường đại học"
+    },
+    {
+      "tu": "ship / ships",
+      "am": "/ʃɪp/ /ʃɪps/",
+      "doc": "SHIP / SHIP-x",
+      "nghia": "một con tàu / nhiều con tàu — nhớ âm /s/ ở cuối"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Is his name Nam?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is Nam twenty years old?",
+          "dap": "no"
+        },
+        {
+          "en": "Is today the first day of the school year?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the university small?",
+          "dap": "no"
+        },
+        {
+          "en": "Are there many students?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam see three ships in the photo?",
+          "dap": "no"
+        },
+        {
+          "en": "Is the teacher at the door?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the teacher say \"Welcome back\"?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What is his name?",
+          "chon": [
+            "Nam",
+            "Minh",
+            "Long"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "How old is Nam?",
+          "chon": [
+            "Twenty",
+            "Twenty-one",
+            "Twenty-two"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "Where is Nam?",
+          "chon": [
+            "At a hospital",
+            "At a hotel",
+            "At a maritime university"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "How many ships are in the photo?",
+          "chon": [
+            "Two",
+            "One",
+            "Four"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Who is at the door?",
+          "chon": [
+            "A captain",
+            "A teacher",
+            "A student"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What is your name?",
+          "mau": "My name is Nam."
+        },
+        {
+          "en": "How old are you?",
+          "mau": "I am twenty-one years old."
+        },
+        {
+          "en": "Good morning. How are you today?",
+          "mau": "Good morning, Sir. I am fine, thank you."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/s/ cuối — một tàu hay nhiều tàu",
+    "vi_sao": "Người Việt hay nuốt âm /s/ ở cuối từ. \"Two ship\" nghe như sai ngữ pháp — hội đồng nghe là biết ngay người học tiếng Anh qua loa.",
+    "nhan_a": "nhiều (có /s/)",
+    "nhan_b": "một (không /s/)",
+    "am": [
+      {
+        "ky_hieu": "/s/ cuối",
+        "goi_y": "Kết thúc bằng tiếng xì nhẹ: ships-sss",
+        "cach": [
+          "Nói hết từ như bình thường",
+          "Giữ lưỡi sát răng trên",
+          "Thổi nhẹ ra một tiếng sss ngắn",
+          "Đừng thêm nguyên âm: 'ships', không phải 'síp-xơ'"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "ships",
+        "b": "ship",
+        "nghia_a": "nhiều tàu",
+        "nghia_b": "một tàu"
+      },
+      {
+        "a": "boats",
+        "b": "boat",
+        "nghia_a": "nhiều thuyền",
+        "nghia_b": "một thuyền"
+      },
+      {
+        "a": "ropes",
+        "b": "rope",
+        "nghia_a": "nhiều dây",
+        "nghia_b": "một dây"
+      },
+      {
+        "a": "decks",
+        "b": "deck",
+        "nghia_a": "nhiều boong",
+        "nghia_b": "một boong"
+      },
+      {
+        "a": "cadets",
+        "b": "cadet",
+        "nghia_a": "nhiều thực tập sinh",
+        "nghia_b": "một thực tập sinh"
+      },
+      {
+        "a": "maps",
+        "b": "map",
+        "nghia_a": "nhiều bản đồ",
+        "nghia_b": "một bản đồ"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "Good morning, Sir. My name is Nam.",
+      "vi": "Chào thầy/ông ạ. Tôi tên là Nam.",
+      "nhan": "Chào hỏi",
+      "luu_y": "Thay tên bạn vào. Luôn chào trước khi trả lời câu đầu tiên. Nhấn: good MOR-ning."
+    },
+    {
+      "en": "I am twenty-one years old.",
+      "vi": "Tôi hai mươi mốt tuổi.",
+      "nhan": "Tuổi",
+      "luu_y": "Thay tuổi bạn. Nói rõ âm /z/ cuối của 'years'."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Good morning. What is your name?",
+      "giay": 7,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "How old are you?",
+      "giay": 6,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Thank you. Nice to meet you.",
+      "giay": 0
+    }
+  ]
+}

@@ -1,0 +1,290 @@
+{
+  "id": "c1-03",
+  "chang": 1,
+  "tuan": 1,
+  "so": 3,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 1 · Bài 3 — Quê của Nam",
+  "chu_de": "Quê quán · miền Bắc, miền Trung, miền Nam",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "I am from Nam Dinh.",
+      "vi": "Tôi đến từ Nam Định."
+    },
+    {
+      "en": "Nam Dinh is in the north of Vietnam.",
+      "vi": "Nam Định ở miền Bắc Việt Nam."
+    },
+    {
+      "en": "My hometown is near the sea.",
+      "vi": "Quê tôi ở gần biển."
+    },
+    {
+      "en": "There is a small port there.",
+      "vi": "Ở đó có một cảng nhỏ."
+    },
+    {
+      "en": "When I am at home, I see the white lights of the boats at night.",
+      "vi": "Mỗi lần về quê, tôi thấy ánh đèn trắng của các con thuyền vào ban đêm."
+    },
+    {
+      "en": "The boats go out at night and come back in the morning.",
+      "vi": "Thuyền ra khơi vào ban đêm và trở về vào buổi sáng."
+    },
+    {
+      "en": "My hometown is about eighty kilometres from Hai Phong.",
+      "vi": "Quê tôi cách Hải Phòng khoảng tám mươi cây số."
+    },
+    {
+      "en": "My university is in Hai Phong.",
+      "vi": "Trường đại học của tôi ở Hải Phòng."
+    },
+    {
+      "en": "I go home by bus. It takes about two hours.",
+      "vi": "Tôi về quê bằng xe buýt. Mất khoảng hai tiếng."
+    },
+    {
+      "en": "I love my hometown and I love the sea.",
+      "vi": "Tôi yêu quê mình và tôi yêu biển."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "hometown",
+      "am": "/ˈhəʊm.taʊn/",
+      "doc": "HÂUM-tao-n",
+      "nghia": "quê nhà"
+    },
+    {
+      "tu": "province",
+      "am": "/ˈprɒv.ɪns/",
+      "doc": "PRO-vin-x",
+      "nghia": "tỉnh"
+    },
+    {
+      "tu": "north",
+      "am": "/nɔːθ/",
+      "doc": "no-th",
+      "nghia": "miền Bắc · central = miền Trung · south = miền Nam"
+    },
+    {
+      "tu": "port",
+      "am": "/pɔːt/",
+      "doc": "pót",
+      "nghia": "cảng — nhớ âm /t/ ở cuối"
+    },
+    {
+      "tu": "near",
+      "am": "/nɪə/",
+      "doc": "nia",
+      "nghia": "gần"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Is Nam from Nam Dinh?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is Nam Dinh in the south of Vietnam?",
+          "dap": "no"
+        },
+        {
+          "en": "Is his hometown near the sea?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is there a big port in his hometown?",
+          "dap": "no"
+        },
+        {
+          "en": "Do the boats go out at night?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is his university in Hanoi?",
+          "dap": "no"
+        },
+        {
+          "en": "Does Nam go home by bus?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam love the sea?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Where is Nam from?",
+          "chon": [
+            "Hai Phong",
+            "Nam Dinh",
+            "Da Nang"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "Where is Nam Dinh?",
+          "chon": [
+            "In the north",
+            "In central Vietnam",
+            "In the south"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What colour are the lights of the boats?",
+          "chon": [
+            "Red",
+            "Green",
+            "White"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "Where is his university?",
+          "chon": [
+            "In Hai Phong",
+            "In Nam Dinh",
+            "In Hanoi"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "How long is the bus trip?",
+          "chon": [
+            "One hour",
+            "About two hours",
+            "Five hours"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "Where are you from?",
+          "mau": "I am from Nam Dinh, in the north of Vietnam."
+        },
+        {
+          "en": "Is your hometown near the sea?",
+          "mau": "Yes, it is. There is a small port there."
+        },
+        {
+          "en": "Where is your university?",
+          "mau": "My university is in Hai Phong."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/t/ cuối",
+    "vi_sao": "Bỏ âm /t/ cuối thì \"port\" (cảng) thành \"paw\" (chân thú), \"eight\" (số 8) thành chữ \"A\". Trên tàu, đọc sai số là chuyện lớn.",
+    "nhan_a": "có /t/",
+    "nhan_b": "không /t/",
+    "am": [
+      {
+        "ky_hieu": "/t/ cuối",
+        "goi_y": "Chặn hơi ở cuối: por-t",
+        "cach": [
+          "Đầu lưỡi chạm lợi răng trên",
+          "Chặn hơi lại một nhịp",
+          "Thả ra rất nhẹ — nghe được tiếng 't' khẽ",
+          "Không đọc thành 'tờ'"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "eight",
+        "b": "A",
+        "nghia_a": "số 8",
+        "nghia_b": "chữ A",
+        "tts_b": "ay"
+      },
+      {
+        "a": "port",
+        "b": "paw",
+        "nghia_a": "cảng",
+        "nghia_b": "chân thú"
+      },
+      {
+        "a": "seat",
+        "b": "sea",
+        "nghia_a": "chỗ ngồi",
+        "nghia_b": "biển"
+      },
+      {
+        "a": "white",
+        "b": "why",
+        "nghia_a": "màu trắng",
+        "nghia_b": "tại sao"
+      },
+      {
+        "a": "late",
+        "b": "lay",
+        "nghia_a": "muộn",
+        "nghia_b": "đặt xuống"
+      },
+      {
+        "a": "wait",
+        "b": "way",
+        "nghia_a": "chờ",
+        "nghia_b": "đường"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "I am from Nam Dinh, in the north of Vietnam.",
+      "vi": "Tôi đến từ Nam Định, ở miền Bắc Việt Nam.",
+      "nhan": "Quê quán",
+      "luu_y": "Thay quê bạn: in the north of Vietnam / in central Vietnam / in the south of Vietnam."
+    },
+    {
+      "en": "My hometown is near the sea.",
+      "vi": "Quê tôi ở gần biển.",
+      "nhan": "Quê gần biển",
+      "luu_y": "Nếu quê bạn không gần biển, bỏ câu này. Nhấn: HOME-town."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Where are you from?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "Is your hometown near the sea?",
+      "giay": 6,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "I see. Thank you.",
+      "giay": 0
+    }
+  ]
+}

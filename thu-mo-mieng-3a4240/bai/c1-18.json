@@ -1,0 +1,296 @@
+{
+  "id": "c1-18",
+  "chang": 1,
+  "tuan": 4,
+  "so": 18,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 4 · Bài 18 — Lên tàu huấn luyện",
+  "chu_de": "Câu hỏi số 10: Have you been on a ship before?",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Last summer, Nam had two weeks of training on the university's training ship.",
+      "vi": "Hè năm ngoái, Nam có hai tuần huấn luyện trên tàu huấn luyện của trường."
+    },
+    {
+      "en": "There were thirty students on board.",
+      "vi": "Trên tàu có ba mươi sinh viên."
+    },
+    {
+      "en": "The officers were their teachers.",
+      "vi": "Các sĩ quan là thầy của họ."
+    },
+    {
+      "en": "On the first day, they learned the rules of the ship.",
+      "vi": "Ngày đầu tiên, họ học nội quy của tàu."
+    },
+    {
+      "en": "They learned where the lifejackets and the lifeboats are.",
+      "vi": "Họ học xem áo phao và xuồng cứu sinh ở đâu."
+    },
+    {
+      "en": "Then they did a drill. The alarm rang, and everyone went to the muster station with a lifejacket.",
+      "vi": "Rồi họ diễn tập. Chuông báo động reo, và mọi người mang áo phao đến điểm tập trung."
+    },
+    {
+      "en": "Nam was nervous, but he did everything with the others.",
+      "vi": "Nam hồi hộp, nhưng cậu làm mọi thứ cùng mọi người."
+    },
+    {
+      "en": "The ship was different from his father's boat.",
+      "vi": "Con tàu khác hẳn thuyền của bố cậu."
+    },
+    {
+      "en": "It was big, there were many rules, and everyone had a job.",
+      "vi": "Nó to, có nhiều quy định, và ai cũng có việc của mình."
+    },
+    {
+      "en": "After two weeks, Nam was sure: this is the life he wants.",
+      "vi": "Sau hai tuần, Nam đã chắc chắn: đây là cuộc sống cậu muốn."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "training ship",
+      "am": "/ˈtreɪ.nɪŋ ʃɪp/",
+      "doc": "TRÂY-ninh ship",
+      "nghia": "tàu huấn luyện"
+    },
+    {
+      "tu": "lifejacket",
+      "am": "/ˈlaɪf.dʒæk.ɪt/",
+      "doc": "LAI-ph-dje-kít",
+      "nghia": "áo phao"
+    },
+    {
+      "tu": "lifeboat",
+      "am": "/ˈlaɪf.bəʊt/",
+      "doc": "LAI-ph-bâu-t",
+      "nghia": "xuồng cứu sinh"
+    },
+    {
+      "tu": "drill",
+      "am": "/drɪl/",
+      "doc": "đriu",
+      "nghia": "buổi diễn tập (cứu sinh, cứu hoả)"
+    },
+    {
+      "tu": "muster station",
+      "am": "/ˈmʌs.tə ˌsteɪ.ʃən/",
+      "doc": "MẮT-xtờ XTÂY-shần",
+      "nghia": "điểm tập trung khi có báo động"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Did Nam have training on a ship?",
+          "dap": "yes"
+        },
+        {
+          "en": "Was the training two months long?",
+          "dap": "no"
+        },
+        {
+          "en": "Were there thirty students on board?",
+          "dap": "yes"
+        },
+        {
+          "en": "Were the officers their teachers?",
+          "dap": "yes"
+        },
+        {
+          "en": "Did they learn where the lifejackets are?",
+          "dap": "yes"
+        },
+        {
+          "en": "Did everyone go to the canteen when the alarm rang?",
+          "dap": "no"
+        },
+        {
+          "en": "Was Nam nervous?",
+          "dap": "yes"
+        },
+        {
+          "en": "Was the ship the same as his father's boat?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "How long was the training?",
+          "chon": [
+            "Two days",
+            "Two weeks",
+            "Two months"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "Who were their teachers on board?",
+          "chon": [
+            "The officers",
+            "The cooks",
+            "Their parents"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Where did everyone go when the alarm rang?",
+          "chon": [
+            "To the bridge",
+            "To their cabins",
+            "To the muster station"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "How did Nam feel?",
+          "chon": [
+            "Nervous",
+            "Angry",
+            "Bored"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What was Nam sure about after two weeks?",
+          "chon": [
+            "He wants to go home",
+            "This is the life he wants",
+            "He wants to be a cook"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "Have you been on a ship before?",
+          "mau": "Yes. I had two weeks of training on our university's training ship."
+        },
+        {
+          "en": "What did you learn on the training ship?",
+          "mau": "I learned the rules of the ship, and where the lifejackets and lifeboats are."
+        },
+        {
+          "en": "What happens when the alarm rings?",
+          "mau": "Everyone takes a lifejacket and goes to the muster station."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/ð/ – /d/",
+    "vi_sao": "\"They\" thành \"day\", \"there\" thành \"dare\". Âm /ð/ có trong những từ dùng nhiều nhất: the, this, there, they.",
+    "nhan_a": "/ð/ (th rung)",
+    "nhan_b": "/d/",
+    "am": [
+      {
+        "ky_hieu": "/ð/",
+        "goi_y": "lưỡi giữa răng + cổ RUNG",
+        "cach": [
+          "Lưỡi thò nhẹ giữa hai răng (như /θ/)",
+          "Nhưng cổ rung",
+          "Nghe gần như 'đ' mềm, có hơi"
+        ]
+      },
+      {
+        "ky_hieu": "/d/",
+        "goi_y": "lưỡi sau răng, bật",
+        "cach": [
+          "Lưỡi chạm lợi sau răng",
+          "Bật ra, cổ rung"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "they",
+        "b": "day",
+        "nghia_a": "họ",
+        "nghia_b": "ngày"
+      },
+      {
+        "a": "then",
+        "b": "den",
+        "nghia_a": "rồi thì",
+        "nghia_b": "hang ổ"
+      },
+      {
+        "a": "there",
+        "b": "dare",
+        "nghia_a": "ở đó",
+        "nghia_b": "dám"
+      },
+      {
+        "a": "though",
+        "b": "dough",
+        "nghia_a": "mặc dù",
+        "nghia_b": "bột nhào"
+      },
+      {
+        "a": "those",
+        "b": "doze",
+        "nghia_a": "những cái kia",
+        "nghia_b": "ngủ gà"
+      },
+      {
+        "a": "breathe",
+        "b": "breed",
+        "nghia_a": "thở",
+        "nghia_b": "nhân giống"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "Yes. I had two weeks of training on our university's training ship.",
+      "vi": "Có ạ. Tôi đã có hai tuần huấn luyện trên tàu huấn luyện của trường.",
+      "nhan": "Đã lên tàu chưa",
+      "luu_y": "Nói ĐÚNG thời gian và loại tàu bạn đã lên. Chưa lên tàu thì nói: 'Not yet, but I visited a ship in port.' — chỉ nói nếu là thật."
+    },
+    {
+      "en": "I learned the rules of the ship and where the lifejackets and lifeboats are.",
+      "vi": "Tôi học nội quy của tàu và vị trí áo phao, xuồng cứu sinh.",
+      "nhan": "Học được gì",
+      "luu_y": "Nhấn: LIFE-jack-et, LIFE-boat."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Have you been on a ship before?",
+      "giay": 9,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "What did you learn there?",
+      "giay": 10,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Good.",
+      "giay": 0
+    }
+  ]
+}

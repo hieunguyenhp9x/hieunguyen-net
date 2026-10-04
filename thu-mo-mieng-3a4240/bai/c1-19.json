@@ -1,0 +1,288 @@
+{
+  "id": "c1-19",
+  "chang": 1,
+  "tuan": 4,
+  "so": 19,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 4 · Bài 19 — Bài học trên tàu huấn luyện",
+  "chu_de": "Câu hỏi số 14: Have you ever been seasick?",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "On the second day, the sea was rough.",
+      "vi": "Ngày thứ hai, biển động."
+    },
+    {
+      "en": "The ship rolled from side to side.",
+      "vi": "Con tàu lắc ngang từ bên này sang bên kia."
+    },
+    {
+      "en": "Nam felt seasick. He could not eat breakfast.",
+      "vi": "Nam bị say sóng. Cậu không ăn nổi bữa sáng."
+    },
+    {
+      "en": "An officer told him, \"Get some fresh air, look at the horizon, and drink some water.\"",
+      "vi": "Một sĩ quan bảo cậu: \"Ra chỗ thoáng khí, nhìn đường chân trời, và uống chút nước.\""
+    },
+    {
+      "en": "After two days, Nam felt better.",
+      "vi": "Sau hai ngày, Nam thấy đỡ hơn."
+    },
+    {
+      "en": "He also learned an important lesson: safety first.",
+      "vi": "Cậu cũng học được một bài học quan trọng: an toàn là trên hết."
+    },
+    {
+      "en": "Before every job, the students listened to the officer and wore their helmets and gloves.",
+      "vi": "Trước mỗi việc, sinh viên nghe sĩ quan hướng dẫn và đội mũ bảo hộ, đeo găng tay."
+    },
+    {
+      "en": "He learned teamwork, too.",
+      "vi": "Cậu cũng học được tinh thần đồng đội."
+    },
+    {
+      "en": "When they pulled a heavy rope, they all pulled together.",
+      "vi": "Khi kéo một sợi dây nặng, tất cả cùng kéo."
+    },
+    {
+      "en": "Now Nam knows: on a ship, nobody works alone.",
+      "vi": "Giờ Nam đã hiểu: trên tàu, không ai làm việc một mình."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "seasick",
+      "am": "/ˈsiː.sɪk/",
+      "doc": "XI-xíc",
+      "nghia": "say sóng"
+    },
+    {
+      "tu": "rough",
+      "am": "/rʌf/",
+      "doc": "rắp-ph",
+      "nghia": "(biển) động"
+    },
+    {
+      "tu": "horizon",
+      "am": "/həˈraɪ.zən/",
+      "doc": "hờ-RAI-dần",
+      "nghia": "đường chân trời"
+    },
+    {
+      "tu": "helmet",
+      "am": "/ˈhel.mət/",
+      "doc": "HEO-mợt",
+      "nghia": "mũ bảo hộ"
+    },
+    {
+      "tu": "safety first",
+      "am": "/ˈseɪf.ti fɜːst/",
+      "doc": "XÂY-ph-ti phơ-xt",
+      "nghia": "an toàn là trên hết"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Was the sea rough on the second day?",
+          "dap": "yes"
+        },
+        {
+          "en": "Did Nam feel seasick?",
+          "dap": "yes"
+        },
+        {
+          "en": "Did Nam eat a big breakfast?",
+          "dap": "no"
+        },
+        {
+          "en": "Did the officer tell him to look at the horizon?",
+          "dap": "yes"
+        },
+        {
+          "en": "Did Nam feel better after two days?",
+          "dap": "yes"
+        },
+        {
+          "en": "Did students work without helmets?",
+          "dap": "no"
+        },
+        {
+          "en": "Did they pull the rope together?",
+          "dap": "yes"
+        },
+        {
+          "en": "On a ship, does everyone work alone?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "How did Nam feel on the second day?",
+          "chon": [
+            "Hungry",
+            "Seasick",
+            "Happy"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What did the officer tell him to look at?",
+          "chon": [
+            "The horizon",
+            "His phone",
+            "The floor"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "When did Nam feel better?",
+          "chon": [
+            "After one hour",
+            "After two weeks",
+            "After two days"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What did students wear before every job?",
+          "chon": [
+            "Helmets and gloves",
+            "Sunglasses",
+            "Sport shoes"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What did Nam learn?",
+          "chon": [
+            "Nobody needs rules",
+            "Nobody works alone on a ship",
+            "Ships are boring"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "Have you ever been seasick?",
+          "mau": "Yes. I was seasick on the second day, but I got better after two days."
+        },
+        {
+          "en": "What did you learn on the training ship?",
+          "mau": "I learned that safety comes first, and I learned teamwork."
+        },
+        {
+          "en": "What do you do before a job on deck?",
+          "mau": "I listen to the officer, and I wear my helmet and gloves."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "Cụm phụ âm /st/ /sp/ /sk/",
+    "vi_sao": "Tiếng Việt không có hai phụ âm đứng liền nhau. Người Việt hay bỏ /s/ (\"school\" thành \"cool\") hoặc chèn thêm \"xơ\" (\"xơ-cun\").",
+    "nhan_a": "có /s/ đầu",
+    "nhan_b": "không /s/",
+    "am": [
+      {
+        "ky_hieu": "s + phụ âm",
+        "goi_y": "s-chool, liền một hơi, không có 'ơ' ở giữa",
+        "cach": [
+          "Bắt đầu bằng tiếng xì ngắn: s",
+          "Nối NGAY vào phụ âm sau, không ngắt",
+          "Không đọc 'xơ-cun', đọc 'scun' liền"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "school",
+        "b": "cool",
+        "nghia_a": "trường học",
+        "nghia_b": "mát"
+      },
+      {
+        "a": "stop",
+        "b": "top",
+        "nghia_a": "dừng",
+        "nghia_b": "đỉnh"
+      },
+      {
+        "a": "sport",
+        "b": "port",
+        "nghia_a": "thể thao",
+        "nghia_b": "cảng"
+      },
+      {
+        "a": "speak",
+        "b": "peak",
+        "nghia_a": "nói",
+        "nghia_b": "đỉnh"
+      },
+      {
+        "a": "star",
+        "b": "tar",
+        "nghia_a": "ngôi sao",
+        "nghia_b": "nhựa đường"
+      },
+      {
+        "a": "steam",
+        "b": "team",
+        "nghia_a": "hơi nước",
+        "nghia_b": "đội"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "I was seasick on the second day, but I got better after two days.",
+      "vi": "Ngày thứ hai tôi bị say sóng, nhưng hai ngày sau thì đỡ.",
+      "nhan": "Say sóng",
+      "luu_y": "Nói thật. Hội đồng biết ai cũng có thể say sóng lúc đầu; họ muốn nghe bạn vượt qua thế nào."
+    },
+    {
+      "en": "On the training ship, I learned that safety comes first, and I learned teamwork.",
+      "vi": "Trên tàu huấn luyện, tôi học được rằng an toàn là trên hết, và học được tinh thần đồng đội.",
+      "nhan": "Bài học",
+      "luu_y": "Nhấn: SAFE-ty FIRST, TEAM-work. Chú ý cụm 'st' trong 'first'."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Have you ever been seasick?",
+      "giay": 9,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "What did you learn on the training ship?",
+      "giay": 9,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Thank you.",
+      "giay": 0
+    }
+  ]
+}

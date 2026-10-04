@@ -1,0 +1,289 @@
+{
+  "id": "c1-04",
+  "chang": 1,
+  "tuan": 1,
+  "so": 4,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 1 · Bài 4 — Trường và ngành học",
+  "chu_de": "Sinh viên năm mấy · trường · ngành điều khiển tàu",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Nam is a third-year student.",
+      "vi": "Nam là sinh viên năm thứ ba."
+    },
+    {
+      "en": "He studies at Vietnam Maritime University in Hai Phong.",
+      "vi": "Cậu học ở Đại học Hàng hải Việt Nam tại Hải Phòng."
+    },
+    {
+      "en": "His major is navigation.",
+      "vi": "Ngành của cậu là điều khiển tàu biển."
+    },
+    {
+      "en": "Navigation students learn to navigate big ships.",
+      "vi": "Sinh viên ngành này học cách điều khiển những con tàu lớn."
+    },
+    {
+      "en": "They learn about maps of the sea. They are called charts.",
+      "vi": "Họ học về bản đồ biển. Chúng được gọi là hải đồ."
+    },
+    {
+      "en": "They also learn English, because ships use English.",
+      "vi": "Họ cũng học tiếng Anh, vì tàu biển dùng tiếng Anh."
+    },
+    {
+      "en": "Nam has classes five days a week.",
+      "vi": "Nam học năm ngày một tuần."
+    },
+    {
+      "en": "He likes his classes, but English is difficult for him.",
+      "vi": "Cậu thích các môn học, nhưng tiếng Anh thì khó với cậu."
+    },
+    {
+      "en": "He wants to speak English well.",
+      "vi": "Cậu muốn nói tiếng Anh giỏi."
+    },
+    {
+      "en": "So he practises a little every day.",
+      "vi": "Vì vậy cậu luyện tập một chút mỗi ngày."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "third-year student",
+      "am": "/ˌθɜːd jɪə ˈstjuː.dənt/",
+      "doc": "thơ-đ dia XTIU-đần",
+      "nghia": "sinh viên năm ba · first / second / final year"
+    },
+    {
+      "tu": "major",
+      "am": "/ˈmeɪ.dʒə/",
+      "doc": "MÂY-giờ",
+      "nghia": "ngành học"
+    },
+    {
+      "tu": "navigation",
+      "am": "/ˌnæv.ɪˈɡeɪ.ʃən/",
+      "doc": "ne-vi-GÂY-shần",
+      "nghia": "điều khiển tàu, hàng hải"
+    },
+    {
+      "tu": "chart",
+      "am": "/tʃɑːt/",
+      "doc": "chát",
+      "nghia": "hải đồ — bản đồ đi biển"
+    },
+    {
+      "tu": "practise",
+      "am": "/ˈpræk.tɪs/",
+      "doc": "PRÉC-tít",
+      "nghia": "luyện tập"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Is Nam a third-year student?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam study in Hanoi?",
+          "dap": "no"
+        },
+        {
+          "en": "Is his major navigation?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is a chart a map of the sea?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do ships use English?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam have classes seven days a week?",
+          "dap": "no"
+        },
+        {
+          "en": "Is English easy for Nam?",
+          "dap": "no"
+        },
+        {
+          "en": "Does Nam practise every day?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What year is Nam in?",
+          "chon": [
+            "First year",
+            "Third year",
+            "Final year"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What is his major?",
+          "chon": [
+            "Navigation",
+            "Engineering",
+            "Economics"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What is a map of the sea called?",
+          "chon": [
+            "A poster",
+            "A photo",
+            "A chart"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "How many days a week does Nam have classes?",
+          "chon": [
+            "Five",
+            "Three",
+            "Six"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What is difficult for Nam?",
+          "chon": [
+            "Maths",
+            "English",
+            "Sport"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What year are you in?",
+          "mau": "I am a third-year student."
+        },
+        {
+          "en": "Which university do you study at?",
+          "mau": "I study at Vietnam Maritime University in Hai Phong."
+        },
+        {
+          "en": "What is your major?",
+          "mau": "My major is navigation."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/k/ cuối",
+    "vi_sao": "Âm /k/ cuối bị nuốt thì \"week\" thành \"we\", \"make\" thành \"may\". Câu nghe đứt đoạn, người nghe phải đoán.",
+    "nhan_a": "có /k/",
+    "nhan_b": "không /k/",
+    "am": [
+      {
+        "ky_hieu": "/k/ cuối",
+        "goi_y": "Chặn hơi bằng cuống lưỡi: wee-k",
+        "cach": [
+          "Nâng cuống lưỡi chạm vòm miệng phía sau",
+          "Chặn hơi lại",
+          "Thả ra nhẹ một tiếng 'k'",
+          "Không đọc thành 'cờ'"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "week",
+        "b": "we",
+        "nghia_a": "tuần",
+        "nghia_b": "chúng tôi"
+      },
+      {
+        "a": "make",
+        "b": "may",
+        "nghia_a": "làm",
+        "nghia_b": "có thể"
+      },
+      {
+        "a": "like",
+        "b": "lie",
+        "nghia_a": "thích",
+        "nghia_b": "nói dối"
+      },
+      {
+        "a": "bike",
+        "b": "buy",
+        "nghia_a": "xe đạp",
+        "nghia_b": "mua"
+      },
+      {
+        "a": "lake",
+        "b": "lay",
+        "nghia_a": "hồ",
+        "nghia_b": "đặt"
+      },
+      {
+        "a": "seek",
+        "b": "see",
+        "nghia_a": "tìm",
+        "nghia_b": "nhìn"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "I am a third-year student at Vietnam Maritime University.",
+      "vi": "Tôi là sinh viên năm ba Đại học Hàng hải Việt Nam.",
+      "nhan": "Trường",
+      "luu_y": "Thay năm học và trường bạn. Nhấn: MAR-i-time, u-ni-VER-si-ty."
+    },
+    {
+      "en": "My major is navigation.",
+      "vi": "Ngành của tôi là điều khiển tàu biển.",
+      "nhan": "Ngành",
+      "luu_y": "Nhấn: na-vi-GA-tion."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What do you study?",
+      "giay": 6,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Which university do you study at?",
+      "giay": 9,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "Good. Thank you.",
+      "giay": 0
+    }
+  ]
+}

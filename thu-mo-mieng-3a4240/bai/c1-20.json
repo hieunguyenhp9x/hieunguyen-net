@@ -1,0 +1,314 @@
+{
+  "id": "c1-20",
+  "chang": 1,
+  "tuan": 4,
+  "so": 20,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 4 · Bài 20 — Nam tập giới thiệu bản thân",
+  "chu_de": "Ôn cả chặng 1 · bài giới thiệu 45–60 giây",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Tomorrow is Nam's practice interview.",
+      "vi": "Ngày mai là buổi phỏng vấn thử của Nam."
+    },
+    {
+      "en": "He stands in front of the mirror and practises.",
+      "vi": "Cậu đứng trước gương và tập."
+    },
+    {
+      "en": "\"Good morning, Sir. My name is Nam. I am twenty-one years old, and I am from Nam Dinh.\"",
+      "vi": "\"Chào ông ạ. Tôi tên là Nam. Tôi hai mươi mốt tuổi, quê ở Nam Định.\""
+    },
+    {
+      "en": "\"I am a third-year student at Vietnam Maritime University, and my major is navigation.\"",
+      "vi": "\"Tôi là sinh viên năm ba Đại học Hàng hải Việt Nam, ngành điều khiển tàu biển.\""
+    },
+    {
+      "en": "\"There are four people in my family. My parents support my choice.\"",
+      "vi": "\"Gia đình tôi có bốn người. Bố mẹ ủng hộ lựa chọn của tôi.\""
+    },
+    {
+      "en": "\"I want to work at sea because I grew up near the sea, and I like teamwork.\"",
+      "vi": "\"Tôi muốn làm việc trên biển vì tôi lớn lên gần biển, và tôi thích làm việc nhóm.\""
+    },
+    {
+      "en": "\"I had two weeks of training on our training ship. I learned that safety comes first.\"",
+      "vi": "\"Tôi đã có hai tuần huấn luyện trên tàu của trường. Tôi học được an toàn là trên hết.\""
+    },
+    {
+      "en": "\"My dream is to become a safe and good officer.\"",
+      "vi": "\"Ước mơ của tôi là trở thành một sĩ quan an toàn và giỏi.\""
+    },
+    {
+      "en": "He checks the time. Fifty seconds. Good.",
+      "vi": "Cậu xem giờ. Năm mươi giây. Tốt."
+    },
+    {
+      "en": "He does not read. He speaks slowly, and he looks up.",
+      "vi": "Cậu không đọc. Cậu nói chậm, và nhìn thẳng."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "practice interview",
+      "am": "/ˈpræk.tɪs ˈɪn.tə.vjuː/",
+      "doc": "PRÉC-tít IN-tờ-viu",
+      "nghia": "buổi phỏng vấn thử"
+    },
+    {
+      "tu": "mirror",
+      "am": "/ˈmɪr.ə/",
+      "doc": "MI-rờ",
+      "nghia": "gương"
+    },
+    {
+      "tu": "in front of",
+      "am": "/ɪn frʌnt əv/",
+      "doc": "in phrăn-t ợv",
+      "nghia": "ở phía trước"
+    },
+    {
+      "tu": "second",
+      "am": "/ˈsek.ənd/",
+      "doc": "XÉ-cần-đ",
+      "nghia": "giây (thời gian)"
+    },
+    {
+      "tu": "look up",
+      "am": "/lʊk ʌp/",
+      "doc": "lúc ắp",
+      "nghia": "ngẩng lên, nhìn thẳng"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Is the practice interview tomorrow?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam practise in front of the mirror?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is Nam from Hai Phong?",
+          "dap": "no"
+        },
+        {
+          "en": "Do his parents support his choice?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam like teamwork?",
+          "dap": "yes"
+        },
+        {
+          "en": "Did he have two months of training on a ship?",
+          "dap": "no"
+        },
+        {
+          "en": "Is his introduction fifty seconds long?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam read from paper?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "When is the practice interview?",
+          "chon": [
+            "Today",
+            "Tomorrow",
+            "Next month"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "Where does Nam practise?",
+          "chon": [
+            "In front of the mirror",
+            "On a ship",
+            "In the canteen"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "How long is his introduction?",
+          "chon": [
+            "Ten seconds",
+            "Five minutes",
+            "Fifty seconds"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What is his dream?",
+          "chon": [
+            "To become a safe and good officer",
+            "To be rich",
+            "To live in Hanoi"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "How does Nam speak?",
+          "chon": [
+            "Fast",
+            "Slowly, looking up",
+            "Reading from paper"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "Please introduce yourself.",
+          "mau": "Good morning, Sir. My name is Nam. I am twenty-one, from Nam Dinh. I am a third-year navigation student at Vietnam Maritime University…"
+        },
+        {
+          "en": "Why do you want to work at sea?",
+          "mau": "Because I grew up near the sea, and I like teamwork."
+        },
+        {
+          "en": "What is your dream?",
+          "mau": "My dream is to become a safe and good officer."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "Ôn cả chặng",
+    "vi_sao": "Tám cặp âm khó nhất của chặng 1, trộn lại. Qua bài này mà nghe đúng ≥80% là qua cổng 1.",
+    "nhan_a": "từ",
+    "nhan_b": "từ",
+    "am": [
+      {
+        "ky_hieu": "Âm cuối · /iː/–/ɪ/",
+        "goi_y": "ships · eight · sheep–ship",
+        "cach": [
+          "Không nuốt âm cuối",
+          "Phân biệt dài–ngắn"
+        ]
+      },
+      {
+        "ky_hieu": "/θ/ · /ʃ/ · cụm phụ âm",
+        "goi_y": "three · shore · school",
+        "cach": [
+          "Lưỡi giữa răng cho th",
+          "Môi chu cho sh",
+          "Nối liền s + phụ âm"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "three",
+        "b": "tree",
+        "nghia_a": "số 3",
+        "nghia_b": "cái cây"
+      },
+      {
+        "a": "eight",
+        "b": "A",
+        "nghia_a": "số 8",
+        "nghia_b": "chữ A",
+        "tts_b": "ay"
+      },
+      {
+        "a": "ships",
+        "b": "ship",
+        "nghia_a": "nhiều tàu",
+        "nghia_b": "một tàu"
+      },
+      {
+        "a": "sheep",
+        "b": "ship",
+        "nghia_a": "con cừu",
+        "nghia_b": "con tàu"
+      },
+      {
+        "a": "think",
+        "b": "sink",
+        "nghia_a": "nghĩ",
+        "nghia_b": "chìm"
+      },
+      {
+        "a": "shore",
+        "b": "sore",
+        "nghia_a": "bờ biển",
+        "nghia_b": "đau nhức"
+      },
+      {
+        "a": "sail",
+        "b": "say",
+        "nghia_a": "đi biển",
+        "nghia_b": "nói"
+      },
+      {
+        "a": "school",
+        "b": "cool",
+        "nghia_a": "trường học",
+        "nghia_b": "mát"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "Good morning, Sir. My name is Nam. I am twenty-one years old, and I am from Nam Dinh. I am a third-year student at Vietnam Maritime University, and my major is navigation.",
+      "vi": "Chào ông ạ. Tôi tên Nam, hai mươi mốt tuổi, quê Nam Định. Tôi là sinh viên năm ba Đại học Hàng hải Việt Nam, ngành điều khiển tàu biển.",
+      "nhan": "Giới thiệu — đoạn 1",
+      "luu_y": "Thông tin cá nhân. Thay bằng của bạn."
+    },
+    {
+      "en": "There are four people in my family, and my parents support my choice. I want to work at sea because I grew up near the sea, and I like teamwork.",
+      "vi": "Gia đình tôi có bốn người, bố mẹ ủng hộ lựa chọn của tôi. Tôi muốn làm việc trên biển vì tôi lớn lên gần biển và thích làm việc nhóm.",
+      "nhan": "Giới thiệu — đoạn 2",
+      "luu_y": "Gia đình + động cơ."
+    },
+    {
+      "en": "I had two weeks of training on our training ship, where I learned that safety comes first. My dream is to become a safe and good officer.",
+      "vi": "Tôi đã có hai tuần huấn luyện trên tàu của trường, nơi tôi học được an toàn là trên hết. Ước mơ của tôi là trở thành một sĩ quan an toàn và giỏi.",
+      "nhan": "Giới thiệu — đoạn 3",
+      "luu_y": "Kinh nghiệm + ước mơ. Cả 3 đoạn: 45–60 giây. KHÔNG mở đầu bằng 'Sorry for my English'."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Good morning. Please introduce yourself.",
+      "giay": 60
+    },
+    {
+      "en": "Thank you. What is your dream?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 3"
+    },
+    {
+      "en": "Thank you. That is all for today.",
+      "giay": 0
+    }
+  ]
+}

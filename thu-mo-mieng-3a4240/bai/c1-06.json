@@ -1,0 +1,290 @@
+{
+  "id": "c1-06",
+  "chang": 1,
+  "tuan": 2,
+  "so": 6,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 2 · Bài 6 — Gia đình Nam",
+  "chu_de": "Gia đình mấy người · có những ai",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "There are four people in my family.",
+      "vi": "Gia đình tôi có bốn người."
+    },
+    {
+      "en": "My father, my mother, my younger sister, and me.",
+      "vi": "Bố tôi, mẹ tôi, em gái tôi và tôi."
+    },
+    {
+      "en": "We live in a small house near the sea.",
+      "vi": "Chúng tôi sống trong một ngôi nhà nhỏ gần biển."
+    },
+    {
+      "en": "My sister is sixteen. She is a student at high school.",
+      "vi": "Em gái tôi mười sáu tuổi. Em là học sinh cấp ba."
+    },
+    {
+      "en": "She likes to sleep late on Sundays.",
+      "vi": "Em thích ngủ nướng vào Chủ nhật."
+    },
+    {
+      "en": "My mother gets up early. She cooks rice and fish for us.",
+      "vi": "Mẹ tôi dậy sớm. Mẹ nấu cơm và cá cho cả nhà."
+    },
+    {
+      "en": "We eat together every evening.",
+      "vi": "Cả nhà ăn cùng nhau mỗi tối."
+    },
+    {
+      "en": "Now I live in Hai Phong, so I miss my family.",
+      "vi": "Bây giờ tôi sống ở Hải Phòng, nên tôi nhớ gia đình."
+    },
+    {
+      "en": "I call them every Sunday.",
+      "vi": "Tôi gọi điện về nhà mỗi Chủ nhật."
+    },
+    {
+      "en": "My family is small, but we are very close.",
+      "vi": "Gia đình tôi nhỏ, nhưng chúng tôi rất gắn bó."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "family",
+      "am": "/ˈfæm.əl.i/",
+      "doc": "PHE-mờ-li",
+      "nghia": "gia đình"
+    },
+    {
+      "tu": "younger sister",
+      "am": "/ˌjʌŋ.ɡə ˈsɪs.tə/",
+      "doc": "IĂNG-gờ XÍT-tờ",
+      "nghia": "em gái · older brother = anh trai"
+    },
+    {
+      "tu": "high school",
+      "am": "/ˈhaɪ ˌskuːl/",
+      "doc": "HAI xcun",
+      "nghia": "trường cấp ba"
+    },
+    {
+      "tu": "miss",
+      "am": "/mɪs/",
+      "doc": "mít-x",
+      "nghia": "nhớ (ai đó)"
+    },
+    {
+      "tu": "close",
+      "am": "/kləʊs/",
+      "doc": "clâu-x",
+      "nghia": "gắn bó, thân thiết"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Are there four people in Nam's family?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam have a younger brother?",
+          "dap": "no"
+        },
+        {
+          "en": "Does the family live near the sea?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is his sister sixteen?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does his mother get up late?",
+          "dap": "no"
+        },
+        {
+          "en": "Do they eat together every evening?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam live in Nam Dinh now?",
+          "dap": "no"
+        },
+        {
+          "en": "Does Nam call his family every Sunday?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "How many people are in Nam's family?",
+          "chon": [
+            "Three",
+            "Four",
+            "Five"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "How old is his sister?",
+          "chon": [
+            "Sixteen",
+            "Sixty",
+            "Six"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does his mother cook?",
+          "chon": [
+            "Noodles",
+            "Bread",
+            "Rice and fish"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "When does Nam call his family?",
+          "chon": [
+            "Every Sunday",
+            "Every day",
+            "Every month"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Where does Nam live now?",
+          "chon": [
+            "Nam Dinh",
+            "Hai Phong",
+            "Hanoi"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "How many people are there in your family?",
+          "mau": "There are four people in my family."
+        },
+        {
+          "en": "Who are they?",
+          "mau": "My father, my mother, my younger sister, and me."
+        },
+        {
+          "en": "Do you miss your family?",
+          "mau": "Yes, I do. I call them every Sunday."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/iː/ dài – /ɪ/ ngắn (1)",
+    "vi_sao": "\"Sheep\" (con cừu) và \"ship\" (con tàu) chỉ khác nhau độ dài nguyên âm. Dân đi biển mà nói \"I work on a sheep\" là cả hội đồng cười.",
+    "nhan_a": "/iː/ dài",
+    "nhan_b": "/ɪ/ ngắn",
+    "am": [
+      {
+        "ky_hieu": "/iː/",
+        "goi_y": "'i' kéo dài, căng: shee-eep",
+        "cach": [
+          "Môi bè ngang như cười",
+          "Lưỡi nâng cao, căng",
+          "Kéo dài gấp đôi bình thường"
+        ]
+      },
+      {
+        "ky_hieu": "/ɪ/",
+        "goi_y": "'i' ngắn, lơi: ship",
+        "cach": [
+          "Môi thả lỏng, không cười",
+          "Lưỡi hạ thấp hơn một chút",
+          "Nói thật ngắn, gần như 'ê' nhẹ"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "sheep",
+        "b": "ship",
+        "nghia_a": "con cừu",
+        "nghia_b": "con tàu"
+      },
+      {
+        "a": "seat",
+        "b": "sit",
+        "nghia_a": "chỗ ngồi",
+        "nghia_b": "ngồi"
+      },
+      {
+        "a": "leave",
+        "b": "live",
+        "nghia_a": "rời đi",
+        "nghia_b": "sống"
+      },
+      {
+        "a": "feel",
+        "b": "fill",
+        "nghia_a": "cảm thấy",
+        "nghia_b": "đổ đầy"
+      },
+      {
+        "a": "heel",
+        "b": "hill",
+        "nghia_a": "gót chân",
+        "nghia_b": "ngọn đồi"
+      },
+      {
+        "a": "beat",
+        "b": "bit",
+        "nghia_a": "đánh",
+        "nghia_b": "một chút"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "There are four people in my family: my father, my mother, my younger sister, and me.",
+      "vi": "Gia đình tôi có bốn người: bố, mẹ, em gái và tôi.",
+      "nhan": "Gia đình",
+      "luu_y": "Thay đúng gia đình bạn. 'my older brother' = anh trai, 'my younger brother' = em trai."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Tell me about your family.",
+      "giay": 12,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "Do you miss them?",
+      "giay": 6
+    },
+    {
+      "en": "Thank you.",
+      "giay": 0
+    }
+  ]
+}

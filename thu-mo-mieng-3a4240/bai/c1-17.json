@@ -1,0 +1,295 @@
+{
+  "id": "c1-17",
+  "chang": 1,
+  "tuan": 4,
+  "so": 17,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 4 · Bài 17 — Các môn học",
+  "chu_de": "Môn học · môn thích nhất · vì sao",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Nam studies many subjects.",
+      "vi": "Nam học nhiều môn."
+    },
+    {
+      "en": "He studies navigation, ship handling, cargo work, and maritime English.",
+      "vi": "Cậu học hàng hải, điều động tàu, công tác hàng hoá và tiếng Anh hàng hải."
+    },
+    {
+      "en": "He also studies safety at sea.",
+      "vi": "Cậu cũng học về an toàn trên biển."
+    },
+    {
+      "en": "His favourite subject is navigation.",
+      "vi": "Môn cậu thích nhất là hàng hải."
+    },
+    {
+      "en": "He thinks it is like a puzzle.",
+      "vi": "Cậu nghĩ nó giống như giải đố."
+    },
+    {
+      "en": "You use charts, a compass and numbers to find the way.",
+      "vi": "Bạn dùng hải đồ, la bàn và các con số để tìm đường."
+    },
+    {
+      "en": "The most difficult subject for him is maritime English.",
+      "vi": "Môn khó nhất với cậu là tiếng Anh hàng hải."
+    },
+    {
+      "en": "There are many new words, and he must speak clearly on the radio.",
+      "vi": "Có nhiều từ mới, và cậu phải nói rõ ràng qua bộ đàm."
+    },
+    {
+      "en": "He makes a list of ten new words every week.",
+      "vi": "Mỗi tuần cậu lập danh sách mười từ mới."
+    },
+    {
+      "en": "Slowly, the words become easier.",
+      "vi": "Dần dần, các từ trở nên dễ hơn."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "subject",
+      "am": "/ˈsʌb.dʒɪkt/",
+      "doc": "XẮP-giéc-t",
+      "nghia": "môn học"
+    },
+    {
+      "tu": "ship handling",
+      "am": "/ʃɪp ˈhænd.lɪŋ/",
+      "doc": "ship HEN-đ-linh",
+      "nghia": "điều động tàu"
+    },
+    {
+      "tu": "favourite",
+      "am": "/ˈfeɪ.vər.ɪt/",
+      "doc": "PHÂY-vờ-rít",
+      "nghia": "yêu thích nhất"
+    },
+    {
+      "tu": "compass",
+      "am": "/ˈkʌm.pəs/",
+      "doc": "CĂM-pợt-x",
+      "nghia": "la bàn"
+    },
+    {
+      "tu": "difficult",
+      "am": "/ˈdɪf.ɪ.kəlt/",
+      "doc": "ĐÍ-phi-cồ-t",
+      "nghia": "khó"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Does Nam study many subjects?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does he study ship handling?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is his favourite subject maritime English?",
+          "dap": "no"
+        },
+        {
+          "en": "Does he think navigation is like a puzzle?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do you use a compass in navigation?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is maritime English easy for him?",
+          "dap": "no"
+        },
+        {
+          "en": "Does he learn ten new words every week?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do the words become more difficult?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What is Nam's favourite subject?",
+          "chon": [
+            "Maritime English",
+            "Navigation",
+            "Cargo work"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What is navigation like, for Nam?",
+          "chon": [
+            "A puzzle",
+            "A game",
+            "A film"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What do you use to find the way?",
+          "chon": [
+            "A phone and a car",
+            "Books and pens",
+            "Charts, a compass and numbers"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What is the most difficult subject?",
+          "chon": [
+            "Maritime English",
+            "Safety",
+            "Navigation"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "How many new words does he learn every week?",
+          "chon": [
+            "Five",
+            "Ten",
+            "Twenty"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What subjects do you study?",
+          "mau": "I study navigation, ship handling, cargo work, and maritime English."
+        },
+        {
+          "en": "What is your favourite subject, and why?",
+          "mau": "My favourite subject is navigation, because it is like a puzzle."
+        },
+        {
+          "en": "Which subject is difficult for you?",
+          "mau": "Maritime English is difficult, but I learn ten new words every week."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/θ/ – /s/",
+    "vi_sao": "Thiếu âm /θ/, người Việt hay thay bằng /s/: \"think\" thành \"sink\" (chìm). Trên tàu, \"I think\" mà nghe thành \"I sink\" thì không vui chút nào.",
+    "nhan_a": "/θ/ (th)",
+    "nhan_b": "/s/",
+    "am": [
+      {
+        "ky_hieu": "/θ/",
+        "goi_y": "lưỡi giữa răng",
+        "cach": [
+          "Lưỡi thò nhẹ giữa hai răng",
+          "Thổi hơi"
+        ]
+      },
+      {
+        "ky_hieu": "/s/",
+        "goi_y": "lưỡi sau răng, xì",
+        "cach": [
+          "Lưỡi ở sau răng",
+          "Thổi qua khe hẹp: sss"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "think",
+        "b": "sink",
+        "nghia_a": "nghĩ",
+        "nghia_b": "chìm"
+      },
+      {
+        "a": "thick",
+        "b": "sick",
+        "nghia_a": "dày",
+        "nghia_b": "ốm"
+      },
+      {
+        "a": "mouth",
+        "b": "mouse",
+        "nghia_a": "miệng",
+        "nghia_b": "con chuột"
+      },
+      {
+        "a": "path",
+        "b": "pass",
+        "nghia_a": "lối đi",
+        "nghia_b": "đi qua"
+      },
+      {
+        "a": "thumb",
+        "b": "some",
+        "nghia_a": "ngón cái",
+        "nghia_b": "một vài"
+      },
+      {
+        "a": "worth",
+        "b": "worse",
+        "nghia_a": "đáng giá",
+        "nghia_b": "tệ hơn"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "My favourite subject is navigation, because it is like a puzzle.",
+      "vi": "Môn tôi thích nhất là hàng hải, vì nó giống như giải đố.",
+      "nhan": "Môn yêu thích",
+      "luu_y": "Thay môn bạn thích + 1 lý do thật. Nhấn: FA-vou-rite."
+    },
+    {
+      "en": "Maritime English is difficult for me, but I learn ten new words every week.",
+      "vi": "Tiếng Anh hàng hải khó với tôi, nhưng mỗi tuần tôi học mười từ mới.",
+      "nhan": "Môn khó + cách xử lý",
+      "luu_y": "Lại công thức: điểm yếu THẬT + việc đang làm."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What is your favourite subject?",
+      "giay": 9,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "Which subject is difficult for you?",
+      "giay": 9,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Thank you.",
+      "giay": 0
+    }
+  ]
+}
