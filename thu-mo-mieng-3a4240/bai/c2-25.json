@@ -1,0 +1,288 @@
+{
+  "id": "c2-25",
+  "chang": 2,
+  "tuan": 5,
+  "so": 25,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 5 · Bài 25 — Dẫn khách đi một vòng con tàu",
+  "chu_de": "Ôn tuần 5 · câu hỏi số 16: Name the main parts of a ship",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Long, the first-year student, visits Nam's training ship.",
+      "vi": "Long, cậu sinh viên năm nhất, đến thăm tàu huấn luyện của Nam."
+    },
+    {
+      "en": "Nam shows him around, in English, to practise.",
+      "vi": "Nam dẫn Long đi một vòng, nói bằng tiếng Anh để luyện tập."
+    },
+    {
+      "en": "\"This is the bow, and that is the stern.\"",
+      "vi": "\"Đây là mũi tàu, còn kia là lái tàu.\""
+    },
+    {
+      "en": "\"Looking forward, this is port, and that is starboard.\"",
+      "vi": "\"Nhìn về phía mũi, đây là mạn trái, kia là mạn phải.\""
+    },
+    {
+      "en": "\"This is the main deck. On a cargo ship, the holds are under it.\"",
+      "vi": "\"Đây là boong chính. Trên tàu hàng, các hầm hàng nằm bên dưới.\""
+    },
+    {
+      "en": "\"That tall building is the accommodation, and the bridge is on top.\"",
+      "vi": "\"Toà nhà cao kia là khu nhà ở, buồng lái nằm trên cùng.\""
+    },
+    {
+      "en": "\"Under the accommodation is the engine room. That is your department!\"",
+      "vi": "\"Dưới khu nhà ở là buồng máy. Bộ phận của cậu đấy!\""
+    },
+    {
+      "en": "Long laughs. \"Your English is better now.\"",
+      "vi": "Long cười: \"Tiếng Anh của cậu khá hơn rồi đấy.\""
+    },
+    {
+      "en": "Nam says, \"Thanks. I practise every day, thirty minutes in the evening.\"",
+      "vi": "Nam nói: \"Cảm ơn. Ngày nào mình cũng luyện, ba mươi phút mỗi tối.\""
+    },
+    {
+      "en": "Long wants to start practising, too.",
+      "vi": "Long cũng muốn bắt đầu luyện tập."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "show around",
+      "am": "/ʃəʊ əˈraʊnd/",
+      "doc": "shâu ờ-RAO-n-đ",
+      "nghia": "dẫn đi tham quan"
+    },
+    {
+      "tu": "visit",
+      "am": "/ˈvɪz.ɪt/",
+      "doc": "VI-dít",
+      "nghia": "đến thăm"
+    },
+    {
+      "tu": "tall",
+      "am": "/tɔːl/",
+      "doc": "tol",
+      "nghia": "cao"
+    },
+    {
+      "tu": "even",
+      "am": "/ˈiː.vən/",
+      "doc": "I-vần",
+      "nghia": "thậm chí, dù chỉ"
+    },
+    {
+      "tu": "main parts",
+      "am": "/meɪn pɑːts/",
+      "doc": "mây-n pát-x",
+      "nghia": "các bộ phận chính"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Does Long visit Nam's training ship?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam speak Vietnamese to practise?",
+          "dap": "no"
+        },
+        {
+          "en": "Does Nam show Long the bow and the stern?",
+          "dap": "yes"
+        },
+        {
+          "en": "Are the holds on top of the main deck?",
+          "dap": "no"
+        },
+        {
+          "en": "Is the bridge on top of the accommodation?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the engine room Long's department?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam practise only on Sundays?",
+          "dap": "no"
+        },
+        {
+          "en": "Does Long want to practise too?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Who visits the training ship?",
+          "chon": [
+            "Nam's father",
+            "Long",
+            "A captain"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What language does Nam use?",
+          "chon": [
+            "English",
+            "Vietnamese",
+            "Chinese"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What is under the main deck?",
+          "chon": [
+            "The bridge",
+            "The funnel",
+            "The holds"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What is Long's department?",
+          "chon": [
+            "Engine",
+            "Deck",
+            "Galley"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "How often does Nam practise?",
+          "chon": [
+            "Once a week",
+            "Every day",
+            "Never"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "Name the main parts of a ship.",
+          "mau": "The bow, the stern, the hull, the main deck, the cargo holds, the accommodation, the bridge and the engine room."
+        },
+        {
+          "en": "Where is the engine room?",
+          "mau": "The engine room is under the accommodation."
+        },
+        {
+          "en": "Where are the cargo holds?",
+          "mau": "The cargo holds are under the main deck."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "Ôn nguyên âm tuần 5",
+    "vi_sao": "Bốn cặp nguyên âm của tuần trộn lại: /æ/–/e/, /ʌ/–/ɑː/, /ɒ/–/ɔː/, /eɪ/–/e/.",
+    "nhan_a": "từ",
+    "nhan_b": "từ",
+    "am": [
+      {
+        "ky_hieu": "/æ/ /ʌ/",
+        "goi_y": "man · hull",
+        "cach": [
+          "/æ/ há rộng",
+          "/ʌ/ như 'ă' ngắn"
+        ]
+      },
+      {
+        "ky_hieu": "/ɔː/ /eɪ/",
+        "goi_y": "port · main",
+        "cach": [
+          "/ɔː/ môi tròn, dài",
+          "/eɪ/ trượt 'ây'"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "man",
+        "b": "men",
+        "nghia_a": "một người",
+        "nghia_b": "nhiều người"
+      },
+      {
+        "a": "hut",
+        "b": "heart",
+        "nghia_a": "túp lều",
+        "nghia_b": "trái tim"
+      },
+      {
+        "a": "pot",
+        "b": "port",
+        "nghia_a": "cái nồi",
+        "nghia_b": "cảng"
+      },
+      {
+        "a": "main",
+        "b": "men",
+        "nghia_a": "chính",
+        "nghia_b": "những người đàn ông"
+      },
+      {
+        "a": "cut",
+        "b": "cart",
+        "nghia_a": "cắt",
+        "nghia_b": "xe đẩy"
+      },
+      {
+        "a": "shot",
+        "b": "short",
+        "nghia_a": "phát bắn",
+        "nghia_b": "ngắn"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "The main parts of a ship are the bow, the stern, the hull, the main deck, the cargo holds, the accommodation, the bridge and the engine room.",
+      "vi": "Các bộ phận chính của tàu là mũi, lái, vỏ tàu, boong chính, hầm hàng, khu nhà ở, buồng lái và buồng máy.",
+      "nhan": "Bộ phận chính",
+      "luu_y": "Câu dài: ngắt hơi sau 'hull' và sau 'holds'. Đây là câu trả lời câu hỏi số 16."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Name the main parts of a ship.",
+      "giay": 15,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "Where is the bridge?",
+      "giay": 7
+    },
+    {
+      "en": "Very good.",
+      "giay": 0
+    }
+  ]
+}

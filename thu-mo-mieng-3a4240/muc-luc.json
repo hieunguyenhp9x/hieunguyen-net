@@ -140,6 +140,146 @@
   "ten": "Nam tập giới thiệu bản thân"
  },
  {
+  "id": "c2-21",
+  "chang": 2,
+  "tuan": 5,
+  "so": 21,
+  "ten": "Mũi, lái, mạn trái, mạn phải"
+ },
+ {
+  "id": "c2-22",
+  "chang": 2,
+  "tuan": 5,
+  "so": 22,
+  "ten": "Thân tàu và boong"
+ },
+ {
+  "id": "c2-23",
+  "chang": 2,
+  "tuan": 5,
+  "so": 23,
+  "ten": "Khu nhà ở và buồng lái"
+ },
+ {
+  "id": "c2-24",
+  "chang": 2,
+  "tuan": 5,
+  "so": 24,
+  "ten": "Buồng máy và két nước dằn"
+ },
+ {
+  "id": "c2-25",
+  "chang": 2,
+  "tuan": 5,
+  "so": 25,
+  "ten": "Dẫn khách đi một vòng con tàu"
+ },
+ {
+  "id": "c2-26",
+  "chang": 2,
+  "tuan": 6,
+  "so": 26,
+  "ten": "Các sĩ quan boong"
+ },
+ {
+  "id": "c2-27",
+  "chang": 2,
+  "tuan": 6,
+  "so": 27,
+  "ten": "Thuỷ thủ boong"
+ },
+ {
+  "id": "c2-28",
+  "chang": 2,
+  "tuan": 6,
+  "so": 28,
+  "ten": "Bộ phận máy và phục vụ"
+ },
+ {
+  "id": "c2-29",
+  "chang": 2,
+  "tuan": 6,
+  "so": 29,
+  "ten": "Báo cáo cho ai"
+ },
+ {
+  "id": "c2-30",
+  "chang": 2,
+  "tuan": 6,
+  "so": 30,
+  "ten": "Ngày đầu lên tàu thật"
+ },
+ {
+  "id": "c2-31",
+  "chang": 2,
+  "tuan": 7,
+  "so": 31,
+  "ten": "Các loại tàu"
+ },
+ {
+  "id": "c2-32",
+  "chang": 2,
+  "tuan": 7,
+  "so": 32,
+  "ten": "Trang bị cứu sinh cá nhân"
+ },
+ {
+  "id": "c2-33",
+  "chang": 2,
+  "tuan": 7,
+  "so": 33,
+  "ten": "Xuồng, bè cứu sinh, EPIRB, SART"
+ },
+ {
+  "id": "c2-34",
+  "chang": 2,
+  "tuan": 7,
+  "so": 34,
+  "ten": "Cứu hoả trên tàu"
+ },
+ {
+  "id": "c2-35",
+  "chang": 2,
+  "tuan": 7,
+  "so": 35,
+  "ten": "Buổi diễn tập"
+ },
+ {
+  "id": "c2-36",
+  "chang": 2,
+  "tuan": 8,
+  "so": 36,
+  "ten": "Radar và ARPA"
+ },
+ {
+  "id": "c2-37",
+  "chang": 2,
+  "tuan": 8,
+  "so": 37,
+  "ten": "La bàn con quay và la bàn từ"
+ },
+ {
+  "id": "c2-38",
+  "chang": 2,
+  "tuan": 8,
+  "so": 38,
+  "ten": "GPS, ECDIS và AIS"
+ },
+ {
+  "id": "c2-39",
+  "chang": 2,
+  "tuan": 8,
+  "so": 39,
+  "ten": "Máy đo sâu, tốc độ kế, VDR, VHF"
+ },
+ {
+  "id": "c2-40",
+  "chang": 2,
+  "tuan": 8,
+  "so": 40,
+  "ten": "20 từ viết tắt"
+ },
+ {
   "id": "bai-01",
   "chang": 3,
   "tuan": 10,

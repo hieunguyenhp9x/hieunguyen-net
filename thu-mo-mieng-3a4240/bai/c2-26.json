@@ -1,0 +1,297 @@
+{
+  "id": "c2-26",
+  "chang": 2,
+  "tuan": 6,
+  "so": 26,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 6 · Bài 26 — Các sĩ quan boong",
+  "chu_de": "Master · Chief Officer · 2/O · 3/O",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "On a ship, every person has a rank and a job.",
+      "vi": "Trên tàu, mỗi người có một chức danh và một việc."
+    },
+    {
+      "en": "The Master is the captain. He is responsible for the whole ship.",
+      "vi": "Master là thuyền trưởng. Ông chịu trách nhiệm toàn bộ con tàu."
+    },
+    {
+      "en": "The Chief Officer leads the deck department.",
+      "vi": "Đại phó đứng đầu bộ phận boong."
+    },
+    {
+      "en": "He looks after the cargo and the stability of the ship.",
+      "vi": "Ông lo hàng hoá và độ ổn định của con tàu."
+    },
+    {
+      "en": "The Second Officer is usually the navigation officer.",
+      "vi": "Phó hai thường là sĩ quan dẫn tàu, phụ trách hải đồ và thiết bị hàng hải."
+    },
+    {
+      "en": "He prepares the charts and plans the voyage.",
+      "vi": "Anh chuẩn bị hải đồ và lập kế hoạch chuyến đi."
+    },
+    {
+      "en": "The Third Officer usually looks after the life-saving and fire-fighting equipment.",
+      "vi": "Phó ba thường lo các trang thiết bị cứu sinh và cứu hoả."
+    },
+    {
+      "en": "The officers also keep watch on the bridge.",
+      "vi": "Các sĩ quan còn trực ca trên buồng lái."
+    },
+    {
+      "en": "A deck cadet works with the officers and learns from them.",
+      "vi": "Cadet boong làm việc cùng các sĩ quan và học từ họ."
+    },
+    {
+      "en": "Nam's goal is to become a Third Officer first.",
+      "vi": "Mục tiêu của Nam là trước hết trở thành phó ba."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "rank",
+      "am": "/ræŋk/",
+      "doc": "renh-k",
+      "nghia": "chức danh, cấp bậc"
+    },
+    {
+      "tu": "Master",
+      "am": "/ˈmɑː.stə/",
+      "doc": "MÁ-xtờ",
+      "nghia": "thuyền trưởng"
+    },
+    {
+      "tu": "Chief Officer",
+      "am": "/tʃiːf ˈɒf.ɪ.sə/",
+      "doc": "chíp-ph O-phi-xờ",
+      "nghia": "đại phó · Second / Third Officer = phó hai / phó ba"
+    },
+    {
+      "tu": "responsible for",
+      "am": "/rɪˈspɒn.sə.bəl fɔː/",
+      "doc": "ri-XPON-xờ-bồ pho",
+      "nghia": "chịu trách nhiệm về"
+    },
+    {
+      "tu": "voyage",
+      "am": "/ˈvɔɪ.ɪdʒ/",
+      "doc": "VOI-ịdj",
+      "nghia": "chuyến đi biển"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Does every person on a ship have a rank?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the Master the captain?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the Second Officer lead the deck department?",
+          "dap": "no"
+        },
+        {
+          "en": "Does the Chief Officer look after the cargo?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the Second Officer usually the navigation officer?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the Third Officer usually look after the engine?",
+          "dap": "no"
+        },
+        {
+          "en": "Do the officers keep watch on the bridge?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam want to be a Third Officer first?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Who is responsible for the whole ship?",
+          "chon": [
+            "The Chief Officer",
+            "The Master",
+            "The cadet"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "Who leads the deck department?",
+          "chon": [
+            "The Chief Officer",
+            "The Third Officer",
+            "The Master"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Who usually prepares the charts?",
+          "chon": [
+            "The Third Officer",
+            "The cook",
+            "The Second Officer"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "Who usually looks after the life-saving equipment?",
+          "chon": [
+            "The Third Officer",
+            "The Chief Officer",
+            "The Master"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What is Nam's first goal?",
+          "chon": [
+            "To be the Master",
+            "To be a Third Officer",
+            "To be a cook"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "Who is the Master?",
+          "mau": "The Master is the captain. He is responsible for the whole ship."
+        },
+        {
+          "en": "What does the Chief Officer do?",
+          "mau": "The Chief Officer leads the deck department and looks after the cargo and stability."
+        },
+        {
+          "en": "What is your goal?",
+          "mau": "My goal is to become a Third Officer first."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/n/ – /l/",
+    "vi_sao": "Nhiều vùng miền Bắc lẫn 'n' và 'l'. \"Night\" (ban đêm) thành \"light\" (ánh sáng), \"nine\" thành \"line\" — trên buồng lái là sai thông tin.",
+    "nhan_a": "/n/",
+    "nhan_b": "/l/",
+    "am": [
+      {
+        "ky_hieu": "/n/",
+        "goi_y": "hơi đi qua MŨI",
+        "cach": [
+          "Đầu lưỡi chạm lợi trên",
+          "Hơi đi ra đằng mũi",
+          "Bịt mũi lại thì không đọc được"
+        ]
+      },
+      {
+        "ky_hieu": "/l/",
+        "goi_y": "hơi đi qua hai bên lưỡi",
+        "cach": [
+          "Đầu lưỡi chạm lợi trên",
+          "Hơi đi ra hai bên lưỡi, KHÔNG qua mũi",
+          "Bịt mũi vẫn đọc được"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "night",
+        "b": "light",
+        "nghia_a": "ban đêm",
+        "nghia_b": "ánh sáng"
+      },
+      {
+        "a": "nine",
+        "b": "line",
+        "nghia_a": "số 9",
+        "nghia_b": "đường kẻ"
+      },
+      {
+        "a": "no",
+        "b": "low",
+        "nghia_a": "không",
+        "nghia_b": "thấp"
+      },
+      {
+        "a": "net",
+        "b": "let",
+        "nghia_a": "lưới",
+        "nghia_b": "để cho"
+      },
+      {
+        "a": "nap",
+        "b": "lap",
+        "nghia_a": "giấc ngủ ngắn",
+        "nghia_b": "vòng chạy"
+      },
+      {
+        "a": "knock",
+        "b": "lock",
+        "nghia_a": "gõ cửa",
+        "nghia_b": "khoá"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "The Master is the captain. He is responsible for the whole ship.",
+      "vi": "Master là thuyền trưởng, chịu trách nhiệm toàn bộ con tàu.",
+      "nhan": "Thuyền trưởng",
+      "luu_y": "Nhấn: re-SPON-si-ble."
+    },
+    {
+      "en": "The Chief Officer leads the deck department and looks after the cargo.",
+      "vi": "Đại phó đứng đầu bộ phận boong và lo hàng hoá.",
+      "nhan": "Đại phó",
+      "luu_y": "Đọc 'Chief' là 'chíp-ph', đừng đọc 'chíp'."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Who is the Master?",
+      "giay": 7,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "And the Chief Officer?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Good.",
+      "giay": 0
+    }
+  ]
+}

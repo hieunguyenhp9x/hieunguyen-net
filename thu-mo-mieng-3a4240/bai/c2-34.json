@@ -1,0 +1,297 @@
+{
+  "id": "c2-34",
+  "chang": 2,
+  "tuan": 7,
+  "so": 34,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 7 · Bài 34 — Cứu hoả trên tàu",
+  "chu_de": "fire extinguisher · fire hose · breathing apparatus — câu hỏi số 23",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Fire is one of the biggest dangers on a ship.",
+      "vi": "Cháy là một trong những mối nguy lớn nhất trên tàu."
+    },
+    {
+      "en": "There are fire detectors in many places, and fire alarms everywhere.",
+      "vi": "Ở nhiều chỗ có đầu báo cháy, và khắp nơi có chuông báo cháy."
+    },
+    {
+      "en": "If you see a fire, you raise the alarm first.",
+      "vi": "Nếu thấy cháy, việc đầu tiên là báo động."
+    },
+    {
+      "en": "For a small fire, you can use a portable fire extinguisher.",
+      "vi": "Với đám cháy nhỏ, bạn có thể dùng bình chữa cháy xách tay."
+    },
+    {
+      "en": "There are different types: water, foam, dry powder and CO2.",
+      "vi": "Có nhiều loại: nước, bọt, bột và CO2."
+    },
+    {
+      "en": "Never use water on an electrical fire. Use CO2 or dry powder.",
+      "vi": "Không bao giờ dùng nước dập đám cháy điện. Hãy dùng CO2 hoặc bột."
+    },
+    {
+      "en": "For a big fire, the fire team uses fire hoses.",
+      "vi": "Với đám cháy lớn, đội chữa cháy dùng vòi chữa cháy."
+    },
+    {
+      "en": "They wear fire suits and breathing apparatus, because of the smoke.",
+      "vi": "Họ mặc quần áo chữa cháy và đeo bình thở, vì có khói."
+    },
+    {
+      "en": "The crew have fire drills regularly.",
+      "vi": "Thuyền viên diễn tập chữa cháy thường xuyên."
+    },
+    {
+      "en": "Nam learns: raise the alarm, report, and then fight the fire only if it is safe.",
+      "vi": "Nam học được: báo động, báo cáo, rồi chỉ chữa cháy khi an toàn."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "fire extinguisher",
+      "am": "/faɪər ɪkˈstɪŋ.ɡwɪ.ʃə/",
+      "doc": "PHAI-ờ ích-XTING-gu-ít-shờ",
+      "nghia": "bình chữa cháy"
+    },
+    {
+      "tu": "fire hose",
+      "am": "/faɪə həʊz/",
+      "doc": "PHAI-ờ hâuz",
+      "nghia": "vòi chữa cháy"
+    },
+    {
+      "tu": "breathing apparatus",
+      "am": "/ˈbriː.ðɪŋ ˌæp.əˈreɪ.təs/",
+      "doc": "BRI-dhinh e-pờ-RÂY-tợt-x",
+      "nghia": "bình dưỡng khí, thiết bị thở"
+    },
+    {
+      "tu": "dry powder",
+      "am": "/draɪ ˈpaʊ.də/",
+      "doc": "đrai PAO-đờ",
+      "nghia": "bột khô (chữa cháy)"
+    },
+    {
+      "tu": "raise the alarm",
+      "am": "/reɪz ði əˈlɑːm/",
+      "doc": "rây-z dhi ờ-LAM",
+      "nghia": "phát báo động"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Is fire a big danger on a ship?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do you raise the alarm first?",
+          "dap": "yes"
+        },
+        {
+          "en": "Can you use a portable extinguisher for a small fire?",
+          "dap": "yes"
+        },
+        {
+          "en": "Should you use water on an electrical fire?",
+          "dap": "no"
+        },
+        {
+          "en": "Is CO2 used on electrical fires?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the fire team use fire hoses for a big fire?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do they wear breathing apparatus because of the smoke?",
+          "dap": "yes"
+        },
+        {
+          "en": "Should you fight the fire even if it is not safe?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What do you do first when you see a fire?",
+          "chon": [
+            "Run to your cabin",
+            "Raise the alarm",
+            "Take a photo"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What do you use for a small fire?",
+          "chon": [
+            "A portable extinguisher",
+            "A lifeboat",
+            "A rope"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What should you NOT use on an electrical fire?",
+          "chon": [
+            "CO2",
+            "Dry powder",
+            "Water"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "Why does the fire team wear breathing apparatus?",
+          "chon": [
+            "Because of the smoke",
+            "Because of the cold",
+            "For a photo"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "When do you fight the fire?",
+          "chon": [
+            "Always",
+            "Only if it is safe",
+            "Never"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What do you do if you see a fire?",
+          "mau": "I raise the alarm and report to the officer. I fight the fire only if it is safe."
+        },
+        {
+          "en": "What types of fire extinguishers do you know?",
+          "mau": "Water, foam, dry powder and CO2."
+        },
+        {
+          "en": "What do you use on an electrical fire?",
+          "mau": "CO2 or dry powder. Never water."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/ʌ/ – /ɒ/",
+    "vi_sao": "\"Duck\" (con vịt) và \"dock\" (ụ tàu, cầu cảng), \"luck\" và \"lock\": khác nhau ở môi có tròn hay không.",
+    "nhan_a": "/ʌ/ (ă)",
+    "nhan_b": "/ɒ/ (o ngắn)",
+    "am": [
+      {
+        "ky_hieu": "/ʌ/",
+        "goi_y": "như 'ă', môi KHÔNG tròn",
+        "cach": [
+          "Miệng mở vừa",
+          "Môi thả lỏng",
+          "Ngắn"
+        ]
+      },
+      {
+        "ky_hieu": "/ɒ/",
+        "goi_y": "'o' ngắn, môi TRÒN",
+        "cach": [
+          "Môi hơi tròn",
+          "Miệng mở rộng hơn",
+          "Ngắn"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "duck",
+        "b": "dock",
+        "nghia_a": "con vịt",
+        "nghia_b": "ụ tàu, cầu cảng"
+      },
+      {
+        "a": "luck",
+        "b": "lock",
+        "nghia_a": "may mắn",
+        "nghia_b": "khoá"
+      },
+      {
+        "a": "hut",
+        "b": "hot",
+        "nghia_a": "túp lều",
+        "nghia_b": "nóng"
+      },
+      {
+        "a": "cup",
+        "b": "cop",
+        "nghia_a": "cái cốc",
+        "nghia_b": "cảnh sát"
+      },
+      {
+        "a": "nut",
+        "b": "not",
+        "nghia_a": "hạt",
+        "nghia_b": "không"
+      },
+      {
+        "a": "cut",
+        "b": "cot",
+        "nghia_a": "cắt",
+        "nghia_b": "giường cũi"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "If I see a fire, I raise the alarm and report to the officer.",
+      "vi": "Nếu thấy cháy, tôi phát báo động và báo cáo sĩ quan.",
+      "nhan": "Thấy cháy làm gì",
+      "luu_y": "Thứ tự an toàn: báo động → báo cáo → chỉ chữa khi an toàn."
+    },
+    {
+      "en": "Never use water on an electrical fire. Use CO2 or dry powder.",
+      "vi": "Không bao giờ dùng nước dập đám cháy điện. Dùng CO2 hoặc bột.",
+      "nhan": "Cháy điện",
+      "luu_y": "Đọc CO2 là 'C-O-two' (xi-âu-tu)."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What do you do if you see a fire?",
+      "giay": 9,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "What do you use on an electrical fire?",
+      "giay": 7,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Correct.",
+      "giay": 0
+    }
+  ]
+}

@@ -1,0 +1,297 @@
+{
+  "id": "c2-31",
+  "chang": 2,
+  "tuan": 7,
+  "so": 31,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 7 · Bài 31 — Các loại tàu",
+  "chu_de": "bulk carrier · container ship · tanker · general cargo — câu hỏi số 19, 20",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "There are many types of cargo ships.",
+      "vi": "Có nhiều loại tàu hàng."
+    },
+    {
+      "en": "A bulk carrier carries dry cargo without packing, like coal, iron ore or grain.",
+      "vi": "Tàu hàng rời chở hàng khô không đóng bao, như than, quặng sắt hay ngũ cốc."
+    },
+    {
+      "en": "A container ship carries containers. Containers are big steel boxes.",
+      "vi": "Tàu container chở container. Container là những chiếc hộp thép lớn."
+    },
+    {
+      "en": "A tanker carries liquid cargo, like oil or chemicals.",
+      "vi": "Tàu chở hàng lỏng (tàu dầu, tàu hoá chất) chở dầu hay hoá chất."
+    },
+    {
+      "en": "A general cargo ship carries many kinds of goods, like machines, steel or bags.",
+      "vi": "Tàu hàng tổng hợp chở nhiều loại hàng, như máy móc, thép hay hàng bao."
+    },
+    {
+      "en": "An LNG carrier carries natural gas as a very cold liquid.",
+      "vi": "Tàu LNG chở khí thiên nhiên dưới dạng lỏng, rất lạnh."
+    },
+    {
+      "en": "A car carrier carries cars. It looks like a big box on the sea.",
+      "vi": "Tàu chở ô tô chở xe hơi. Trông nó như một chiếc hộp lớn trên biển."
+    },
+    {
+      "en": "Nam's teacher asks, \"Which type of ship do you want to work on?\"",
+      "vi": "Thầy hỏi Nam: \"Em muốn làm việc trên loại tàu nào?\""
+    },
+    {
+      "en": "Nam says, \"A bulk carrier, Sir. I want to learn cargo work from the beginning.\"",
+      "vi": "Nam nói: \"Tàu hàng rời ạ. Em muốn học công tác hàng hoá từ đầu.\""
+    },
+    {
+      "en": "The teacher says, \"Good. Any ship is a good school if you work hard.\"",
+      "vi": "Thầy nói: \"Tốt. Tàu nào cũng là trường học tốt nếu em chăm chỉ.\""
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "container ship",
+      "am": "/kənˈteɪ.nə ʃɪp/",
+      "doc": "cần-TÂY-nờ ship",
+      "nghia": "tàu container"
+    },
+    {
+      "tu": "tanker",
+      "am": "/ˈtæŋ.kə/",
+      "doc": "TENG-cờ",
+      "nghia": "tàu dầu, tàu chở hàng lỏng"
+    },
+    {
+      "tu": "general cargo ship",
+      "am": "/ˈdʒen.ər.əl ˈkɑː.ɡəʊ ʃɪp/",
+      "doc": "DJE-nờ-rồ CA-gâu ship",
+      "nghia": "tàu hàng tổng hợp"
+    },
+    {
+      "tu": "iron ore",
+      "am": "/ˈaɪ.ən ɔː/",
+      "doc": "AI-ần o",
+      "nghia": "quặng sắt"
+    },
+    {
+      "tu": "grain",
+      "am": "/ɡreɪn/",
+      "doc": "grây-n",
+      "nghia": "ngũ cốc"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Are there many types of cargo ships?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does a bulk carrier carry coal?",
+          "dap": "yes"
+        },
+        {
+          "en": "Are containers wooden boxes?",
+          "dap": "no"
+        },
+        {
+          "en": "Does a tanker carry liquid cargo?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does a general cargo ship carry only oil?",
+          "dap": "no"
+        },
+        {
+          "en": "Does an LNG carrier carry gas?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam want to work on a car carrier?",
+          "dap": "no"
+        },
+        {
+          "en": "Does the teacher say any ship is a good school?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What does a bulk carrier carry?",
+          "chon": [
+            "Containers",
+            "Coal, iron ore or grain",
+            "Cars"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What is a container?",
+          "chon": [
+            "A big steel box",
+            "A small bag",
+            "A tank"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does a tanker carry?",
+          "chon": [
+            "Cars",
+            "Machines",
+            "Oil or chemicals"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "Which ship does Nam want to work on?",
+          "chon": [
+            "A bulk carrier",
+            "A tanker",
+            "A car carrier"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Why does Nam choose it?",
+          "chon": [
+            "It is fast",
+            "To learn cargo work from the beginning",
+            "It is new"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What types of ships do you know?",
+          "mau": "Bulk carriers, container ships, tankers, general cargo ships, LNG carriers and car carriers."
+        },
+        {
+          "en": "What is a bulk carrier?",
+          "mau": "A bulk carrier carries dry cargo without packing, like coal, iron ore or grain."
+        },
+        {
+          "en": "What does a tanker carry?",
+          "mau": "A tanker carries liquid cargo, like oil or chemicals."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/k/ – /ɡ/ đầu từ",
+    "vi_sao": "\"Coal\" (than) và \"goal\" (mục tiêu), \"cold\" và \"gold\": /k/ tiếng Anh bật hơi mạnh hơn 'c' tiếng Việt.",
+    "nhan_a": "/k/ (bật hơi)",
+    "nhan_b": "/ɡ/ (rung)",
+    "am": [
+      {
+        "ky_hieu": "/k/",
+        "goi_y": "bật hơi mạnh: kh-oal",
+        "cach": [
+          "Cuống lưỡi chạm vòm sau",
+          "Bật ra kèm một luồng hơi",
+          "Đặt tay trước miệng thấy hơi phả vào"
+        ]
+      },
+      {
+        "ky_hieu": "/ɡ/",
+        "goi_y": "không bật hơi, cổ rung",
+        "cach": [
+          "Cùng chỗ đặt lưỡi",
+          "Không có luồng hơi",
+          "Cổ rung"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "coal",
+        "b": "goal",
+        "nghia_a": "than",
+        "nghia_b": "mục tiêu"
+      },
+      {
+        "a": "cold",
+        "b": "gold",
+        "nghia_a": "lạnh",
+        "nghia_b": "vàng"
+      },
+      {
+        "a": "class",
+        "b": "glass",
+        "nghia_a": "lớp học",
+        "nghia_b": "kính, cốc"
+      },
+      {
+        "a": "cap",
+        "b": "gap",
+        "nghia_a": "mũ lưỡi trai",
+        "nghia_b": "khoảng trống"
+      },
+      {
+        "a": "came",
+        "b": "game",
+        "nghia_a": "đã đến",
+        "nghia_b": "trò chơi"
+      },
+      {
+        "a": "curl",
+        "b": "girl",
+        "nghia_a": "lọn tóc",
+        "nghia_b": "cô gái"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "A bulk carrier carries dry cargo without packing, like coal, iron ore or grain.",
+      "vi": "Tàu hàng rời chở hàng khô không đóng bao, như than, quặng sắt hay ngũ cốc.",
+      "nhan": "Tàu hàng rời",
+      "luu_y": "Câu trả lời câu hỏi số 20. Nhấn: BULK CAR-ri-er."
+    },
+    {
+      "en": "I know bulk carriers, container ships, tankers and general cargo ships.",
+      "vi": "Tôi biết tàu hàng rời, tàu container, tàu dầu và tàu hàng tổng hợp.",
+      "nhan": "Các loại tàu",
+      "luu_y": "Câu trả lời câu hỏi số 19."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What types of ships do you know?",
+      "giay": 10,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "What is a bulk carrier?",
+      "giay": 9,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "Good.",
+      "giay": 0
+    }
+  ]
+}

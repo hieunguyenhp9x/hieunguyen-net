@@ -1,0 +1,296 @@
+{
+  "id": "c2-33",
+  "chang": 2,
+  "tuan": 7,
+  "so": 33,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 7 · Bài 33 — Xuồng, bè cứu sinh, EPIRB, SART",
+  "chu_de": "lifeboat · liferaft · EPIRB · SART — câu hỏi số 21, 22",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "If the crew must leave the ship, they use the survival craft.",
+      "vi": "Nếu thuyền viên phải rời tàu, họ dùng phương tiện cứu sinh."
+    },
+    {
+      "en": "A lifeboat is a strong boat with an engine and a roof.",
+      "vi": "Xuồng cứu sinh là chiếc xuồng chắc chắn, có máy và mái che."
+    },
+    {
+      "en": "A liferaft is packed in a white container. In the water, it opens like a tent.",
+      "vi": "Bè cứu sinh được đóng trong một thùng màu trắng. Xuống nước, nó bung ra như một chiếc lều."
+    },
+    {
+      "en": "A rescue boat is a small, fast boat. It is used to pick up people from the water.",
+      "vi": "Xuồng cấp cứu là chiếc xuồng nhỏ, nhanh. Nó dùng để vớt người dưới nước."
+    },
+    {
+      "en": "Two other things help rescuers find the survivors.",
+      "vi": "Có hai thứ khác giúp đội cứu hộ tìm ra người sống sót."
+    },
+    {
+      "en": "The EPIRB sends a distress signal with the position by satellite.",
+      "vi": "EPIRB phát tín hiệu cấp cứu kèm vị trí qua vệ tinh."
+    },
+    {
+      "en": "The SART helps rescuers find the survival craft on their radar.",
+      "vi": "SART giúp đội cứu hộ tìm thấy phương tiện cứu sinh trên màn radar của họ."
+    },
+    {
+      "en": "Nam writes the full names in his notebook.",
+      "vi": "Nam ghi tên đầy đủ vào sổ."
+    },
+    {
+      "en": "EPIRB: Emergency Position-Indicating Radio Beacon.",
+      "vi": "EPIRB: phao vô tuyến chỉ báo vị trí khẩn cấp."
+    },
+    {
+      "en": "SART: Search and Rescue Transponder.",
+      "vi": "SART: thiết bị phát báo tìm kiếm cứu nạn."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "survival craft",
+      "am": "/səˈvaɪ.vəl krɑːft/",
+      "doc": "xờ-VAI-vồ cráp-ph-t",
+      "nghia": "phương tiện cứu sinh (xuồng, bè)"
+    },
+    {
+      "tu": "lifeboat",
+      "am": "/ˈlaɪf.bəʊt/",
+      "doc": "LAI-ph-bâut",
+      "nghia": "xuồng cứu sinh"
+    },
+    {
+      "tu": "liferaft",
+      "am": "/ˈlaɪf.rɑːft/",
+      "doc": "LAI-ph-ráp-ph-t",
+      "nghia": "bè cứu sinh"
+    },
+    {
+      "tu": "EPIRB",
+      "am": "/ˈiː.pɜːb/",
+      "doc": "I-pơb",
+      "nghia": "phao vô tuyến chỉ báo vị trí khẩn cấp (đọc như một từ)"
+    },
+    {
+      "tu": "SART",
+      "am": "/sɑːt/",
+      "doc": "xát",
+      "nghia": "thiết bị phát báo tìm kiếm cứu nạn (đọc như một từ)"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Does a lifeboat have an engine?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is a liferaft packed in a container?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is a rescue boat big and slow?",
+          "dap": "no"
+        },
+        {
+          "en": "Is a rescue boat used to pick up people from the water?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the EPIRB send a signal by satellite?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the SART help rescuers find you on their radar?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is EPIRB a kind of lifeboat?",
+          "dap": "no"
+        },
+        {
+          "en": "Does Nam write the full names in his notebook?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What has an engine and a roof?",
+          "chon": [
+            "A liferaft",
+            "A lifeboat",
+            "A lifebuoy"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What opens like a tent in the water?",
+          "chon": [
+            "A liferaft",
+            "A rescue boat",
+            "An EPIRB"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "How does the EPIRB send a signal?",
+          "chon": [
+            "By phone",
+            "By radio only to the ship",
+            "By satellite"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What does the SART help rescuers do?",
+          "chon": [
+            "Find survival craft on radar",
+            "Cook food",
+            "Steer the ship"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does EPIRB stand for?",
+          "chon": [
+            "Emergency Port Radio Beacon",
+            "Emergency Position-Indicating Radio Beacon",
+            "Electronic Position Beacon"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What are an EPIRB and a SART for?",
+          "mau": "The EPIRB sends a distress signal with the position by satellite. The SART helps rescuers find the survival craft on their radar."
+        },
+        {
+          "en": "What is the difference between a lifeboat and a liferaft?",
+          "mau": "A lifeboat is a strong boat with an engine. A liferaft is packed in a container and opens in the water."
+        },
+        {
+          "en": "What does EPIRB stand for?",
+          "mau": "Emergency Position-Indicating Radio Beacon."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/əʊ/ – /ɔː/",
+    "vi_sao": "\"Boat\" (xuồng) đọc 'bâut', không phải 'bót' — đọc 'bót' thì thành \"bought\" (đã mua).",
+    "nhan_a": "/əʊ/ (âu)",
+    "nhan_b": "/ɔː/ (o dài)",
+    "am": [
+      {
+        "ky_hieu": "/əʊ/",
+        "goi_y": "trượt từ 'ơ' sang 'u': âu",
+        "cach": [
+          "Bắt đầu ở 'ơ'",
+          "Trượt về 'u', môi tròn dần",
+          "boat = bâut"
+        ]
+      },
+      {
+        "ky_hieu": "/ɔː/",
+        "goi_y": "một âm 'o' dài, không trượt",
+        "cach": [
+          "Môi tròn ngay từ đầu",
+          "Giữ nguyên, kéo dài"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "boat",
+        "b": "bought",
+        "nghia_a": "chiếc xuồng",
+        "nghia_b": "đã mua"
+      },
+      {
+        "a": "coat",
+        "b": "caught",
+        "nghia_a": "áo khoác",
+        "nghia_b": "đã bắt"
+      },
+      {
+        "a": "low",
+        "b": "law",
+        "nghia_a": "thấp",
+        "nghia_b": "luật"
+      },
+      {
+        "a": "so",
+        "b": "saw",
+        "nghia_a": "vì vậy",
+        "nghia_b": "đã thấy"
+      },
+      {
+        "a": "woke",
+        "b": "walk",
+        "nghia_a": "đã thức dậy",
+        "nghia_b": "đi bộ"
+      },
+      {
+        "a": "hole",
+        "b": "hall",
+        "nghia_a": "cái lỗ",
+        "nghia_b": "hội trường"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "The EPIRB sends a distress signal with the position by satellite.",
+      "vi": "EPIRB phát tín hiệu cấp cứu kèm vị trí qua vệ tinh.",
+      "nhan": "EPIRB",
+      "luu_y": "Đọc EPIRB như một từ: 'I-pơb'. Nhấn: dis-TRESS, SA-tel-lite."
+    },
+    {
+      "en": "The SART helps rescuers find the survival craft on their radar.",
+      "vi": "SART giúp đội cứu hộ tìm phương tiện cứu sinh trên radar.",
+      "nhan": "SART",
+      "luu_y": "Đọc SART như một từ: 'xát'."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What does an EPIRB do?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "And a SART?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Very good.",
+      "giay": 0
+    }
+  ]
+}

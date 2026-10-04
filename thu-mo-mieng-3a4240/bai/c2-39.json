@@ -1,0 +1,289 @@
+{
+  "id": "c2-39",
+  "chang": 2,
+  "tuan": 8,
+  "so": 39,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 8 · Bài 39 — Máy đo sâu, tốc độ kế, VDR, VHF",
+  "chu_de": "Câu hỏi số 26, 30",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "The echo sounder measures the depth of water under the ship.",
+      "vi": "Máy đo sâu đo độ sâu của nước dưới đáy tàu."
+    },
+    {
+      "en": "It sends a sound pulse down to the seabed.",
+      "vi": "Nó phát một xung âm thanh xuống đáy biển."
+    },
+    {
+      "en": "The sound comes back, and the echo sounder uses the time to find the depth.",
+      "vi": "Âm thanh dội lại, và máy đo sâu dùng thời gian đó để tính ra độ sâu."
+    },
+    {
+      "en": "The speed log measures the speed of the ship.",
+      "vi": "Tốc độ kế đo tốc độ của tàu."
+    },
+    {
+      "en": "The VDR is the Voyage Data Recorder. People call it the black box.",
+      "vi": "VDR là máy ghi dữ liệu hành trình. Người ta gọi nó là hộp đen."
+    },
+    {
+      "en": "It records the position, the radar, the voices on the bridge and much more.",
+      "vi": "Nó ghi lại vị trí, hình radar, tiếng nói trên buồng lái và nhiều thứ khác."
+    },
+    {
+      "en": "After an accident, investigators can use it to find out what happened.",
+      "vi": "Sau một tai nạn, người điều tra có thể dùng nó để tìm hiểu chuyện gì đã xảy ra."
+    },
+    {
+      "en": "The VHF radio is used to talk to other ships, pilots and port stations.",
+      "vi": "Máy VHF dùng để nói chuyện với tàu khác, hoa tiêu và trạm cảng."
+    },
+    {
+      "en": "Channel 16 is for distress, safety and calling.",
+      "vi": "Kênh 16 dùng cho cấp cứu, an toàn và gọi."
+    },
+    {
+      "en": "On VHF, you must speak slowly and clearly, and use standard phrases.",
+      "vi": "Trên VHF, bạn phải nói chậm, rõ, và dùng các câu chuẩn."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "echo sounder",
+      "am": "/ˈek.əʊ ˌsaʊn.də/",
+      "doc": "É-câu XAO-n-đờ",
+      "nghia": "máy đo sâu"
+    },
+    {
+      "tu": "depth",
+      "am": "/depθ/",
+      "doc": "đép-th",
+      "nghia": "độ sâu"
+    },
+    {
+      "tu": "speed log",
+      "am": "/spiːd lɒɡ/",
+      "doc": "xpid lóc",
+      "nghia": "tốc độ kế"
+    },
+    {
+      "tu": "VDR",
+      "am": "/ˌviː.diːˈɑː/",
+      "doc": "VI-ĐI-A",
+      "nghia": "Voyage Data Recorder — máy ghi dữ liệu hành trình (hộp đen)"
+    },
+    {
+      "tu": "distress",
+      "am": "/dɪˈstres/",
+      "doc": "đi-XTRÉT-x",
+      "nghia": "lâm nạn, cấp cứu"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Does the echo sounder measure depth?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the echo sounder use radio waves?",
+          "dap": "no"
+        },
+        {
+          "en": "Does the speed log measure speed?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the VDR called the black box?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the VDR record voices on the bridge?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is VHF used to talk to pilots?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is channel 16 for music?",
+          "dap": "no"
+        },
+        {
+          "en": "Should you speak fast on VHF?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What does the echo sounder send?",
+          "chon": [
+            "Radio waves",
+            "A sound pulse",
+            "Light"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What is the VDR called?",
+          "chon": [
+            "The black box",
+            "The red box",
+            "The radio"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Who uses the VDR after an accident?",
+          "chon": [
+            "The cook",
+            "Tourists",
+            "Investigators"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "What is channel 16 for?",
+          "chon": [
+            "Distress, safety and calling",
+            "Music",
+            "Weather only"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "How should you speak on VHF?",
+          "chon": [
+            "Fast and loud",
+            "Slowly and clearly",
+            "In Vietnamese"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "How does an echo sounder work?",
+          "mau": "It sends a sound pulse down to the seabed. The sound comes back, and it uses the time to find the depth."
+        },
+        {
+          "en": "What is VHF channel 16 used for?",
+          "mau": "Channel 16 is for distress, safety and calling."
+        },
+        {
+          "en": "What does VDR stand for?",
+          "mau": "VDR stands for Voyage Data Recorder. People call it the black box."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/aʊ/ – /əʊ/",
+    "vi_sao": "\"Sounder\" đọc 'XAO-n-đờ'. \"Now\" (bây giờ) và \"no\" (không), \"loud\" và \"load\" — sai một âm là sai nghĩa.",
+    "nhan_a": "/aʊ/ (ao)",
+    "nhan_b": "/əʊ/ (âu)",
+    "am": [
+      {
+        "ky_hieu": "/aʊ/",
+        "goi_y": "ao — miệng mở TO rồi tròn lại",
+        "cach": [
+          "Bắt đầu ở 'a' há to",
+          "Tròn môi về 'u'"
+        ]
+      },
+      {
+        "ky_hieu": "/əʊ/",
+        "goi_y": "âu — miệng mở vừa",
+        "cach": [
+          "Bắt đầu ở 'ơ'",
+          "Tròn môi về 'u'"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "now",
+        "b": "no",
+        "nghia_a": "bây giờ",
+        "nghia_b": "không"
+      },
+      {
+        "a": "town",
+        "b": "tone",
+        "nghia_a": "thị trấn",
+        "nghia_b": "giọng"
+      },
+      {
+        "a": "loud",
+        "b": "load",
+        "nghia_a": "to (tiếng)",
+        "nghia_b": "chất hàng"
+      },
+      {
+        "a": "found",
+        "b": "phoned",
+        "nghia_a": "đã tìm thấy",
+        "nghia_b": "đã gọi điện"
+      },
+      {
+        "a": "couch",
+        "b": "coach",
+        "nghia_a": "ghế dài",
+        "nghia_b": "huấn luyện viên"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "The echo sounder sends a sound pulse to the seabed and uses the time to find the depth.",
+      "vi": "Máy đo sâu phát xung âm xuống đáy biển và dùng thời gian để tính độ sâu.",
+      "nhan": "Máy đo sâu",
+      "luu_y": "Câu trả lời câu hỏi số 26. Đọc 'sounder' là 'XAO-n-đờ'."
+    },
+    {
+      "en": "VHF channel 16 is for distress, safety and calling.",
+      "vi": "Kênh 16 VHF dùng cho cấp cứu, an toàn và gọi.",
+      "nhan": "Kênh 16",
+      "luu_y": "Câu trả lời câu hỏi số 30. Đọc 'sixteen' nhấn cuối: six-TEEN."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "How does an echo sounder work?",
+      "giay": 10,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "What is VHF channel 16 used for?",
+      "giay": 7,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Correct.",
+      "giay": 0
+    }
+  ]
+}

@@ -1,0 +1,296 @@
+{
+  "id": "c2-32",
+  "chang": 2,
+  "tuan": 7,
+  "so": 32,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 7 · Bài 32 — Trang bị cứu sinh cá nhân",
+  "chu_de": "lifejacket · immersion suit · lifebuoy — mẫu câu 'X is used to…'",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Every person on board has a lifejacket.",
+      "vi": "Mỗi người trên tàu đều có một áo phao."
+    },
+    {
+      "en": "A lifejacket keeps you floating in the water.",
+      "vi": "Áo phao giữ cho bạn nổi trên mặt nước."
+    },
+    {
+      "en": "It has a light and a whistle, so people can find you.",
+      "vi": "Áo có đèn và còi, để người khác tìm thấy bạn."
+    },
+    {
+      "en": "An immersion suit is a special suit. It keeps you warm in cold water.",
+      "vi": "Bộ quần áo bơi (immersion suit) là bộ đồ đặc biệt. Nó giữ ấm cho bạn trong nước lạnh."
+    },
+    {
+      "en": "A lifebuoy is a ring. You throw it to a person in the water.",
+      "vi": "Phao tròn là một chiếc phao hình vòng. Bạn ném nó cho người dưới nước."
+    },
+    {
+      "en": "Some lifebuoys have a light or smoke, so the bridge can see the place.",
+      "vi": "Một số phao tròn có đèn hoặc khói, để buồng lái thấy được vị trí."
+    },
+    {
+      "en": "In a drill, Nam puts on his lifejacket quickly and correctly.",
+      "vi": "Khi diễn tập, Nam mặc áo phao nhanh và đúng cách."
+    },
+    {
+      "en": "He checks the straps and the light.",
+      "vi": "Cậu kiểm tra dây buộc và đèn."
+    },
+    {
+      "en": "The Third Officer watches and says, \"Good job.\"",
+      "vi": "Phó ba quan sát và nói: \"Tốt lắm.\""
+    },
+    {
+      "en": "This equipment can save your life. You must know how to use it.",
+      "vi": "Những trang bị này có thể cứu mạng bạn. Bạn phải biết cách dùng."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "lifejacket",
+      "am": "/ˈlaɪf.dʒæk.ɪt/",
+      "doc": "LAI-ph-dje-kít",
+      "nghia": "áo phao"
+    },
+    {
+      "tu": "immersion suit",
+      "am": "/ɪˈmɜː.ʃən suːt/",
+      "doc": "i-MƠ-shần xut",
+      "nghia": "bộ quần áo bơi — giữ ấm khi ở trong nước lạnh"
+    },
+    {
+      "tu": "lifebuoy",
+      "am": "/ˈlaɪf.bɔɪ/",
+      "doc": "LAI-ph-boi",
+      "nghia": "phao tròn"
+    },
+    {
+      "tu": "whistle",
+      "am": "/ˈwɪs.əl/",
+      "doc": "UÍT-xồ",
+      "nghia": "cái còi"
+    },
+    {
+      "tu": "strap",
+      "am": "/stræp/",
+      "doc": "xtrép",
+      "nghia": "dây đai, dây buộc"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Does every person on board have a lifejacket?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does a lifejacket keep you floating?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does a lifejacket have a light?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does an immersion suit keep you warm?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is a lifebuoy a kind of boat?",
+          "dap": "no"
+        },
+        {
+          "en": "Do you throw a lifebuoy to a person in the water?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does Nam put on his lifejacket slowly and wrongly?",
+          "dap": "no"
+        },
+        {
+          "en": "Does the Third Officer say good job?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What keeps you floating in the water?",
+          "chon": [
+            "A helmet",
+            "A lifejacket",
+            "A whistle"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What keeps you warm in cold water?",
+          "chon": [
+            "An immersion suit",
+            "A lifebuoy",
+            "A jacket"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What do you throw to a person in the water?",
+          "chon": [
+            "A rope only",
+            "A helmet",
+            "A lifebuoy"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "Why does a lifejacket have a light and a whistle?",
+          "chon": [
+            "So people can find you",
+            "For fun",
+            "For music"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Who watches Nam in the drill?",
+          "chon": [
+            "The cook",
+            "The Third Officer",
+            "The bosun"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What is a lifejacket used for?",
+          "mau": "A lifejacket is used to keep you floating in the water."
+        },
+        {
+          "en": "What is an immersion suit?",
+          "mau": "It is a special suit. It keeps you warm in cold water."
+        },
+        {
+          "en": "What life-saving appliances do you know?",
+          "mau": "Lifejackets, immersion suits, lifebuoys, lifeboats and liferafts."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/ɜː/ – /ɔː/",
+    "vi_sao": "\"Work\" (làm việc) và \"walk\" (đi bộ) là cặp người Việt nhầm nhiều nhất. \"I work on a ship\" mà nghe thành \"I walk on a ship\".",
+    "nhan_a": "/ɜː/ (ơ dài)",
+    "nhan_b": "/ɔː/ (o dài)",
+    "am": [
+      {
+        "ky_hieu": "/ɜː/",
+        "goi_y": "như 'ơ' kéo dài, môi THẢ LỎNG",
+        "cach": [
+          "Môi không tròn, không bè",
+          "Lưỡi ở giữa miệng",
+          "Kéo dài: wơơk"
+        ]
+      },
+      {
+        "ky_hieu": "/ɔː/",
+        "goi_y": "'o' dài, môi TRÒN",
+        "cach": [
+          "Môi tròn và chu",
+          "Kéo dài: wooo-k"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "work",
+        "b": "walk",
+        "nghia_a": "làm việc",
+        "nghia_b": "đi bộ"
+      },
+      {
+        "a": "shirt",
+        "b": "short",
+        "nghia_a": "áo sơ mi",
+        "nghia_b": "ngắn"
+      },
+      {
+        "a": "bird",
+        "b": "board",
+        "nghia_a": "con chim",
+        "nghia_b": "tấm ván"
+      },
+      {
+        "a": "firm",
+        "b": "form",
+        "nghia_a": "chắc chắn",
+        "nghia_b": "mẫu đơn"
+      },
+      {
+        "a": "turn",
+        "b": "torn",
+        "nghia_a": "rẽ",
+        "nghia_b": "bị rách"
+      },
+      {
+        "a": "burn",
+        "b": "born",
+        "nghia_a": "cháy",
+        "nghia_b": "được sinh ra"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "A lifejacket is used to keep you floating in the water.",
+      "vi": "Áo phao dùng để giữ bạn nổi trên mặt nước.",
+      "nhan": "Mẫu 'is used to'",
+      "luu_y": "Mẫu câu dùng cho MỌI thiết bị: 'X is used to + động từ'."
+    },
+    {
+      "en": "An immersion suit keeps you warm in cold water.",
+      "vi": "Bộ quần áo bơi giữ ấm cho bạn trong nước lạnh.",
+      "nhan": "Bộ quần áo bơi",
+      "luu_y": "Nhấn: im-MER-sion suit."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What is a lifejacket used for?",
+      "giay": 7,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "What is an immersion suit?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Correct.",
+      "giay": 0
+    }
+  ]
+}

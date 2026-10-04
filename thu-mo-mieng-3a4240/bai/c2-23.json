@@ -1,0 +1,295 @@
+{
+  "id": "c2-23",
+  "chang": 2,
+  "tuan": 5,
+  "so": 23,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 5 · Bài 23 — Khu nhà ở và buồng lái",
+  "chu_de": "accommodation · bridge · cabin · galley · mess room",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "On most cargo ships, the crew live in the accommodation, near the stern.",
+      "vi": "Trên phần lớn tàu hàng, thuyền viên sống trong khu nhà ở, gần phía lái."
+    },
+    {
+      "en": "The accommodation has many decks, like a small building.",
+      "vi": "Khu nhà ở có nhiều tầng, như một toà nhà nhỏ."
+    },
+    {
+      "en": "Each person has a cabin. A cabin is a small room with a bed and a desk.",
+      "vi": "Mỗi người có một buồng ngủ. Buồng là một phòng nhỏ có giường và bàn."
+    },
+    {
+      "en": "The kitchen on a ship is called the galley.",
+      "vi": "Nhà bếp trên tàu gọi là galley."
+    },
+    {
+      "en": "The crew eat their meals in the mess room.",
+      "vi": "Thuyền viên ăn cơm trong phòng ăn."
+    },
+    {
+      "en": "On top of the accommodation, there is the bridge.",
+      "vi": "Trên cùng của khu nhà ở là buồng lái."
+    },
+    {
+      "en": "From the bridge, the officers can see all around the ship.",
+      "vi": "Từ buồng lái, các sĩ quan nhìn được khắp xung quanh con tàu."
+    },
+    {
+      "en": "There is always an officer on watch on the bridge at sea.",
+      "vi": "Khi tàu chạy trên biển, trên buồng lái luôn có một sĩ quan trực ca."
+    },
+    {
+      "en": "Nam likes the bridge best. It is quiet, and the view is wonderful.",
+      "vi": "Nam thích buồng lái nhất. Ở đó yên tĩnh, và cảnh rất đẹp."
+    },
+    {
+      "en": "But he knows the bridge is a place to work, not to relax.",
+      "vi": "Nhưng cậu biết buồng lái là nơi làm việc, không phải chỗ nghỉ ngơi."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "accommodation",
+      "am": "/əˌkɒm.əˈdeɪ.ʃən/",
+      "doc": "ờ-com-mờ-ĐÂY-shần",
+      "nghia": "khu nhà ở (thượng tầng)"
+    },
+    {
+      "tu": "cabin",
+      "am": "/ˈkæb.ɪn/",
+      "doc": "KE-bin",
+      "nghia": "buồng ngủ"
+    },
+    {
+      "tu": "galley",
+      "am": "/ˈɡæl.i/",
+      "doc": "GE-li",
+      "nghia": "nhà bếp trên tàu"
+    },
+    {
+      "tu": "mess room",
+      "am": "/ˈmes ruːm/",
+      "doc": "MÉT-x rum",
+      "nghia": "phòng ăn"
+    },
+    {
+      "tu": "on watch",
+      "am": "/ɒn wɒtʃ/",
+      "doc": "on uốt-ch",
+      "nghia": "đang trực ca"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "On most cargo ships, is the accommodation near the stern?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the accommodation have only one deck?",
+          "dap": "no"
+        },
+        {
+          "en": "Is a cabin a small room?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the galley the kitchen?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do the crew eat in the cabin?",
+          "dap": "no"
+        },
+        {
+          "en": "Is the bridge on top of the accommodation?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is there always an officer on watch at sea?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the bridge a place to relax?",
+          "dap": "no"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Where do the crew live?",
+          "chon": [
+            "In the cargo holds",
+            "In the accommodation",
+            "On the main deck"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What is the kitchen on a ship called?",
+          "chon": [
+            "The galley",
+            "The cabin",
+            "The mess"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Where do the crew eat?",
+          "chon": [
+            "On the bridge",
+            "In the galley",
+            "In the mess room"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "Where is the bridge?",
+          "chon": [
+            "On top of the accommodation",
+            "In the engine room",
+            "In the bow"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does Nam know about the bridge?",
+          "chon": [
+            "It is a place to relax",
+            "It is a place to work",
+            "It is a place to sleep"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "Where do the crew live on a cargo ship?",
+          "mau": "The crew live in the accommodation, near the stern."
+        },
+        {
+          "en": "What is the galley?",
+          "mau": "The galley is the kitchen on a ship."
+        },
+        {
+          "en": "Where is the bridge?",
+          "mau": "On most cargo ships, the bridge is on top of the accommodation."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/ɒ/ – /ɔː/",
+    "vi_sao": "\"Pot\" (cái nồi) và \"port\" (cảng), \"shot\" và \"short\": cùng là 'o', khác nhau ở độ dài và độ tròn môi.",
+    "nhan_a": "/ɒ/ ngắn",
+    "nhan_b": "/ɔː/ dài",
+    "am": [
+      {
+        "ky_hieu": "/ɒ/",
+        "goi_y": "'o' ngắn, miệng mở",
+        "cach": [
+          "Miệng mở, môi hơi tròn",
+          "Thật ngắn"
+        ]
+      },
+      {
+        "ky_hieu": "/ɔː/",
+        "goi_y": "'o' dài, môi tròn chu",
+        "cach": [
+          "Môi tròn và chu hơn",
+          "Kéo dài: poooort"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "pot",
+        "b": "port",
+        "nghia_a": "cái nồi",
+        "nghia_b": "cảng"
+      },
+      {
+        "a": "shot",
+        "b": "short",
+        "nghia_a": "phát bắn",
+        "nghia_b": "ngắn"
+      },
+      {
+        "a": "spot",
+        "b": "sport",
+        "nghia_a": "chỗ, vết",
+        "nghia_b": "thể thao"
+      },
+      {
+        "a": "cod",
+        "b": "cord",
+        "nghia_a": "cá tuyết",
+        "nghia_b": "dây thừng nhỏ"
+      },
+      {
+        "a": "not",
+        "b": "nought",
+        "nghia_a": "không",
+        "nghia_b": "số không"
+      },
+      {
+        "a": "cot",
+        "b": "caught",
+        "nghia_a": "giường cũi",
+        "nghia_b": "đã bắt"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "The crew live in the accommodation, near the stern.",
+      "vi": "Thuyền viên sống trong khu nhà ở, gần phía lái.",
+      "nhan": "Khu nhà ở",
+      "luu_y": "Nhấn: ac-com-mo-DA-tion."
+    },
+    {
+      "en": "On most cargo ships, the bridge is on top of the accommodation.",
+      "vi": "Trên phần lớn tàu hàng, buồng lái nằm trên cùng khu nhà ở.",
+      "nhan": "Vị trí buồng lái",
+      "luu_y": "Giữ cụm 'on most cargo ships' — có tàu đặt buồng lái phía mũi."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Where do the crew live?",
+      "giay": 7,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "Where is the bridge?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Thank you.",
+      "giay": 0
+    }
+  ]
+}

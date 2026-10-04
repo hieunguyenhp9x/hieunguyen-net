@@ -1,0 +1,296 @@
+{
+  "id": "c2-27",
+  "chang": 2,
+  "tuan": 6,
+  "so": 27,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 6 · Bài 27 — Thuỷ thủ boong",
+  "chu_de": "Bosun · AB · OS · cadet",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "The deck crew work on deck every day.",
+      "vi": "Thuỷ thủ boong làm việc trên boong hằng ngày."
+    },
+    {
+      "en": "Their leader is the bosun.",
+      "vi": "Người đứng đầu họ là thuỷ thủ trưởng."
+    },
+    {
+      "en": "The bosun gets the jobs from the Chief Officer and gives them to the crew.",
+      "vi": "Thuỷ thủ trưởng nhận việc từ đại phó và giao cho thuỷ thủ."
+    },
+    {
+      "en": "An AB is an Able Seaman. He is an experienced sailor.",
+      "vi": "AB là thuỷ thủ chính. Anh là người có kinh nghiệm."
+    },
+    {
+      "en": "ABs steer the ship, keep lookout and help with mooring.",
+      "vi": "Thuỷ thủ chính lái tàu, cảnh giới và giúp việc buộc tàu."
+    },
+    {
+      "en": "An OS is an Ordinary Seaman. He is still learning.",
+      "vi": "OS là thuỷ thủ phụ. Anh vẫn đang học việc."
+    },
+    {
+      "en": "The deck crew paint, clean, and repair the ship.",
+      "vi": "Thuỷ thủ boong sơn, vệ sinh và sửa chữa con tàu."
+    },
+    {
+      "en": "A cadet also works with the deck crew.",
+      "vi": "Cadet cũng làm việc cùng thuỷ thủ boong."
+    },
+    {
+      "en": "Nam knows the bosun can teach him a lot about real work on deck.",
+      "vi": "Nam biết thuỷ thủ trưởng có thể dạy cậu rất nhiều về công việc thật trên boong."
+    },
+    {
+      "en": "So he will listen, ask questions, and work hard.",
+      "vi": "Vì vậy cậu sẽ lắng nghe, hỏi han, và làm việc chăm chỉ."
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "bosun",
+      "am": "/ˈbəʊ.sən/",
+      "doc": "BÂU-xần",
+      "nghia": "thuỷ thủ trưởng (viết đủ: boatswain, vẫn đọc 'bâu-xần')"
+    },
+    {
+      "tu": "Able Seaman (AB)",
+      "am": "/ˈeɪ.bəl ˈsiː.mən/",
+      "doc": "ÂY-bồ XI-mần",
+      "nghia": "thuỷ thủ chính"
+    },
+    {
+      "tu": "Ordinary Seaman (OS)",
+      "am": "/ˈɔː.dən.ri ˈsiː.mən/",
+      "doc": "O-đần-ri XI-mần",
+      "nghia": "thuỷ thủ phụ"
+    },
+    {
+      "tu": "steer",
+      "am": "/stɪə/",
+      "doc": "xtia",
+      "nghia": "lái tàu (cầm lái)"
+    },
+    {
+      "tu": "mooring",
+      "am": "/ˈmʊə.rɪŋ/",
+      "doc": "MUA-rinh",
+      "nghia": "buộc tàu, làm dây"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Do the deck crew work on deck?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the bosun the leader of the deck crew?",
+          "dap": "yes"
+        },
+        {
+          "en": "Does the bosun get jobs from the cook?",
+          "dap": "no"
+        },
+        {
+          "en": "Is an AB an experienced sailor?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do ABs steer the ship?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is an OS more experienced than an AB?",
+          "dap": "no"
+        },
+        {
+          "en": "Do the deck crew paint the ship?",
+          "dap": "yes"
+        },
+        {
+          "en": "Can the bosun teach Nam a lot?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "Who is the leader of the deck crew?",
+          "chon": [
+            "The AB",
+            "The bosun",
+            "The OS"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "Where does the bosun get the jobs from?",
+          "chon": [
+            "The Chief Officer",
+            "The Master",
+            "The cook"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What does AB stand for?",
+          "chon": [
+            "Able Boat",
+            "Assistant Bosun",
+            "Able Seaman"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "Who is still learning?",
+          "chon": [
+            "The OS",
+            "The bosun",
+            "The AB"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "What will Nam do?",
+          "chon": [
+            "Sleep a lot",
+            "Listen and work hard",
+            "Only watch"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "Who is the bosun?",
+          "mau": "The bosun is the leader of the deck crew."
+        },
+        {
+          "en": "What does AB stand for?",
+          "mau": "AB stands for Able Seaman."
+        },
+        {
+          "en": "What do ABs do?",
+          "mau": "ABs steer the ship, keep lookout and help with mooring."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/r/ – /l/",
+    "vi_sao": "\"Right\" (đúng/bên phải) và \"light\" (ánh sáng), \"rock\" và \"lock\": đọc lẫn là người nghe hiểu sai lệnh.",
+    "nhan_a": "/r/",
+    "nhan_b": "/l/",
+    "am": [
+      {
+        "ky_hieu": "/r/",
+        "goi_y": "lưỡi cong lên, KHÔNG chạm vòm",
+        "cach": [
+          "Môi hơi tròn",
+          "Đầu lưỡi cong lên nhưng không chạm gì",
+          "Không rung lưỡi như 'r' tiếng Việt"
+        ]
+      },
+      {
+        "ky_hieu": "/l/",
+        "goi_y": "đầu lưỡi CHẠM lợi trên",
+        "cach": [
+          "Đầu lưỡi chạm lợi răng trên",
+          "Hơi đi hai bên lưỡi"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "right",
+        "b": "light",
+        "nghia_a": "đúng, bên phải",
+        "nghia_b": "ánh sáng"
+      },
+      {
+        "a": "road",
+        "b": "load",
+        "nghia_a": "con đường",
+        "nghia_b": "chất hàng"
+      },
+      {
+        "a": "rock",
+        "b": "lock",
+        "nghia_a": "đá",
+        "nghia_b": "khoá"
+      },
+      {
+        "a": "row",
+        "b": "low",
+        "nghia_a": "hàng, dãy",
+        "nghia_b": "thấp"
+      },
+      {
+        "a": "rate",
+        "b": "late",
+        "nghia_a": "tỷ lệ",
+        "nghia_b": "muộn"
+      },
+      {
+        "a": "red",
+        "b": "led",
+        "nghia_a": "màu đỏ",
+        "nghia_b": "đã dẫn"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "The bosun is the leader of the deck crew.",
+      "vi": "Thuỷ thủ trưởng là người đứng đầu thuỷ thủ boong.",
+      "nhan": "Thuỷ thủ trưởng",
+      "luu_y": "Đọc 'bosun' là 'BÂU-xần'."
+    },
+    {
+      "en": "AB stands for Able Seaman, and OS stands for Ordinary Seaman.",
+      "vi": "AB là viết tắt của Able Seaman, OS là Ordinary Seaman.",
+      "nhan": "AB – OS",
+      "luu_y": "Mẫu 'X stands for…' dùng cho mọi câu hỏi viết tắt."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "Who is the bosun?",
+      "giay": 6,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "What do AB and OS stand for?",
+      "giay": 9,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Correct.",
+      "giay": 0
+    }
+  ]
+}

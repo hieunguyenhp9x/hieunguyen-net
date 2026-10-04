@@ -1,0 +1,296 @@
+{
+  "id": "c2-21",
+  "chang": 2,
+  "tuan": 5,
+  "so": 21,
+  "tep": "sinh-vien-hoc-bong-cadet-boong",
+  "tieu_de": "Tuần 5 · Bài 21 — Mũi, lái, mạn trái, mạn phải",
+  "chu_de": "bow · stern · port · starboard — câu hỏi số 16",
+  "toc_do": {
+    "1": "-25%",
+    "2": "-10%",
+    "3": "+0%"
+  },
+  "giong": {
+    "ke": "en-US-AndrewNeural",
+    "hoi": "en-GB-RyanNeural",
+    "hoi_accent": "en-IN-PrabhatNeural",
+    "mau": "en-US-AvaNeural"
+  },
+  "truyen": [
+    {
+      "en": "Today, Nam's class visits a ship in port. An officer shows the cadets around.",
+      "vi": "Hôm nay, lớp Nam đi thăm một con tàu ở cảng. Một sĩ quan dẫn các cadet đi một vòng."
+    },
+    {
+      "en": "They stand at the front of the ship.",
+      "vi": "Họ đứng ở phía trước con tàu."
+    },
+    {
+      "en": "The officer says, \"The front of the ship is the bow.\"",
+      "vi": "Sĩ quan nói: \"Phía trước con tàu gọi là mũi tàu.\""
+    },
+    {
+      "en": "Then they walk to the back of the ship.",
+      "vi": "Rồi họ đi về phía sau con tàu."
+    },
+    {
+      "en": "\"The back of the ship is the stern.\"",
+      "vi": "\"Phía sau con tàu gọi là lái tàu.\""
+    },
+    {
+      "en": "\"Now look forward, to the bow.\"",
+      "vi": "\"Bây giờ nhìn về phía trước, về phía mũi.\""
+    },
+    {
+      "en": "\"The left side is port, and the right side is starboard.\"",
+      "vi": "\"Bên trái là mạn trái, bên phải là mạn phải.\""
+    },
+    {
+      "en": "Nam asks, \"Why don't we say left and right?\"",
+      "vi": "Nam hỏi: \"Sao mình không nói trái và phải ạ?\""
+    },
+    {
+      "en": "The officer says, \"Because left and right change when you turn around.\"",
+      "vi": "Sĩ quan nói: \"Vì trái và phải sẽ đổi khi em quay người lại.\""
+    },
+    {
+      "en": "\"Port and starboard never change. On a ship, everyone must understand the same thing.\"",
+      "vi": "\"Mạn trái và mạn phải thì không bao giờ đổi. Trên tàu, ai cũng phải hiểu giống nhau.\""
+    }
+  ],
+  "tu_khoa": [
+    {
+      "tu": "bow",
+      "am": "/baʊ/",
+      "doc": "bao",
+      "nghia": "mũi tàu (đọc 'bao', không phải 'bâu')"
+    },
+    {
+      "tu": "stern",
+      "am": "/stɜːn/",
+      "doc": "xtơn",
+      "nghia": "lái tàu, đuôi tàu"
+    },
+    {
+      "tu": "port",
+      "am": "/pɔːt/",
+      "doc": "pót",
+      "nghia": "mạn trái (khi nhìn về phía mũi)"
+    },
+    {
+      "tu": "starboard",
+      "am": "/ˈstɑː.bəd/",
+      "doc": "XTA-bợd",
+      "nghia": "mạn phải — không đọc 'xta-bo'"
+    },
+    {
+      "tu": "forward",
+      "am": "/ˈfɔː.wəd/",
+      "doc": "PHO-uợd",
+      "nghia": "về phía trước · aft = về phía sau"
+    }
+  ],
+  "hoi": {
+    "1": {
+      "kieu": "yes-no",
+      "giay": 3,
+      "cau": [
+        {
+          "en": "Does an officer show the cadets around the ship?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the front of the ship the stern?",
+          "dap": "no"
+        },
+        {
+          "en": "Is the back of the ship the stern?",
+          "dap": "yes"
+        },
+        {
+          "en": "Looking forward, is the left side port?",
+          "dap": "yes"
+        },
+        {
+          "en": "Is the right side port?",
+          "dap": "no"
+        },
+        {
+          "en": "Do left and right change when you turn around?",
+          "dap": "yes"
+        },
+        {
+          "en": "Do port and starboard change?",
+          "dap": "no"
+        },
+        {
+          "en": "Must everyone on a ship understand the same thing?",
+          "dap": "yes"
+        }
+      ]
+    },
+    "2": {
+      "kieu": "chon",
+      "giay": 4,
+      "cau": [
+        {
+          "en": "What is the front of the ship called?",
+          "chon": [
+            "The stern",
+            "The bow",
+            "The deck"
+          ],
+          "dap": 1
+        },
+        {
+          "en": "What is the back of the ship called?",
+          "chon": [
+            "The stern",
+            "The bow",
+            "The bridge"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Looking forward, what is the right side?",
+          "chon": [
+            "Port",
+            "Left",
+            "Starboard"
+          ],
+          "dap": 2
+        },
+        {
+          "en": "Why do seafarers say port and starboard?",
+          "chon": [
+            "They never change",
+            "They are short",
+            "They are old words"
+          ],
+          "dap": 0
+        },
+        {
+          "en": "Who shows the cadets around?",
+          "chon": [
+            "The cook",
+            "An officer",
+            "A student"
+          ],
+          "dap": 1
+        }
+      ]
+    },
+    "3": {
+      "kieu": "mo",
+      "giay": 8,
+      "cau": [
+        {
+          "en": "What is the front of the ship called?",
+          "mau": "The front of the ship is the bow."
+        },
+        {
+          "en": "What are port and starboard?",
+          "mau": "Looking forward, port is the left side and starboard is the right side."
+        },
+        {
+          "en": "Why don't seafarers say left and right?",
+          "mau": "Because left and right change when you turn around, but port and starboard never change."
+        }
+      ]
+    }
+  },
+  "phat_am": {
+    "cap": "/æ/ – /e/",
+    "vi_sao": "\"Man\" (một người) và \"men\" (nhiều người), \"bad\" và \"bed\": người Việt đọc cả hai như 'e'. Nói \"the men\" mà thành \"the man\" là sai số người.",
+    "nhan_a": "/æ/ (mở rộng miệng)",
+    "nhan_b": "/e/",
+    "am": [
+      {
+        "ky_hieu": "/æ/",
+        "goi_y": "giữa 'a' và 'e', miệng mở RỘNG",
+        "cach": [
+          "Há miệng rộng, hàm dưới hạ thấp",
+          "Môi kéo sang hai bên",
+          "Nghe như 'e' bẹt và dài hơn"
+        ]
+      },
+      {
+        "ky_hieu": "/e/",
+        "goi_y": "'e' ngắn, miệng mở vừa",
+        "cach": [
+          "Miệng mở vừa phải",
+          "Ngắn, gọn như 'e' tiếng Việt"
+        ]
+      }
+    ],
+    "cap_tu": [
+      {
+        "a": "man",
+        "b": "men",
+        "nghia_a": "một người đàn ông",
+        "nghia_b": "nhiều người đàn ông"
+      },
+      {
+        "a": "bad",
+        "b": "bed",
+        "nghia_a": "xấu",
+        "nghia_b": "giường"
+      },
+      {
+        "a": "pan",
+        "b": "pen",
+        "nghia_a": "cái chảo",
+        "nghia_b": "cây bút"
+      },
+      {
+        "a": "sat",
+        "b": "set",
+        "nghia_a": "đã ngồi",
+        "nghia_b": "bộ, đặt"
+      },
+      {
+        "a": "bag",
+        "b": "beg",
+        "nghia_a": "cái túi",
+        "nghia_b": "van xin"
+      },
+      {
+        "a": "had",
+        "b": "head",
+        "nghia_a": "đã có",
+        "nghia_b": "cái đầu"
+      }
+    ]
+  },
+  "cau_mau": [
+    {
+      "en": "The front of the ship is the bow, and the back is the stern.",
+      "vi": "Phía trước con tàu là mũi, phía sau là lái.",
+      "nhan": "Mũi – lái",
+      "luu_y": "Đọc 'bow' là 'bao'. Nhấn: STERN rõ âm /n/ cuối."
+    },
+    {
+      "en": "Looking forward, port is the left side and starboard is the right side.",
+      "vi": "Nhìn về phía mũi, mạn trái là bên trái, mạn phải là bên phải.",
+      "nhan": "Mạn trái – mạn phải",
+      "luu_y": "Luôn nói 'looking forward' — trái/phải chỉ đúng khi nhìn về mũi. 'starboard' đọc XTA-bợd."
+    }
+  ],
+  "doi_dap": [
+    {
+      "en": "What is the front of the ship called? And the back?",
+      "giay": 8,
+      "goi_y": "Câu mẫu 1"
+    },
+    {
+      "en": "What are port and starboard?",
+      "giay": 9,
+      "goi_y": "Câu mẫu 2"
+    },
+    {
+      "en": "Correct.",
+      "giay": 0
+    }
+  ]
+}
