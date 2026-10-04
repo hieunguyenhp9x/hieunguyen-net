@@ -1,10 +1,10 @@
 // Máy chạy ngầm của app Mở Miệng: giữ vỏ app + bài đã tải để học khi không có mạng.
 // Sửa code app thì TĂNG số phiên bản VO để máy người học lấy bản mới.
-const VO = 'mm-vo-v8';
+const VO = 'mm-vo-v9';
 const VO_FILES = [
   './', './index.html', './manifest.webmanifest',
   './icon-192.png', './icon-512.png', './apple-touch-icon.png',
-  './muc-luc.json', './bai/c1-01.json', './audio/c1-01/kich-thuoc.json'
+  './muc-luc.json', './cau-hinh.json', './bai/c1-01.json', './audio/c1-01/kich-thuoc.json'
 ];
 
 self.addEventListener('install', e => {
@@ -23,6 +23,7 @@ self.addEventListener('fetch', e => {
   if (req.method !== 'GET') return;
   const url = new URL(req.url);
   if (url.origin !== location.origin) return;
+  if (url.pathname.includes('/api/')) return;          // hỏi máy chủ mã kích hoạt: luôn đi thẳng, không lưu
 
   if (url.pathname.endsWith('.mp3')) { e.respondWith(audio(req)); return; }
   // trang + file nội dung: lấy bản mới khi có mạng, mất mạng thì dùng bản đã lưu

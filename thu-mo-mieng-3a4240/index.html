@@ -242,6 +242,7 @@
     <div class="cai" id="caiThe" hidden></div>
     <div id="nhacHs"></div>
     <div id="loTrinh"></div>
+    <div class="chan" id="bqChan"></div>
   </section>
 
   <!-- ① NGHE HIỂU -->
@@ -325,8 +326,21 @@
     <div class="card" id="kqThe"></div>
   </section>
 
+  <!-- MỞ KHOÁ BẰNG MÃ KÍCH HOẠT -->
+  <section id="s-kichhoat">
+    <p class="hd">Tuần 1 học thử miễn phí. Từ tuần 2 trở đi cần <b>mã kích hoạt</b>: nhập một lần, rồi tải cả khoá về máy và học không cần mạng.</p>
+    <div class="card form">
+      <label>Mã kích hoạt<input id="khMa" placeholder="MM-XXXX-XXXX" autocomplete="off" autocapitalize="characters" spellcheck="false" style="font-size:20px;letter-spacing:.06em;text-transform:uppercase"></label>
+      <button class="btn to" id="khNut">Kích hoạt</button>
+      <div class="dem" id="khBao"></div>
+    </div>
+    <div class="card" id="khMua" hidden></div>
+    <p class="hd">• Một mã dùng được trên <b>2 máy</b>. Đổi máy thì nhắn người bán để gỡ máy cũ.<br>• iPhone: mở app bằng icon trên màn hình chính rồi mới nhập mã. Nhập trong Safari thì app ngoài màn hình không nhận.</p>
+  </section>
+
   <!-- CÀI ĐẶT -->
   <section id="s-caidat">
+    <div class="card" id="cdBq" hidden></div>
     <div class="card">
       <h3>Mức học</h3>
       <div class="muc" id="mucChon">
@@ -425,6 +439,14 @@ let BID = 'c1-01';
 let KQ = {};
 let MUC = [];
 let BUOC = 'nha', HS_VE = 'nha', PHIEN = 0;
+// ---------- MÃ KÍCH HOẠT ----------
+let CH = {khoa: false, mien_phi_tuan: 1};              // cau-hinh.json: bản bán bật khoa, bản thử thì không
+let LIC = load('lic');                                 // {ma, ten, ve} sau khi kích hoạt
+const MAY = load('may') || (() => { const id = [...crypto.getRandomValues(new Uint8Array(16))].map(x => x.toString(16).padStart(2, '0')).join(''); save('may', id); return id; })();
+const canMaTuan = w => !!CH.khoa && !LIC && w > (CH.mien_phi_tuan || 1);
+const canMa = id => { const m = MUC.find(x => x.id === id); return !!m && canMaTuan(m.tuan); };
+const hVe = () => LIC && LIC.ve ? {'X-MM-Ve': LIC.ve} : {};
+const dsTai = () => MUC.filter(x => !canMa(x.id));     // bài máy này được tải
 const BUOC5 = ['nghe','phanxa','phatam','caumau','doidap'];
 const TEN_BUOC = {nghe: 'Nghe hiểu', phanxa: 'Phản xạ', phatam: 'Phát âm', caumau: 'Câu mẫu', doidap: 'Đối đáp', ketqua: 'Kết quả'};
 const DIEM_TOI_DA = {nghe: 20, phanxa: 40, phatam: 15, caumau: 15, doidap: 10};
@@ -627,7 +649,7 @@ function veBuocBar(){
 }
 
 // ---------- KHỞI ĐỘNG ----------
-async function layBai(id){ const r = await fetch('bai/' + id + '.json'); if (!r.ok) throw new Error(id); return r.json(); }
+async function layBai(id){ const r = await fetch('bai/' + id + '.json', {headers: hVe()}); if (!r.ok) throw new Error(id); return r.json(); }
 // bài đã mở chưa: bài trước trong tuần phải đạt; bài đầu tuần thì phải đạt Kiểm tra tuần trước
 function moKhoa(id){
   const i = MUC.findIndex(m => m.id === id); if (i <= 0) return true;
@@ -679,7 +701,9 @@ async function taoAo(loai, t){
   return o;
 }
 (async function khoiDong(){
+  try { Object.assign(CH, await fetch('cau-hinh.json').then(r => r.json())); } catch(e){}
   try { MUC = await fetch('muc-luc.json').then(r => r.json()); } catch(e){ MUC = []; }
+  kiemMa();
   chonMuc(M);
   if (qs.has('xepmuc')){
     BAI = await layBai('c1-05'); BID = 'xep-muc'; DIR = 'audio/c1-05/';
@@ -687,10 +711,12 @@ async function taoAo(loai, t){
   }
   const loai = qs.get('on') || (qs.get('kt') ? 'kt' : null);
   let d = null;
+  if (loai && loai !== 'ngay' && canMaTuan(+(qs.get('t') || qs.get('kt')))){ moBuoc('kichhoat'); veNutCongCu(); return; }
   if (loai){ try { d = await taoAo(loai, qs.get('t') || qs.get('kt')); } catch(e){ d = null; } }
   else if (qs.get('bai')){
     const id = qs.get('bai').replace(/[^a-z0-9-]/g, '');
     if (MUC.length && !moKhoa(id)){ moBuoc('nha'); toast('🔒 Bài này chưa mở. Đạt bài trước từ 80 điểm để mở.'); veNutCongCu(); veCai(); return; }
+    if (canMa(id)){ moBuoc('kichhoat'); veNutCongCu(); return; }
     try { d = await layBai(id); } catch(e){ d = null; }
   }
   if (!d){ moBuoc('nha'); veNutCongCu(); veCai(); return; }
@@ -724,7 +750,7 @@ function moBuoc(s){
   $('#duoi').hidden = !trongBai || s === 'ketqua';
   $('#nutVe').hidden = s === 'nha';
   $('#nutCaiDat').hidden = $('#topChuoi').hidden = s !== 'nha';
-  const T = {nha: ['Phỏng vấn học bổng cadet boong', 'Mở Miệng'], caidat: ['Mở Miệng', 'Cài đặt'], hoso: ['Cài đặt', 'Hồ sơ của tôi'], xepmuc: ['3 phút · nghe và trả lời', 'Bài test xếp mức']};
+  const T = {nha: ['Phỏng vấn học bổng cadet boong', 'Mở Miệng'], caidat: ['Mở Miệng', 'Cài đặt'], hoso: ['Cài đặt', 'Hồ sơ của tôi'], xepmuc: ['3 phút · nghe và trả lời', 'Bài test xếp mức'], kichhoat: ['Tuần 1 học thử miễn phí', 'Mở khoá khoá học']};
   if (trongBai){
     const m = MUC.find(x => x.id === BAI.id);
     $('#tieuNho').textContent = BAI._ao ? 'Tuần ' + BAI._tuan : (m ? `Tuần ${m.tuan} · Bài ${m.so}` : '');
@@ -733,6 +759,7 @@ function moBuoc(s){
   if (s === 'nha') veHomNay();
   if (s === 'ketqua') veKetQua();
   if (s === 'caidat') veCaiDat();
+  if (s === 'kichhoat') veKichHoat();
   veBuocBar();
   window.scrollTo({top: 0});
 }
@@ -1077,16 +1104,16 @@ function ghiTai(id, m, ma){ const s = soTai(); (s[m] = s[m] || {})[id] = ma; sav
 
 async function taiMotBai(id, m, ma, moiFile){
   const c = await caches.open('mm-' + id);
-  const rj = await fetch('bai/' + id + '.json', {cache: 'no-store'});
+  const rj = await fetch('bai/' + id + '.json', {cache: 'no-store', headers: hVe()});
   if (!rj.ok) throw new Error('khong tai duoc bai ' + id);
   const d = await rj.clone().json();
   await c.put('bai/' + id + '.json', rj);
-  try { await c.add('audio/' + id + '/kich-thuoc.json'); } catch(e){}
+  try { const rk = await fetch('audio/' + id + '/kich-thuoc.json', {headers: hVe()}); if (rk.ok) await c.put('audio/' + id + '/kich-thuoc.json', rk); } catch(e){}
   const ds = dsAudioCua(d, m); let loi = 0;
   for (let k = 0; k < ds.length; k += 4){            // 4 file một lúc
     await Promise.all(ds.slice(k, k + 4).map(async u => {
       if (!(await c.match(u))){
-        try { const r = await fetch(u, {cache: 'no-store'}); if (r.ok) await c.put(u, r); else loi++; } catch(e){ loi++; }
+        try { const r = await fetch(u, {cache: 'no-store', headers: hVe()}); if (r.ok) await c.put(u, r); else loi++; } catch(e){ loi++; }
       }
       moiFile && moiFile();
     }));
@@ -1111,21 +1138,22 @@ async function veNutCongCu(){
   const on = navigator.onLine;
   $('#taiHet').disabled = $('#capNhat').disabled = !on;
   if (!PB && on){ try { await layPhienBan(); } catch(e){} }
-  const s = soTai()[M] || {}, tong = MUC.length;
-  const so = MUC.filter(x => s[x.id] && (!PB || s[x.id] === (PB.bai[x.id] || {}).h)).length;
-  const mb = PB ? MUC.reduce((a, x) => a + (((PB.bai[x.id] || {}).kt || {})[M] || 0), 0) / 1048576 : 0;
+  const DS = dsTai(), s = soTai()[M] || {}, tong = DS.length;
+  const so = DS.filter(x => s[x.id] && (!PB || s[x.id] === (PB.bai[x.id] || {}).h)).length;
+  const mb = PB ? DS.reduce((a, x) => a + (((PB.bai[x.id] || {}).kt || {})[M] || 0), 0) / 1048576 : 0;
   $('#taiHet').textContent = tong && so >= tong ? '✅ Đã tải toàn bộ' : (so ? `⬇ Tải nốt ${tong - so} bài` : '⬇ Tải toàn bộ');
   if (!on) ccBao(`Đang mất mạng · đã tải ${so}/${tong} bài mức ${M}, học được các bài đã tải.`);
   else if (so < tong) ccBao(`Mức ${M}: đã tải ${so}/${tong} bài${mb ? ` · cả bộ khoảng ${Math.round(mb)} MB, nên tải khi có wifi` : ''}.`);
   else ccBao(`Mức ${M}: đã tải đủ ${tong} bài · tắt mạng vẫn học được.`);
+  if (CH.khoa && !LIC) $('#ccChu').insertAdjacentHTML('beforeend', ' Tuần 2–12 tải được sau khi kích hoạt.');
 }
 
 $('#taiHet').onclick = async () => {
-  if (!MUC.length) return;
+  const DS = dsTai(); if (!DS.length) return;
   $('#taiHet').disabled = $('#capNhat').disabled = true;
   try { await layPhienBan(); } catch(e){ ccBao('Không lấy được danh sách bài. Kiểm tra mạng rồi thử lại.'); $('#taiHet').disabled = $('#capNhat').disabled = false; return; }
   const s = soTai()[M] || {};
-  const can = MUC.filter(x => s[x.id] !== (PB.bai[x.id] || {}).h);
+  const can = DS.filter(x => s[x.id] !== (PB.bai[x.id] || {}).h);
   let xong = 0, loiBai = 0, file = 0;
   const uoc = Math.max(1, can.length * 70);
   for (const x of can){
@@ -1140,7 +1168,7 @@ $('#taiHet').onclick = async () => {
   try { await (await caches.open('mm-chung')).addAll(['./', 'muc-luc.json']); } catch(e){}
   await veNutCongCu();
   if (loiBai) ccBao(`Còn ${loiBai} bài tải lỗi (mạng chập chờn). Bấm "Tải nốt" để tải tiếp.`);
-  else ccBao(`✅ Đã tải đủ ${MUC.length} bài mức ${M}. Tắt mạng vẫn học được.`);
+  else ccBao(`✅ Đã tải đủ ${DS.length} bài mức ${M}. Tắt mạng vẫn học được.`);
 };
 
 $('#capNhat').onclick = async () => {
@@ -1207,6 +1235,7 @@ function veHomNay(){
     if (ht) viec = {q: '?bai=' + ht.id, nho: `Tuần ${w} · Bài ${ht.so}`, chu: ht.ten, nut: load('kq-' + ht.id) ? '▶ Học tiếp' : '▶ Bắt đầu bài'};
     else if (!ao['on-tuan-' + w]) viec = {q: '?on=tuan&t=' + w, nho: `Tuần ${w} · đã đạt ${bt.length}/${bt.length} bài`, chu: 'Ôn tuần ' + w, nut: '📝 Ôn tuần'};
     else viec = {q: '?kt=' + w, nho: `Tuần ${w} · bài cuối tuần`, chu: 'Kiểm tra tuần ' + w + (kt[w] ? ' (làm lại)' : ''), nut: '🏁 Làm kiểm tra'};
+    if (canMaTuan(w)) viec = {mo: 'kichhoat', nho: viec.nho, chu: viec.chu, nut: '🔑 Nhập mã để học tiếp'};
     break;
   }
   const soXong = MUC.filter(m => x[m.id]).length;
@@ -1219,7 +1248,7 @@ function veHomNay(){
       <button class="lk" id="boTest">Bỏ qua — học luôn ở Mức ${M}</button>`;
   else if (viec) html = `<div class="tt"><span>${esc(viec.nho)}</span><span>Đạt ${soXong}/${MUC.length} bài</span></div>
       <h3>${esc(viec.chu)}</h3>
-      <button class="btn to" data-q="${viec.q}">${viec.nut}</button>` + tuan7Html() +
+      <button class="btn to" ${viec.mo ? `data-mo="${viec.mo}"` : `data-q="${viec.q}"`}>${viec.nut}</button>` + tuan7Html() +
       (soXong >= 2 && !ao['on-ngay-' + homNayStr()] ? '<button class="lk" data-q="?on=ngay">🔁 Ôn bài cũ hôm nay · 5 phút</button>' : '');
   else html = `<h3>🎉 Bạn đã đạt toàn bộ ${MUC.length} bài</h3><p class="hd" style="margin:0">Ôn lại bài điểm thấp, hoặc làm lại kiểm tra các tuần.</p>` + tuan7Html();
   $('#homNay').innerHTML = html;
@@ -1227,6 +1256,7 @@ function veHomNay(){
   $('#nhacHs').innerHTML = !moi && !Object.keys(HS()).length
     ? '<button class="nhac" data-mo="hoso"><span>👤 Điền hồ sơ 1 phút — câu mẫu sẽ là câu <b>của bạn</b></span><span>›</span></button>' : '';
   veLoTrinh(tuanHT);
+  $('#bqChan').innerHTML = LIC ? 'Bản quyền của <b>' + esc(LIC.ten || LIC.ma) + '</b>' : '';
   $$('#s-nha [data-q]').forEach(b => b.onclick = () => { location.search = b.dataset.q; });
   $$('#s-nha [data-mo]').forEach(b => b.onclick = () => { HS_VE = 'nha'; moBuoc(b.dataset.mo); });
 }
@@ -1237,6 +1267,8 @@ function veLoTrinh(tuanHT){
   for (let w = 1; w <= maxT; w++){
     const bt = MUC.filter(m => m.tuan === w); if (!bt.length) continue;
     if (bt[0].chang !== chang){ chang = bt[0].chang; html += `<div class="chang">${TEN_CHANG[chang] || 'Chặng ' + chang}</div>`; }
+    if (canMaTuan(w) && !canMaTuan(w - 1)) html += `<button class="nhac" data-mo="kichhoat"><span>🔑 Tuần ${w - 1} học thử miễn phí. <b>Nhập mã kích hoạt</b> để mở tuần ${w}–${maxT}</span><span>›</span></button>`;
+    const key = canMaTuan(w) ? ' data-key="1"' : '';
     const datKT = !!(kt[w] && kt[w].dat), khoaT = !moKhoa(bt[0].id), soDat = bt.filter(m => x[m.id]).length;
     const du = datKT || bt.every(m => x[m.id]);
     html += `<div class="tuan ${datKT ? 'dat' : khoaT ? 'khoa' : ''} ${w === tuanHT ? 'mo' : ''}">
@@ -1246,27 +1278,76 @@ function veLoTrinh(tuanHT){
     let daChon = false;
     bt.forEach(m => {
       const dat = !!x[m.id], mk = moKhoa(m.id), ht = mk && !dat && !daChon; if (ht) daChon = true;
-      html += `<button class="dong ${dat ? 'dat' : ht ? 'ht' : mk ? '' : 'khoa'}" data-di="?bai=${m.id}" data-mk="${mk ? 1 : 0}" data-ly="Đạt bài trước từ 80 điểm để mở bài này.">
+      html += `<button class="dong ${dat ? 'dat' : ht ? 'ht' : mk ? '' : 'khoa'}" data-di="?bai=${m.id}" data-mk="${mk ? 1 : 0}"${key} data-ly="Đạt bài trước từ 80 điểm để mở bài này.">
         <span class="ic">${dat ? '✓' : mk ? m.so : '🔒'}</span><span class="ten">Bài ${m.so} · ${esc(m.ten)}</span>
         <span class="d">${dm[m.id] != null ? dm[m.id] : ht ? 'Học ›' : ''}</span></button>`;
     });
     const daOn = !!ao['on-tuan-' + w];
-    html += `<button class="dong phu ${daOn ? 'dat' : du ? '' : 'khoa'}" data-di="?on=tuan&t=${w}" data-mk="${du ? 1 : 0}" data-ly="Đạt đủ ${bt.length} bài của tuần để mở.">
+    html += `<button class="dong phu ${daOn ? 'dat' : du ? '' : 'khoa'}" data-di="?on=tuan&t=${w}" data-mk="${du ? 1 : 0}"${key} data-ly="Đạt đủ ${bt.length} bài của tuần để mở.">
         <span class="ic">${daOn ? '✓' : du ? '📝' : '🔒'}</span><span class="ten">Ôn tuần ${w}<small>Không bắt buộc · trộn câu hỏi cả tuần</small></span></button>
-      <button class="dong phu ${datKT ? 'dat' : du ? '' : 'khoa'}" data-di="?kt=${w}" data-mk="${du ? 1 : 0}" data-ly="Đạt đủ ${bt.length} bài để mở — hoặc bấm Thi vượt nếu đã biết.">
+      <button class="dong phu ${datKT ? 'dat' : du ? '' : 'khoa'}" data-di="?kt=${w}" data-mk="${du ? 1 : 0}"${key} data-ly="Đạt đủ ${bt.length} bài để mở — hoặc bấm Thi vượt nếu đã biết.">
         <span class="ic">${datKT ? '✓' : du ? '🏁' : '🔒'}</span><span class="ten">Kiểm tra tuần ${w}<small>Trả lời được từ 80% để mở tuần ${w + 1}</small></span>
         <span class="d">${kt[w] ? Math.round(kt[w].dung / kt[w].n * 100) + '%' : ''}</span></button>`;
-    if (!datKT && !khoaT && !du) html += `<button class="vuot" data-di="?kt=${w}" data-mk="1">⏭ Đã biết rồi? Thi vượt tuần ${w}</button>`;
+    if (!datKT && !khoaT && !du) html += `<button class="vuot" data-di="?kt=${w}" data-mk="1"${key}>⏭ Đã biết rồi? Thi vượt tuần ${w}</button>`;
     html += '</div></div>';
   }
   $('#loTrinh').innerHTML = html;
   $$('#loTrinh .tuan-hd').forEach(b => b.onclick = () => b.parentElement.classList.toggle('mo'));
-  $$('#loTrinh [data-di]').forEach(b => b.onclick = () => { if (b.dataset.mk === '1') location.search = b.dataset.di; else toast('🔒 ' + b.dataset.ly); });
+  $$('#loTrinh [data-mo]').forEach(b => b.onclick = () => moBuoc(b.dataset.mo));
+  $$('#loTrinh [data-di]').forEach(b => b.onclick = () => { if (b.dataset.mk === '1' && b.dataset.key === '1') return moBuoc('kichhoat'); if (b.dataset.mk === '1') location.search = b.dataset.di; else toast('🔒 ' + b.dataset.ly); });
 }
 function veCaiDat(){
+  $('#cdBq').hidden = !CH.khoa;
+  $('#cdBq').innerHTML = LIC
+    ? `<h3>Bản quyền</h3><p style="margin:0">Bản quyền của <b>${esc(LIC.ten || 'bạn')}</b></p><p class="dem" style="margin:4px 0 0">Mã ${esc(LIC.ma.slice(0, 7))}-•••• · dùng tối đa 2 máy</p>`
+    : '<h3>Bản quyền</h3><p class="hd" style="margin:0 0 8px">Đang học thử tuần 1.</p><button class="btn" id="cdKh">🔑 Nhập mã kích hoạt</button>';
+  const kh = $('#cdKh'); if (kh) kh.onclick = () => moBuoc('kichhoat');
   const h = HS();
   $('#cdHsChu').innerHTML = Object.keys(h).length ? `Đã điền${h.ten ? ': <b>' + esc(h.ten) + '</b>' : ''}${h.que ? ', ' + esc(h.que) : ''}. Câu mẫu đang dùng thông tin của bạn.` : 'Tên, quê, trường, gia đình… để câu mẫu là câu <b>của bạn</b>.';
   veNutCongCu(); veCai();
+}
+
+// ---------- MỞ KHOÁ ----------
+function veKichHoat(){
+  const mua = [];
+  if (CH.mua) mua.push(`<a class="btn to" href="${esc(CH.mua)}" target="_blank" rel="noopener" style="display:grid;place-items:center;text-decoration:none">Mua bộ MỞ MIỆNG</a>`);
+  if (CH.zalo) mua.push(`<p class="hd" style="margin:8px 0 0">Mua xong mã gửi qua Zalo: <b>${esc(CH.zalo)}</b></p>`);
+  $('#khMua').innerHTML = mua.length ? '<h3>Chưa có mã?</h3>' + mua.join('') : '';
+  $('#khMua').hidden = !mua.length;
+  if (LIC) $('#khBao').innerHTML = `✅ Máy này đã kích hoạt cho <b>${esc(LIC.ten || 'bạn')}</b>.`;
+}
+$('#khNut').onclick = async () => {
+  const ma = $('#khMa').value.trim(); if (!ma) return;
+  if (!navigator.onLine){ $('#khBao').textContent = 'Cần có mạng để kích hoạt lần đầu.'; return; }
+  $('#khNut').disabled = true; $('#khBao').textContent = 'Đang kiểm tra mã…';
+  const ua = navigator.userAgent, tenMay = /iPhone|iPad/.test(ua) ? 'iPhone' : /Android/.test(ua) ? 'Android' : 'Máy tính';
+  try {
+    const r = await fetch('api/kich', {method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify({ma, may: MAY, ten_may: tenMay})});
+    const k = await r.json();
+    if (!k.ok) $('#khBao').textContent = k.loi || 'Không kích hoạt được.';
+    else {
+      LIC = {ma: k.ma, ten: k.ten, ve: k.ve}; save('lic', LIC);
+      $('#khBao').innerHTML = `✅ Đã kích hoạt cho <b>${esc(k.ten || 'bạn')}</b> (máy ${k.so_may}/${k.toi_da}). Giờ vào ⚙ bấm <b>Tải toàn bộ</b> lúc có wifi.`;
+      toast('🎉 Đã mở khoá cả khoá học');
+      setTimeout(() => moBuoc('caidat'), 1500);
+    }
+  } catch(e){ $('#khBao').textContent = 'Không kết nối được máy chủ. Kiểm tra mạng rồi thử lại.'; }
+  $('#khNut').disabled = false;
+};
+// mỗi lần mở app có mạng: hỏi máy chủ mã còn hiệu lực không (đồng thời đặt lại cookie nếu máy làm mất)
+async function kiemMa(){
+  if (!CH.khoa || !LIC || !navigator.onLine) return;
+  try {
+    const r = await fetch('api/kiem', {headers: hVe(), cache: 'no-store'});
+    if (r.status === 401 || r.status === 403) await boMa('Mã kích hoạt đã bị khoá, hoặc máy này đã bị gỡ khỏi mã.');
+  } catch(e){}
+}
+async function boMa(ly){
+  LIC = null; try { localStorage.removeItem('mm-lic'); } catch(e){}
+  save('so-tai', {});
+  for (const m of MUC.filter(x => canMaTuan(x.tuan))){ try { await caches.delete('mm-' + m.id); } catch(e){} }
+  toast(ly);
+  if (BUOC === 'nha') veHomNay();
 }
 
 // ---------- HỒ SƠ ----------
