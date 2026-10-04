@@ -130,6 +130,12 @@
   .chonbai label{font-size:13px;opacity:.8}
   .chonbai select{flex:1;min-width:0;font:inherit;font-size:14px;padding:7px 8px;border-radius:10px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.1);color:#fff}
   .chonbai select option{color:#14212e}
+  .congcu{display:flex;gap:8px;margin-top:8px}
+  .congcu button{flex:1;min-width:0;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.12);color:#fff;border-radius:10px;padding:8px 6px;font:inherit;font-size:13px;font-weight:600;cursor:pointer;min-height:40px}
+  .congcu button:disabled{opacity:.5;cursor:default}
+  .cc-chu{font-size:12.5px;margin-top:6px;opacity:.9}
+  .cc-thanh{height:5px;background:rgba(255,255,255,.2);border-radius:99px;overflow:hidden;margin-top:6px}
+  .cc-thanh i{display:block;height:100%;width:0;background:var(--gold)}
   .canh{font-size:14px;background:var(--bad-soft);color:var(--bad);border-radius:10px;padding:10px;display:none}
 </style>
 </head>
@@ -140,6 +146,9 @@
   <h1 id="tieuDe">Bài 1</h1>
   <div class="cd" id="chuDe"></div>
   <div class="chonbai"><label for="chonBai">Bài</label><select id="chonBai" aria-label="Chọn bài học"></select></div>
+  <div class="congcu"><button id="taiHet">⬇ Tải toàn bộ</button><button id="capNhat">🔄 Kiểm tra cập nhật</button></div>
+  <div class="cc-thanh" id="ccThanh" hidden><i id="ccTien"></i></div>
+  <div class="cc-chu" id="ccChu"></div>
   <div class="muc" id="mucChon">
     <button data-m="1"><b>Mức 1</b>Mất gốc</button>
     <button data-m="2"><b>Mức 2</b>Nghe chậm được</button>
@@ -310,7 +319,7 @@ function veDau(){
 
 // ---------- KHỞI ĐỘNG ----------
 fetch('muc-luc.json').then(r => r.json()).then(m => {
-  MUC = m;
+  MUC = m; veNutCongCu();
   $('#chonBai').innerHTML = m.map(x => `<option value="${x.id}"${x.id === BID ? ' selected' : ''}>Tuần ${x.tuan} · ${x.so ? 'Bài ' + x.so + ' — ' : ''}${esc(x.ten)}</option>`).join('');
 }).catch(() => {});
 $('#chonBai').onchange = e => { save('bai', e.target.value); location.search = '?bai=' + e.target.value; };
@@ -333,7 +342,7 @@ function chonMuc(m){
     "chon": "Nghe câu hỏi rồi bấm câu trả lời ngắn đúng trong " + bo.giay + " giây.",
     "mo": "Hội đồng hỏi bằng giọng Ấn Độ. Bạn có " + bo.giay + " giây để trả lời <b>trong đầu hoặc nói khẽ</b>, rồi xem câu trả lời mẫu và tự chấm."}[bo.kieu];
   $('#pxHd').innerHTML = kieu + ' Tốc độ đọc: ' + ({"1":"chậm","2":"hơi chậm","3":"tốc độ thật"})[m] + '.';
-  datLaiPhanXa(); veMang(); capNhatOff();
+  datLaiPhanXa(); veMang(); capNhatOff(); if (MUC.length) veNutCongCu();
 }
 
 $$('#buoc button').forEach(b => b.onclick = () => moBuoc(b.dataset.s));
@@ -623,16 +632,121 @@ function veMang(){
 }
 // ---------- HỌC OFFLINE: tải bài vào máy ----------
 const GOI = () => 'mm-' + BAI.id;
-function dsAudio(m){
+// danh sách audio một bài cần cho một mức (d = nội dung bài)
+function dsAudioCua(d, m){
   const f = [];
-  BAI.truyen.forEach((_, i) => f.push(`truyen-m${m}-${pad(i)}.mp3`));
-  BAI.hoi[m].cau.forEach((_, i) => f.push(`hoi-m${m}-${pad(i)}.mp3`));
-  BAI.tu_khoa.forEach((_, i) => f.push(`tu-${pad(i)}.mp3`));
-  BAI.phat_am.cap_tu.forEach((_, i) => { f.push(`pa-${pad(i)}-a.mp3`, `pa-${pad(i)}-b.mp3`); });
-  BAI.cau_mau.forEach((_, i) => { f.push(`mau-${pad(i)}.mp3`, `mau-${pad(i)}-cham.mp3`); });
-  BAI.doi_dap.forEach((_, i) => f.push(`dd-${pad(i)}.mp3`));
-  return f.map(x => DIR + x);
+  d.truyen.forEach((_, i) => f.push(`truyen-m${m}-${pad(i)}.mp3`));
+  d.hoi[m].cau.forEach((_, i) => f.push(`hoi-m${m}-${pad(i)}.mp3`));
+  d.tu_khoa.forEach((_, i) => f.push(`tu-${pad(i)}.mp3`));
+  d.phat_am.cap_tu.forEach((_, i) => { f.push(`pa-${pad(i)}-a.mp3`, `pa-${pad(i)}-b.mp3`); });
+  d.cau_mau.forEach((_, i) => { f.push(`mau-${pad(i)}.mp3`, `mau-${pad(i)}-cham.mp3`); });
+  d.doi_dap.forEach((_, i) => f.push(`dd-${pad(i)}.mp3`));
+  return f.map(x => 'audio/' + d.id + '/' + x);
 }
+const dsAudio = m => dsAudioCua(BAI, m);
+
+// sổ bài đã tải: { "1": { "c1-01": "<mã phiên bản>", ... }, "2": {...} }
+const soTai = () => load('so-tai') || {};
+function ghiTai(id, m, ma){ const s = soTai(); (s[m] = s[m] || {})[id] = ma; save('so-tai', s); }
+
+async function taiMotBai(id, m, ma, moiFile){
+  const c = await caches.open('mm-' + id);
+  const rj = await fetch('bai/' + id + '.json', {cache: 'no-store'});
+  if (!rj.ok) throw new Error('khong tai duoc bai ' + id);
+  const d = await rj.clone().json();
+  await c.put('bai/' + id + '.json', rj);
+  try { await c.add('audio/' + id + '/kich-thuoc.json'); } catch(e){}
+  const ds = dsAudioCua(d, m); let loi = 0;
+  for (let k = 0; k < ds.length; k += 4){            // 4 file một lúc
+    await Promise.all(ds.slice(k, k + 4).map(async u => {
+      if (!(await c.match(u))){
+        try { const r = await fetch(u, {cache: 'no-store'}); if (r.ok) await c.put(u, r); else loi++; } catch(e){ loi++; }
+      }
+      moiFile && moiFile();
+    }));
+  }
+  if (!loi) ghiTai(id, m, ma);
+  return {loi, n: ds.length};
+}
+
+let PB = null; // phiên bản nội dung trên web (phien-ban.json)
+async function layPhienBan(){
+  const r = await fetch('phien-ban.json', {cache: 'no-store'});
+  if (!r.ok) throw new Error('phien-ban');
+  PB = await r.json(); return PB;
+}
+function ccBao(chu, phan){
+  $('#ccChu').innerHTML = chu || '';
+  $('#ccThanh').hidden = phan == null;
+  if (phan != null) $('#ccTien').style.width = Math.round(phan * 100) + '%';
+}
+async function veNutCongCu(){
+  if (!coCache){ $('.congcu').hidden = true; return; }
+  const on = navigator.onLine;
+  $('#taiHet').disabled = $('#capNhat').disabled = !on;
+  if (!PB && on){ try { await layPhienBan(); } catch(e){} }
+  const s = soTai()[M] || {}, tong = MUC.length;
+  const so = MUC.filter(x => s[x.id] && (!PB || s[x.id] === (PB.bai[x.id] || {}).h)).length;
+  const mb = PB ? MUC.reduce((a, x) => a + (((PB.bai[x.id] || {}).kt || {})[M] || 0), 0) / 1048576 : 0;
+  $('#taiHet').textContent = tong && so >= tong ? '✅ Đã tải toàn bộ' : (so ? `⬇ Tải nốt ${tong - so} bài` : '⬇ Tải toàn bộ');
+  if (!on) ccBao(`Đang mất mạng · đã tải ${so}/${tong} bài mức ${M}, học được các bài đã tải.`);
+  else if (so < tong) ccBao(`Mức ${M}: đã tải ${so}/${tong} bài${mb ? ` · cả bộ khoảng ${Math.round(mb)} MB, nên tải khi có wifi` : ''}.`);
+  else ccBao(`Mức ${M}: đã tải đủ ${tong} bài · tắt mạng vẫn học được.`);
+}
+
+$('#taiHet').onclick = async () => {
+  if (!MUC.length) return;
+  $('#taiHet').disabled = $('#capNhat').disabled = true;
+  try { await layPhienBan(); } catch(e){ ccBao('Không lấy được danh sách bài. Kiểm tra mạng rồi thử lại.'); $('#taiHet').disabled = $('#capNhat').disabled = false; return; }
+  const s = soTai()[M] || {};
+  const can = MUC.filter(x => s[x.id] !== (PB.bai[x.id] || {}).h);
+  let xong = 0, loiBai = 0, file = 0;
+  const uoc = Math.max(1, can.length * 70);
+  for (const x of can){
+    ccBao(`Đang tải bài ${xong + 1}/${can.length}: ${esc(x.ten)}`, file / uoc);
+    try {
+      const k = await taiMotBai(x.id, M, (PB.bai[x.id] || {}).h, () => { file++; $('#ccTien').style.width = Math.min(100, file / uoc * 100) + '%'; });
+      if (k.loi) loiBai++;
+    } catch(e){ loiBai++; }
+    xong++;
+  }
+  if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
+  try { await (await caches.open('mm-chung')).addAll(['./', 'muc-luc.json']); } catch(e){}
+  await veNutCongCu(); capNhatOff();
+  if (loiBai) ccBao(`Còn ${loiBai} bài tải lỗi (mạng chập chờn). Bấm "Tải nốt" để tải tiếp.`);
+  else ccBao(`✅ Đã tải đủ ${MUC.length} bài mức ${M}. Tắt mạng vẫn học được.`);
+};
+
+$('#capNhat').onclick = async () => {
+  $('#taiHet').disabled = $('#capNhat').disabled = true;
+  ccBao('Đang kiểm tra…');
+  let appMoi = false;
+  try {
+    const reg = await navigator.serviceWorker.getRegistration();
+    if (reg){ await reg.update(); appMoi = !!(reg.installing || reg.waiting); }
+  } catch(e){}
+  try { await layPhienBan(); } catch(e){ ccBao('Không kiểm tra được. Kiểm tra mạng rồi thử lại.'); $('#taiHet').disabled = $('#capNhat').disabled = false; return; }
+  let them = 0;
+  try { const r = await fetch('muc-luc.json', {cache: 'no-store'}); const m = await r.json(); them = Math.max(0, m.length - MUC.length); MUC = m; } catch(e){}
+  // chỉ tải lại những bài ĐÃ tải mà nội dung trên web đã đổi
+  const s = soTai(); let doi = 0, loi = 0;
+  for (const m of Object.keys(s)){
+    for (const id of Object.keys(s[m])){
+      const moi = (PB.bai[id] || {}).h;
+      if (!moi || s[m][id] === moi) continue;
+      doi++; ccBao(`Đang cập nhật bài ${esc(id)} (mức ${m})…`);
+      try { await caches.delete('mm-' + id); const k = await taiMotBai(id, m, moi); if (k.loi) loi++; } catch(e){ loi++; }
+    }
+  }
+  await veNutCongCu();
+  const chu = [];
+  if (appMoi) chu.push('Có bản app mới — <a href="#" id="ccTaiLai" style="color:#fff;font-weight:700;text-decoration:underline">bấm để mở lại app</a>.');
+  if (doi) chu.push(`Đã cập nhật ${doi - loi} bài có thay đổi${loi ? `, lỗi ${loi} bài` : ''}.`);
+  if (them) chu.push(`Có ${them} bài mới — bấm "Tải nốt" để tải.`);
+  if (!appMoi && !doi && !them) chu.push('✅ Đang là bản mới nhất.');
+  ccBao(chu.join(' '));
+  const a = $('#ccTaiLai'); if (a) a.onclick = e => { e.preventDefault(); location.reload(); };
+};
 const coCache = 'caches' in window && 'serviceWorker' in navigator && window.isSecureContext;
 async function thieu(m){
   const c = await caches.open(GOI()); const ds = dsAudio(m); let n = 0;
@@ -664,11 +778,12 @@ $('#offTai').onclick = async () => {
     xong++; b.textContent = `Đang tải ${Math.round(xong / ds.length * 100)}%`;
   }
   try { await c.addAll(['bai/' + BAI.id + '.json', DIR + 'kich-thuoc.json', 'muc-luc.json']); } catch(e){ loi++; }
+  if (!loi){ try { if (!PB) await layPhienBan(); ghiTai(BAI.id, M, (PB.bai[BAI.id] || {}).h); } catch(e){} veNutCongCu(); }
   if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
   if (loi) b.textContent = `Lỗi ${loi} file — bấm tải lại`;
   b.disabled = false; capNhatOff();
 };
-addEventListener('online', capNhatOff); addEventListener('offline', capNhatOff);
+addEventListener('online', () => { capNhatOff(); veNutCongCu(); }); addEventListener('offline', () => { capNhatOff(); veNutCongCu(); });
 if ('serviceWorker' in navigator && window.isSecureContext)
   navigator.serviceWorker.register('sw.js').catch(() => {});
 
