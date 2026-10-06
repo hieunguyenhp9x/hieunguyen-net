@@ -103,6 +103,15 @@ var FILES = [
     tag:  { vi: "PDF · 15 trang · Anh–Việt", en: "PDF · 15 pages · EN–VI" },
     id: "1COZpuXfh086B2yjldq5BqphZM5tyS1wu" },
 
+  // --- PV Bosun — 39 câu, dựng 06/10/2026 (production/magnet/bosun-interview.pdf), máy tự upload (drive_tai_len.py) ---
+  { nhom:"doc", pdf:true, ico:"&#129693;",
+    name: { vi: "39 câu phỏng vấn Bosun (thuỷ thủ trưởng), kèm câu trả lời",
+            en: "The Bosun Interview — 39 questions" },
+    meta: { vi: "Câu phòng crewing và sĩ quan hay hỏi Bosun · lên kế hoạch việc và dẫn đội, giờ làm – giờ nghỉ, bảo dưỡng dây cáp và nắp hầm, chuẩn bị hầm hàng, làm dây – thả neo, ghế Bosun, không gian kín, việc nóng, thời tiết xấu · mỗi câu có: người phỏng vấn đang thử cái gì và một câu trả lời mẫu ngắn để học thuộc",
+            en: "What crewing offices and officers ask a Bosun · planning the work and leading the team, hours of work and rest, ropes, wires and hatch covers, hold preparation, mooring and anchoring, the bosun's chair, enclosed spaces, hot work, heavy weather · for each one: what the interviewer is really testing and a short sample answer to learn by heart" },
+    tag:  { vi: "PDF · 14 trang · Anh–Việt", en: "PDF · 14 pages · EN–VI" },
+    id: "1vtY_V9edO6HyRt-A_5ORjuMKy4Xv-Qj0" },
+
   // --- Ghi âm phỏng vấn 2/O Zodiac (MP3) — anh upload 14/09/2026. nghe:true -> nút "Nghe ngay" ---
   { nhom:"nghe", nghe:true, ico:"&#127911;",
     name: { vi: "Buổi phỏng vấn Phó hai thật của mình — Zodiac, 2022",
