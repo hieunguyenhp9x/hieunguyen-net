@@ -94,6 +94,15 @@ var FILES = [
     tag:  { vi: "PDF · 32 trang · Anh–Việt", en: "PDF · 32 pages · EN–VI" },
     id: "1MlOEUHtvcX6YJNDK7vlJMDin4xJEKr89" },
 
+  // --- PV thuỷ thủ AB boong — 43 câu, dựng 06/10/2026 (production/magnet/ab-interview.pdf), anh thả Drive tay ---
+  { nhom:"doc", pdf:true, ico:"&#9875;",
+    name: { vi: "43 câu phỏng vấn thuỷ thủ AB boong, kèm câu trả lời",
+            en: "The AB Interview — 43 questions for Able Seamen" },
+    meta: { vi: "Câu phòng crewing và sĩ quan hay hỏi AB · trực ca, cảnh giới, khẩu lệnh lái, làm dây – thả neo, cầu thang, thang hoa tiêu, không gian kín, drill · mỗi câu có: người phỏng vấn đang thử cái gì và một câu trả lời mẫu ngắn để học thuộc · kèm bảng khẩu lệnh lái theo IMO SMCP",
+            en: "What crewing offices and officers ask an AB · watchkeeping, lookout, steering orders, mooring and anchoring, gangway, pilot ladder, enclosed spaces, drills · for each one: what the interviewer is really testing and a short sample answer to learn by heart · with the IMO SMCP steering orders table" },
+    tag:  { vi: "PDF · 15 trang · Anh–Việt", en: "PDF · 15 pages · EN–VI" },
+    id: "1COZpuXfh086B2yjldq5BqphZM5tyS1wu" },
+
   // --- Ghi âm phỏng vấn 2/O Zodiac (MP3) — anh upload 14/09/2026. nghe:true -> nút "Nghe ngay" ---
   { nhom:"nghe", nghe:true, ico:"&#127911;",
     name: { vi: "Buổi phỏng vấn Phó hai thật của mình — Zodiac, 2022",
