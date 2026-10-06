@@ -153,10 +153,26 @@
   .so div{background:var(--bg);border-radius:12px;padding:10px;text-align:center}
   .so b{display:block;font-size:24px}
   .so span{font-size:13px;color:var(--mute)}
-  .moi{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-  .moi .card{margin:0;text-align:center}
-  .moi svg{width:100%;max-width:150px;height:auto}
-  .moi ol{text-align:left;padding-left:18px;margin:6px 0 0;font-size:14px}
+  .moi{display:grid;gap:12px}
+  .moi > .card{margin:0}
+  .moi ol, .am-the ol{padding-left:20px;margin:6px 0 0;font-size:14px}
+  .am-the{border-top:1px dashed var(--line);margin-top:12px;padding-top:12px}
+  .am-the.lon{border-top:0;margin-top:0;padding-top:0}
+  .am-dau{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .am-dau .ky{font-size:24px}
+  .am-ten{font-size:14px;color:var(--mute)}
+  .am-hinh{display:grid;grid-template-columns:3fr 2fr;gap:6px;align-items:center;margin:8px 0;color:var(--ink)}
+  .am-hinh svg{width:100%;height:auto;display:block}
+  .am-tu{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+  .am-tu button{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:99px;padding:6px 12px;font-size:15px;cursor:pointer}
+  .tukiem{font-size:14px;background:var(--gold-soft);border-radius:10px;padding:9px 11px;margin:8px 0}
+  .loi-viet{font-size:14px;background:var(--bad-soft);border-radius:10px;padding:9px 11px;margin:8px 0}
+  .am-the .row .btn{flex:1 1 auto;font-size:14px;padding:9px 10px;min-height:42px}
+  .guong{position:fixed;inset:0;z-index:20;background:rgba(5,12,20,.88);overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 12px) 12px calc(env(safe-area-inset-bottom,0px) + 12px)}
+  .guong-in{max-width:560px;margin:0 auto;background:var(--card);color:var(--ink);border-radius:16px;padding:12px}
+  .guong-dau{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+  .guong-dau button{border:0;background:var(--bg);color:var(--ink);width:40px;height:40px;border-radius:10px;font-size:18px;cursor:pointer}
+  .guong video{width:100%;max-height:52vh;aspect-ratio:3/4;object-fit:cover;transform:scaleX(-1);border-radius:12px;background:#000;display:block}
   .ky{font-size:28px;font-weight:700;color:var(--sea)}
   .cap{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
   .cap button{border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:10px;padding:8px;cursor:pointer;text-align:left}
@@ -285,6 +301,7 @@
     <h2 id="paCap"></h2>
     <p class="hd" id="paViSao"></p>
     <div class="moi" id="paMoi"></div>
+    <button class="lk" id="paThuVien">📚 Cả thư viện phát âm — các âm người Việt hay sai ›</button>
     <div class="card" style="margin-top:12px">
       <h3>Cặp từ dễ nhầm · bấm để nghe</h3>
       <div class="cap" id="paCapTu"></div>
@@ -355,6 +372,11 @@
       <p class="hd" style="margin:0 0 8px" id="cdHsChu">Tên, quê, trường, gia đình… để câu mẫu là câu <b>của bạn</b>.</p>
       <button class="btn ghost" id="cdHs">👤 Mở hồ sơ</button>
     </div>
+    <div class="card">
+      <h3>Thư viện phát âm</h3>
+      <p class="hd" style="margin:0 0 8px">Các âm người Việt hay sai: hình lưỡi, môi, phép tự kiểm, soi gương, nhại theo.</p>
+      <button class="btn ghost" id="cdAm">📚 Mở thư viện</button>
+    </div>
     <div class="card" id="cdOff">
       <h3>Học không cần mạng</h3>
       <p class="hd" style="margin:0 0 8px">Bài nào đã học là tự lưu vào máy. Muốn mang cả khoá lên tàu thì tải toàn bộ lúc có wifi.</p>
@@ -365,6 +387,13 @@
     <div class="card" id="cdCai" hidden></div>
     <div class="chan">Bản thử · giọng máy đọc, bản bán sẽ thay giọng có ngữ điệu</div>
   </section>
+
+  <!-- THƯ VIỆN PHÁT ÂM -->
+  <section id="s-amthu">
+    <p class="hd">Mỗi âm có hình lưỡi và môi, một phép <b>tự kiểm bằng tay, giấy hoặc gương</b> (không cần máy chấm), nút soi gương và nhại theo. Học được khi không có mạng.</p>
+    <div id="amDs"></div>
+  </section>
+  <section id="s-am"><div class="card" id="amChiTiet"></div></section>
 
   <!-- HỒ SƠ CỦA TÔI -->
   <section id="s-hoso">
@@ -427,6 +456,15 @@
   <button class="btn" id="nutTiep">Tiếp ›</button>
 </div></div>
 <div class="toast" id="toast" hidden></div>
+<div class="guong" id="guong" hidden><div class="guong-in">
+  <div class="guong-dau"><b id="gTen"></b><button id="gDong" aria-label="Đóng gương">✕</button></div>
+  <video id="gVid" playsinline muted autoplay></video>
+  <div class="canh" id="gLoi"></div>
+  <div class="am-hinh" id="gMau"></div>
+  <div class="tukiem" id="gTuKiem"></div>
+  <div class="am-tu" id="gTu"></div>
+</div></div>
+<script src="hinh-mieng.js"></script>
 
 <script>
 (() => {
@@ -439,6 +477,7 @@ let BID = 'c1-01';
 let KQ = {};
 let MUC = [];
 let BUOC = 'nha', HS_VE = 'nha', PHIEN = 0;
+let AMM = [], AM_VE = 'nha';                         // thư viện âm (am-mau.json)
 // ---------- MÃ KÍCH HOẠT ----------
 let CH = {khoa: false, mien_phi_tuan: 0};              // cau-hinh.json: bản bán bật khoa (không có học thử), bản test của anh thì không
 let LIC = load('lic');                                 // {ma, ten, ve} sau khi kích hoạt
@@ -703,6 +742,7 @@ async function taoAo(loai, t){
 (async function khoiDong(){
   try { Object.assign(CH, await fetch('cau-hinh.json').then(r => r.json())); } catch(e){}
   try { MUC = await fetch('muc-luc.json').then(r => r.json()); } catch(e){ MUC = []; }
+  try { AMM = (await fetch('am-mau.json').then(r => r.json())).am; } catch(e){ AMM = []; }
   kiemMa();
   chonMuc(M);
   if (qs.has('xepmuc') && CH.khoa && !LIC){ moBuoc('kichhoat'); return; }
@@ -751,7 +791,7 @@ function moBuoc(s){
   $('#duoi').hidden = !trongBai || s === 'ketqua';
   $('#nutVe').hidden = s === 'nha';
   $('#nutCaiDat').hidden = $('#topChuoi').hidden = s !== 'nha';
-  const T = {nha: ['Phỏng vấn học bổng cadet boong', 'Mở Miệng'], caidat: ['Mở Miệng', 'Cài đặt'], hoso: ['Cài đặt', 'Hồ sơ của tôi'], xepmuc: ['3 phút · nghe và trả lời', 'Bài test xếp mức'], kichhoat: ['Mở Miệng · 12 tuần, 60 bài', 'Nhập mã kích hoạt']};
+  const T = {nha: ['Phỏng vấn học bổng cadet boong', 'Mở Miệng'], caidat: ['Mở Miệng', 'Cài đặt'], hoso: ['Cài đặt', 'Hồ sơ của tôi'], xepmuc: ['3 phút · nghe và trả lời', 'Bài test xếp mức'], kichhoat: ['Mở Miệng · 12 tuần, 60 bài', 'Nhập mã kích hoạt'], amthu: ['Mở Miệng', 'Thư viện phát âm'], am: ['Thư viện phát âm', '']};
   if (trongBai){
     const m = MUC.find(x => x.id === BAI.id);
     $('#tieuNho').textContent = BAI._ao ? 'Tuần ' + BAI._tuan : (m ? `Tuần ${m.tuan} · Bài ${m.so}` : '');
@@ -761,6 +801,7 @@ function moBuoc(s){
   if (s === 'ketqua') veKetQua();
   if (s === 'caidat') veCaiDat();
   if (s === 'kichhoat') veKichHoat();
+  if (s === 'amthu') veThuVien();
   veBuocBar();
   window.scrollTo({top: 0});
 }
@@ -770,10 +811,14 @@ $('#nutCaiDat').onclick = () => moBuoc('caidat');
 // về lộ trình từ trong bài: mở lại trang cho sạch (dừng hết câu hỏi, ghi âm đang chạy)
 $('#nutVe').onclick = () => {
   if (BUOC === 'hoso') return moBuoc(HS_VE);
+  if (BUOC === 'am') return moBuoc('amthu');
+  if (BUOC === 'amthu') return moBuoc(AM_VE);
   if (BUOC === 'caidat' || !location.search) return moBuoc('nha');
   location.href = location.pathname;
 };
 $('#cdHs').onclick = () => { HS_VE = 'caidat'; moBuoc('hoso'); };
+$('#cdAm').onclick = () => { AM_VE = 'caidat'; moBuoc('amthu'); };
+$('#paThuVien').onclick = () => { AM_VE = BUOC; moBuoc('amthu'); };
 $('#cdTest').onclick = () => { location.search = '?xepmuc=1'; };
 
 // ---------- ① NGHE HIỂU ----------
@@ -897,16 +942,14 @@ function ketPhanXa(bo){
 }
 
 // ---------- ③ PHÁT ÂM ----------
-const MOI = {
-  '/s/': `<svg viewBox="0 0 160 110" aria-label="Khẩu hình âm s: môi bè ngang"><ellipse cx="80" cy="55" rx="66" ry="26" fill="#d9534f"/><ellipse cx="80" cy="55" rx="54" ry="11" fill="#3a1414"/><rect x="34" y="46" width="92" height="8" rx="3" fill="#fff"/><rect x="38" y="56" width="84" height="7" rx="3" fill="#f2f2f2"/><path d="M8 55 h18 M134 55 h18" stroke="#888" stroke-width="2"/><text x="80" y="104" font-size="12" text-anchor="middle" fill="currentColor">môi bè ngang, răng gần khép</text></svg>`,
-  '/ʃ/': `<svg viewBox="0 0 160 110" aria-label="Khẩu hình âm sh: môi tròn chu ra"><ellipse cx="80" cy="52" rx="40" ry="34" fill="#d9534f"/><ellipse cx="80" cy="52" rx="24" ry="19" fill="#3a1414"/><rect x="62" y="40" width="36" height="7" rx="3" fill="#fff"/><rect x="64" y="57" width="32" height="6" rx="3" fill="#f2f2f2"/><path d="M80 8 v8 M80 88 v8" stroke="#888" stroke-width="2"/><text x="80" y="104" font-size="12" text-anchor="middle" fill="currentColor">môi tròn, CHU ra trước</text></svg>`
-};
 let pt = null;
 function dungPhatAm(){
   const p = BAI.phat_am; if (!p) return;
   $('#paCap').textContent = 'Phát âm: ' + p.cap; $('#paViSao').textContent = p.vi_sao; $('#ptSo').textContent = p.cap_tu.length + ' câu';
-  $('#paMoi').innerHTML = p.am.map(a => `<div class="card"><div class="ky">${esc(a.ky_hieu)}</div>${MOI[a.ky_hieu] || ''}
-    <div style="font-size:13px;color:var(--mute)">${esc(a.goi_y)}</div><ol>${a.cach.map(x => `<li>${esc(x)}</li>`).join('')}</ol></div>`).join('');
+  $('#paMoi').innerHTML = p.am.map(a => `<div class="card"><div class="ky">${esc(a.ky_hieu)}</div>
+    <div style="font-size:13px;color:var(--mute)">${esc(a.goi_y)}</div><ol>${a.cach.map(x => `<li>${esc(x)}</li>`).join('')}</ol>
+    ${amCua(a.ky_hieu).map(id => theAm(AMM.find(x => x.id === id), false)).join('')}</div>`).join('');
+  ganAm($('#paMoi'));
   $('#paCapTu').innerHTML = p.cap_tu.map((c, i) =>
     `<button data-f="${c.fa || `pa-${pad(i)}-a.mp3`}"><b>🔊 ${esc(c.a)}</b><small>${esc(p.nhan_a || '')} · ${esc(c.nghia_a)}</small></button>
      <button data-f="${c.fb || `pa-${pad(i)}-b.mp3`}"><b>🔊 ${esc(c.b)}</b><small>${esc(p.nhan_b || '')} · ${esc(c.nghia_b)}</small></button>`).join('');
@@ -1167,6 +1210,7 @@ $('#taiHet').onclick = async () => {
   }
   if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
   try { await (await caches.open('mm-chung')).addAll(['./', 'muc-luc.json']); } catch(e){}
+  ccBao('Đang tải thư viện phát âm…'); await taiAm();
   await veNutCongCu();
   if (loiBai) ccBao(`Còn ${loiBai} bài tải lỗi (mạng chập chờn). Bấm "Tải nốt" để tải tiếp.`);
   else ccBao(`✅ Đã tải đủ ${DS.length} bài mức ${M}. Tắt mạng vẫn học được.`);
@@ -1193,6 +1237,7 @@ $('#capNhat').onclick = async () => {
       try { await caches.delete('mm-' + id); const k = await taiMotBai(id, m, moi); if (k.loi) loi++; } catch(e){ loi++; }
     }
   }
+  await taiAm();
   await veNutCongCu();
   const chu = [];
   if (appMoi) chu.push('Có bản app mới — <a href="#" id="ccTaiLai" style="color:#fff;font-weight:700;text-decoration:underline">bấm để mở lại app</a>.');
@@ -1208,6 +1253,21 @@ async function taiNgam(){
   if (!coCache || !navigator.onLine || !BAI || BAI._ao) return;
   try { if (!PB) await layPhienBan(); } catch(e){}
   try { await taiMotBai(BAI.id, M, PB ? (PB.bai[BAI.id] || {}).h : undefined); } catch(e){}
+  taiAm();
+}
+// thư viện âm: tải 1 lần (khoảng 1 MB), có bản mới thì tải lại
+async function taiAm(){
+  if (!coCache || !navigator.onLine || !AMM.length || (CH.khoa && !LIC)) return;
+  try { if (!PB) await layPhienBan(); } catch(e){}
+  const ma = PB && PB.am ? PB.am.h : 'x', cu = load('am-tai');
+  if (cu === ma) return;
+  if (cu) { try { await caches.delete('mm-am'); } catch(e){} }
+  const c = await caches.open('mm-am'); let loi = 0;
+  for (const a of AMM) for (let i = 0; i < a.tu.length; i++){
+    const u = `audio/am/${a.id}-${i}.mp3`;
+    if (!(await c.match(u))){ try { const r = await fetch(u, {cache: 'no-store', headers: hVe()}); if (r.ok) await c.put(u, r); else loi++; } catch(e){ loi++; } }
+  }
+  if (!loi) save('am-tai', ma);
 }
 addEventListener('online', veNutCongCu); addEventListener('offline', veNutCongCu);
 if ('serviceWorker' in navigator && window.isSecureContext)
@@ -1312,6 +1372,101 @@ function veCaiDat(){
   veNutCongCu(); veCai();
 }
 
+// ---------- THƯ VIỆN PHÁT ÂM ----------
+// ký hiệu âm trong bài (vd "/s/ cuối", "/ʃ/ /s/", "s + phụ âm") -> các âm trong thư viện
+function amCua(ky){
+  if (!AMM.length || !ky) return [];
+  const k = String(ky), ra = [], them = id => { if (id && !ra.includes(id) && AMM.some(x => x.id === id)) ra.push(id); };
+  const cuoi = /cuối/i.test(k);
+  if (cuoi){
+    if (/\/s\//.test(k)) them('cuoi-s');
+    if (/\/[tkdɡg]\//.test(k)) them('cuoi-t-k');
+    if (/\/z\//.test(k)) them('duoi-s-ed');
+    if (/\/l\//.test(k)) them('l');
+    if (/\/[fv]\//.test(k)) them('f-v-cuoi');
+    if (/âm cuối/i.test(k) && !ra.length){ them('cuoi-s'); them('cuoi-t-k'); }
+  }
+  const T = {'/θ/': 'th-khong', '/ð/': 'th-rung', '/ʃ/': 'sh', '/tʃ/': 'ch-j', '/dʒ/': 'ch-j', '/v/': 'v', '/w/': 'w', '/r/': 'r', '/l/': 'l',
+    '/iː/': 'i-dai', '/ɪ/': 'i-ngan', '/æ/': 'ae', '/e/': 'e', '/ʌ/': 'a-ngan', '/ɑː/': 'a-dai', '/ɔː/': 'o-dai', '/ɒ/': 'o-ngan',
+    '/əʊ/': 'ou', '/ɜː/': 'er-dai', '/ə/': 'schwa', '/s/': 'cuoi-s', '/z/': 'duoi-s-ed', '/f/': 'f-v-cuoi'};
+  (k.match(/\/[^\/\s·–]+\//g) || []).forEach(t => { if (cuoi && /^\/[stkdzlɡgfv]\/$/.test(t)) return; them(T[t]); });
+  if (/s \+ phụ âm|cụm phụ âm/i.test(k)) them('cum-st');
+  if (/P – B|T – D/.test(k)) them('bat-hoi');
+  if (/\/t\/ – \/k\//.test(k)) them('cuoi-t-k');
+  if (/-teen|-ty/.test(k)) them('teen-ty');
+  return ra;
+}
+const tuHtml = a => '<div class="am-tu">' + a.tu.map((t, i) => `<button data-f="audio/am/${a.id}-${i}.mp3">🔊 ${esc(t)}</button>`).join('') + '</div>';
+function theAm(a, lon){
+  if (!a) return '';
+  return `<div class="am-the${lon ? ' lon' : ''}">
+    ${lon ? '' : `<div class="am-dau"><span class="ky" style="font-size:18px">${esc(a.ky)}</span><span class="am-ten">${esc(a.ten)}</span></div>`}
+    ${a.hinh ? `<div class="am-hinh">${HinhMieng.hinhNghieng(a)}${HinhMieng.hinhTruoc(a)}</div>` : ''}
+    ${tuHtml(a)}
+    ${lon ? `<ol>${a.cach.map(x => `<li>${esc(x)}</li>`).join('')}</ol>` : ''}
+    <div class="tukiem"><b>✋ Tự kiểm:</b> ${esc(a.tu_kiem)}</div>
+    ${lon ? `<div class="loi-viet"><b>⚠️ Người Việt hay sai:</b> ${esc(a.loi)}</div>` : ''}
+    <div class="row">${a.hinh ? `<button class="btn ghost" data-guong="${a.id}">🪞 Soi gương</button>` : ''}<button class="btn ghost" data-nhai="${a.id}">🔁 Nhại theo</button>${lon ? '' : `<button class="lk" data-am="${a.id}">Xem đủ ›</button>`}</div>
+  </div>`;
+}
+function ganAm(el){
+  el.querySelectorAll('[data-f]').forEach(b => b.onclick = () => { dungPhat(); phat(b.dataset.f); });
+  el.querySelectorAll('[data-guong]').forEach(b => b.onclick = () => moGuong(b.dataset.guong));
+  el.querySelectorAll('[data-nhai]').forEach(b => b.onclick = () => nhai(b.dataset.nhai, b));
+  el.querySelectorAll('[data-am]').forEach(b => b.onclick = () => { AM_VE = BUOC; moAm(b.dataset.am); });
+}
+function veThuVien(){
+  if (!AMM.length){ $('#amDs').innerHTML = '<p class="hd">Chưa tải được thư viện. Mở app khi có mạng một lần.</p>'; return; }
+  const nhom = [...new Set(AMM.map(a => a.nhom))];
+  $('#amDs').innerHTML = nhom.map(n => `<div class="chang">${esc(n)}</div><div class="tuan mo"><div class="ds">` +
+    AMM.filter(a => a.nhom === n).map(a => `<button class="dong" data-am="${a.id}"><span class="ic" style="width:auto;min-width:26px;padding:0 6px;border-radius:8px;font-size:12px">${esc(a.ky)}</span><span class="ten">${esc(a.ten)}</span><span class="d" style="color:var(--mute)">›</span></button>`).join('') +
+    '</div></div>').join('');
+  $$('#amDs [data-am]').forEach(b => b.onclick = () => moAm(b.dataset.am));
+}
+function moAm(id){
+  const a = AMM.find(x => x.id === id); if (!a) return;
+  moBuoc('am');
+  $('#tieuNho').textContent = 'Thư viện phát âm · ' + a.nhom; $('#tieuDe').textContent = a.ky;
+  $('#amChiTiet').innerHTML = `<p class="hd" style="margin:0 0 4px">${esc(a.ten)}</p>` + theAm(a, true);
+  ganAm($('#amChiTiet'));
+}
+// vòng nhại: nghe mẫu -> mình nói (ghi 2 giây) -> nghe lại mẫu rồi giọng mình liền nhau
+async function nhai(id, nut){
+  const a = AMM.find(x => x.id === id); if (!a) return;
+  try { await layMic(); } catch(e){ toast('Cần micro để nhại theo. Không có micro thì bấm 🔊 từng từ rồi nói theo.'); return; }
+  const ph = PHIEN, goc = nut.textContent; nut.disabled = true;
+  for (let i = 0; i < a.tu.length && ph === PHIEN; i++){
+    const f = `audio/am/${a.id}-${i}.mp3`;
+    nut.textContent = `🔊 Nghe: ${a.tu[i]}`; await phat(f); if (ph !== PHIEN) break;
+    nut.textContent = `🔴 Tới bạn: ${a.tu[i]}`; const g = await ghi(2); const b = await g.xong; if (ph !== PHIEN) break;
+    nut.textContent = '🎧 Mẫu → giọng bạn'; await phat(f); await sleep(250); await phatBlob(b); await sleep(600);
+  }
+  nut.textContent = goc; nut.disabled = false;
+  if (ph === PHIEN) toast('Hai giọng chưa giống thì nhại lại, nhìn hình và làm phép tự kiểm.');
+}
+// soi gương: camera trước, lật như gương, kèm hình môi mẫu
+let gStream = null;
+async function moGuong(id){
+  const a = AMM.find(x => x.id === id); if (!a) return;
+  $('#gTen').textContent = a.ky + ' · soi gương';
+  $('#gMau').innerHTML = a.hinh ? HinhMieng.hinhNghieng(a) + HinhMieng.hinhTruoc(a) : '';
+  $('#gTuKiem').innerHTML = '<b>✋ Tự kiểm:</b> ' + esc(a.tu_kiem);
+  $('#gTu').innerHTML = tuHtml(a).replace(/^<div class="am-tu">|<\/div>$/g, ''); ganAm($('#gTu'));
+  $('#gLoi').style.display = 'none'; $('#guong').hidden = false; document.body.style.overflow = 'hidden';
+  try {
+    gStream = await navigator.mediaDevices.getUserMedia({video: {facingMode: 'user'}, audio: false});
+    $('#gVid').srcObject = gStream; $('#gVid').hidden = false;
+  } catch(e){
+    $('#gVid').hidden = true; $('#gLoi').style.display = 'block';
+    $('#gLoi').textContent = 'Không mở được camera trước. Cho phép camera trong cài đặt trình duyệt, hoặc dùng gương thật và làm theo hình mẫu bên dưới.';
+  }
+}
+function dongGuong(){
+  if (gStream){ gStream.getTracks().forEach(t => t.stop()); gStream = null; }
+  $('#gVid').srcObject = null; $('#guong').hidden = true; document.body.style.overflow = ''; dungPhat();
+}
+$('#gDong').onclick = dongGuong;
+
 // ---------- MỞ KHOÁ ----------
 function veKichHoat(){
   const mua = [];
@@ -1349,7 +1504,7 @@ async function kiemMa(){
 }
 async function boMa(ly){
   LIC = null; try { localStorage.removeItem('mm-lic'); } catch(e){}
-  save('so-tai', {});
+  save('so-tai', {}); try { localStorage.removeItem('mm-am-tai'); await caches.delete('mm-am'); } catch(e){}
   for (const m of MUC.filter(x => canMaTuan(x.tuan))){ try { await caches.delete('mm-' + m.id); } catch(e){} }
   toast(ly);
   if (BUOC === 'nha') veHomNay();
