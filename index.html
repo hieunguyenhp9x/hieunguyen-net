@@ -327,7 +327,7 @@
   /* honeypot: ẩn khỏi mắt người nhưng vẫn tồn tại với bot (không dùng display:none — nhiều bot bỏ qua) */
   .lead-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .lead-note { margin-top: 12px; font-size: 12.2px; color: var(--text-dim); opacity: 0.8; line-height: 1.55; }
-  .lead-error { display: none; color: #f0a0a0; font-size: 13px; line-height: 1.5; }
+  .lead-error { display: none; color: #ffd0d0; background: rgba(201,106,106,0.22); border: 1px solid #c96a6a; border-radius: 10px; padding: 10px 12px; font-size: 15px; font-weight: 600; line-height: 1.45; }
   .lead-form input.invalid { border-color: #c96a6a; }
   .lead-success { display: none; text-align: center; }
   .lead-success .tick { font-size: 34px; margin-bottom: 6px; }
@@ -438,18 +438,18 @@
         <p class="lead-card-sub lg-en">Name and email once &mdash; the library opens right here, and the link lands in your inbox so you can find it again.</p>
         <p class="lead-card-sub lg-vi">Để lại tên và email một lần, kho mở ngay tại đây. Link mình gửi luôn vào hộp thư, lần sau bạn khỏi đi tìm.</p>
 
-        <label for="leadNameHero"><span class="lg-en">First name</span><span class="lg-vi">Tên</span></label>
+        <label for="leadNameHero"><span class="lg-en">First name (optional)</span><span class="lg-vi">Tên (không bắt buộc)</span></label>
         <input id="leadNameHero" type="text" name="fields[first_name]" placeholder="Hieu"
                data-en-placeholder="Hieu" data-vi-placeholder="Hiếu"
-               autocomplete="given-name" maxlength="40" required>
+               autocomplete="given-name" maxlength="40">
 
         <label for="leadEmailHero">Email</label>
         <input id="leadEmailHero" type="email" name="email_address" placeholder="you@example.com" autocomplete="email" required>
 
-        <!-- HONEYPOT — bẫy bot, người không nhìn thấy. Đừng xoá, đừng đổi tên ô. -->
+        <!-- HONEYPOT — bẫy bot, người không nhìn thấy. Đừng xoá. Tên ô hn_hp_7q (đổi từ "website" 08/10/2026 vì autofill điện thoại tự điền → form chết im). -->
         <div class="lead-hp" aria-hidden="true">
-          <label for="leadWebsiteHero">Website</label>
-          <input id="leadWebsiteHero" type="text" name="website" tabindex="-1" autocomplete="off">
+          <label for="leadWebsiteHero">Leave empty</label>
+          <input id="leadWebsiteHero" type="text" name="hn_hp_7q" tabindex="-1" autocomplete="new-password" data-lpignore="true" data-1p-ignore>
         </div>
 
         <p class="lead-error" role="alert"></p>
@@ -533,10 +533,10 @@
           <p class="lead-card-sub lg-en">Name and email once &mdash; the library opens right here, and the link lands in your inbox so you can find it again.</p>
           <p class="lead-card-sub lg-vi">Để lại tên và email một lần, kho mở ngay tại đây. Link mình gửi luôn vào hộp thư, lần sau bạn khỏi đi tìm.</p>
 
-          <label for="leadName"><span class="lg-en">First name</span><span class="lg-vi">Tên</span></label>
+          <label for="leadName"><span class="lg-en">First name (optional)</span><span class="lg-vi">Tên (không bắt buộc)</span></label>
           <input id="leadName" type="text" name="fields[first_name]" placeholder="Hieu"
                  data-en-placeholder="Hieu" data-vi-placeholder="Hiếu"
-                 autocomplete="given-name" maxlength="40" required>
+                 autocomplete="given-name" maxlength="40">
 
           <label for="leadEmail">Email</label>
           <input id="leadEmail" type="email" name="email_address" placeholder="you@example.com" autocomplete="email" required>
@@ -544,8 +544,8 @@
           <!-- HONEYPOT — bẫy bot. Người KHÔNG nhìn thấy ô này; bot điền tự động.
                Có chữ trong đây = vứt, không gửi. Đừng xoá, đừng đổi tên ô. -->
           <div class="lead-hp" aria-hidden="true">
-            <label for="leadWebsite">Website</label>
-            <input id="leadWebsite" type="text" name="website" tabindex="-1" autocomplete="off">
+            <label for="leadWebsite">Leave empty</label>
+            <input id="leadWebsite" type="text" name="hn_hp_7q" tabindex="-1" autocomplete="new-password" data-lpignore="true" data-1p-ignore>
           </div>
 
           <p class="lead-error" id="leadError" role="alert"></p>
@@ -952,6 +952,7 @@
      không nhúng ck.5.js (giữ giao diện + tốc độ trang của mình).
      Từ 01/08 có 2 form (hero + khu #free) → xử lý theo class .lead-card. */
   var KIT_ACTION = "https://app.kit.com/forms/9750089/subscriptions";
+  var HN_MO_TRANG = Date.now();   // mốc mở trang — honeypot chỉ chặn khi bấm gửi < 3 giây (bot)
 
 /* TRƯỜNG ẨN GỬI KIT (vá 21/09/2026) — trước đây form chỉ gửi tên + email nên
    không biết email nào lấy file nào / đến từ nền nào. Giờ gửi thêm 4 custom field.
@@ -999,7 +1000,7 @@ function hnKitThem(fd, fileName){
     var done = card.querySelector(".lead-success");
     var nameField = form.querySelector('input[name="fields[first_name]"]');
     var emailField = form.querySelector('input[name="email_address"]');
-    var hp = form.querySelector('input[name="website"]');
+    var hp = form.querySelector('input[name="hn_hp_7q"]');
 
     function showError(msg, badFields) {
       err.textContent = msg;
@@ -1018,6 +1019,8 @@ function hnKitThem(fd, fileName){
       if (khoBtn) khoBtn.href = KHO_URL;
       if (khoRow) khoRow.style.display = "";
       done.style.display = "block";
+      // form co lại → khung cảm ơn có thể nằm dưới thanh menu dính; cuộn cho thấy rõ
+      try { done.scrollIntoView({ block: "center", behavior: "smooth" }); } catch (e) {}
 
       // Đo lường (thêm 02/08/2026) — đếm lượt điền form xong, tách hero vs khu #free.
       // Bọc try/catch vì máy chặn quảng cáo hoặc thiết bị ?notrack=1 sẽ không có gtag/clarity.
@@ -1030,23 +1033,23 @@ function hnKitThem(fd, fileName){
     form.addEventListener("submit", function (e) {
       var t = LANG[curLang()];
 
-      // (1) honeypot: chỉ bot mới điền được ô này → nuốt luôn, không gửi
+      // (1) honeypot — VÁ 08/10/2026: anh nhập email bấm nút "không hiện gì". Bản cũ thấy ô bẫy
+      //     có chữ là nuốt im lặng, mà trình duyệt điện thoại (Samsung Pass / Chrome autofill) có
+      //     thể tự điền ô tên "website". Giờ ô bẫy đổi tên khó đoán; nếu vẫn có chữ thì chỉ chặn khi
+      //     bấm quá nhanh như bot (<3 giây sau khi mở trang), người thật vẫn đi tiếp. Có đếm GA4.
       if (hp.value !== "") {
-        e.preventDefault();
-        return false;
+        try { if (window.gtag) gtag("event", "hp_dinh", { nhanh: (Date.now() - HN_MO_TRANG < 3000) ? 1 : 0 }); } catch (x) {}
+        if (Date.now() - HN_MO_TRANG < 3000) { e.preventDefault(); return false; }
       }
 
-      // (2) kiểm tra "nhập đúng" — sai thì báo lỗi, không mở khóa
+      // (2) chỉ BẮT BUỘC email (vá 08/10: ô tên bỏ trống từng bị chặn bằng 1 dòng chữ nhỏ
+      //     mà bàn phím điện thoại che mất → người dùng tưởng nút chết). Tên rác thì gửi rỗng.
       var cleanedName = cleanFirstName(nameField.value);
-      var badFields = [];
-      if (!cleanedName) badFields.push("name");
-      if (!validEmail(emailField.value)) badFields.push("email");
-      if (badFields.length) {
+      if (!validEmail(emailField.value)) {
         e.preventDefault();
-        showError(
-          badFields.length === 1 && badFields[0] === "email" ? t.errEmail : t.errBoth,
-          badFields
-        );
+        showError(t.errEmail, ["email"]);
+        try { err.scrollIntoView({ block: "center", behavior: "smooth" }); emailField.focus({ preventScroll: true }); } catch (x) {}
+        try { if (window.gtag) gtag("event", "form_loi_email", { trang: location.pathname }); } catch (x) {}
         return false;
       }
       nameField.value = cleanedName;
@@ -1060,7 +1063,8 @@ function hnKitThem(fd, fileName){
       btn.disabled = true;
       btn.textContent = t.unlocking;
       var fd = new FormData();
-      fd.append("fields[first_name]", cleanedName);
+      // tên bỏ trống → thư chào Kit ("Chào {{ subscriber.first_name }},") vẫn đọc được
+      fd.append("fields[first_name]", cleanedName || (curLang() === "vi" ? "bạn" : "there"));
       fd.append("email_address", emailField.value);
       hnKitThem(fd, "");
       // Vá 08/10/2026: trước đây nuốt mọi phản hồi Kit → Kit từ chối email cũng không ai biết.
