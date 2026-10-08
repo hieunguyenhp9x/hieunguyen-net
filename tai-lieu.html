@@ -154,6 +154,17 @@
     font-size:13.5px; line-height:1.55; color:var(--text-dim);
   }
 
+  /* Báo "đang tải" sau khi bấm nút tải (vá 08/10/2026). Trước đây bấm xong trang đứng im,
+     file lẳng lặng về mục Tải xuống/ứng dụng Tệp → người ta tưởng nút chết, bấm 3-5 lần
+     (Clarity: dead click ở "Tải về máy"/"Tải ngay" trong 8/8 phiên soi). */
+  .toast{position:fixed; left:50%; bottom:18px; transform:translateX(-50%) translateY(20px);
+         width:calc(100% - 32px); max-width:440px; z-index:60; opacity:0; pointer-events:none;
+         background:var(--navy-2); border:1px solid var(--gold); border-radius:12px;
+         padding:13px 16px; font-size:14px; line-height:1.5; color:var(--text);
+         box-shadow:0 10px 30px rgba(0,0,0,.45); transition:opacity .25s, transform .25s}
+  .toast.hien{opacity:1; transform:translateX(-50%) translateY(0)}
+  .btn.dang-tai{opacity:.75}
+
   .disclaimer{color:var(--text-dim); font-size:12.3px; line-height:1.55; margin-top:6px;
               padding-top:16px; border-top:1px solid rgba(255,255,255,.07)}
 
@@ -258,8 +269,8 @@
   </div>
 
   <p class="note-line">
-    <span class="lg-vi"><b>Bấm vào món bạn cần.</b> Điền tên và email một lần là mở cả kho — các file sau bấm là lấy thẳng, không hỏi lại.</span>
-    <span class="lg-en"><b>Tap whatever you need.</b> Name and email once opens the whole library &mdash; every file after that opens straight away.</span>
+    <span class="lg-vi">Tài liệu nằm ngay bên dưới &darr; Điền tên và email một lần là mở cả kho, các file sau bấm là lấy thẳng, không hỏi lại.</span>
+    <span class="lg-en">The files are right below &darr; Name and email once opens the whole library, every file after that opens straight away.</span>
   </p>
 
   <div id="list">
@@ -399,14 +410,22 @@ var TXT = {
        inApp:"Bạn đang mở trang này trong app. Bấm tải mà không thấy file về máy thì bấm dấu ⋯ (hoặc ⋮) ở góc màn hình rồi chọn “Mở bằng trình duyệt”. File PDF thì bấm “Đọc ngay” là xem được luôn tại đây.",
        errEmail:"Email trông chưa đúng — kiểm tra lại giúp mình nhé.",
        errBoth:"Điền giúp mình tên và email hợp lệ.",
-       working:"Đang mở…" },
+       working:"Đang mở…",
+       dangTai:"✓ Đang tải…",
+       toastTai:"File đang về máy bạn. Xem ở mục Tải xuống (iPhone: ứng dụng Tệp). Đợi vài giây chưa thấy thì bấm “Đọc ngay” để xem luôn.",
+       toastTaiExcel:"File đang về máy bạn. Xem ở mục Tải xuống (iPhone: ứng dụng Tệp).",
+       toastApp:"App này hay chặn tải file, nên mình mở bản xem luôn cho bạn. Muốn lưu về máy thì bấm ⋯ (hoặc ⋮) ở góc màn hình, chọn “Mở bằng trình duyệt”." },
   en:{ empty:"The library is empty for now — files coming soon.",
        dl:"Get it now", view:"Preview",
        dlPhu:"Download", viewChinh:"Read it now", ngheChinh:"Listen now",
        inApp:"You're viewing this inside an app. If a download doesn't land on your device, tap ⋯ (or ⋮) in the corner and choose “Open in browser”. For the PDFs, “Read it now” opens right here.",
        errEmail:"That email doesn't look right — mind checking it?",
        errBoth:"Please enter a name and a valid email.",
-       working:"Opening…" }
+       working:"Opening…",
+       dangTai:"✓ Downloading…",
+       toastTai:"Your file is on its way. Check your Downloads (iPhone: the Files app). Nothing after a few seconds? Tap “Read it now” instead.",
+       toastTaiExcel:"Your file is on its way. Check your Downloads (iPhone: the Files app).",
+       toastApp:"This app often blocks downloads, so we opened the preview for you. To save it, tap ⋯ (or ⋮) in the corner and choose “Open in browser”." }
 };
 function curLang(){ return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'vi'; }
 
@@ -564,6 +583,38 @@ document.addEventListener('keydown', function(e){ if (e.key === 'Escape' && !gat
 
 function baoGA(ev, obj){ try { if (window.gtag) gtag('event', ev, obj || {}); } catch(e){} }
 
+/* ---- báo "đang tải" (vá 08/10/2026) ----
+   Nút TẢI của PDF mà người đang kẹt trong app (FB/TikTok/Zalo) bấm → đổi sang mở bản XEM:
+   GA4 đo trong app chỉ ~1% lấy được file khi tải thẳng, còn trang xem Drive thì hiện được. */
+function nutXemCanh(a){
+  if (a.getAttribute('data-act') !== 'download') return null;
+  var acts = a.parentNode;
+  return acts ? acts.querySelector('a[data-act="preview"]') : null;
+}
+function urlNenMo(a){
+  var xem = nutXemCanh(a);
+  return (xem && trongApp()) ? xem.getAttribute('href') : a.getAttribute('href');
+}
+var hen_toast = null;
+function baoToast(msg){
+  var el = document.getElementById('toast');
+  if (!el){ el = document.createElement('div'); el.id = 'toast'; el.className = 'toast';
+            el.setAttribute('role','status'); document.body.appendChild(el); }
+  el.textContent = msg;
+  el.classList.add('hien');
+  clearTimeout(hen_toast);
+  hen_toast = setTimeout(function(){ el.classList.remove('hien'); }, 7000);
+}
+function baoDangTai(a){
+  var t = TXT[curLang()], xem = nutXemCanh(a);
+  if (xem && trongApp()){ baoToast(t.toastApp); return; }
+  baoToast(xem ? t.toastTai : t.toastTaiExcel);
+  if (a.classList.contains('dang-tai')) return;
+  var cu = a.textContent;
+  a.classList.add('dang-tai'); a.textContent = t.dangTai;
+  setTimeout(function(){ a.classList.remove('dang-tai'); a.textContent = cu; }, 5000);
+}
+
 function onBamFile(e){
   var a = e.currentTarget;
   var act = a.getAttribute('data-act');
@@ -572,10 +623,18 @@ function onBamFile(e){
   if (mo){
     baoGA(act === 'preview' ? 'file_preview' : 'file_download',
           { file_name:a.getAttribute('data-fname') });
+    if (act === 'download'){
+      var dich = urlNenMo(a);
+      if (dich !== a.getAttribute('href')){   // trong app → mở bản xem thay vì tải
+        e.preventDefault();
+        try { window.open(dich, '_blank', 'noopener'); } catch(x){ location.href = dich; }
+      }
+      baoDangTai(a);
+    }
     return;                             // đã điền rồi → để link chạy thẳng
   }
   e.preventDefault();                   // chưa điền → giữ lại, hỏi tên + email
-  dangCho = { url:a.getAttribute('href'), ten:a.getAttribute('data-label'),
+  dangCho = { url:urlNenMo(a), ten:a.getAttribute('data-label'),
               track:a.getAttribute('data-fname'), act:act };
   gateFile.textContent = dangCho.ten;
   gateAsk.hidden = false;

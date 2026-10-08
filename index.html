@@ -406,7 +406,7 @@
       <p class="hero-sub-en lg-en">Cadet → Third Officer → Second Officer → Chief Mate → Captain</p>
       <p class="hero-sub-en lg-vi">Thực tập sinh → Phó ba → Phó hai → Đại phó → Thuyền trưởng</p>
       <div class="btn-row">
-        <a class="btn btn-outline" href="#channel"><span class="lg-en">Watch my channel</span><span class="lg-vi">Xem kênh của tôi</span></a>
+        <a class="btn btn-outline" id="nutKenh" href="https://www.tiktok.com/@hieuatsea" target="_blank" rel="noopener"><span class="lg-en">Watch my channel</span><span class="lg-vi">Xem kênh của tôi</span></a>
         <a class="btn btn-outline" href="#professional"><span class="lg-en">Professional profile</span><span class="lg-vi">Hồ sơ chuyên môn</span></a>
       </div>
       <div class="hero-signature">
@@ -1087,6 +1087,20 @@ function hnKitThem(fd, fileName){
       return false;
     });
   });
+</script>
+
+<script>
+  // Nút "Watch my channel" (vá 08/10/2026): trước chỉ cuộn xuống #channel → Clarity bắt dead click,
+  // khách tưởng nút chết. Giờ mở TikTok @hieuatsea ở tab mới (link thật, không cần JS) VÀ cuộn
+  // trang này xuống mục kênh để quay lại là thấy đủ 3 kênh. Anh chốt TikTok, không phải YouTube.
+  (function(){
+    var nut = document.getElementById("nutKenh"), muc = document.getElementById("channel");
+    if (!nut || !muc) return;
+    nut.addEventListener("click", function(){
+      try { if (window.gtag) gtag("event", "bam_kenh", { dich: "tiktok", vi_tri: "hero" }); } catch (e) {}
+      setTimeout(function(){ try { muc.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) {} }, 50);
+    });
+  })();
 </script>
 
 </body>

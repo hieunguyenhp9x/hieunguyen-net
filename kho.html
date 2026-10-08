@@ -145,6 +145,16 @@
     font-size:13.5px; line-height:1.55; color:var(--text-dim);
   }
   .frame{width:100%; height:460px; border:1px solid var(--line); border-radius:12px; background:#fff}
+  /* Báo "đang tải" sau khi bấm nút tải (vá 08/10/2026, giống tai-lieu.html): bấm xong trang
+     đứng im → người ta tưởng nút chết, bấm lại 3-5 lần (Clarity dead click). */
+  .toast{position:fixed; left:50%; bottom:18px; transform:translateX(-50%) translateY(20px);
+         width:calc(100% - 32px); max-width:440px; z-index:60; opacity:0; pointer-events:none;
+         background:var(--navy-2); border:1px solid var(--gold); border-radius:12px;
+         padding:13px 16px; font-size:14px; line-height:1.5; color:var(--text);
+         box-shadow:0 10px 30px rgba(0,0,0,.45); transition:opacity .25s, transform .25s}
+  .toast.hien{opacity:1; transform:translateX(-50%) translateY(0)}
+  .btn.dang-tai{opacity:.75}
+
   .disclaimer{color:var(--text-dim); font-size:12.3px; line-height:1.55; margin-top:26px;
               padding-top:16px; border-top:1px solid rgba(255,255,255,.07)}
 </style>
@@ -220,12 +230,20 @@ var TXT = {
        errNet:"Không tải được danh sách (kiểm tra kết nối / API key).",
        errApi:"Lỗi tải danh sách: ", dl:"Tải", view:"Đọc trước",
        dlPhu:"Tải về máy", viewChinh:"Đọc ngay", ngheChinh:"Nghe ngay",
-       inApp:"Bạn đang mở trang này trong app. Bấm tải mà không thấy file về máy thì bấm dấu ⋯ (hoặc ⋮) ở góc màn hình rồi chọn “Mở bằng trình duyệt”. File PDF thì bấm “Đọc ngay” là xem được luôn tại đây." },
+       inApp:"Bạn đang mở trang này trong app. Bấm tải mà không thấy file về máy thì bấm dấu ⋯ (hoặc ⋮) ở góc màn hình rồi chọn “Mở bằng trình duyệt”. File PDF thì bấm “Đọc ngay” là xem được luôn tại đây.",
+       dangTai:"✓ Đang tải…",
+       toastTai:"File đang về máy bạn. Xem ở mục Tải xuống (iPhone: ứng dụng Tệp). Đợi vài giây chưa thấy thì bấm “Đọc ngay” để xem luôn.",
+       toastTaiExcel:"File đang về máy bạn. Xem ở mục Tải xuống (iPhone: ứng dụng Tệp).",
+       toastApp:"App này hay chặn tải file, nên mình mở bản xem luôn cho bạn. Muốn lưu về máy thì bấm ⋯ (hoặc ⋮) ở góc màn hình, chọn “Mở bằng trình duyệt”." },
   en:{ empty:"The library is empty for now — files coming soon.",
        errNet:"Could not load the list (check your connection / the API key).",
        errApi:"Could not load the list: ", dl:"Get", view:"Preview",
        dlPhu:"Download", viewChinh:"Read it now", ngheChinh:"Listen now",
-       inApp:"You're viewing this inside an app. If a download doesn't land on your device, tap ⋯ (or ⋮) in the corner and choose “Open in browser”. For the PDFs, “Read it now” opens right here." }
+       inApp:"You're viewing this inside an app. If a download doesn't land on your device, tap ⋯ (or ⋮) in the corner and choose “Open in browser”. For the PDFs, “Read it now” opens right here.",
+       dangTai:"✓ Downloading…",
+       toastTai:"Your file is on its way. Check your Downloads (iPhone: the Files app). Nothing after a few seconds? Tap “Read it now” instead.",
+       toastTaiExcel:"Your file is on its way. Check your Downloads (iPhone: the Files app).",
+       toastApp:"This app often blocks downloads, so we opened the preview for you. To save it, tap ⋯ (or ⋮) in the corner and choose “Open in browser”." }
 };
 function curLang(){ return document.documentElement.getAttribute('data-lang') === 'en' ? 'en' : 'vi'; }
 
@@ -333,14 +351,42 @@ function render(files){
 
   // đếm lượt tải / lượt đọc trước từng file — để biết magnet nào thật sự kéo được người
   listEl.querySelectorAll('a.btn').forEach(function(a){
-    a.addEventListener('click', function(){
+    a.addEventListener('click', function(e){
       try {
         if (window.gtag) gtag('event',
           a.getAttribute('data-act') === 'preview' ? 'file_preview' : 'file_download',
           { file_name: a.getAttribute('data-fname') });
-      } catch(e){}
+      } catch(x){}
+      if (a.getAttribute('data-act') !== 'download') return;
+      // trong app mà PDF có nút xem → mở bản xem thay vì tải (tải thẳng trong app ~1% ăn)
+      var xem = a.parentNode && a.parentNode.querySelector('a[data-act="preview"]');
+      if (xem && trongApp()){
+        e.preventDefault();
+        try { window.open(xem.getAttribute('href'), '_blank', 'noopener'); } catch(x){ location.href = xem.getAttribute('href'); }
+      }
+      baoDangTai(a, xem);
     });
   });
+}
+
+var hen_toast = null;
+function baoToast(msg){
+  var el = document.getElementById('toast');
+  if (!el){ el = document.createElement('div'); el.id = 'toast'; el.className = 'toast';
+            el.setAttribute('role','status'); document.body.appendChild(el); }
+  el.textContent = msg;
+  el.classList.add('hien');
+  clearTimeout(hen_toast);
+  hen_toast = setTimeout(function(){ el.classList.remove('hien'); }, 7000);
+}
+function baoDangTai(a, xem){
+  var t = TXT[curLang()];
+  if (xem && trongApp()){ baoToast(t.toastApp); return; }
+  baoToast(xem ? t.toastTai : t.toastTaiExcel);
+  if (a.classList.contains('dang-tai')) return;
+  var cu = a.textContent;
+  a.classList.add('dang-tai'); a.textContent = t.dangTai;
+  setTimeout(function(){ a.classList.remove('dang-tai'); a.textContent = cu; }, 5000);
 }
 
 /* Tên gửi cho GA4: luôn lấy bản tiếng Việt, để 2 ngôn ngữ không đẻ ra 2 dòng báo cáo. */
