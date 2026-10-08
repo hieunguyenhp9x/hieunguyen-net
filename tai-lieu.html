@@ -188,7 +188,7 @@
   }
   button[type=submit]:hover{background:var(--gold-light)}
   button[type=submit]:disabled{opacity:.6; cursor:default}
-  .err{display:none; color:#ff8a8a; font-size:13.5px; margin:-4px 0 12px}
+  .err{display:none; color:#ffd0d0; background:rgba(201,106,106,.22); border:1px solid #c96a6a; border-radius:10px; padding:10px 12px; font-size:15px; font-weight:600; line-height:1.45; margin:-4px 0 12px}
 
   .done{text-align:center}
   .done[hidden]{display:none}
@@ -288,19 +288,19 @@
       <p class="taking-name" id="gateFile"></p>
 
       <form id="leadForm" novalidate action="https://app.kit.com/forms/9750089/subscriptions" method="post">
-        <label for="leadName"><span class="lg-vi">Tên</span><span class="lg-en">First name</span></label>
+        <label for="leadName"><span class="lg-vi">Tên (không bắt buộc)</span><span class="lg-en">First name (optional)</span></label>
         <input id="leadName" type="text" name="fields[first_name]" placeholder="Hiếu"
                data-vi-placeholder="Hiếu" data-en-placeholder="Hieu"
-               autocomplete="given-name" maxlength="40" required>
+               autocomplete="given-name" maxlength="40">
 
         <label for="leadEmail">Email</label>
         <input id="leadEmail" type="email" name="email_address" placeholder="you@example.com"
                autocomplete="email" required>
 
-        <!-- HONEYPOT — bẫy bot, người không nhìn thấy. Đừng xoá, đừng đổi tên ô. -->
+        <!-- HONEYPOT — bẫy bot, người không nhìn thấy. Đừng xoá. Tên ô hn_hp_7q (đổi từ "website" 08/10/2026 vì autofill điện thoại tự điền → form chết im). -->
         <div class="hp" aria-hidden="true">
-          <label for="leadWebsite">Website</label>
-          <input id="leadWebsite" type="text" name="website" tabindex="-1" autocomplete="off">
+          <label for="leadWebsite">Leave empty</label>
+          <input id="leadWebsite" type="text" name="hn_hp_7q" tabindex="-1" autocomplete="new-password" data-lpignore="true" data-1p-ignore>
         </div>
 
         <p class="err" id="leadErr" role="alert"></p>
@@ -359,6 +359,7 @@
    ========================================================================== */
 
 var KIT_ACTION = "https://app.kit.com/forms/9750089/subscriptions";
+var HN_MO_TRANG = Date.now();   // mốc mở trang — honeypot chỉ chặn khi gửi < 3 giây (bot)
 
 /* TRƯỜNG ẨN GỬI KIT (vá 21/09/2026) — trước đây form chỉ gửi tên + email nên
    không biết email nào lấy file nào / đến từ nền nào. Giờ gửi thêm 4 custom field.
@@ -601,17 +602,21 @@ function showError(msg, bad){
 form.addEventListener('submit', function(e){
   var t = TXT[curLang()];
 
-  // (1) honeypot: chỉ bot mới điền được ô này → nuốt luôn, không gửi
-  if (hp.value !== '') { e.preventDefault(); return false; }
+  // (1) honeypot — vá 08/10/2026 (cùng vá trang chủ): ô có chữ thì chỉ chặn khi gửi < 3 giây
+  //     như bot; người thật bị autofill điền vẫn đi tiếp. Có đếm GA4 hp_dinh.
+  if (hp.value !== '') {
+    baoGA('hp_dinh', { nhanh: (Date.now() - HN_MO_TRANG < 3000) ? 1 : 0 });
+    if (Date.now() - HN_MO_TRANG < 3000) { e.preventDefault(); return false; }
+  }
 
-  // (2) nhập sai thì báo lỗi, chưa mở gì cả
+  // (2) chỉ BẮT BUỘC email (vá 08/10: dòng lỗi nhỏ bị bàn phím điện thoại che → người dùng
+  //     tưởng nút chết; anh dính chính lỗi này ở trang chủ). Lỗi giờ là khung đỏ + cuộn tới.
   var name = cleanFirstName(nameF.value);
-  var bad = [];
-  if (!name) bad.push('name');
-  if (!validEmail(mailF.value)) bad.push('email');
-  if (bad.length){
+  if (!validEmail(mailF.value)){
     e.preventDefault();
-    showError(bad.length === 1 && bad[0] === 'email' ? t.errEmail : t.errBoth, bad);
+    showError(t.errEmail, ['email']);
+    try { errEl.scrollIntoView({ block:'center', behavior:'smooth' }); mailF.focus({ preventScroll:true }); } catch(x){}
+    baoGA('form_loi_email', { trang: location.pathname });
     return false;
   }
   nameF.value = name; mailF.value = mailF.value.trim();
@@ -629,11 +634,15 @@ form.addEventListener('submit', function(e){
 
   // (4) gửi Kit ngầm. Hỏng cũng kệ — người đã cầm được file rồi.
   var fd = new FormData();
-  fd.append('fields[first_name]', name);
+  // tên trống → thư chào Kit ("Chào {{ subscriber.first_name }},") vẫn đọc được
+  fd.append('fields[first_name]', name || (curLang() === 'vi' ? 'bạn' : 'there'));
   fd.append('email_address', mailF.value);
   hnKitThem(fd, dangCho ? dangCho.track : '');
+  // vá 08/10: trước nuốt mọi phản hồi Kit → Kit từ chối cũng không ai biết. Giờ bắn kit_loi.
   fetch(KIT_ACTION, { method:'POST', body:fd, headers:{ 'Accept':'application/json' } })
-    .catch(function(){});
+    .then(function(r){ return r.json(); })
+    .then(function(j){ if (!j || j.status !== 'success') baoGA('kit_loi', { ly_do: String((j && j.errors && j.errors.messages || [j && j.status]).join('; ')).slice(0,100), trang: location.pathname }); })
+    .catch(function(x){ baoGA('kit_loi', { ly_do: 'mang: ' + (x && x.message), trang: location.pathname }); });
 
   try { localStorage.setItem('hn_lead','1'); } catch(err){}
   baoGA('sign_up', { method:'kit_form', form_location:'tai_lieu_gate',
