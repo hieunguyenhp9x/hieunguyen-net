@@ -1072,13 +1072,18 @@ function hnKitThem(fd, fileName){
       function baoLoi(lyDo) {
         try { if (window.gtag) gtag("event", "kit_loi", { ly_do: String(lyDo).slice(0, 100), trang: location.pathname }); } catch (e) {}
       }
+      // Kit treo/chậm (mạng tàu, trình duyệt trong app FB/Zalo) thì nút từng đứng mãi "Đang gửi…"
+      // → quá 5 giây vẫn mở kho, ghi kit_loi "cham"; Kit trả lời muộn cũng không mở 2 lần.
+      var daMo = false;
+      function moKho() { if (daMo) return; daMo = true; showThankYou(); }
+      var hen = setTimeout(function () { baoLoi("cham >5s"); moKho(); }, 5000);
       fetch(KIT_ACTION, { method: "POST", body: fd, headers: { "Accept": "application/json" } })
         .then(function (r) { return r.json(); })
         .then(function (j) {
           if (!j || j.status !== "success") baoLoi((j && j.errors && j.errors.messages || [j && j.status]).join("; "));
         })
         .catch(function (e) { baoLoi("mang: " + (e && e.message)); })
-        .then(function () { showThankYou(); });
+        .then(function () { clearTimeout(hen); moKho(); });
       return false;
     });
   });
