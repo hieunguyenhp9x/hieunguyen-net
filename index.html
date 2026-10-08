@@ -1063,8 +1063,17 @@ function hnKitThem(fd, fileName){
       fd.append("fields[first_name]", cleanedName);
       fd.append("email_address", emailField.value);
       hnKitThem(fd, "");
+      // Vá 08/10/2026: trước đây nuốt mọi phản hồi Kit → Kit từ chối email cũng không ai biết.
+      // Vẫn mở khoá như cũ, nhưng Kit không trả "success" thì bắn GA4 `kit_loi` kèm lý do.
+      function baoLoi(lyDo) {
+        try { if (window.gtag) gtag("event", "kit_loi", { ly_do: String(lyDo).slice(0, 100), trang: location.pathname }); } catch (e) {}
+      }
       fetch(KIT_ACTION, { method: "POST", body: fd, headers: { "Accept": "application/json" } })
-        .catch(function () {})
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          if (!j || j.status !== "success") baoLoi((j && j.errors && j.errors.messages || [j && j.status]).join("; "));
+        })
+        .catch(function (e) { baoLoi("mang: " + (e && e.message)); })
         .then(function () { showThankYou(); });
       return false;
     });
