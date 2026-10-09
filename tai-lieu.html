@@ -477,10 +477,25 @@ function tenTheoDoi(f){                  // tên gửi GA4: luôn bản tiếng 
 function urlTai(f){ return f.url || ('https://drive.google.com/uc?export=download&id=' + f.id); }
 function urlDoc(f){ return 'https://drive.google.com/file/d/' + f.id + '/view'; }
 
+/* ?chi=<mã>: link TẶNG QUÀ (bot Meta, comment) chỉ hiện ĐÚNG 1 món, vẫn qua cửa tên + email như kho.
+   Mã nằm ở trường `ma` trong assets/kho-data.js. Mã sai / không có -> hiện cả kho như thường. */
+var CHI = (function(){ try { return (new URLSearchParams(location.search).get('chi') || '').replace(/[^\w-]/g, ''); } catch(e){ return ''; } })();
 function danhSach(){
-  return (window.FILES || []).filter(function(f){
+  var ds = (window.FILES || []).filter(function(f){
     return f && (f.url || (f.id && f.id.indexOf('PASTE') !== 0));
   });
+  if (CHI){ var mot = ds.filter(function(f){ return f.ma === CHI; }); if (mot.length) return mot; CHI = ''; }
+  return ds;
+}
+// trang 1 món: đổi tiêu đề thành "quà của bạn", ẩn dòng nói về cả kho
+function veDauTrangChi(){
+  if (!CHI) return;
+  var h = document.querySelector('h1');
+  if (h) h.innerHTML = '<span class="lg-vi">Tài liệu bạn vừa xin <span class="hl">ở ngay dưới</span></span><span class="lg-en">Your free copy is <span class="hl">right below</span></span>';
+  document.querySelectorAll('p.sub').forEach(function(p){
+    p.textContent = p.classList.contains('lg-en') ? 'Read it now in your browser, or download the PDF. Name and email once, then it opens.' : 'Bấm Đọc ngay để xem luôn trên điện thoại, hoặc Tải về máy. Điền tên và email một lần là mở.';
+  });
+  var nl = document.querySelector('.note-line'); if (nl) nl.hidden = true;
 }
 
 /* Trình duyệt NẰM TRONG app (TikTok, Facebook, Zalo, Instagram) — không phải Chrome/Safari thật.
@@ -535,6 +550,14 @@ function veDanhSach(){
   }
   // Chỉ người đang kẹt trong app mới thấy dòng này — 60% còn lại không phải đọc thừa một chữ nào.
   var html = trongApp() ? '<div class="inapp-note">'+esc(t.inApp)+'</div>' : '';
+  if (CHI){                              // trang 1 món: không chia nhóm, thêm lối sang cả kho ở dưới
+    veDauTrangChi();
+    listEl.innerHTML = html + '<div class="group noibat">' + files.map(veMotFile).join('') + '</div>' +
+      '<p class="note-line" style="text-align:center"><a href="/tai-lieu.html" style="color:var(--gold);font-weight:700">' +
+      (curLang() === 'en' ? 'More free files in the library &rarr;' : 'Xem thêm tài liệu khác trong kho &rarr;') + '</a></p>';
+    listEl.querySelectorAll('a.btn').forEach(function(a){ a.addEventListener('click', onBamFile); });
+    return;
+  }
   (window.NHOM || []).forEach(function(g){
     var trong = files.filter(function(f){ return (f.nhom || 'moi') === g.key; });
     if (!trong.length) return;

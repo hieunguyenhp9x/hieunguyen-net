@@ -101,6 +101,7 @@ var FILES = [
     meta: { vi: "Phần 1: 20 câu mình đã gặp trên đường lên ghế Phó ba · Phần 2: 50 câu cho ghế Phó hai, 18 câu trong đó người ta hỏi chính mình ở buổi phỏng vấn Phó hai năm 2022 · mỗi câu có: người phỏng vấn đang thử cái gì và một câu trả lời mẫu hoàn chỉnh để học thuộc",
             en: "Part 1: the twenty questions I was asked on the way to the Third Officer chair · Part 2: fifty for the Second Officer chair, eighteen of them asked in my own 2/O interview in 2022 · for each one: what the interviewer is really testing and a full sample answer to learn by heart" },
     tag:  { vi: "PDF · 32 trang · Anh–Việt", en: "PDF · 32 pages · EN–VI" },
+    ma: "70-cau",   // link tặng quà /t/70-cau/ -> /tai-lieu.html?chi=70-cau (chỉ hiện món này, vẫn hỏi email)
     id: "1MlOEUHtvcX6YJNDK7vlJMDin4xJEKr89" },
 
   // --- PV thuỷ thủ AB boong — 43 câu, dựng 06/10/2026 (production/magnet/ab-interview.pdf), anh thả Drive tay ---

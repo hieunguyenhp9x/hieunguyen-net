@@ -13,12 +13,15 @@
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="hieunguyen.net">
 <meta property="og:title" content="70 câu phỏng vấn Phó ba + Phó hai — có trả lời mẫu">
-<meta property="og:description" content="70 interview questions for 3/O and 2/O, with sample answers. File PDF, bấm là mở.">
+<meta property="og:description" content="70 interview questions for 3/O and 2/O, with sample answers. Đọc ngay hoặc tải PDF.">
 <meta property="og:url" content="https://hieunguyen.net/t/70-cau/">
 <script type="text/javascript">
 (function () {
   var MA = '70-cau';
-  var DICH = 'https://drive.google.com/file/d/1MlOEUHtvcX6YJNDK7vlJMDin4xJEKr89/view';
+  // 09/10/2026: không đưa thẳng Drive nữa -> trang kho CHỈ hiện bộ 70 câu, đọc/tải phải để lại tên + email (vào Kit).
+  // Giữ nguyên utm của link bot để biết email đến từ đâu.
+  var q = location.search.replace(/^\?/, '').replace(/(^|&)(xem|notrack|track)(=[^&]*)?/g, '');
+  var DICH = '/tai-lieu.html?chi=70-cau' + (q ? '&' + q.replace(/^&/, '') : '');
   var di = false, t0 = Date.now(), xem = false;
   function sang(ly_do) {
     if (di) return; di = true;
