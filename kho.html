@@ -1,15 +1,13 @@
 <!DOCTYPE html>
-<html lang="vi" data-lang="vi">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex">  <!-- không cho Google index trang kho -->
-<title>Kho tài liệu thuyền viên — Nguyễn Chí Hiếu</title>
+<title>Seafarer materials library — Hieu Nguyen</title>
 
-<!-- NGÔN NGỮ: đặt TRƯỚC khi trang vẽ. Mặc định TIẾNG VIỆT (cùng phễu với /tai-lieu.html).
-     KHÁC index.html (default EN từ 16/09/2026): kho.html giữ VI vì cửa ngắn /tai-lieu
-     KHÔNG ép ?lang=vi, nên khách bio Việt để email xong tới kho — localStorage rỗng —
-     phải fallback về VI mới không bị đá sang EN. Dùng chung localStorage hn_lang với cả site. -->
+<!-- NGÔN NGỮ: đặt TRƯỚC khi trang vẽ. 11/10/2026 anh chốt: CẢ WEB mặc định TIẾNG ANH
+     (trước đây kho giữ VI cho phễu bio Việt). Khách tự chọn TIẾNG VIỆT thì nhớ ở hn_lang. -->
 <script type="text/javascript">
 (function () {
   var l = null;
@@ -18,7 +16,7 @@
   var m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
   if (m) { l = m[1]; try { localStorage.setItem('hn_lang', l); } catch (e) {} }
   if (!l) { try { l = localStorage.getItem('hn_lang') || localStorage.getItem('pomo_lang'); } catch (e) {} }
-  if (l !== 'vi' && l !== 'en') l = 'vi';
+  if (l !== 'vi' && l !== 'en') l = 'en';   // 11/10/2026 anh chốt: cả web mặc định TIẾNG ANH trước
   document.documentElement.setAttribute('data-lang', l);
   document.documentElement.lang = l;
 })();
@@ -167,8 +165,8 @@
 
 <div class="lang-switch">
   <div class="seg" role="group" aria-label="Ngôn ngữ / Language">
-    <button type="button" data-set-lang="vi">TIẾNG VIỆT</button>
     <button type="button" data-set-lang="en">ENGLISH</button>
+    <button type="button" data-set-lang="vi">TIẾNG VIỆT</button>
   </div>
 </div>
 

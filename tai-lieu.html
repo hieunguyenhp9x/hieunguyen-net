@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="vi" data-lang="vi">
+<html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kho tài liệu thuyền viên — miễn phí</title>
-<meta name="description" content="Tất cả tài liệu một sĩ quan boong chia sẻ trên kênh — file làm việc thật trên tàu. Để lại email một lần, tải miễn phí.">
+<title>Free materials for seafarers — hieunguyen.net</title>
+<meta name="description" content="Real working files from a deck officer, free. Leave your email once and download. · Tài liệu thật từ một sĩ quan boong, để lại email một lần là tải miễn phí.">
 <link rel="canonical" href="https://hieunguyen.net/tai-lieu.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="hieunguyen.net">
-<meta property="og:title" content="Kho tài liệu thuyền viên — miễn phí">
-<meta property="og:description" content="Tất cả tài liệu một sĩ quan boong chia sẻ trên kênh — file làm việc thật trên tàu. Để lại email một lần, tải miễn phí.">
+<meta property="og:title" content="Free materials for seafarers — Kho tài liệu thuyền viên miễn phí">
+<meta property="og:description" content="Real working files from a deck officer, free. Leave your email once and download. · Tài liệu thật từ một sĩ quan boong, để lại email một lần là tải miễn phí.">
 <meta property="og:url" content="https://hieunguyen.net/tai-lieu.html">
 
 <!-- NGÔN NGỮ: đặt TRƯỚC khi trang vẽ, tránh nháy chữ.
-     KHÁC index.html: trang này MẶC ĐỊNH TIẾNG VIỆT, vì nó là cửa nhận lead từ
-     bio TikTok/FB (người xem Việt). Vẫn dùng chung localStorage hn_lang. -->
+     11/10/2026 anh chốt: CẢ WEB mặc định TIẾNG ANH (trước đây trang này mặc định VI).
+     Khách tự bấm TIẾNG VIỆT thì nhớ ở localStorage hn_lang; ?lang=vi vẫn ép được VI.
+     Sale page / trang mua của app Mở Miệng (app.hieunguyen.net) vẫn tiếng Việt. -->
 <script type="text/javascript">
 (function () {
   var l = null;
@@ -23,7 +24,7 @@
   var m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
   if (m) { l = m[1]; try { localStorage.setItem('hn_lang', l); } catch (e) {} }
   if (!l) { try { l = localStorage.getItem('hn_lang') || localStorage.getItem('pomo_lang'); } catch (e) {} }
-  if (l !== 'vi' && l !== 'en') l = 'vi';
+  if (l !== 'vi' && l !== 'en') l = 'en';   // 11/10/2026 anh chốt: cả web mặc định TIẾNG ANH trước
   document.documentElement.setAttribute('data-lang', l);
   document.documentElement.lang = l;
 })();
@@ -241,8 +242,8 @@
 
 <div class="lang-switch">
   <div class="seg" role="group" aria-label="Ngôn ngữ / Language">
-    <button type="button" data-set-lang="vi">TIẾNG VIỆT</button>
     <button type="button" data-set-lang="en">ENGLISH</button>
+    <button type="button" data-set-lang="vi">TIẾNG VIỆT</button>
   </div>
 </div>
 
