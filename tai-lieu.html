@@ -409,6 +409,7 @@ var TXT = {
        dlPhu:"Tải về máy", viewChinh:"Đọc ngay", ngheChinh:"Nghe ngay",
        inApp:"Bạn đang mở trang này trong app. Bấm tải mà không thấy file về máy thì bấm dấu ⋯ (hoặc ⋮) ở góc màn hình rồi chọn “Mở bằng trình duyệt”. File PDF thì bấm “Đọc ngay” là xem được luôn tại đây.",
        errEmail:"Email trông chưa đúng — kiểm tra lại giúp mình nhé.",
+       errName:"Bạn điền tên giúp mình nhé.",
        errBoth:"Điền giúp mình tên và email hợp lệ.",
        working:"Đang mở…",
        dangTai:"✓ Đang tải…",
@@ -420,6 +421,7 @@ var TXT = {
        dlPhu:"Download", viewChinh:"Read it now", ngheChinh:"Listen now",
        inApp:"You're viewing this inside an app. If a download doesn't land on your device, tap ⋯ (or ⋮) in the corner and choose “Open in browser”. For the PDFs, “Read it now” opens right here.",
        errEmail:"That email doesn't look right — mind checking it?",
+       errName:"Please add your first name.",
        errBoth:"Please enter a name and a valid email.",
        working:"Opening…",
        dangTai:"✓ Downloading…",
@@ -496,6 +498,10 @@ function veDauTrangChi(){
     p.textContent = p.classList.contains('lg-en') ? 'Read it now in your browser, or download the PDF. Name and email once, then it opens.' : 'Bấm Đọc ngay để xem luôn trên điện thoại, hoặc Tải về máy. Điền tên và email một lần là mở.';
   });
   var nl = document.querySelector('.note-line'); if (nl) nl.hidden = true;
+  // link quà (10/10/2026, anh lệnh): BẮT BUỘC cả tên lẫn email — kho chung vẫn để tên tuỳ chọn
+  var lb = document.querySelector('label[for="leadName"]');
+  if (lb) lb.innerHTML = '<span class="lg-vi">Tên</span><span class="lg-en">First name</span>';
+  var nf = document.getElementById('leadName'); if (nf) nf.required = true;
 }
 
 /* Trình duyệt NẰM TRONG app (TikTok, Facebook, Zalo, Instagram) — không phải Chrome/Safari thật.
@@ -694,6 +700,13 @@ form.addEventListener('submit', function(e){
   // (2) chỉ BẮT BUỘC email (vá 08/10: dòng lỗi nhỏ bị bàn phím điện thoại che → người dùng
   //     tưởng nút chết; anh dính chính lỗi này ở trang chủ). Lỗi giờ là khung đỏ + cuộn tới.
   var name = cleanFirstName(nameF.value);
+  if (CHI && !name){
+    e.preventDefault();
+    showError(t.errName, ['name']);
+    try { errEl.scrollIntoView({ block:'center', behavior:'smooth' }); nameF.focus({ preventScroll:true }); } catch(x){}
+    baoGA('form_loi_ten', { trang: location.pathname });
+    return false;
+  }
   if (!validEmail(mailF.value)){
     e.preventDefault();
     showError(t.errEmail, ['email']);

@@ -104,6 +104,17 @@ var FILES = [
     ma: "70-cau",   // link tặng quà /t/70-cau/ -> /tai-lieu.html?chi=70-cau (chỉ hiện món này, vẫn hỏi email)
     id: "1MlOEUHtvcX6YJNDK7vlJMDin4xJEKr89" },
 
+  // --- Bản vẽ GA tàu hàng rời 76.000 DWT — 10/10/2026. Bản GỐC là bản vẽ nhà máy có tên tàu + IMO + ô bảo mật:
+  //     ĐÃ CHE bằng scripts/che_ban_ve_ga.py (xoá tên tàu, IMO, logo ống khói, ô tên + chữ chìm nhà máy). Cấm đăng bản gốc.
+  { nhom:"doc", pdf:true, ico:"&#128208;",
+    name: { vi: "Bản vẽ bố trí chung (GA) tàu hàng rời 76.000 DWT",
+            en: "General Arrangement plan — 76,000 DWT bulk carrier" },
+    meta: { vi: "Bản vẽ General Arrangement thật của một tàu hàng rời 7 hầm, dài 225 m, rộng 32,24 m · đủ mặt cắt dọc, boong chính, tank top, mặt cắt giữa tàu, khu ở từ boong 2 lên buồng lái · ôn thi phần kết cấu, két ballast, bố trí hầm hàng thì mở cái này ra đối chiếu, phóng to xem từng chi tiết",
+            en: "A real GA plan of a seven-hold bulk carrier, 225 m long, 32.24 m beam · profile, upper deck, tank top, midship section, and the accommodation from 2nd deck up to the bridge · open it next to your notes when you study hull structure, ballast tanks and hold layout, and zoom in on any detail" },
+    tag:  { vi: "PDF · 1 tờ khổ lớn · tiếng Anh", en: "PDF · 1 large sheet · English" },
+    ma: "ban-ve-ga",   // link kéo lead /t/ban-ve-ga/ -> /tai-lieu.html?chi=ban-ve-ga (chỉ hiện món này, bắt tên + email)
+    id: "1Z_OVMtpr1Y_3r9kYTxyS3Mc71QRrX1Qa" },
+
   // --- PV thuỷ thủ AB boong — 43 câu, dựng 06/10/2026 (production/magnet/ab-interview.pdf), anh thả Drive tay ---
   { nhom:"doc", pdf:true, ico:"&#9875;",
     name: { vi: "43 câu phỏng vấn thuỷ thủ AB boong, kèm câu trả lời",

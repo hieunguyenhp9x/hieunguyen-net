@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Đang mở tài liệu — hieunguyen.net</title>
+<!-- CỔNG ĐẾM TÀI LIỆU: hieunguyen.net/t/<mã>/?utm_source=...  (sinh 04/10/2026)
+     Lý do: bot Meta gửi thẳng link Drive thì không đếm được ai mở. Link trong tin nhắn
+     trỏ về đây → bắn 1 sự kiện GA4 "mo_tai_lieu" (file_name = mã) → chuyển sang Drive.
+     Thêm tài liệu mới = copy nguyên folder này, đổi MA + DICH. Soi số: scripts/soi_tuan.py. -->
+<meta name="robots" content="noindex,nofollow">
+<!-- khung xem trước link trong Messenger (máy quét FB không chạy JS → không tính là 1 lượt mở) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="hieunguyen.net">
+<meta property="og:title" content="Bản vẽ GA tàu hàng rời 76.000 DWT — PDF khổ lớn">
+<meta property="og:description" content="General Arrangement plan of a 76,000 DWT bulk carrier. Đọc ngay hoặc tải PDF.">
+<meta property="og:url" content="https://hieunguyen.net/t/ban-ve-ga/">
+<script type="text/javascript">
+(function () {
+  var MA = 'ban-ve-ga';
+  // 10/10/2026 (khuôn 70-cau): trang kho CHỈ hiện bản vẽ GA, đọc/tải phải để lại tên + email (vào Kit).
+  // Giữ nguyên utm của link bot để biết email đến từ đâu.
+  var q = location.search.replace(/^\?/, '').replace(/(^|&)(xem|notrack|track)(=[^&]*)?/g, '');
+  var DICH = '/tai-lieu.html?chi=ban-ve-ga' + (q ? '&' + q.replace(/^&/, '') : '');
+  var di = false, t0 = Date.now(), xem = false;
+  function sang(ly_do) {
+    if (di) return; di = true;
+    // ?xem=1: soi thử, KHÔNG chuyển — in ra GA bắn kịp hay hết giờ
+    if (xem) { document.title = (ly_do || 'het-gio') + ' ' + (Date.now() - t0) + 'ms'; return; }
+    location.replace(DICH);
+  }
+  try {
+    var p = new URLSearchParams(location.search);
+    xem = p.has('xem');
+    if (p.has('notrack')) localStorage.setItem('hn_notrack', '1');
+    else if (p.has('track')) localStorage.removeItem('hn_notrack');
+    if (localStorage.getItem('hn_notrack') === '1') { sang(); return; }
+  } catch (e) {}
+  var ga = document.createElement('script');
+  ga.async = 1;
+  ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK';
+  document.head.appendChild(ga);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', 'G-TNVKB32ZPK');
+  // file_name là custom dimension đã đăng ký sẵn (11/09) → đọc được theo từng tài liệu ngay
+  gtag('event', 'mo_tai_lieu', {
+    file_name: MA,
+    transport_type: 'beacon',
+    event_callback: function () { sang('ga-ok'); },
+    event_timeout: 2500
+  });
+  // GA bị chặn / mạng chậm: tối đa 3 giây là vẫn sang Drive
+  setTimeout(sang, 3000);
+})();
+</script>
+<style>
+  body{background:#0a1628;color:#e8edf4;line-height:1.6;margin:0;padding:48px 22px;
+       font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;text-align:center}
+  a{color:#d4a95a;font-weight:700}
+</style>
+</head>
+<body>
+<p>Đang mở tài liệu… / Opening the file…</p>
+<p><a href="/tai-lieu.html?chi=ban-ve-ga">Bấm vào đây nếu trang không tự chuyển / Tap here if nothing happens</a></p>
+</body>
+</html>
