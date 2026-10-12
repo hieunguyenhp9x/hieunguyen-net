@@ -735,10 +735,14 @@ form.addEventListener('submit', function(e){
   fd.append('email_address', mailF.value);
   hnKitThem(fd, dangCho ? dangCho.track : '');
   // vá 08/10: trước nuốt mọi phản hồi Kit → Kit từ chối cũng không ai biết. Giờ bắn kit_loi.
-  fetch(KIT_ACTION, { method:'POST', body:fd, headers:{ 'Accept':'application/json' } })
+  // vá 13/10: ~37% lượt kit_loi (09→12/10) — nghi window.open ở bước (3) đẩy trang xuống nền /
+  // đóng webview FB-Messenger → fetch bị cắt giữa đường. keepalive = trình duyệt gửi nốt dù trang
+  // đã đóng. Lý do lỗi ghi thêm vào form_location (tham số GA4 ĐÃ đăng ký, đọc được trong báo cáo).
+  function kitLoi(ly){ ly = String(ly).slice(0,90); baoGA('kit_loi', { ly_do: ly, form_location: 'loi:' + ly, trang: location.pathname }); }
+  fetch(KIT_ACTION, { method:'POST', body:fd, keepalive:true, headers:{ 'Accept':'application/json' } })
     .then(function(r){ return r.json(); })
-    .then(function(j){ if (!j || j.status !== 'success') baoGA('kit_loi', { ly_do: String((j && j.errors && j.errors.messages || [j && j.status]).join('; ')).slice(0,100), trang: location.pathname }); })
-    .catch(function(x){ baoGA('kit_loi', { ly_do: 'mang: ' + (x && x.message), trang: location.pathname }); });
+    .then(function(j){ if (!j || j.status !== 'success') kitLoi((j && j.errors && j.errors.messages || [j && j.status]).join('; ')); })
+    .catch(function(x){ kitLoi('mang: ' + (x && x.message) + (document.hidden ? ' [trang-an]' : '')); });
 
   try { localStorage.setItem('hn_lead','1'); } catch(err){}
   baoGA('sign_up', { method:'kit_form', form_location:'tai_lieu_gate',

@@ -408,8 +408,12 @@ form.addEventListener('submit', function(e){
   fd.append('fields[first_name]', name);
   fd.append('email_address', mailF.value);
   hnKitThem(fd, '');
-  fetch(KIT_ACTION, { method:'POST', body:fd, headers:{ 'Accept':'application/json' } })
-    .catch(function(){})
+  // vá 13/10: giữ sống request (keepalive) + báo GA4 kit_loi khi Kit không nhận (trước nuốt im)
+  function kitLoi(ly){ ly = String(ly).slice(0,90); try { if (window.gtag) gtag('event','kit_loi',{ ly_do: ly, form_location: 'loi:' + ly, trang: location.pathname }); } catch(x){} }
+  fetch(KIT_ACTION, { method:'POST', body:fd, keepalive:true, headers:{ 'Accept':'application/json' } })
+    .then(function(r){ return r.json(); })
+    .then(function(j){ if (!j || j.status !== 'success') kitLoi((j && j.errors && j.errors.messages || [j && j.status]).join('; ')); })
+    .catch(function(x){ kitLoi('mang: ' + (x && x.message)); })
     .then(function(){ showDone(true); });
   return false;
 });
