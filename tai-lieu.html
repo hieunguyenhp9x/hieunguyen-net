@@ -520,8 +520,9 @@ function tenTheoDoi(f){                  // tên gửi GA4: luôn bản tiếng 
   if (!f.name) return '';
   return typeof f.name === 'string' ? f.name : (f.name.vi || f.name.en || '');
 }
-function urlTai(f){ return f.url || ('https://drive.google.com/uc?export=download&id=' + f.id); }
-function urlDoc(f){ return 'https://drive.google.com/file/d/' + f.id + '/view'; }
+// 13/10/2026: món có `web` -> Đọc = trang lật sách /doc/?f=<web>, Tải = /files/<web>.pdf (cùng tên miền: đo được, mở được trong app)
+function urlTai(f){ return f.web ? '/files/' + f.web + '.pdf' : (f.url || ('https://drive.google.com/uc?export=download&id=' + f.id)); }
+function urlDoc(f){ return f.web ? '/doc/?f=' + f.web : 'https://drive.google.com/file/d/' + f.id + '/view'; }
 
 /* ?chi=<mã>: link TẶNG QUÀ (bot Meta, comment) chỉ hiện ĐÚNG 1 món, vẫn qua cửa tên + email như kho.
    Mã nằm ở trường `ma` trong assets/kho-data.js. Mã sai / không có -> hiện cả kho như thường. */

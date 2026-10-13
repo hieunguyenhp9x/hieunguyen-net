@@ -288,7 +288,11 @@ function driveUrl(f){
   if (native) return f.webViewLink || ('https://drive.google.com/open?id=' + f.id);
   return 'https://drive.google.com/uc?export=download&id=' + f.id;
 }
-function viewUrl(id){ return 'https://drive.google.com/file/d/' + id + '/view'; }
+function viewUrl(id){
+  // 13/10/2026: món có `web` -> trang lật sách của mình thay vì trang xem Drive
+  var f = (window.FILES || []).filter(function(x){ return x && x.id === id && x.web; })[0];
+  return f ? '/doc/?f=' + f.web : 'https://drive.google.com/file/d/' + id + '/view';
+}
 
 /* Tên và mô tả file nhận 2 dạng:
      - chuỗi thường  -> dùng chung cho cả 2 ngôn ngữ (tên từ Drive API chỉ có 1 bản)
@@ -399,7 +403,7 @@ function manualFiles(){
     return { nhom:f.nhom || 'moi', ico:f.ico, pdf:f.pdf, nghe:f.nghe, id:f.id,
              name:f.name, meta:f.meta || '', tag:f.tag || '',
              track:tenTheoDoi(f),
-             url:f.url || ('https://drive.google.com/uc?export=download&id='+f.id) };
+             url:f.web ? '/files/' + f.web + '.pdf' : (f.url || ('https://drive.google.com/uc?export=download&id='+f.id)) };
   });
 }
 

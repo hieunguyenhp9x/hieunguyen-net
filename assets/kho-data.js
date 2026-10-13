@@ -47,6 +47,7 @@ var FILES = [
     meta: { vi: "Toàn bộ phần mình ôn vấn đáp C/O gom lại một chỗ · 12 mục, 94 câu: nhiệm vụ đại phó, ổn định – sức bền, draft survey, xếp hàng, chứng từ, ballast, COLREG, tránh bão · mỗi câu có câu giám khảo hay hỏi + cách trả lời + xử lý thực tế · có mục lục bấm nhảy thẳng",
             en: "My whole C/O oral-exam revision in one place · 12 topics, 94 Q&As: C/O duties, stability & strength, draft survey, stowage, documents, ballast, COLREG, storm avoidance · each item: the examiner's question + a model answer + what you actually do on board · clickable table of contents" },
     tag:  { vi: "PDF · 80 trang · Anh–Việt", en: "PDF · 80 pages · EN–VI" },
+    web: "so-tay-van-dap-dai-pho",   // trang đọc lật sách /doc/?f=so-tay-van-dap-dai-pho + file /files/so-tay-van-dap-dai-pho.pdf (13/10/2026)
     id: "18VwwkYbCj38eRrBrXWN12n-ebesuIJyG" },
 
   // --- Sổ tay nghiệp vụ Đại phó — 18 trang, anh lệnh lên kho + tự kéo lên Drive 23/09/2026
@@ -57,6 +58,7 @@ var FILES = [
     meta: { vi: "Ghi chép mình gom lại lúc học lớp Đại phó, xếp theo tình huống thật trên tàu · 7 phần: xử lý tình huống · chuẩn bị xếp hàng (IMSBC, than, hàng hạt, thép cuộn) · tính toán (max intake, trim, ổn định, draft survey) · chứng từ & hợp đồng (B/L, LOI, NOR, laycan) · boong (neo, dây, cẩu) · luật & giấy chứng nhận (MARPOL, BWM, ISPS, MLC, ISM) · bảng số giới hạn + lỗi hay nhầm khi tính · mục lục bấm nhảy thẳng",
             en: "Notes I compiled while studying for Chief Officer, arranged by real situations on board · 7 parts: handling situations · cargo preparation (IMSBC, coal, grain, steel coils) · calculations (max intake, trim, stability, draft survey) · documents & contracts (B/L, LOI, NOR, laycan) · deck (anchoring, mooring, cranes) · regulations & certificates (MARPOL, BWM, ISPS, MLC, ISM) · limit-figure tables + common calculation mistakes · clickable table of contents" },
     tag:  { vi: "PDF · 18 trang · Anh–Việt", en: "PDF · 18 pages · EN–VI" },
+    web: "so-tay-nghiep-vu-dai-pho",   // trang đọc lật sách /doc/?f=so-tay-nghiep-vu-dai-pho + file /files/so-tay-nghiep-vu-dai-pho.pdf (13/10/2026)
     id: "1VZtBdbPUJomomLRRKkleWyI0Gj2iZxAF" },
 
   // --- PV Đại phó tàu hàng rời — 114 câu song ngữ, dựng 07-08/10/2026 (production/hoc-dai-pho/pv-co-hpm-114-cau/cong-khai), máy upload 08/10 ---
@@ -66,6 +68,7 @@ var FILES = [
     meta: { vi: "Bộ câu hỏi phỏng vấn Đại phó thật của một hãng tàu hàng rời, mình soạn câu trả lời mẫu khi chuẩn bị đi phỏng vấn · 3 phần: bản thân & kinh nghiệm · nghiệp vụ Đại phó (hàng hoá IMSBC, than, quặng, hạt, nắp hầm, neo – buộc tàu, PSC, ISM/ISPS, ballast, MARPOL) · câu Phó hai/Phó ba (ECDIS, GMDSS, COLREG) · mỗi câu: trả lời mẫu Anh | Việt đặt cạnh nhau, câu hỏi thêm hay gặp, người phỏng vấn đang thử cái gì · 20 câu nên học trước · mục lục bấm nhảy thẳng",
             en: "A real Chief Officer interview questionnaire from a bulk carrier company, with the sample answers I prepared for my own interview · 3 parts: about you · C/O duties (IMSBC cargoes, coal, ore, grain, hatch covers, anchoring & mooring, PSC, ISM/ISPS, ballast, MARPOL) · 2/O & 3/O questions (ECDIS, GMDSS, COLREG) · each one: English | Vietnamese answers side by side, the usual follow-ups, and what the interviewer is testing · 20 to learn first · clickable table of contents" },
     tag:  { vi: "PDF · 116 trang · Anh–Việt", en: "PDF · 116 pages · EN–VI" },
+    web: "114-cau-dai-pho",   // trang đọc lật sách /doc/?f=114-cau-dai-pho + file /files/114-cau-dai-pho.pdf (13/10/2026)
     id: "1VEoUnZLpyp1_H8f-bUtnfBWLwy3lW8cI" },
 
   // --- Phần CADET (15/09/2026) — PDF dựng ở production/magnet/, anh upload Drive rồi dán ID ---
@@ -76,6 +79,7 @@ var FILES = [
     meta: { vi: "Lo gì trước khi rời nhà · tuần đầu trên tàu · tự xẻ giờ học từ tháng đầu · những ngày thấy mình vô dụng · nhớ nhà · tháng cuối gom gì để mang vào buổi phỏng vấn lên sĩ quan",
             en: "Before you leave home · the first week on board · making study time from month one · the days you feel useless · missing home · what to collect in the last month for your officer interview" },
     tag:  { vi: "PDF · 5 trang · Anh–Việt", en: "PDF · 5 pages · EN–VI" },
+    web: "date-dau",   // trang đọc lật sách /doc/?f=date-dau + file /files/date-dau.pdf (13/10/2026)
     id: "1Lu5oxuje6gZ964jJrARz4V9QOhmtVHfg" },
 
   { nhom:"cadet", pdf:true, ico:"&#127919;",
@@ -84,6 +88,7 @@ var FILES = [
     meta: { vi: "20 câu hay gặp kèm câu trả lời mẫu · 5 tình huống tránh va có hình vẽ · rác và khí thải theo MARPOL · nhóm câu thái độ quyết định đậu hay trượt · mọi điều luật đã đối chiếu văn bản IMO",
             en: "20 common questions with model answers · 5 collision situations with diagrams · garbage and air pollution under MARPOL · the attitude questions that decide it · every rule checked against IMO texts" },
     tag:  { vi: "PDF · 11 trang · Anh–Việt", en: "PDF · 11 pages · EN–VI" },
+    web: "phong-van-cadet",   // trang đọc lật sách /doc/?f=phong-van-cadet + file /files/phong-van-cadet.pdf (13/10/2026)
     id: "1IExpeaoooGkb0Mw88TLzVEFG96-sy3SM" },
 
   // --- Cẩm nang (PDF) — 2 tờ đi kèm 2 video, anh upload 11/09/2026 ---
@@ -93,6 +98,7 @@ var FILES = [
     meta: { vi: "Tờ đi kèm video “Một ngày thật của thực tập sinh boong” · kiểm gì trước khi ký hợp đồng · một ngày trên tàu thật ra thế nào · cái sai làm mình mất trắng một năm",
             en: "Companion sheet to “A Real Day in the Life of a Deck Cadet” · what to check before you sign · what the day actually looks like · the mistake that cost me a year" },
     tag:  { vi: "PDF · 4 trang · Anh–Việt", en: "PDF · 4 pages · EN–VI" },
+    web: "do-nghe-cadet",   // trang đọc lật sách /doc/?f=do-nghe-cadet + file /files/do-nghe-cadet.pdf (13/10/2026)
     id: "14UibAoJkq9dE_dqaqGjuI5X4DJwQQicD" },
 
   { nhom:"doc", pdf:true, ico:"&#128214;",
@@ -102,6 +108,7 @@ var FILES = [
             en: "Part 1: the twenty questions I was asked on the way to the Third Officer chair · Part 2: fifty for the Second Officer chair, eighteen of them asked in my own 2/O interview in 2022 · for each one: what the interviewer is really testing and a full sample answer to learn by heart" },
     tag:  { vi: "PDF · 32 trang · Anh–Việt", en: "PDF · 32 pages · EN–VI" },
     ma: "70-cau",   // link tặng quà /t/70-cau/ -> /tai-lieu.html?chi=70-cau (chỉ hiện món này, vẫn hỏi email)
+    web: "70-cau",   // trang đọc lật sách /doc/?f=70-cau + file /files/70-cau.pdf (13/10/2026)
     id: "1MlOEUHtvcX6YJNDK7vlJMDin4xJEKr89" },
 
   // --- Bản vẽ GA tàu hàng rời 76.000 DWT — 10/10/2026. Bản GỐC là bản vẽ nhà máy có tên tàu + IMO + ô bảo mật:
@@ -113,6 +120,7 @@ var FILES = [
             en: "A real GA plan of a seven-hold bulk carrier, 225 m long, 32.24 m beam · profile, upper deck, tank top, midship section, and the accommodation from 2nd deck up to the bridge · open it next to your notes when you study hull structure, ballast tanks and hold layout, and zoom in on any detail" },
     tag:  { vi: "PDF · 1 tờ khổ lớn · tiếng Anh", en: "PDF · 1 large sheet · English" },
     ma: "ban-ve-ga",   // link kéo lead /t/ban-ve-ga/ -> /tai-lieu.html?chi=ban-ve-ga (chỉ hiện món này, bắt tên + email)
+    web: "ban-ve-ga",   // trang đọc lật sách /doc/?f=ban-ve-ga + file /files/ban-ve-ga.pdf (13/10/2026)
     id: "1Z_OVMtpr1Y_3r9kYTxyS3Mc71QRrX1Qa" },
 
   // --- PV thuỷ thủ AB boong — 43 câu, dựng 06/10/2026 (production/magnet/ab-interview.pdf), anh thả Drive tay ---
@@ -122,6 +130,7 @@ var FILES = [
     meta: { vi: "Câu phòng crewing và sĩ quan hay hỏi AB · trực ca, cảnh giới, khẩu lệnh lái, làm dây – thả neo, cầu thang, thang hoa tiêu, không gian kín, drill · mỗi câu có: người phỏng vấn đang thử cái gì và một câu trả lời mẫu ngắn để học thuộc · kèm bảng khẩu lệnh lái theo IMO SMCP",
             en: "What crewing offices and officers ask an AB · watchkeeping, lookout, steering orders, mooring and anchoring, gangway, pilot ladder, enclosed spaces, drills · for each one: what the interviewer is really testing and a short sample answer to learn by heart · with the IMO SMCP steering orders table" },
     tag:  { vi: "PDF · 15 trang · Anh–Việt", en: "PDF · 15 pages · EN–VI" },
+    web: "ab-43-cau",   // trang đọc lật sách /doc/?f=ab-43-cau + file /files/ab-43-cau.pdf (13/10/2026)
     id: "1COZpuXfh086B2yjldq5BqphZM5tyS1wu" },
 
   // --- PV Bosun — 39 câu, dựng 06/10/2026 (production/magnet/bosun-interview.pdf), máy tự upload (drive_tai_len.py) ---
@@ -131,6 +140,7 @@ var FILES = [
     meta: { vi: "Câu phòng crewing và sĩ quan hay hỏi Bosun · lên kế hoạch việc và dẫn đội, giờ làm – giờ nghỉ, bảo dưỡng dây cáp và nắp hầm, chuẩn bị hầm hàng, làm dây – thả neo, ghế Bosun, không gian kín, việc nóng, thời tiết xấu · mỗi câu có: người phỏng vấn đang thử cái gì và một câu trả lời mẫu ngắn để học thuộc",
             en: "What crewing offices and officers ask a Bosun · planning the work and leading the team, hours of work and rest, ropes, wires and hatch covers, hold preparation, mooring and anchoring, the bosun's chair, enclosed spaces, hot work, heavy weather · for each one: what the interviewer is really testing and a short sample answer to learn by heart" },
     tag:  { vi: "PDF · 14 trang · Anh–Việt", en: "PDF · 14 pages · EN–VI" },
+    web: "bosun-39-cau",   // trang đọc lật sách /doc/?f=bosun-39-cau + file /files/bosun-39-cau.pdf (13/10/2026)
     id: "1vtY_V9edO6HyRt-A_5ORjuMKy4Xv-Qj0" },
 
   // --- Ghi âm phỏng vấn 2/O Zodiac (MP3) — anh upload 14/09/2026. nghe:true -> nút "Nghe ngay" ---

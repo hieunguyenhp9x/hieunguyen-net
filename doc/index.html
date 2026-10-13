@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Read — hieunguyen.net</title>
+<meta name="robots" content="noindex,nofollow">
+<!-- TRANG ĐỌC LẬT SÁCH (13/10/2026, anh lệnh): hieunguyen.net/doc/?f=<web>
+     - <web> = trường `web` của món trong assets/kho-data.js; file nằm ở /files/<web>.pdf (scripts/keo_pdf_web.py kéo từ Drive).
+     - Nhiều trang -> lật sách (PDF.js vẽ từng trang thành ảnh, StPageFlip lật). 1 trang (bản vẽ GA) -> ảnh to, phóng to / kéo xem.
+     - Nút TẢI PDF luôn có trên thanh trên cùng (anh chốt: vừa đo được, vừa tiện người đọc).
+     - Đo GA4: file_preview (mở trang đọc) · doc_trang (lật tới trang mới, phan_tram) · doc_het (tới trang cuối) · file_download (bấm tải).
+       Cùng tên sự kiện file_preview / file_download với trang /tai-lieu nên báo cáo cũ cộng dồn được. -->
+<script>
+(function () {
+  var l = null, m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
+  if (m) { l = m[1]; try { localStorage.setItem('hn_lang', l); } catch (e) {} }
+  if (!l) { try { l = localStorage.getItem('hn_lang'); } catch (e) {} }
+  if (l !== 'vi' && l !== 'en') l = 'en';
+  document.documentElement.setAttribute('data-lang', l);
+  document.documentElement.lang = l;
+})();
+(function () {
+  try {
+    var p = new URLSearchParams(location.search);
+    if (p.has('notrack')) localStorage.setItem('hn_notrack', '1');
+    else if (p.has('track')) localStorage.removeItem('hn_notrack');
+    if (localStorage.getItem('hn_notrack') === '1') return;
+  } catch (e) {}
+  var ga = document.createElement('script');
+  ga.async = 1; ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK';
+  document.head.appendChild(ga);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', 'G-TNVKB32ZPK');
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xvzwl9diz8");
+})();
+</script>
+<style>
+  :root{ --navy:#0a1628; --navy-2:#10203a; --navy-3:#1a3050; --gold:#d4a95a; --gold-light:#e8c88a;
+         --text:#e8edf4; --text-dim:#9fb0c4; --line:rgba(212,169,90,.22); }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html,body{height:100%}
+  body{background:var(--navy); color:var(--text); font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+       -webkit-font-smoothing:antialiased; display:flex; flex-direction:column; overflow:hidden}
+  html[data-lang="vi"] .lg-en, html:not([data-lang="vi"]) .lg-vi{display:none !important}
+  a{color:var(--gold)}
+
+  .bar{display:flex; align-items:center; gap:10px; padding:8px 12px; border-bottom:2px solid var(--gold); background:var(--navy); flex:0 0 auto}
+  .bar .ten{flex:1 1 auto; min-width:0; font-weight:700; font-size:14.5px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+  .bar .ve{color:var(--text-dim); text-decoration:none; font-size:20px; line-height:1; padding:2px 4px}
+  .tai{flex:0 0 auto; background:var(--gold); color:var(--navy); font-weight:800; font-size:14px; text-decoration:none;
+       border-radius:999px; padding:8px 14px; white-space:nowrap}
+  .tai:hover{background:var(--gold-light)}
+
+  .vung{flex:1 1 auto; min-height:0; position:relative; display:flex; align-items:center; justify-content:center; padding:10px}
+  #book{width:100%; height:100%}
+  .page{background:#fff; overflow:hidden}
+  .page img{width:100%; height:100%; object-fit:contain; display:block; background:#fff}
+  .page.cho img{opacity:0}
+  .page.cho::after{content:"…"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; color:#99a; font-size:28px}
+  .page.cuoi{background:var(--navy-2); color:var(--text); display:flex}
+  .cuoi-in{margin:auto; padding:28px 22px; text-align:center; max-width:420px}
+  .cuoi-in h2{font-size:21px; margin-bottom:10px; line-height:1.3}
+  .cuoi-in p{color:var(--text-dim); font-size:15px; line-height:1.55; margin-bottom:16px}
+  .cuoi-in .nut{display:inline-block; background:var(--gold); color:var(--navy); font-weight:800; text-decoration:none; border-radius:12px; padding:12px 20px; margin:4px}
+
+  .dieu{flex:0 0 auto; display:flex; align-items:center; justify-content:center; gap:16px; padding:8px 12px 12px; color:var(--text-dim); font-size:14px}
+  .dieu button{background:var(--navy-3); color:var(--text); border:1px solid var(--line); border-radius:999px; width:44px; height:40px; font-size:18px; cursor:pointer}
+  .dieu button:disabled{opacity:.35; cursor:default}
+  .phong{position:fixed; inset:0; background:var(--navy); z-index:50; overflow:auto; -webkit-overflow-scrolling:touch}
+  .phong img{display:block; width:200%; max-width:none; background:#fff}
+  .phong .dong{position:fixed; top:10px; right:10px; z-index:51; background:var(--gold); color:var(--navy); border:none; border-radius:999px;
+               font-weight:800; font-size:15px; padding:9px 16px; cursor:pointer}
+  .goi-y{flex:0 0 auto; text-align:center; color:var(--text-dim); font-size:12.5px; padding:0 14px 10px; line-height:1.45}
+
+  /* 1 trang khổ lớn (bản vẽ): ảnh to, kéo + phóng */
+  .to{width:100%; height:100%; overflow:auto; background:#fff; -webkit-overflow-scrolling:touch; border-radius:4px}
+  .to img{display:block; width:100%; height:auto}
+  .loi{max-width:440px; text-align:center; color:var(--text-dim); line-height:1.6}
+  .loi h2{color:var(--text); margin-bottom:10px}
+</style>
+</head>
+<body>
+
+<div class="bar">
+  <a class="ve" href="/tai-lieu.html" aria-label="Back">&larr;</a>
+  <div class="ten" id="ten">…</div>
+  <a class="tai" id="tai" href="#" download>
+    <span class="lg-vi">&#11015; Tải PDF</span><span class="lg-en">&#11015; Download PDF</span>
+  </a>
+</div>
+
+<div class="vung" id="vung"><div id="book"></div></div>
+
+<div class="dieu" id="dieu" hidden>
+  <button type="button" id="truoc" aria-label="Previous">&#9664;</button>
+  <span id="dem">1 / 1</span>
+  <button type="button" id="sau" aria-label="Next">&#9654;</button>
+  <button type="button" id="phongTo" aria-label="Zoom">&#128269;</button>
+</div>
+<p class="goi-y" id="goiY"></p>
+
+<script src="/assets/kho-data.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script>
+(function(){
+  var en = document.documentElement.getAttribute('data-lang') !== 'vi';
+  var q = new URLSearchParams(location.search), WEB = (q.get('f') || '').replace(/[^\w-]/g, '');
+  var f = (window.FILES || []).filter(function(x){ return x && x.web === WEB; })[0];
+  var vung = document.getElementById('vung'), book = document.getElementById('book');
+  function chu(v){ return !v ? '' : (typeof v === 'string' ? v : (en ? (v.en || v.vi) : (v.vi || v.en))); }
+  function ga(ev, o){ try { if (window.gtag) gtag('event', ev, o || {}); } catch(e){} }
+  function trongApp(){ return /; wv\)|FBAN|FBAV|FB_IAB|Instagram|Zalo|BytedanceWebview|musical_ly|TTWebView|Line\//i.test(navigator.userAgent || ''); }
+  function baoLoi(h, p){ vung.innerHTML = '<div class="loi"><h2>' + h + '</h2><p>' + p + '</p></div>'; }
+
+  if (!f){
+    baoLoi(en ? 'File not found' : 'Không tìm thấy tài liệu',
+      '<a href="/tai-lieu.html">' + (en ? 'Open the library &rarr;' : 'Mở kho tài liệu &rarr;') + '</a>');
+    document.getElementById('tai').hidden = true;
+    return;
+  }
+  var TEN = chu(f.name), TRACK = typeof f.name === 'string' ? f.name : (f.name.vi || f.name.en || WEB);
+  var PDF = '/files/' + WEB + '.pdf';
+  document.title = TEN + ' — hieunguyen.net';
+  document.getElementById('ten').textContent = TEN;
+  var tai = document.getElementById('tai');
+  tai.href = PDF; tai.setAttribute('download', WEB + '.pdf');
+  tai.addEventListener('click', function(){ ga('file_download', { file_name: TRACK, form_location: 'doc' }); });
+  var goiY = document.getElementById('goiY');
+  goiY.textContent = trongApp()
+    ? (en ? 'Download not working inside this app? Tap ⋯ (or ⋮) in the corner and choose “Open in browser”.'
+          : 'Trong app bấm tải không được thì bấm ⋯ (hoặc ⋮) ở góc màn hình, chọn “Mở bằng trình duyệt”.')
+    : (en ? 'Swipe or use the arrows to turn the page. Small text? Tap 🔍.' : 'Vuốt ngang hoặc bấm mũi tên để lật trang. Chữ nhỏ thì bấm 🔍.');
+  ga('file_preview', { file_name: TRACK, form_location: 'doc' });
+
+  if (!window.pdfjsLib){ baoLoi(en ? 'Could not load the reader' : 'Không tải được trình đọc', '<a href="' + PDF + '">' + (en ? 'Open the PDF &rarr;' : 'Mở file PDF &rarr;') + '</a>'); return; }
+  pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+  pdfjsLib.getDocument(PDF).promise.then(function(pdf){
+    var N = pdf.numPages;
+    return pdf.getPage(1).then(function(p1){
+      var vp = p1.getViewport({ scale: 1 });
+      if (N === 1) return motTrang(p1, vp);
+      return lat(pdf, N, vp);
+    });
+  }).catch(function(){
+    baoLoi(en ? 'Could not open the file' : 'Không mở được tài liệu', '<a href="' + PDF + '">' + (en ? 'Open the PDF &rarr;' : 'Mở file PDF &rarr;') + '</a>');
+  });
+
+  // vẽ 1 trang PDF thành ảnh rộng `rong` px
+  function veTrang(page, rong){
+    var vp0 = page.getViewport({ scale: 1 }), vp = page.getViewport({ scale: rong / vp0.width });
+    var c = document.createElement('canvas'); c.width = Math.round(vp.width); c.height = Math.round(vp.height);
+    // intent 'print': PDF.js vẽ không chờ requestAnimationFrame -> tab nền / trình duyệt ẩn vẫn vẽ tiếp
+    return page.render({ canvasContext: c.getContext('2d'), viewport: vp, intent: 'print' }).promise.then(function(){
+      return new Promise(function(ok){ c.toBlob(function(b){ ok(URL.createObjectURL(b)); }, 'image/jpeg', 0.88); });
+    });
+  }
+
+  // ---- 1 trang khổ lớn: ảnh to, kéo xem, chụm 2 ngón để phóng ----
+  function motTrang(page, vp){
+    goiY.textContent = en ? 'Pinch or scroll to zoom and move around the drawing.' : 'Chụm 2 ngón hoặc cuộn để phóng to, kéo để xem từng chỗ.';
+    var rong = Math.min(4000, Math.max(2400, vp.width * 2));
+    return veTrang(page, rong).then(function(url){
+      vung.innerHTML = '<div class="to"><img alt="' + TEN.replace(/"/g, '&quot;') + '"></div>';
+      var img = vung.querySelector('img'); img.src = url;
+      var to = 1; img.addEventListener('dblclick', function(){ to = to >= 3 ? 1 : to + 1; img.style.width = (to * 100) + '%'; });
+      ga('doc_het', { file_name: TRACK });
+    });
+  }
+
+  // ---- nhiều trang: lật sách ----
+  function lat(pdf, N, vp){
+    var tile = vp.height / vp.width;
+    var html = '';
+    for (var i = 1; i <= N; i++) html += '<div class="page cho" data-i="' + i + '"><img alt=""></div>';
+    // trang cuối: CHƯA trỏ về app Mở Miệng (anh dặn 13/10: app chưa xong) -> chỉ Tải PDF + theo dõi kênh
+    html += '<div class="page cuoi"><div class="cuoi-in">' +
+      '<h2>' + (en ? 'Thanks for reading to the end.' : 'Cảm ơn bạn đã đọc tới trang cuối.') + '</h2>' +
+      '<p>' + (en ? 'Save the PDF so you have it on board, and pass it to a shipmate who needs it.' : 'Tải PDF về để mang lên tàu, và gửi cho anh em đang cần.') + '</p>' +
+      '<a class="nut" id="taiCuoi" href="' + PDF + '" download>' + (en ? 'Download the PDF' : 'Tải PDF') + '</a>' +
+      '<p style="margin-top:18px">' + (en ? 'More every week on' : 'Bài mới mỗi tuần ở') +
+      ' <a href="https://www.tiktok.com/@hieuatsea">TikTok</a> · <a href="https://www.facebook.com/hieuatsea">Facebook</a> · <a href="https://www.youtube.com/@hieuatsea">YouTube</a> — @hieuatsea</p>' +
+      '</div></div>';
+    book.innerHTML = html;
+
+    var pf = new St.PageFlip(book, {
+      width: 600, height: Math.round(600 * tile), size: 'stretch',
+      minWidth: 260, maxWidth: 1100, minHeight: Math.round(260 * tile), maxHeight: Math.round(1100 * tile),
+      showCover: false, usePortrait: true, mobileScrollSupport: false, maxShadowOpacity: 0.35, flippingTime: 600
+    });
+    pf.loadFromHTML(book.querySelectorAll('.page'));
+
+    var dem = document.getElementById('dem'), truoc = document.getElementById('truoc'), sau = document.getElementById('sau');
+    document.getElementById('dieu').hidden = false;
+    var tong = N + 1, daXem = {}, het = false;
+    function capNhat(i){
+      dem.textContent = Math.min(i + 1, N) + ' / ' + N;
+      truoc.disabled = i <= 0; sau.disabled = i >= tong - 1;
+      var trang = Math.min(i + 1, N);
+      if (!daXem[trang]){ daXem[trang] = 1; if (trang > 1) ga('doc_trang', { file_name: TRACK, phan_tram: Math.round(trang / N * 100) }); }
+      if (!het && i >= N - 1){ het = true; ga('doc_het', { file_name: TRACK }); }
+      uuTien(i);
+    }
+    truoc.addEventListener('click', function(){ pf.flipPrev(); });
+    sau.addEventListener('click', function(){ pf.flipNext(); });
+    document.addEventListener('keydown', function(e){ if (e.key === 'ArrowLeft') pf.flipPrev(); if (e.key === 'ArrowRight') pf.flipNext(); });
+    pf.on('flip', function(e){ capNhat(e.data); });
+    // 🔍 phóng to trang đang mở: ảnh rộng gấp đôi màn hình, kéo để đọc, chạm "Đóng" để quay lại sách
+    document.getElementById('phongTo').addEventListener('click', function(){
+      var i = Math.min(pf.getCurrentPageIndex() + 1, N), el = document.querySelector('.page[data-i="' + i + '"] img');
+      if (!el || !el.src) return;
+      var o = document.createElement('div'); o.className = 'phong';
+      o.innerHTML = '<button type="button" class="dong">' + (en ? 'Close' : 'Đóng') + ' &times;</button><img alt="">';
+      o.querySelector('img').src = el.src;
+      o.querySelector('.dong').addEventListener('click', function(){ o.remove(); });
+      document.body.appendChild(o);
+      ga('doc_phong', { file_name: TRACK });
+    });
+    document.getElementById('taiCuoi').addEventListener('click', function(){ ga('file_download', { file_name: TRACK, form_location: 'doc_cuoi' }); });
+
+    // vẽ trang: ưu tiên quanh trang đang mở, còn lại vẽ dần ở nền
+    // ảnh trang đủ nét để phóng 2 lần trên điện thoại (nút 🔍)
+    var rong = Math.min(1600, Math.max(1100, Math.round(book.clientWidth * Math.min(2, window.devicePixelRatio || 1))));
+    var xong = {}, dangVe = false, hang = [];
+    function uuTien(i){ for (var k = i - 1; k <= i + 4; k++) if (k >= 0 && k < N && !xong[k + 1]) hang.unshift(k + 1); chay(); }
+    function chay(){
+      if (dangVe) return;
+      var so = hang.shift();
+      while (so && xong[so]) so = hang.shift();
+      if (!so){ for (var t = 1; t <= N; t++) if (!xong[t]){ so = t; break; } }
+      if (!so) return;
+      dangVe = true; xong[so] = 1;
+      pdf.getPage(so).then(function(pg){ return veTrang(pg, rong); }).then(function(url){
+        var el = book.querySelector('.page[data-i="' + so + '"]');
+        if (!el){ el = document.querySelector('.page[data-i="' + so + '"]'); }
+        if (el){ el.querySelector('img').src = url; el.classList.remove('cho'); }
+        dangVe = false; setTimeout(chay, 0);
+      }).catch(function(){ dangVe = false; setTimeout(chay, 0); });
+    }
+    capNhat(0);
+  }
+})();
+</script>
+</body>
+</html>
