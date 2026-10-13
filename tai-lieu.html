@@ -213,6 +213,12 @@
   }
   .btn-kho:hover{background:var(--gold-light)}
   .done .after{font-size:13px; margin:14px 0 0}
+  .tl-lai{background:none; border:none; color:var(--gold); font:inherit; font-size:13px; text-decoration:underline; cursor:pointer; padding:0}
+  .tl-lai:disabled{color:var(--text-dim); text-decoration:none; cursor:default}
+  .tl-mo{position:fixed; inset:0; background:rgba(5,12,22,.92); z-index:60; display:flex; align-items:center; justify-content:center; padding:24px; text-align:center}
+  .tl-mo div{max-width:420px}
+  .tl-mo h2{font-size:20px; margin:10px 0 8px}
+  .tl-mo p{color:var(--text-dim); font-size:14.5px; margin-bottom:16px}
 
   /* MOBILE: toàn bộ lưu lượng đến từ TikTok/FB trên điện thoại. Nút TẢI NGAY phải
      nằm cùng dòng với tên file và luôn với tới được bằng ngón cái. */
@@ -343,6 +349,28 @@
         <span class="lg-en">The whole library is open now &mdash; any other file downloads straight away. I've emailed you the link so you can find it again.</span>
       </p>
     </div>
+
+    <!-- NHÓM B (13/10/2026): tài liệu gửi vào email, bấm nút trong thư mới mở file -->
+    <div class="done" id="gateMail" hidden>
+      <div class="tick">&#9993;&#65039;</div>
+      <h2><span class="lg-vi">Tài liệu đã nằm trong email của bạn</span><span class="lg-en">Your file is in your inbox</span></h2>
+      <p>
+        <span class="lg-vi">Mình vừa gửi tới <b class="tl-mail"></b>. Mở thư <b>“Tài liệu bạn xin”</b> từ Hiếu at Sea, bấm nút <b>Mở tài liệu</b>.</span>
+        <span class="lg-en">Sent to <b class="tl-mail"></b>. Open the email from Hiếu at Sea and tap <b>Open the file</b>.</span>
+      </p>
+      <a class="btn-kho" id="tlGmail" href="https://mail.google.com/mail/u/0/#search/from%3Ahieunguyen.net" target="_blank" rel="noopener">
+        <span class="lg-vi">Mở Gmail &rarr;</span><span class="lg-en">Open Gmail &rarr;</span>
+      </a>
+      <p class="after">
+        <span class="lg-vi">Vài phút chưa thấy thì xem mục <b>Quảng cáo</b> hoặc <b>Spam</b>. Thấy ở đó thì kéo thư sang Hộp thư chính, lần sau thư mình gửi sẽ vào đúng chỗ.</span>
+        <span class="lg-en">Nothing after a few minutes? Check <b>Promotions</b> or <b>Spam</b>, and move it to your Primary inbox so the next one lands there.</span>
+      </p>
+      <p class="after">
+        <button type="button" class="tl-lai" id="tlLai" disabled><span class="lg-vi">Gửi lại</span><span class="lg-en">Send again</span></button>
+        &nbsp;·&nbsp;
+        <button type="button" class="tl-lai" id="tlSua"><span class="lg-vi">Gõ sai email?</span><span class="lg-en">Wrong email?</span></button>
+      </p>
+    </div>
   </div>
 </div>
 
@@ -372,6 +400,21 @@
 
 var KIT_ACTION = "https://app.kit.com/forms/9750089/subscriptions";
 var HN_MO_TRANG = Date.now();   // mốc mở trang — honeypot chỉ chặn khi gửi < 3 giây (bot)
+
+/* PHÉP THỬ A/B "TÀI LIỆU QUA MAIL" (13/10/2026, đo 7 ngày) — mỗi máy chia 1 lần, nhớ ở localStorage.
+   A = điền là tải ngay (như cũ). B = máy chủ gửi thư có nút tải (app.hieunguyen.net/api/tl, src/tailieu.js);
+   máy chủ hết hạn mức / lỗi / chậm quá 8 giây -> B tự quay về cho tải ngay, không ai trắng tay.
+   Thử tay: ?nhom=A hoặc ?nhom=B. Nhóm đi vào GA4 qua form_location của sign_up: tai_lieu_gate / tai_lieu_gate_B / ..._B_ve_A. */
+var TL_API = 'https://app.hieunguyen.net/api/tl/';
+var HN_NHOM = (function(){
+  try {
+    var ep = (new URLSearchParams(location.search).get('nhom') || '').toUpperCase();
+    if (ep === 'A' || ep === 'B'){ localStorage.setItem('hn_ab_tl', ep); return ep; }
+    var g = localStorage.getItem('hn_ab_tl');
+    if (g !== 'A' && g !== 'B'){ g = Math.random() < 0.5 ? 'A' : 'B'; localStorage.setItem('hn_ab_tl', g); }
+    return g;
+  } catch(e){ return 'A'; }
+})();
 
 /* TRƯỜNG ẨN GỬI KIT (vá 21/09/2026) — trước đây form chỉ gửi tên + email nên
    không biết email nào lấy file nào / đến từ nền nào. Giờ gửi thêm 4 custom field.
@@ -719,6 +762,8 @@ form.addEventListener('submit', function(e){
   showError('', []);
   e.preventDefault();
 
+  if (HN_NHOM === 'B'){ guiQuaMail(name, mailF.value); return false; }
+
   // (3) MỞ FILE NGAY TẠI ĐÂY — phải gọi đồng bộ trong lúc còn là thao tác của
   // người dùng, gọi trong .then() của fetch là trình duyệt chặn popup.
   var url = dangCho ? dangCho.url : '/kho.html';
@@ -729,10 +774,16 @@ form.addEventListener('submit', function(e){
   btn.disabled = true; btn.textContent = t.working;
 
   // (4) gửi Kit ngầm. Hỏng cũng kệ — người đã cầm được file rồi.
+  guiKitForm(name, mailF.value);
+  xongNhomA(url, w, 'tai_lieu_gate');
+  return false;
+});
+
+function guiKitForm(name, email){
   var fd = new FormData();
   // tên trống → thư chào Kit ("Chào {{ subscriber.first_name }},") vẫn đọc được
   fd.append('fields[first_name]', name || (curLang() === 'vi' ? 'bạn' : 'there'));
-  fd.append('email_address', mailF.value);
+  fd.append('email_address', email);
   hnKitThem(fd, dangCho ? dangCho.track : '');
   // vá 08/10: trước nuốt mọi phản hồi Kit → Kit từ chối cũng không ai biết. Giờ bắn kit_loi.
   // vá 13/10: ~37% lượt kit_loi (09→12/10) — nghi window.open ở bước (3) đẩy trang xuống nền /
@@ -743,9 +794,11 @@ form.addEventListener('submit', function(e){
     .then(function(r){ return r.json(); })
     .then(function(j){ if (!j || j.status !== 'success') kitLoi((j && j.errors && j.errors.messages || [j && j.status]).join('; ')); })
     .catch(function(x){ kitLoi('mang: ' + (x && x.message) + (document.hidden ? ' [trang-an]' : '')); });
+}
 
+function xongNhomA(url, w, viTri){
   try { localStorage.setItem('hn_lead','1'); } catch(err){}
-  baoGA('sign_up', { method:'kit_form', form_location:'tai_lieu_gate',
+  baoGA('sign_up', { method:'kit_form', form_location: viTri,
                      file_name: dangCho ? dangCho.track : '' });
   baoGA(dangCho && dangCho.act === 'preview' ? 'file_preview' : 'file_download',
         { file_name: dangCho ? dangCho.track : '' });
@@ -756,8 +809,7 @@ form.addEventListener('submit', function(e){
   gateAsk.hidden = true;
   gateDone.hidden = false;
   if (w) { try { w.focus(); } catch(err){} }
-  return false;
-});
+}
 
 /* ---------------- mốc cuộn ----------------
    GA4 bản mặc định chỉ bắn `scroll` ở 90% — trang này cao gấp 2,5 màn điện thoại nên
@@ -782,6 +834,86 @@ form.addEventListener('submit', function(e){
     if (cho) return;
     cho = setTimeout(function(){ cho = null; do1(); }, 250);
   }, { passive: true });
+})();
+
+/* ---------------- NHÓM B: gửi tài liệu vào email ---------------- */
+var tlId = null, tlHen = null;
+function guiQuaMail(name, email){
+  var t = TXT[curLang()], btn = document.getElementById('gateSubmit');
+  var url = dangCho ? dangCho.url : '/kho.html';
+  btn.disabled = true; btn.textContent = curLang() === 'en' ? 'Sending…' : 'Đang gửi…';
+  var xong = false;
+  function veA(lyDo){                    // máy chủ không gửi được -> cho tải như nhóm A (popup bị chặn thì còn nút Tải file)
+    if (xong) return; xong = true;
+    baoGA('tl_ve_a', { ly_do: String(lyDo || '').slice(0, 40), file_name: dangCho ? dangCho.track : '' });
+    guiKitForm(name, email);
+    xongNhomA(url, null, 'tai_lieu_gate_B_ve_A');
+  }
+  var hen = setTimeout(function(){ veA('cham'); }, 8000);
+  fetch(TL_API + 'dang-ky', { method:'POST', headers:{ 'Content-Type':'text/plain' },
+    body: JSON.stringify({ email: email, ten: name, file: dangCho ? dangCho.ten : '', track: dangCho ? dangCho.track : '',
+      url: dangCho ? new URL(url, location.href).href : '', lang: curLang(), nguon: hnNguon(), trang: location.pathname,
+      hp: hp.value ? 1 : 0 }) })
+    .then(function(r){ return r.json(); })
+    .then(function(j){
+      clearTimeout(hen);
+      if (xong) return;
+      if (!j || !j.ok){ btn.disabled = false; btn.textContent = t.dl; showError(t.errEmail, ['email']); return; }
+      if (!j.gui){ veA(j.ly_do || 'mo_ngay'); return; }
+      xong = true; tlId = j.id;
+      baoGA('sign_up', { method:'mail', form_location:'tai_lieu_gate_B', file_name: dangCho ? dangCho.track : '' });
+      try { if (window.clarity) clarity('set','signup','tai_lieu_mail'); } catch(err){}
+      document.querySelectorAll('.tl-mail').forEach(function(b){ b.textContent = email; });
+      gateAsk.hidden = true; gateDone.hidden = true;
+      document.getElementById('gateMail').hidden = false;
+      choGuiLai();
+    })
+    .catch(function(){ clearTimeout(hen); veA('mang'); });
+}
+function choGuiLai(){
+  var b = document.getElementById('tlLai');
+  b.disabled = true; clearTimeout(tlHen);
+  tlHen = setTimeout(function(){ b.disabled = false; }, 60000);
+}
+function datLaiNut(){ var btn = document.getElementById('gateSubmit'); btn.disabled = false; btn.textContent = TXT[curLang()].dl; }
+document.getElementById('tlLai').addEventListener('click', function(){
+  if (!tlId) return;
+  choGuiLai();
+  baoGA('tl_gui_lai', { file_name: dangCho ? dangCho.track : '' });
+  fetch(TL_API + 'gui-lai', { method:'POST', headers:{ 'Content-Type':'text/plain' }, body: JSON.stringify({ id: tlId }) })
+    .then(function(r){ return r.json(); })
+    .then(function(j){ var en = curLang() === 'en';
+      baoToast(j && j.ok ? (en ? 'Sent again. Check Promotions and Spam too.' : 'Đã gửi lại. Xem cả mục Quảng cáo và Spam nhé.')
+                         : (en ? 'Please wait a minute and try again.' : 'Đợi một phút rồi thử lại nhé.')); })
+    .catch(function(){});
+});
+document.getElementById('tlSua').addEventListener('click', function(){
+  document.getElementById('gateMail').hidden = true;
+  gateAsk.hidden = false; datLaiNut();
+  mailF.focus(); try { mailF.select(); } catch(e){}
+});
+// đóng cửa khi đang ở màn "đã gửi" -> dọn form cho lần bấm sau
+document.getElementById('gateClose').addEventListener('click', function(){
+  if (document.getElementById('gateMail').hidden) return;
+  document.getElementById('gateMail').hidden = true; datLaiNut();
+});
+
+/* khách bấm nút trong thư -> máy chủ ghi "đã bấm" rồi chuyển về đây: ?tl=1&mo=<link file>&f=<tên>
+   mở khoá cả kho cho máy này (lần sau không hỏi), rồi mở file. Chỉ nhận link Drive / hieunguyen.net. */
+(function(){
+  try {
+    var q = new URLSearchParams(location.search), mo = q.get('mo');
+    if (q.get('tl') !== '1' || !mo || !/^https:\/\/(drive\.google\.com|docs\.google\.com|hieunguyen\.net|www\.hieunguyen\.net)\//.test(mo)) return;
+    try { localStorage.setItem('hn_lead','1'); } catch(e){}
+    baoGA('tl_mo_tu_mail', { file_name: (q.get('f') || '').slice(0, 100) });
+    var en = curLang() === 'en', box = document.createElement('div');
+    box.className = 'tl-mo';
+    box.innerHTML = '<div><div style="font-size:38px">&#128218;</div><h2>' + (en ? 'Email confirmed. Opening your file…' : 'Đã xác nhận email. Đang mở tài liệu…') +
+      '</h2><p>' + (en ? 'The whole library is unlocked on this device now.' : 'Cả kho đã mở trên máy này, lần sau bấm là tải luôn.') +
+      '</p><a class="btn-kho" href="' + esc(mo) + '">' + (en ? 'Open the file &rarr;' : 'Mở tài liệu &rarr;') + '</a></div>';
+    document.body.appendChild(box);
+    setTimeout(function(){ location.href = mo; }, 900);
+  } catch(e){}
 })();
 
 veDanhSach();
