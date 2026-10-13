@@ -21,7 +21,8 @@
   // 09/10/2026: không đưa thẳng Drive nữa -> trang kho CHỈ hiện bộ 70 câu, đọc/tải phải để lại tên + email (vào Kit).
   // Giữ nguyên utm của link bot để biết email đến từ đâu.
   var q = location.search.replace(/^\?/, '').replace(/(^|&)(xem|notrack|track)(=[^&]*)?/g, '');
-  var DICH = '/tai-lieu.html?chi=70-cau' + (q ? '&' + q.replace(/^&/, '') : '');
+  // 13/10/2026: sang TRANG QUÀ riêng /qua/70-cau/ (khuôn trang quà editvideo của Tùng, anh lệnh) — nói rõ điền email để nhận ngay từ đầu
+  var DICH = '/qua/70-cau/' + (q ? '?' + q.replace(/^&/, '') : '');
   var di = false, t0 = Date.now(), xem = false;
   function sang(ly_do) {
     if (di) return; di = true;
