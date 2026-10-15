@@ -358,7 +358,7 @@
         <span class="lg-vi">Mình vừa gửi tới <b class="tl-mail"></b>. Mở thư <b>“Tài liệu bạn xin”</b> từ Hiếu at Sea, bấm nút <b>Mở tài liệu</b>.</span>
         <span class="lg-en">Sent to <b class="tl-mail"></b>. Open the email from Hiếu at Sea and tap <b>Open the file</b>.</span>
       </p>
-      <a class="btn-kho" id="tlGmail" href="https://mail.google.com/mail/u/0/#search/from%3Ahieunguyen.net" target="_blank" rel="noopener">
+      <a class="btn-kho" id="tlGmail" href="https://mail.google.com/mail/u/0/#search/from%3Ahieunguyen.net" rel="noopener">
         <span class="lg-vi">Mở Gmail &rarr;</span><span class="lg-en">Open Gmail &rarr;</span>
       </a>
       <p class="after">
@@ -918,6 +918,21 @@ document.getElementById('gateClose').addEventListener('click', function(){
 })();
 
 veDanhSach();
+</script>
+
+<script>
+/* 15/10: nút Mở Gmail bấm hụt trong trình duyệt app Facebook (tab mới bị chặn) → mở thẳng app Gmail. Cùng khuôn /qua/70-cau/. */
+(function(){
+  var a = document.getElementById('tlGmail'); if (!a) return;
+  a.addEventListener('click', function(e){
+    var ua = navigator.userAgent, web = a.href;
+    try { if (window.gtag) gtag('event', 'mo_gmail', { form_location: /Android/i.test(ua) ? 'android' : /iPhone|iPad/i.test(ua) ? 'ios' : 'may_tinh' }); } catch(x){}
+    e.preventDefault();
+    if (/Android/i.test(ua)) location.href = 'intent://#Intent;scheme=googlegmail;package=com.google.android.gm;S.browser_fallback_url=' + encodeURIComponent(web) + ';end';
+    else if (/iPhone|iPad/i.test(ua)){ var t = Date.now(); location.href = 'googlegmail://'; setTimeout(function(){ if (Date.now() - t < 2000 && !document.hidden) location.href = web; }, 1200); }
+    else { window.open(web, '_blank', 'noopener') || (location.href = web); }
+  });
+})();
 </script>
 </body>
 </html>

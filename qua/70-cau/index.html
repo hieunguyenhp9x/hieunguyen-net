@@ -90,9 +90,17 @@
 
   .chot{font-size:19px; font-weight:800; line-height:1.4; color:var(--gold-light); margin-bottom:12px}
   .phan{color:var(--gold); font-weight:800; font-size:14px; letter-spacing:.06em; margin:22px 0 10px; text-transform:uppercase}
-  .muc{display:flex; gap:14px; background:var(--navy-2); border:1px solid var(--line); border-radius:12px; padding:14px; margin-bottom:10px}
+  .muc{cursor:pointer; position:relative; padding-right:34px !important; display:flex; gap:14px; background:var(--navy-2); border:1px solid var(--line); border-radius:12px; padding:14px; margin-bottom:10px}
   .muc .so{flex:0 0 38px; height:38px; border-radius:10px; background:var(--navy-3); color:var(--gold); font-weight:900; display:flex; align-items:center; justify-content:center; font-size:17px}
   .muc b{display:block; font-size:15.5px}
+  .muc::after{content:'+'; position:absolute; right:14px; top:14px; color:var(--gold); font-weight:900; font-size:20px; line-height:1}
+  .muc.mo::after{content:'2'}
+  .muc .vd{display:none; margin-top:10px; padding-top:10px; border-top:1px dashed var(--line)}
+  .muc.mo .vd{display:block}
+  .muc .vd i{display:block; font-style:normal; color:var(--text); font-size:14.5px; margin:0 0 6px}
+  .muc .vd i::before{content:'C'; color:var(--gold); margin-right:2px}
+  .muc .vd i::after{content:'D'; color:var(--gold)}
+  .muc .vd .them{display:inline-block; margin-top:4px; color:var(--gold); font-weight:700; font-size:14px; text-decoration:underline}
   .muc span{color:var(--text-dim); font-size:14.5px}
   .tac{display:flex; gap:16px; align-items:flex-start}
   .tac .anh{flex:0 0 92px; height:92px; border-radius:50%; background:var(--navy-3) center/cover; border:2px solid var(--gold)}
@@ -229,7 +237,7 @@
     <div class="to">&#9993;&#65039;</div>
     <h3><span class="lg-en">It's in your inbox</span><span class="lg-vi">Tài liệu đã nằm trong email của bạn</span></h3>
     <p><span class="lg-en">Sent to <b class="dc"></b>. Open the email from Hiếu at Sea and tap <b>Open the file</b>.</span><span class="lg-vi">Đã gửi tới <b class="dc"></b>. Mở thư từ Hiếu at Sea, bấm nút <b>Mở tài liệu</b>.</span></p>
-    <a class="nut" href="https://mail.google.com/mail/u/0/#search/from%3Ahieunguyen.net" target="_blank" rel="noopener"><span class="lg-en">Open Gmail &rarr;</span><span class="lg-vi">Mở Gmail &rarr;</span></a>
+    <a class="nut" data-gmail href="https://mail.google.com/mail/u/0/#search/from%3Ahieunguyen.net" rel="noopener"><span class="lg-en">Open Gmail &rarr;</span><span class="lg-vi">Mở Gmail &rarr;</span></a>
     <p class="roi"><span class="lg-en">Nothing after a few minutes? Check Promotions or Spam.</span><span class="lg-vi">Vài phút chưa thấy thì xem mục Quảng cáo hoặc Spam.</span>
       <br><button type="button" class="lai" data-lai disabled><span class="lg-en">Send again</span><span class="lg-vi">Gửi lại</span></button> ·
       <button type="button" class="lai" data-sua><span class="lg-en">Wrong email?</span><span class="lg-vi">Gõ sai email?</span></button></p>
@@ -345,6 +353,60 @@
     p.innerHTML = '<span class="lg-en">Already got it on this device? <a href="' + DOC + '">Read it now &rarr;</a></span><span class="lg-vi">Đã nhận rồi trên máy này? <a href="' + DOC + '">Đọc ngay &rarr;</a></span>';
     hop.appendChild(p);
   } } catch(e){}
+})();
+</script>
+
+<script>
+/* 15/10: Clarity soi 3 ngày — 47 cú bấm hụt trên trang này, 2 ổ chính:
+   (1) ô mục lục A–H: khách chạm để xem câu bên trong → nay chạm là mở 2 câu ví dụ + "nhận đủ";
+   (2) nút Mở Gmail: 2/3 khách ở trình duyệt trong app Facebook, tab mới bị chặn → mở thẳng app Gmail. */
+(function(){
+  var VD = {
+    A:[1,["Can you introduce yourself in two minutes?","What are the duties and responsibilities of a Third Officer?"],2],
+    B:[2,["When do you call the Master?","A target is crossing from starboard, CPA 0.3 mile, TCPA 12 minutes. What do you do?"],4],
+    C:[3,["How do you check the gyro error?","You transmit a DSC distress alert by mistake. What do you do?"],3],
+    D:[4,["You are in charge of LSA and FFA. How do you organise your monthly inspection?","Which extinguisher for which fire?"],3],
+    E:[5,["You applied for bulk carriers. What cargoes have you carried?","Are your documents valid — certificates, visas, vaccination?"],8],
+    F:[6,["Have you had problems with a multinational crew? How do you handle them?","The cook may be of another nationality. Can you live with the food?"],1],
+    G:[7,["What are the four stages of passage planning?","\"Berth to berth\" — what does that actually mean?"],8],
+    H:[8,["What safety settings do you set in the ECDIS before departure, and why?","One ECDIS fails. Then both fail. What does your SMS say, and what do you do?"],25]
+  };
+  function ga(ev, o){ try { if (window.gtag) gtag('event', ev, o || {}); } catch(e){} }
+  [].forEach.call(document.querySelectorAll('.muc'), function(m){
+    var k = (m.querySelector('.so') || {}).textContent, d = VD[k]; if (!d) return;
+    var box = document.createElement('div'); box.className = 'vd';
+    box.innerHTML = d[1].map(function(q){ return '<i></i>'; }).join('') +
+      '<a class="them" href="#"><span class="lg-en">+ ' + d[2] + ' more in this section, each with a full answer → get them free</span>' +
+      '<span class="lg-vi">+ ' + d[2] + ' câu nữa trong phần này, câu nào cũng có đáp án → nhận miễn phí</span></a>';
+    [].forEach.call(box.querySelectorAll('i'), function(el, i){ el.textContent = d[1][i]; });
+    m.lastElementChild.appendChild(box);
+    m.addEventListener('click', function(e){
+      if (e.target.closest('.them')){
+        e.preventDefault(); e.stopPropagation();
+        ga('muc_nhan', { form_location: 'muc_' + k });
+        var f = document.querySelector('form'); if (f){ f.scrollIntoView({ behavior:'smooth', block:'center' }); setTimeout(function(){ try { f.ten.focus({ preventScroll:true }); } catch(x){} }, 600); }
+        return;
+      }
+      var mo = m.classList.toggle('mo');
+      if (mo) ga('muc_mo', { form_location: 'muc_' + k });
+    });
+  });
+  [].forEach.call(document.querySelectorAll('[data-gmail]'), function(a){
+    a.addEventListener('click', function(e){
+      var ua = navigator.userAgent, web = a.href;
+      ga('mo_gmail', { form_location: /Android/i.test(ua) ? 'android' : /iPhone|iPad/i.test(ua) ? 'ios' : 'may_tinh' });
+      if (/Android/i.test(ua)){
+        e.preventDefault();
+        location.href = 'intent://#Intent;scheme=googlegmail;package=com.google.android.gm;S.browser_fallback_url=' + encodeURIComponent(web) + ';end';
+      } else if (/iPhone|iPad/i.test(ua)){
+        e.preventDefault();
+        var t = Date.now(); location.href = 'googlegmail://';
+        setTimeout(function(){ if (Date.now() - t < 2000 && !document.hidden) location.href = web; }, 1200);
+      } else {
+        e.preventDefault(); window.open(web, '_blank', 'noopener') || (location.href = web);
+      }
+    });
+  });
 })();
 </script>
 </body>
