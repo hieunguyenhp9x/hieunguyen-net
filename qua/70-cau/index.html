@@ -277,11 +277,17 @@
     if (viTri === 0) mo(); else if ('IntersectionObserver' in window) new IntersectionObserver(function(es, o){ if (es[0].isIntersecting){ mo(); o.disconnect(); } }).observe(hop);
     email.addEventListener('focus', function(){ ga('form_start', { form_location: 'qua_70cau' }); }, { once:true });
     function baoLoi(msg, o){ loi.textContent = msg; loi.style.display = msg ? 'block' : 'none'; ten.classList.toggle('sai', o === 'ten'); email.classList.toggle('sai', o === 'email'); }
-    function moTaiLieu(viTriGA){
+    var roiTrang = false;
+    // 15/10: chờ Kit trả lời (tối đa 2,5s) rồi mới chuyển trang. Trước đây chuyển sau 350ms → trình duyệt
+    // cắt ngang lời gọi Kit, GA4 báo "loi:qua_70cau_mang" 30 lần/2 ngày dù Kit có thể đã nhận (không phân biệt được).
+    function moTaiLieu(viTriGA, cho){
       try { localStorage.setItem('hn_lead', '1'); } catch(e){}
       ga('sign_up', { method:'kit_form', form_location: viTriGA, file_name: TRACK });
       ga('file_preview', { file_name: TRACK, form_location: viTriGA });
-      setTimeout(function(){ location.href = DOC; }, 350);   // cùng tab, không bị chặn popup
+      var di = false;
+      function chuyen(){ if (di) return; di = true; roiTrang = true; location.href = DOC; }   // cùng tab, không bị chặn popup
+      setTimeout(chuyen, 2500);
+      Promise.resolve(cho).then(function(){ setTimeout(chuyen, 300); });
     }
     function guiKit(){
       var fd = new FormData();
@@ -289,10 +295,10 @@
       fd.append('email_address', email.value);
       fd.append('fields[file_dau_tien]', TRACK); fd.append('fields[ngon_ngu]', lang());
       fd.append('fields[nguon]', nguon()); fd.append('fields[trang]', location.pathname);
-      fetch(KIT, { method:'POST', body:fd, keepalive:true, headers:{ 'Accept':'application/json' } })
+      return fetch(KIT, { method:'POST', body:fd, keepalive:true, headers:{ 'Accept':'application/json' } })
         .then(function(r){ return r.json(); })
         .then(function(j){ if (!j || j.status !== 'success') ga('kit_loi', { form_location: 'loi:qua_70cau', trang: location.pathname }); })
-        .catch(function(){ ga('kit_loi', { form_location: 'loi:qua_70cau_mang', trang: location.pathname }); });
+        .catch(function(){ ga('kit_loi', { form_location: roiTrang ? 'loi:qua_70cau_cham' : 'loi:qua_70cau_mang', trang: location.pathname }); });
     }
     f.addEventListener('submit', function(e){
       e.preventDefault();
@@ -303,9 +309,9 @@
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)){ baoLoi(lang() === 'vi' ? 'Email trông chưa đúng, kiểm tra lại giúp mình.' : "That email doesn't look right.", 'email'); email.focus(); return; }
       baoLoi('');
       btn.disabled = true;
-      if (NHOM !== 'B'){ guiKit(); moTaiLieu('qua_70cau'); return; }
+      if (NHOM !== 'B'){ moTaiLieu('qua_70cau', guiKit()); return; }
       var xongRoi = false;
-      function veA(ly){ if (xongRoi) return; xongRoi = true; ga('tl_ve_a', { ly_do: String(ly || '').slice(0, 40), file_name: TRACK }); guiKit(); moTaiLieu('qua_70cau_B_ve_A'); }
+      function veA(ly){ if (xongRoi) return; xongRoi = true; ga('tl_ve_a', { ly_do: String(ly || '').slice(0, 40), file_name: TRACK }); moTaiLieu('qua_70cau_B_ve_A', guiKit()); }
       var hen = setTimeout(function(){ veA('cham'); }, 8000);
       fetch(TL + 'dang-ky', { method:'POST', headers:{ 'Content-Type':'text/plain' }, body: JSON.stringify({
           email: email.value, ten: ten.value, file: TEN_FILE[lang()], track: TRACK, url: DOC, lang: lang(),
