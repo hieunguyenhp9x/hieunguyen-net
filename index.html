@@ -258,6 +258,7 @@
   .lead-grid { display: grid; grid-template-columns: 1fr 0.95fr; gap: 44px; align-items: start; }
   @media (max-width: 800px) { .lead-grid { grid-template-columns: 1fr; gap: 32px; } }
   .lead-list { list-style: none; margin-top: 8px; }
+  #free .lead-list li, #free .section-sub-en { cursor: pointer; }
   .lead-list li { padding: 7px 0 7px 26px; position: relative; color: var(--text-dim); font-size: 15px; }
   .lead-list li::before { content: "⚓"; position: absolute; left: 0; top: 10px; font-size: 11px; color: var(--gold); }
   .lead-card {
@@ -1103,5 +1104,20 @@ function hnKitThem(fd, fileName){
   })();
 </script>
 
+
+<script>
+/* 15/10: Clarity 7 ngày — khách chạm vào câu hứa "One link, one email — and it stays open" và các dòng lợi ích ⚓
+   tưởng là nút → chạm là đưa tới form "Mở kho tài liệu", con trỏ vào ô tên. */
+(function(){
+  var f = document.getElementById('leadForm'); if (!f) return;
+  [].forEach.call(document.querySelectorAll('#free .lead-list li, #free .section-sub-en'), function(el){
+    el.addEventListener('click', function(){
+      try { if (window.gtag) gtag('event', 'loi_ich_cham', { form_location: 'trang_chu' }); } catch(x){}
+      f.scrollIntoView({ behavior:'smooth', block:'center' });
+      setTimeout(function(){ var n = document.getElementById('leadName'); try { n && n.focus({ preventScroll:true }); } catch(x){} }, 600);
+    });
+  });
+})();
+</script>
 </body>
 </html>

@@ -135,6 +135,9 @@
   .file .ico{font-size:22px; line-height:1.3}
   .file .body{flex:1; min-width:0}
   .file .name{font-weight:700; font-size:16px; margin-bottom:3px}
+  .file .ico,.file .body{cursor:pointer}
+  #leadErr{cursor:pointer}
+  .badge,.note-line{cursor:pointer}
   .file .meta{color:var(--text-dim); font-size:14px; line-height:1.5}
   .file .tag{color:var(--gold); font-size:12px; letter-spacing:.04em; margin-top:6px; text-transform:uppercase}
   .acts{display:flex; flex-direction:column; gap:8px; flex:none}
@@ -932,6 +935,30 @@ veDanhSach();
     else if (/iPhone|iPad/i.test(ua)){ var t = Date.now(); location.href = 'googlegmail://'; setTimeout(function(){ if (Date.now() - t < 2000 && !document.hidden) location.href = web; }, 1200); }
     else { window.open(web, '_blank', 'noopener') || (location.href = web); }
   });
+})();
+</script>
+
+<script>
+/* 15/10: Clarity 7 ngày — cú bấm hụt ở trang này: (1) khung lỗi đỏ #leadErr (khách chạm vào lỗi) → chạm là nhảy về
+   đúng ô sai; (2) tên/mô tả tài liệu (vd "Buổi phỏng vấn Phó hai thật — Zodiac") → chạm là bấm nút chính của thẻ
+   (Đọc ngay / Nghe ngay / Tải); (3) nhãn "Miễn phí" + dòng "Tài liệu nằm ngay bên dưới ↓" → chạm là cuộn tới danh sách. */
+(function(){
+  var err = document.getElementById('leadErr');
+  if (err) err.addEventListener('click', function(){
+    var o = document.querySelector('#leadForm .invalid') || document.getElementById('leadEmail');
+    if (o) try { o.focus(); o.select && o.select(); } catch(x){}
+  });
+  var list = document.getElementById('list');
+  if (list) list.addEventListener('click', function(e){
+    if (e.target.closest('a,button')) return;
+    var the = e.target.closest('.file'); if (!the) return;
+    if (!e.target.closest('.ico,.body')) return;
+    var nut = the.querySelector('.acts a.btn'); if (!nut) return;
+    try { if (window.gtag) gtag('event', 'the_cham', { form_location: 'tai_lieu' }); } catch(x){}
+    nut.click();
+  });
+  function xuong(){ if (list) list.scrollIntoView({ behavior:'smooth', block:'start' }); }
+  [].forEach.call(document.querySelectorAll('.badge,.note-line'), function(el){ el.addEventListener('click', xuong); });
 })();
 </script>
 </body>
