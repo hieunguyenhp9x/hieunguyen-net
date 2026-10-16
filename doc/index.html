@@ -126,8 +126,18 @@
 <p class="goi-y" id="goiY"></p>
 
 <script src="/assets/kho-data.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js"></script>
+<script>
+/* 16/10: GHI LỖI THẬT — Clarity chỉ thấy "Script error." (lỗi trong thư viện tải từ cdnjs/jsdelivr bị trình duyệt
+   giấu chi tiết), 2–3% lượt /doc. Thêm crossorigin cho 2 thư viện để lộ câu lỗi + bắn GA4 `loi_js`
+   (form_location = "loi_doc:<câu lỗi>", file_name = file:dòng) -> ga4_phieu.py / soi_tuan.py in dòng 🔴. Tối đa 3 lỗi/lượt. */
+(function(){ var n = 0;
+  function ghi(msg, cho){ if (n++ >= 3) return; try { if (window.gtag) gtag('event', 'loi_js', { form_location: ('loi_doc:' + msg).slice(0, 95), file_name: String(cho || '').slice(0, 95) }); } catch(x){} }
+  window.addEventListener('error', function(e){ ghi(e.message || '?', (e.filename || '').split('/').pop() + ':' + (e.lineno || 0)); });
+  window.addEventListener('unhandledrejection', function(e){ var r = e.reason; ghi('promise: ' + ((r && r.message) || String(r)), (r && r.stack || '').split(String.fromCharCode(10))[1] || ''); });
+})();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js" crossorigin="anonymous"></script>
 <script>
 (function(){
   var en = document.documentElement.getAttribute('data-lang') !== 'vi';
@@ -199,8 +209,13 @@
     var vp0 = page.getViewport({ scale: 1 }), vp = page.getViewport({ scale: rong / vp0.width });
     var c = document.createElement('canvas'); c.width = Math.round(vp.width); c.height = Math.round(vp.height);
     // intent 'print': PDF.js vẽ không chờ requestAnimationFrame -> tab nền / trình duyệt ẩn vẫn vẽ tiếp
+    // 16/10: vẽ xong là TRẢ bộ nhớ canvas (c.width = 0) + page.cleanup(). Trước đây 32 trang × ~7–14 MB canvas nằm lại
+    // chờ dọn -> Safari iPhone chạm trần bộ nhớ canvas, vẽ hỏng ("Script error." 4–14 giây sau khi mở, Clarity 15/10).
     return page.render({ canvasContext: c.getContext('2d'), viewport: vp, intent: 'print' }).promise.then(function(){
-      return new Promise(function(ok){ c.toBlob(function(b){ ok(URL.createObjectURL(b)); }, 'image/jpeg', 0.88); });
+      return new Promise(function(ok, hong){ c.toBlob(function(b){
+        c.width = c.height = 0; try { page.cleanup(); } catch(x){}
+        if (b) ok(URL.createObjectURL(b)); else hong(new Error('toBlob rong'));
+      }, 'image/jpeg', 0.88); });
     });
   }
 
