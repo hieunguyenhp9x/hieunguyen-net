@@ -167,8 +167,12 @@
   function ganTai(a, viTri){
     a.href = PDF;
     if (APP) a.removeAttribute('download'); else a.setAttribute('download', WEB + '.pdf');
+    var nhan = a.innerHTML;
     a.addEventListener('click', function(e){
       ga('file_download', { file_name: TRACK, form_location: viTri + (APP ? (ANDROID ? '_app_android' : '_app_ios') : '') });
+      // 16/10: bấm tải xong trang đứng im -> khách tưởng chưa ăn, bấm lại (Clarity: 7 cú bấm hụt ở nút này / 3 ngày)
+      a.innerHTML = en ? '✓ Downloading…' : '✓ Đang tải…';
+      setTimeout(function(){ a.innerHTML = nhan; }, 4000);
       if (APP && ANDROID){
         e.preventDefault();
         location.href = 'intent://' + location.host + PDF + '#Intent;scheme=https;package=com.android.chrome;S.browser_fallback_url=' +

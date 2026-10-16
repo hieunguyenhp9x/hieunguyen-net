@@ -113,6 +113,7 @@
   .file .ico{font-size:22px; line-height:1.25; flex:0 0 auto}
   .file .body{flex:1 1 auto; min-width:0}
   .file .name{font-weight:700; font-size:15.5px}
+  .file .ico, .file .body{cursor:pointer}
   .file .meta{color:var(--text-dim); font-size:12.8px; margin-top:3px}
   .file .tag{
     display:inline-block; font-size:11px; font-weight:800; letter-spacing:.06em;
@@ -455,6 +456,14 @@ async function load(){
   render(manualFiles());
 }
 load();
+/* 16/10: Clarity — khách chạm vào TÊN/mô tả tài liệu tưởng là nút (bấm hụt). Chạm thẻ = bấm nút chính của thẻ (giống /tai-lieu từ 08/10). */
+listEl.addEventListener('click', function(e){
+  if (e.target.closest('a,button')) return;
+  var the = e.target.closest('.file'); if (!the || !e.target.closest('.ico,.body')) return;
+  var nut = the.querySelector('.acts a.btn'); if (!nut) return;
+  try { if (window.gtag) gtag('event', 'the_cham', { form_location: 'kho' }); } catch(x){}
+  nut.click();
+});
 </script>
 </body>
 </html>

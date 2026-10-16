@@ -68,7 +68,8 @@
   ul.tick li{position:relative; padding-left:28px; margin-bottom:9px; font-size:15.5px}
   ul.tick li::before{content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:900}
   ul.dau{list-style:none}
-  ul.dau li{background:var(--navy-2); border:1px solid var(--line); border-radius:12px; padding:13px 15px; margin-bottom:10px; font-size:15.5px}
+  /* 16/10: trước đóng khung y hệt ô mục lục A–H (bấm được) -> khách chạm tưởng nút (Clarity 6 cú bấm hụt). Giờ là dòng gạch đỏ bên trái, không khung. */
+  ul.dau li{border-left:3px solid rgba(224,90,90,.65); padding:6px 0 6px 14px; margin-bottom:12px; font-size:15.5px}
 
   .form{background:var(--navy-2); border:1px solid var(--gold); border-radius:16px; padding:20px 18px}
   .form label{display:block; font-size:13.5px; color:var(--text-dim); margin:0 0 5px}

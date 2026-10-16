@@ -804,6 +804,8 @@ function xongNhomA(url, w, viTri){
 
   // (5) màn "xong" — nút dự phòng cho trường hợp popup bị chặn
   gateDl.href = url;
+  // 16/10: trong app FB/TikTok tab mới bị chặn -> nút dự phòng mở ngay trong trang (Clarity: bấm hụt "Tải file →")
+  if (trongApp()) gateDl.removeAttribute('target'); else gateDl.setAttribute('target', '_blank');
   gateAsk.hidden = true;
   gateDone.hidden = false;
   if (w) { try { w.focus(); } catch(err){} }
