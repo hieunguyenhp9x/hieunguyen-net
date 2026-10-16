@@ -75,7 +75,9 @@
   .form input{width:100%; background:var(--navy); color:var(--text); border:1px solid rgba(212,169,90,.45); border-radius:10px; padding:13px 14px; font:inherit; font-size:16px; margin-bottom:14px}
   .form input.sai{border-color:#e05a5a}
   .form button{width:100%; background:var(--gold); color:var(--navy); border:none; border-radius:12px; padding:15px; font:inherit; font-weight:900; font-size:16.5px; letter-spacing:.03em; cursor:pointer}
-  .form button:disabled{opacity:.6}
+  .form button:disabled{opacity:.85; cursor:default}
+  .form button .xoay{display:inline-block; width:15px; height:15px; margin:0 8px -2px 0; border:2.5px solid rgba(10,22,40,.3); border-top-color:var(--navy); border-radius:50%; animation:xoay .8s linear infinite}
+  @keyframes xoay{to{transform:rotate(360deg)}}
   .form .nho{color:var(--text-dim); font-size:12.8px; text-align:center; margin-top:10px}
   .form .loi{color:#ff9a9a; font-size:14px; margin:-6px 0 12px; display:none}
   .hp{position:absolute; left:-5000px; width:1px; height:1px; overflow:hidden}
@@ -208,7 +210,7 @@
     <details><summary><span class="lg-en">Does it cost anything?</span><span class="lg-vi">Có mất tiền không?</span></summary>
       <p><span class="lg-en">No. It's free.</span><span class="lg-vi">Không. Miễn phí.</span></p></details>
     <details><summary><span class="lg-en">How do I get it?</span><span class="lg-vi">Nhận bằng cách nào?</span></summary>
-      <p><span class="lg-en">Add your name and email above. Depending on your visit, it either opens straight away on this site, or arrives in your inbox from "Hiếu at Sea" with an Open button. No email after a few minutes? Check Promotions or Spam.</span><span class="lg-vi">Điền tên và email ở trên. Tuỳ lượt, tài liệu sẽ mở ngay trên web, hoặc được gửi vào email của bạn từ "Hiếu at Sea" kèm nút Mở. Vài phút chưa thấy thư thì xem mục Quảng cáo hoặc Spam.</span></p></details>
+      <p><span class="lg-en">Add your name and email above and it opens straight away on this site, with a Download PDF button.</span><span class="lg-vi">Điền tên và email ở trên là tài liệu mở ngay trên web, có nút Tải PDF.</span></p></details>
     <details><summary><span class="lg-en">Can I read it on my phone?</span><span class="lg-vi">Đọc trên điện thoại được không?</span></summary>
       <p><span class="lg-en">Yes. It opens like a book you can flip, with a zoom button and a Download PDF button.</span><span class="lg-vi">Được. Mở ra như cuốn sách lật được, có nút phóng to và nút Tải PDF.</span></p></details>
     <details><summary><span class="lg-en">My English is weak. Will it still help?</span><span class="lg-vi">Mình mất gốc tiếng Anh, có dùng được không?</span></summary>
@@ -268,17 +270,17 @@
       return localStorage.getItem('hn_src') || (document.referrer ? 'ref:' + new URL(document.referrer).hostname : 'direct');
     } catch(e){ return 'unknown'; } }
   nguon();
-  // nhóm A/B dùng chung với /tai-lieu
-  var NHOM = (function(){ try { var ep = (new URLSearchParams(location.search).get('nhom') || '').toUpperCase();
-    if (ep === 'A' || ep === 'B'){ localStorage.setItem('hn_ab_tl', ep); return ep; }
-    var g = localStorage.getItem('hn_ab_tl'); if (g !== 'A' && g !== 'B'){ g = Math.random() < 0.5 ? 'A' : 'B'; localStorage.setItem('hn_ab_tl', g); } return g;
-  } catch(e){ return 'A'; } })();
+  // 16/10: BỎ nhóm B (nhận qua email) — 73 thư gửi, chỉ 49 người bấm mở (67%), nhóm A mở thẳng gần như đủ.
+  // Ai cũng mở tài liệu ngay. Code nhóm B để nguyên phía dưới, không còn đường vào.
+  var NHOM = 'A';
 
   var mau = document.getElementById('mauForm');
   document.querySelectorAll('[data-form]').forEach(function(hop, viTri){
     hop.appendChild(mau.content.cloneNode(true));
     var f = hop.querySelector('form'), xong = hop.querySelector('.xong'), loi = hop.querySelector('.loi');
     var ten = f.ten, email = f.email, btn = f.querySelector('button[type=submit]'), tlId = null;
+    var nhanGoc = btn.innerHTML;   // bấm Back từ trang đọc về: trả nút như cũ, không kẹt chữ "Đang mở"
+    window.addEventListener('pageshow', function(e){ if (e.persisted){ btn.disabled = false; btn.innerHTML = nhanGoc; } });
     var daMo = false;
     function mo(){ if (!daMo){ daMo = true; ga('gate_open', { file_name: TRACK, form_location: 'qua_70cau' }); } }
     // mốc "đã thấy form": form đầu = lúc vào trang, form cuối = lúc cuộn tới
@@ -317,6 +319,8 @@
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)){ baoLoi(lang() === 'vi' ? 'Email trông chưa đúng, kiểm tra lại giúp mình.' : "That email doesn't look right.", 'email'); email.focus(); return; }
       baoLoi('');
       btn.disabled = true;
+      // 16/10: Clarity 25% phiên bấm hụt — nút khoá tới 2,5s mà chữ không đổi, khách tưởng chưa ăn nên bấm lại
+      btn.innerHTML = '<span class="xoay"></span><span class="lg-en">OPENING YOUR GUIDE…</span><span class="lg-vi">ĐANG MỞ TÀI LIỆU…</span>';
       if (NHOM !== 'B'){ moTaiLieu('qua_70cau', guiKit()); return; }
       var xongRoi = false;
       function veA(ly){ if (xongRoi) return; xongRoi = true; ga('tl_ve_a', { ly_do: String(ly || '').slice(0, 40), file_name: TRACK }); moTaiLieu('qua_70cau_B_ve_A', guiKit()); }

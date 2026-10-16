@@ -409,15 +409,9 @@ var HN_MO_TRANG = Date.now();   // mốc mở trang — honeypot chỉ chặn kh
    máy chủ hết hạn mức / lỗi / chậm quá 8 giây -> B tự quay về cho tải ngay, không ai trắng tay.
    Thử tay: ?nhom=A hoặc ?nhom=B. Nhóm đi vào GA4 qua form_location của sign_up: tai_lieu_gate / tai_lieu_gate_B / ..._B_ve_A. */
 var TL_API = 'https://app.hieunguyen.net/api/tl/';
-var HN_NHOM = (function(){
-  try {
-    var ep = (new URLSearchParams(location.search).get('nhom') || '').toUpperCase();
-    if (ep === 'A' || ep === 'B'){ localStorage.setItem('hn_ab_tl', ep); return ep; }
-    var g = localStorage.getItem('hn_ab_tl');
-    if (g !== 'A' && g !== 'B'){ g = Math.random() < 0.5 ? 'A' : 'B'; localStorage.setItem('hn_ab_tl', g); }
-    return g;
-  } catch(e){ return 'A'; }
-})();
+/* 16/10/2026: anh chốt BỎ nhóm B — thư gửi đi chỉ 67% người bấm mở, nhóm A mở thẳng gần như đủ.
+   Ai cũng tải ngay. Code nhóm B (guiQuaMail) để nguyên, không còn đường vào. */
+var HN_NHOM = 'A';
 
 /* TRƯỜNG ẨN GỬI KIT (vá 21/09/2026) — trước đây form chỉ gửi tên + email nên
    không biết email nào lấy file nào / đến từ nền nào. Giờ gửi thêm 4 custom field.
