@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Kho video thực hành Cadet — SpeakAtSea</title>
+<meta name="robots" content="noindex, nofollow">
+<!-- QUÀ KHO VIDEO THEO CHỨC DANH (17/10/2026, anh lệnh): video phát từ YouTube gốc (không tải về, không đăng lại),
+     sub tiếng Việt do mình làm chạy đè dưới khung video theo giây của trình phát, cắt đầu/cuối theo ghi chú anh duyệt.
+     Sub: ../sub/<id>.json = [{s, e, t}] (giây). Danh sách video: biến VIDEO bên dưới, lấy từ trang duyệt anh bấm Giữ.
+     GA4: qv_mo (mở trang) · qv_xem (bấm phát lần đầu, video_id) · qv_xong (xem tới đoạn cuối) · qv_phong_to. -->
+<script>
+(function () {
+  try {
+    var p = new URLSearchParams(location.search);
+    if (p.has('notrack')) localStorage.setItem('hn_notrack', '1');
+    else if (p.has('track')) localStorage.removeItem('hn_notrack');
+    if (localStorage.getItem('hn_notrack') === '1') return;
+  } catch (e) {}
+  var ga = document.createElement('script');
+  ga.async = 1; ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK';
+  document.head.appendChild(ga);
+  window.dataLayer = window.dataLayer || [];
+  window.gtag = function () { dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', 'G-TNVKB32ZPK');
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xvzwl9diz8");
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;600;800;900&display=swap">
+<style>
+:root{ --bg:#0b1724; --card:#11233a; --fg:#eef3f8; --muted:#9fb3c8; --line:#22384f; --accent:#ffb347; --sub:#fff2b3; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px;line-height:1.55}
+.wrap{max-width:860px;margin:0 auto;padding:22px max(16px,env(safe-area-inset-left)) 60px}
+.nhan{font-size:12.5px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:28px;font-weight:900;line-height:1.2;margin:6px 0 8px}
+.mo{color:var(--muted);margin:0 0 22px}
+.vd{background:var(--card);border:1px solid var(--line);border-radius:14px;margin:0 0 22px;overflow:hidden}
+.vd h2{font-size:18px;font-weight:800;margin:0;padding:14px 16px 4px;line-height:1.35}
+.vd .ct{color:var(--muted);font-size:13.5px;padding:0 16px 12px}
+.vd .ct a{color:var(--muted)}
+.khung{position:relative;background:#000;aspect-ratio:16/9;width:100%}
+.khung .yt, .khung iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.sub{position:absolute;left:4%;right:4%;bottom:15%;text-align:center;pointer-events:none;z-index:2;
+  font-weight:900;text-transform:uppercase;color:var(--sub);font-size:clamp(14px,3.6vw,26px);line-height:1.25;letter-spacing:.01em;
+  text-shadow:-2px -2px 0 #000,2px -2px 0 #000,-2px 2px 0 #000,2px 2px 0 #000,0 2px 0 #000,0 -2px 0 #000,2px 0 0 #000,-2px 0 0 #000,0 4px 8px rgba(0,0,0,.85)}
+.sub:empty{display:none}
+.nut{display:flex;gap:8px;padding:10px 16px 14px;flex-wrap:wrap}
+.nut button,.nut a{font:inherit;font-size:14px;font-weight:800;border-radius:9px;border:1.5px solid var(--line);background:transparent;color:var(--fg);padding:8px 14px;min-height:40px;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center}
+.nut button[aria-pressed="false"]{color:var(--muted)}
+.khung.to{position:fixed;inset:0;z-index:50;aspect-ratio:auto;height:100%}
+.khung.to .sub{font-size:clamp(18px,3.4vw,40px)}
+.khung .dong{display:none}
+.khung.to .dong{display:block;position:absolute;top:max(10px,env(safe-area-inset-top));right:max(10px,env(safe-area-inset-right));z-index:3;font:inherit;font-weight:800;background:rgba(0,0,0,.6);color:#fff;border:1px solid #fff5;border-radius:8px;padding:8px 12px}
+.chua-sub{font-size:13px;color:var(--muted);padding:0 16px 12px}
+footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padding-top:16px;margin-top:30px}
+footer a{color:var(--fg)}
+button:focus-visible,a:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nhan">Quà SpeakAtSea · Cadet</div>
+  <h1>Kho video thực hành cho Cadet</h1>
+  <p class="mo">Mỗi video gắn với một việc người phỏng vấn hay hỏi cadet. Sub tiếng Việt chạy ngay trên video. Xem xong, mở bài tương ứng trong app và nói lại bằng lời của bạn.</p>
+  <main id="ds"></main>
+  <footer>
+    Video thuộc về các kênh YouTube ghi dưới mỗi tiêu đề, phát trực tiếp từ YouTube. Sub tiếng Việt do SpeakAtSea làm.<br>
+    Nguyễn Chí Hiếu · <a href="https://hieunguyen.net">hieunguyen.net</a> · @hieuatsea
+  </footer>
+</div>
+
+<script>
+// Danh sách video Cadet anh để Giữ ở trang duyệt (17/10). dau/cuoi = số giây cắt theo ghi chú anh (0 = không cắt).
+var VIDEO = [
+  {id:'bfdC33bd08M', ten:'Các bộ phận tàu hàng rời và tên gọi tiếng Anh', kenh:'HIMT', dau:0, cuoi:0},
+  {id:'R1EcauadrYY', ten:'Đồ bảo hộ cá nhân trên tàu', kenh:'SEA PEOPLE WORLD', dau:0, cuoi:0},
+  {id:'sKKm5lyvGcg', ten:'Quy trình vào không gian kín', kenh:'HIMT', dau:0, cuoi:0},
+  {id:'vWOCvBgylF0', ten:'Cách mặc bộ chống mất nhiệt', kenh:'Marine Safety Services', dau:0, cuoi:0},
+  {id:'nQJlY9ZMjm8', ten:'Báo mục tiêu cho sĩ quan trực ca trên buồng lái', kenh:'MARINE GYAN (Akki)', dau:0, cuoi:0},
+  {id:'Cq95GFAV3Dw', ten:'Cadet làm gì trong ca trực buồng lái', kenh:'Sailor PRO', dau:0, cuoi:0},
+  {id:'-e6kjVbW7q4', ten:'Trực ca buồng lái', kenh:'Marine Online', dau:0, cuoi:0}
+];
+
+function ga(ev, o){ try { if (window.gtag) gtag('event', ev, o || {}); } catch(e){} }
+ga('qv_mo', {chuc_danh:'cadet'});
+
+var ds = document.getElementById('ds');
+VIDEO.forEach(function(v, i){
+  var a = document.createElement('article'); a.className = 'vd';
+  a.innerHTML = '<h2></h2><div class="ct"></div>' +
+    '<div class="khung"><div class="yt" id="yt' + i + '"></div><div class="sub" aria-live="off"></div><button class="dong" type="button">Thu nhỏ ✕</button></div>' +
+    '<div class="nut"><button type="button" class="b-to">⛶ Phóng to</button><button type="button" class="b-sub" aria-pressed="true">Sub Việt: Bật</button></div>' +
+    '<div class="chua-sub" hidden>Video này chưa có sub tiếng Việt.</div>';
+  a.querySelector('h2').textContent = (i + 1) + '. ' + v.ten;
+  var ct = a.querySelector('.ct'), lk = document.createElement('a');
+  lk.href = 'https://www.youtube.com/watch?v=' + v.id; lk.target = '_blank'; lk.rel = 'noopener'; lk.textContent = v.kenh + ' trên YouTube';
+  ct.appendChild(document.createTextNode('Video của ')); ct.appendChild(lk);
+  ds.appendChild(a);
+  v.el = a; v.subEl = a.querySelector('.sub'); v.khung = a.querySelector('.khung'); v.cue = []; v.batSub = true;
+  fetch('../sub/' + v.id + '.json').then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; })
+    .then(function(c){ v.cue = c || []; if (!v.cue.length) a.querySelector('.chua-sub').hidden = false; });
+  a.querySelector('.b-sub').onclick = function(){
+    v.batSub = !v.batSub; this.setAttribute('aria-pressed', v.batSub); this.textContent = 'Sub Việt: ' + (v.batSub ? 'Bật' : 'Tắt');
+    if (!v.batSub) v.subEl.textContent = '';
+  };
+  function to(bat){
+    v.khung.classList.toggle('to', bat); document.body.style.overflow = bat ? 'hidden' : '';
+    if (bat) { ga('qv_phong_to', {video_id: v.id}); try { var p = v.khung.requestFullscreen ? v.khung.requestFullscreen() : null; if (p && p.catch) p.catch(function(){}); } catch(e){}
+      try { screen.orientation && screen.orientation.lock && screen.orientation.lock('landscape').catch(function(){}); } catch(e){} }
+    else if (document.fullscreenElement) { document.exitFullscreen().catch(function(){}); }
+  }
+  a.querySelector('.b-to').onclick = function(){ to(true); };
+  a.querySelector('.dong').onclick = function(){ to(false); };
+  document.addEventListener('fullscreenchange', function(){ if (!document.fullscreenElement && v.khung.classList.contains('to')) { v.khung.classList.remove('to'); document.body.style.overflow = ''; } });
+});
+
+function tim(cue, t){ // tìm câu sub đang chạy (cue đã xếp theo s)
+  var lo = 0, hi = cue.length - 1;
+  while (lo <= hi) { var m = (lo + hi) >> 1; if (cue[m].e < t) lo = m + 1; else if (cue[m].s > t) hi = m - 1; else return cue[m].t; }
+  return '';
+}
+window.onYouTubeIframeAPIReady = function(){
+  VIDEO.forEach(function(v, i){
+    var pv = {rel:0, playsinline:1, fs:0, cc_load_policy:0, iv_load_policy:3, modestbranding:1};
+    if (v.dau) pv.start = v.dau;
+    v.p = new YT.Player('yt' + i, {videoId: v.id, playerVars: pv, events: {
+      onStateChange: function(e){
+        if (e.data === YT.PlayerState.PLAYING && !v.daXem) { v.daXem = true; ga('qv_xem', {video_id: v.id}); }
+        if (e.data === YT.PlayerState.PLAYING) VIDEO.forEach(function(k){ if (k !== v && k.p && k.p.pauseVideo && k.p.getPlayerState && k.p.getPlayerState() === 1) k.p.pauseVideo(); });
+        if (e.data === YT.PlayerState.ENDED) { v.subEl.textContent = ''; if (!v.daXong) { v.daXong = true; ga('qv_xong', {video_id: v.id}); } }
+      }
+    }});
+  });
+  setInterval(function(){
+    VIDEO.forEach(function(v){
+      if (!v.p || !v.p.getCurrentTime || !v.p.getPlayerState) return;
+      var st = v.p.getPlayerState(); if (st !== 1 && st !== 2) return;
+      var t = v.p.getCurrentTime();
+      if (v.dau && t < v.dau - 0.5) { v.p.seekTo(v.dau, true); return; }
+      if (v.cuoi) { var d = v.p.getDuration(); if (d && t >= d - v.cuoi) { v.p.pauseVideo(); v.p.seekTo(v.dau || 0, true); v.p.pauseVideo(); v.subEl.textContent = ''; if (!v.daXong) { v.daXong = true; ga('qv_xong', {video_id: v.id}); } return; } }
+      var s = v.batSub ? tim(v.cue, t) : '';
+      if (v.subEl.textContent !== s) v.subEl.textContent = s;
+    });
+  }, 150);
+};
+var s = document.createElement('script'); s.src = 'https://www.youtube.com/iframe_api'; document.head.appendChild(s);
+</script>
+</body>
+</html>
