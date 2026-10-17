@@ -79,10 +79,10 @@ button:focus-visible,a:focus-visible{outline:2.5px solid var(--accent);outline-o
 <script>
 // Danh sách video Cadet anh để Giữ ở trang duyệt (17/10). dau/cuoi = số giây cắt theo ghi chú anh (0 = không cắt).
 var VIDEO = [
-  {id:'bfdC33bd08M', ten:'Các bộ phận tàu hàng rời và tên gọi tiếng Anh', kenh:'HIMT', dau:0, cuoi:0},
+  {id:'bfdC33bd08M', ten:'Các bộ phận tàu hàng rời và tên gọi tiếng Anh', kenh:'HIMT', dau:0, cuoi:0, ghi:'Video không lời, chỉ có nhạc và tên từng bộ phận bằng tiếng Anh hiện trên hình. Tên tiếng Anh đó chính là từ bạn cần nói khi phỏng vấn, nên video này không làm sub.'},
   {id:'R1EcauadrYY', ten:'Đồ bảo hộ cá nhân trên tàu', kenh:'SEA PEOPLE WORLD', dau:0, cuoi:0},
   {id:'sKKm5lyvGcg', ten:'Quy trình vào không gian kín', kenh:'HIMT', dau:0, cuoi:0},
-  {id:'vWOCvBgylF0', ten:'Cách mặc bộ chống mất nhiệt', kenh:'Marine Safety Services', dau:0, cuoi:0},
+  {id:'onAgjcD7jH0', ten:'Cách mặc bộ quần áo bơi (immersion suit)', kenh:'Alaska Marine Safety Education Association', dau:0, cuoi:0},
   {id:'nQJlY9ZMjm8', ten:'Báo mục tiêu cho sĩ quan trực ca trên buồng lái', kenh:'MARINE GYAN (Akki)', dau:0, cuoi:0},
   {id:'Cq95GFAV3Dw', ten:'Cadet làm gì trong ca trực buồng lái', kenh:'Sailor PRO', dau:0, cuoi:0},
   {id:'-e6kjVbW7q4', ten:'Trực ca buồng lái', kenh:'Marine Online', dau:0, cuoi:0}
@@ -97,7 +97,8 @@ VIDEO.forEach(function(v, i){
   a.innerHTML = '<h2></h2><div class="ct"></div>' +
     '<div class="khung"><div class="yt" id="yt' + i + '"></div><div class="sub" aria-live="off"></div><button class="dong" type="button">Thu nhỏ ✕</button></div>' +
     '<div class="nut"><button type="button" class="b-to">⛶ Phóng to</button><button type="button" class="b-sub" aria-pressed="true">Sub Việt: Bật</button></div>' +
-    '<div class="chua-sub" hidden>Video này chưa có sub tiếng Việt.</div>';
+    '<div class="chua-sub" hidden></div>';
+  if (v.ghi) { var g = a.querySelector('.chua-sub'); g.textContent = v.ghi; g.hidden = false; a.querySelector('.b-sub').hidden = true; }
   a.querySelector('h2').textContent = (i + 1) + '. ' + v.ten;
   var ct = a.querySelector('.ct'), lk = document.createElement('a');
   lk.href = 'https://www.youtube.com/watch?v=' + v.id; lk.target = '_blank'; lk.rel = 'noopener'; lk.textContent = v.kenh + ' trên YouTube';
@@ -105,7 +106,7 @@ VIDEO.forEach(function(v, i){
   ds.appendChild(a);
   v.el = a; v.subEl = a.querySelector('.sub'); v.khung = a.querySelector('.khung'); v.cue = []; v.batSub = true;
   fetch('../sub/' + v.id + '.json').then(function(r){ return r.ok ? r.json() : []; }).catch(function(){ return []; })
-    .then(function(c){ v.cue = c || []; if (!v.cue.length) a.querySelector('.chua-sub').hidden = false; });
+    .then(function(c){ v.cue = c || []; if (!v.cue.length && !v.ghi) { var g = a.querySelector('.chua-sub'); g.textContent = 'Video này chưa có sub tiếng Việt.'; g.hidden = false; } });
   a.querySelector('.b-sub').onclick = function(){
     v.batSub = !v.batSub; this.setAttribute('aria-pressed', v.batSub); this.textContent = 'Sub Việt: ' + (v.batSub ? 'Bật' : 'Tắt');
     if (!v.batSub) v.subEl.textContent = '';
