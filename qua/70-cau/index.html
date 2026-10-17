@@ -332,7 +332,11 @@
         .then(function(r){ return r.json(); })
         .then(function(j){
           clearTimeout(hen); if (xongRoi) return;
-          if (!j || !j.ok){ btn.disabled = false; baoLoi(lang() === 'vi' ? 'Email trông chưa đúng, kiểm tra lại giúp mình.' : "That email doesn't look right.", 'email'); return; }
+          if (!j || !j.ok){ btn.disabled = false;
+            // 18/10: máy chủ bắt email gõ nhầm đuôi -> sửa sẵn vào ô; tên miền không nhận thư -> báo đúng lỗi
+            if (j && j.goi_y){ email.value = j.goi_y; baoLoi(lang() === 'vi' ? 'Email có vẻ gõ nhầm, mình đã sửa thành ' + j.goi_y + '. Bấm nút lần nữa để nhận.' : 'Looks like a typo. We changed it to ' + j.goi_y + ' — tap the button again.', 'email'); return; }
+            if (j && j.khong_nhan){ baoLoi(lang() === 'vi' ? 'Email này không nhận được thư (phần sau chữ @ không tồn tại). Kiểm tra lại giúp mình.' : "This email can't receive mail (the part after @ doesn't exist). Please check it.", 'email'); return; }
+            baoLoi(lang() === 'vi' ? 'Email trông chưa đúng, kiểm tra lại giúp mình.' : "That email doesn't look right.", 'email'); return; }
           if (!j.gui){ veA(j.ly_do || 'mo_ngay'); return; }
           xongRoi = true; tlId = j.id;
           ga('sign_up', { method:'mail', form_location:'qua_70cau_B', file_name: TRACK });
