@@ -68,7 +68,7 @@ var FILES = [
     meta: { vi: "Bộ câu hỏi phỏng vấn Đại phó thật của một hãng tàu hàng rời, mình soạn câu trả lời mẫu khi chuẩn bị đi phỏng vấn · 4 phần: bản thân & kinh nghiệm · nghiệp vụ Đại phó (hàng hoá IMSBC, than, quặng, hạt, nắp hầm, neo – buộc tàu, PSC, ISM/ISPS, ballast, MARPOL) · câu Phó hai/Phó ba (ECDIS, GMDSS, COLREG) · phần bổ sung sau buổi training Đại phó (khiếu nại, port of refuge, cuộn thép, hậu quả cargo care) · mỗi câu: trả lời mẫu Anh | Việt đặt cạnh nhau, câu hỏi thêm hay gặp, người phỏng vấn đang thử cái gì · 20 câu nên học trước · mục lục bấm nhảy thẳng",
             en: "A real Chief Officer interview questionnaire from a bulk carrier company, with the sample answers I prepared for my own interview · 4 parts: about you · C/O duties (IMSBC cargoes, coal, ore, grain, hatch covers, anchoring & mooring, PSC, ISM/ISPS, ballast, MARPOL) · 2/O & 3/O questions (ECDIS, GMDSS, COLREG) · extra questions from a C/O training session (complaints, port of refuge, steel coils, poor cargo care) · each one: English | Vietnamese answers side by side, the usual follow-ups, and what the interviewer is testing · 20 to learn first · clickable table of contents" },
     tag:  { vi: "PDF · 123 trang · Anh–Việt", en: "PDF · 123 pages · EN–VI" },
-    web: "114-cau-dai-pho",   // trang đọc lật sách /doc/?f=114-cau-dai-pho + file /files/114-cau-dai-pho.pdf (13/10/2026)
+    web: "118-cau-dai-pho",   // trang đọc lật sách /doc/?f=118-cau-dai-pho + file /files/118-cau-dai-pho.pdf (19/10: đổi từ 114; link cũ ?f=114-cau-dai-pho vẫn mở nhờ doc/index.html)
     id: "1VEoUnZLpyp1_H8f-bUtnfBWLwy3lW8cI" },
 
   // --- Phần CADET (15/09/2026) — PDF dựng ở production/magnet/, anh upload Drive rồi dán ID ---

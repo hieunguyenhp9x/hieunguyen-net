@@ -112,7 +112,7 @@
 </div>
 <script>
 /* chạy ngay, trước khi tải trình đọc (~1 MB) — ảnh bìa từ scripts/keo_pdf_web.py */
-(function(){ var w = (new URLSearchParams(location.search).get('f') || '').replace(/[^\w-]/g, ''); if (!w) return;
+(function(){ var w = (new URLSearchParams(location.search).get('f') || '').replace(/[^\w-]/g, ''); w = ({'114-cau-dai-pho': '118-cau-dai-pho'})[w] || w; if (!w) return;
   var b = document.getElementById('bia'), i = b.querySelector('img');
   i.onerror = function(){ i.remove(); }; i.src = '/files/bia/' + w + '.jpg'; b.hidden = false; })();
 </script>
@@ -142,6 +142,9 @@
 (function(){
   var en = document.documentElement.getAttribute('data-lang') !== 'vi';
   var q = new URLSearchParams(location.search), WEB = (q.get('f') || '').replace(/[^\w-]/g, '');
+  // 19/10: tài liệu 114 câu thành 118 câu, đổi tên link — link cũ ?f=114-cau-dai-pho (bài đăng, máy người đã lưu) vẫn mở, thanh địa chỉ đổi sang tên mới
+  var DOI = {'114-cau-dai-pho': '118-cau-dai-pho'};
+  if (DOI[WEB]) { WEB = DOI[WEB]; q.set('f', WEB); try { history.replaceState(null, '', '?' + q.toString() + location.hash); } catch(e){} }
   var f = (window.FILES || []).filter(function(x){ return x && x.web === WEB; })[0];
   var vung = document.getElementById('vung'), book = document.getElementById('book');
   function chu(v){ return !v ? '' : (typeof v === 'string' ? v : (en ? (v.en || v.vi) : (v.vi || v.en))); }
