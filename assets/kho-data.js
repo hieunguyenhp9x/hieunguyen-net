@@ -61,13 +61,13 @@ var FILES = [
     web: "so-tay-nghiep-vu-dai-pho",   // trang đọc lật sách /doc/?f=so-tay-nghiep-vu-dai-pho + file /files/so-tay-nghiep-vu-dai-pho.pdf (13/10/2026)
     id: "1VZtBdbPUJomomLRRKkleWyI0Gj2iZxAF" },
 
-  // --- PV Đại phó tàu hàng rời — 114 câu song ngữ, dựng 07-08/10/2026 (production/hoc-dai-pho/pv-co-hpm-114-cau/cong-khai), máy upload 08/10 ---
+  // --- PV Đại phó tàu hàng rời — 118 câu song ngữ (19/10 thêm 115-118 từ training), dựng 07-08/10/2026 (production/hoc-dai-pho/pv-co-hpm-114-cau/cong-khai), máy upload 08/10 ---
   { nhom:"doc", pdf:true, ico:"&#127894;",
-    name: { vi: "114 câu phỏng vấn Đại phó tàu hàng rời, kèm câu trả lời",
-            en: "The Chief Officer Interview — 114 questions, bulk carriers" },
-    meta: { vi: "Bộ câu hỏi phỏng vấn Đại phó thật của một hãng tàu hàng rời, mình soạn câu trả lời mẫu khi chuẩn bị đi phỏng vấn · 3 phần: bản thân & kinh nghiệm · nghiệp vụ Đại phó (hàng hoá IMSBC, than, quặng, hạt, nắp hầm, neo – buộc tàu, PSC, ISM/ISPS, ballast, MARPOL) · câu Phó hai/Phó ba (ECDIS, GMDSS, COLREG) · mỗi câu: trả lời mẫu Anh | Việt đặt cạnh nhau, câu hỏi thêm hay gặp, người phỏng vấn đang thử cái gì · 20 câu nên học trước · mục lục bấm nhảy thẳng",
-            en: "A real Chief Officer interview questionnaire from a bulk carrier company, with the sample answers I prepared for my own interview · 3 parts: about you · C/O duties (IMSBC cargoes, coal, ore, grain, hatch covers, anchoring & mooring, PSC, ISM/ISPS, ballast, MARPOL) · 2/O & 3/O questions (ECDIS, GMDSS, COLREG) · each one: English | Vietnamese answers side by side, the usual follow-ups, and what the interviewer is testing · 20 to learn first · clickable table of contents" },
-    tag:  { vi: "PDF · 116 trang · Anh–Việt", en: "PDF · 116 pages · EN–VI" },
+    name: { vi: "118 câu phỏng vấn Đại phó tàu hàng rời, kèm câu trả lời",
+            en: "The Chief Officer Interview — 118 questions, bulk carriers" },
+    meta: { vi: "Bộ câu hỏi phỏng vấn Đại phó thật của một hãng tàu hàng rời, mình soạn câu trả lời mẫu khi chuẩn bị đi phỏng vấn · 4 phần: bản thân & kinh nghiệm · nghiệp vụ Đại phó (hàng hoá IMSBC, than, quặng, hạt, nắp hầm, neo – buộc tàu, PSC, ISM/ISPS, ballast, MARPOL) · câu Phó hai/Phó ba (ECDIS, GMDSS, COLREG) · phần bổ sung sau buổi training Đại phó (khiếu nại, port of refuge, cuộn thép, hậu quả cargo care) · mỗi câu: trả lời mẫu Anh | Việt đặt cạnh nhau, câu hỏi thêm hay gặp, người phỏng vấn đang thử cái gì · 20 câu nên học trước · mục lục bấm nhảy thẳng",
+            en: "A real Chief Officer interview questionnaire from a bulk carrier company, with the sample answers I prepared for my own interview · 4 parts: about you · C/O duties (IMSBC cargoes, coal, ore, grain, hatch covers, anchoring & mooring, PSC, ISM/ISPS, ballast, MARPOL) · 2/O & 3/O questions (ECDIS, GMDSS, COLREG) · extra questions from a C/O training session (complaints, port of refuge, steel coils, poor cargo care) · each one: English | Vietnamese answers side by side, the usual follow-ups, and what the interviewer is testing · 20 to learn first · clickable table of contents" },
+    tag:  { vi: "PDF · 123 trang · Anh–Việt", en: "PDF · 123 pages · EN–VI" },
     web: "114-cau-dai-pho",   // trang đọc lật sách /doc/?f=114-cau-dai-pho + file /files/114-cau-dai-pho.pdf (13/10/2026)
     id: "1VEoUnZLpyp1_H8f-bUtnfBWLwy3lW8cI" },
 
