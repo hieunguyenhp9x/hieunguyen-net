@@ -21,6 +21,12 @@
   document.documentElement.setAttribute('data-lang', l);
   document.documentElement.lang = l;
   try { if (localStorage.getItem('hn_qua_vhf') === '1') document.documentElement.classList.add('mo'); } catch (e) {}
+  // ?mo=1 = link mở thẳng trong thư gửi người đã có email (lead Kit / khách mua) — không chứa email, chỉ cờ mở (20/10/2026)
+  if (/[?&]mo=1(&|$)/.test(location.search)) {
+    window.HN_MO_LINK = !document.documentElement.classList.contains('mo');
+    document.documentElement.classList.add('mo');
+    try { localStorage.setItem('hn_qua_vhf', '1'); localStorage.setItem('hn_lead', '1'); } catch (e) {}
+  }
 })();
 (function () {
   try {
@@ -289,6 +295,7 @@
     document.documentElement.classList.add('mo'); window.scrollTo(0, 0);
   }
   var f = document.getElementById('fCong');
+  if (window.HN_MO_LINK) { var mq = new URLSearchParams(location.search).get('utm_medium') || 'link'; ga('file_preview', { file_name: TRACK, form_location: 'qua_vhf_mo_' + mq }); }
   if (!document.documentElement.classList.contains('mo')) ga('gate_open', { file_name: TRACK, form_location: 'qua_vhf' });
   try { if (localStorage.getItem('hn_lead') === '1') document.getElementById('daDe').hidden = false; } catch(e){}
   document.querySelector('[data-mo]').addEventListener('click', function(ev){ ev.preventDefault(); mo('qua_vhf_da_de'); });
