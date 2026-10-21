@@ -22,7 +22,9 @@
   // Giữ nguyên utm của link bot để biết email đến từ đâu.
   var q = location.search.replace(/^\?/, '').replace(/(^|&)(xem|notrack|track)(=[^&]*)?/g, '');
   // 13/10/2026: sang TRANG QUÀ riêng /qua/70-cau/ (khuôn trang quà editvideo của Tùng, anh lệnh) — nói rõ điền email để nhận ngay từ đầu
-  var DICH = '/qua/70-cau/' + (q ? '?' + q.replace(/^&/, '') : '');
+  // 21/10/2026 anh lệnh: comment "tài liệu" lấy file 3/O–2/O -> đưa thẳng KHO TÀI LIỆU (/tai-lieu.html, bộ 70 câu đứng đầu kho, vẫn để email).
+  // Trang quà /qua/70-cau/ vẫn giữ nguyên, chỉ không còn là đích của cổng này.
+  var DICH = '/tai-lieu.html' + (q ? '?' + q.replace(/^&/, '') : '');
   var di = false, t0 = Date.now(), xem = false;
   function sang(ly_do) {
     if (di) return; di = true;
