@@ -12,6 +12,12 @@
 
 /* Ba NHÓM của kho. Thứ tự ở đây là thứ tự hiện trên trang. */
 var NHOM = [
+  // 21/10/2026 anh lệnh: bộ 70 câu Phó ba – Phó hai lên ĐẦU kho (comment "tài liệu" lấy file 3/O–2/O được Botcake gửi link kho)
+  { key:"pv-sq", noibat:true,
+    nhan: { vi:"Phó ba & Phó hai", en:"Third & Second Officer" },
+    ten:  { vi:"70 câu phỏng vấn sĩ quan boong", en:"The Deck Officer Interview — 70 questions" },
+    mota: { vi:"Bộ câu hỏi phỏng vấn Phó ba – Phó hai kèm câu trả lời mẫu. PDF song ngữ Anh–Việt, đọc ngay trên điện thoại.",
+            en:"Third and Second Officer interview questions with sample answers. Bilingual English–Vietnamese PDF, readable on your phone." } },
   // noibat:true -> khung vàng + nhãn riêng, đứng ĐẦU trang (anh chốt 15/09: cadet có phần riêng
   // ở đầu trang tài liệu, vì 10 video list cadet đổ người về đây).
   { key:"cadet", noibat:true,
@@ -101,7 +107,7 @@ var FILES = [
     web: "do-nghe-cadet",   // trang đọc lật sách /doc/?f=do-nghe-cadet + file /files/do-nghe-cadet.pdf (13/10/2026)
     id: "14UibAoJkq9dE_dqaqGjuI5X4DJwQQicD" },
 
-  { nhom:"doc", pdf:true, ico:"&#128214;",
+  { nhom:"pv-sq", pdf:true, ico:"&#128214;",
     name: { vi: "70 câu phỏng vấn sĩ quan boong — Phó ba & Phó hai, kèm câu trả lời",
             en: "The Deck Officer Interview — 70 questions, 3/O & 2/O" },
     meta: { vi: "Phần 1: 20 câu mình đã gặp trên đường lên ghế Phó ba · Phần 2: 50 câu cho ghế Phó hai, 18 câu trong đó người ta hỏi chính mình ở buổi phỏng vấn Phó hai năm 2022 · mỗi câu có: người phỏng vấn đang thử cái gì và một câu trả lời mẫu hoàn chỉnh để học thuộc",
