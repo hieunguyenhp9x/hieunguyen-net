@@ -412,11 +412,14 @@ form.addEventListener('submit', function(e){
   hnKitThem(fd, '');
   // vá 13/10: giữ sống request (keepalive) + báo GA4 kit_loi khi Kit không nhận (trước nuốt im)
   function kitLoi(ly){ ly = String(ly).slice(0,90); try { if (window.gtag) gtag('event','kit_loi',{ ly_do: ly, form_location: 'loi:' + ly, trang: location.pathname }); } catch(x){} }
+  // vá 24/10: Kit treo (webview Zalo/FB, mạng chậm) thì nút đứng "Đang mở…" mãi, kho không mở → hẹn 2,5s tự mở như qua/vhf
+  var xong = false; function moKho(){ if (!xong){ xong = true; showDone(true); } }
+  setTimeout(moKho, 2500);
   fetch(KIT_ACTION, { method:'POST', body:fd, keepalive:true, headers:{ 'Accept':'application/json' } })
     .then(function(r){ return r.json(); })
     .then(function(j){ if (!j || j.status !== 'success') kitLoi((j && j.errors && j.errors.messages || [j && j.status]).join('; ')); })
     .catch(function(x){ kitLoi('mang: ' + (x && x.message)); })
-    .then(function(){ showDone(true); });
+    .then(moKho);
   return false;
 });
 </script>
