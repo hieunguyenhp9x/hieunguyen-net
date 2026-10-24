@@ -87,7 +87,9 @@
     tra.then(function (ok) {
       if (ok === false) { ga('khong_mx'); bao(o, c.sai); return; }
       an(o); f.dataset.emailDaKiem = v;
-      if (f.requestSubmit) f.requestSubmit(); else f.dispatchEvent(new Event('submit', {cancelable: true, bubbles: true}));
+      // 24/10 SỬA LỖI: đuôi quen (gmail…) xong NGAY trong lượt submit đầu -> trình duyệt bỏ qua requestSubmit gọi lúc form
+      // còn đang "bắn sự kiện submit" (luật HTML) -> khách bấm mà không có gì xảy ra. Đẩy sang lượt sau cho chắc.
+      setTimeout(function () { if (f.requestSubmit) f.requestSubmit(); else f.dispatchEvent(new Event('submit', {cancelable: true, bubbles: true})); }, 0);
     });
   }, true);
   document.addEventListener('input', function (ev) { if (ev.target && ev.target.form && ev.target.matches('input[type=email], input[name=email], input[name=email_address]')) { an(ev.target); delete ev.target.form.dataset.emailDaKiem; } }, true);
