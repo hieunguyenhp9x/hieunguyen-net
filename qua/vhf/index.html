@@ -382,7 +382,17 @@
     ga('nghe_audio', { file_name: TRACK, form_location: b.getAttribute('data-id') });
   }); });
   document.querySelectorAll('[data-pdf]').forEach(function(a){ a.addEventListener('click', function(){ ga('file_download', { file_name: TRACK, form_location: 'qua_vhf' }); }); });
-  document.querySelectorAll('[data-app]').forEach(function(a){ a.addEventListener('click', function(){ ga('app_click', { file_name: TRACK, form_location: 'qua_vhf' }); }); });
+  // 24/10 anh: link sang app phải mang NGUỒN khách vào trang quà (kit / bot / chiase / zalo / ads...) -> đơn ghi 'sale-page-web-qua-vhf-<nguồn>'.
+  // Nhớ nguồn lần đầu có utm (khách quay lại không còn đuôi vẫn giữ). Quảng cáo trả tiền -> 'ads' để máy đếm khách ấm loại ra.
+  var NG = '';
+  try {
+    var q = new URLSearchParams(location.search), so = (q.get('utm_source') || '').toLowerCase(), me = (q.get('utm_medium') || '').toLowerCase();
+    if (so) NG = /paid|cpc|ads/.test(me) ? 'ads' : /bot/.test(me) ? 'bot' : so.replace(/[^a-z0-9]/g, '').slice(0, 8);
+    if (NG) localStorage.setItem('hn_vhf_nguon', NG); else NG = localStorage.getItem('hn_vhf_nguon') || '';
+  } catch (e) {}
+  document.querySelectorAll('[data-app]').forEach(function(a){
+    if (NG) a.href = a.href.replace('nguon=web-qua-vhf&', 'nguon=web-qua-vhf-' + NG + '&');
+    a.addEventListener('click', function(){ ga('app_click', { file_name: TRACK, form_location: 'qua_vhf' }); }); });
 })();
 </script>
 </body>
