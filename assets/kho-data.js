@@ -73,24 +73,6 @@ en: "Just dropped into the folder; I haven't written the description yet."
 var FILES = [ {
 nhom: "doc",
 pdf: true,
-ico: "&#127891;",
-name: {
-vi: "Sổ tay vấn đáp chức danh Đại phó (C/O)",
-en: "Chief Officer Oral Exam Handbook"
-},
-meta: {
-vi: "Toàn bộ phần mình ôn vấn đáp C/O gom lại một chỗ · 12 mục, 94 câu: nhiệm vụ đại phó, ổn định – sức bền, draft survey, xếp hàng, chứng từ, ballast, COLREG, tránh bão · mỗi câu có câu giám khảo hay hỏi + cách trả lời + xử lý thực tế · có mục lục bấm nhảy thẳng",
-en: "My whole C/O oral-exam revision in one place · 12 topics, 94 Q&As: C/O duties, stability & strength, draft survey, stowage, documents, ballast, COLREG, storm avoidance · each item: the examiner's question + a model answer + what you actually do on board · clickable table of contents"
-},
-tag: {
-vi: "PDF · 80 trang · Anh–Việt",
-en: "PDF · 80 pages · EN–VI"
-},
-web: "so-tay-van-dap-dai-pho",
-id: "18VwwkYbCj38eRrBrXWN12n-ebesuIJyG"
-}, {
-nhom: "doc",
-pdf: true,
 ico: "&#128221;",
 name: {
 vi: "Sổ tay nghiệp vụ Đại phó — ghi chép lúc học",
