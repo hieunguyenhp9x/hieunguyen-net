@@ -12,7 +12,7 @@
 var q = location.search;
 if (/[?&]lang=/.test(q)) q = q.replace(/([?&])lang=[^&]*/, "$1lang=en"); else q = q ? q + "&lang=en" : "?lang=en";
 location.replace("/tai-lieu.html" + q + location.hash);
-})()</script>
+})();</script>
 <style>body {
   background: #0a1628;
   color: #e8edf4;
