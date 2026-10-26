@@ -2,148 +2,275 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Pomodoro</title>
 
-<!-- Đo lường: Google Analytics 4 + Microsoft Clarity.
-     Thiết bị đã mở ?notrack=1 (máy của anh) thì không tải gì cả; bật lại bằng ?track=1 -->
-<script type="text/javascript">
-(function () {
-  try {
-    var p = new URLSearchParams(location.search);
-    if (p.has('notrack')) localStorage.setItem('hn_notrack', '1');
-    else if (p.has('track')) localStorage.removeItem('hn_notrack');
-    if (localStorage.getItem('hn_notrack') === '1') return;
-  } catch (e) {}
 
-  // GA4 — bao nhiêu người, đến từ nền nào, bấm đi đâu
-  var ga = document.createElement('script');
-  ga.async = 1;
-  ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK';
-  document.head.appendChild(ga);
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function () { dataLayer.push(arguments); };
-  gtag('js', new Date());
-  gtag('config', 'G-TNVKB32ZPK');
+<script type="text/javascript">(function() {
+try {
+var p = new URLSearchParams(location.search);
+if (p.has("notrack")) localStorage.setItem("hn_notrack", "1"); else if (p.has("track")) localStorage.removeItem("hn_notrack");
+if (localStorage.getItem("hn_notrack") === "1") return;
+} catch (e) {}
+var ga = document.createElement("script");
+ga.async = 1;
+ga.src = "https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK";
+document.head.appendChild(ga);
+window.dataLayer = window.dataLayer || [];
+window.gtag = function() {
+dataLayer.push(arguments);
+};
+gtag("js", new Date);
+gtag("config", "G-TNVKB32ZPK");
+(function(c, l, a, r, i, t, y) {
+c[a] = c[a] || function() {
+(c[a].q = c[a].q || []).push(arguments);
+};
+t = l.createElement(r);
+t.async = 1;
+t.src = "https://www.clarity.ms/tag/" + i;
+y = l.getElementsByTagName(r)[0];
+y.parentNode.insertBefore(t, y);
+})(window, document, "clarity", "script", "xvzwl9diz8");
+})()</script>
 
-  // Clarity — xem lại phiên + bản đồ nhiệt
-  (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "xvzwl9diz8");
-})();
-</script>
-
-<style>
-  :root {
-    --navy: #0a1628;
-    --navy-2: #10203a;
-    --navy-3: #1a3050;
-    --gold: #d4a95a;
-    --gold-light: #e8c88a;
-    --green: #6fbf8f;
-    --text: #e8edf4;
-    --text-dim: #9fb0c4;
-    --line: rgba(212, 169, 90, 0.25);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-    background: var(--navy);
-    color: var(--text);
-    min-height: 100vh;
-    display: flex; align-items: center; justify-content: center;
-    -webkit-tap-highlight-color: transparent;
-  }
-  .card {
-    width: min(420px, 92vw);
-    background: var(--navy-2);
-    border: 1px solid var(--line);
-    border-radius: 18px;
-    padding: 36px 28px 32px;
-    text-align: center;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
-  }
-  .phase {
-    font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--text-dim); margin-bottom: 6px; min-height: 18px;
-  }
-  .phase.focus { color: var(--gold); }
-  .phase.break { color: var(--green); }
-
-  .ring-wrap { position: relative; width: 260px; height: 260px; margin: 14px auto 20px; }
-  svg { transform: rotate(-90deg); width: 100%; height: 100%; }
-  .ring-bg { fill: none; stroke: var(--navy-3); stroke-width: 10; }
-  .ring-fg {
-    fill: none; stroke: var(--gold); stroke-width: 10; stroke-linecap: round;
-    transition: stroke-dashoffset 0.5s linear, stroke 0.4s;
-  }
-  .ring-fg.break { stroke: var(--green); }
-  .time {
-    position: absolute; inset: 0;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-  }
-  .time .digits { font-size: 56px; font-weight: 700; letter-spacing: 2px; font-variant-numeric: tabular-nums; }
-  .time .sub { font-size: 13px; color: var(--text-dim); margin-top: 2px; }
-
-  .dots { display: flex; gap: 10px; justify-content: center; margin-bottom: 24px; }
-  .dot {
-    width: 12px; height: 12px; border-radius: 50%;
-    background: var(--navy-3); border: 1px solid var(--line);
-    transition: background 0.3s;
-  }
-  .dot.done { background: var(--gold); border-color: var(--gold); }
-  .dot.current { border-color: var(--gold-light); box-shadow: 0 0 8px rgba(212,169,90,0.5); }
-
-  .btns { display: flex; gap: 12px; justify-content: center; }
-  button {
-    font-family: inherit; font-size: 15px; font-weight: 600;
-    padding: 12px 28px; border-radius: 10px; cursor: pointer;
-    border: 1px solid var(--line); letter-spacing: 1px;
-    transition: transform 0.1s, background 0.2s;
-  }
-  button:active { transform: scale(0.97); }
-  #startBtn { background: var(--gold); color: var(--navy); border-color: var(--gold); min-width: 140px; }
-  #startBtn:hover { background: var(--gold-light); }
-  #resetBtn, #skipBtn { background: transparent; color: var(--text-dim); }
-  #resetBtn:hover, #skipBtn:hover { color: var(--text); border-color: var(--gold-light); }
-
-  .hint { margin-top: 20px; font-size: 12.5px; color: var(--text-dim); line-height: 1.6; }
-
-  .sound-row {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line);
-  }
-  .sound-row .label { font-size: 12px; letter-spacing: 1px; color: var(--text-dim); }
-  .snd {
-    font-size: 17px; padding: 8px 12px; border-radius: 10px; cursor: pointer;
-    background: transparent; border: 1px solid var(--line); line-height: 1;
-    filter: grayscale(1) brightness(1.4); transition: filter 0.2s, border-color 0.2s;
-  }
-  .snd.active { filter: none; border-color: var(--gold); background: var(--navy-3); }
-  #vol { width: 90px; accent-color: var(--gold); }
-
-  .home-tab {
-    position: fixed; top: 14px; left: 14px; z-index: 10;
-    font-size: 13px; letter-spacing: 1px; text-decoration: none;
-    color: var(--text-dim); background: var(--navy-2);
-    border: 1px solid var(--line); border-radius: 10px;
-    padding: 8px 14px; transition: color 0.2s, border-color 0.2s;
-  }
-  .home-tab:hover { color: var(--gold-light); border-color: var(--gold); }
-
-  .lang-tab {
-    position: fixed; top: 14px; right: 14px; z-index: 10;
-    font-size: 13px; letter-spacing: 1px; cursor: pointer;
-    color: var(--text-dim); background: var(--navy-2);
-    border: 1px solid var(--line); border-radius: 10px;
-    padding: 8px 14px; transition: color 0.2s, border-color 0.2s;
-  }
-  .lang-tab:hover { color: var(--gold-light); border-color: var(--gold); }
-  .lang-tab b { color: var(--gold); font-weight: 700; }
-</style>
+<style>:root {
+  --navy: #0a1628;
+  --navy-2: #10203a;
+  --navy-3: #1a3050;
+  --gold: #d4a95a;
+  --gold-light: #e8c88a;
+  --green: #6fbf8f;
+  --text: #e8edf4;
+  --text-dim: #9fb0c4;
+  --line: rgba(212, 169, 90, 0.25)
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+body {
+  font-family: "Segoe UI",system-ui,-apple-system,sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent
+}
+.card {
+  width: min(420px, 92vw);
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 36px 28px 32px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45)
+}
+.phase {
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 6px;
+  min-height: 18px
+}
+.phase.focus {
+  color: var(--gold)
+}
+.phase.break {
+  color: var(--green)
+}
+.ring-wrap {
+  position: relative;
+  width: 260px;
+  height: 260px;
+  margin: 14px auto 20px
+}
+svg {
+  transform: rotate(-90deg);
+  width: 100%;
+  height: 100%
+}
+.ring-bg {
+  fill: none;
+  stroke: var(--navy-3);
+  stroke-width: 10
+}
+.ring-fg {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 10;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.5s linear,stroke 0.4s
+}
+.ring-fg.break {
+  stroke: var(--green)
+}
+.time {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+.time .digits {
+  font-size: 56px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-variant-numeric: tabular-nums
+}
+.time .sub {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 2px
+}
+.dots {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 24px
+}
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--navy-3);
+  border: 1px solid var(--line);
+  transition: background 0.3s
+}
+.dot.done {
+  background: var(--gold);
+  border-color: var(--gold)
+}
+.dot.current {
+  border-color: var(--gold-light);
+  box-shadow: 0 0 8px rgba(212,169,90,0.5)
+}
+.btns {
+  display: flex;
+  gap: 12px;
+  justify-content: center
+}
+button {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 12px 28px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  letter-spacing: 1px;
+  transition: transform 0.1s,background 0.2s
+}
+button:active {
+  transform: scale(0.97)
+}
+#startBtn {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+  min-width: 140px
+}
+#startBtn:hover {
+  background: var(--gold-light)
+}
+#resetBtn,
+#skipBtn {
+  background: transparent;
+  color: var(--text-dim)
+}
+#resetBtn:hover,
+#skipBtn:hover {
+  color: var(--text);
+  border-color: var(--gold-light)
+}
+.hint {
+  margin-top: 20px;
+  font-size: 12.5px;
+  color: var(--text-dim);
+  line-height: 1.6
+}
+.sound-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 22px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line)
+}
+.sound-row .label {
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--text-dim)
+}
+.snd {
+  font-size: 17px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  background: transparent;
+  border: 1px solid var(--line);
+  line-height: 1;
+  filter: grayscale(1) brightness(1.4);
+  transition: filter 0.2s,border-color 0.2s
+}
+.snd.active {
+  filter: none;
+  border-color: var(--gold);
+  background: var(--navy-3)
+}
+#vol {
+  width: 90px;
+  accent-color: var(--gold)
+}
+.home-tab {
+  position: fixed;
+  top: 14px;
+  left: 14px;
+  z-index: 10;
+  font-size: 13px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: var(--text-dim);
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 14px;
+  transition: color 0.2s,border-color 0.2s
+}
+.home-tab:hover {
+  color: var(--gold-light);
+  border-color: var(--gold)
+}
+.lang-tab {
+  position: fixed;
+  top: 14px;
+  right: 14px;
+  z-index: 10;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  color: var(--text-dim);
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 14px;
+  transition: color 0.2s,border-color 0.2s
+}
+.lang-tab:hover {
+  color: var(--gold-light);
+  border-color: var(--gold)
+}
+.lang-tab b {
+  color: var(--gold);
+  font-weight: 700
+}</style>
 </head>
 <body>
 <a class="home-tab" href="/" id="homeTab">← Trang chủ</a>
@@ -183,349 +310,416 @@
   <div class="hint" id="hint"></div>
 </div>
 
-<script>
-(function () {
-  var FOCUS = 25 * 60, SHORT = 5 * 60, LONG = 10 * 60, CYCLES = 4;
-
-  var ring = document.getElementById('ringFg');
-  var CIRC = 2 * Math.PI * 118;
-  ring.style.strokeDasharray = CIRC;
-  ring.style.strokeDashoffset = 0;
-
-  // state: phase 'focus' | 'short' | 'long'; cycle 1..4
-  var phase = 'focus', cycle = 1, remaining = FOCUS, total = FOCUS;
-  var running = false, endAt = null, tickId = null;
-
-  var digits = document.getElementById('digits');
-  var phaseLabel = document.getElementById('phaseLabel');
-  var cycleInfo = document.getElementById('cycleInfo');
-  var startBtn = document.getElementById('startBtn');
-  var dots = document.getElementById('dots').children;
-
-  // ===== Song ngữ VI/EN =====
-  var STR = {
-    vi: {
-      focus: 'Tập trung', shortBreak: 'Nghỉ ngắn', longBreak: 'Nghỉ dài', breakWord: 'Nghỉ',
-      session: function (c) { return 'Phiên ' + c + ' / ' + CYCLES; },
-      after: function (c) { return 'Sau phiên ' + c; },
-      longInfo: 'Hết 4 phiên — nghỉ 10 phút',
-      start: 'BẮT ĐẦU', pause: 'TẠM DỪNG', resume: 'TIẾP TỤC', skip: 'BỎ QUA', reset: 'ĐẶT LẠI',
-      skipTitle: 'Bỏ qua phiên này',
-      snd: 'ÂM NỀN', waves: 'Sóng biển', rain: 'Mưa', mute: 'Tắt âm nền', vol: 'Âm lượng',
-      home: '← Trang chủ',
-      hint: '25′ tập trung · 5′ nghỉ ngắn · ×4 → nghỉ dài 10′<br>Chuông chánh niệm thỉnh lúc vào phiên và lúc hết giờ (hết 4 phiên: 3 hồi).'
-    },
-    en: {
-      focus: 'Focus', shortBreak: 'Short break', longBreak: 'Long break', breakWord: 'Break',
-      session: function (c) { return 'Session ' + c + ' / ' + CYCLES; },
-      after: function (c) { return 'After session ' + c; },
-      longInfo: '4 sessions done — 10 min break',
-      start: 'START', pause: 'PAUSE', resume: 'RESUME', skip: 'SKIP', reset: 'RESET',
-      skipTitle: 'Skip this session',
-      snd: 'AMBIENT', waves: 'Ocean waves', rain: 'Rain', mute: 'Mute ambient', vol: 'Volume',
-      home: '← Home',
-      hint: '25′ focus · 5′ short break · ×4 → 10′ long break<br>A mindfulness bell rings as each session starts and ends (three rings after the 4th).'
-    }
-  };
-  // 'hn_lang' dùng chung với index.html — chọn ngôn ngữ ở trang chủ thì sang đây giữ nguyên.
-  // 'pomo_lang' là khoá cũ, giữ để người đã chọn trước 02/08/2026 không bị nhảy ngược về EN.
-  // Chưa chọn bao giờ → MẶC ĐỊNH TIẾNG ANH (anh chốt 02/08/2026), không đoán theo trình duyệt.
-  var lang = localStorage.getItem('hn_lang') || localStorage.getItem('pomo_lang') || 'en';
-  function T() { return STR[lang]; }
-
-  function applyLang() {
-    var t = T();
-    document.documentElement.lang = lang;
-    document.getElementById('homeTab').textContent = t.home;
-    document.getElementById('langTab').innerHTML = lang === 'vi' ? '<b>VI</b> · EN' : 'VI · <b>EN</b>';
-    var skipBtn = document.getElementById('skipBtn');
-    skipBtn.textContent = t.skip; skipBtn.title = t.skipTitle;
-    document.getElementById('resetBtn').textContent = t.reset;
-    document.getElementById('sndLabel').textContent = t.snd;
-    document.getElementById('sndWaves').title = t.waves;
-    document.getElementById('sndRain').title = t.rain;
-    document.getElementById('sndOff').title = t.mute;
-    document.getElementById('vol').title = t.vol;
-    document.getElementById('hint').innerHTML = t.hint;
-    render();
-  }
-
-  document.getElementById('langTab').addEventListener('click', function () {
-    lang = (lang === 'vi') ? 'en' : 'vi';
-    localStorage.setItem('hn_lang', lang);
-    applyLang();
-  });
-
-  function fmt(s) {
-    var m = Math.floor(s / 60), ss = s % 60;
-    return (m < 10 ? '0' : '') + m + ':' + (ss < 10 ? '0' : '') + ss;
-  }
-
-  function getCtx() {
-    if (!actx) actx = new (window.AudioContext || window.webkitAudioContext)();
-    if (actx.state === 'suspended') actx.resume();
-    return actx;
-  }
-
-  // ===== CHUÔNG CHÁNH NIỆM =====
-  // Chuông đồng KHÔNG có hoạ âm bội số nguyên như dây đàn — chúng lệch nhau,
-  // và đó chính là thứ làm tai nhận ra "chuông" thay vì tiếng bíp điện tử.
-  // Bộ tỷ lệ dưới đây theo mô hình chuông của Jean-Claude Risset.
-  // Hoạ âm càng cao tắt càng nhanh, để lại đuôi ngân trầm — giống chuông thật.
-  var BELL_PARTIALS = [
-    { r: 0.56, a: 1.00, d: 1.00 },
-    { r: 0.92, a: 0.67, d: 0.90 },
-    { r: 1.19, a: 1.00, d: 0.65 },
-    { r: 1.71, a: 0.80, d: 0.55 },
-    { r: 2.00, a: 1.20, d: 0.33 },
-    { r: 2.74, a: 0.70, d: 0.35 },
-    { r: 3.76, a: 0.50, d: 0.20 },
-    { r: 4.07, a: 0.45, d: 0.15 }
-  ];
-  var BELL_DUR = 7;   // đuôi ngân ~7 giây, để lặng nghe hết tiếng rồi mới vào phiên
-
-  function strikeBell(ctx, t0, f0, vol) {
-    var out = ctx.createGain();
-    out.gain.value = vol;
-    var lp = ctx.createBiquadFilter();   // bỏ bớt cạnh gắt cho ấm như đồng
-    lp.type = 'lowpass'; lp.frequency.value = 4200;
-    out.connect(lp); lp.connect(ctx.destination);
-
-    var tong = 0;
-    BELL_PARTIALS.forEach(function (p) { tong += p.a; });
-
-    BELL_PARTIALS.forEach(function (p, i) {
-      // 2 dao động lệch nhau vài phần nghìn → tiếng ngân "rung rung" của chuông đồng
-      [-1, 1].forEach(function (sign) {
-        var o = ctx.createOscillator(), g = ctx.createGain();
-        o.type = 'sine';
-        o.frequency.value = f0 * p.r * (1 + sign * 0.0012 * (i + 1));
-        var dur = BELL_DUR * p.d;
-        var amp = (p.a / tong) * 0.45;
-        g.gain.setValueAtTime(0.0001, t0);
-        g.gain.exponentialRampToValueAtTime(amp, t0 + 0.006);   // gõ vào: dựng gần như tức thì
-        g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);  // rồi tan dần
-        o.connect(g); g.connect(out);
-        o.start(t0); o.stop(t0 + dur + 0.05);
-      });
-    });
-
-    // tiếng chày gỗ chạm vành chuông — rất ngắn, nhưng thiếu nó nghe như đàn organ
-    var nlen = Math.floor(ctx.sampleRate * 0.05);
-    var nbuf = ctx.createBuffer(1, nlen, ctx.sampleRate);
-    var nd = nbuf.getChannelData(0);
-    for (var k = 0; k < nlen; k++) nd[k] = (Math.random() * 2 - 1) * (1 - k / nlen);
-    var ns = ctx.createBufferSource(); ns.buffer = nbuf;
-    var nf = ctx.createBiquadFilter();
-    nf.type = 'bandpass'; nf.frequency.value = f0 * 3.5; nf.Q.value = 1.2;
-    var ng = ctx.createGain(); ng.gain.value = 0.10;
-    ns.connect(nf); nf.connect(ng); ng.connect(out);
-    ns.start(t0); ns.stop(t0 + 0.06);
-  }
-
-  function ringBell(times) {
-    try {
-      var ctx = getCtx();
-      for (var i = 0; i < (times || 1); i++) {
-        strikeBell(ctx, ctx.currentTime + i * 2.6, 448, 0.7);
-      }
-    } catch (e) {}
-  }
-
-  function render() {
-    digits.textContent = fmt(remaining);
-    ring.style.strokeDashoffset = CIRC * (1 - remaining / total);
-
-    var t = T();
-    if (phase === 'focus') {
-      phaseLabel.textContent = t.focus;
-      phaseLabel.className = 'phase focus';
-      ring.classList.remove('break');
-      cycleInfo.textContent = t.session(cycle);
-    } else if (phase === 'short') {
-      phaseLabel.textContent = t.shortBreak;
-      phaseLabel.className = 'phase break';
-      ring.classList.add('break');
-      cycleInfo.textContent = t.after(cycle);
-    } else {
-      phaseLabel.textContent = t.longBreak;
-      phaseLabel.className = 'phase break';
-      ring.classList.add('break');
-      cycleInfo.textContent = t.longInfo;
-    }
-
-    for (var i = 0; i < CYCLES; i++) {
-      var d = dots[i];
-      var doneCount = (phase === 'focus') ? cycle - 1 : cycle;
-      if (phase === 'long') doneCount = CYCLES;
-      d.className = 'dot' + (i < doneCount ? ' done' : '') +
-        (phase === 'focus' && i === cycle - 1 ? ' current' : '');
-    }
-
-    document.title = (running ? fmt(remaining) + ' · ' : '') +
-      (phase === 'focus' ? t.focus : t.breakWord) + ' — Pomodoro';
-    startBtn.textContent = running ? t.pause : (remaining === total ? t.start : t.resume);
-  }
-
-  function nextPhase() {
-    if (phase === 'focus') {
-      if (cycle === CYCLES) { phase = 'long'; total = LONG; }
-      else { phase = 'short'; total = SHORT; }
-    } else if (phase === 'short') {
-      cycle += 1; phase = 'focus'; total = FOCUS;
-    } else { // long break done -> new round
-      cycle = 1; phase = 'focus'; total = FOCUS;
-    }
-    remaining = total;
-  }
-
-  function tick() {
-    remaining = Math.max(0, Math.round((endAt - Date.now()) / 1000));
-    if (remaining <= 0) {
-      // hết trọn 4 phiên: 3 tiếng chuông (theo lệ thỉnh 3 hồi), còn lại 1 tiếng
-      ringBell(phase === 'focus' && cycle === CYCLES ? 3 : 1);
-      nextPhase();
-      endAt = Date.now() + remaining * 1000; // auto-continue
-    }
-    render();
-  }
-
-  // ===== Âm nền ASMR (WebAudio, không cần file) =====
-  var sndMode = localStorage.getItem('pomo_snd') || 'waves'; // 'waves' | 'rain' | 'off'
-  var sndVol = Math.min(100, Math.max(0, parseInt(localStorage.getItem('pomo_vol') || '50', 10) || 50));
-  var actx = null, ambMaster = null, ambNodes = [];
-
-  function makeNoise(ctx, kind) {
-    var len = ctx.sampleRate * 4;
-    var buf = ctx.createBuffer(1, len, ctx.sampleRate);
-    var d = buf.getChannelData(0), b = 0;
-    for (var i = 0; i < len; i++) {
-      var w = Math.random() * 2 - 1;
-      if (kind === 'brown') { b = (b + 0.02 * w) / 1.02; d[i] = b * 3.5; }
-      else d[i] = w;
-    }
-    var src = ctx.createBufferSource();
-    src.buffer = buf; src.loop = true;
-    return src;
-  }
-
-  function ambientOn() {
-    if (sndMode === 'off' || ambMaster) return;
-    getCtx();
-
-    ambMaster = actx.createGain();
-    ambMaster.gain.setValueAtTime(0.0001, actx.currentTime);
-    ambMaster.gain.exponentialRampToValueAtTime(Math.max(0.001, sndVol / 100), actx.currentTime + 1.5);
-    ambMaster.connect(actx.destination);
-
-    if (sndMode === 'waves') {
-      var sea = makeNoise(actx, 'brown');
-      var lp = actx.createBiquadFilter();
-      lp.type = 'lowpass'; lp.frequency.value = 420; lp.Q.value = 0.7;
-      var swell = actx.createGain(); swell.gain.value = 0.55;
-      // 2 LFO lệch pha cho sóng dào lên hạ xuống tự nhiên
-      var lfo1 = actx.createOscillator(); lfo1.frequency.value = 0.08;
-      var lg1 = actx.createGain(); lg1.gain.value = 0.3;
-      var lfo2 = actx.createOscillator(); lfo2.frequency.value = 0.19;
-      var lg2 = actx.createGain(); lg2.gain.value = 0.12;
-      lfo1.connect(lg1); lg1.connect(swell.gain);
-      lfo2.connect(lg2); lg2.connect(swell.gain);
-      // LFO nhẹ cho tần số lọc — sóng gần/xa
-      var lfoF = actx.createOscillator(); lfoF.frequency.value = 0.05;
-      var lgF = actx.createGain(); lgF.gain.value = 150;
-      lfoF.connect(lgF); lgF.connect(lp.frequency);
-      sea.connect(lp); lp.connect(swell); swell.connect(ambMaster);
-      sea.start(); lfo1.start(); lfo2.start(); lfoF.start();
-      ambNodes = [sea, lfo1, lfo2, lfoF];
-    } else if (sndMode === 'rain') {
-      var rain = makeNoise(actx, 'white');
-      var hp = actx.createBiquadFilter();
-      hp.type = 'highpass'; hp.frequency.value = 350;
-      var lp2 = actx.createBiquadFilter();
-      lp2.type = 'lowpass'; lp2.frequency.value = 5000;
-      var g = actx.createGain(); g.gain.value = 0.22;
-      rain.connect(hp); hp.connect(lp2); lp2.connect(g); g.connect(ambMaster);
-      rain.start();
-      ambNodes = [rain];
-    }
-  }
-
-  function ambientOff() {
-    if (!ambMaster) return;
-    var m = ambMaster, nodes = ambNodes;
-    ambMaster = null; ambNodes = [];
-    m.gain.cancelScheduledValues(actx.currentTime);
-    m.gain.setValueAtTime(Math.max(0.0001, m.gain.value), actx.currentTime);
-    m.gain.exponentialRampToValueAtTime(0.0001, actx.currentTime + 0.6);
-    setTimeout(function () {
-      nodes.forEach(function (n) { try { n.stop(); } catch (e) {} });
-      m.disconnect();
-    }, 700);
-  }
-
-  function sndButtons() {
-    document.getElementById('sndWaves').className = 'snd' + (sndMode === 'waves' ? ' active' : '');
-    document.getElementById('sndRain').className = 'snd' + (sndMode === 'rain' ? ' active' : '');
-    document.getElementById('sndOff').className = 'snd' + (sndMode === 'off' ? ' active' : '');
-  }
-
-  function setSnd(mode) {
-    sndMode = mode;
-    localStorage.setItem('pomo_snd', mode);
-    sndButtons();
-    ambientOff();
-    if (running) ambientOn();
-  }
-
-  document.getElementById('sndWaves').addEventListener('click', function () { setSnd('waves'); });
-  document.getElementById('sndRain').addEventListener('click', function () { setSnd('rain'); });
-  document.getElementById('sndOff').addEventListener('click', function () { setSnd('off'); });
-
-  var volSlider = document.getElementById('vol');
-  volSlider.value = sndVol;
-  volSlider.addEventListener('input', function () {
-    sndVol = parseInt(this.value, 10);
-    localStorage.setItem('pomo_vol', sndVol);
-    if (ambMaster) ambMaster.gain.setTargetAtTime(Math.max(0.001, sndVol / 100), actx.currentTime, 0.1);
-  });
-  sndButtons();
-
-  function start() {
-    running = true;
-    endAt = Date.now() + remaining * 1000;
-    tickId = setInterval(tick, 250);
-    ringBell(1);   // thỉnh chuông vào phiên
-    ambientOn();
-    render();
-  }
-  function pause() {
-    running = false;
-    clearInterval(tickId);
-    ambientOff();
-    render();
-  }
-
-  startBtn.addEventListener('click', function () { running ? pause() : start(); });
-
-  document.getElementById('skipBtn').addEventListener('click', function () {
-    nextPhase();
-    if (running) endAt = Date.now() + remaining * 1000;
-    render();
-  });
-
-  document.getElementById('resetBtn').addEventListener('click', function () {
-    pause();
-    phase = 'focus'; cycle = 1; total = FOCUS; remaining = FOCUS;
-    document.title = 'Pomodoro';
-    render();
-  });
-
-  document.addEventListener('keydown', function (e) {
-    if (e.code === 'Space') { e.preventDefault(); running ? pause() : start(); }
-  });
-
-  applyLang();
-})();
-</script>
+<script>(function() {
+var FOCUS = 25 * 60, SHORT = 5 * 60, LONG = 10 * 60, CYCLES = 4;
+var ring = document.getElementById("ringFg");
+var CIRC = 2 * Math.PI * 118;
+ring.style.strokeDasharray = CIRC;
+ring.style.strokeDashoffset = 0;
+var phase = "focus", cycle = 1, remaining = FOCUS, total = FOCUS;
+var running = false, endAt = null, tickId = null;
+var digits = document.getElementById("digits");
+var phaseLabel = document.getElementById("phaseLabel");
+var cycleInfo = document.getElementById("cycleInfo");
+var startBtn = document.getElementById("startBtn");
+var dots = document.getElementById("dots").children;
+var STR = {
+vi: {
+focus: "Tập trung",
+shortBreak: "Nghỉ ngắn",
+longBreak: "Nghỉ dài",
+breakWord: "Nghỉ",
+session: function(c) {
+return "Phiên " + c + " / " + CYCLES;
+},
+after: function(c) {
+return "Sau phiên " + c;
+},
+longInfo: "Hết 4 phiên — nghỉ 10 phút",
+start: "BẮT ĐẦU",
+pause: "TẠM DỪNG",
+resume: "TIẾP TỤC",
+skip: "BỎ QUA",
+reset: "ĐẶT LẠI",
+skipTitle: "Bỏ qua phiên này",
+snd: "ÂM NỀN",
+waves: "Sóng biển",
+rain: "Mưa",
+mute: "Tắt âm nền",
+vol: "Âm lượng",
+home: "← Trang chủ",
+hint: "25′ tập trung · 5′ nghỉ ngắn · ×4 → nghỉ dài 10′<br>Chuông chánh niệm thỉnh lúc vào phiên và lúc hết giờ (hết 4 phiên: 3 hồi)."
+},
+en: {
+focus: "Focus",
+shortBreak: "Short break",
+longBreak: "Long break",
+breakWord: "Break",
+session: function(c) {
+return "Session " + c + " / " + CYCLES;
+},
+after: function(c) {
+return "After session " + c;
+},
+longInfo: "4 sessions done — 10 min break",
+start: "START",
+pause: "PAUSE",
+resume: "RESUME",
+skip: "SKIP",
+reset: "RESET",
+skipTitle: "Skip this session",
+snd: "AMBIENT",
+waves: "Ocean waves",
+rain: "Rain",
+mute: "Mute ambient",
+vol: "Volume",
+home: "← Home",
+hint: "25′ focus · 5′ short break · ×4 → 10′ long break<br>A mindfulness bell rings as each session starts and ends (three rings after the 4th)."
+}
+};
+var lang = localStorage.getItem("hn_lang") || localStorage.getItem("pomo_lang") || "en";
+function T() {
+return STR[lang];
+}
+function applyLang() {
+var t = T();
+document.documentElement.lang = lang;
+document.getElementById("homeTab").textContent = t.home;
+document.getElementById("langTab").innerHTML = lang === "vi" ? "<b>VI</b> · EN" : "VI · <b>EN</b>";
+var skipBtn = document.getElementById("skipBtn");
+skipBtn.textContent = t.skip;
+skipBtn.title = t.skipTitle;
+document.getElementById("resetBtn").textContent = t.reset;
+document.getElementById("sndLabel").textContent = t.snd;
+document.getElementById("sndWaves").title = t.waves;
+document.getElementById("sndRain").title = t.rain;
+document.getElementById("sndOff").title = t.mute;
+document.getElementById("vol").title = t.vol;
+document.getElementById("hint").innerHTML = t.hint;
+render();
+}
+document.getElementById("langTab").addEventListener("click", (function() {
+lang = lang === "vi" ? "en" : "vi";
+localStorage.setItem("hn_lang", lang);
+applyLang();
+}));
+function fmt(s) {
+var m = Math.floor(s / 60), ss = s % 60;
+return (m < 10 ? "0" : "") + m + ":" + (ss < 10 ? "0" : "") + ss;
+}
+function getCtx() {
+if (!actx) actx = new (window.AudioContext || window.webkitAudioContext);
+if (actx.state === "suspended") actx.resume();
+return actx;
+}
+var BELL_PARTIALS = [ {
+r: .56,
+a: 1,
+d: 1
+}, {
+r: .92,
+a: .67,
+d: .9
+}, {
+r: 1.19,
+a: 1,
+d: .65
+}, {
+r: 1.71,
+a: .8,
+d: .55
+}, {
+r: 2,
+a: 1.2,
+d: .33
+}, {
+r: 2.74,
+a: .7,
+d: .35
+}, {
+r: 3.76,
+a: .5,
+d: .2
+}, {
+r: 4.07,
+a: .45,
+d: .15
+} ];
+var BELL_DUR = 7;
+function strikeBell(ctx, t0, f0, vol) {
+var out = ctx.createGain();
+out.gain.value = vol;
+var lp = ctx.createBiquadFilter();
+lp.type = "lowpass";
+lp.frequency.value = 4200;
+out.connect(lp);
+lp.connect(ctx.destination);
+var tong = 0;
+BELL_PARTIALS.forEach((function(p) {
+tong += p.a;
+}));
+BELL_PARTIALS.forEach((function(p, i) {
+[ -1, 1 ].forEach((function(sign) {
+var o = ctx.createOscillator(), g = ctx.createGain();
+o.type = "sine";
+o.frequency.value = f0 * p.r * (1 + sign * .0012 * (i + 1));
+var dur = BELL_DUR * p.d;
+var amp = p.a / tong * .45;
+g.gain.setValueAtTime(1e-4, t0);
+g.gain.exponentialRampToValueAtTime(amp, t0 + .006);
+g.gain.exponentialRampToValueAtTime(1e-4, t0 + dur);
+o.connect(g);
+g.connect(out);
+o.start(t0);
+o.stop(t0 + dur + .05);
+}));
+}));
+var nlen = Math.floor(ctx.sampleRate * .05);
+var nbuf = ctx.createBuffer(1, nlen, ctx.sampleRate);
+var nd = nbuf.getChannelData(0);
+for (var k = 0; k < nlen; k++) nd[k] = (Math.random() * 2 - 1) * (1 - k / nlen);
+var ns = ctx.createBufferSource();
+ns.buffer = nbuf;
+var nf = ctx.createBiquadFilter();
+nf.type = "bandpass";
+nf.frequency.value = f0 * 3.5;
+nf.Q.value = 1.2;
+var ng = ctx.createGain();
+ng.gain.value = .1;
+ns.connect(nf);
+nf.connect(ng);
+ng.connect(out);
+ns.start(t0);
+ns.stop(t0 + .06);
+}
+function ringBell(times) {
+try {
+var ctx = getCtx();
+for (var i = 0; i < (times || 1); i++) {
+strikeBell(ctx, ctx.currentTime + i * 2.6, 448, .7);
+}
+} catch (e) {}
+}
+function render() {
+digits.textContent = fmt(remaining);
+ring.style.strokeDashoffset = CIRC * (1 - remaining / total);
+var t = T();
+if (phase === "focus") {
+phaseLabel.textContent = t.focus;
+phaseLabel.className = "phase focus";
+ring.classList.remove("break");
+cycleInfo.textContent = t.session(cycle);
+} else if (phase === "short") {
+phaseLabel.textContent = t.shortBreak;
+phaseLabel.className = "phase break";
+ring.classList.add("break");
+cycleInfo.textContent = t.after(cycle);
+} else {
+phaseLabel.textContent = t.longBreak;
+phaseLabel.className = "phase break";
+ring.classList.add("break");
+cycleInfo.textContent = t.longInfo;
+}
+for (var i = 0; i < CYCLES; i++) {
+var d = dots[i];
+var doneCount = phase === "focus" ? cycle - 1 : cycle;
+if (phase === "long") doneCount = CYCLES;
+d.className = "dot" + (i < doneCount ? " done" : "") + (phase === "focus" && i === cycle - 1 ? " current" : "");
+}
+document.title = (running ? fmt(remaining) + " · " : "") + (phase === "focus" ? t.focus : t.breakWord) + " — Pomodoro";
+startBtn.textContent = running ? t.pause : remaining === total ? t.start : t.resume;
+}
+function nextPhase() {
+if (phase === "focus") {
+if (cycle === CYCLES) {
+phase = "long";
+total = LONG;
+} else {
+phase = "short";
+total = SHORT;
+}
+} else if (phase === "short") {
+cycle += 1;
+phase = "focus";
+total = FOCUS;
+} else {
+cycle = 1;
+phase = "focus";
+total = FOCUS;
+}
+remaining = total;
+}
+function tick() {
+remaining = Math.max(0, Math.round((endAt - Date.now()) / 1e3));
+if (remaining <= 0) {
+ringBell(phase === "focus" && cycle === CYCLES ? 3 : 1);
+nextPhase();
+endAt = Date.now() + remaining * 1e3;
+}
+render();
+}
+var sndMode = localStorage.getItem("pomo_snd") || "waves";
+var sndVol = Math.min(100, Math.max(0, parseInt(localStorage.getItem("pomo_vol") || "50", 10) || 50));
+var actx = null, ambMaster = null, ambNodes = [];
+function makeNoise(ctx, kind) {
+var len = ctx.sampleRate * 4;
+var buf = ctx.createBuffer(1, len, ctx.sampleRate);
+var d = buf.getChannelData(0), b = 0;
+for (var i = 0; i < len; i++) {
+var w = Math.random() * 2 - 1;
+if (kind === "brown") {
+b = (b + .02 * w) / 1.02;
+d[i] = b * 3.5;
+} else d[i] = w;
+}
+var src = ctx.createBufferSource();
+src.buffer = buf;
+src.loop = true;
+return src;
+}
+function ambientOn() {
+if (sndMode === "off" || ambMaster) return;
+getCtx();
+ambMaster = actx.createGain();
+ambMaster.gain.setValueAtTime(1e-4, actx.currentTime);
+ambMaster.gain.exponentialRampToValueAtTime(Math.max(.001, sndVol / 100), actx.currentTime + 1.5);
+ambMaster.connect(actx.destination);
+if (sndMode === "waves") {
+var sea = makeNoise(actx, "brown");
+var lp = actx.createBiquadFilter();
+lp.type = "lowpass";
+lp.frequency.value = 420;
+lp.Q.value = .7;
+var swell = actx.createGain();
+swell.gain.value = .55;
+var lfo1 = actx.createOscillator();
+lfo1.frequency.value = .08;
+var lg1 = actx.createGain();
+lg1.gain.value = .3;
+var lfo2 = actx.createOscillator();
+lfo2.frequency.value = .19;
+var lg2 = actx.createGain();
+lg2.gain.value = .12;
+lfo1.connect(lg1);
+lg1.connect(swell.gain);
+lfo2.connect(lg2);
+lg2.connect(swell.gain);
+var lfoF = actx.createOscillator();
+lfoF.frequency.value = .05;
+var lgF = actx.createGain();
+lgF.gain.value = 150;
+lfoF.connect(lgF);
+lgF.connect(lp.frequency);
+sea.connect(lp);
+lp.connect(swell);
+swell.connect(ambMaster);
+sea.start();
+lfo1.start();
+lfo2.start();
+lfoF.start();
+ambNodes = [ sea, lfo1, lfo2, lfoF ];
+} else if (sndMode === "rain") {
+var rain = makeNoise(actx, "white");
+var hp = actx.createBiquadFilter();
+hp.type = "highpass";
+hp.frequency.value = 350;
+var lp2 = actx.createBiquadFilter();
+lp2.type = "lowpass";
+lp2.frequency.value = 5e3;
+var g = actx.createGain();
+g.gain.value = .22;
+rain.connect(hp);
+hp.connect(lp2);
+lp2.connect(g);
+g.connect(ambMaster);
+rain.start();
+ambNodes = [ rain ];
+}
+}
+function ambientOff() {
+if (!ambMaster) return;
+var m = ambMaster, nodes = ambNodes;
+ambMaster = null;
+ambNodes = [];
+m.gain.cancelScheduledValues(actx.currentTime);
+m.gain.setValueAtTime(Math.max(1e-4, m.gain.value), actx.currentTime);
+m.gain.exponentialRampToValueAtTime(1e-4, actx.currentTime + .6);
+setTimeout((function() {
+nodes.forEach((function(n) {
+try {
+n.stop();
+} catch (e) {}
+}));
+m.disconnect();
+}), 700);
+}
+function sndButtons() {
+document.getElementById("sndWaves").className = "snd" + (sndMode === "waves" ? " active" : "");
+document.getElementById("sndRain").className = "snd" + (sndMode === "rain" ? " active" : "");
+document.getElementById("sndOff").className = "snd" + (sndMode === "off" ? " active" : "");
+}
+function setSnd(mode) {
+sndMode = mode;
+localStorage.setItem("pomo_snd", mode);
+sndButtons();
+ambientOff();
+if (running) ambientOn();
+}
+document.getElementById("sndWaves").addEventListener("click", (function() {
+setSnd("waves");
+}));
+document.getElementById("sndRain").addEventListener("click", (function() {
+setSnd("rain");
+}));
+document.getElementById("sndOff").addEventListener("click", (function() {
+setSnd("off");
+}));
+var volSlider = document.getElementById("vol");
+volSlider.value = sndVol;
+volSlider.addEventListener("input", (function() {
+sndVol = parseInt(this.value, 10);
+localStorage.setItem("pomo_vol", sndVol);
+if (ambMaster) ambMaster.gain.setTargetAtTime(Math.max(.001, sndVol / 100), actx.currentTime, .1);
+}));
+sndButtons();
+function start() {
+running = true;
+endAt = Date.now() + remaining * 1e3;
+tickId = setInterval(tick, 250);
+ringBell(1);
+ambientOn();
+render();
+}
+function pause() {
+running = false;
+clearInterval(tickId);
+ambientOff();
+render();
+}
+startBtn.addEventListener("click", (function() {
+running ? pause() : start();
+}));
+document.getElementById("skipBtn").addEventListener("click", (function() {
+nextPhase();
+if (running) endAt = Date.now() + remaining * 1e3;
+render();
+}));
+document.getElementById("resetBtn").addEventListener("click", (function() {
+pause();
+phase = "focus";
+cycle = 1;
+total = FOCUS;
+remaining = FOCUS;
+document.title = "Pomodoro";
+render();
+}));
+document.addEventListener("keydown", (function(e) {
+if (e.code === "Space") {
+e.preventDefault();
+running ? pause() : start();
+}
+}));
+applyLang();
+})()</script>
 </body>
 </html>

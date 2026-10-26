@@ -1,15 +1,56 @@
 <!doctype html>
-<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow"><title>Mở Miệng đã chuyển</title>
-<style>body{margin:0;font:16px/1.5 system-ui,sans-serif;background:#f3f5f8;color:#14212e;display:grid;place-items:center;min-height:100vh;padding:16px;box-sizing:border-box}
-.c{background:#fff;border:1px solid #e1e6ec;border-radius:16px;padding:20px;max-width:420px}a{display:block;margin-top:14px;background:#1e6fb8;color:#fff;text-align:center;padding:12px;border-radius:12px;text-decoration:none;font-weight:600}
-@media (prefers-color-scheme:dark){body{background:#0b141d;color:#e6edf3}.c{background:#132230;border-color:#22364a}}</style></head>
-<body><div class="c"><h2 style="margin:0 0 6px">Mở Miệng đã chuyển sang địa chỉ mới</h2>
-<p style="margin:0">Bản thử ở đây đã đóng. Mở địa chỉ mới, cài lại app ra màn hình chính rồi nhập mã kích hoạt.</p>
+<style>body {
+  margin: 0;
+  font: 16px/1.5 system-ui,sans-serif;
+  background: #f3f5f8;
+  color: #14212e;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  padding: 16px;
+  box-sizing: border-box
+}
+.c {
+  background: #fff;
+  border: 1px solid #e1e6ec;
+  border-radius: 16px;
+  padding: 20px;
+  max-width: 420px
+}
+a {
+  display: block;
+  margin-top: 14px;
+  background: #1e6fb8;
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600
+}
+@media (prefers-color-scheme:dark) {
+  body {
+    background: #0b141d;
+    color: #e6edf3
+  }
+  .c {
+    background: #132230;
+    border-color: #22364a
+  }
+}</style></head>
+<body><div class="c"><h2 style="* {
+  margin: 0 0 6px
+}">Mở Miệng đã chuyển sang địa chỉ mới</h2>
+<p style="* {
+  margin: 0
+}">Bản thử ở đây đã đóng. Mở địa chỉ mới, cài lại app ra màn hình chính rồi nhập mã kích hoạt.</p>
 <a href="https://app.hieunguyen.net/">Mở Mở Miệng</a></div>
-<script>
-// gỡ bản thử cũ khỏi máy: xoá máy chạy ngầm và mọi bài đã lưu của bản thử
-if ('serviceWorker' in navigator) navigator.serviceWorker.getRegistrations().then(rs => rs.forEach(r => r.unregister())).catch(() => {});
-if ('caches' in window) caches.keys().then(ks => ks.filter(k => k.startsWith('mm-')).forEach(k => caches.delete(k))).catch(() => {});
-try { Object.keys(localStorage).filter(k => k.startsWith('mm-so-tai') || k === 'mm-am-tai').forEach(k => localStorage.removeItem(k)); } catch(e){}
-</script></body></html>
+<script>if ("serviceWorker" in navigator) navigator.serviceWorker.getRegistrations().then((rs => rs.forEach((r => r.unregister())))).catch((() => {}));
+
+if ("caches" in window) caches.keys().then((ks => ks.filter((k => k.startsWith("mm-"))).forEach((k => caches.delete(k))))).catch((() => {}));
+
+try {
+Object.keys(localStorage).filter((k => k.startsWith("mm-so-tai") || k === "mm-am-tai")).forEach((k => localStorage.removeItem(k)));
+} catch (e) {}</script></body></html>

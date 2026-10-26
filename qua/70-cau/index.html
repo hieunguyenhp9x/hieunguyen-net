@@ -2,7 +2,7 @@
 <html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Free: 70 Deck Officer interview questions with sample answers — Hieu at Sea</title>
 <meta name="description" content="70 interview questions for Third and Second Officer, each with what the interviewer is testing and a full sample answer. Free. Vietnamese translation included.">
 <meta property="og:type" content="website">
@@ -10,111 +10,430 @@
 <meta property="og:title" content="Free: 70 Deck Officer interview questions with sample answers · 70 câu phỏng vấn Phó ba, Phó hai">
 <meta property="og:description" content="70 interview questions for 3/O and 2/O with sample answers. Free.">
 <meta property="og:url" content="https://hieunguyen.net/qua/70-cau/">
-<!-- TRANG QUÀ 70 CÂU (13/10/2026, anh lệnh "làm y hệt" trang editvideo.trantrongthanhtung.com/camnang):
-     nói rõ NGAY ĐẦU là điền email để nhận, không còn cảnh bấm "Tải về" rồi mới bị hỏi email.
-     Link bot Botcake/Meta: /t/70-cau/ -> trang này (giữ utm).
-     Điền xong chia theo A/B dùng chung với /tai-lieu (localStorage hn_ab_tl):
-       A = gửi Kit form + mở trang đọc /doc/?f=70-cau ngay · B = máy chủ gửi thư (app.hieunguyen.net/api/tl), bấm nút trong thư mới mở.
-     GA4: sign_up form_location = qua_70cau | qua_70cau_B | qua_70cau_B_ve_A · form_start · gate_open (nhìn thấy form). -->
-<script>
-(function () {
-  var l = null, m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
-  if (m) { l = m[1]; try { localStorage.setItem('hn_lang', l); } catch (e) {} }
-  if (!l) { try { l = localStorage.getItem('hn_lang'); } catch (e) {} }
-  if (l !== 'vi' && l !== 'en') l = 'en';
-  document.documentElement.setAttribute('data-lang', l);
-  document.documentElement.lang = l;
+
+<script>(function() {
+var l = null, m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
+if (m) {
+l = m[1];
+try {
+localStorage.setItem("hn_lang", l);
+} catch (e) {}
+}
+if (!l) {
+try {
+l = localStorage.getItem("hn_lang");
+} catch (e) {}
+}
+if (l !== "vi" && l !== "en") l = "en";
+document.documentElement.setAttribute("data-lang", l);
+document.documentElement.lang = l;
 })();
-(function () {
-  try {
-    var p = new URLSearchParams(location.search);
-    if (p.has('notrack')) localStorage.setItem('hn_notrack', '1');
-    else if (p.has('track')) localStorage.removeItem('hn_notrack');
-    if (localStorage.getItem('hn_notrack') === '1') return;
-  } catch (e) {}
-  var ga = document.createElement('script');
-  ga.async = 1; ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK';
-  document.head.appendChild(ga);
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function () { dataLayer.push(arguments); };
-  gtag('js', new Date());
-  gtag('config', 'G-TNVKB32ZPK');
-  (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "xvzwl9diz8");
-})();
-</script>
-<style>
-  :root{ --navy:#0a1628; --navy-2:#10203a; --navy-3:#1a3050; --gold:#d4a95a; --gold-light:#e8c88a;
-         --text:#e8edf4; --text-dim:#9fb0c4; --line:rgba(212,169,90,.22); }
-  *{box-sizing:border-box; margin:0; padding:0}
-  body{background:var(--navy); color:var(--text); line-height:1.6; font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; -webkit-font-smoothing:antialiased}
-  html[data-lang="vi"] .lg-en, html:not([data-lang="vi"]) .lg-vi{display:none !important}
-  a{color:var(--gold)}
-  .wrap{max-width:720px; margin:0 auto; padding:0 18px}
-  .lang{display:flex; justify-content:center; padding:16px 0 0}
-  .lang .seg{display:inline-flex; background:var(--navy-2); border:1px solid var(--line); border-radius:999px; padding:4px; gap:4px}
-  .lang button{background:none; border:none; color:var(--text-dim); font:inherit; font-weight:700; font-size:13px; padding:6px 14px; border-radius:999px; cursor:pointer}
-  .lang button[aria-pressed="true"]{background:var(--gold); color:var(--navy)}
 
-  section{padding:40px 0; border-bottom:1px solid var(--line)}
-  .kicker{color:var(--gold); font-weight:800; letter-spacing:.12em; font-size:12.5px; text-transform:uppercase; margin-bottom:10px}
-  h1{font-size:30px; line-height:1.22; margin-bottom:14px}
-  h2{font-size:23px; line-height:1.3; margin-bottom:14px}
-  .lead{color:var(--text-dim); font-size:16.5px; margin-bottom:18px}
-  ul.tick{list-style:none; margin:0 0 22px}
-  ul.tick li{position:relative; padding-left:28px; margin-bottom:9px; font-size:15.5px}
-  ul.tick li::before{content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:900}
-  ul.dau{list-style:none}
-  /* 16/10: trước đóng khung y hệt ô mục lục A–H (bấm được) -> khách chạm tưởng nút (Clarity 6 cú bấm hụt). Giờ là dòng gạch đỏ bên trái, không khung. */
-  ul.dau li{border-left:3px solid rgba(224,90,90,.65); padding:6px 0 6px 14px; margin-bottom:12px; font-size:15.5px}
-
-  .form{background:var(--navy-2); border:1px solid var(--gold); border-radius:16px; padding:20px 18px}
-  .form label{display:block; font-size:13.5px; color:var(--text-dim); margin:0 0 5px}
-  .form input{width:100%; background:var(--navy); color:var(--text); border:1px solid rgba(212,169,90,.45); border-radius:10px; padding:13px 14px; font:inherit; font-size:16px; margin-bottom:14px}
-  .form input.sai{border-color:#e05a5a}
-  .form button{width:100%; background:var(--gold); color:var(--navy); border:none; border-radius:12px; padding:15px; font:inherit; font-weight:900; font-size:16.5px; letter-spacing:.03em; cursor:pointer}
-  .form button:disabled{opacity:.85; cursor:default}
-  .form button .xoay{display:inline-block; width:15px; height:15px; margin:0 8px -2px 0; border:2.5px solid rgba(10,22,40,.3); border-top-color:var(--navy); border-radius:50%; animation:xoay .8s linear infinite}
-  @keyframes xoay{to{transform:rotate(360deg)}}
-  .form .nho{color:var(--text-dim); font-size:12.8px; text-align:center; margin-top:10px}
-  .form .loi{color:#ff9a9a; font-size:14px; margin:-6px 0 12px; display:none}
-  .hp{position:absolute; left:-5000px; width:1px; height:1px; overflow:hidden}
-  .xong{text-align:center}
-  .xong .to{font-size:40px}
-  .xong h3{font-size:20px; margin:6px 0 8px}
-  .xong p{color:var(--text-dim); font-size:15px; margin-bottom:14px}
-  .nut{display:inline-block; background:var(--gold); color:var(--navy); font-weight:800; text-decoration:none; border-radius:12px; padding:12px 20px}
-  .lai{background:none; border:none; color:var(--gold); font:inherit; font-size:13.5px; text-decoration:underline; cursor:pointer}
-  .lai:disabled{color:var(--text-dim); text-decoration:none}
-  .roi{margin-top:12px; font-size:14px; color:var(--text-dim); text-align:center}
-
-  .chot{font-size:19px; font-weight:800; line-height:1.4; color:var(--gold-light); margin-bottom:12px}
-  .phan{color:var(--gold); font-weight:800; font-size:14px; letter-spacing:.06em; margin:22px 0 10px; text-transform:uppercase}
-  .muc{cursor:pointer; position:relative; padding-right:34px !important; display:flex; gap:14px; background:var(--navy-2); border:1px solid var(--line); border-radius:12px; padding:14px; margin-bottom:10px}
-  .muc .so{flex:0 0 38px; height:38px; border-radius:10px; background:var(--navy-3); color:var(--gold); font-weight:900; display:flex; align-items:center; justify-content:center; font-size:17px}
-  .muc b{display:block; font-size:15.5px}
-  .muc::after{content:'+'; position:absolute; right:14px; top:14px; color:var(--gold); font-weight:900; font-size:20px; line-height:1}
-  .muc.mo::after{content:'−'}
-  .muc .vd{display:none; margin-top:10px; padding-top:10px; border-top:1px dashed var(--line)}
-  .muc.mo .vd{display:block}
-  .muc .vd i{display:block; font-style:normal; color:var(--text); font-size:14.5px; margin:0 0 6px}
-  .muc .vd i::before{content:'“'; color:var(--gold); margin-right:2px}
-  .muc .vd i::after{content:'”'; color:var(--gold)}
-  .muc .vd .them{display:inline-block; margin-top:4px; color:var(--gold); font-weight:700; font-size:14px; text-decoration:underline}
-  .muc span{color:var(--text-dim); font-size:14.5px}
-  .tac{display:flex; gap:16px; align-items:flex-start}
-  .tac .anh{flex:0 0 92px; height:92px; border-radius:50%; background:var(--navy-3) center/cover; border:2px solid var(--gold)}
-  .faq details{background:var(--navy-2); border:1px solid var(--line); border-radius:12px; padding:12px 15px; margin-bottom:10px}
-  .faq summary{font-weight:700; cursor:pointer}
-  .faq p{color:var(--text-dim); margin-top:8px; font-size:15px}
-  footer{padding:30px 0 40px; color:var(--text-dim); font-size:13.5px; text-align:center}
-  @media (max-width:480px){ h1{font-size:25px} h2{font-size:20.5px} section{padding:30px 0} .tac{flex-direction:column} }
-</style>
-<script src="/assets/kiem-email.js" defer></script>
-<script src="/assets/meta-pixel.js" defer></script>
+(function() {
+try {
+var p = new URLSearchParams(location.search);
+if (p.has("notrack")) localStorage.setItem("hn_notrack", "1"); else if (p.has("track")) localStorage.removeItem("hn_notrack");
+if (localStorage.getItem("hn_notrack") === "1") return;
+} catch (e) {}
+var ga = document.createElement("script");
+ga.async = 1;
+ga.src = "https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK";
+document.head.appendChild(ga);
+window.dataLayer = window.dataLayer || [];
+window.gtag = function() {
+dataLayer.push(arguments);
+};
+gtag("js", new Date);
+gtag("config", "G-TNVKB32ZPK");
+(function(c, l, a, r, i, t, y) {
+c[a] = c[a] || function() {
+(c[a].q = c[a].q || []).push(arguments);
+};
+t = l.createElement(r);
+t.async = 1;
+t.src = "https://www.clarity.ms/tag/" + i;
+y = l.getElementsByTagName(r)[0];
+y.parentNode.insertBefore(t, y);
+})(window, document, "clarity", "script", "xvzwl9diz8");
+})()</script>
+<style>:root {
+  --navy: #0a1628;
+  --navy-2: #10203a;
+  --navy-3: #1a3050;
+  --gold: #d4a95a;
+  --gold-light: #e8c88a;
+  --text: #e8edf4;
+  --text-dim: #9fb0c4;
+  --line: rgba(212,169,90,.22)
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+body {
+  background: var(--navy);
+  color: var(--text);
+  line-height: 1.6;
+  font-family: "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased
+}
+html:not([data-lang="vi"]) .lg-vi,
+html[data-lang="vi"] .lg-en {
+  display: none!important
+}
+a {
+  color: var(--gold)
+}
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 18px
+}
+.lang {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0 0
+}
+.lang .seg {
+  display: inline-flex;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 4px
+}
+.lang button {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer
+}
+.lang button[aria-pressed="true"] {
+  background: var(--gold);
+  color: var(--navy)
+}
+section {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--line)
+}
+.kicker {
+  color: var(--gold);
+  font-weight: 800;
+  letter-spacing: .12em;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px
+}
+h1 {
+  font-size: 30px;
+  line-height: 1.22;
+  margin-bottom: 14px
+}
+h2 {
+  font-size: 23px;
+  line-height: 1.3;
+  margin-bottom: 14px
+}
+.lead {
+  color: var(--text-dim);
+  font-size: 16.5px;
+  margin-bottom: 18px
+}
+ul.tick {
+  list-style: none;
+  margin: 0 0 22px
+}
+ul.tick li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 9px;
+  font-size: 15.5px
+}
+ul.tick li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 900
+}
+ul.dau {
+  list-style: none
+}
+ul.dau li {
+  border-left: 3px solid rgba(224,90,90,.65);
+  padding: 6px 0 6px 14px;
+  margin-bottom: 12px;
+  font-size: 15.5px
+}
+.form {
+  background: var(--navy-2);
+  border: 1px solid var(--gold);
+  border-radius: 16px;
+  padding: 20px 18px
+}
+.form label {
+  display: block;
+  font-size: 13.5px;
+  color: var(--text-dim);
+  margin: 0 0 5px
+}
+.form input {
+  width: 100%;
+  background: var(--navy);
+  color: var(--text);
+  border: 1px solid rgba(212,169,90,.45);
+  border-radius: 10px;
+  padding: 13px 14px;
+  font: inherit;
+  font-size: 16px;
+  margin-bottom: 14px
+}
+.form input.sai {
+  border-color: #e05a5a
+}
+.form button {
+  width: 100%;
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  border-radius: 12px;
+  padding: 15px;
+  font: inherit;
+  font-weight: 900;
+  font-size: 16.5px;
+  letter-spacing: .03em;
+  cursor: pointer
+}
+.form button:disabled {
+  opacity: .85;
+  cursor: default
+}
+.form button .xoay {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 0 8px -2px 0;
+  border: 2.5px solid rgba(10,22,40,.3);
+  border-top-color: var(--navy);
+  border-radius: 50%;
+  animation: xoay .8s linear infinite
+}
+@keyframes xoay {
+  to {
+    transform: rotate(360deg)
+  }
+}
+.form .nho {
+  color: var(--text-dim);
+  font-size: 12.8px;
+  text-align: center;
+  margin-top: 10px
+}
+.form .loi {
+  color: #ff9a9a;
+  font-size: 14px;
+  margin: -6px 0 12px;
+  display: none
+}
+.hp {
+  position: absolute;
+  left: -5000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden
+}
+.xong {
+  text-align: center
+}
+.xong .to {
+  font-size: 40px
+}
+.xong h3 {
+  font-size: 20px;
+  margin: 6px 0 8px
+}
+.xong p {
+  color: var(--text-dim);
+  font-size: 15px;
+  margin-bottom: 14px
+}
+.nut {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 12px 20px
+}
+.lai {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font: inherit;
+  font-size: 13.5px;
+  text-decoration: underline;
+  cursor: pointer
+}
+.lai:disabled {
+  color: var(--text-dim);
+  text-decoration: none
+}
+.roi {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--text-dim);
+  text-align: center
+}
+.chot {
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: var(--gold-light);
+  margin-bottom: 12px
+}
+.phan {
+  color: var(--gold);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: .06em;
+  margin: 22px 0 10px;
+  text-transform: uppercase
+}
+.muc {
+  cursor: pointer;
+  position: relative;
+  padding-right: 34px!important;
+  display: flex;
+  gap: 14px;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 10px
+}
+.muc .so {
+  flex: 0 0 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--navy-3);
+  color: var(--gold);
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px
+}
+.muc b {
+  display: block;
+  font-size: 15.5px
+}
+.muc::after {
+  content: '+';
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  color: var(--gold);
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1
+}
+.muc.mo::after {
+  content: '−'
+}
+.muc .vd {
+  display: none;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line)
+}
+.muc.mo .vd {
+  display: block
+}
+.muc .vd i {
+  display: block;
+  font-style: normal;
+  color: var(--text);
+  font-size: 14.5px;
+  margin: 0 0 6px
+}
+.muc .vd i::before {
+  content: '“';
+  color: var(--gold);
+  margin-right: 2px
+}
+.muc .vd i::after {
+  content: '”';
+  color: var(--gold)
+}
+.muc .vd .them {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: underline
+}
+.muc span {
+  color: var(--text-dim);
+  font-size: 14.5px
+}
+.tac {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start
+}
+.tac .anh {
+  flex: 0 0 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: var(--navy-3) center/cover;
+  border: 2px solid var(--gold)
+}
+.faq details {
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 15px;
+  margin-bottom: 10px
+}
+.faq summary {
+  font-weight: 700;
+  cursor: pointer
+}
+.faq p {
+  color: var(--text-dim);
+  margin-top: 8px;
+  font-size: 15px
+}
+footer {
+  padding: 30px 0 40px;
+  color: var(--text-dim);
+  font-size: 13.5px;
+  text-align: center
+}
+@media (max-width:480px) {
+  h1 {
+    font-size: 25px
+  }
+  h2 {
+    font-size: 20.5px
+  }
+  section {
+    padding: 30px 0
+  }
+  .tac {
+    flex-direction: column
+  }
+}</style>
+<script src="/assets/kiem-email.js" defer="defer"></script>
+<script src="/assets/meta-pixel.js" defer="defer"></script>
 </head>
 <body>
 <div class="wrap">
@@ -122,7 +441,7 @@
     <button type="button" data-set-lang="en">ENGLISH</button><button type="button" data-set-lang="vi">TIẾNG VIỆT</button>
   </div></div>
 
-  <!-- ========== 1. ĐẦU TRANG + FORM ========== -->
+  
   <section>
     <p class="kicker"><span class="lg-en">Free · interview guide</span><span class="lg-vi">Tài liệu miễn phí</span></p>
     <h1>
@@ -141,7 +460,7 @@
     <div class="form" data-form></div>
   </section>
 
-  <!-- ========== 2. NỖI ĐAU ========== -->
+  
   <section>
     <h2><span class="lg-en">Interview coming up and you still don't feel ready?</span><span class="lg-vi">Sắp phỏng vấn mà vẫn thấy chưa chắc?</span></h2>
     <p class="lead"><span class="lg-en">Maybe one of these sounds like you:</span><span class="lg-vi">Có thể bạn đang gặp một trong mấy chuyện này:</span></p>
@@ -155,14 +474,14 @@
     </ul>
   </section>
 
-  <!-- ========== 3. GÓC NHÌN ========== -->
+  
   <section>
     <p class="chot"><span class="lg-en">The interviewer isn't checking whether you memorised the book. He's checking whether you've actually done the job.</span><span class="lg-vi">Người phỏng vấn không chấm xem bạn thuộc sách. Họ chấm xem bạn đã làm việc đó thật chưa.</span></p>
     <p class="lead"><span class="lg-en">And it's decided in your first sentence. If he asks which group, your first sentence is the group. If he asks how long, your first sentence is the number. Then two or three points, then stop.</span><span class="lg-vi">Và nó được quyết ngay ở câu đầu tiên. Hỏi nhóm nào thì câu đầu nói nhóm. Hỏi bao lâu thì câu đầu nói con số. Sau đó hai, ba ý, rồi dừng.</span></p>
     <p class="lead"><span class="lg-en">Every answer in this guide is written that way, so you learn the shape as well as the words.</span><span class="lg-vi">Câu trả lời nào trong bộ này cũng viết theo cách đó, để bạn học cả cái khung chứ không chỉ học chữ.</span></p>
   </section>
 
-  <!-- ========== 4. BÊN TRONG CÓ GÌ ========== -->
+  
   <section>
     <h2><span class="lg-en">What's inside: 2 parts, 8 sections</span><span class="lg-vi">Bên trong có gì: 2 phần, 8 nhóm câu</span></h2>
     <p class="phan"><span class="lg-en">Part 1 · Third Officer · questions 1–20</span><span class="lg-vi">Phần 1 · Phó ba · câu 1–20</span></p>
@@ -177,7 +496,7 @@
     <div class="muc"><div class="so">H</div><div><b><span class="lg-en">ECDIS and charts</span><span class="lg-vi">ECDIS và hải đồ</span></b><span class="lg-en">Safety settings, chart corrections, what to do when it fails.</span><span class="lg-vi">Cài đặt an toàn, tu chỉnh hải đồ, máy hỏng thì làm gì.</span></div></div>
   </section>
 
-  <!-- ========== 5. DÀNH CHO AI ========== -->
+  
   <section>
     <h2><span class="lg-en">This guide is for you if you are</span><span class="lg-vi">Bộ này dành cho bạn nếu bạn là</span></h2>
     <ul class="tick">
@@ -188,10 +507,13 @@
     </ul>
   </section>
 
-  <!-- ========== 6. TÁC GIẢ ========== -->
+  
   <section>
     <div class="tac">
-      <div class="anh" style="background-image:url('/assets/portrait.jpg'); background-position:center 18%"></div>
+      <div class="anh" style="* {
+  background-image: url('/assets/portrait.jpg');
+  background-position: center 18%
+}"></div>
       <div>
         <h2><span class="lg-en">I'm Hieu Nguyen</span><span class="lg-vi">Mình là Nguyễn Chí Hiếu</span></h2>
         <p class="lead"><span class="lg-en">Deck officer on bulk carriers. I went from cadet to Third Officer to Second Officer, and left school with almost no English. I taught myself to TOEIC 600+ and then through interviews with international companies.</span><span class="lg-vi">Sĩ quan boong tàu hàng rời. Mình đi từ cadet lên Phó ba rồi Phó hai, hết cấp 3 tiếng Anh gần như bằng không, tự học tới TOEIC hơn 600 rồi qua phỏng vấn các công ty nước ngoài.</span></p>
@@ -200,14 +522,14 @@
     </div>
   </section>
 
-  <!-- ========== 7. FORM LẦN 2 ========== -->
+  
   <section>
     <h2><span class="lg-en">Get the 70 questions</span><span class="lg-vi">Nhận bộ 70 câu</span></h2>
     <p class="lead"><span class="lg-en">Add your name and email and it's yours.</span><span class="lg-vi">Điền tên và email là nhận được.</span></p>
     <div class="form" data-form></div>
   </section>
 
-  <!-- ========== 8. HỎI ĐÁP ========== -->
+  
   <section class="faq">
     <h2><span class="lg-en">Questions</span><span class="lg-vi">Câu hỏi thường gặp</span></h2>
     <details><summary><span class="lg-en">Does it cost anything?</span><span class="lg-vi">Có mất tiền không?</span></summary>
@@ -244,181 +566,372 @@
     <p><span class="lg-en">Sent to <b class="dc"></b>. Open the email from Hiếu at Sea and tap <b>Open the file</b>.</span><span class="lg-vi">Đã gửi tới <b class="dc"></b>. Mở thư từ Hiếu at Sea, bấm nút <b>Mở tài liệu</b>.</span></p>
     <a class="nut" data-gmail href="https://mail.google.com/mail/u/0/#search/from%3Ahieunguyen.net" rel="noopener"><span class="lg-en">Open Gmail &rarr;</span><span class="lg-vi">Mở Gmail &rarr;</span></a>
     <p class="roi"><span class="lg-en">Nothing after a few minutes? Check Promotions or Spam.</span><span class="lg-vi">Vài phút chưa thấy thì xem mục Quảng cáo hoặc Spam.</span>
-      <br><button type="button" class="lai" data-lai disabled><span class="lg-en">Send again</span><span class="lg-vi">Gửi lại</span></button> ·
+      <br><button type="button" class="lai" data-lai disabled="disabled"><span class="lg-en">Send again</span><span class="lg-vi">Gửi lại</span></button> ·
       <button type="button" class="lai" data-sua><span class="lg-en">Wrong email?</span><span class="lg-vi">Gõ sai email?</span></button></p>
   </div>
 </template>
 
-<script>
-(function(){
-  var WEB = '70-cau', TRACK = '70 câu phỏng vấn sĩ quan boong — Phó ba & Phó hai, kèm câu trả lời';
-  var DOC = location.origin + '/doc/?f=' + WEB;
-  var TEN_FILE = { en:'The Deck Officer Interview — 70 questions, 3/O & 2/O', vi:'70 câu phỏng vấn sĩ quan boong — Phó ba & Phó hai' };
-  var KIT = 'https://app.kit.com/forms/9750089/subscriptions', TL = 'https://app.hieunguyen.net/api/tl/';
-  var MO_TRANG = Date.now();
-  function lang(){ return document.documentElement.getAttribute('data-lang') === 'vi' ? 'vi' : 'en'; }
-  function ga(ev, o){ try { if (window.gtag) gtag('event', ev, o || {}); } catch(e){} }
+<script>(function() {
+var WEB = "70-cau", TRACK = "70 câu phỏng vấn sĩ quan boong — Phó ba & Phó hai, kèm câu trả lời";
+var DOC = location.origin + "/doc/?f=" + WEB;
+var TEN_FILE = {
+en: "The Deck Officer Interview — 70 questions, 3/O & 2/O",
+vi: "70 câu phỏng vấn sĩ quan boong — Phó ba & Phó hai"
+};
+var KIT = "https://app.kit.com/forms/9750089/subscriptions", TL = "https://app.hieunguyen.net/api/tl/";
+var MO_TRANG = Date.now();
+function lang() {
+return document.documentElement.getAttribute("data-lang") === "vi" ? "vi" : "en";
+}
+function ga(ev, o) {
+try {
+if (window.gtag) gtag("event", ev, o || {});
+} catch (e) {}
+}
+function veLang() {
+document.querySelectorAll("[data-set-lang]").forEach((function(b) {
+b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang() ? "true" : "false");
+}));
+document.querySelectorAll("input[name=ten]").forEach((function(i) {
+i.placeholder = lang() === "vi" ? "Hiếu" : "Hieu";
+}));
+}
+document.querySelectorAll("[data-set-lang]").forEach((function(b) {
+b.addEventListener("click", (function() {
+var l = b.getAttribute("data-set-lang");
+document.documentElement.setAttribute("data-lang", l);
+document.documentElement.lang = l;
+try {
+localStorage.setItem("hn_lang", l);
+} catch (e) {}
+veLang();
+}));
+}));
+function nguon() {
+try {
+var q = new URLSearchParams(location.search), u = q.get("utm_source"), m = q.get("utm_medium");
+if (u) {
+u = u + (m ? ":" + m : "");
+localStorage.setItem("hn_src", u);
+return u;
+}
+return localStorage.getItem("hn_src") || (document.referrer ? "ref:" + new URL(document.referrer).hostname : "direct");
+} catch (e) {
+return "unknown";
+}
+}
+nguon();
+var NHOM = "A";
+var mau = document.getElementById("mauForm");
+document.querySelectorAll("[data-form]").forEach((function(hop, viTri) {
+hop.appendChild(mau.content.cloneNode(true));
+var f = hop.querySelector("form"), xong = hop.querySelector(".xong"), loi = hop.querySelector(".loi");
+var ten = f.ten, email = f.email, btn = f.querySelector("button[type=submit]"), tlId = null;
+var nhanGoc = btn.innerHTML;
+window.addEventListener("pageshow", (function(e) {
+if (e.persisted) {
+btn.disabled = false;
+btn.innerHTML = nhanGoc;
+}
+}));
+var daMo = false;
+function mo() {
+if (!daMo) {
+daMo = true;
+ga("gate_open", {
+file_name: TRACK,
+form_location: "qua_70cau"
+});
+}
+}
+if (viTri === 0) mo(); else if ("IntersectionObserver" in window) new IntersectionObserver((function(es, o) {
+if (es[0].isIntersecting) {
+mo();
+o.disconnect();
+}
+})).observe(hop);
+email.addEventListener("focus", (function() {
+ga("form_start", {
+form_location: "qua_70cau"
+});
+}), {
+once: true
+});
+function baoLoi(msg, o) {
+loi.textContent = msg;
+loi.style.display = msg ? "block" : "none";
+ten.classList.toggle("sai", o === "ten");
+email.classList.toggle("sai", o === "email");
+}
+var roiTrang = false;
+function moTaiLieu(viTriGA, cho) {
+try {
+localStorage.setItem("hn_lead", "1");
+} catch (e) {}
+ga("sign_up", {
+method: "kit_form",
+form_location: viTriGA,
+file_name: TRACK
+});
+ga("file_preview", {
+file_name: TRACK,
+form_location: viTriGA
+});
+var di = false;
+function chuyen() {
+if (di) return;
+di = true;
+roiTrang = true;
+location.href = DOC;
+}
+setTimeout(chuyen, 2500);
+Promise.resolve(cho).then((function() {
+setTimeout(chuyen, 300);
+}));
+}
+function guiKit() {
+var fd = new FormData;
+fd.append("fields[first_name]", ten.value || (lang() === "vi" ? "bạn" : "there"));
+fd.append("email_address", email.value);
+fd.append("fields[file_dau_tien]", TRACK);
+fd.append("fields[ngon_ngu]", lang());
+fd.append("fields[nguon]", nguon());
+fd.append("fields[trang]", location.pathname);
+return fetch(KIT, {
+method: "POST",
+body: fd,
+keepalive: true,
+headers: {
+Accept: "application/json"
+}
+}).then((function(r) {
+return r.json();
+})).then((function(j) {
+if (!j || j.status !== "success") ga("kit_loi", {
+form_location: "loi:qua_70cau",
+trang: location.pathname
+});
+})).catch((function() {
+ga("kit_loi", {
+form_location: roiTrang ? "loi:qua_70cau_cham" : "loi:qua_70cau_mang",
+trang: location.pathname
+});
+}));
+}
+f.addEventListener("submit", (function(e) {
+e.preventDefault();
+var hp = f.hn_hp_7q.value;
+if (hp && Date.now() - MO_TRANG < 3e3) return;
+ten.value = ten.value.trim().replace(/\s+/g, " ").slice(0, 40);
+email.value = email.value.trim();
+if (!ten.value) {
+baoLoi(lang() === "vi" ? "Bạn điền tên giúp mình nhé." : "Please add your first name.", "ten");
+ten.focus();
+return;
+}
+if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)) {
+baoLoi(lang() === "vi" ? "Email trông chưa đúng, kiểm tra lại giúp mình." : "That email doesn't look right.", "email");
+email.focus();
+return;
+}
+baoLoi("");
+btn.disabled = true;
+btn.innerHTML = '<span class="xoay"></span><span class="lg-en">OPENING YOUR GUIDE…</span><span class="lg-vi">ĐANG MỞ TÀI LIỆU…</span>';
+if (NHOM !== "B") {
+moTaiLieu("qua_70cau", guiKit());
+return;
+}
+var xongRoi = false;
+function veA(ly) {
+if (xongRoi) return;
+xongRoi = true;
+ga("tl_ve_a", {
+ly_do: String(ly || "").slice(0, 40),
+file_name: TRACK
+});
+moTaiLieu("qua_70cau_B_ve_A", guiKit());
+}
+var hen = setTimeout((function() {
+veA("cham");
+}), 8e3);
+fetch(TL + "dang-ky", {
+method: "POST",
+headers: {
+"Content-Type": "text/plain"
+},
+body: JSON.stringify({
+email: email.value,
+ten: ten.value,
+file: TEN_FILE[lang()],
+track: TRACK,
+url: DOC,
+lang: lang(),
+nguon: nguon(),
+trang: location.pathname,
+hp: hp ? 1 : 0
+})
+}).then((function(r) {
+return r.json();
+})).then((function(j) {
+clearTimeout(hen);
+if (xongRoi) return;
+if (!j || !j.ok) {
+btn.disabled = false;
+if (j && j.goi_y) {
+email.value = j.goi_y;
+baoLoi(lang() === "vi" ? "Email có vẻ gõ nhầm, mình đã sửa thành " + j.goi_y + ". Bấm nút lần nữa để nhận." : "Looks like a typo. We changed it to " + j.goi_y + " — tap the button again.", "email");
+return;
+}
+if (j && j.khong_nhan) {
+baoLoi(lang() === "vi" ? "Email này không nhận được thư (phần sau chữ @ không tồn tại). Kiểm tra lại giúp mình." : "This email can't receive mail (the part after @ doesn't exist). Please check it.", "email");
+return;
+}
+baoLoi(lang() === "vi" ? "Email trông chưa đúng, kiểm tra lại giúp mình." : "That email doesn't look right.", "email");
+return;
+}
+if (!j.gui) {
+veA(j.ly_do || "mo_ngay");
+return;
+}
+xongRoi = true;
+tlId = j.id;
+ga("sign_up", {
+method: "mail",
+form_location: "qua_70cau_B",
+file_name: TRACK
+});
+xong.querySelectorAll(".dc").forEach((function(b) {
+b.textContent = email.value;
+}));
+f.hidden = true;
+xong.hidden = false;
+choLai();
+})).catch((function() {
+clearTimeout(hen);
+veA("mang");
+}));
+}));
+var nutLai = xong.querySelector("[data-lai]"), henLai = null;
+function choLai() {
+nutLai.disabled = true;
+clearTimeout(henLai);
+henLai = setTimeout((function() {
+nutLai.disabled = false;
+}), 6e4);
+}
+nutLai.addEventListener("click", (function() {
+if (!tlId) return;
+choLai();
+ga("tl_gui_lai", {
+file_name: TRACK
+});
+fetch(TL + "gui-lai", {
+method: "POST",
+headers: {
+"Content-Type": "text/plain"
+},
+body: JSON.stringify({
+id: tlId
+})
+}).catch((function() {}));
+}));
+xong.querySelector("[data-sua]").addEventListener("click", (function() {
+xong.hidden = true;
+f.hidden = false;
+btn.disabled = false;
+email.focus();
+}));
+}));
+veLang();
+try {
+if (localStorage.getItem("hn_lead") === "1") {
+var hop = document.querySelector("[data-form]"), p = document.createElement("p");
+p.className = "roi";
+p.innerHTML = '<span class="lg-en">Already got it on this device? <a href="' + DOC + '">Read it now &rarr;</a></span><span class="lg-vi">Đã nhận rồi trên máy này? <a href="' + DOC + '">Đọc ngay &rarr;</a></span>';
+hop.appendChild(p);
+}
+} catch (e) {}
+})()</script>
 
-  // ngôn ngữ
-  function veLang(){ document.querySelectorAll('[data-set-lang]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === lang() ? 'true' : 'false'); });
-    document.querySelectorAll('input[name=ten]').forEach(function(i){ i.placeholder = lang() === 'vi' ? 'Hiếu' : 'Hieu'; }); }
-  document.querySelectorAll('[data-set-lang]').forEach(function(b){ b.addEventListener('click', function(){
-    var l = b.getAttribute('data-set-lang'); document.documentElement.setAttribute('data-lang', l); document.documentElement.lang = l;
-    try { localStorage.setItem('hn_lang', l); } catch(e){} veLang(); }); });
-
-  // nguồn: utm trên link thắng, không có thì giữ cái đã nhớ (dùng chung khoá hn_src với /tai-lieu)
-  function nguon(){
-    try { var q = new URLSearchParams(location.search), u = q.get('utm_source'), m = q.get('utm_medium');
-      if (u){ u = u + (m ? ':' + m : ''); localStorage.setItem('hn_src', u); return u; }
-      return localStorage.getItem('hn_src') || (document.referrer ? 'ref:' + new URL(document.referrer).hostname : 'direct');
-    } catch(e){ return 'unknown'; } }
-  nguon();
-  // 16/10: BỎ nhóm B (nhận qua email) — 73 thư gửi, chỉ 49 người bấm mở (67%), nhóm A mở thẳng gần như đủ.
-  // Ai cũng mở tài liệu ngay. Code nhóm B để nguyên phía dưới, không còn đường vào.
-  var NHOM = 'A';
-
-  var mau = document.getElementById('mauForm');
-  document.querySelectorAll('[data-form]').forEach(function(hop, viTri){
-    hop.appendChild(mau.content.cloneNode(true));
-    var f = hop.querySelector('form'), xong = hop.querySelector('.xong'), loi = hop.querySelector('.loi');
-    var ten = f.ten, email = f.email, btn = f.querySelector('button[type=submit]'), tlId = null;
-    var nhanGoc = btn.innerHTML;   // bấm Back từ trang đọc về: trả nút như cũ, không kẹt chữ "Đang mở"
-    window.addEventListener('pageshow', function(e){ if (e.persisted){ btn.disabled = false; btn.innerHTML = nhanGoc; } });
-    var daMo = false;
-    function mo(){ if (!daMo){ daMo = true; ga('gate_open', { file_name: TRACK, form_location: 'qua_70cau' }); } }
-    // mốc "đã thấy form": form đầu = lúc vào trang, form cuối = lúc cuộn tới
-    if (viTri === 0) mo(); else if ('IntersectionObserver' in window) new IntersectionObserver(function(es, o){ if (es[0].isIntersecting){ mo(); o.disconnect(); } }).observe(hop);
-    email.addEventListener('focus', function(){ ga('form_start', { form_location: 'qua_70cau' }); }, { once:true });
-    function baoLoi(msg, o){ loi.textContent = msg; loi.style.display = msg ? 'block' : 'none'; ten.classList.toggle('sai', o === 'ten'); email.classList.toggle('sai', o === 'email'); }
-    var roiTrang = false;
-    // 15/10: chờ Kit trả lời (tối đa 2,5s) rồi mới chuyển trang. Trước đây chuyển sau 350ms → trình duyệt
-    // cắt ngang lời gọi Kit, GA4 báo "loi:qua_70cau_mang" 30 lần/2 ngày dù Kit có thể đã nhận (không phân biệt được).
-    function moTaiLieu(viTriGA, cho){
-      try { localStorage.setItem('hn_lead', '1'); } catch(e){}
-      ga('sign_up', { method:'kit_form', form_location: viTriGA, file_name: TRACK });
-      ga('file_preview', { file_name: TRACK, form_location: viTriGA });
-      var di = false;
-      function chuyen(){ if (di) return; di = true; roiTrang = true; location.href = DOC; }   // cùng tab, không bị chặn popup
-      setTimeout(chuyen, 2500);
-      Promise.resolve(cho).then(function(){ setTimeout(chuyen, 300); });
-    }
-    function guiKit(){
-      var fd = new FormData();
-      fd.append('fields[first_name]', ten.value || (lang() === 'vi' ? 'bạn' : 'there'));
-      fd.append('email_address', email.value);
-      fd.append('fields[file_dau_tien]', TRACK); fd.append('fields[ngon_ngu]', lang());
-      fd.append('fields[nguon]', nguon()); fd.append('fields[trang]', location.pathname);
-      return fetch(KIT, { method:'POST', body:fd, keepalive:true, headers:{ 'Accept':'application/json' } })
-        .then(function(r){ return r.json(); })
-        .then(function(j){ if (!j || j.status !== 'success') ga('kit_loi', { form_location: 'loi:qua_70cau', trang: location.pathname }); })
-        .catch(function(){ ga('kit_loi', { form_location: roiTrang ? 'loi:qua_70cau_cham' : 'loi:qua_70cau_mang', trang: location.pathname }); });
-    }
-    f.addEventListener('submit', function(e){
-      e.preventDefault();
-      var hp = f.hn_hp_7q.value;
-      if (hp && Date.now() - MO_TRANG < 3000) return;
-      ten.value = ten.value.trim().replace(/\s+/g, ' ').slice(0, 40); email.value = email.value.trim();
-      if (!ten.value){ baoLoi(lang() === 'vi' ? 'Bạn điền tên giúp mình nhé.' : 'Please add your first name.', 'ten'); ten.focus(); return; }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)){ baoLoi(lang() === 'vi' ? 'Email trông chưa đúng, kiểm tra lại giúp mình.' : "That email doesn't look right.", 'email'); email.focus(); return; }
-      baoLoi('');
-      btn.disabled = true;
-      // 16/10: Clarity 25% phiên bấm hụt — nút khoá tới 2,5s mà chữ không đổi, khách tưởng chưa ăn nên bấm lại
-      btn.innerHTML = '<span class="xoay"></span><span class="lg-en">OPENING YOUR GUIDE…</span><span class="lg-vi">ĐANG MỞ TÀI LIỆU…</span>';
-      if (NHOM !== 'B'){ moTaiLieu('qua_70cau', guiKit()); return; }
-      var xongRoi = false;
-      function veA(ly){ if (xongRoi) return; xongRoi = true; ga('tl_ve_a', { ly_do: String(ly || '').slice(0, 40), file_name: TRACK }); moTaiLieu('qua_70cau_B_ve_A', guiKit()); }
-      var hen = setTimeout(function(){ veA('cham'); }, 8000);
-      fetch(TL + 'dang-ky', { method:'POST', headers:{ 'Content-Type':'text/plain' }, body: JSON.stringify({
-          email: email.value, ten: ten.value, file: TEN_FILE[lang()], track: TRACK, url: DOC, lang: lang(),
-          nguon: nguon(), trang: location.pathname, hp: hp ? 1 : 0 }) })
-        .then(function(r){ return r.json(); })
-        .then(function(j){
-          clearTimeout(hen); if (xongRoi) return;
-          if (!j || !j.ok){ btn.disabled = false;
-            // 18/10: máy chủ bắt email gõ nhầm đuôi -> sửa sẵn vào ô; tên miền không nhận thư -> báo đúng lỗi
-            if (j && j.goi_y){ email.value = j.goi_y; baoLoi(lang() === 'vi' ? 'Email có vẻ gõ nhầm, mình đã sửa thành ' + j.goi_y + '. Bấm nút lần nữa để nhận.' : 'Looks like a typo. We changed it to ' + j.goi_y + ' — tap the button again.', 'email'); return; }
-            if (j && j.khong_nhan){ baoLoi(lang() === 'vi' ? 'Email này không nhận được thư (phần sau chữ @ không tồn tại). Kiểm tra lại giúp mình.' : "This email can't receive mail (the part after @ doesn't exist). Please check it.", 'email'); return; }
-            baoLoi(lang() === 'vi' ? 'Email trông chưa đúng, kiểm tra lại giúp mình.' : "That email doesn't look right.", 'email'); return; }
-          if (!j.gui){ veA(j.ly_do || 'mo_ngay'); return; }
-          xongRoi = true; tlId = j.id;
-          ga('sign_up', { method:'mail', form_location:'qua_70cau_B', file_name: TRACK });
-          xong.querySelectorAll('.dc').forEach(function(b){ b.textContent = email.value; });
-          f.hidden = true; xong.hidden = false; choLai();
-        })
-        .catch(function(){ clearTimeout(hen); veA('mang'); });
-    });
-    var nutLai = xong.querySelector('[data-lai]'), henLai = null;
-    function choLai(){ nutLai.disabled = true; clearTimeout(henLai); henLai = setTimeout(function(){ nutLai.disabled = false; }, 60000); }
-    nutLai.addEventListener('click', function(){
-      if (!tlId) return; choLai(); ga('tl_gui_lai', { file_name: TRACK });
-      fetch(TL + 'gui-lai', { method:'POST', headers:{ 'Content-Type':'text/plain' }, body: JSON.stringify({ id: tlId }) }).catch(function(){});
-    });
-    xong.querySelector('[data-sua]').addEventListener('click', function(){ xong.hidden = true; f.hidden = false; btn.disabled = false; email.focus(); });
-  });
-  veLang();
-
-  // người đã nhận rồi (máy này đã để email) -> thêm lối đọc ngay, không bắt điền lại
-  try { if (localStorage.getItem('hn_lead') === '1'){
-    var hop = document.querySelector('[data-form]'), p = document.createElement('p');
-    p.className = 'roi';
-    p.innerHTML = '<span class="lg-en">Already got it on this device? <a href="' + DOC + '">Read it now &rarr;</a></span><span class="lg-vi">Đã nhận rồi trên máy này? <a href="' + DOC + '">Đọc ngay &rarr;</a></span>';
-    hop.appendChild(p);
-  } } catch(e){}
-})();
-</script>
-
-<script>
-/* 15/10: Clarity soi 3 ngày — 47 cú bấm hụt trên trang này, 2 ổ chính:
-   (1) ô mục lục A–H: khách chạm để xem câu bên trong → nay chạm là mở 2 câu ví dụ + "nhận đủ";
-   (2) nút Mở Gmail: 2/3 khách ở trình duyệt trong app Facebook, tab mới bị chặn → mở thẳng app Gmail. */
-(function(){
-  var VD = {
-    A:[1,["Can you introduce yourself in two minutes?","What are the duties and responsibilities of a Third Officer?"],2],
-    B:[2,["When do you call the Master?","A target is crossing from starboard, CPA 0.3 mile, TCPA 12 minutes. What do you do?"],4],
-    C:[3,["How do you check the gyro error?","You transmit a DSC distress alert by mistake. What do you do?"],3],
-    D:[4,["You are in charge of LSA and FFA. How do you organise your monthly inspection?","Which extinguisher for which fire?"],3],
-    E:[5,["You applied for bulk carriers. What cargoes have you carried?","Are your documents valid — certificates, visas, vaccination?"],8],
-    F:[6,["Have you had problems with a multinational crew? How do you handle them?","The cook may be of another nationality. Can you live with the food?"],1],
-    G:[7,["What are the four stages of passage planning?","\"Berth to berth\" — what does that actually mean?"],8],
-    H:[8,["What safety settings do you set in the ECDIS before departure, and why?","One ECDIS fails. Then both fail. What does your SMS say, and what do you do?"],25]
-  };
-  function ga(ev, o){ try { if (window.gtag) gtag('event', ev, o || {}); } catch(e){} }
-  [].forEach.call(document.querySelectorAll('.muc'), function(m){
-    var k = (m.querySelector('.so') || {}).textContent, d = VD[k]; if (!d) return;
-    var box = document.createElement('div'); box.className = 'vd';
-    box.innerHTML = d[1].map(function(q){ return '<i></i>'; }).join('') +
-      '<a class="them" href="#"><span class="lg-en">+ ' + d[2] + ' more in this section, each with a full answer → get them free</span>' +
-      '<span class="lg-vi">+ ' + d[2] + ' câu nữa trong phần này, câu nào cũng có đáp án → nhận miễn phí</span></a>';
-    [].forEach.call(box.querySelectorAll('i'), function(el, i){ el.textContent = d[1][i]; });
-    m.lastElementChild.appendChild(box);
-    m.addEventListener('click', function(e){
-      if (e.target.closest('.them')){
-        e.preventDefault(); e.stopPropagation();
-        ga('muc_nhan', { form_location: 'muc_' + k });
-        var f = document.querySelector('form'); if (f){ f.scrollIntoView({ behavior:'smooth', block:'center' }); setTimeout(function(){ try { f.ten.focus({ preventScroll:true }); } catch(x){} }, 600); }
-        return;
-      }
-      var mo = m.classList.toggle('mo');
-      if (mo) ga('muc_mo', { form_location: 'muc_' + k });
-    });
-  });
-  [].forEach.call(document.querySelectorAll('[data-gmail]'), function(a){
-    a.addEventListener('click', function(e){
-      var ua = navigator.userAgent, web = a.href;
-      ga('mo_gmail', { form_location: /Android/i.test(ua) ? 'android' : /iPhone|iPad/i.test(ua) ? 'ios' : 'may_tinh' });
-      if (/Android/i.test(ua)){
-        e.preventDefault();
-        location.href = 'intent://#Intent;scheme=googlegmail;package=com.google.android.gm;S.browser_fallback_url=' + encodeURIComponent(web) + ';end';
-      } else if (/iPhone|iPad/i.test(ua)){
-        e.preventDefault();
-        var t = Date.now(); location.href = 'googlegmail://';
-        setTimeout(function(){ if (Date.now() - t < 2000 && !document.hidden) location.href = web; }, 1200);
-      } else {
-        e.preventDefault(); window.open(web, '_blank', 'noopener') || (location.href = web);
-      }
-    });
-  });
-})();
-</script>
+<script>(function() {
+var VD = {
+A: [ 1, [ "Can you introduce yourself in two minutes?", "What are the duties and responsibilities of a Third Officer?" ], 2 ],
+B: [ 2, [ "When do you call the Master?", "A target is crossing from starboard, CPA 0.3 mile, TCPA 12 minutes. What do you do?" ], 4 ],
+C: [ 3, [ "How do you check the gyro error?", "You transmit a DSC distress alert by mistake. What do you do?" ], 3 ],
+D: [ 4, [ "You are in charge of LSA and FFA. How do you organise your monthly inspection?", "Which extinguisher for which fire?" ], 3 ],
+E: [ 5, [ "You applied for bulk carriers. What cargoes have you carried?", "Are your documents valid — certificates, visas, vaccination?" ], 8 ],
+F: [ 6, [ "Have you had problems with a multinational crew? How do you handle them?", "The cook may be of another nationality. Can you live with the food?" ], 1 ],
+G: [ 7, [ "What are the four stages of passage planning?", '"Berth to berth" — what does that actually mean?' ], 8 ],
+H: [ 8, [ "What safety settings do you set in the ECDIS before departure, and why?", "One ECDIS fails. Then both fail. What does your SMS say, and what do you do?" ], 25 ]
+};
+function ga(ev, o) {
+try {
+if (window.gtag) gtag("event", ev, o || {});
+} catch (e) {}
+}
+[].forEach.call(document.querySelectorAll(".muc"), (function(m) {
+var k = (m.querySelector(".so") || {}).textContent, d = VD[k];
+if (!d) return;
+var box = document.createElement("div");
+box.className = "vd";
+box.innerHTML = d[1].map((function(q) {
+return "<i></i>";
+})).join("") + '<a class="them" href="#"><span class="lg-en">+ ' + d[2] + " more in this section, each with a full answer → get them free</span>" + '<span class="lg-vi">+ ' + d[2] + " câu nữa trong phần này, câu nào cũng có đáp án → nhận miễn phí</span></a>";
+[].forEach.call(box.querySelectorAll("i"), (function(el, i) {
+el.textContent = d[1][i];
+}));
+m.lastElementChild.appendChild(box);
+m.addEventListener("click", (function(e) {
+if (e.target.closest(".them")) {
+e.preventDefault();
+e.stopPropagation();
+ga("muc_nhan", {
+form_location: "muc_" + k
+});
+var f = document.querySelector("form");
+if (f) {
+f.scrollIntoView({
+behavior: "smooth",
+block: "center"
+});
+setTimeout((function() {
+try {
+f.ten.focus({
+preventScroll: true
+});
+} catch (x) {}
+}), 600);
+}
+return;
+}
+var mo = m.classList.toggle("mo");
+if (mo) ga("muc_mo", {
+form_location: "muc_" + k
+});
+}));
+}));
+[].forEach.call(document.querySelectorAll("[data-gmail]"), (function(a) {
+a.addEventListener("click", (function(e) {
+var ua = navigator.userAgent, web = a.href;
+ga("mo_gmail", {
+form_location: /Android/i.test(ua) ? "android" : /iPhone|iPad/i.test(ua) ? "ios" : "may_tinh"
+});
+if (/Android/i.test(ua)) {
+e.preventDefault();
+location.href = "intent://#Intent;scheme=googlegmail;package=com.google.android.gm;S.browser_fallback_url=" + encodeURIComponent(web) + ";end";
+} else if (/iPhone|iPad/i.test(ua)) {
+e.preventDefault();
+var t = Date.now();
+location.href = "googlegmail://";
+setTimeout((function() {
+if (Date.now() - t < 2e3 && !document.hidden) location.href = web;
+}), 1200);
+} else {
+e.preventDefault();
+window.open(web, "_blank", "noopener") || (location.href = web);
+}
+}));
+}));
+})()</script>
 </body>
 </html>

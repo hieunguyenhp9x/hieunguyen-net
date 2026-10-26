@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>COLREG-72 in diagrams — the light ring</title>
 <meta name="description" content="Learn COLREG-72 from diagrams: read her lights and you know your role and your action. A draggable light ring, 12 figures, whistle signals and the lights of special vessels — every number taken from the consolidated 1972 Convention.">
 <link rel="canonical" href="https://hieunguyen.net/colreg.html">
@@ -12,57 +12,94 @@
 <meta property="og:description" content="Learn COLREG-72 from diagrams: read her lights and you know your role and your action. A draggable light ring, 12 figures, whistle signals and the lights of special vessels — every number taken from the consolidated 1972 Convention.">
 <meta property="og:url" content="https://hieunguyen.net/colreg.html">
 
-<!-- Đo lường: Google Analytics 4 + Microsoft Clarity.
-     Thiết bị đã mở ?notrack=1 (máy của anh) thì không tải gì cả; bật lại bằng ?track=1 -->
-<script type="text/javascript">
-(function () {
-  try {
-    var p = new URLSearchParams(location.search);
-    if (p.has('notrack')) localStorage.setItem('hn_notrack', '1');
-    else if (p.has('track')) localStorage.removeItem('hn_notrack');
-    if (localStorage.getItem('hn_notrack') === '1') return;
-  } catch (e) {}
 
-  var ga = document.createElement('script');
-  ga.async = 1;
-  ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK';
-  document.head.appendChild(ga);
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function () { dataLayer.push(arguments); };
-  gtag('js', new Date());
-  gtag('config', 'G-TNVKB32ZPK');
+<script type="text/javascript">(function() {
+try {
+var p = new URLSearchParams(location.search);
+if (p.has("notrack")) localStorage.setItem("hn_notrack", "1"); else if (p.has("track")) localStorage.removeItem("hn_notrack");
+if (localStorage.getItem("hn_notrack") === "1") return;
+} catch (e) {}
+var ga = document.createElement("script");
+ga.async = 1;
+ga.src = "https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK";
+document.head.appendChild(ga);
+window.dataLayer = window.dataLayer || [];
+window.gtag = function() {
+dataLayer.push(arguments);
+};
+gtag("js", new Date);
+gtag("config", "G-TNVKB32ZPK");
+(function(c, l, a, r, i, t, y) {
+c[a] = c[a] || function() {
+(c[a].q = c[a].q || []).push(arguments);
+};
+t = l.createElement(r);
+t.async = 1;
+t.src = "https://www.clarity.ms/tag/" + i;
+y = l.getElementsByTagName(r)[0];
+y.parentNode.insertBefore(t, y);
+})(window, document, "clarity", "script", "xvzwl9diz8");
+})()</script>
 
-  (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "xvzwl9diz8");
-})();
-</script>
-
-<style>
-  .site-bar,.site-foot{
-    background:#0a1628;color:#e8edf4;font-family:"Segoe UI",system-ui,-apple-system,Arial,sans-serif;
-    display:flex;flex-wrap:wrap;gap:10px 20px;align-items:center;justify-content:space-between;
-    padding:14px 22px;
+<style>.site-bar,
+.site-foot {
+  background: #0a1628;
+  color: #e8edf4;
+  font-family: "Segoe UI",system-ui,-apple-system,Arial,sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 20px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 22px
+}
+.site-bar {
+  border-bottom: 2px solid #d4a95a
+}
+.site-foot {
+  border-top: 2px solid #d4a95a;
+  margin: 56px 0 0;
+  padding: 22px;
+  grid-column: auto;
+  font-size: 14.5px
+}
+.site-back {
+  color: #d4a95a;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15.5px;
+  letter-spacing: .01em;
+  border: 1px solid rgba(212,169,90,.45);
+  border-radius: 3px;
+  padding: 6px 13px
+}
+a.site-back.lg-en,
+a.site-back.lg-vi {
+  display: inline-block
+}
+html:not([data-lang="vi"]) a.site-back.lg-vi,
+html[data-lang="vi"] a.site-back.lg-en {
+  display: none!important
+}
+.site-back:focus-visible,
+.site-back:hover {
+  background: rgba(212,169,90,.14);
+  color: #e8c88a
+}
+.site-tag {
+  color: #9fb0c4;
+  font-size: 13.5px;
+  letter-spacing: .02em
+}
+.site-foot span {
+  color: #9fb0c4
+}
+@media print {
+  .site-bar,
+  .site-foot {
+    display: none
   }
-  .site-bar{border-bottom:2px solid #d4a95a}
-  .site-foot{
-    border-top:2px solid #d4a95a;margin:56px 0 0;padding:22px;
-    grid-column:auto;font-size:14.5px;
-  }
-  .site-back{
-    color:#d4a95a;text-decoration:none;font-weight:700;font-size:15.5px;letter-spacing:.01em;
-    border:1px solid rgba(212,169,90,.45);border-radius:3px;padding:6px 13px;
-  }
-  /* .lg-en/.lg-vi mac dinh la inline; the nut phai giu inline-block */
-  a.site-back.lg-en,a.site-back.lg-vi{display:inline-block}
-  html[data-lang="vi"] a.site-back.lg-en,html:not([data-lang="vi"]) a.site-back.lg-vi{display:none!important}
-  .site-back:hover,.site-back:focus-visible{background:rgba(212,169,90,.14);color:#e8c88a}
-  .site-tag{color:#9fb0c4;font-size:13.5px;letter-spacing:.02em}
-  .site-foot span{color:#9fb0c4}
-  @media print{.site-bar,.site-foot{display:none}}
-</style>
+}</style>
 </head>
 <body>
 
@@ -72,289 +109,745 @@
   <span class="site-tag lg-vi">COLREG-72 · trang học cho thuyền viên</span>
 </header>
 
-<style>
-/* ============ TOKENS ============ */
-:root{
-  --paper:#EEF3F6;
-  --surface:#FFFFFF;
-  --surface-2:#F6F9FB;
-  --ink:#0A2739;
-  --ink-2:#3C5B6E;
-  --ink-3:#6E8798;
-  --rule:#C9D8E1;
-  --rule-soft:#DFE9EF;
-  --port:#C8102E;
-  --port-wash:rgba(200,16,46,.12);
-  --stbd:#00764A;
-  --stbd-wash:rgba(0,118,74,.13);
-  --sand:#A9741A;
-  --sand-wash:rgba(169,116,26,.14);
-  --deep:#14618F;
-  --deep-wash:rgba(20,97,143,.10);
-  --lamp:#F4F7F9;
-  --lamp-ring:#7E97A6;
-  --shadow:0 1px 2px rgba(10,39,57,.06),0 8px 24px rgba(10,39,57,.07);
-  --sans:"Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
-  --serif:Cambria,Constantia,"Palatino Linotype","Noto Serif","Times New Roman",serif;
-  --mono:"Cascadia Mono",Consolas,"SF Mono",ui-monospace,"DejaVu Sans Mono",monospace;
+<style>:root {
+  --paper: #EEF3F6;
+  --surface: #FFFFFF;
+  --surface-2: #F6F9FB;
+  --ink: #0A2739;
+  --ink-2: #3C5B6E;
+  --ink-3: #6E8798;
+  --rule: #C9D8E1;
+  --rule-soft: #DFE9EF;
+  --port: #C8102E;
+  --port-wash: rgba(200,16,46,.12);
+  --stbd: #00764A;
+  --stbd-wash: rgba(0,118,74,.13);
+  --sand: #A9741A;
+  --sand-wash: rgba(169,116,26,.14);
+  --deep: #14618F;
+  --deep-wash: rgba(20,97,143,.10);
+  --lamp: #F4F7F9;
+  --lamp-ring: #7E97A6;
+  --shadow: 0 1px 2px rgba(10,39,57,.06),0 8px 24px rgba(10,39,57,.07);
+  --sans: "Segoe UI",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;
+  --serif: Cambria,Constantia,"Palatino Linotype","Noto Serif","Times New Roman",serif;
+  --mono: "Cascadia Mono",Consolas,"SF Mono",ui-monospace,"DejaVu Sans Mono",monospace
 }
-@media (prefers-color-scheme:dark){
-  :root:not([data-theme="light"]){
-    --paper:#05161E;
-    --surface:#0B2331;
-    --surface-2:#0E2B3B;
-    --ink:#DCE9F0;
-    --ink-2:#A3BECD;
-    --ink-3:#7796A8;
-    --rule:#1E4459;
-    --rule-soft:#173648;
-    --port:#FF5F6D;
-    --port-wash:rgba(255,95,109,.16);
-    --stbd:#2FCB8C;
-    --stbd-wash:rgba(47,203,140,.15);
-    --sand:#E5B14C;
-    --sand-wash:rgba(229,177,76,.15);
-    --deep:#6FBCE8;
-    --deep-wash:rgba(111,188,232,.14);
-    --lamp:#12303F;
-    --lamp-ring:#5A7E92;
-    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.35);
+@media (prefers-color-scheme:dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #05161E;
+    --surface: #0B2331;
+    --surface-2: #0E2B3B;
+    --ink: #DCE9F0;
+    --ink-2: #A3BECD;
+    --ink-3: #7796A8;
+    --rule: #1E4459;
+    --rule-soft: #173648;
+    --port: #FF5F6D;
+    --port-wash: rgba(255,95,109,.16);
+    --stbd: #2FCB8C;
+    --stbd-wash: rgba(47,203,140,.15);
+    --sand: #E5B14C;
+    --sand-wash: rgba(229,177,76,.15);
+    --deep: #6FBCE8;
+    --deep-wash: rgba(111,188,232,.14);
+    --lamp: #12303F;
+    --lamp-ring: #5A7E92;
+    --shadow: 0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.35)
   }
 }
-:root[data-theme="dark"]{
-  --paper:#05161E;
-  --surface:#0B2331;
-  --surface-2:#0E2B3B;
-  --ink:#DCE9F0;
-  --ink-2:#A3BECD;
-  --ink-3:#7796A8;
-  --rule:#1E4459;
-  --rule-soft:#173648;
-  --port:#FF5F6D;
-  --port-wash:rgba(255,95,109,.16);
-  --stbd:#2FCB8C;
-  --stbd-wash:rgba(47,203,140,.15);
-  --sand:#E5B14C;
-  --sand-wash:rgba(229,177,76,.15);
-  --deep:#6FBCE8;
-  --deep-wash:rgba(111,188,232,.14);
-  --lamp:#12303F;
-  --lamp-ring:#5A7E92;
-  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.35);
+:root[data-theme="dark"] {
+  --paper: #05161E;
+  --surface: #0B2331;
+  --surface-2: #0E2B3B;
+  --ink: #DCE9F0;
+  --ink-2: #A3BECD;
+  --ink-3: #7796A8;
+  --rule: #1E4459;
+  --rule-soft: #173648;
+  --port: #FF5F6D;
+  --port-wash: rgba(255,95,109,.16);
+  --stbd: #2FCB8C;
+  --stbd-wash: rgba(47,203,140,.15);
+  --sand: #E5B14C;
+  --sand-wash: rgba(229,177,76,.15);
+  --deep: #6FBCE8;
+  --deep-wash: rgba(111,188,232,.14);
+  --lamp: #12303F;
+  --lamp-ring: #5A7E92;
+  --shadow: 0 1px 2px rgba(0,0,0,.3),0 10px 28px rgba(0,0,0,.35)
 }
+html:not([data-lang="vi"]) .lg-vi {
+  display: none!important
+}
+html[data-lang="vi"] .lg-en {
+  display: none!important
+}
+* {
+  box-sizing: border-box
+}
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact
+}
+@media print {
+  .nav {
+    display: none
+  }
+  .card,
+  .golden,
+  .rule-box,
+  .stack-card,
+  .tbl-wrap,
+  details,
+  figure {
+    break-inside: avoid
+  }
+}
+.wrap {
+  display: grid;
+  grid-template-columns: [full-start] minmax(16px,1fr) [wide-start] minmax(0,140px) [text-start] minmax(0,660px) [text-end] minmax(0,140px) [wide-end] minmax(16px,1fr) [full-end]
+}
+.wrap > * {
+  grid-column: text
+}
+.wide {
+  grid-column: wide
+}
+.full {
+  grid-column: full
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--sans);
+  text-wrap: balance;
+  margin: 0
+}
+p {
+  margin: 0 0 1em
+}
+a {
+  color: var(--deep)
+}
+:focus-visible {
+  outline: 2px solid var(--deep);
+  outline-offset: 3px;
+  border-radius: 3px
+}
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  grid-column: full;
+  background: color-mix(in srgb,var(--paper) 88%,transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--rule-soft)
+}
+.nav-in {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 8px 16px;
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 12.5px
+}
+.nav-links {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  overflow-x: auto;
+  flex: 1 1 auto
+}
+.nav-links a {
+  white-space: nowrap;
+  text-decoration: none;
+  color: var(--ink-2);
+  padding: 4px 9px;
+  border: 1px solid var(--rule);
+  border-radius: 2px
+}
+.nav-links a:hover {
+  color: var(--ink);
+  border-color: var(--deep)
+}
+.nav-in b.navlabel {
+  color: var(--ink-3);
+  font-weight: 400;
+  padding-right: 4px;
+  letter-spacing: .08em;
+  white-space: nowrap
+}
+.lang-tab {
+  flex: none;
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: 1px;
+  color: var(--ink-3);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 5px 10px;
+  line-height: 1;
+  margin-left: 8px
+}
+.lang-tab:hover {
+  color: var(--ink);
+  border-color: var(--deep)
+}
+.lang-tab b {
+  color: var(--deep);
+  font-weight: 700
+}
+.hero {
+  grid-column: wide;
+  padding: 52px 0 8px
+}
+.kicker {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 0 0 14px
+}
+h1 {
+  font-size: clamp(34px,6vw,58px);
+  line-height: 1.02;
+  letter-spacing: -.02em;
+  font-weight: 700
+}
+h1 em {
+  font-style: normal;
+  color: var(--port)
+}
+h1 i {
+  font-style: normal;
+  color: var(--stbd)
+}
+.lede {
+  font-size: clamp(19px,2.4vw,22px);
+  color: var(--ink-2);
+  max-width: 56ch;
+  margin: 18px 0 0
+}
+.wrap > section {
+  grid-column: wide
+}
+section {
+  padding: 46px 0 8px;
+  scroll-margin-top: 64px
+}
+section > .rule-box,
+section > details,
+section > h2,
+section > h3,
+section > p {
+  max-width: 720px
+}
+.eyebrow {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  letter-spacing: .1em;
+  color: var(--surface);
+  background: var(--ink);
+  padding: 3px 9px;
+  border-radius: 2px;
+  margin-bottom: 14px
+}
+h2 {
+  font-size: clamp(25px,3.4vw,33px);
+  line-height: 1.15;
+  letter-spacing: -.01em;
+  margin-bottom: 10px
+}
+h3 {
+  font-size: 21px;
+  margin: 30px 0 8px;
+  letter-spacing: -.005em
+}
+h4 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: .02em;
+  margin: 0 0 6px
+}
+.sub {
+  color: var(--ink-2);
+  max-width: 62ch
+}
+figure {
+  margin: 26px 0;
+  background: var(--surface);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  padding: 18px 18px 12px;
+  box-shadow: var(--shadow)
+}
+figure svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  color: var(--ink)
+}
+figcaption {
+  font-family: var(--sans);
+  font-size: 14.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--rule-soft)
+}
+figcaption b {
+  color: var(--ink)
+}
+.grid {
+  display: grid;
+  gap: 14px;
+  margin: 22px 0
+}
+.g2 {
+  grid-template-columns: repeat(auto-fit,minmax(260px,1fr))
+}
+.g4 {
+  grid-template-columns: repeat(auto-fit,minmax(168px,1fr))
+}
+.card {
+  background: var(--surface);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  padding: 16px 16px 14px;
+  box-shadow: var(--shadow)
+}
+.card p {
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--ink-2)
+}
+.tag {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .06em;
+  color: var(--ink-3);
+  display: block;
+  margin-bottom: 6px
+}
+.card.port {
+  border-left: 3px solid var(--port)
+}
+.card.stbd {
+  border-left: 3px solid var(--stbd)
+}
+.card.sand {
+  border-left: 3px solid var(--sand)
+}
+.card.deep {
+  border-left: 3px solid var(--deep)
+}
+.rule-box {
+  background: var(--surface-2);
+  border: 1px solid var(--rule);
+  border-left: 4px solid var(--deep);
+  border-radius: 3px;
+  padding: 16px 18px;
+  margin: 22px 0
+}
+.rule-box.warn {
+  border-left-color: var(--port)
+}
+.rule-box p:last-child {
+  margin-bottom: 0
+}
+.rule-box h4 {
+  font-family: var(--sans);
+  margin-bottom: 8px
+}
+.golden {
+  border: 2px solid var(--ink);
+  border-radius: 4px;
+  padding: 22px 22px 18px;
+  margin: 26px 0;
+  background: var(--surface);
+  box-shadow: var(--shadow)
+}
+.golden h4 {
+  font-size: 13px;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-family: var(--mono);
+  margin-bottom: 14px
+}
+.golden ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 10px
+}
+.golden li {
+  display: flex;
+  gap: 12px;
+  align-items: baseline;
+  font-size: 18.5px
+}
+.golden .lamp {
+  flex: 0 0 auto;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--lamp-ring);
+  align-self: center
+}
+.golden .lamp.r {
+  background: var(--port);
+  border-color: var(--port)
+}
+.golden .lamp.g {
+  background: var(--stbd);
+  border-color: var(--stbd)
+}
+.golden .lamp.w {
+  background: var(--lamp)
+}
+.golden .lamp.rg {
+  background: linear-gradient(90deg,var(--port) 50%,var(--stbd) 50%);
+  border: none
+}
+.tbl-wrap {
+  overflow-x: auto;
+  margin: 22px 0;
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  background: var(--surface)
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  font-family: var(--sans);
+  font-size: 15px;
+  min-width: 520px
+}
+td,
+th {
+  padding: 10px 13px;
+  text-align: left;
+  border-bottom: 1px solid var(--rule-soft);
+  vertical-align: top
+}
+th {
+  background: var(--surface-2);
+  font-size: 13px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  font-weight: 700
+}
+td.num {
+  font-family: var(--mono);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap
+}
+tr:last-child td {
+  border-bottom: none
+}
+code {
+  font-family: var(--mono);
+  font-size: .92em;
+  background: var(--surface-2);
+  padding: 1px 5px;
+  border-radius: 2px;
+  border: 1px solid var(--rule-soft)
+}
+.ring-tool {
+  grid-column: wide;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 5px;
+  margin: 30px 0 10px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display: grid;
+  gap: 20px;
+  grid-template-columns: minmax(280px,1.15fr) minmax(240px,1fr)
+}
+@media (max-width:720px) {
+  .ring-tool {
+    grid-template-columns: 1fr
+  }
+}
+.ring-tool svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: var(--ink)
+}
+.ring-ctl {
+  margin-top: 12px
+}
+.ring-ctl label {
+  display: block;
+  font-family: var(--mono);
+  font-size: 12.5px;
+  color: var(--ink-3);
+  letter-spacing: .06em;
+  margin-bottom: 8px
+}
+input[type=range] {
+  width: 100%;
+  accent-color: var(--deep);
+  height: 26px
+}
+.readout {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center
+}
+.ro-block {
+  border: 1px solid var(--rule-soft);
+  border-radius: 3px;
+  padding: 13px 14px;
+  background: var(--surface-2)
+}
+.ro-block .lab {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 6px
+}
+.ro-lights {
+  display: flex;
+  gap: 8px 16px;
+  align-items: center;
+  flex-wrap: wrap
+}
+.ro-item {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  white-space: nowrap
+}
+.dot {
+  width: 19px;
+  height: 19px;
+  border-radius: 50%;
+  border: 1px solid var(--lamp-ring);
+  flex: 0 0 auto
+}
+.dot.r {
+  background: var(--port);
+  border-color: var(--port)
+}
+.dot.g {
+  background: var(--stbd);
+  border-color: var(--stbd)
+}
+.dot.w {
+  background: var(--lamp)
+}
+.dot.off {
+  background: transparent;
+  border-style: dashed;
+  opacity: .4
+}
+.ro-lights span {
+  font-family: var(--sans);
+  font-size: 14.5px;
+  color: var(--ink-2)
+}
+#ro-role {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--ink)
+}
+#ro-rule {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink-3);
+  margin-top: 4px
+}
+#ro-act {
+  font-family: var(--sans);
+  font-size: 15.5px;
+  line-height: 1.5;
+  color: var(--ink-2)
+}
+.ro-block.is-give {
+  border-left: 3px solid var(--port)
+}
+.ro-block.is-stand {
+  border-left: 3px solid var(--stbd)
+}
+.ro-block.is-head {
+  border-left: 3px solid var(--sand)
+}
+.ro-block.is-over {
+  border-left: 3px solid var(--deep)
+}
+.stack-card {
+  background: var(--surface);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  padding: 14px 12px 12px;
+  text-align: center;
+  box-shadow: var(--shadow)
+}
+.stack-card svg {
+  width: 100%;
+  max-width: 118px;
+  height: auto;
+  margin: 0 auto 6px;
+  display: block;
+  color: var(--ink)
+}
+.stack-card h4 {
+  font-size: 14.5px;
+  margin-bottom: 3px
+}
+.stack-card .rl {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--ink-3);
+  display: block;
+  margin-bottom: 6px
+}
+.stack-card .hook {
+  font-family: var(--serif);
+  font-size: 14.5px;
+  line-height: 1.45;
+  color: var(--ink-2);
+  margin: 0
+}
+.sig {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  min-height: 20px
+}
+.sig i {
+  display: block;
+  height: 11px;
+  border-radius: 2px;
+  background: var(--ink)
+}
+.sig i.s {
+  width: 12px
+}
+.sig i.l {
+  width: 48px
+}
+.sig i.bell {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--sand)
+}
+.sig-note {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--ink-3);
+  margin-left: 6px;
+  white-space: nowrap
+}
+details {
+  background: var(--surface);
+  border: 1px solid var(--rule-soft);
+  border-radius: 4px;
+  margin: 10px 0;
+  box-shadow: var(--shadow)
+}
+summary {
+  padding: 14px 16px;
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 16.5px;
+  font-weight: 600;
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start
+}
+summary::-webkit-details-marker {
+  display: none
+}
+summary::before {
+  content: "?";
+  font-family: var(--mono);
+  color: var(--surface);
+  background: var(--ink-3);
+  border-radius: 2px;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  margin-top: 2px
+}
+details[open] summary::before {
+  content: "!";
+  background: var(--deep)
+}
+details .ans {
+  padding: 0 16px 14px 48px;
+  font-size: 16.5px;
+  color: var(--ink-2);
+  line-height: 1.6
+}
+details .ans b {
+  color: var(--ink)
+}
+footer {
+  grid-column: wide;
+  margin: 60px 0 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink-3)
+}
+hr.sep {
+  grid-column: wide;
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 34px 0 0
+}
+@media (prefers-reduced-motion:reduce) {
+  * {
+    transition: none!important;
+    animation: none!important
+  }
+}</style>
 
-/* ============ SONG NGU / BILINGUAL ============
-   Moi mau chu nam SAN ca 2 ban trong HTML. Khong dat display cho ban dang hien
-   de no giu nguyen kieu goc (block / inline / list-item / SVG text).
-   Khong co data-lang => hien TIENG ANH (giong mac dinh cua hieunguyen.net). */
-html:not([data-lang="vi"]) .lg-vi{display:none!important}
-html[data-lang="vi"] .lg-en{display:none!important}
-
-/* ============ BASE ============ */
-*{box-sizing:border-box}
-body{
-  margin:0;background:var(--paper);color:var(--ink);
-  font-family:var(--serif);font-size:18px;line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  -webkit-print-color-adjust:exact;print-color-adjust:exact;
-}
-@media print{
-  .nav{display:none}
-  figure,.card,.stack-card,.golden,.rule-box,details,.tbl-wrap{break-inside:avoid}
-}
-.wrap{
-  display:grid;
-  grid-template-columns:[full-start] minmax(16px,1fr) [wide-start] minmax(0,140px) [text-start] minmax(0,660px) [text-end] minmax(0,140px) [wide-end] minmax(16px,1fr) [full-end];
-}
-.wrap > *{grid-column:text}
-.wide{grid-column:wide}
-.full{grid-column:full}
-h1,h2,h3,h4{font-family:var(--sans);text-wrap:balance;margin:0}
-p{margin:0 0 1em}
-a{color:var(--deep)}
-:focus-visible{outline:2px solid var(--deep);outline-offset:3px;border-radius:3px}
-
-/* ============ NAV ============ */
-.nav{
-  position:sticky;top:0;z-index:40;grid-column:full;
-  background:color-mix(in srgb,var(--paper) 88%,transparent);
-  backdrop-filter:blur(8px);border-bottom:1px solid var(--rule-soft);
-}
-.nav-in{
-  max-width:1080px;margin:0 auto;padding:8px 16px;
-  display:flex;gap:6px;align-items:center;
-  font-family:var(--mono);font-size:12.5px;
-}
-.nav-links{display:flex;gap:6px;align-items:center;overflow-x:auto;flex:1 1 auto}
-.nav-links a{
-  white-space:nowrap;text-decoration:none;color:var(--ink-2);
-  padding:4px 9px;border:1px solid var(--rule);border-radius:2px;
-}
-.nav-links a:hover{color:var(--ink);border-color:var(--deep)}
-.nav-in b.navlabel{color:var(--ink-3);font-weight:400;padding-right:4px;letter-spacing:.08em;white-space:nowrap}
-.lang-tab{
-  flex:none;cursor:pointer;font-family:var(--mono);font-size:12.5px;letter-spacing:1px;
-  color:var(--ink-3);background:var(--surface);border:1px solid var(--rule);border-radius:3px;
-  padding:5px 10px;line-height:1;margin-left:8px;
-}
-.lang-tab:hover{color:var(--ink);border-color:var(--deep)}
-.lang-tab b{color:var(--deep);font-weight:700}
-
-/* ============ HERO ============ */
-.hero{grid-column:wide;padding:52px 0 8px}
-.kicker{
-  font-family:var(--mono);font-size:12.5px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--ink-3);margin:0 0 14px;
-}
-h1{font-size:clamp(34px,6vw,58px);line-height:1.02;letter-spacing:-.02em;font-weight:700}
-h1 em{font-style:normal;color:var(--port)}
-h1 i{font-style:normal;color:var(--stbd)}
-.lede{
-  font-size:clamp(19px,2.4vw,22px);color:var(--ink-2);max-width:56ch;margin:18px 0 0;
-}
-
-/* ============ SECTIONS ============ */
-.wrap > section{grid-column:wide}
-section{padding:46px 0 8px;scroll-margin-top:64px}
-section > h2,section > h3,section > p,section > .rule-box,section > details{max-width:720px}
-.eyebrow{
-  display:inline-block;font-family:var(--mono);font-size:12.5px;letter-spacing:.1em;
-  color:var(--surface);background:var(--ink);padding:3px 9px;border-radius:2px;margin-bottom:14px;
-}
-h2{font-size:clamp(25px,3.4vw,33px);line-height:1.15;letter-spacing:-.01em;margin-bottom:10px}
-h3{font-size:21px;margin:30px 0 8px;letter-spacing:-.005em}
-h4{font-size:16px;font-weight:700;letter-spacing:.02em;margin:0 0 6px}
-.sub{color:var(--ink-2);max-width:62ch}
-
-/* ============ FIGURES ============ */
-figure{margin:26px 0;background:var(--surface);border:1px solid var(--rule-soft);border-radius:4px;padding:18px 18px 12px;box-shadow:var(--shadow)}
-figure svg{display:block;width:100%;height:auto;max-width:100%;color:var(--ink)}
-figcaption{
-  font-family:var(--sans);font-size:14.5px;line-height:1.5;color:var(--ink-2);
-  margin-top:12px;padding-top:10px;border-top:1px solid var(--rule-soft);
-}
-figcaption b{color:var(--ink)}
-
-/* ============ CARDS ============ */
-.grid{display:grid;gap:14px;margin:22px 0}
-.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-.g4{grid-template-columns:repeat(auto-fit,minmax(168px,1fr))}
-.card{
-  background:var(--surface);border:1px solid var(--rule-soft);border-radius:4px;
-  padding:16px 16px 14px;box-shadow:var(--shadow);
-}
-.card p{margin:0;font-size:16px;line-height:1.55;color:var(--ink-2)}
-.tag{
-  font-family:var(--mono);font-size:12px;letter-spacing:.06em;color:var(--ink-3);
-  display:block;margin-bottom:6px;
-}
-.card.port{border-left:3px solid var(--port)}
-.card.stbd{border-left:3px solid var(--stbd)}
-.card.sand{border-left:3px solid var(--sand)}
-.card.deep{border-left:3px solid var(--deep)}
-
-/* ============ CALLOUT ============ */
-.rule-box{
-  background:var(--surface-2);border:1px solid var(--rule);border-left:4px solid var(--deep);
-  border-radius:3px;padding:16px 18px;margin:22px 0;
-}
-.rule-box.warn{border-left-color:var(--port)}
-.rule-box p:last-child{margin-bottom:0}
-.rule-box h4{font-family:var(--sans);margin-bottom:8px}
-
-.golden{
-  border:2px solid var(--ink);border-radius:4px;padding:22px 22px 18px;margin:26px 0;
-  background:var(--surface);box-shadow:var(--shadow);
-}
-.golden h4{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-3);font-family:var(--mono);margin-bottom:14px}
-.golden ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-.golden li{display:flex;gap:12px;align-items:baseline;font-size:18.5px}
-.golden .lamp{flex:0 0 auto;width:14px;height:14px;border-radius:50%;border:1px solid var(--lamp-ring);align-self:center}
-.golden .lamp.r{background:var(--port);border-color:var(--port)}
-.golden .lamp.g{background:var(--stbd);border-color:var(--stbd)}
-.golden .lamp.w{background:var(--lamp)}
-.golden .lamp.rg{background:linear-gradient(90deg,var(--port) 50%,var(--stbd) 50%);border:none}
-
-/* ============ TABLE ============ */
-.tbl-wrap{overflow-x:auto;margin:22px 0;border:1px solid var(--rule-soft);border-radius:4px;background:var(--surface)}
-table{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:15px;min-width:520px}
-th,td{padding:10px 13px;text-align:left;border-bottom:1px solid var(--rule-soft);vertical-align:top}
-th{background:var(--surface-2);font-size:13px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-2);font-weight:700}
-td.num{font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
-tr:last-child td{border-bottom:none}
-code{font-family:var(--mono);font-size:.92em;background:var(--surface-2);padding:1px 5px;border-radius:2px;border:1px solid var(--rule-soft)}
-
-/* ============ INTERACTIVE RING ============ */
-.ring-tool{
-  grid-column:wide;background:var(--surface);border:1px solid var(--rule);border-radius:5px;
-  margin:30px 0 10px;padding:20px;box-shadow:var(--shadow);
-  display:grid;gap:20px;grid-template-columns:minmax(280px,1.15fr) minmax(240px,1fr);
-}
-@media (max-width:720px){.ring-tool{grid-template-columns:1fr}}
-.ring-tool svg{display:block;width:100%;height:auto;color:var(--ink)}
-.ring-ctl{margin-top:12px}
-.ring-ctl label{display:block;font-family:var(--mono);font-size:12.5px;color:var(--ink-3);letter-spacing:.06em;margin-bottom:8px}
-input[type=range]{width:100%;accent-color:var(--deep);height:26px}
-.readout{display:flex;flex-direction:column;gap:12px;justify-content:center}
-.ro-block{border:1px solid var(--rule-soft);border-radius:3px;padding:13px 14px;background:var(--surface-2)}
-.ro-block .lab{font-family:var(--mono);font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:6px}
-.ro-lights{display:flex;gap:8px 16px;align-items:center;flex-wrap:wrap}
-.ro-item{display:inline-flex;gap:8px;align-items:center;white-space:nowrap}
-.dot{width:19px;height:19px;border-radius:50%;border:1px solid var(--lamp-ring);flex:0 0 auto}
-.dot.r{background:var(--port);border-color:var(--port)}
-.dot.g{background:var(--stbd);border-color:var(--stbd)}
-.dot.w{background:var(--lamp)}
-.dot.off{background:transparent;border-style:dashed;opacity:.4}
-.ro-lights span{font-family:var(--sans);font-size:14.5px;color:var(--ink-2)}
-#ro-role{font-family:var(--sans);font-weight:700;font-size:20px;line-height:1.25;color:var(--ink)}
-#ro-rule{font-family:var(--mono);font-size:13px;color:var(--ink-3);margin-top:4px}
-#ro-act{font-family:var(--sans);font-size:15.5px;line-height:1.5;color:var(--ink-2)}
-.ro-block.is-give{border-left:3px solid var(--port)}
-.ro-block.is-stand{border-left:3px solid var(--stbd)}
-.ro-block.is-head{border-left:3px solid var(--sand)}
-.ro-block.is-over{border-left:3px solid var(--deep)}
-
-/* ============ LIGHT STACK CARDS ============ */
-.stack-card{background:var(--surface);border:1px solid var(--rule-soft);border-radius:4px;padding:14px 12px 12px;text-align:center;box-shadow:var(--shadow)}
-.stack-card svg{width:100%;max-width:118px;height:auto;margin:0 auto 6px;display:block;color:var(--ink)}
-.stack-card h4{font-size:14.5px;margin-bottom:3px}
-.stack-card .rl{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);display:block;margin-bottom:6px}
-.stack-card .hook{font-family:var(--serif);font-size:14.5px;line-height:1.45;color:var(--ink-2);margin:0}
-
-/* ============ SOUND BARS ============ */
-.sig{display:flex;gap:5px;align-items:center;min-height:20px}
-.sig i{display:block;height:11px;border-radius:2px;background:var(--ink)}
-.sig i.s{width:12px}
-.sig i.l{width:48px}
-.sig i.bell{width:11px;height:11px;border-radius:50%;background:var(--sand)}
-.sig-note{font-family:var(--mono);font-size:12px;color:var(--ink-3);margin-left:6px;white-space:nowrap}
-
-/* ============ QUIZ ============ */
-details{background:var(--surface);border:1px solid var(--rule-soft);border-radius:4px;margin:10px 0;box-shadow:var(--shadow)}
-summary{padding:14px 16px;cursor:pointer;font-family:var(--sans);font-size:16.5px;font-weight:600;list-style:none;display:flex;gap:12px;align-items:flex-start}
-summary::-webkit-details-marker{display:none}
-summary::before{content:"?";font-family:var(--mono);color:var(--surface);background:var(--ink-3);border-radius:2px;width:20px;height:20px;flex:0 0 auto;display:grid;place-items:center;font-size:12px;margin-top:2px}
-details[open] summary::before{content:"!";background:var(--deep)}
-details .ans{padding:0 16px 14px 48px;font-size:16.5px;color:var(--ink-2);line-height:1.6}
-details .ans b{color:var(--ink)}
-
-footer{grid-column:wide;margin:60px 0 40px;padding-top:20px;border-top:1px solid var(--rule);font-family:var(--sans);font-size:14px;color:var(--ink-3)}
-hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px 0 0}
-@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-</style>
-
-<script>
-/* Dat ngon ngu TRUOC khi trang ve ra, tranh nhay chu.
-   MAC DINH LA TIENG ANH; chi sang VI khi nguoi xem tu bam nut.
-   Dung chung khoa hn_lang voi hieunguyen.net. */
-(function(){
-  var l=null;
-  try{l=localStorage.getItem('hn_lang');}catch(e){}
-  if(l!=='vi'&&l!=='en')l='en';
-  document.documentElement.setAttribute('data-lang',l);
-  document.documentElement.lang=l;
-})();
-</script>
+<script>(function() {
+var l = null;
+try {
+l = localStorage.getItem("hn_lang");
+} catch (e) {}
+if (l !== "vi" && l !== "en") l = "en";
+document.documentElement.setAttribute("data-lang", l);
+document.documentElement.lang = l;
+})()</script>
 
 <div class="wrap">
 
@@ -386,31 +879,33 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
   <p class="lede lg-vi">Cả bộ luật đi đường được mã hoá sẵn vào đèn tàu. Nhìn thấy đèn nào là biết mình đang đứng ở cung nào của tàu kia; biết cung là biết vai; biết vai là biết phải làm gì. Trang này dạy đúng đường đó — mọi con số lấy từ bản hợp nhất COLREG 1972.</p>
 </header>
 
-<!-- ================= HERO TOOL ================= -->
-<section id="vong" style="padding-top:24px">
+
+<section id="vong" style="* {
+  padding-top: 24px
+}">
 <div class="ring-tool">
   <div>
     <svg id="ring" viewBox="0 0 520 400" role="img" aria-label="A ring around vessel B divided into four zones: head-on, you give way, you stand on, you are overtaking">
-      <!-- vung: minh NHUONG (man trai no) -->
+      
       <path d="M260 215 L119.6 273.2 A152 152 0 0 1 244.1 63.8 Z" fill="var(--port-wash)"/>
-      <!-- vung: minh GIU NGUYEN (man phai no) -->
+      
       <path d="M260 215 L275.9 63.8 A152 152 0 0 1 400.4 273.2 Z" fill="var(--stbd-wash)"/>
-      <!-- vung: minh VUOT -->
+      
       <path d="M260 215 L400.4 273.2 A152 152 0 0 1 119.6 273.2 Z" fill="var(--deep-wash)"/>
-      <!-- vung: DOI HUONG (±6°) -->
+      
       <path d="M260 215 L244.1 63.8 A152 152 0 0 1 275.9 63.8 Z" fill="var(--sand-wash)"/>
-      <!-- vong tron + truc -->
+      
       <circle cx="260" cy="215" r="152" fill="none" stroke="currentColor" stroke-width="1" opacity=".35"/>
       <line x1="108" y1="215" x2="412" y2="215" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".3"/>
       <line x1="260" y1="215" x2="260" y2="52" stroke="currentColor" stroke-width="1" stroke-dasharray="5 5" opacity=".3"/>
-      <!-- ranh 112,5 -->
+      
       <line x1="260" y1="215" x2="400.4" y2="273.2" stroke="var(--ink-3)" stroke-width="1.6"/>
       <line x1="260" y1="215" x2="119.6" y2="273.2" stroke="var(--ink-3)" stroke-width="1.6"/>
       <text class="lg-en" x="408" y="288" font-family="var(--mono)" font-size="15.8" fill="var(--ink-3)">112.5°</text>
       <text class="lg-vi" x="408" y="288" font-family="var(--mono)" font-size="15.8" fill="var(--ink-3)">112,5°</text>
       <text class="lg-en" x="112" y="288" font-family="var(--mono)" font-size="15.8" fill="var(--ink-3)" text-anchor="end">112.5°</text>
       <text class="lg-vi" x="112" y="288" font-family="var(--mono)" font-size="15.8" fill="var(--ink-3)" text-anchor="end">112,5°</text>
-      <!-- nhan vung -->
+      
       <text class="lg-en" x="176" y="150" font-family="var(--sans)" font-size="17.2" font-weight="700" fill="var(--port)" text-anchor="middle">YOU GIVE WAY</text>
       <text class="lg-vi" x="176" y="150" font-family="var(--sans)" font-size="17.2" font-weight="700" fill="var(--port)" text-anchor="middle">MÌNH NHƯỜNG</text>
       <text class="lg-en" x="176" y="167" font-family="var(--mono)" font-size="15.2" fill="var(--port)" text-anchor="middle">you see RED</text>
@@ -425,14 +920,14 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
       <text class="lg-vi" x="260" y="349" font-family="var(--mono)" font-size="15.2" fill="var(--deep)" text-anchor="middle">chỉ thấy đèn lái TRẮNG</text>
       <text class="lg-en" x="260" y="46" font-family="var(--sans)" font-size="16.5" font-weight="700" fill="var(--sand)" text-anchor="middle">HEAD-ON — both alter to starboard</text>
       <text class="lg-vi" x="260" y="46" font-family="var(--sans)" font-size="16.5" font-weight="700" fill="var(--sand)" text-anchor="middle">ĐỐI HƯỚNG — cả hai bẻ phải</text>
-      <!-- tau B o tam -->
+      
       <g>
         <polygon points="260,187 272,207 272,239 248,239 248,207" fill="currentColor"/>
         <circle cx="248.5" cy="213" r="4.6" fill="var(--port)"/>
         <circle cx="271.5" cy="213" r="4.6" fill="var(--stbd)"/>
         <text x="284" y="243" font-family="var(--sans)" font-size="18.5" font-weight="700" fill="currentColor">B</text>
       </g>
-      <!-- tau A dat theo goc -->
+      
       <g id="shipA">
         <polygon points="0,-16 11,3 11,22 -11,22 -11,3" fill="var(--deep)"/>
       </g>
@@ -446,8 +941,20 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
         <span id="angtxt" class="num"></span>
       </label>
       <input type="range" id="ang" min="-180" max="180" step="1" value="-40">
-      <p class="lg-en" style="font-family:var(--sans);font-size:13.5px;color:var(--ink-3);margin:10px 0 0;line-height:1.5">A = your ship · B = the other ship · A's bow always points at B (risk of collision exists) · both are power-driven vessels in sight of one another</p>
-      <p class="lg-vi" style="font-family:var(--sans);font-size:13.5px;color:var(--ink-3);margin:10px 0 0;line-height:1.5">A = tàu mình · B = tàu kia · mũi A luôn chĩa về B (có nguy cơ đâm va) · hai tàu đều là tàu máy và nhìn thấy nhau</p>
+      <p class="lg-en" style="* {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--ink-3);
+  margin: 10px 0 0;
+  line-height: 1.5
+}">A = your ship · B = the other ship · A's bow always points at B (risk of collision exists) · both are power-driven vessels in sight of one another</p>
+      <p class="lg-vi" style="* {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  color: var(--ink-3);
+  margin: 10px 0 0;
+  line-height: 1.5
+}">A = tàu mình · B = tàu kia · mũi A luôn chĩa về B (có nguy cơ đâm va) · hai tàu đều là tàu máy và nhìn thấy nhau</p>
     </div>
   </div>
   <div class="readout">
@@ -466,8 +973,14 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
     </div>
   </div>
 </div>
-<p class="sub lg-en" style="font-size:15.5px;margin-top:6px">The head-on wedge is drawn at ±6° so it can be seen — <b>COLREG gives no figure</b>. Rule 14(b) says only "reciprocal or nearly reciprocal courses", and Rule 14(c) settles it: if in doubt, <b>assume it is head-on</b>.</p>
-<p class="sub lg-vi" style="font-size:15.5px;margin-top:6px">Vùng đối hướng vẽ ±6° cho dễ nhìn — <b>COLREG không cho con số</b>, Đ.14(b) chỉ nói "ngược hướng hoặc gần như ngược hướng", và Đ.14(c) chốt: nghi ngờ thì <b>coi như là đối hướng</b>.</p>
+<p class="sub lg-en" style="* {
+  font-size: 15.5px;
+  margin-top: 6px
+}">The head-on wedge is drawn at ±6° so it can be seen — <b>COLREG gives no figure</b>. Rule 14(b) says only "reciprocal or nearly reciprocal courses", and Rule 14(c) settles it: if in doubt, <b>assume it is head-on</b>.</p>
+<p class="sub lg-vi" style="* {
+  font-size: 15.5px;
+  margin-top: 6px
+}">Vùng đối hướng vẽ ±6° cho dễ nhìn — <b>COLREG không cho con số</b>, Đ.14(b) chỉ nói "ngược hướng hoặc gần như ngược hướng", và Đ.14(c) chốt: nghi ngờ thì <b>coi như là đối hướng</b>.</p>
 </section>
 
 <div class="golden">
@@ -478,13 +991,21 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
     <li><span class="lamp rg"></span><span class="lg-en">You see <b>BOTH RED AND GREEN</b> (bow to bow) → <b>both alter to starboard</b>, pass port to port</span><span class="lg-vi">Thấy <b>CẢ ĐỎ CẢ XANH</b> (mũi đối mũi) → <b>cả hai bẻ phải</b>, qua nhau mạn trái</span></li>
     <li><span class="lamp w"></span><span class="lg-en">You see only her <b>WHITE STERNLIGHT</b> → <b>you are overtaking</b> → you give way, and keep clear until finally past and clear</span><span class="lg-vi">Chỉ thấy <b>ĐÈN LÁI TRẮNG</b> → <b>mình đang vượt</b> → mình nhường, giữ tới khi thoát hẳn</span></li>
   </ul>
-  <p class="lg-en" style="margin:16px 0 0;font-size:16px;color:var(--ink-2)">Two places where the golden lines do <b>not</b> apply: when she shows the lights or shapes of a special vessel (Rule 18 — see the ladder below), and when she is <b>abaft your beam</b> and coming up on you (then she is the overtaking vessel and you stand on, whatever light you see).</p>
-  <p class="lg-vi" style="margin:16px 0 0;font-size:16px;color:var(--ink-2)">Hai chỗ câu vàng <b>không</b> áp được: khi tàu kia trưng đèn/dấu hiệu tàu đặc biệt (Đ.18 — xem mục thang bậc), và khi nó nằm <b>sau trục ngang</b> mình đuổi lên mình (khi đó nó là tàu vượt, mình giữ nguyên dù thấy đèn gì).</p>
+  <p class="lg-en" style="* {
+  margin: 16px 0 0;
+  font-size: 16px;
+  color: var(--ink-2)
+}">Two places where the golden lines do <b>not</b> apply: when she shows the lights or shapes of a special vessel (Rule 18 — see the ladder below), and when she is <b>abaft your beam</b> and coming up on you (then she is the overtaking vessel and you stand on, whatever light you see).</p>
+  <p class="lg-vi" style="* {
+  margin: 16px 0 0;
+  font-size: 16px;
+  color: var(--ink-2)
+}">Hai chỗ câu vàng <b>không</b> áp được: khi tàu kia trưng đèn/dấu hiệu tàu đặc biệt (Đ.18 — xem mục thang bậc), và khi nó nằm <b>sau trục ngang</b> mình đuổi lên mình (khi đó nó là tàu vượt, mình giữ nguyên dù thấy đèn gì).</p>
 </div>
 
 <hr class="sep">
 
-<!-- ================= 1. NEN ================= -->
+
 <section id="nen">
 <span class="eyebrow">R.5 · R.6 · R.7 · R.8</span>
 <h2 class="lg-en">Four rules always running underneath, never switched off</h2>
@@ -570,7 +1091,7 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 
 <hr class="sep">
 
-<!-- ================= 2. DEN ================= -->
+
 <section id="den">
 <span class="eyebrow">R.21 · R.22 · R.23</span>
 <h2 class="lg-en">Light sectors — why 112.5° is the most important number in COLREG</h2>
@@ -671,13 +1192,17 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 <tr><td><span class="lg-en">All-round light</span><span class="lg-vi">Đèn chiếu vòng quanh</span></td><td class="num">3</td><td class="num">2</td><td class="num">2</td></tr>
 </table>
 </div>
-<p class="sub lg-en" style="font-size:16px">Read the table the way you use it: the masthead light <b>always shows up first</b>. A single white light on the horizon tells you nothing yet — you must wait for a sidelight before you know your role. That is exactly why Rule 5 demands a continuous look-out rather than one glance and a conclusion.</p>
-<p class="sub lg-vi" style="font-size:16px">Đọc bảng theo cách dùng được: đèn cột <b>bao giờ cũng thấy trước</b> đèn mạn. Đêm nhìn thấy một đèn trắng đơn độc chưa nói lên gì — phải chờ đèn mạn hiện ra mới biết vai. Đó là lý do Đ.5 bắt cảnh giới liên tục chứ không nhìn một phát rồi kết luận.</p>
+<p class="sub lg-en" style="* {
+  font-size: 16px
+}">Read the table the way you use it: the masthead light <b>always shows up first</b>. A single white light on the horizon tells you nothing yet — you must wait for a sidelight before you know your role. That is exactly why Rule 5 demands a continuous look-out rather than one glance and a conclusion.</p>
+<p class="sub lg-vi" style="* {
+  font-size: 16px
+}">Đọc bảng theo cách dùng được: đèn cột <b>bao giờ cũng thấy trước</b> đèn mạn. Đêm nhìn thấy một đèn trắng đơn độc chưa nói lên gì — phải chờ đèn mạn hiện ra mới biết vai. Đó là lý do Đ.5 bắt cảnh giới liên tục chứ không nhìn một phát rồi kết luận.</p>
 </section>
 
 <hr class="sep">
 
-<!-- ================= 3. BA TINH HUONG ================= -->
+
 <section id="ba">
 <span class="eyebrow">R.14 · R.15 · R.13</span>
 <h2 class="lg-en">Three situations — and only three</h2>
@@ -795,7 +1320,7 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 
 <hr class="sep">
 
-<!-- ================= 4. VAI ================= -->
+
 <section id="vai">
 <span class="eyebrow">R.16 · R.17</span>
 <h2 class="lg-en">Once you know the role, what each side does</h2>
@@ -867,7 +1392,7 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 
 <hr class="sep">
 
-<!-- ================= 5. THANG ================= -->
+
 <section id="thang">
 <span class="eyebrow">R.18</span>
 <h2 class="lg-en">The ladder: who keeps out of the way of whom</h2>
@@ -926,14 +1451,18 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 <h4><span class="lg-en">Two phrases that are easy to confuse</span><span class="lg-vi">Phân biệt hai chữ dễ lẫn</span></h4>
 <p class="lg-en"><b>"Keep out of the way"</b> — the full duty; the other vessel is entitled to keep her course and speed.</p>
 <p class="lg-vi"><b>"Phải nhường đường" (keep out of the way)</b> — nghĩa vụ đầy đủ, tàu kia có quyền giữ nguyên hướng đi và tốc độ.</p>
-<p class="lg-en" style="margin-bottom:0"><b>"Not impede"</b> — lighter: take <b>early</b> action to leave enough sea room for her safe passage; but once risk of collision exists, <b>both are back under the full steering and sailing rules</b> (Rule 8(f)). Used for vessels constrained by draught, narrow channels and separation schemes.</p>
-<p class="lg-vi" style="margin-bottom:0"><b>"Không được cản trở" (not impede)</b> — nhẹ hơn: điều động <b>sớm</b> để chừa đủ nước cho nó đi, nhưng nếu đã đến mức có nguy cơ đâm va thì <b>hai bên quay lại đủ các điều đi đường bình thường</b> (Đ.8(f)). Dùng cho tàu bị hạn chế bởi mớn nước, luồng hẹp, phân luồng.</p>
+<p class="lg-en" style="* {
+  margin-bottom: 0
+}"><b>"Not impede"</b> — lighter: take <b>early</b> action to leave enough sea room for her safe passage; but once risk of collision exists, <b>both are back under the full steering and sailing rules</b> (Rule 8(f)). Used for vessels constrained by draught, narrow channels and separation schemes.</p>
+<p class="lg-vi" style="* {
+  margin-bottom: 0
+}"><b>"Không được cản trở" (not impede)</b> — nhẹ hơn: điều động <b>sớm</b> để chừa đủ nước cho nó đi, nhưng nếu đã đến mức có nguy cơ đâm va thì <b>hai bên quay lại đủ các điều đi đường bình thường</b> (Đ.8(f)). Dùng cho tàu bị hạn chế bởi mớn nước, luồng hẹp, phân luồng.</p>
 </div>
 </section>
 
 <hr class="sep">
 
-<!-- ================= 6. TAM NHIN HAN CHE ================= -->
+
 <section id="mu">
 <span class="eyebrow">R.19</span>
 <h2 class="lg-en">Fog: the rules change completely, not a little</h2>
@@ -990,14 +1519,18 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 
 <div class="rule-box">
 <h4><span class="lg-en">Rule 19(e) — the last brake</span><span class="lg-vi">Đ.19(e) — cái phanh cuối cùng</span></h4>
-<p class="lg-en" style="margin-bottom:0">If you hear a fog signal <b>apparently forward of your beam</b>, or cannot avoid a close-quarters situation with a vessel forward of the beam ⇒ <b>reduce to the minimum speed at which you can be kept on course</b>; if necessary <b>take all way off</b>, and navigate with extreme caution until the danger of collision is over. There is no "but I am the stand-on vessel" — in fog nobody stands on.</p>
-<p class="lg-vi" style="margin-bottom:0">Nghe tín hiệu sương mù <b>ở phía trước trục ngang</b>, hoặc không tránh được tình huống quá gần với tàu ở trước trục ngang ⇒ <b>giảm tới tốc độ tối thiểu còn giữ được hướng</b>; nếu cần thì <b>phá hết trớn</b>, và điều động cực kỳ thận trọng cho tới khi hết nguy cơ. Không có ngoại lệ "vì tôi là tàu được nhường đường" — trong sương mù không ai được nhường đường cả.</p>
+<p class="lg-en" style="* {
+  margin-bottom: 0
+}">If you hear a fog signal <b>apparently forward of your beam</b>, or cannot avoid a close-quarters situation with a vessel forward of the beam ⇒ <b>reduce to the minimum speed at which you can be kept on course</b>; if necessary <b>take all way off</b>, and navigate with extreme caution until the danger of collision is over. There is no "but I am the stand-on vessel" — in fog nobody stands on.</p>
+<p class="lg-vi" style="* {
+  margin-bottom: 0
+}">Nghe tín hiệu sương mù <b>ở phía trước trục ngang</b>, hoặc không tránh được tình huống quá gần với tàu ở trước trục ngang ⇒ <b>giảm tới tốc độ tối thiểu còn giữ được hướng</b>; nếu cần thì <b>phá hết trớn</b>, và điều động cực kỳ thận trọng cho tới khi hết nguy cơ. Không có ngoại lệ "vì tôi là tàu được nhường đường" — trong sương mù không ai được nhường đường cả.</p>
 </div>
 </section>
 
 <hr class="sep">
 
-<!-- ================= 7. COI ================= -->
+
 <section id="coi">
 <span class="eyebrow">R.32 · R.34 · R.35</span>
 <h2 class="lg-en">Whistle signals — read them with your eyes, don't memorise them</h2>
@@ -1009,9 +1542,13 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 <h3 class="lg-vi">Khi NHÌN THẤY NHAU — tín hiệu điều động (Đ.34)</h3>
 <div class="tbl-wrap">
 <table>
-<tr><th style="width:190px"><span class="lg-en">Signal</span><span class="lg-vi">Tín hiệu</span></th>
+<tr><th style="* {
+  width: 190px
+}"><span class="lg-en">Signal</span><span class="lg-vi">Tín hiệu</span></th>
     <th><span class="lg-en">Meaning</span><span class="lg-vi">Nghĩa</span></th>
-    <th style="width:96px"><span class="lg-en">Rule</span><span class="lg-vi">Điều</span></th></tr>
+    <th style="* {
+  width: 96px
+}"><span class="lg-en">Rule</span><span class="lg-vi">Điều</span></th></tr>
 <tr><td><span class="sig"><i class="s"></i></span></td>
   <td><b class="lg-en">I am altering my course to starboard</b><b class="lg-vi">Tôi đang bẻ phải</b></td><td class="num">34(a)</td></tr>
 <tr><td><span class="sig"><i class="s"></i><i class="s"></i></span></td>
@@ -1035,9 +1572,13 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 <h3 class="lg-vi">Khi KHÔNG nhìn thấy nhau — tín hiệu sương mù (Đ.35)</h3>
 <div class="tbl-wrap">
 <table>
-<tr><th style="width:190px"><span class="lg-en">Signal · interval</span><span class="lg-vi">Tín hiệu · chu kỳ</span></th>
+<tr><th style="* {
+  width: 190px
+}"><span class="lg-en">Signal · interval</span><span class="lg-vi">Tín hiệu · chu kỳ</span></th>
     <th><span class="lg-en">Who sounds it</span><span class="lg-vi">Ai phát</span></th>
-    <th style="width:80px"><span class="lg-en">Rule</span><span class="lg-vi">Điều</span></th></tr>
+    <th style="* {
+  width: 80px
+}"><span class="lg-en">Rule</span><span class="lg-vi">Điều</span></th></tr>
 <tr><td><span class="sig"><i class="l"></i><span class="sig-note lg-en">≤ 2 min</span><span class="sig-note lg-vi">≤ 2 phút</span></span></td>
   <td><span class="lg-en">Power-driven vessel <b>making way</b> through the water</span><span class="lg-vi">Tàu máy <b>đang có trớn</b></span></td><td class="num">35(a)</td></tr>
 <tr><td><span class="sig"><i class="l"></i><i class="l"></i><span class="sig-note lg-en">≤ 2 min</span><span class="sig-note lg-vi">≤ 2 phút</span></span></td>
@@ -1052,13 +1593,17 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
   <td><span class="lg-en"><b>Vessel aground</b>: three separate strokes — rapid ringing — three separate strokes</span><span class="lg-vi"><b>Tàu mắc cạn</b>: 3 tiếng chuông rời — rung chuông — 3 tiếng chuông rời</span></td><td class="num">35(h)</td></tr>
 </table>
 </div>
-<p class="sub lg-en" style="font-size:16px"><b>A way to remember Rule 35(c):</b> one prolonged blast says "I am under way"; the two short blasts after it say "but I cannot get out of your way". Everyone who can't manoeuvre freely sounds the same signal — no need to memorise six separate types of vessel.</p>
-<p class="sub lg-vi" style="font-size:16px"><b>Mẹo nhớ Đ.35(c):</b> một tiếng dài là "tôi đang chạy"; thêm hai tiếng ngắn là "nhưng tôi không tránh được cho anh". Ai không tránh được thì cùng phát một tín hiệu — khỏi phải nhớ sáu loại tàu riêng lẻ.</p>
+<p class="sub lg-en" style="* {
+  font-size: 16px
+}"><b>A way to remember Rule 35(c):</b> one prolonged blast says "I am under way"; the two short blasts after it say "but I cannot get out of your way". Everyone who can't manoeuvre freely sounds the same signal — no need to memorise six separate types of vessel.</p>
+<p class="sub lg-vi" style="* {
+  font-size: 16px
+}"><b>Mẹo nhớ Đ.35(c):</b> một tiếng dài là "tôi đang chạy"; thêm hai tiếng ngắn là "nhưng tôi không tránh được cho anh". Ai không tránh được thì cùng phát một tín hiệu — khỏi phải nhớ sáu loại tàu riêng lẻ.</p>
 </section>
 
 <hr class="sep">
 
-<!-- ================= 8. COT DEN ================= -->
+
 <section id="cot">
 <span class="eyebrow">R.24 – R.30</span>
 <h2 class="lg-en">Read the light stack, name the vessel</h2>
@@ -1200,7 +1745,7 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 
 <hr class="sep">
 
-<!-- ================= 9. TU KIEM ================= -->
+
 <section id="kiem">
 <span class="eyebrow"><span class="lg-en">Test yourself</span><span class="lg-vi">Tự kiểm</span></span>
 <h2 class="lg-en">Six questions — answer in your head before you open them</h2>
@@ -1256,161 +1801,188 @@ hr.sep{grid-column:wide;border:none;border-top:1px solid var(--rule);margin:34px
 </section>
 
 <footer>
-  <p class="lg-en" style="margin:0 0 6px"><b>Source:</b> COLREG 1972, consolidated edition (the copy held in this library: <code>raw/quy-dinh-thiet-bi/quocte/colreg-1972-consolidated-2018.pdf</code>). Every angle, range and blast duration on this page is taken straight from the rule text, not inferred.</p>
-  <p class="lg-vi" style="margin:0 0 6px"><b>Nguồn:</b> COLREG 1972 bản hợp nhất (bản đã nạp trong kho: <code>raw/quy-dinh-thiet-bi/quocte/colreg-1972-consolidated-2018.pdf</code>). Mọi con số góc, cự ly, thời lượng còi trên trang đều lấy nguyên từ điều luật, không suy diễn.</p>
-  <p class="lg-en" style="margin:0">A study page — it does not replace the Convention. For a report, an examination or a dispute, always open the rule itself.</p>
-  <p class="lg-vi" style="margin:0">Trang học — không thay thế văn bản gốc. Khi cần trích cho báo cáo, kiểm tra hay tranh chấp, luôn mở đúng điều luật trong bản gốc.</p>
+  <p class="lg-en" style="* {
+  margin: 0 0 6px
+}"><b>Source:</b> COLREG 1972, consolidated edition (the copy held in this library: <code>raw/quy-dinh-thiet-bi/quocte/colreg-1972-consolidated-2018.pdf</code>). Every angle, range and blast duration on this page is taken straight from the rule text, not inferred.</p>
+  <p class="lg-vi" style="* {
+  margin: 0 0 6px
+}"><b>Nguồn:</b> COLREG 1972 bản hợp nhất (bản đã nạp trong kho: <code>raw/quy-dinh-thiet-bi/quocte/colreg-1972-consolidated-2018.pdf</code>). Mọi con số góc, cự ly, thời lượng còi trên trang đều lấy nguyên từ điều luật, không suy diễn.</p>
+  <p class="lg-en" style="* {
+  margin: 0
+}">A study page — it does not replace the Convention. For a report, an examination or a dispute, always open the rule itself.</p>
+  <p class="lg-vi" style="* {
+  margin: 0
+}">Trang học — không thay thế văn bản gốc. Khi cần trích cho báo cáo, kiểm tra hay tranh chấp, luôn mở đúng điều luật trong bản gốc.</p>
 </footer>
 
 </div>
 
-<script>
-(function(){
-  var R = 152, CX = 260, CY = 215;
-  var ang = document.getElementById('ang');
-  var angtxt = document.getElementById('angtxt');
-  var shipA = document.getElementById('shipA');
-  var labelA = document.getElementById('labelA');
-  var los = document.getElementById('losLine');
-  var lightsEl = document.getElementById('ro-lights');
-  var roleEl = document.getElementById('ro-role');
-  var ruleEl = document.getElementById('ro-rule');
-  var actEl = document.getElementById('ro-act');
-  var wrapEl = document.getElementById('ro-wrap');
-  var langBtn = document.getElementById('langTab');
-
-  var CASES = {
-    en: {
-      head: {cls:'is-head',
-        lights:[['r','her RED sidelight'],['g','her GREEN sidelight'],['w','two masthead lights in line']],
-        role:'HEAD-ON — neither vessel stands on',
-        rule:'R.14 · in doubt, assume head-on (14c)',
-        act:'Alter to STARBOARD and pass port to port. Sound one short blast while altering (R.34a).'},
-      give: {cls:'is-give',
-        lights:[['r','her RED sidelight'],['w','masthead light'],['off','no green light']],
-        role:'YOU GIVE WAY',
-        rule:'R.15 · R.16 — she is on your starboard side',
-        act:'Take EARLY and SUBSTANTIAL action: a bold alteration to starboard and/or a reduction of speed. Avoid crossing ahead of her — go round her stern.'},
-      stand:{cls:'is-stand',
-        lights:[['g','her GREEN sidelight'],['w','masthead light'],['off','no red light']],
-        role:'YOU STAND ON — keep course and speed',
-        rule:'R.15 · R.17 — you are on her starboard side',
-        act:'Keep course and speed, and keep watching. If she does not act: at least 5 short blasts (R.34d), then you may manoeuvre alone (17a-ii); when too close you must act (17b). Never alter to port for a vessel on your port side (17c).'},
-      over: {cls:'is-over',
-        lights:[['w','ONLY her white sternlight'],['off','neither sidelight']],
-        role:'YOU ARE OVERTAKING — you keep out of the way',
-        rule:'R.13 · overrides R.15 and R.18',
-        act:'Overtake at a safe distance, preferably altering to starboard, and watch for interaction between the hulls. The duty holds until FINALLY PAST AND CLEAR (13d). In any doubt whether you are overtaking — assume you are (13c).'}
-    },
-    vi: {
-      head: {cls:'is-head',
-        lights:[['r','đèn mạn ĐỎ'],['g','đèn mạn XANH'],['w','hai đèn cột thẳng hàng']],
-        role:'ĐỐI HƯỚNG — không ai được giữ nguyên',
-        rule:'Đ.14 · nghi ngờ thì coi như đối hướng (14c)',
-        act:'Bẻ PHẢI, đi qua nhau mạn trái. Phát 1 tiếng còi ngắn khi bẻ (Đ.34a).'},
-      give: {cls:'is-give',
-        lights:[['r','đèn mạn ĐỎ'],['w','đèn cột'],['off','không thấy đèn xanh']],
-        role:'ANH NHƯỜNG ĐƯỜNG',
-        rule:'Đ.15 · Đ.16 — nó ở mạn phải anh',
-        act:'Hành động SỚM và DỨT KHOÁT: bẻ phải lớn và/hoặc giảm tốc. Tránh cắt ngang mũi nó — vòng qua sau lái.'},
-      stand:{cls:'is-stand',
-        lights:[['g','đèn mạn XANH LỤC'],['w','đèn cột'],['off','không thấy đèn đỏ']],
-        role:'ANH GIỮ NGUYÊN hướng và tốc độ',
-        rule:'Đ.15 · Đ.17 — anh ở mạn phải nó',
-        act:'Giữ nguyên, theo dõi liên tục. Nó không hành động ⇒ còi ≥5 tiếng ngắn (Đ.34d), rồi được tự tránh (17a-ii); quá gần thì buộc phải tránh (17b). Cấm bẻ trái với tàu ở mạn trái (17c).'},
-      over: {cls:'is-over',
-        lights:[['w','CHỈ đèn lái trắng'],['off','không đèn mạn nào']],
-        role:'ANH LÀ TÀU VƯỢT — anh nhường đường',
-        rule:'Đ.13 · gạt cả Đ.15 và Đ.18',
-        act:'Vượt ở cự ly an toàn, ưu tiên bẻ phải, đề phòng lực hút–đẩy. Giữ nghĩa vụ tới khi QUA HẲN VÀ THOÁT HẲN (13d). Nghi ngờ có phải vượt không ⇒ coi như vượt (13c).'}
-    }
-  };
-
-  var TXT = {
-    en: {title:'COLREG-72 in diagrams — the light ring', tab:'VI · <b>EN</b>',
-         sw:'Chuyển sang tiếng Việt', side:['right ahead','starboard','port'],
-         desc:'Learn COLREG-72 from diagrams: read her lights and you know your role and your action. A draggable light ring, 12 figures, whistle signals and the lights of special vessels — every number taken from the consolidated 1972 Convention.'},
-    vi: {title:'COLREG-72 bằng hình — Vòng đèn', tab:'<b>VI</b> · EN',
-         sw:'Switch to English', side:['chính mũi','mạn phải','mạn trái'],
-         desc:'Học COLREG-72 bằng hình vẽ: nhìn đèn tàu kia là ra vai trò và hành động. Vòng đèn kéo được, 12 hình, tín hiệu còi và đèn tàu đặc biệt — mọi con số lấy từ bản hợp nhất Công ước 1972.'}
-  };
-
-  function curLang(){
-    return document.documentElement.getAttribute('data-lang') === 'vi' ? 'vi' : 'en';
-  }
-
-  function classify(t, L){
-    var a = Math.abs(t);
-    if (a <= 6) return CASES[L].head;
-    if (a > 112.5) return CASES[L].over;
-    return t > 0 ? CASES[L].stand : CASES[L].give;
-  }
-
-  function render(t){
-    var L = curLang();
-    var rad = t * Math.PI / 180;
-    var x = CX + R * Math.sin(rad);
-    var y = CY - R * Math.cos(rad);
-    shipA.setAttribute('transform','translate(' + x.toFixed(1) + ',' + y.toFixed(1) + ') rotate(' + (t + 180).toFixed(1) + ')');
-    var lx = CX + (R + 34) * Math.sin(rad);
-    var ly = CY - (R + 34) * Math.cos(rad) + 5;
-    labelA.setAttribute('x', lx.toFixed(1));
-    labelA.setAttribute('y', ly.toFixed(1));
-    los.setAttribute('x2', x.toFixed(1));
-    los.setAttribute('y2', y.toFixed(1));
-
-    var s = TXT[L].side;
-    var side = t === 0 ? s[0] : (t > 0 ? s[1] : s[2]);
-    angtxt.textContent = Math.abs(t) + '° ' + side;
-
-    var c = classify(t, L);
-    lightsEl.innerHTML = '';
-    c.lights.forEach(function(Lt){
-      var it = document.createElement('span'); it.className = 'ro-item';
-      var d = document.createElement('span'); d.className = 'dot ' + Lt[0];
-      var sp = document.createElement('span'); sp.textContent = Lt[1];
-      it.appendChild(d); it.appendChild(sp); lightsEl.appendChild(it);
-    });
-    roleEl.textContent = c.role;
-    ruleEl.textContent = c.rule;
-    actEl.textContent = c.act;
-    wrapEl.className = 'ro-block ' + c.cls;
-  }
-
-  function applyLang(l){
-    document.documentElement.setAttribute('data-lang', l);
-    document.documentElement.lang = l;
-    try { localStorage.setItem('hn_lang', l); } catch(e) {}
-    document.title = TXT[l].title;
-    var meta = document.querySelector('meta[name="description"]');
-    if (meta && TXT[l].desc) meta.setAttribute('content', TXT[l].desc);
-    langBtn.innerHTML = TXT[l].tab;
-    langBtn.setAttribute('aria-label', TXT[l].sw);
-    langBtn.title = TXT[l].sw;
-    render(parseInt(ang.value, 10));
-  }
-
-  langBtn.addEventListener('click', function(){
-    applyLang(curLang() === 'vi' ? 'en' : 'vi');
-  });
-
-  ang.addEventListener('input', function(){ render(parseInt(ang.value,10)); });
-
-  var svg = document.getElementById('ring');
-  svg.addEventListener('pointerdown', function(e){
-    var r = svg.getBoundingClientRect();
-    var sx = (e.clientX - r.left) / r.width * 520;
-    var sy = (e.clientY - r.top) / r.height * 400;
-    var deg = Math.round(Math.atan2(sx - CX, CY - sy) * 180 / Math.PI);
-    if (deg > 180) deg -= 360;
-    if (deg < -180) deg += 360;
-    ang.value = deg;
-    render(deg);
-  });
-
-  applyLang(curLang());
-})();
-</script>
+<script>(function() {
+var R = 152, CX = 260, CY = 215;
+var ang = document.getElementById("ang");
+var angtxt = document.getElementById("angtxt");
+var shipA = document.getElementById("shipA");
+var labelA = document.getElementById("labelA");
+var los = document.getElementById("losLine");
+var lightsEl = document.getElementById("ro-lights");
+var roleEl = document.getElementById("ro-role");
+var ruleEl = document.getElementById("ro-rule");
+var actEl = document.getElementById("ro-act");
+var wrapEl = document.getElementById("ro-wrap");
+var langBtn = document.getElementById("langTab");
+var CASES = {
+en: {
+head: {
+cls: "is-head",
+lights: [ [ "r", "her RED sidelight" ], [ "g", "her GREEN sidelight" ], [ "w", "two masthead lights in line" ] ],
+role: "HEAD-ON — neither vessel stands on",
+rule: "R.14 · in doubt, assume head-on (14c)",
+act: "Alter to STARBOARD and pass port to port. Sound one short blast while altering (R.34a)."
+},
+give: {
+cls: "is-give",
+lights: [ [ "r", "her RED sidelight" ], [ "w", "masthead light" ], [ "off", "no green light" ] ],
+role: "YOU GIVE WAY",
+rule: "R.15 · R.16 — she is on your starboard side",
+act: "Take EARLY and SUBSTANTIAL action: a bold alteration to starboard and/or a reduction of speed. Avoid crossing ahead of her — go round her stern."
+},
+stand: {
+cls: "is-stand",
+lights: [ [ "g", "her GREEN sidelight" ], [ "w", "masthead light" ], [ "off", "no red light" ] ],
+role: "YOU STAND ON — keep course and speed",
+rule: "R.15 · R.17 — you are on her starboard side",
+act: "Keep course and speed, and keep watching. If she does not act: at least 5 short blasts (R.34d), then you may manoeuvre alone (17a-ii); when too close you must act (17b). Never alter to port for a vessel on your port side (17c)."
+},
+over: {
+cls: "is-over",
+lights: [ [ "w", "ONLY her white sternlight" ], [ "off", "neither sidelight" ] ],
+role: "YOU ARE OVERTAKING — you keep out of the way",
+rule: "R.13 · overrides R.15 and R.18",
+act: "Overtake at a safe distance, preferably altering to starboard, and watch for interaction between the hulls. The duty holds until FINALLY PAST AND CLEAR (13d). In any doubt whether you are overtaking — assume you are (13c)."
+}
+},
+vi: {
+head: {
+cls: "is-head",
+lights: [ [ "r", "đèn mạn ĐỎ" ], [ "g", "đèn mạn XANH" ], [ "w", "hai đèn cột thẳng hàng" ] ],
+role: "ĐỐI HƯỚNG — không ai được giữ nguyên",
+rule: "Đ.14 · nghi ngờ thì coi như đối hướng (14c)",
+act: "Bẻ PHẢI, đi qua nhau mạn trái. Phát 1 tiếng còi ngắn khi bẻ (Đ.34a)."
+},
+give: {
+cls: "is-give",
+lights: [ [ "r", "đèn mạn ĐỎ" ], [ "w", "đèn cột" ], [ "off", "không thấy đèn xanh" ] ],
+role: "ANH NHƯỜNG ĐƯỜNG",
+rule: "Đ.15 · Đ.16 — nó ở mạn phải anh",
+act: "Hành động SỚM và DỨT KHOÁT: bẻ phải lớn và/hoặc giảm tốc. Tránh cắt ngang mũi nó — vòng qua sau lái."
+},
+stand: {
+cls: "is-stand",
+lights: [ [ "g", "đèn mạn XANH LỤC" ], [ "w", "đèn cột" ], [ "off", "không thấy đèn đỏ" ] ],
+role: "ANH GIỮ NGUYÊN hướng và tốc độ",
+rule: "Đ.15 · Đ.17 — anh ở mạn phải nó",
+act: "Giữ nguyên, theo dõi liên tục. Nó không hành động ⇒ còi ≥5 tiếng ngắn (Đ.34d), rồi được tự tránh (17a-ii); quá gần thì buộc phải tránh (17b). Cấm bẻ trái với tàu ở mạn trái (17c)."
+},
+over: {
+cls: "is-over",
+lights: [ [ "w", "CHỈ đèn lái trắng" ], [ "off", "không đèn mạn nào" ] ],
+role: "ANH LÀ TÀU VƯỢT — anh nhường đường",
+rule: "Đ.13 · gạt cả Đ.15 và Đ.18",
+act: "Vượt ở cự ly an toàn, ưu tiên bẻ phải, đề phòng lực hút–đẩy. Giữ nghĩa vụ tới khi QUA HẲN VÀ THOÁT HẲN (13d). Nghi ngờ có phải vượt không ⇒ coi như vượt (13c)."
+}
+}
+};
+var TXT = {
+en: {
+title: "COLREG-72 in diagrams — the light ring",
+tab: "VI · <b>EN</b>",
+sw: "Chuyển sang tiếng Việt",
+side: [ "right ahead", "starboard", "port" ],
+desc: "Learn COLREG-72 from diagrams: read her lights and you know your role and your action. A draggable light ring, 12 figures, whistle signals and the lights of special vessels — every number taken from the consolidated 1972 Convention."
+},
+vi: {
+title: "COLREG-72 bằng hình — Vòng đèn",
+tab: "<b>VI</b> · EN",
+sw: "Switch to English",
+side: [ "chính mũi", "mạn phải", "mạn trái" ],
+desc: "Học COLREG-72 bằng hình vẽ: nhìn đèn tàu kia là ra vai trò và hành động. Vòng đèn kéo được, 12 hình, tín hiệu còi và đèn tàu đặc biệt — mọi con số lấy từ bản hợp nhất Công ước 1972."
+}
+};
+function curLang() {
+return document.documentElement.getAttribute("data-lang") === "vi" ? "vi" : "en";
+}
+function classify(t, L) {
+var a = Math.abs(t);
+if (a <= 6) return CASES[L].head;
+if (a > 112.5) return CASES[L].over;
+return t > 0 ? CASES[L].stand : CASES[L].give;
+}
+function render(t) {
+var L = curLang();
+var rad = t * Math.PI / 180;
+var x = CX + R * Math.sin(rad);
+var y = CY - R * Math.cos(rad);
+shipA.setAttribute("transform", "translate(" + x.toFixed(1) + "," + y.toFixed(1) + ") rotate(" + (t + 180).toFixed(1) + ")");
+var lx = CX + (R + 34) * Math.sin(rad);
+var ly = CY - (R + 34) * Math.cos(rad) + 5;
+labelA.setAttribute("x", lx.toFixed(1));
+labelA.setAttribute("y", ly.toFixed(1));
+los.setAttribute("x2", x.toFixed(1));
+los.setAttribute("y2", y.toFixed(1));
+var s = TXT[L].side;
+var side = t === 0 ? s[0] : t > 0 ? s[1] : s[2];
+angtxt.textContent = Math.abs(t) + "° " + side;
+var c = classify(t, L);
+lightsEl.innerHTML = "";
+c.lights.forEach((function(Lt) {
+var it = document.createElement("span");
+it.className = "ro-item";
+var d = document.createElement("span");
+d.className = "dot " + Lt[0];
+var sp = document.createElement("span");
+sp.textContent = Lt[1];
+it.appendChild(d);
+it.appendChild(sp);
+lightsEl.appendChild(it);
+}));
+roleEl.textContent = c.role;
+ruleEl.textContent = c.rule;
+actEl.textContent = c.act;
+wrapEl.className = "ro-block " + c.cls;
+}
+function applyLang(l) {
+document.documentElement.setAttribute("data-lang", l);
+document.documentElement.lang = l;
+try {
+localStorage.setItem("hn_lang", l);
+} catch (e) {}
+document.title = TXT[l].title;
+var meta = document.querySelector('meta[name="description"]');
+if (meta && TXT[l].desc) meta.setAttribute("content", TXT[l].desc);
+langBtn.innerHTML = TXT[l].tab;
+langBtn.setAttribute("aria-label", TXT[l].sw);
+langBtn.title = TXT[l].sw;
+render(parseInt(ang.value, 10));
+}
+langBtn.addEventListener("click", (function() {
+applyLang(curLang() === "vi" ? "en" : "vi");
+}));
+ang.addEventListener("input", (function() {
+render(parseInt(ang.value, 10));
+}));
+var svg = document.getElementById("ring");
+svg.addEventListener("pointerdown", (function(e) {
+var r = svg.getBoundingClientRect();
+var sx = (e.clientX - r.left) / r.width * 520;
+var sy = (e.clientY - r.top) / r.height * 400;
+var deg = Math.round(Math.atan2(sx - CX, CY - sy) * 180 / Math.PI);
+if (deg > 180) deg -= 360;
+if (deg < -180) deg += 360;
+ang.value = deg;
+render(deg);
+}));
+applyLang(curLang());
+})()</script>
 
 <footer class="site-foot">
   <a class="site-back lg-en" href="/">← Back to hieunguyen.net</a>

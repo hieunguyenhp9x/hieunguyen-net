@@ -2,31 +2,75 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Privacy Policy — hieunguyen.net &amp; SpeakAtSea</title>
 <meta name="description" content="Privacy policy for hieunguyen.net, the SpeakAtSea app and the HieuBrain Drive tool. Chính sách quyền riêng tư của hieunguyen.net và app SpeakAtSea.">
 <link rel="canonical" href="https://hieunguyen.net/privacy.html">
-<!-- Sinh 06/10/2026: Google Auth Platform đòi link privacy policy để chuyển app OAuth
-     "HieuBrain Drive" (scripts/drive_tai_len.py) sang In production. Viết đúng cái web đang làm thật:
-     GA4 G-TNVKB32ZPK + Clarity + form Kit (tên + email). Đổi công cụ thì sửa trang này.
-     15/10/2026: thêm mục 4 app SpeakAtSea (Lemon Squeezy đòi privacy khi đăng ký bán nước ngoài) — đúng theo may-chu thật:
-     tk/td/nhac/cham/don, ghi âm chỉ gửi khi bấm chấm tiến bộ (Workers AI, không lưu file), Resend, SePay, Pancake POS. -->
-<style>
-  :root { --navy:#0a1628; --navy-2:#10203a; --gold:#d4a95a; --text:#e8edf4; --dim:#9fb0c6; }
-  * { box-sizing: border-box; }
-  body { margin:0; background:var(--navy); color:var(--text); font-family:"Segoe UI", system-ui, -apple-system, sans-serif; line-height:1.6; }
-  main { max-width:760px; margin:0 auto; padding:40px 16px 60px; }
-  h1 { font-size:1.8rem; margin:0 0 4px; }
-  h2 { font-size:1.15rem; color:var(--gold); margin:32px 0 6px; }
-  h3 { font-size:1rem; color:var(--gold); margin:20px 0 4px; }
-  p, li { color:var(--text); }
-  .vi { display:block; color:var(--dim); font-size:.95em; margin-top:2px; }
-  .upd { color:var(--dim); font-size:.9rem; margin-bottom:24px; }
-  ul { padding-left:20px; }
-  li { margin-bottom:8px; }
-  a { color:var(--gold); }
-  .back { display:inline-block; margin-top:36px; }
-</style>
+
+<style>:root {
+  --navy: #0a1628;
+  --navy-2: #10203a;
+  --gold: #d4a95a;
+  --text: #e8edf4;
+  --dim: #9fb0c6
+}
+* {
+  box-sizing: border-box
+}
+body {
+  margin: 0;
+  background: var(--navy);
+  color: var(--text);
+  font-family: "Segoe UI",system-ui,-apple-system,sans-serif;
+  line-height: 1.6
+}
+main {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 16px 60px
+}
+h1 {
+  font-size: 1.8rem;
+  margin: 0 0 4px
+}
+h2 {
+  font-size: 1.15rem;
+  color: var(--gold);
+  margin: 32px 0 6px
+}
+h3 {
+  font-size: 1rem;
+  color: var(--gold);
+  margin: 20px 0 4px
+}
+li,
+p {
+  color: var(--text)
+}
+.vi {
+  display: block;
+  color: var(--dim);
+  font-size: .95em;
+  margin-top: 2px
+}
+.upd {
+  color: var(--dim);
+  font-size: .9rem;
+  margin-bottom: 24px
+}
+ul {
+  padding-left: 20px
+}
+li {
+  margin-bottom: 8px
+}
+a {
+  color: var(--gold)
+}
+.back {
+  display: inline-block;
+  margin-top: 36px
+}</style>
 </head>
 <body>
 <main>
@@ -62,8 +106,8 @@
   <ul>
     <li><b>Order and account.</b> When you buy, we keep your name, email, the contact number you give (if any), the package you bought, the amount and the payment time. Your account keeps your email and your password. The password is stored only as a salted hash, never as plain text.
       <span class="vi"><b>Đơn hàng và tài khoản.</b> Khi bạn mua, chúng tôi lưu tên, email, số liên hệ bạn đưa (nếu có), gói đã mua, số tiền và thời điểm trả. Tài khoản lưu email và mật khẩu của bạn. Mật khẩu chỉ lưu ở dạng đã băm có muối, không bao giờ lưu nguyên chữ.</span></li>
-    <li><b>Devices.</b> One account works on 1 device at a time: signing in on a new device signs the old one out. To do this we keep a random ID for the device you are signed in on.
-      <span class="vi"><b>Thiết bị.</b> Mỗi tài khoản dùng trên 1 máy: đăng nhập ở máy mới thì máy cũ tự thoát ra. Để làm việc đó, chúng tôi lưu một mã ngẫu nhiên cho máy bạn đang đăng nhập.</span></li>
+    <li><b>Devices.</b> One account works on up to 2 devices at a time: signing in on a third device signs the oldest one out. To do this we keep a random ID for each device you sign in on.
+      <span class="vi"><b>Thiết bị.</b> Một tài khoản dùng cùng lúc được trên 2 máy, đăng nhập ở máy thứ 3 thì máy cũ nhất tự thoát ra. Để làm việc đó, chúng tôi lưu một mã ngẫu nhiên cho mỗi máy bạn đăng nhập.</span></li>
     <li><b>Your profile (optional).</b> You can fill in a short profile: name, age or year of birth, hometown, school, family (your parents' jobs and ages), your current rank, ship type, years at sea and your English level, plus the rank you are training for. The app uses it only to put your own details into the sample interview answers. It is saved in your account so you do not have to fill it in again on a new phone. Nobody else can see it and we do not share it. You can change or delete it at any time in the app (Profile → Delete).
       <span class="vi"><b>Hồ sơ của bạn (tuỳ chọn).</b> Bạn có thể điền một hồ sơ ngắn: tên, tuổi hoặc năm sinh, quê, trường, gia đình (nghề và tuổi của bố mẹ), chức danh hiện tại, loại tàu, số năm đi biển, mức tiếng Anh và chức danh bạn đang học để lên. App chỉ dùng hồ sơ để ghép thông tin của bạn vào câu trả lời phỏng vấn mẫu. Hồ sơ được giữ trong tài khoản của bạn để đổi điện thoại không phải điền lại. Không ai khác xem được và chúng tôi không chia sẻ cho ai. Bạn sửa hoặc xoá được bất cứ lúc nào trong app (Hồ sơ → Xoá).</span></li>
     <li><b>Staying signed in.</b> After you sign in, the app keeps a signed login ticket on your device (in a cookie and in the browser's storage) so you do not have to sign in every time. Signing out, or changing your password, ends it.

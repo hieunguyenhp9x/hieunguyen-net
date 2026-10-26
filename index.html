@@ -3,377 +3,816 @@
 <head>
 <meta name="facebook-domain-verification" content="snzdmdbxbqiwmfswzsj8v8r8ta15j3">
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Hieu Nguyen — My Journey to Captain</title>
 <meta name="description" content="Nguyen Chi Hieu — ocean-going deck officer (Second Officer) on the long road to Captain. Sharing real seafaring knowledge and experience with fellow seafarers.">
 
-<!-- SONG NGỮ: đặt ngôn ngữ TRƯỚC khi trang vẽ ra, tránh nháy chữ.
-     MẶC ĐỊNH TIẾNG ANH (anh chốt 16/09/2026, đảo lại quyết định VI 11/09 - trước đó đã EN 02/08).
-     Vẫn KHÔNG đoán theo navigator.language. Khách VN có cửa riêng /tai-lieu (ép ?lang=vi),
-     hoặc tự bấm nút TIẾNG VIỆT (lưu ở hn_lang, dùng chung cả site). -->
-<script type="text/javascript">
-(function () {
-  var l = null;
-  // ?lang=vi|en - cho cua ngan song ngu (/tai-lieu mo VI, /materials mo EN).
-  // Thang ca localStorage, va GHI LAI de cac trang sau trong pheu giu dung ngon ngu.
-  var m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
-  if (m) { l = m[1]; try { localStorage.setItem('hn_lang', l); } catch (e) {} }
-  if (!l) { try { l = localStorage.getItem('hn_lang') || localStorage.getItem('pomo_lang'); } catch (e) {} }
-  if (l !== 'vi' && l !== 'en') l = 'en';
-  document.documentElement.setAttribute('data-lang', l);
-  document.documentElement.lang = l;
-})();
-</script>
 
-<!-- Đo lường: Google Analytics 4 + Microsoft Clarity.
-     Thiết bị đã mở ?notrack=1 (máy của anh) thì không tải gì cả; bật lại bằng ?track=1 -->
-<script type="text/javascript">
-(function () {
-  try {
-    var p = new URLSearchParams(location.search);
-    if (p.has('notrack')) localStorage.setItem('hn_notrack', '1');
-    else if (p.has('track')) localStorage.removeItem('hn_notrack');
-    if (localStorage.getItem('hn_notrack') === '1') return;
-  } catch (e) {}
+<script type="text/javascript">(function() {
+var l = null;
+var m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
+if (m) {
+l = m[1];
+try {
+localStorage.setItem("hn_lang", l);
+} catch (e) {}
+}
+if (!l) {
+try {
+l = localStorage.getItem("hn_lang") || localStorage.getItem("pomo_lang");
+} catch (e) {}
+}
+if (l !== "vi" && l !== "en") l = "en";
+document.documentElement.setAttribute("data-lang", l);
+document.documentElement.lang = l;
+})()</script>
 
-  // GA4 — bao nhiêu người, đến từ nền nào, bấm đi đâu
-  var ga = document.createElement('script');
-  ga.async = 1;
-  ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK';
-  document.head.appendChild(ga);
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function () { dataLayer.push(arguments); };
-  gtag('js', new Date());
-  gtag('config', 'G-TNVKB32ZPK');
 
-  // Clarity — xem lại phiên + bản đồ nhiệt
-  (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "xvzwl9diz8");
-})();
-</script>
+<script type="text/javascript">(function() {
+try {
+var p = new URLSearchParams(location.search);
+if (p.has("notrack")) localStorage.setItem("hn_notrack", "1"); else if (p.has("track")) localStorage.removeItem("hn_notrack");
+if (localStorage.getItem("hn_notrack") === "1") return;
+} catch (e) {}
+var ga = document.createElement("script");
+ga.async = 1;
+ga.src = "https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK";
+document.head.appendChild(ga);
+window.dataLayer = window.dataLayer || [];
+window.gtag = function() {
+dataLayer.push(arguments);
+};
+gtag("js", new Date);
+gtag("config", "G-TNVKB32ZPK");
+(function(c, l, a, r, i, t, y) {
+c[a] = c[a] || function() {
+(c[a].q = c[a].q || []).push(arguments);
+};
+t = l.createElement(r);
+t.async = 1;
+t.src = "https://www.clarity.ms/tag/" + i;
+y = l.getElementsByTagName(r)[0];
+y.parentNode.insertBefore(t, y);
+})(window, document, "clarity", "script", "xvzwl9diz8");
+})()</script>
 
-<style>
-  :root {
-    --navy: #0a1628;
-    --navy-2: #10203a;
-    --navy-3: #1a3050;
-    --gold: #d4a95a;
-    --gold-light: #e8c88a;
-    --text: #e8edf4;
-    --text-dim: #9fb0c4;
-    --line: rgba(212, 169, 90, 0.25);
+<style>:root {
+  --navy: #0a1628;
+  --navy-2: #10203a;
+  --navy-3: #1a3050;
+  --gold: #d4a95a;
+  --gold-light: #e8c88a;
+  --text: #e8edf4;
+  --text-dim: #9fb0c4;
+  --line: rgba(212, 169, 90, 0.25)
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
+}
+html {
+  scroll-behavior: smooth
+}
+body {
+  font-family: "Segoe UI",system-ui,-apple-system,sans-serif;
+  background: var(--navy);
+  color: var(--text);
+  line-height: 1.7
+}
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px
+}
+html[data-lang="en"] .lg-vi {
+  display: none!important
+}
+html[data-lang="vi"] .lg-en {
+  display: none!important
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: rgba(10, 22, 40, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--line)
+}
+nav .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 60px
+}
+nav .logo {
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 15px;
+  flex: none
+}
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0
+}
+nav .links {
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none
+}
+nav .links::-webkit-scrollbar {
+  display: none
+}
+nav .links a {
+  color: var(--text-dim);
+  text-decoration: none;
+  margin-left: 22px;
+  font-size: 14px;
+  transition: color 0.2s
+}
+nav .links a:hover {
+  color: var(--gold-light)
+}
+.lang-tab {
+  flex: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 12.5px;
+  letter-spacing: 1px;
+  color: var(--text-dim);
+  background: transparent;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 6px 11px;
+  line-height: 1;
+  transition: color 0.2s,border-color 0.2s
+}
+.lang-tab:hover {
+  color: var(--gold-light);
+  border-color: var(--gold)
+}
+.lang-tab b {
+  color: var(--gold);
+  font-weight: 700
+}
+@media (max-width: 640px) {
+  .container {
+    padding: 0 16px
   }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body {
-    font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
-    background: var(--navy);
-    color: var(--text);
-    line-height: 1.7;
+  nav .logo {
+    font-size: 13px;
+    letter-spacing: 1px
   }
-  .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
-
-  /* ===== SONG NGỮ =====
-     Mỗi mẩu chữ có 2 bản .lg-en / .lg-vi nằm sẵn trong HTML; đổi ngôn ngữ chỉ là ẩn/hiện,
-     không dựng lại DOM → không nháy, không mất trạng thái form.
-     Không đặt display cho bản đang hiện — để nó giữ nguyên kiểu gốc (block/inline/list-item). */
-  html[data-lang="en"] .lg-vi { display: none !important; }
-  html[data-lang="vi"] .lg-en { display: none !important; }
-
-  /* ===== NAV ===== */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(10, 22, 40, 0.92);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--line);
+  nav .container {
+    gap: 8px
   }
-  nav .container { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
-  nav .logo { font-weight: 700; letter-spacing: 2px; color: var(--gold); text-decoration: none; font-size: 15px; flex: none; }
-  .nav-right { display: flex; align-items: center; gap: 14px; min-width: 0; }
-  /* màn hẹp: hàng link tự trượt ngang, nút đổi ngôn ngữ luôn đứng yên bên phải */
-  nav .links {
-    display: flex; align-items: center; white-space: nowrap;
-    overflow-x: auto; scrollbar-width: none; -ms-overflow-style: none;
-  }
-  nav .links::-webkit-scrollbar { display: none; }
   nav .links a {
-    color: var(--text-dim); text-decoration: none; margin-left: 22px; font-size: 14px;
-    transition: color 0.2s;
+    margin-left: 14px;
+    font-size: 12.5px
   }
-  nav .links a:hover { color: var(--gold-light); }
+  nav .links {
+    -webkit-mask-image: linear-gradient(to right, #000 82%, transparent 100%);
+    mask-image: linear-gradient(to right, #000 82%, transparent 100%)
+  }
+  .nav-right {
+    gap: 8px
+  }
   .lang-tab {
-    flex: none; cursor: pointer; font-family: inherit;
-    font-size: 12.5px; letter-spacing: 1px;
-    color: var(--text-dim); background: transparent;
-    border: 1px solid var(--line); border-radius: 8px;
-    padding: 6px 11px; line-height: 1;
-    transition: color 0.2s, border-color 0.2s;
+    font-size: 11.5px;
+    padding: 6px 8px;
+    letter-spacing: 0.5px
   }
-  .lang-tab:hover { color: var(--gold-light); border-color: var(--gold); }
-  .lang-tab b { color: var(--gold); font-weight: 700; }
-  /* màn hẹp: bóp logo + đệm để chừa chỗ cho hàng link, và làm mờ mép phải
-     cho người xem thấy là còn link phía sau, vuốt được. */
-  @media (max-width: 640px) {
-    .container { padding: 0 16px; }
-    nav .logo { font-size: 13px; letter-spacing: 1px; }
-    nav .container { gap: 8px; }
-    nav .links a { margin-left: 14px; font-size: 12.5px; }
-    nav .links {
-      -webkit-mask-image: linear-gradient(to right, #000 82%, transparent 100%);
-      mask-image: linear-gradient(to right, #000 82%, transparent 100%);
-    }
-    .nav-right { gap: 8px; }
-    .lang-tab { font-size: 11.5px; padding: 6px 8px; letter-spacing: 0.5px; }
-  }
-
-  /* ===== HERO ===== */
-  header {
-    min-height: 92vh;
-    display: flex; align-items: center;
-    position: relative;
-    background: linear-gradient(100deg, rgba(10,22,40,0.97) 0%, rgba(10,22,40,0.88) 45%, rgba(10,22,40,0.55) 100%), url("assets/03-suez-canal.jpg?v=2") center 40% / cover no-repeat, var(--navy-2);
-    padding: 100px 0 60px;
-  }
+}
+header {
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  background: linear-gradient(100deg, rgba(10,22,40,0.97) 0, rgba(10,22,40,0.88) 45%, rgba(10,22,40,0.55) 100%),url("assets/03-suez-canal.jpg?v=2") center 40%/cover no-repeat,var(--navy-2);
+  padding: 100px 0 60px
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 56px;
+  align-items: center;
+  width: 100%
+}
+@media (max-width: 820px) {
   .hero-grid {
-    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center; width: 100%;
+    grid-template-columns: 1fr;
+    gap: 32px
   }
-  @media (max-width: 820px) { .hero-grid { grid-template-columns: 1fr; gap: 32px; } }
-  /* MOBILE: xếp 1 cột thì khối kể chuyện đứng trên form, đẩy nút gửi xuống rất sâu.
-     Siết lại + ẩn dòng "Cadet → … → Captain" (trùng ý với câu ngay trên nó). */
-  @media (max-width: 820px) {
-    header { min-height: auto; padding: 84px 0 44px; }
-    .hero-inner .hero-sub-en { display: none; }
-    .hero-signature { margin-top: 20px; padding-top: 16px; }
-    .hero-signature img { width: 58px; height: 58px; }
-    .hero-lead { padding: 24px 20px; }
-    .tool-chip { padding: 8px 11px; font-size: 12.5px; }
+}
+@media (max-width: 820px) {
+  header {
+    min-height: auto;
+    padding: 84px 0 44px
   }
-  .hero-inner { max-width: 700px; }
+  .hero-inner .hero-sub-en {
+    display: none
+  }
   .hero-signature {
-    display: flex; align-items: center; gap: 16px;
-    margin-top: 28px; padding-top: 22px;
-    border-top: 1px solid var(--line);
-    max-width: 440px;
+    margin-top: 20px;
+    padding-top: 16px
   }
   .hero-signature img {
-    width: 72px; height: 72px; border-radius: 50%;
-    object-fit: cover; object-position: 50% 22%;
-    border: 2px solid var(--gold);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.35);
-    flex-shrink: 0;
+    width: 58px;
+    height: 58px
   }
-  .hero-signature .sig-name { font-weight: 700; font-size: 15px; color: var(--text); line-height: 1.3; }
-  .hero-signature .sig-role { font-size: 13px; color: var(--text-dim); margin-top: 3px; }
-  .hero-portrait { text-align: center; }
-  .hero-portrait img {
-    width: 100%; max-width: 360px; aspect-ratio: 1/1; object-fit: cover;
-    border-radius: 14px; border: 3px solid var(--gold);
-    box-shadow: 0 18px 50px rgba(0,0,0,0.55);
-    display: inline-block;
-  }
-  .hero-portrait figcaption { margin-top: 12px; font-size: 13px; color: var(--text-dim); }
-  .hero-kicker {
-    color: var(--gold); letter-spacing: 4px; font-size: 13px; text-transform: uppercase;
-    margin-bottom: 16px; font-weight: 600;
-  }
-  h1 { font-size: clamp(36px, 6vw, 58px); line-height: 1.15; font-weight: 800; margin-bottom: 18px; }
-  h1 .accent { color: var(--gold-light); }
-  .hero-sub { font-size: clamp(16px, 2.4vw, 20px); color: var(--text-dim); margin-bottom: 12px; }
-  .hero-sub-en { font-size: 14px; color: var(--text-dim); opacity: 0.75; font-style: italic; margin-bottom: 32px; }
-  .btn-row { display: flex; gap: 14px; flex-wrap: wrap; }
-  .btn {
-    display: inline-block; padding: 13px 28px; border-radius: 6px; text-decoration: none;
-    font-weight: 600; font-size: 15px; transition: transform 0.15s, box-shadow 0.15s;
-  }
-  .btn:hover { transform: translateY(-2px); }
-  .btn-gold { background: var(--gold); color: var(--navy); }
-  .btn-outline { border: 1.5px solid var(--gold); color: var(--gold-light); }
-
-  /* ===== SECTIONS ===== */
-  section { padding: 80px 0; }
-  section.alt { background: var(--navy-2); }
-  .section-kicker { color: var(--gold); letter-spacing: 3px; font-size: 12px; text-transform: uppercase; font-weight: 700; margin-bottom: 10px; }
-  h2 { font-size: clamp(26px, 4vw, 36px); margin-bottom: 8px; }
-  .section-sub-en { color: var(--text-dim); font-style: italic; font-size: 14px; margin-bottom: 34px; }
-
-  /* ===== STORY / TIMELINE ===== */
-  .story-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
-  @media (max-width: 800px) { .story-grid { grid-template-columns: 1fr; } }
-  .story-text p { margin-bottom: 16px; color: var(--text-dim); }
-  .story-text p strong { color: var(--text); }
-  .timeline { border-left: 2px solid var(--line); padding-left: 24px; margin-top: 8px; }
-  .tl-item { position: relative; padding-bottom: 26px; }
-  .tl-item::before {
-    content: ""; position: absolute; left: -30px; top: 7px;
-    width: 10px; height: 10px; border-radius: 50%; background: var(--gold);
-  }
-  .tl-item:last-child { padding-bottom: 0; }
-  .tl-year { color: var(--gold-light); font-weight: 700; font-size: 14px; letter-spacing: 1px; }
-  .tl-title { font-weight: 600; margin: 2px 0; }
-  .tl-desc { color: var(--text-dim); font-size: 14.5px; }
-
-  /* ===== PHOTOS ===== */
-  .photo-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
-  @media (max-width: 700px) { .photo-grid { grid-template-columns: 1fr; } }
-  figure.photo {
-    background: var(--navy-3); border-radius: 10px; overflow: hidden;
-    border: 1px solid var(--line);
-  }
-  figure.photo img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
-  figure.photo figcaption { padding: 12px 14px; font-size: 13px; color: var(--text-dim); }
-
-  /* ===== CHANNEL ===== */
-  .channel-msg {
-    font-size: clamp(18px, 3vw, 24px); font-weight: 600; line-height: 1.5;
-    border-left: 4px solid var(--gold); padding-left: 20px; margin: 26px 0 34px;
-    max-width: 780px;
-  }
-  .social-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 720px; }
-  @media (max-width: 700px) { .social-grid { grid-template-columns: 1fr; } }
-  .social-card {
-    display: block; background: var(--navy-3); border: 1px solid var(--line);
-    border-radius: 10px; padding: 22px; text-decoration: none; color: var(--text);
-    transition: transform 0.15s, border-color 0.15s;
-  }
-  .social-card:hover { transform: translateY(-3px); border-color: var(--gold); }
-  .social-card .icon { font-size: 26px; margin-bottom: 8px; }
-  .social-card .name { font-weight: 700; margin-bottom: 4px; }
-  .social-card .desc { font-size: 13px; color: var(--text-dim); }
-
-  /* ===== PROFESSIONAL ===== */
-  .pro-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 30px; }
-  @media (max-width: 700px) { .pro-grid { grid-template-columns: 1fr; } }
-  .pro-card {
-    background: var(--navy-2); border: 1px solid var(--line); border-radius: 10px; padding: 24px;
-  }
-  section.alt .pro-card { background: var(--navy); }
-  .pro-card h3 { color: var(--gold-light); font-size: 16px; margin-bottom: 12px; letter-spacing: 0.5px; }
-  .pro-card ul { list-style: none; }
-  .pro-card li { padding: 5px 0 5px 22px; position: relative; color: var(--text-dim); font-size: 14.5px; }
-  .pro-card li::before { content: "⚓"; position: absolute; left: 0; font-size: 11px; color: var(--gold); top: 9px; }
-
-  /* ===== FREE GUIDE / EMAIL CAPTURE ===== */
-  .lead-grid { display: grid; grid-template-columns: 1fr 0.95fr; gap: 44px; align-items: start; }
-  @media (max-width: 800px) { .lead-grid { grid-template-columns: 1fr; gap: 32px; } }
-  .lead-list { list-style: none; margin-top: 8px; }
-  #free .lead-list li, #free .section-sub-en { cursor: pointer; }
-  .lead-list li { padding: 7px 0 7px 26px; position: relative; color: var(--text-dim); font-size: 15px; }
-  .lead-list li::before { content: "⚓"; position: absolute; left: 0; top: 10px; font-size: 11px; color: var(--gold); }
-  .lead-card {
-    background: var(--navy-3); border: 1px solid var(--line); border-radius: 12px; padding: 28px;
-  }
-  .lead-card h3 { font-size: 18px; margin-bottom: 6px; }
-  .lead-card .lead-card-sub { color: var(--text-dim); font-size: 14px; margin-bottom: 20px; }
-  /* Card lead ở hero — dựng lại 24/08.
-     Bỏ: viền vàng 2px + 3 lớp đổ bóng + quầng sáng + ảnh mock bảng tính.
-     Ảnh mock là ảnh bảng tính TÀI CHÍNH, mà tiêu đề nói "công cụ trên tàu" —
-     ảnh và lời hứa đá nhau. Thay bằng 3 dòng gọi tên thẳng 3 công cụ. */
   .hero-lead {
-    position: relative;
-    border: 1px solid rgba(212, 169, 90, 0.30);
-    background: rgba(14, 28, 50, 0.86);
-    -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
-    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
-    padding: 30px 26px;
+    padding: 24px 20px
   }
-  .free-badge {
-    /* badge là con của .lead-form (grid) → PHẢI có justify-self, không thì bị
-       kéo giãn hết chiều ngang và trông như một thanh xám. */
-    display: inline-block; justify-self: start; margin-bottom: 2px;
-    background: rgba(212, 169, 90, 0.14); color: var(--gold-light);
-    border: 1px solid rgba(212, 169, 90, 0.35);
-    font-weight: 700; font-size: 11px; letter-spacing: 1.6px;
-    padding: 4px 11px; border-radius: 4px;
-  }
-  /* Hình minh hoạ thẻ form. KHÔNG phải ảnh chụp file nào — vẽ chung chung để kho
-     dày lên cũng không phải thay. Ẩn trên mobile: ở đó chỗ trống không phải vấn
-     đề, mà thêm 120px là đẩy nút bấm ra khỏi màn hình đầu. */
-  .lead-illu {
-    width: 100%; height: 112px; object-fit: cover; display: block;
-    border-radius: 9px; border: 1px solid rgba(212,169,90,.22);
-    margin-bottom: 18px;
-  }
-  @media (max-width: 820px) { .lead-illu { display: none; } }
-
-  .lead-card h3.lead-title {
-    font-size: clamp(21px, 2.4vw, 25px); line-height: 1.2; font-weight: 700;
-    letter-spacing: -0.01em; margin-bottom: 18px;
-  }
-  .lead-title .hl { color: var(--gold-light); }
-  /* 3 công cụ gọi tên thẳng — thay chỗ ảnh mock cũ */
-  .tool-chips { display: grid; gap: 7px; margin-bottom: 20px; }
   .tool-chip {
-    padding: 9px 12px; border-radius: 8px; font-size: 13px; line-height: 1.45;
-    color: var(--text-dim);
-    background: rgba(255, 255, 255, 0.035);
-    border: 1px solid rgba(255, 255, 255, 0.07);
+    padding: 8px 11px;
+    font-size: 12.5px
   }
-  .tool-chip b { color: var(--text); font-weight: 600; }
-  .lead-form { display: grid; gap: 12px; }
-  .lead-form label { font-size: 13px; color: var(--gold-light); letter-spacing: 0.5px; }
-  .lead-form input {
-    width: 100%; padding: 12px 14px; border-radius: 6px; font-size: 15px;
-    background: var(--navy); color: var(--text);
-    border: 1px solid var(--line); font-family: inherit;
+}
+.hero-inner {
+  max-width: 700px
+}
+.hero-signature {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid var(--line);
+  max-width: 440px
+}
+.hero-signature img {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  border: 2px solid var(--gold);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.35);
+  flex-shrink: 0
+}
+.hero-signature .sig-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.3
+}
+.hero-signature .sig-role {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 3px
+}
+.hero-portrait {
+  text-align: center
+}
+.hero-portrait img {
+  width: 100%;
+  max-width: 360px;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 3px solid var(--gold);
+  box-shadow: 0 18px 50px rgba(0,0,0,0.55);
+  display: inline-block
+}
+.hero-portrait figcaption {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--text-dim)
+}
+.hero-kicker {
+  color: var(--gold);
+  letter-spacing: 4px;
+  font-size: 13px;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  font-weight: 600
+}
+h1 {
+  font-size: clamp(36px, 6vw, 58px);
+  line-height: 1.15;
+  font-weight: 800;
+  margin-bottom: 18px
+}
+h1 .accent {
+  color: var(--gold-light)
+}
+.hero-sub {
+  font-size: clamp(16px, 2.4vw, 20px);
+  color: var(--text-dim);
+  margin-bottom: 12px
+}
+.hero-sub-en {
+  font-size: 14px;
+  color: var(--text-dim);
+  opacity: 0.75;
+  font-style: italic;
+  margin-bottom: 32px
+}
+.btn-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap
+}
+.btn {
+  display: inline-block;
+  padding: 13px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: transform 0.15s,box-shadow 0.15s
+}
+.btn:hover {
+  transform: translateY(-2px)
+}
+.btn-gold {
+  background: var(--gold);
+  color: var(--navy)
+}
+.btn-outline {
+  border: 1.5px solid var(--gold);
+  color: var(--gold-light)
+}
+section {
+  padding: 80px 0
+}
+section.alt {
+  background: var(--navy-2)
+}
+.section-kicker {
+  color: var(--gold);
+  letter-spacing: 3px;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 10px
+}
+h2 {
+  font-size: clamp(26px, 4vw, 36px);
+  margin-bottom: 8px
+}
+.section-sub-en {
+  color: var(--text-dim);
+  font-style: italic;
+  font-size: 14px;
+  margin-bottom: 34px
+}
+.story-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: start
+}
+@media (max-width: 800px) {
+  .story-grid {
+    grid-template-columns: 1fr
   }
-  .lead-form input:focus { outline: none; border-color: var(--gold); }
-  .lead-form button {
-    margin-top: 6px; padding: 15px 22px; border: none; border-radius: 8px; cursor: pointer;
-    background: var(--gold); color: var(--navy); font-weight: 800; font-size: 16px;
-    font-family: inherit; transition: transform 0.15s;
+}
+.story-text p {
+  margin-bottom: 16px;
+  color: var(--text-dim)
+}
+.story-text p strong {
+  color: var(--text)
+}
+.timeline {
+  border-left: 2px solid var(--line);
+  padding-left: 24px;
+  margin-top: 8px
+}
+.tl-item {
+  position: relative;
+  padding-bottom: 26px
+}
+.tl-item::before {
+  content: "";
+  position: absolute;
+  left: -30px;
+  top: 7px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--gold)
+}
+.tl-item:last-child {
+  padding-bottom: 0
+}
+.tl-year {
+  color: var(--gold-light);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px
+}
+.tl-title {
+  font-weight: 600;
+  margin: 2px 0
+}
+.tl-desc {
+  color: var(--text-dim);
+  font-size: 14.5px
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 40px
+}
+@media (max-width: 700px) {
+  .photo-grid {
+    grid-template-columns: 1fr
   }
-  .lead-form button:hover { transform: translateY(-2px); }
-  /* honeypot: ẩn khỏi mắt người nhưng vẫn tồn tại với bot (không dùng display:none — nhiều bot bỏ qua) */
-  .lead-hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-  .lead-note { margin-top: 12px; font-size: 12.2px; color: var(--text-dim); opacity: 0.8; line-height: 1.55; }
-  .lead-error { display: none; color: #ffd0d0; background: rgba(201,106,106,0.22); border: 1px solid #c96a6a; border-radius: 10px; padding: 10px 12px; font-size: 15px; font-weight: 600; line-height: 1.45; }
-  .lead-form input.invalid { border-color: #c96a6a; }
-  .lead-success { display: none; text-align: center; }
-  .lead-success .tick { font-size: 34px; margin-bottom: 6px; }
-  .lead-success h3 { margin-bottom: 8px; }
-  .lead-success p { color: var(--text-dim); font-size: 14.5px; margin-bottom: 20px; }
-  .lead-success .btn-row { justify-content: center; }
-
-  /* ===== CONTACT / FOOTER ===== */
-  .contact-box { text-align: center; max-width: 780px; margin: 0 auto; }
+}
+figure.photo {
+  background: var(--navy-3);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line)
+}
+figure.photo img {
+  width: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+  display: block
+}
+figure.photo figcaption {
+  padding: 12px 14px;
+  font-size: 13px;
+  color: var(--text-dim)
+}
+.channel-msg {
+  font-size: clamp(18px, 3vw, 24px);
+  font-weight: 600;
+  line-height: 1.5;
+  border-left: 4px solid var(--gold);
+  padding-left: 20px;
+  margin: 26px 0 34px;
+  max-width: 780px
+}
+.social-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  max-width: 720px
+}
+@media (max-width: 700px) {
+  .social-grid {
+    grid-template-columns: 1fr
+  }
+}
+.social-card {
+  display: block;
+  background: var(--navy-3);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 22px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.15s,border-color 0.15s
+}
+.social-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--gold)
+}
+.social-card .icon {
+  font-size: 26px;
+  margin-bottom: 8px
+}
+.social-card .name {
+  font-weight: 700;
+  margin-bottom: 4px
+}
+.social-card .desc {
+  font-size: 13px;
+  color: var(--text-dim)
+}
+.pro-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-top: 30px
+}
+@media (max-width: 700px) {
+  .pro-grid {
+    grid-template-columns: 1fr
+  }
+}
+.pro-card {
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 24px
+}
+section.alt .pro-card {
+  background: var(--navy)
+}
+.pro-card h3 {
+  color: var(--gold-light);
+  font-size: 16px;
+  margin-bottom: 12px;
+  letter-spacing: 0.5px
+}
+.pro-card ul {
+  list-style: none
+}
+.pro-card li {
+  padding: 5px 0 5px 22px;
+  position: relative;
+  color: var(--text-dim);
+  font-size: 14.5px
+}
+.pro-card li::before {
+  content: "⚓";
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+  color: var(--gold);
+  top: 9px
+}
+.lead-grid {
+  display: grid;
+  grid-template-columns: 1fr 0.95fr;
+  gap: 44px;
+  align-items: start
+}
+@media (max-width: 800px) {
+  .lead-grid {
+    grid-template-columns: 1fr;
+    gap: 32px
+  }
+}
+.lead-list {
+  list-style: none;
+  margin-top: 8px
+}
+#free .lead-list li,
+#free .section-sub-en {
+  cursor: pointer
+}
+.lead-list li {
+  padding: 7px 0 7px 26px;
+  position: relative;
+  color: var(--text-dim);
+  font-size: 15px
+}
+.lead-list li::before {
+  content: "⚓";
+  position: absolute;
+  left: 0;
+  top: 10px;
+  font-size: 11px;
+  color: var(--gold)
+}
+.lead-card {
+  background: var(--navy-3);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 28px
+}
+.lead-card h3 {
+  font-size: 18px;
+  margin-bottom: 6px
+}
+.lead-card .lead-card-sub {
+  color: var(--text-dim);
+  font-size: 14px;
+  margin-bottom: 20px
+}
+.hero-lead {
+  position: relative;
+  border: 1px solid rgba(212, 169, 90, 0.30);
+  background: rgba(14, 28, 50, 0.86);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
+  padding: 30px 26px
+}
+.free-badge {
+  display: inline-block;
+  justify-self: start;
+  margin-bottom: 2px;
+  background: rgba(212, 169, 90, 0.14);
+  color: var(--gold-light);
+  border: 1px solid rgba(212, 169, 90, 0.35);
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  padding: 4px 11px;
+  border-radius: 4px
+}
+.lead-illu {
+  width: 100%;
+  height: 112px;
+  object-fit: cover;
+  display: block;
+  border-radius: 9px;
+  border: 1px solid rgba(212,169,90,.22);
+  margin-bottom: 18px
+}
+@media (max-width: 820px) {
+  .lead-illu {
+    display: none
+  }
+}
+.lead-card h3.lead-title {
+  font-size: clamp(21px, 2.4vw, 25px);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 18px
+}
+.lead-title .hl {
+  color: var(--gold-light)
+}
+.tool-chips {
+  display: grid;
+  gap: 7px;
+  margin-bottom: 20px
+}
+.tool-chip {
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-dim);
+  background: rgba(255, 255, 255, 0.035);
+  border: 1px solid rgba(255, 255, 255, 0.07)
+}
+.tool-chip b {
+  color: var(--text);
+  font-weight: 600
+}
+.lead-form {
+  display: grid;
+  gap: 12px
+}
+.lead-form label {
+  font-size: 13px;
+  color: var(--gold-light);
+  letter-spacing: 0.5px
+}
+.lead-form input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  background: var(--navy);
+  color: var(--text);
+  border: 1px solid var(--line);
+  font-family: inherit
+}
+.lead-form input:focus {
+  outline: none;
+  border-color: var(--gold)
+}
+.lead-form button {
+  margin-top: 6px;
+  padding: 15px 22px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 16px;
+  font-family: inherit;
+  transition: transform 0.15s
+}
+.lead-form button:hover {
+  transform: translateY(-2px)
+}
+.lead-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden
+}
+.lead-note {
+  margin-top: 12px;
+  font-size: 12.2px;
+  color: var(--text-dim);
+  opacity: 0.8;
+  line-height: 1.55
+}
+.lead-error {
+  display: none;
+  color: #ffd0d0;
+  background: rgba(201,106,106,0.22);
+  border: 1px solid #c96a6a;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.45
+}
+.lead-form input.invalid {
+  border-color: #c96a6a
+}
+.lead-success {
+  display: none;
+  text-align: center
+}
+.lead-success .tick {
+  font-size: 34px;
+  margin-bottom: 6px
+}
+.lead-success h3 {
+  margin-bottom: 8px
+}
+.lead-success p {
+  color: var(--text-dim);
+  font-size: 14.5px;
+  margin-bottom: 20px
+}
+.lead-success .btn-row {
+  justify-content: center
+}
+.contact-box {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 8px;
+  text-align: left
+}
+@media (max-width: 700px) {
   .contact-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
-    margin-top: 8px; text-align: left;
+    grid-template-columns: 1fr
   }
-  @media (max-width: 700px) { .contact-grid { grid-template-columns: 1fr; } }
-  .contact-card {
-    display: flex; align-items: center; gap: 14px;
-    background: var(--navy-3); border: 1px solid var(--line);
-    border-radius: 10px; padding: 16px 18px;
-    text-decoration: none; color: var(--text);
-    transition: transform 0.15s, border-color 0.15s;
-  }
-  .contact-card:hover { transform: translateY(-2px); border-color: var(--gold); }
-  .contact-card .icon { font-size: 24px; flex-shrink: 0; }
-  .contact-card .label {
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--gold); font-weight: 700; margin-bottom: 2px;
-  }
-  .contact-card .value { font-size: 14px; color: var(--text); word-break: break-all; }
-  footer {
-    border-top: 1px solid var(--line); padding: 28px 0; text-align: center;
-    color: var(--text-dim); font-size: 13px;
-  }
-  /* Link công cụ phụ ở chân trang — kín đáo, chủ yếu để anh bấm vào cho nhanh */
-  footer .tool-link {
-    display: inline-block; margin-top: 10px;
-    color: var(--text-dim); text-decoration: none; font-size: 12.5px;
-    border-bottom: 1px dotted var(--line); padding-bottom: 1px;
-    transition: color 0.2s, border-color 0.2s;
-  }
-  footer .tool-link:hover { color: var(--gold-light); border-color: var(--gold); }
-  footer .tool-link + .tool-link { margin-left: 20px; }
-</style>
-<script src="/assets/kiem-email.js" defer></script>
-<script src="/assets/meta-pixel.js" defer></script>
+}
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: var(--navy-3);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 18px;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.15s,border-color 0.15s
+}
+.contact-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold)
+}
+.contact-card .icon {
+  font-size: 24px;
+  flex-shrink: 0
+}
+.contact-card .label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 2px
+}
+.contact-card .value {
+  font-size: 14px;
+  color: var(--text);
+  word-break: break-all
+}
+footer {
+  border-top: 1px solid var(--line);
+  padding: 28px 0;
+  text-align: center;
+  color: var(--text-dim);
+  font-size: 13px
+}
+footer .tool-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 12.5px;
+  border-bottom: 1px dotted var(--line);
+  padding-bottom: 1px;
+  transition: color 0.2s,border-color 0.2s
+}
+footer .tool-link:hover {
+  color: var(--gold-light);
+  border-color: var(--gold)
+}
+footer .tool-link + .tool-link {
+  margin-left: 20px
+}</style>
+<script src="/assets/kiem-email.js" defer="defer"></script>
+<script src="/assets/meta-pixel.js" defer="defer"></script>
 </head>
 <body>
 
@@ -414,9 +853,7 @@
         <a class="btn btn-outline" href="#professional"><span class="lg-en">Professional profile</span><span class="lg-vi">Hồ sơ chuyên môn</span></a>
       </div>
       <div class="hero-signature">
-        <img src="assets/portrait.jpg?v=2" alt="Nguyen Chi Hieu"
-             data-en-alt="Nguyen Chi Hieu — Second Officer"
-             data-vi-alt="Nguyễn Chí Hiếu — Phó hai">
+        <img src="assets/portrait.jpg?v=2" alt="Nguyen Chi Hieu" data-en-alt="Nguyen Chi Hieu — Second Officer" data-vi-alt="Nguyễn Chí Hiếu — Phó hai">
         <div>
           <div class="sig-role">
             <span class="lg-en">Second Officer &middot; bulk carrier &amp; tanker experience &middot; Management level (STCW II/2) completed 2026</span>
@@ -426,12 +863,10 @@
       </div>
     </div>
 
-    <!-- Ô LEAD NGAY MÀN HÌNH ĐẦU — bản sao của form khu #free, cùng Kit form 9750089.
-         JS xử lý theo class (.lead-card) nên cả 2 form cùng chạy. -->
+    
     <div class="lead-card hero-lead">
       <form class="lead-form" novalidate action="https://app.kit.com/forms/9750089/subscriptions" method="post">
-        <img class="lead-illu" src="assets/kho-illu.svg" alt=""
-             role="presentation" aria-hidden="true">
+        <img class="lead-illu" src="assets/kho-illu.svg" alt="" role="presentation" aria-hidden="true">
         <span class="free-badge lg-en">FREE</span>
         <span class="free-badge lg-vi">MIỄN PHÍ</span>
         <h3 class="lead-title lg-en">Get the docs and tools I'm using <span class="hl">on board</span></h3>
@@ -443,14 +878,12 @@
         <p class="lead-card-sub lg-vi">Để lại tên và email một lần, kho mở ngay tại đây. Link mình gửi luôn vào hộp thư, lần sau bạn khỏi đi tìm.</p>
 
         <label for="leadNameHero"><span class="lg-en">First name (optional)</span><span class="lg-vi">Tên (không bắt buộc)</span></label>
-        <input id="leadNameHero" type="text" name="fields[first_name]" placeholder="Hieu"
-               data-en-placeholder="Hieu" data-vi-placeholder="Hiếu"
-               autocomplete="given-name" maxlength="40">
+        <input id="leadNameHero" type="text" name="fields[first_name]" placeholder="Hieu" data-en-placeholder="Hieu" data-vi-placeholder="Hiếu" autocomplete="given-name" maxlength="40">
 
         <label for="leadEmailHero">Email</label>
         <input id="leadEmailHero" type="email" name="email_address" placeholder="you@example.com" autocomplete="email" required>
 
-        <!-- HONEYPOT — bẫy bot, người không nhìn thấy. Đừng xoá. Tên ô hn_hp_7q (đổi từ "website" 08/10/2026 vì autofill điện thoại tự điền → form chết im). -->
+        
         <div class="lead-hp" aria-hidden="true">
           <label for="leadWebsiteHero">Leave empty</label>
           <input id="leadWebsiteHero" type="text" name="hn_hp_7q" tabindex="-1" autocomplete="new-password" data-lpignore="true" data-1p-ignore>
@@ -473,7 +906,9 @@
           <span class="lg-en">Go straight in below. I've also emailed you the link &mdash; if it isn't there in a minute, check spam or promotions.</span>
           <span class="lg-vi">Bấm nút dưới là vào thẳng. Link mình gửi luôn vào email của bạn &mdash; một phút chưa thấy thì ngó thử mục spam hoặc quảng cáo.</span>
         </p>
-        <div class="btn-row lead-kho-row" style="display:none;">
+        <div class="btn-row lead-kho-row" style="* {
+  display: none
+}">
           <a class="btn btn-gold lead-kho-btn" href="/kho.html">
             <span class="lg-en">Open the library &rarr;</span><span class="lg-vi">Vào kho tài liệu &rarr;</span>
           </a>
@@ -495,10 +930,16 @@
     <p class="section-sub-en lg-vi">Để lại email một lần, mở được mãi</p>
     <div class="lead-grid">
       <div>
-        <p class="lg-en" style="color: var(--text-dim); max-width: 560px;">
+        <p class="lg-en" style="* {
+  color: var(--text-dim);
+  max-width: 560px
+}">
           Everything I share on the channel ends up in here &mdash; the working files I built for myself at sea, not teaching material made for an audience. They sit in one folder that keeps growing. Leave your email once and it stays open to you.
         </p>
-        <p class="lg-vi" style="color: var(--text-dim); max-width: 560px;">
+        <p class="lg-vi" style="* {
+  color: var(--text-dim);
+  max-width: 560px
+}">
           Tất cả tài liệu mình chia sẻ trên kênh đều nằm ở đây &mdash; đều là những tài liệu mình tự dựng để học tập và làm việc trên tàu, không phải giáo trình soạn cho người khác học. Tất cả nằm chung một folder, sẽ còn update thêm. Để lại email một lần là mở được mãi.
         </p>
         <ul class="lead-list">
@@ -526,27 +967,19 @@
       </div>
 
       <div class="lead-card">
-        <!-- ================= FORM ==================
-             ĐÃ NỐI KIT 01/08/2026 — form 9750089 (uid b62151fcb5).
-             Nhập hợp lệ → gửi AJAX về Kit (lưu email) → mở khóa link Telegram tại chỗ.
-             Kit lỗi/mạng rớt vẫn mở khóa (không bắt người ta trả giá vì backend).
-             action= bên dưới là fallback khi trình duyệt tắt JS (Kit hiện trang cảm ơn của nó).
-        ========================================== -->
+        
         <form class="lead-form" id="leadForm" novalidate action="https://app.kit.com/forms/9750089/subscriptions" method="post">
           <h3><span class="lg-en">Open the library</span><span class="lg-vi">Mở kho tài liệu</span></h3>
           <p class="lead-card-sub lg-en">Name and email once &mdash; the library opens right here, and the link lands in your inbox so you can find it again.</p>
           <p class="lead-card-sub lg-vi">Để lại tên và email một lần, kho mở ngay tại đây. Link mình gửi luôn vào hộp thư, lần sau bạn khỏi đi tìm.</p>
 
           <label for="leadName"><span class="lg-en">First name (optional)</span><span class="lg-vi">Tên (không bắt buộc)</span></label>
-          <input id="leadName" type="text" name="fields[first_name]" placeholder="Hieu"
-                 data-en-placeholder="Hieu" data-vi-placeholder="Hiếu"
-                 autocomplete="given-name" maxlength="40">
+          <input id="leadName" type="text" name="fields[first_name]" placeholder="Hieu" data-en-placeholder="Hieu" data-vi-placeholder="Hiếu" autocomplete="given-name" maxlength="40">
 
           <label for="leadEmail">Email</label>
           <input id="leadEmail" type="email" name="email_address" placeholder="you@example.com" autocomplete="email" required>
 
-          <!-- HONEYPOT — bẫy bot. Người KHÔNG nhìn thấy ô này; bot điền tự động.
-               Có chữ trong đây = vứt, không gửi. Đừng xoá, đừng đổi tên ô. -->
+          
           <div class="lead-hp" aria-hidden="true">
             <label for="leadWebsite">Leave empty</label>
             <input id="leadWebsite" type="text" name="hn_hp_7q" tabindex="-1" autocomplete="new-password" data-lpignore="true" data-1p-ignore>
@@ -569,7 +1002,9 @@
             <span class="lg-en">Go straight in below. I've also emailed you the link &mdash; if it isn't there in a minute, check spam or promotions.</span>
             <span class="lg-vi">Bấm nút dưới là vào thẳng. Link mình gửi luôn vào email của bạn &mdash; một phút chưa thấy thì ngó thử mục spam hoặc quảng cáo.</span>
           </p>
-          <div class="btn-row lead-kho-row" style="display:none;">
+          <div class="btn-row lead-kho-row" style="* {
+  display: none
+}">
             <a class="btn btn-gold lead-kho-btn" href="/kho.html">
               <span class="lg-en">Open the library &rarr;</span><span class="lg-vi">Vào kho tài liệu &rarr;</span>
             </a>
@@ -656,27 +1091,21 @@
 
     <div class="photo-grid">
       <figure class="photo">
-        <img src="assets/02-cadet-captain.jpg?v=2" alt="Cadet days — with my Captain on deck"
-             data-en-alt="Cadet days — with my Captain on deck"
-             data-vi-alt="Thời thực tập — chụp cùng thuyền trưởng trên boong">
+        <img src="assets/02-cadet-captain.jpg?v=2" alt="Cadet days — with my Captain on deck" data-en-alt="Cadet days — with my Captain on deck" data-vi-alt="Thời thực tập — chụp cùng thuyền trưởng trên boong">
         <figcaption>
           <span class="lg-en">Cadet days — with my Captain on deck.</span>
           <span class="lg-vi">Thời thực tập — cùng thuyền trưởng trên boong.</span>
         </figcaption>
       </figure>
       <figure class="photo">
-        <img src="assets/03-suez-canal.jpg?v=2" alt="Transiting the Suez Canal as a cadet"
-             data-en-alt="Transiting the Suez Canal as a cadet"
-             data-vi-alt="Qua kênh đào Suez khi còn là thực tập sinh">
+        <img src="assets/03-suez-canal.jpg?v=2" alt="Transiting the Suez Canal as a cadet" data-en-alt="Transiting the Suez Canal as a cadet" data-vi-alt="Qua kênh đào Suez khi còn là thực tập sinh">
         <figcaption>
           <span class="lg-en">Transiting the Suez Canal as a cadet.</span>
           <span class="lg-vi">Qua kênh đào Suez khi còn là thực tập sinh.</span>
         </figcaption>
       </figure>
       <figure class="photo">
-        <img src="assets/01-third-officer.jpg?v=2" alt="Birthday on board as Third Officer"
-             data-en-alt="Birthday on board as Third Officer"
-             data-vi-alt="Sinh nhật trên tàu khi làm phó ba">
+        <img src="assets/01-third-officer.jpg?v=2" alt="Birthday on board as Third Officer" data-en-alt="Birthday on board as Third Officer" data-vi-alt="Sinh nhật trên tàu khi làm phó ba">
         <figcaption>
           <span class="lg-en">Birthday on board — as Third Officer (3/O).</span>
           <span class="lg-vi">Sinh nhật trên tàu — khi làm phó ba (3/O).</span>
@@ -734,11 +1163,29 @@
     <h2><span class="lg-en">Professional Profile</span><span class="lg-vi">Hồ sơ chuyên môn</span></h2>
     <p class="section-sub-en lg-en">Who you get when I step on board</p>
     <p class="section-sub-en lg-vi">Khi tôi lên tàu, bạn nhận được một người thế nào</p>
-    <p class="lg-en" style="color: var(--text-dim); max-width: 760px;">
-      I am a Vietnamese ocean-going deck officer, currently sailing as <strong style="color: var(--text);">Second Officer</strong> on bulk carriers, after sailing as <strong style="color: var(--text);">Third Officer on oil tankers</strong>. In September 2026 I completed my <strong style="color: var(--text);">Management Level (STCW II/2) training</strong>, preparing for the Chief Mate position — and, in time, Master Mariner. Step by step, with real sea time and real competence.
+    <p class="lg-en" style="* {
+  color: var(--text-dim);
+  max-width: 760px
+}">
+      I am a Vietnamese ocean-going deck officer, currently sailing as <strong style="* {
+  color: var(--text)
+}">Second Officer</strong> on bulk carriers, after sailing as <strong style="* {
+  color: var(--text)
+}">Third Officer on oil tankers</strong>. In September 2026 I completed my <strong style="* {
+  color: var(--text)
+}">Management Level (STCW II/2) training</strong>, preparing for the Chief Mate position — and, in time, Master Mariner. Step by step, with real sea time and real competence.
     </p>
-    <p class="lg-vi" style="color: var(--text-dim); max-width: 760px;">
-      Tôi là sĩ quan boong tàu viễn dương người Việt Nam, hiện đi <strong style="color: var(--text);">phó hai</strong> trên tàu hàng rời, trước đó đi <strong style="color: var(--text);">phó ba trên tàu dầu</strong>. Tháng 9/2026 tôi đã xong <strong style="color: var(--text);">khoá quản lý (STCW II/2)</strong>, chuẩn bị cho chức đại phó — và sau đó là thuyền trưởng. Đi từng bước, bằng thời gian đi biển thật và năng lực thật.
+    <p class="lg-vi" style="* {
+  color: var(--text-dim);
+  max-width: 760px
+}">
+      Tôi là sĩ quan boong tàu viễn dương người Việt Nam, hiện đi <strong style="* {
+  color: var(--text)
+}">phó hai</strong> trên tàu hàng rời, trước đó đi <strong style="* {
+  color: var(--text)
+}">phó ba trên tàu dầu</strong>. Tháng 9/2026 tôi đã xong <strong style="* {
+  color: var(--text)
+}">khoá quản lý (STCW II/2)</strong>, chuẩn bị cho chức đại phó — và sau đó là thuyền trưởng. Đi từng bước, bằng thời gian đi biển thật và năng lực thật.
     </p>
     <div class="pro-grid">
       <div class="pro-card">
@@ -818,7 +1265,10 @@
     <div class="contact-box">
       <div class="section-kicker"><span class="lg-en">Contact</span><span class="lg-vi">Liên hệ</span></div>
       <h2><span class="lg-en">Get in touch</span><span class="lg-vi">Kết nối với tôi</span></h2>
-      <p style="color: var(--text-dim); margin: 18px 0 32px;">
+      <p style="* {
+  color: var(--text-dim);
+  margin: 18px 0 32px
+}">
         <span class="lg-en">Collaboration, questions about life at sea, or just want to say hello — reach me on any of the channels above, or pick the one that suits you below.</span>
         <span class="lg-vi">Hợp tác, hỏi chuyện nghề đi biển, hay chỉ muốn chào một câu — nhắn cho tôi qua bất kỳ kênh nào ở trên, hoặc chọn kênh liên lạc bên dưới.</span>
       </p>
@@ -866,261 +1316,298 @@
   </div>
 </footer>
 
-<script>
-  /* ===== SONG NGỮ — nút đổi VI/EN =====
-     Chữ trong thân trang do CSS ẩn/hiện (.lg-en/.lg-vi). Ở đây chỉ xử lý phần CSS không với tới:
-     tiêu đề tab, meta description, và các thuộc tính alt/placeholder/title. */
-  var LANG = {
-    en: {
-      title: 'Hieu Nguyen — My Journey to Captain',
-      desc: 'Nguyen Chi Hieu — ocean-going deck officer (Second Officer) on the long road to Captain. Sharing real seafaring knowledge and experience with fellow seafarers.',
-      tab: 'VI · <b>EN</b>',
-      switchTo: 'Chuyển sang tiếng Việt',
-      unlocking: 'Sending…',
-      errEmail: "That email doesn't look right — please check it.",
-      errBoth: 'Please enter your real first name and a valid email.'
-    },
-    vi: {
-      title: 'Nguyễn Chí Hiếu — Hành trình lên Thuyền trưởng',
-      desc: 'Nguyễn Chí Hiếu — sĩ quan boong tàu viễn dương (phó hai), đang trên đường lên thuyền trưởng. Chia sẻ kiến thức và kinh nghiệm đi biển thật cho anh em thuyền viên.',
-      tab: '<b>VI</b> · EN',
-      switchTo: 'Switch to English',
-      unlocking: 'Đang gửi…',
-      errEmail: 'Email này chưa đúng — bạn kiểm tra lại giúp tôi.',
-      errBoth: 'Bạn điền giúp tôi tên thật và một email dùng được.'
-    }
-  };
-
-  function curLang() {
-    return document.documentElement.getAttribute('data-lang') === 'vi' ? 'vi' : 'en';
-  }
-
-  function applyLang(l) {
-    var t = LANG[l];
-    document.documentElement.setAttribute('data-lang', l);
-    document.documentElement.lang = l;
-    document.title = t.title;
-    var meta = document.querySelector('meta[name="description"]');
-    if (meta) meta.setAttribute('content', t.desc);
-
-    // thuộc tính không ẩn/hiện được bằng CSS
-    ['alt', 'placeholder', 'title'].forEach(function (attr) {
-      document.querySelectorAll('[data-' + l + '-' + attr + ']').forEach(function (el) {
-        el.setAttribute(attr, el.getAttribute('data-' + l + '-' + attr));
-      });
-    });
-
-    var tab = document.getElementById('langTab');
-    tab.innerHTML = t.tab;
-    tab.setAttribute('aria-label', t.switchTo);
-  }
-
-  document.getElementById('langTab').addEventListener('click', function () {
-    var l = curLang() === 'vi' ? 'en' : 'vi';
-    try { localStorage.setItem('hn_lang', l); } catch (e) {}
-    applyLang(l);
-    // đếm xem người xem thật sự dùng bản nào (máy ?notrack=1 hoặc chặn quảng cáo thì bỏ qua)
-    try { if (window.gtag) gtag('event', 'switch_language', { language: l }); } catch (e) {}
-    try { if (window.clarity) clarity('set', 'lang', l); } catch (e) {}
-  });
-
-  applyLang(curLang());
-
-  /* ===== LỌC DỮ LIỆU TRƯỚC KHI GỬI — GIỮ LẠI KHI NỐI KIT =====
-     Chạy ở mọi trường hợp, kể cả sau khi đã gắn action= của Kit.
-     Hai việc: (1) chặn bot qua honeypot, (2) dọn tên rác về dạng dùng được. */
-
-  function cleanFirstName(raw) {
-    var n = (raw || "").trim().replace(/\s+/g, " ");
-    // rác rõ ràng → trả về rỗng để email rơi về fallback "there"
-    if (!n) return "";
-    if (n.length > 30) return "";
-    if (/[@\d]/.test(n)) return "";          // có số hoặc @ = không phải tên
-    if (!/[a-zA-ZÀ-ỹ]/.test(n)) return "";   // không có lấy một chữ cái
-    // NGUYEN VAN A → Nguyen Van A (viết hoa hết là kiểu điền phổ biến nhất của tệp này)
-    if (n === n.toUpperCase()) {
-      n = n.toLowerCase().replace(/(^|[\s'-])([a-zà-ỹ])/g, function (m, sep, ch) {
-        return sep + ch.toUpperCase();
-      });
-    }
-    return n;
-  }
-
-  function validEmail(raw) {
-    var v = (raw || "").trim();
-    // đủ chặt để loại "abc", "a@b", "a@b." — không cần chặt hơn cho form lead
-    return /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(v);
-  }
-
-  /* Kit (ConvertKit) — nối 01/08/2026. Gửi AJAX thẳng về endpoint của form,
-     không nhúng ck.5.js (giữ giao diện + tốc độ trang của mình).
-     Từ 01/08 có 2 form (hero + khu #free) → xử lý theo class .lead-card. */
-  var KIT_ACTION = "https://app.kit.com/forms/9750089/subscriptions";
-  var HN_MO_TRANG = Date.now();   // mốc mở trang — honeypot chỉ chặn khi bấm gửi < 3 giây (bot)
-
-/* TRƯỜNG ẨN GỬI KIT (vá 21/09/2026) — trước đây form chỉ gửi tên + email nên
-   không biết email nào lấy file nào / đến từ nền nào. Giờ gửi thêm 4 custom field.
-   ⚠️ Kit chỉ NHẬN field đã được tạo sẵn trong tài khoản (Subscribers → mở 1 người →
-   Add a new field): file_dau_tien · ngon_ngu · nguon · trang. Chưa tạo thì Kit lặng lẽ bỏ qua.
-   `nguon` = lần chạm ĐẦU TIÊN (utm_source, không có thì tên miền giới thiệu), nhớ bằng localStorage. */
-function hnNguon(){
-  try {
-    // utm trên URL luôn thắng; không có thì giữ cái đã nhớ; 'direct' KHÔNG lưu
-    // (kẻo lần đầu vào trần rồi lần sau vào bằng link bio vẫn bị ghi là direct).
-    var q = new URLSearchParams(location.search), u = q.get('utm_source'), c = q.get('utm_campaign');
-    // QR riêng từng PDF (23/09/2026): utm_campaign = tên tài liệu → nguon = 'pdf:first-contract'
-    if (u){ if (c) u += ':' + c; localStorage.setItem('hn_src', u); return u; }
-    var cu = localStorage.getItem('hn_src');
-    if (cu) return cu;
-    if (document.referrer){
-      var h = new URL(document.referrer).hostname.replace(/^www\./,'');
-      if (h && h !== location.hostname){ localStorage.setItem('hn_src', 'ref:' + h); return 'ref:' + h; }
-    }
-    return 'direct';
-  } catch(e){ return 'unknown'; }
+<script>var LANG = {
+en: {
+title: "Hieu Nguyen — My Journey to Captain",
+desc: "Nguyen Chi Hieu — ocean-going deck officer (Second Officer) on the long road to Captain. Sharing real seafaring knowledge and experience with fellow seafarers.",
+tab: "VI · <b>EN</b>",
+switchTo: "Chuyển sang tiếng Việt",
+unlocking: "Sending…",
+errEmail: "That email doesn't look right — please check it.",
+errBoth: "Please enter your real first name and a valid email."
+},
+vi: {
+title: "Nguyễn Chí Hiếu — Hành trình lên Thuyền trưởng",
+desc: "Nguyễn Chí Hiếu — sĩ quan boong tàu viễn dương (phó hai), đang trên đường lên thuyền trưởng. Chia sẻ kiến thức và kinh nghiệm đi biển thật cho anh em thuyền viên.",
+tab: "<b>VI</b> · EN",
+switchTo: "Switch to English",
+unlocking: "Đang gửi…",
+errEmail: "Email này chưa đúng — bạn kiểm tra lại giúp tôi.",
+errBoth: "Bạn điền giúp tôi tên thật và một email dùng được."
 }
+};
+
+function curLang() {
+return document.documentElement.getAttribute("data-lang") === "vi" ? "vi" : "en";
+}
+
+function applyLang(l) {
+var t = LANG[l];
+document.documentElement.setAttribute("data-lang", l);
+document.documentElement.lang = l;
+document.title = t.title;
+var meta = document.querySelector('meta[name="description"]');
+if (meta) meta.setAttribute("content", t.desc);
+[ "alt", "placeholder", "title" ].forEach((function(attr) {
+document.querySelectorAll("[data-" + l + "-" + attr + "]").forEach((function(el) {
+el.setAttribute(attr, el.getAttribute("data-" + l + "-" + attr));
+}));
+}));
+var tab = document.getElementById("langTab");
+tab.innerHTML = t.tab;
+tab.setAttribute("aria-label", t.switchTo);
+}
+
+document.getElementById("langTab").addEventListener("click", (function() {
+var l = curLang() === "vi" ? "en" : "vi";
+try {
+localStorage.setItem("hn_lang", l);
+} catch (e) {}
+applyLang(l);
+try {
+if (window.gtag) gtag("event", "switch_language", {
+language: l
+});
+} catch (e) {}
+try {
+if (window.clarity) clarity("set", "lang", l);
+} catch (e) {}
+}));
+
+applyLang(curLang());
+
+function cleanFirstName(raw) {
+var n = (raw || "").trim().replace(/\s+/g, " ");
+if (!n) return "";
+if (n.length > 30) return "";
+if (/[@\d]/.test(n)) return "";
+if (!/[a-zA-ZÀ-ỹ]/.test(n)) return "";
+if (n === n.toUpperCase()) {
+n = n.toLowerCase().replace(/(^|[\s'-])([a-zà-ỹ])/g, (function(m, sep, ch) {
+return sep + ch.toUpperCase();
+}));
+}
+return n;
+}
+
+function validEmail(raw) {
+var v = (raw || "").trim();
+return /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/.test(v);
+}
+
+var KIT_ACTION = "https://app.kit.com/forms/9750089/subscriptions";
+
+var HN_MO_TRANG = Date.now();
+
+function hnNguon() {
+try {
+var q = new URLSearchParams(location.search), u = q.get("utm_source"), c = q.get("utm_campaign");
+if (u) {
+if (c) u += ":" + c;
+localStorage.setItem("hn_src", u);
+return u;
+}
+var cu = localStorage.getItem("hn_src");
+if (cu) return cu;
+if (document.referrer) {
+var h = new URL(document.referrer).hostname.replace(/^www\./, "");
+if (h && h !== location.hostname) {
+localStorage.setItem("hn_src", "ref:" + h);
+return "ref:" + h;
+}
+}
+return "direct";
+} catch (e) {
+return "unknown";
+}
+}
+
 hnNguon();
-function hnKitThem(fd, fileName){
-  try {
-    fd.append('fields[file_dau_tien]', fileName || '');
-    fd.append('fields[ngon_ngu]', document.documentElement.getAttribute('data-lang') || 'vi');
-    fd.append('fields[nguon]', hnNguon());
-    fd.append('fields[trang]', location.pathname);
-  } catch(e){}
+
+function hnKitThem(fd, fileName) {
+try {
+fd.append("fields[file_dau_tien]", fileName || "");
+fd.append("fields[ngon_ngu]", document.documentElement.getAttribute("data-lang") || "vi");
+fd.append("fields[nguon]", hnNguon());
+fd.append("fields[trang]", location.pathname);
+} catch (e) {}
 }
 
-  /* VỀ 1 MỐI (anh chốt 24/08/2026): cả site chỉ còn MỘT lời hứa = KHO TÀI LIỆU.
-     Bảng tính Tự do tài chính thôi làm magnet riêng, nó thành một món TRONG kho
-     (xem danh sách trong kho.html). Nút màn cảm ơn LUÔN hiện và trỏ về kho —
-     không bắt ai phải mở hộp thư mới lấy được thứ vừa hứa.
-     ⚠️ Link Telegram từ 03/08 CHỈ đi qua email (incentive email của Kit) — không hiện trên web. */
-  var KHO_URL = "/kho.html";
+var KHO_URL = "/kho.html";
 
-  document.querySelectorAll(".lead-card").forEach(function (card) {
-    var form = card.querySelector(".lead-form");
-    if (!form) return;
-    var err = card.querySelector(".lead-error");
-    var note = card.querySelector(".lead-note");
-    var done = card.querySelector(".lead-success");
-    var nameField = form.querySelector('input[name="fields[first_name]"]');
-    var emailField = form.querySelector('input[name="email_address"]');
-    var hp = form.querySelector('input[name="hn_hp_7q"]');
+document.querySelectorAll(".lead-card").forEach((function(card) {
+var form = card.querySelector(".lead-form");
+if (!form) return;
+var err = card.querySelector(".lead-error");
+var note = card.querySelector(".lead-note");
+var done = card.querySelector(".lead-success");
+var nameField = form.querySelector('input[name="fields[first_name]"]');
+var emailField = form.querySelector('input[name="email_address"]');
+var hp = form.querySelector('input[name="hn_hp_7q"]');
+function showError(msg, badFields) {
+err.textContent = msg;
+err.style.display = msg ? "block" : "none";
+nameField.classList.toggle("invalid", badFields.indexOf("name") !== -1);
+emailField.classList.toggle("invalid", badFields.indexOf("email") !== -1);
+}
+function showThankYou() {
+form.style.display = "none";
+if (note) note.style.display = "none";
+var khoBtn = done.querySelector(".lead-kho-btn");
+var khoRow = done.querySelector(".lead-kho-row");
+if (khoBtn) khoBtn.href = KHO_URL;
+if (khoRow) khoRow.style.display = "";
+done.style.display = "block";
+try {
+done.scrollIntoView({
+block: "center",
+behavior: "smooth"
+});
+} catch (e) {}
+var loc = "hero";
+try {
+if (card.closest("#free")) loc = "free_section";
+} catch (e) {}
+try {
+if (window.gtag) gtag("event", "sign_up", {
+method: "kit_form",
+form_location: loc
+});
+} catch (e) {}
+try {
+if (window.clarity) clarity("set", "signup", loc);
+} catch (e) {}
+}
+form.addEventListener("submit", (function(e) {
+var t = LANG[curLang()];
+if (hp.value !== "") {
+try {
+if (window.gtag) gtag("event", "hp_dinh", {
+nhanh: Date.now() - HN_MO_TRANG < 3e3 ? 1 : 0
+});
+} catch (x) {}
+if (Date.now() - HN_MO_TRANG < 3e3) {
+e.preventDefault();
+return false;
+}
+}
+var cleanedName = cleanFirstName(nameField.value);
+if (!validEmail(emailField.value)) {
+e.preventDefault();
+showError(t.errEmail, [ "email" ]);
+try {
+err.scrollIntoView({
+block: "center",
+behavior: "smooth"
+});
+emailField.focus({
+preventScroll: true
+});
+} catch (x) {}
+try {
+if (window.gtag) gtag("event", "form_loi_email", {
+trang: location.pathname
+});
+} catch (x) {}
+return false;
+}
+nameField.value = cleanedName;
+emailField.value = emailField.value.trim();
+showError("", []);
+e.preventDefault();
+var btn = form.querySelector("button[type=submit]");
+btn.disabled = true;
+btn.textContent = t.unlocking;
+var fd = new FormData;
+fd.append("fields[first_name]", cleanedName || (curLang() === "vi" ? "bạn" : "there"));
+fd.append("email_address", emailField.value);
+hnKitThem(fd, "");
+function baoLoi(lyDo) {
+try {
+if (window.gtag) gtag("event", "kit_loi", {
+ly_do: String(lyDo).slice(0, 90),
+form_location: "loi:" + String(lyDo).slice(0, 90),
+trang: location.pathname
+});
+} catch (e) {}
+}
+var daMo = false;
+function moKho() {
+if (daMo) return;
+daMo = true;
+showThankYou();
+}
+var hen = setTimeout((function() {
+baoLoi("cham >5s");
+moKho();
+}), 5e3);
+fetch(KIT_ACTION, {
+method: "POST",
+body: fd,
+keepalive: true,
+headers: {
+Accept: "application/json"
+}
+}).then((function(r) {
+return r.json();
+})).then((function(j) {
+if (!j || j.status !== "success") baoLoi((j && j.errors && j.errors.messages || [ j && j.status ]).join("; "));
+})).catch((function(e) {
+baoLoi("mang: " + (e && e.message));
+})).then((function() {
+clearTimeout(hen);
+moKho();
+}));
+return false;
+}));
+}))</script>
 
-    function showError(msg, badFields) {
-      err.textContent = msg;
-      err.style.display = msg ? "block" : "none";
-      nameField.classList.toggle("invalid", badFields.indexOf("name") !== -1);
-      emailField.classList.toggle("invalid", badFields.indexOf("email") !== -1);
-    }
-
-    function showThankYou() {
-      form.style.display = "none";
-      if (note) note.style.display = "none";
-
-      // Nút vào kho LUÔN hiện — kho là thứ vừa hứa, mở ngay tại chỗ.
-      var khoBtn = done.querySelector(".lead-kho-btn");
-      var khoRow = done.querySelector(".lead-kho-row");
-      if (khoBtn) khoBtn.href = KHO_URL;
-      if (khoRow) khoRow.style.display = "";
-      done.style.display = "block";
-      // form co lại → khung cảm ơn có thể nằm dưới thanh menu dính; cuộn cho thấy rõ
-      try { done.scrollIntoView({ block: "center", behavior: "smooth" }); } catch (e) {}
-
-      // Đo lường (thêm 02/08/2026) — đếm lượt điền form xong, tách hero vs khu #free.
-      // Bọc try/catch vì máy chặn quảng cáo hoặc thiết bị ?notrack=1 sẽ không có gtag/clarity.
-      var loc = "hero";
-      try { if (card.closest("#free")) loc = "free_section"; } catch (e) {}
-      try { if (window.gtag) gtag("event", "sign_up", { method: "kit_form", form_location: loc }); } catch (e) {}
-      try { if (window.clarity) clarity("set", "signup", loc); } catch (e) {}
-    }
-
-    form.addEventListener("submit", function (e) {
-      var t = LANG[curLang()];
-
-      // (1) honeypot — VÁ 08/10/2026: anh nhập email bấm nút "không hiện gì". Bản cũ thấy ô bẫy
-      //     có chữ là nuốt im lặng, mà trình duyệt điện thoại (Samsung Pass / Chrome autofill) có
-      //     thể tự điền ô tên "website". Giờ ô bẫy đổi tên khó đoán; nếu vẫn có chữ thì chỉ chặn khi
-      //     bấm quá nhanh như bot (<3 giây sau khi mở trang), người thật vẫn đi tiếp. Có đếm GA4.
-      if (hp.value !== "") {
-        try { if (window.gtag) gtag("event", "hp_dinh", { nhanh: (Date.now() - HN_MO_TRANG < 3000) ? 1 : 0 }); } catch (x) {}
-        if (Date.now() - HN_MO_TRANG < 3000) { e.preventDefault(); return false; }
-      }
-
-      // (2) chỉ BẮT BUỘC email (vá 08/10: ô tên bỏ trống từng bị chặn bằng 1 dòng chữ nhỏ
-      //     mà bàn phím điện thoại che mất → người dùng tưởng nút chết). Tên rác thì gửi rỗng.
-      var cleanedName = cleanFirstName(nameField.value);
-      if (!validEmail(emailField.value)) {
-        e.preventDefault();
-        showError(t.errEmail, ["email"]);
-        try { err.scrollIntoView({ block: "center", behavior: "smooth" }); emailField.focus({ preventScroll: true }); } catch (x) {}
-        try { if (window.gtag) gtag("event", "form_loi_email", { trang: location.pathname }); } catch (x) {}
-        return false;
-      }
-      nameField.value = cleanedName;
-      emailField.value = emailField.value.trim();
-      showError("", []);
-
-      // (3) gửi về Kit bằng AJAX rồi mở khóa link Telegram tại chỗ.
-      // Kit chết/mạng rớt vẫn mở khóa — mất 1 email còn hơn mất 1 người vào kênh.
-      e.preventDefault();
-      var btn = form.querySelector("button[type=submit]");
-      btn.disabled = true;
-      btn.textContent = t.unlocking;
-      var fd = new FormData();
-      // tên bỏ trống → thư chào Kit ("Chào {{ subscriber.first_name }},") vẫn đọc được
-      fd.append("fields[first_name]", cleanedName || (curLang() === "vi" ? "bạn" : "there"));
-      fd.append("email_address", emailField.value);
-      hnKitThem(fd, "");
-      // Vá 08/10/2026: trước đây nuốt mọi phản hồi Kit → Kit từ chối email cũng không ai biết.
-      // Vẫn mở khoá như cũ, nhưng Kit không trả "success" thì bắn GA4 `kit_loi` kèm lý do.
-      function baoLoi(lyDo) {
-        try { if (window.gtag) gtag("event", "kit_loi", { ly_do: String(lyDo).slice(0, 90), form_location: "loi:" + String(lyDo).slice(0, 90), trang: location.pathname }); } catch (e) {}
-      }
-      // Kit treo/chậm (mạng tàu, trình duyệt trong app FB/Zalo) thì nút từng đứng mãi "Đang gửi…"
-      // → quá 5 giây vẫn mở kho, ghi kit_loi "cham"; Kit trả lời muộn cũng không mở 2 lần.
-      var daMo = false;
-      function moKho() { if (daMo) return; daMo = true; showThankYou(); }
-      var hen = setTimeout(function () { baoLoi("cham >5s"); moKho(); }, 5000);
-      fetch(KIT_ACTION, { method: "POST", body: fd, keepalive: true, headers: { "Accept": "application/json" } })
-        .then(function (r) { return r.json(); })
-        .then(function (j) {
-          if (!j || j.status !== "success") baoLoi((j && j.errors && j.errors.messages || [j && j.status]).join("; "));
-        })
-        .catch(function (e) { baoLoi("mang: " + (e && e.message)); })
-        .then(function () { clearTimeout(hen); moKho(); });
-      return false;
-    });
-  });
-</script>
-
-<script>
-  // Nút "Watch my channel" (vá 08/10/2026): trước chỉ cuộn xuống #channel → Clarity bắt dead click,
-  // khách tưởng nút chết. Giờ mở TikTok @hieuatsea ở tab mới (link thật, không cần JS) VÀ cuộn
-  // trang này xuống mục kênh để quay lại là thấy đủ 3 kênh. Anh chốt TikTok, không phải YouTube.
-  (function(){
-    var nut = document.getElementById("nutKenh"), muc = document.getElementById("channel");
-    if (!nut || !muc) return;
-    nut.addEventListener("click", function(){
-      try { if (window.gtag) gtag("event", "bam_kenh", { dich: "tiktok", vi_tri: "hero" }); } catch (e) {}
-      setTimeout(function(){ try { muc.scrollIntoView({ behavior: "smooth", block: "start" }); } catch (e) {} }, 50);
-    });
-  })();
-</script>
+<script>(function() {
+var nut = document.getElementById("nutKenh"), muc = document.getElementById("channel");
+if (!nut || !muc) return;
+nut.addEventListener("click", (function() {
+try {
+if (window.gtag) gtag("event", "bam_kenh", {
+dich: "tiktok",
+vi_tri: "hero"
+});
+} catch (e) {}
+setTimeout((function() {
+try {
+muc.scrollIntoView({
+behavior: "smooth",
+block: "start"
+});
+} catch (e) {}
+}), 50);
+}));
+})()</script>
 
 
-<script>
-/* 15/10: Clarity 7 ngày — khách chạm vào câu hứa "One link, one email — and it stays open" và các dòng lợi ích ⚓
-   tưởng là nút → chạm là đưa tới form "Mở kho tài liệu", con trỏ vào ô tên. */
-(function(){
-  var f = document.getElementById('leadForm'); if (!f) return;
-  [].forEach.call(document.querySelectorAll('#free .lead-list li, #free .section-sub-en'), function(el){
-    el.addEventListener('click', function(){
-      try { if (window.gtag) gtag('event', 'loi_ich_cham', { form_location: 'trang_chu' }); } catch(x){}
-      f.scrollIntoView({ behavior:'smooth', block:'center' });
-      setTimeout(function(){ var n = document.getElementById('leadName'); try { n && n.focus({ preventScroll:true }); } catch(x){} }, 600);
-    });
-  });
-})();
-</script>
+<script>(function() {
+var f = document.getElementById("leadForm");
+if (!f) return;
+[].forEach.call(document.querySelectorAll("#free .lead-list li, #free .section-sub-en"), (function(el) {
+el.addEventListener("click", (function() {
+try {
+if (window.gtag) gtag("event", "loi_ich_cham", {
+form_location: "trang_chu"
+});
+} catch (x) {}
+f.scrollIntoView({
+behavior: "smooth",
+block: "center"
+});
+setTimeout((function() {
+var n = document.getElementById("leadName");
+try {
+n && n.focus({
+preventScroll: true
+});
+} catch (x) {}
+}), 600);
+}));
+}));
+})()</script>
 </body>
 </html>
