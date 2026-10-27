@@ -806,6 +806,44 @@ return "unknown";
 
 hnNguon();
 
+function hnKitDp(fd) {
+var o = {
+id: (Date.now().toString(36) + Math.random().toString(36).slice(2) + "x0x0x0x0").slice(0, 20),
+trang: location.pathname,
+f: {}
+};
+try {
+fd.forEach((function(v, k) {
+var m = /^fields\[(\w+)\]$/.exec(k);
+if (k === "email_address") o.email = v; else if (m && m[1] === "first_name") o.ten = v; else if (m) o.f[m[1]] = v;
+}));
+} catch (e) {}
+function ban(b, ly) {
+try {
+o.b = b;
+o.ly_do = String(ly || "").slice(0, 90);
+var s = JSON.stringify(o), u = "https://app.hieunguyen.net/api/tl/kit-dp";
+if (!(navigator.sendBeacon && navigator.sendBeacon(u, new Blob([ s ], {
+type: "text/plain"
+})))) fetch(u, {
+method: "POST",
+body: s,
+keepalive: true,
+headers: {
+"Content-Type": "text/plain"
+}
+}).catch((function() {}));
+} catch (e) {}
+}
+ban("dau");
+return {
+ok: function() {
+ban("ok");
+},
+loi: ban.bind(null, "loi")
+};
+}
+
 function hnKitThem(fd, fileName) {
 try {
 fd.append("fields[file_dau_tien]", fileName || "");
@@ -1254,6 +1292,7 @@ var fd = new FormData;
 fd.append("fields[first_name]", name || (curLang() === "vi" ? "bạn" : "there"));
 fd.append("email_address", email);
 hnKitThem(fd, dangCho ? dangCho.track : "");
+var dp = hnKitDp(fd);
 function kitLoi(ly) {
 ly = String(ly).slice(0, 90);
 baoGA("kit_loi", {
@@ -1261,6 +1300,7 @@ ly_do: ly,
 form_location: "loi:" + ly,
 trang: location.pathname
 });
+dp.loi(ly);
 }
 fetch(KIT_ACTION, {
 method: "POST",
@@ -1272,7 +1312,7 @@ Accept: "application/json"
 }).then((function(r) {
 return r.json();
 })).then((function(j) {
-if (!j || j.status !== "success") kitLoi((j && j.errors && j.errors.messages || [ j && j.status ]).join("; "));
+if (j && j.status === "success") dp.ok(); else kitLoi((j && j.errors && j.errors.messages || [ j && j.status ]).join("; "));
 })).catch((function(x) {
 kitLoi("mang: " + (x && x.message) + (document.hidden ? " [trang-an]" : ""));
 }));

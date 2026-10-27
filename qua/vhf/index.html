@@ -888,6 +888,43 @@ loi.style.display = msg ? "block" : "none";
 f.ten.classList.toggle("sai", o === "ten");
 f.email.classList.toggle("sai", o === "email");
 }
+function hnKitDp(fd) {
+var o = {
+id: (Date.now().toString(36) + Math.random().toString(36).slice(2) + "x0x0x0x0").slice(0, 20),
+trang: location.pathname,
+f: {}
+};
+try {
+fd.forEach((function(v, k) {
+var m = /^fields\[(\w+)\]$/.exec(k);
+if (k === "email_address") o.email = v; else if (m && m[1] === "first_name") o.ten = v; else if (m) o.f[m[1]] = v;
+}));
+} catch (e) {}
+function ban(b, ly) {
+try {
+o.b = b;
+o.ly_do = String(ly || "").slice(0, 90);
+var s = JSON.stringify(o), u = "https://app.hieunguyen.net/api/tl/kit-dp";
+if (!(navigator.sendBeacon && navigator.sendBeacon(u, new Blob([ s ], {
+type: "text/plain"
+})))) fetch(u, {
+method: "POST",
+body: s,
+keepalive: true,
+headers: {
+"Content-Type": "text/plain"
+}
+}).catch((function() {}));
+} catch (e) {}
+}
+ban("dau");
+return {
+ok: function() {
+ban("ok");
+},
+loi: ban.bind(null, "loi")
+};
+}
 f.addEventListener("submit", (function(ev) {
 ev.preventDefault();
 if (f.hn_hp_7q.value && Date.now() - MO_TRANG < 3e3) return;
@@ -926,6 +963,7 @@ mo("qua_vhf");
 }
 }
 setTimeout(moi, 2500);
+var dp = hnKitDp(fd);
 fetch(KIT, {
 method: "POST",
 body: fd,
@@ -936,16 +974,20 @@ Accept: "application/json"
 }).then((function(r) {
 return r.json();
 })).then((function(j) {
-if (!j || j.status !== "success") ga("kit_loi", {
+if (j && j.status === "success") dp.ok(); else {
+ga("kit_loi", {
 form_location: "loi:qua_vhf",
 trang: location.pathname
 });
+dp.loi("qua_vhf");
+}
 moi();
 })).catch((function() {
 ga("kit_loi", {
 form_location: "loi:qua_vhf_mang",
 trang: location.pathname
 });
+dp.loi("qua_vhf_mang");
 moi();
 }));
 }));
