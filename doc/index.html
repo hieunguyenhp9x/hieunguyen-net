@@ -132,23 +132,26 @@ a {
   flex: 1 1 auto;
   min-height: 0;
   position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 10px
 }
 #book {
-  width: 100%;
-  height: 100%
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px
 }
 .page {
+  position: relative;
   background: #fff;
-  overflow: hidden
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,.35)
 }
 .page img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
   display: block;
   background: #fff
 }
@@ -165,10 +168,21 @@ a {
   color: #99a;
   font-size: 28px
 }
+.page .lk {
+  position: absolute;
+  display: block;
+  z-index: 2;
+  box-sizing: content-box;
+  padding: 6px;
+  margin: -6px;
+  border-radius: 6px;
+  -webkit-tap-highlight-color: rgba(212,169,90,.35)
+}
 .page.cuoi {
   background: var(--navy-2);
   color: var(--text);
-  display: flex
+  display: flex;
+  box-shadow: none
 }
 .cuoi-in {
   margin: auto;
@@ -196,58 +210,6 @@ a {
   border-radius: 12px;
   padding: 12px 20px;
   margin: 4px
-}
-.dieu {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 8px 12px 12px;
-  color: var(--text-dim);
-  font-size: 14px
-}
-.dieu button {
-  background: var(--navy-3);
-  color: var(--text);
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  width: 44px;
-  height: 40px;
-  font-size: 18px;
-  cursor: pointer
-}
-.dieu button:disabled {
-  opacity: .35;
-  cursor: default
-}
-.phong {
-  position: fixed;
-  inset: 0;
-  background: var(--navy);
-  z-index: 50;
-  overflow: auto;
-  -webkit-overflow-scrolling: touch
-}
-.phong img {
-  display: block;
-  width: 200%;
-  max-width: none;
-  background: #fff
-}
-.phong .dong {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  z-index: 51;
-  background: var(--gold);
-  color: var(--navy);
-  border: none;
-  border-radius: 999px;
-  font-weight: 800;
-  font-size: 15px;
-  padding: 9px 16px;
-  cursor: pointer
 }
 .bia {
   position: absolute;
@@ -320,6 +282,7 @@ a {
 }
 .loi {
   max-width: 440px;
+  margin: 40px auto;
   text-align: center;
   color: var(--text-dim);
   line-height: 1.6
@@ -358,12 +321,6 @@ i.src = "/files/bia/" + w + ".jpg";
 b.hidden = false;
 })();</script>
 
-<div class="dieu" id="dieu" hidden>
-  <button type="button" id="truoc" aria-label="Previous">&#9664;</button>
-  <span id="dem">1 / 1</span>
-  <button type="button" id="sau" aria-label="Next">&#9654;</button>
-  <button type="button" id="phongTo" aria-label="Zoom">&#128269;</button>
-</div>
 <p class="goi-y" id="goiY"></p>
 
 <script src="/assets/kho-data.js"></script>
@@ -387,7 +344,6 @@ ghi("promise: " + (r && r.message || String(r)), (r && r.stack || "").split(Stri
 }));
 })();</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.js" crossorigin="anonymous"></script>
 <script>(function() {
 var en = document.documentElement.getAttribute("data-lang") !== "vi";
 var q = new URLSearchParams(location.search), WEB = (q.get("f") || "").replace(/[^\w-]/g, "");
@@ -451,7 +407,7 @@ location.href = "intent://" + location.host + PDF + "#Intent;scheme=https;packag
 }
 ganTai(tai, "doc");
 var goiY = document.getElementById("goiY");
-goiY.textContent = en ? "Swipe or use the arrows to turn the page. Small text? Tap 🔍." : "Vuốt ngang hoặc bấm mũi tên để lật trang. Chữ nhỏ thì bấm 🔍.";
+goiY.textContent = en ? "Scroll down to read. Small text? Pinch to zoom." : "Kéo xuống để đọc. Chữ nhỏ thì chụm 2 ngón để phóng to.";
 if (APP) {
 var bao = document.getElementById("bao");
 bao.textContent = ANDROID ? en ? "Tap DOWNLOAD PDF to open it in Chrome. Not working? Tap ⋮ at the top and choose “Open in browser”." : "Bấm DOWNLOAD PDF để mở file bằng Chrome. Không được thì bấm ⋮ ở góc trên, chọn “Mở bằng trình duyệt”." : en ? "Tap DOWNLOAD PDF to open the file, then the share button to save it. Or tap ⋯ and choose “Open in browser”." : "Bấm DOWNLOAD PDF để mở file, rồi bấm nút chia sẻ để lưu lại. Hoặc bấm ⋯, chọn “Mở bằng trình duyệt”.";
@@ -521,9 +477,8 @@ file_name: TRACK
 }));
 }
 function lat(pdf, N, vp) {
-var tile = vp.height / vp.width;
 var html = "";
-for (var i = 1; i <= N; i++) html += '<div class="page cho" data-i="' + i + '"><img alt=""></div>';
+for (var i = 1; i <= N; i++) html += '<div class="page cho" data-i="' + i + '" style="aspect-ratio:' + vp.width + "/" + vp.height + '"><img alt=""></div>';
 html += '<div class="page cuoi"><div class="cuoi-in">' + "<h2>" + (en ? "Thanks for reading to the end." : "Cảm ơn bạn đã đọc tới trang cuối.") + "</h2>" + "<p>" + (en ? "Save the PDF so you have it on board, and pass it to a shipmate who needs it." : "Tải PDF về để mang lên tàu, và gửi cho anh em đang cần.") + "</p>" + '<a class="nut" id="taiCuoi" href="' + PDF + '">' + (en ? "Download the PDF" : "Tải PDF") + "</a>" + '<p style="margin-top:18px">' + (en ? "More every week on" : "Bài mới mỗi tuần ở") + ' <a href="https://www.tiktok.com/@hieuatsea">TikTok</a> · <a href="https://www.facebook.com/hieuatsea">Facebook</a> · <a href="https://www.youtube.com/@hieuatsea">YouTube</a> — @hieuatsea</p>' + "</div></div>";
 book.innerHTML = html;
 var bia1 = document.querySelector("#bia img"), p1 = book.querySelector('.page[data-i="1"]');
@@ -544,29 +499,37 @@ bia1.addEventListener("load", dungBia);
 bia1.addEventListener("error", goBia);
 }
 } else goBia();
-var pf = new St.PageFlip(book, {
-width: 600,
-height: Math.round(600 * tile),
-size: "stretch",
-minWidth: 260,
-maxWidth: 1100,
-minHeight: Math.round(260 * tile),
-maxHeight: Math.round(1100 * tile),
-showCover: false,
-usePortrait: true,
-mobileScrollSupport: false,
-maxShadowOpacity: .35,
-flippingTime: 600
+ganTai(document.getElementById("taiCuoi"), "doc_cuoi");
+function phuLink(pg, el) {
+return pg.getAnnotations().then((function(ds) {
+var v = pg.getViewport({
+scale: 1
+}), W = v.width, H = v.height;
+ds.forEach((function(a) {
+if (a.subtype !== "Link" || !a.url || !/^https?:/i.test(a.url)) return;
+var r = v.convertToViewportRectangle(a.rect), x = Math.min(r[0], r[2]), y = Math.min(r[1], r[3]);
+var l = document.createElement("a");
+l.className = "lk";
+l.href = a.url;
+l.target = "_blank";
+l.rel = "noopener";
+l.style.left = x / W * 100 + "%";
+l.style.top = y / H * 100 + "%";
+l.style.width = Math.abs(r[2] - r[0]) / W * 100 + "%";
+l.style.height = Math.abs(r[3] - r[1]) / H * 100 + "%";
+l.addEventListener("click", (function() {
+ga("doc_bam_link", {
+file_name: TRACK,
+link_url: a.url.slice(0, 95),
+phan_tram: Math.round(+el.getAttribute("data-i") / N * 100)
 });
-pf.loadFromHTML(book.querySelectorAll(".page"));
-var dem = document.getElementById("dem"), truoc = document.getElementById("truoc"), sau = document.getElementById("sau");
-document.getElementById("dieu").hidden = false;
-var tong = N + 1, daXem = {}, het = false;
-function capNhat(i) {
-dem.textContent = Math.min(i + 1, N) + " / " + N;
-truoc.disabled = i <= 0;
-sau.disabled = i >= tong - 1;
-var trang = Math.min(i + 1, N);
+}));
+el.appendChild(l);
+}));
+})).catch((function() {}));
+}
+var daXem = {}, het = false;
+function thay(trang) {
 if (!daXem[trang]) {
 daXem[trang] = 1;
 if (trang > 1) ga("doc_trang", {
@@ -574,47 +537,17 @@ file_name: TRACK,
 phan_tram: Math.round(trang / N * 100)
 });
 }
-if (!het && i >= N - 1) {
+if (!het && trang >= N) {
 het = true;
 ga("doc_het", {
 file_name: TRACK
 });
 }
-uuTien(i);
 }
-truoc.addEventListener("click", (function() {
-pf.flipPrev();
-}));
-sau.addEventListener("click", (function() {
-pf.flipNext();
-}));
-document.addEventListener("keydown", (function(e) {
-if (e.key === "ArrowLeft") pf.flipPrev();
-if (e.key === "ArrowRight") pf.flipNext();
-}));
-pf.on("flip", (function(e) {
-capNhat(e.data);
-}));
-document.getElementById("phongTo").addEventListener("click", (function() {
-var i = Math.min(pf.getCurrentPageIndex() + 1, N), el = document.querySelector('.page[data-i="' + i + '"] img');
-if (!el || !el.src) return;
-var o = document.createElement("div");
-o.className = "phong";
-o.innerHTML = '<button type="button" class="dong">' + (en ? "Close" : "Đóng") + ' &times;</button><img alt="">';
-o.querySelector("img").src = el.src;
-o.querySelector(".dong").addEventListener("click", (function() {
-o.remove();
-}));
-document.body.appendChild(o);
-ga("doc_phong", {
-file_name: TRACK
-});
-}));
-ganTai(document.getElementById("taiCuoi"), "doc_cuoi");
 var rong = Math.min(1600, Math.max(1100, Math.round(book.clientWidth * Math.min(2, window.devicePixelRatio || 1))));
 var xong = {}, dangVe = false, hang = [];
 function uuTien(i) {
-for (var k = i - 1; k <= i + 4; k++) if (k >= 0 && k < N && !xong[k + 1]) hang.unshift(k + 1);
+for (var k = i + 3; k >= i; k--) if (k >= 1 && k <= N && !xong[k]) hang.unshift(k);
 chay();
 }
 function chay() {
@@ -631,25 +564,40 @@ if (!so) return;
 dangVe = true;
 xong[so] = 1;
 pdf.getPage(so).then((function(pg) {
-return veTrang(pg, rong);
-})).then((function(url) {
 var el = book.querySelector('.page[data-i="' + so + '"]');
-if (!el) {
-el = document.querySelector('.page[data-i="' + so + '"]');
-}
+return veTrang(pg, rong).then((function(url) {
 if (el) {
 el.querySelector("img").src = url;
 el.classList.remove("cho");
 }
 if (so === 1) goBia();
+if (el) return phuLink(pg, el);
+}));
+})).then((function() {
 dangVe = false;
 setTimeout(chay, 0);
-})).catch((function() {
+}), (function() {
 dangVe = false;
 setTimeout(chay, 0);
 }));
 }
-capNhat(0);
+var trangs = book.querySelectorAll(".page[data-i]");
+if ("IntersectionObserver" in window) {
+var io = new IntersectionObserver((function(es) {
+es.forEach((function(e) {
+if (e.isIntersecting) {
+var t = +e.target.getAttribute("data-i");
+thay(t);
+uuTien(t);
+}
+}));
+}), {
+root: vung,
+threshold: .3
+});
+for (var k = 0; k < trangs.length; k++) io.observe(trangs[k]);
+} else uuTien(1);
+uuTien(1);
 }
 })();</script>
 </body>
