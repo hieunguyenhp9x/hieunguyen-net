@@ -15,7 +15,17 @@
 <script type="text/javascript">(function() {
 var MA = "70-cau";
 var q = location.search.replace(/^\?/, "").replace(/(^|&)(xem|notrack|track)(=[^&]*)?/g, "");
-var DICH = "/tai-lieu.html" + (q ? "?" + q.replace(/^&/, "") : "");
+var NHOM = null;
+try {
+NHOM = localStorage.getItem("hn_ab_70");
+} catch (e) {}
+if (NHOM !== "A" && NHOM !== "C") {
+NHOM = Math.random() < .5 ? "A" : "C";
+try {
+localStorage.setItem("hn_ab_70", NHOM);
+} catch (e) {}
+}
+var DICH = (NHOM === "C" ? "/qua/70-cau-c/" : "/qua/70-cau/") + (q ? "?" + q.replace(/^&/, "") : "");
 var di = false, t0 = Date.now(), xem = false;
 function sang(ly_do) {
 if (di) return;
