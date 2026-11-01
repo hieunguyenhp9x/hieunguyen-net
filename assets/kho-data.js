@@ -73,24 +73,6 @@ en: "Just dropped into the folder; I haven't written the description yet."
 var FILES = [ {
 nhom: "doc",
 pdf: true,
-ico: "&#128221;",
-name: {
-vi: "Sổ tay nghiệp vụ Đại phó — ghi chép lúc học",
-en: "Chief Officer Study Notes"
-},
-meta: {
-vi: "Ghi chép mình gom lại lúc học lớp Đại phó, xếp theo tình huống thật trên tàu · 7 phần: xử lý tình huống · chuẩn bị xếp hàng (IMSBC, than, hàng hạt, thép cuộn) · tính toán (max intake, trim, ổn định, draft survey) · chứng từ & hợp đồng (B/L, LOI, NOR, laycan) · boong (neo, dây, cẩu) · luật & giấy chứng nhận (MARPOL, BWM, ISPS, MLC, ISM) · bảng số giới hạn + lỗi hay nhầm khi tính · mục lục bấm nhảy thẳng",
-en: "Notes I compiled while studying for Chief Officer, arranged by real situations on board · 7 parts: handling situations · cargo preparation (IMSBC, coal, grain, steel coils) · calculations (max intake, trim, stability, draft survey) · documents & contracts (B/L, LOI, NOR, laycan) · deck (anchoring, mooring, cranes) · regulations & certificates (MARPOL, BWM, ISPS, MLC, ISM) · limit-figure tables + common calculation mistakes · clickable table of contents"
-},
-tag: {
-vi: "PDF · 18 trang · Anh–Việt",
-en: "PDF · 18 pages · EN–VI"
-},
-web: "so-tay-nghiep-vu-dai-pho",
-id: "1VZtBdbPUJomomLRRKkleWyI0Gj2iZxAF"
-}, {
-nhom: "doc",
-pdf: true,
 ico: "&#127894;",
 name: {
 vi: "118 câu phỏng vấn Đại phó tàu hàng rời, kèm câu trả lời",
