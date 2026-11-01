@@ -94,7 +94,40 @@ html[data-lang="vi"] a.site-back.lg-en {
 .site-foot span {
   color: #9fb0c4
 }
+.site-app {
+  background: #fff8e6;
+  color: #10203a;
+  border: 1.5px solid #e0a526;
+  border-radius: 14px;
+  padding: 16px;
+  margin: 40px auto 0;
+  max-width: 720px;
+  width: calc(100% - 32px);
+  box-sizing: border-box;
+  font-family: "Segoe UI",system-ui,-apple-system,Arial,sans-serif
+}
+.site-app b {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 6px;
+  color: #0a1628
+}
+.site-app p {
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 10px
+}
+.site-app a {
+  display: inline-block;
+  background: #0b6e8a;
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 10px;
+  padding: 11px 16px
+}
 @media print {
+  .site-app,
   .site-bar,
   .site-foot {
     display: none
@@ -1923,6 +1956,12 @@ render(deg);
 }));
 applyLang(curLang());
 })();</script>
+
+<div class="site-app lg-vi">
+  <b>Muốn nói tiếng Anh tốt hơn trên tàu và khi phỏng vấn?</b>
+  <p>Mình làm app SpeakAtSea để anh em đi tàu luyện nói tiếng Anh, cả phỏng vấn lẫn giao tiếp trên tàu. Người phỏng vấn hỏi bằng giọng Ấn, giọng Phi, giọng Anh, bạn nói câu trả lời ra thành tiếng, ghi âm rồi nghe lại.</p>
+  <a href="https://app.hieunguyen.net/gioi-thieu?nguon=web-colreg&utm_source=web&utm_medium=trang&utm_campaign=colreg&utm_content=cuoi#b02">Xem 1 bài học mẫu →</a>
+</div>
 
 <footer class="site-foot">
   <a class="site-back lg-en" href="/">← Back to hieunguyen.net</a>

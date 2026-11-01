@@ -228,6 +228,17 @@ h1 {
   font-size: 12.8px;
   margin-top: 3px
 }
+.file .app-dong {
+  color: var(--text-dim);
+  font-size: 12.8px;
+  line-height: 1.5;
+  margin-top: 6px
+}
+.file .app-dong a {
+  color: var(--gold-light);
+  font-weight: 700;
+  white-space: nowrap
+}
 .file .tag {
   display: inline-block;
   font-size: 11px;
@@ -504,7 +515,8 @@ var tag = ngonNgu(f.tag);
 var ten_theo_doi = f.track || ten;
 var doc = (f.pdf || f.nghe) && f.id ? '<a class="btn" href="' + esc(viewUrl(f.id)) + '" target="_blank" rel="noopener" ' + 'data-fname="' + esc(ten_theo_doi) + '" data-act="preview">' + esc(f.nghe ? t.ngheChinh : t.viewChinh) + "</a>" : "";
 var nut = doc + '<a class="btn' + (doc ? " ghost" : "") + '" href="' + esc(f.url) + '" ' + 'target="_blank" rel="noopener" data-fname="' + esc(ten_theo_doi) + '" ' + 'data-act="download">' + esc(doc ? t.dlPhu : t.dl) + "</a>";
-return '<div class="file">' + (f.ico ? '<div class="ico">' + f.ico + "</div>" : "") + '<div class="body"><div class="name">' + esc(ten) + "</div>" + (mota ? '<div class="meta">' + esc(mota) + "</div>" : "") + (tag ? '<div class="tag">' + esc(tag) + "</div>" : "") + '</div><div class="acts">' + nut + "</div></div>";
+var khungApp = f.app && curLang() === "vi" ? '<div class="app-dong">' + esc(f.app.chu) + ' <a href="' + esc(f.app.url) + '" target="_blank" rel="noopener">' + esc(f.app.nut) + "</a></div>" : "";
+return '<div class="file">' + (f.ico ? '<div class="ico">' + f.ico + "</div>" : "") + '<div class="body"><div class="name">' + esc(ten) + "</div>" + (mota ? '<div class="meta">' + esc(mota) + "</div>" : "") + (tag ? '<div class="tag">' + esc(tag) + "</div>" : "") + khungApp + '</div><div class="acts">' + nut + "</div></div>";
 }
 
 function render(files) {
@@ -598,6 +610,7 @@ id: f.id,
 name: f.name,
 meta: f.meta || "",
 tag: f.tag || "",
+app: f.app,
 track: tenTheoDoi(f),
 url: f.web ? "/files/" + f.web + ".pdf" : f.url || "https://drive.google.com/uc?export=download&id=" + f.id
 };

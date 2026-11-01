@@ -306,6 +306,17 @@ h1 .hl {
   margin-top: 6px;
   text-transform: uppercase
 }
+.file .app-dong {
+  color: var(--text-dim);
+  font-size: 13.5px;
+  line-height: 1.5;
+  margin-top: 8px
+}
+.file .app-dong a {
+  color: var(--gold);
+  font-weight: 700;
+  white-space: nowrap
+}
 .acts {
   display: flex;
   flex-direction: column;
@@ -1011,7 +1022,8 @@ var t = TXT[curLang()];
 var ten = ngonNgu(f.name), mota = ngonNgu(f.meta), tag = ngonNgu(f.tag);
 var doc = (f.pdf || f.nghe) && f.id ? '<a class="btn" href="' + esc(urlDoc(f)) + '" target="_blank" rel="noopener" ' + 'data-act="preview" data-fname="' + esc(tenTheoDoi(f)) + '" data-label="' + esc(ten) + '">' + esc(f.nghe ? t.ngheChinh : t.viewChinh) + "</a>" : "";
 var nut = doc + '<a class="btn' + (doc ? " ghost" : "") + '" href="' + esc(urlTai(f)) + '" ' + 'target="_blank" rel="noopener" data-act="download" ' + 'data-fname="' + esc(tenTheoDoi(f)) + '" data-label="' + esc(ten) + '">' + esc(doc ? t.dlPhu : t.dl) + "</a>";
-return '<div class="file">' + (f.ico ? '<div class="ico">' + f.ico + "</div>" : "") + '<div class="body"><div class="name">' + esc(ten) + "</div>" + (mota ? '<div class="meta">' + esc(mota) + "</div>" : "") + (tag ? '<div class="tag">' + esc(tag) + "</div>" : "") + '</div><div class="acts">' + nut + "</div></div>";
+var khungApp = f.app && curLang() === "vi" ? '<div class="app-dong">' + esc(f.app.chu) + ' <a href="' + esc(f.app.url) + '" target="_blank" rel="noopener">' + esc(f.app.nut) + "</a></div>" : "";
+return '<div class="file">' + (f.ico ? '<div class="ico">' + f.ico + "</div>" : "") + '<div class="body"><div class="name">' + esc(ten) + "</div>" + (mota ? '<div class="meta">' + esc(mota) + "</div>" : "") + (tag ? '<div class="tag">' + esc(tag) + "</div>" : "") + khungApp + '</div><div class="acts">' + nut + "</div></div>";
 }
 
 var daBaoList = false;

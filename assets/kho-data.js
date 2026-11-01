@@ -232,6 +232,11 @@ tag: {
 vi: "MP3 · ghi âm thật · 2022",
 en: "MP3 · real recording · 2022"
 },
+app: {
+chu: "Muốn tự tập trả lời thành tiếng như buổi này? Mình làm app SpeakAtSea để anh em đi tàu luyện nói tiếng Anh, cả phỏng vấn lẫn giao tiếp trên tàu.",
+nut: "Xem 1 bài học mẫu →",
+url: "https://app.hieunguyen.net/gioi-thieu?nguon=web-kho-mp3&utm_source=web&utm_medium=kho&utm_campaign=ghi-am-pv-2o&utm_content=the#b02"
+},
 id: "1cLgcCPRrejNBe7jQ7E4YRc7pN-fZ3joi"
 }, {
 nhom: "dung",
