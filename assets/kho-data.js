@@ -269,12 +269,12 @@ id: "16TuOT63vz1IhfbTQChXJbyH_Z_5LvkGf"
 nhom: "dung",
 ico: "&#128202;",
 name: {
-vi: "Bảng tính Tự do tài chính",
-en: "The Financial Freedom spreadsheet"
+vi: "Bảng tính thời gian nghỉ hưu",
+en: "The Retirement Timeline spreadsheet"
 },
 meta: {
-vi: "4 hướng đi sự nghiệp tính theo từng tháng · sửa số của bạn vào là ra tuổi tự do tài chính",
-en: "Four career paths month by month · put your own numbers in for your freedom age"
+vi: "4 hướng đi sự nghiệp tính theo từng tháng · sửa số của bạn vào là ra tuổi nghỉ hưu",
+en: "Four career paths month by month · put your own numbers in for your retirement age"
 },
 tag: {
 vi: "Excel",
