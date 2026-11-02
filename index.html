@@ -818,6 +818,527 @@ footer .tool-link:hover {
 }
 footer .tool-link + .tool-link {
   margin-left: 20px
+}
+#app {
+  padding: 88px 0 52px;
+  background: radial-gradient(760px 520px at 76% 40%, rgba(26, 102, 173, 0.30), transparent 70%),linear-gradient(180deg, #0c1c36 0, var(--navy) 100%);
+  border-bottom: 1px solid var(--line)
+}
+#app + header {
+  min-height: 0;
+  padding-top: 64px
+}
+.prod-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  column-gap: 48px;
+  grid-template-areas: "head phone" "body phone";
+  grid-template-rows: auto 1fr
+}
+.prod-head {
+  grid-area: head;
+  align-self: end
+}
+.prod-body {
+  grid-area: body
+}
+.prod-side {
+  grid-area: phone;
+  display: grid;
+  justify-items: center;
+  align-content: start
+}
+.prod-kicker {
+  font-size: 14.5px;
+  color: var(--gold-light);
+  margin-bottom: 14px
+}
+.prod-kicker b {
+  color: var(--gold);
+  font-weight: 800;
+  letter-spacing: 0.3px
+}
+.prod-title {
+  font-size: clamp(28px, 3.6vw, 39px);
+  line-height: 1.17;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 16px
+}
+.prod-title span {
+  display: block
+}
+.prod-title .hl {
+  color: var(--gold-light)
+}
+.prod-sub {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #c6d2e0;
+  max-width: 500px
+}
+.prod-list {
+  list-style: none;
+  margin: 24px 0 26px;
+  display: grid;
+  gap: 14px;
+  max-width: 500px
+}
+.prod-list li {
+  display: grid;
+  grid-template-columns: 22px 1fr;
+  column-gap: 12px;
+  font-size: 15px;
+  line-height: 1.5;
+  color: var(--text-dim)
+}
+.prod-list svg {
+  width: 22px;
+  height: 22px;
+  margin-top: 1px;
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round
+}
+.prod-list b {
+  display: block;
+  color: var(--text);
+  font-weight: 650
+}
+.prod-cta {
+  display: inline-block;
+  padding: 15px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 800;
+  font-size: 16px;
+  transition: transform 0.15s
+}
+.prod-cta:hover {
+  transform: translateY(-2px)
+}
+.prod-cta.top {
+  display: none
+}
+.prod-by {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 22px;
+  max-width: 500px
+}
+.prod-by img {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 50% 22%;
+  border: 1.5px solid var(--gold);
+  flex: none
+}
+.prod-by p {
+  font-size: 13.5px;
+  line-height: 1.45;
+  color: var(--text-dim)
+}
+.prod-by b {
+  color: var(--text);
+  font-weight: 600
+}
+.prod-en {
+  margin-top: 16px;
+  font-size: 13px;
+  color: var(--text-dim);
+  opacity: 0.85
+}
+.prod-tablabel {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 8px
+}
+.prod-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px;
+  padding: 4px;
+  width: 100%;
+  max-width: 330px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.03)
+}
+.prod-tab {
+  padding: 8px 0;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  background: transparent;
+  color: var(--text-dim);
+  font: 700 14px/1.2 inherit;
+  font-family: inherit;
+  transition: background 0.2s,color 0.2s
+}
+.prod-tab[aria-selected="true"] {
+  background: var(--gold);
+  color: var(--navy)
+}
+.prod-caps {
+  position: relative;
+  width: 100%;
+  max-width: 330px;
+  min-height: 66px;
+  margin: 10px 0 14px
+}
+.prod-cap {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.3s;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #c6d2e0
+}
+.prod-cap.on {
+  opacity: 1
+}
+.phone {
+  position: relative;
+  width: 256px;
+  height: 472px;
+  padding: 9px;
+  border-radius: 38px;
+  background: #04080f;
+  box-shadow: 0 0 0 1px rgba(212, 169, 90, 0.38),0 28px 70px rgba(0, 0, 0, 0.55)
+}
+.phone::before {
+  content: "";
+  position: absolute;
+  z-index: 3;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62px;
+  height: 16px;
+  border-radius: 10px;
+  background: #04080f
+}
+.phone-screen {
+  position: relative;
+  height: 100%;
+  border-radius: 29px;
+  overflow: hidden;
+  background: #f3f5f8
+}
+.phone-screen::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 30px;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(243, 245, 248, 0), #f3f5f8)
+}
+.ps {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s,visibility 0.3s;
+  color: #14212e;
+  font-size: 12px;
+  line-height: 1.38;
+  text-align: left
+}
+.ps.on {
+  opacity: 1;
+  visibility: visible
+}
+.pm-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 30px 9px 9px;
+  background: #0f2a44;
+  color: #fff
+}
+.pm-ic {
+  flex: none;
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: rgba(255, 255, 255, 0.11);
+  font-size: 13px;
+  line-height: 1
+}
+.pm-tt {
+  min-width: 0;
+  flex: 1
+}
+.pm-tt small {
+  display: block;
+  font-size: 9.5px;
+  opacity: 0.8
+}
+.pm-tt b {
+  display: block;
+  font-size: 11.5px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+.pm-body {
+  padding: 9px
+}
+.pm-prog {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 3px
+}
+.pm-prog i {
+  height: 4px;
+  border-radius: 2px;
+  background: #e1e6ec
+}
+.pm-prog i.ok {
+  background: #1f8a4c
+}
+.pm-prog i.on {
+  background: #1a66ad
+}
+.pm-step {
+  margin: 5px 0 8px;
+  font-size: 10px;
+  color: #5d6c7b
+}
+.pm-card {
+  margin-bottom: 8px;
+  padding: 10px;
+  border: 1px solid #e1e6ec;
+  border-radius: 12px;
+  background: #fff
+}
+.pm-hd {
+  font-size: 11.5px;
+  color: #5d6c7b
+}
+.pm-big {
+  margin-bottom: 4px;
+  font-size: 13px;
+  font-weight: 800
+}
+.pm-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 8px
+}
+.pm-chip {
+  padding: 5px 9px;
+  border: 1px solid #e1e6ec;
+  border-radius: 99px;
+  cursor: pointer;
+  background: #f3f5f8;
+  color: #14212e;
+  font-family: inherit;
+  font-size: 11px;
+  line-height: 1.2
+}
+.pm-chip.on {
+  background: #1a66ad;
+  border-color: #1a66ad;
+  color: #fff
+}
+.pm-play {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  width: 100%;
+  margin-top: 9px;
+  padding: 10px;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  background: #e4eefa;
+  color: #1a66ad;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 800
+}
+.pm-play.dang {
+  background: #1a66ad;
+  color: #fff
+}
+.pm-eq {
+  display: none;
+  align-items: flex-end;
+  gap: 2px;
+  height: 12px
+}
+.pm-play.dang .pm-eq {
+  display: inline-flex
+}
+.pm-play.dang .pm-tam {
+  display: none
+}
+.pm-eq i {
+  width: 2.5px;
+  height: 100%;
+  border-radius: 1px;
+  background: currentColor;
+  transform-origin: bottom;
+  animation: pmEq 0.7s ease-in-out infinite alternate
+}
+.pm-eq i:nth-child(2) {
+  animation-delay: 0.15s
+}
+.pm-eq i:nth-child(3) {
+  animation-delay: 0.3s
+}
+.pm-eq i:nth-child(4) {
+  animation-delay: 0.1s
+}
+@keyframes pmEq {
+  from {
+    transform: scaleY(0.3)
+  }
+  to {
+    transform: scaleY(1)
+  }
+}
+.pm-q {
+  margin-top: 8px;
+  font-size: 12px;
+  font-weight: 700
+}
+.pm-who {
+  margin-bottom: 2px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.6px;
+  color: #5d6c7b
+}
+.pm-line {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #1f8a4c
+}
+.pm-line u {
+  color: #c0392b;
+  font-weight: 500;
+  text-decoration: underline wavy #c0392b;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px
+}
+.pm-chep {
+  margin: 1px 0 7px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid #e1e6ec;
+  font-size: 10.5px;
+  color: #5d6c7b
+}
+.pm-chep:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: 0
+}
+.pm-rec {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #5d6c7b
+}
+.pm-rec i {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-right: 5px;
+  border-radius: 50%;
+  background: #c0392b
+}
+.pm-rec.bay-gio i {
+  background: #1a66ad
+}
+.pm-wave {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  height: 22px;
+  margin-top: 3px;
+  padding: 0 8px;
+  border-radius: 99px;
+  background: #f3f5f8
+}
+.pm-wave i {
+  flex: 1;
+  height: 30%;
+  border-radius: 1px;
+  background: #9aa7b4
+}
+.pm-wave i:nth-child(3n) {
+  height: 55%
+}
+.pm-wave i:nth-child(5n) {
+  height: 75%
+}
+.pm-rec.bay-gio + .pm-wave i {
+  background: #1a66ad
+}
+@media (max-width: 820px) {
+  #app {
+    padding: 80px 0 40px
+  }
+  #app + header {
+    padding-top: 48px
+  }
+  .prod-grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: "head" "phone" "body";
+    grid-template-rows: none
+  }
+  .prod-sub {
+    font-size: 16px
+  }
+  .prod-cta.top {
+    display: block;
+    margin-top: 18px;
+    text-align: center
+  }
+  .prod-side {
+    margin-top: 30px
+  }
+  .prod-list {
+    margin-top: 28px
+  }
+  .prod-body .prod-cta {
+    display: block;
+    text-align: center
+  }
+}
+@media (max-width: 420px) {
+  .prod-kicker {
+    font-size: 13.5px
+  }
+  .prod-title {
+    font-size: 25px
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .prod-cap,
+  .ps {
+    transition: none
+  }
+  .pm-eq i {
+    animation: none
+  }
 }</style>
 <script src="/assets/kiem-email.js" defer="defer"></script>
 <script src="/assets/meta-pixel.js" defer="defer"></script>
@@ -826,9 +1347,10 @@ footer .tool-link + .tool-link {
 
 <nav>
   <div class="container">
-    <a class="logo" href="#top">HIEU NGUYEN</a>
+    <a class="logo" href="#app">HIEU NGUYEN</a>
     <div class="nav-right">
       <div class="links">
+        <a href="#app">SpeakAtSea</a>
         <a href="#free"><span class="lg-en">Free tools</span><span class="lg-vi">Công cụ miễn phí</span></a>
         <a href="#story"><span class="lg-en">My Journey</span><span class="lg-vi">Hành trình</span></a>
         <a href="#channel"><span class="lg-en">Channel</span><span class="lg-vi">Kênh</span></a>
@@ -839,6 +1361,129 @@ footer .tool-link + .tool-link {
     </div>
   </div>
 </nav>
+
+<section id="app" lang="vi" aria-labelledby="prodTitle">
+  <div class="container prod-grid">
+    <div class="prod-head">
+      <p class="prod-kicker"><b>SpeakAtSea</b> · luyện nói tiếng Anh cho người đi tàu</p>
+      <h2 class="prod-title" id="prodTitle"><span>Làm việc trên tàu thì giỏi,</span><span class="hl">bị hỏi tiếng Anh</span><span>lại đứng hình?</span></h2>
+      <p class="prod-sub">SpeakAtSea là app mình làm để anh em đi tàu luyện nói tiếng Anh, cả phỏng vấn lẫn giao tiếp trên tàu.</p>
+      <a class="prod-cta top" data-app href="https://app.hieunguyen.net/gioi-thieu?nguon=web-trang-chu&amp;utm_source=web&amp;utm_medium=trang&amp;utm_campaign=trang-chu&amp;utm_content=dau#b02">Xem 1 bài học mẫu →</a>
+    </div>
+
+    <div class="prod-side">
+      <p class="prod-tablabel">Một bài học đi qua 3 buổi</p>
+      <div class="prod-tabs" role="tablist" aria-label="3 buổi của một bài học">
+        <button class="prod-tab" type="button" role="tab" aria-selected="true" aria-controls="ps1" id="pt1">Buổi 1</button>
+        <button class="prod-tab" type="button" role="tab" aria-selected="false" aria-controls="ps2" id="pt2">Buổi 2</button>
+        <button class="prod-tab" type="button" role="tab" aria-selected="false" aria-controls="ps3" id="pt3">Buổi 3</button>
+      </div>
+      <div class="prod-caps">
+        <p class="prod-cap on">Ghi âm điểm xuất phát, nghe cho quen giọng rồi chép lại từng câu. Bạn bấm nghe thử ngay trên máy này.</p>
+        <p class="prod-cap">Mở phụ đề đối chiếu bản chép, chữ nghe chưa ra được gạch đỏ. Sau đó luyện từng câu trả lời của bạn.</p>
+        <p class="prod-cap">Phỏng vấn lại, rồi nghe bản lúc bắt đầu và bản bây giờ để tự nghe ra mình đã khác thế nào.</p>
+      </div>
+
+      <div class="phone">
+        <div class="phone-screen">
+
+          <div class="ps on" id="ps1" role="tabpanel" aria-labelledby="pt1">
+            <div class="pm-bar"><span class="pm-ic" aria-hidden="true">‹</span><div class="pm-tt"><small>Nghe chưa có phụ đề</small><b>Phỏng vấn AB · bài 1: Bản thân…</b></div><span class="pm-ic" aria-hidden="true">⌂</span></div>
+            <div class="pm-body">
+              <div class="pm-prog" aria-hidden="true"><i class="ok"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <p class="pm-step">Buổi 1/3 · bước 2/8: <b>Nghe cho quen giọng</b></p>
+              <div class="pm-card">
+                <p class="pm-hd">Bạn cứ nghe cho quen giọng, chưa cần hiểu hết.</p>
+                <div class="pm-chips" id="pmGiong">
+                  <button class="pm-chip on" type="button" data-giong="in">Giọng Ấn Độ</button>
+                  <button class="pm-chip" type="button" data-giong="ph">Giọng Philippines</button>
+                  <button class="pm-chip" type="button" data-giong="chuan">Giọng Chuẩn (Anh)</button>
+                </div>
+                <div class="pm-chips" id="pmToc">
+                  <button class="pm-chip" type="button" data-toc="0.5">0,5×</button>
+                  <button class="pm-chip" type="button" data-toc="0.75">0,75×</button>
+                  <button class="pm-chip on" type="button" data-toc="1">1×</button>
+                  <button class="pm-chip" type="button" data-toc="1.25">1,25×</button>
+                </div>
+                <button class="pm-play" type="button" id="pmPlay"><span class="pm-eq" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="pm-tam">▶</span> Nghe thử một câu hỏi</button>
+                <p class="pm-q">What type of ships have you worked on, and what cargo?</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ps" id="ps2" role="tabpanel" aria-labelledby="pt2">
+            <div class="pm-bar"><span class="pm-ic" aria-hidden="true">‹</span><div class="pm-tt"><small>Đối chiếu bản chép</small><b>Phỏng vấn AB · bài 1: Bản thân…</b></div><span class="pm-ic" aria-hidden="true">⌂</span></div>
+            <div class="pm-body">
+              <div class="pm-prog" aria-hidden="true"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="on"></i><i></i><i></i><i></i><i></i></div>
+              <p class="pm-step">Buổi 2/3 · bước 4/8: <b>Mở phụ đề, đối chiếu bản chép</b></p>
+              <div class="pm-card">
+                <p class="pm-big">Bạn nghe đúng 78/211 chữ (37%)</p>
+                <p class="pm-hd">Chữ xanh là bạn nghe đúng. Chữ gạch đỏ là chỗ tai bạn còn hụt, để ý khi nghe tiếp.</p>
+              </div>
+              <div class="pm-card">
+                <p class="pm-who">NGƯỜI PHỎNG VẤN</p>
+                <p class="pm-line">Good morning. Please sit <u>down</u> and introduce <u>yourself.</u></p>
+                <p class="pm-chep">Bạn chép: good morning please sit and introduce your self</p>
+                <p class="pm-who">ỨNG VIÊN</p>
+                <p class="pm-line">I am <u>an</u> AB with three <u>years</u> at sea.</p>
+                <p class="pm-chep">Bạn chép: i am a AB with three year at sea</p>
+                <p class="pm-line">I <u>studied</u> at <u>a</u> maritime college.</p>
+                <p class="pm-chep">Bạn chép: i study at maritime college</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="ps" id="ps3" role="tabpanel" aria-labelledby="pt3">
+            <div class="pm-bar"><span class="pm-ic" aria-hidden="true">‹</span><div class="pm-tt"><small>So sánh trước – sau</small><b>Phỏng vấn AB · bài 1: Bản thân…</b></div><span class="pm-ic" aria-hidden="true">⌂</span></div>
+            <div class="pm-body">
+              <div class="pm-prog" aria-hidden="true"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i></div>
+              <p class="pm-step">Buổi 3/3 · bước 8/8: <b>So sánh trước – sau</b></p>
+              <div class="pm-card">
+                <p class="pm-big">Bạn đã đi một quãng dài</p>
+                <p class="pm-hd">Nghe bản lúc bắt đầu trước rồi tới bản bây giờ, để tự nghe ra mình đã tiến bộ thế nào.</p>
+              </div>
+              <div class="pm-card">
+                <p class="pm-q" style="margin-top:0">1. What type of ships have you worked on, and what cargo?</p>
+                <p class="pm-rec"><i></i>Lúc bắt đầu</p>
+                <div class="pm-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                <p class="pm-rec bay-gio"><i></i>Bây giờ</p>
+                <div class="pm-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              </div>
+              <div class="pm-card">
+                <p class="pm-big" style="font-size:12.5px">Máy chấm tiến bộ của bạn</p>
+                <p class="pm-hd">Nói được bao nhiêu từ, nhanh hơn chưa, bớt “ờ… à…” chưa, dùng được từ nào của câu mẫu.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="prod-body">
+      <ul class="prod-list">
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 10.5h10M7 13.5h10"/></svg>
+          <span><b>Phỏng vấn theo đúng chức danh</b>Cadet, OS, AB, Bosun, Phó ba, Phó hai, Đại phó. Người phỏng vấn nói giọng Ấn, giọng Phi, giọng Anh.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H10l-5 4v-4H4z"/><path d="M8 9h8M8 12h5"/></svg>
+          <span><b>12 tuần tiếng Anh giao tiếp trên tàu</b>Nhận lệnh lái, làm dây, gọi VHF, bàn giao ca.</span>
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3l18 18"/><path d="M5 12.5a10 10 0 0 1 4-2.6M19 12.5a10 10 0 0 0-5.5-3M8.5 16a5 5 0 0 1 5-1.2"/><circle cx="12" cy="19.5" r="0.8"/></svg>
+          <span><b>Học được cả khi tàu không có mạng</b>Tải bài về một lần, lên tàu tắt mạng vẫn nghe, ghi âm và phỏng vấn lại được.</span>
+        </li>
+      </ul>
+      <a class="prod-cta" data-app href="https://app.hieunguyen.net/gioi-thieu?nguon=web-trang-chu&amp;utm_source=web&amp;utm_medium=trang&amp;utm_campaign=trang-chu&amp;utm_content=duoi#b02">Xem 1 bài học mẫu →</a>
+      <div class="prod-by">
+        <img src="assets/portrait.jpg?v=2" alt="Nguyễn Chí Hiếu" width="44" height="44">
+        <p><b>Nguyễn Chí Hiếu</b>, sĩ quan boong, người làm app<br>Hơn 2.000 anh em đi biển đã quan tâm và học cùng mình</p>
+      </div>
+      <p class="prod-en lg-en" lang="en">SpeakAtSea is in Vietnamese for now. My English profile starts right below.</p>
+    </div>
+  </div>
+</section>
 
 <header id="top">
   <div class="container">
@@ -1625,6 +2270,107 @@ preventScroll: true
 }), 600);
 }));
 }));
+})();</script>
+<script>(function() {
+var tabs = [].slice.call(document.querySelectorAll(".prod-tab"));
+var mans = [].slice.call(document.querySelectorAll(".ps"));
+var caps = [].slice.call(document.querySelectorAll(".prod-cap"));
+var side = document.querySelector(".prod-side");
+var nut = document.getElementById("pmPlay");
+if (!tabs.length || !nut) return;
+function ga(ev, o) {
+try {
+if (window.gtag) gtag("event", ev, o || {});
+} catch (e) {}
+}
+var dang = 0, hen = null, am = null, giong = "in", toc = 1;
+function dungXoay() {
+if (hen) {
+clearInterval(hen);
+hen = null;
+}
+}
+function chon(n) {
+dang = n;
+tabs.forEach((function(t, i) {
+t.setAttribute("aria-selected", i === n ? "true" : "false");
+}));
+mans.forEach((function(m, i) {
+m.classList.toggle("on", i === n);
+}));
+caps.forEach((function(c, i) {
+c.classList.toggle("on", i === n);
+}));
+if (n !== 0) tatAm();
+}
+function tatAm() {
+if (am) {
+am.pause();
+am = null;
+}
+nut.classList.remove("dang");
+}
+function phat() {
+tatAm();
+dungXoay();
+am = new Audio("/assets/app/nghe-thu-" + giong + ".mp3");
+am.playbackRate = toc;
+am.onended = tatAm;
+var p = am.play();
+if (p && p.catch) p.catch(tatAm);
+nut.classList.add("dang");
+ga("nghe_thu_giong", {
+file_name: giong,
+form_location: "trang_chu"
+});
+}
+tabs.forEach((function(t, i) {
+t.addEventListener("click", (function() {
+dungXoay();
+chon(i);
+ga("xem_buoi", {
+file_name: "buoi-" + (i + 1),
+form_location: "trang_chu"
+});
+}));
+}));
+nut.addEventListener("click", (function() {
+if (am) tatAm(); else phat();
+}));
+[].forEach.call(document.querySelectorAll("#pmGiong .pm-chip"), (function(b, _, ds) {
+b.addEventListener("click", (function() {
+[].forEach.call(ds, (function(x) {
+x.classList.toggle("on", x === b);
+}));
+giong = b.getAttribute("data-giong");
+phat();
+}));
+}));
+[].forEach.call(document.querySelectorAll("#pmToc .pm-chip"), (function(b, _, ds) {
+b.addEventListener("click", (function() {
+[].forEach.call(ds, (function(x) {
+x.classList.toggle("on", x === b);
+}));
+toc = parseFloat(b.getAttribute("data-toc"));
+if (am) am.playbackRate = toc;
+dungXoay();
+}));
+}));
+[ "pointerdown", "mouseenter" ].forEach((function(ev) {
+side.addEventListener(ev, dungXoay);
+}));
+document.querySelectorAll("[data-app]").forEach((function(a) {
+a.addEventListener("click", (function() {
+ga("app_click", {
+file_name: "trang-chu",
+form_location: "trang_chu"
+});
+}));
+}));
+var motGiam = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+if (!motGiam) hen = setInterval((function() {
+chon((dang + 1) % 3);
+}), 6500);
 })();</script>
 </body>
 </html>
