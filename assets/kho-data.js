@@ -55,8 +55,8 @@ vi: "Ghi âm để nghe",
 en: "Recordings to listen to"
 },
 mota: {
-vi: "File âm thanh thật, không dàn dựng. Bấm Nghe ngay là phát luôn trong trình duyệt.",
-en: "Real audio, nothing staged. Hit Listen now and it plays right in the browser."
+vi: "File ghi âm buổi phỏng vấn, không dàn dựng. Bấm Nghe ngay là phát luôn trong trình duyệt.",
+en: "Interview recordings, nothing staged. Hit Listen now and it plays right in the browser."
 }
 }, {
 key: "moi",
@@ -79,8 +79,8 @@ vi: "118 câu phỏng vấn Đại phó tàu hàng rời, kèm câu trả lời"
 en: "The Chief Officer Interview — 118 questions, bulk carriers"
 },
 meta: {
-vi: "Bộ câu hỏi phỏng vấn Đại phó thật của một hãng tàu hàng rời, mình soạn câu trả lời mẫu khi chuẩn bị đi phỏng vấn · 4 phần: bản thân & kinh nghiệm · nghiệp vụ Đại phó (hàng hoá IMSBC, than, quặng, hạt, nắp hầm, neo – buộc tàu, PSC, ISM/ISPS, ballast, MARPOL) · câu Phó hai/Phó ba (ECDIS, GMDSS, COLREG) · phần bổ sung sau buổi training Đại phó (khiếu nại, port of refuge, cuộn thép, hậu quả cargo care) · mỗi câu: trả lời mẫu Anh | Việt đặt cạnh nhau, câu hỏi thêm hay gặp, người phỏng vấn đang thử cái gì · 20 câu nên học trước · mục lục bấm nhảy thẳng",
-en: "A real Chief Officer interview questionnaire from a bulk carrier company, with the sample answers I prepared for my own interview · 4 parts: about you · C/O duties (IMSBC cargoes, coal, ore, grain, hatch covers, anchoring & mooring, PSC, ISM/ISPS, ballast, MARPOL) · 2/O & 3/O questions (ECDIS, GMDSS, COLREG) · extra questions from a C/O training session (complaints, port of refuge, steel coils, poor cargo care) · each one: English | Vietnamese answers side by side, the usual follow-ups, and what the interviewer is testing · 20 to learn first · clickable table of contents"
+vi: "Bộ câu hỏi phỏng vấn Đại phó của một hãng tàu hàng rời, mình soạn câu trả lời mẫu khi chuẩn bị đi phỏng vấn · 4 phần: bản thân & kinh nghiệm · nghiệp vụ Đại phó (hàng hoá IMSBC, than, quặng, hạt, nắp hầm, neo – buộc tàu, PSC, ISM/ISPS, ballast, MARPOL) · câu Phó hai/Phó ba (ECDIS, GMDSS, COLREG) · phần bổ sung sau buổi training Đại phó (khiếu nại, port of refuge, cuộn thép, hậu quả cargo care) · mỗi câu: trả lời mẫu Anh | Việt đặt cạnh nhau, câu hỏi thêm hay gặp, người phỏng vấn đang thử cái gì · 20 câu nên học trước · mục lục bấm nhảy thẳng",
+en: "A Chief Officer interview questionnaire from a bulk carrier company, with the sample answers I prepared for my own interview · 4 parts: about you · C/O duties (IMSBC cargoes, coal, ore, grain, hatch covers, anchoring & mooring, PSC, ISM/ISPS, ballast, MARPOL) · 2/O & 3/O questions (ECDIS, GMDSS, COLREG) · extra questions from a C/O training session (complaints, port of refuge, steel coils, poor cargo care) · each one: English | Vietnamese answers side by side, the usual follow-ups, and what the interviewer is testing · 20 to learn first · clickable table of contents"
 },
 tag: {
 vi: "PDF · 123 trang · Anh–Việt",
@@ -133,8 +133,8 @@ vi: "Bộ đồ nghề cho thực tập sinh boong",
 en: "The Deck Cadet Kit"
 },
 meta: {
-vi: "Tờ đi kèm video “Một ngày thật của thực tập sinh boong” · kiểm gì trước khi ký hợp đồng · một ngày trên tàu thật ra thế nào · cái sai làm mình mất trắng một năm",
-en: "Companion sheet to “A Real Day in the Life of a Deck Cadet” · what to check before you sign · what the day actually looks like · the mistake that cost me a year"
+vi: "Tờ đi kèm video một ngày làm việc của thực tập sinh boong · kiểm gì trước khi ký hợp đồng · một ngày trên tàu ra sao · cái sai làm mình mất trắng một năm",
+en: "Companion sheet to the video on a deck cadet's day on board · what to check before you sign · what a day on board looks like · the mistake that cost me a year"
 },
 tag: {
 vi: "PDF · 4 trang · Anh–Việt",
@@ -170,8 +170,8 @@ vi: "Bản vẽ bố trí chung (GA) tàu hàng rời 76.000 DWT",
 en: "General Arrangement plan — 76,000 DWT bulk carrier"
 },
 meta: {
-vi: "Bản vẽ General Arrangement thật của một tàu hàng rời 7 hầm, dài 225 m, rộng 32,24 m · đủ mặt cắt dọc, boong chính, tank top, mặt cắt giữa tàu, khu ở từ boong 2 lên buồng lái · ôn thi phần kết cấu, két ballast, bố trí hầm hàng thì mở cái này ra đối chiếu, phóng to xem từng chi tiết",
-en: "A real GA plan of a seven-hold bulk carrier, 225 m long, 32.24 m beam · profile, upper deck, tank top, midship section, and the accommodation from 2nd deck up to the bridge · open it next to your notes when you study hull structure, ballast tanks and hold layout, and zoom in on any detail"
+vi: "Bản vẽ General Arrangement của một tàu hàng rời 7 hầm, dài 225 m, rộng 32,24 m · đủ mặt cắt dọc, boong chính, tank top, mặt cắt giữa tàu, khu ở từ boong 2 lên buồng lái · ôn thi phần kết cấu, két ballast, bố trí hầm hàng thì mở cái này ra đối chiếu, phóng to xem từng chi tiết",
+en: "The GA plan of a seven-hold bulk carrier, 225 m long, 32.24 m beam · profile, upper deck, tank top, midship section, and the accommodation from 2nd deck up to the bridge · open it next to your notes when you study hull structure, ballast tanks and hold layout, and zoom in on any detail"
 },
 tag: {
 vi: "PDF · 1 tờ khổ lớn · tiếng Anh",
@@ -221,16 +221,16 @@ nhom: "nghe",
 nghe: true,
 ico: "&#127911;",
 name: {
-vi: "Buổi phỏng vấn Phó hai thật của mình — Zodiac, 2022",
-en: "My real Second Officer interview — Zodiac, 2022"
+vi: "Buổi phỏng vấn Phó hai của mình — Zodiac, 2022",
+en: "My Second Officer interview — Zodiac, 2022"
 },
 meta: {
-vi: "Bản ghi âm thật buổi phỏng vấn chức danh Phó hai (2/O) của mình với công ty Zodiac năm 2022 — sau buổi này mình nhận chức danh 2/O. Nghe để biết một buổi phỏng vấn sĩ quan thật diễn ra thế nào: người ta hỏi gì, hỏi tới đâu, và ứng viên trả lời ra sao khi không có kịch bản.",
-en: "The actual recording of my Second Officer (2/O) interview with Zodiac in 2022 — the interview that got me the rank. Listen to how a real officer interview goes: what they ask, how far they push, and how a candidate answers with no script."
+vi: "Bản ghi âm buổi phỏng vấn chức danh Phó hai (2/O) của mình với công ty Zodiac năm 2022 — sau buổi này mình nhận chức danh 2/O. Nghe để biết một buổi phỏng vấn sĩ quan diễn ra thế nào: người ta hỏi gì, hỏi tới đâu, và ứng viên trả lời ra sao khi không có kịch bản.",
+en: "The recording of my Second Officer (2/O) interview with Zodiac in 2022 — the interview that got me the rank. Listen to how an officer interview goes: what they ask, how far they push, and how a candidate answers with no script."
 },
 tag: {
-vi: "MP3 · ghi âm thật · 2022",
-en: "MP3 · real recording · 2022"
+vi: "MP3 · ghi âm buổi phỏng vấn · 2022",
+en: "MP3 · interview recording · 2022"
 },
 app: {
 chu: "Muốn tự tập trả lời thành tiếng như buổi này? Mình làm app SpeakAtSea để anh em đi tàu luyện nói tiếng Anh, cả phỏng vấn lẫn giao tiếp trên tàu.",
