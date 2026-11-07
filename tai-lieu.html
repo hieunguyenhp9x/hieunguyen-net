@@ -795,9 +795,10 @@ var HN_NHOM = "A";
 
 function hnNguon() {
 try {
-var q = new URLSearchParams(location.search), u = q.get("utm_source"), c = q.get("utm_campaign");
+var q = new URLSearchParams(location.search), u = q.get("utm_source"), c = q.get("utm_campaign"), ct = q.get("utm_content");
 if (u) {
 if (c) u += ":" + c;
+if (ct) u += "|" + ct;
 localStorage.setItem("hn_src", u);
 return u;
 }

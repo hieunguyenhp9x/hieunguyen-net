@@ -608,8 +608,9 @@ veLang();
 function nguon() {
 try {
 var q = new URLSearchParams(location.search), u = q.get("utm_source"), m = q.get("utm_medium");
+var c = q.get("utm_campaign"), ct = q.get("utm_content");
 if (u) {
-u = u + (m ? ":" + m : "");
+u = u + (m ? ":" + m : "") + (c || ct ? "|" + (c || "") + "|" + (ct || "") : "");
 localStorage.setItem("hn_src", u);
 return u;
 }
