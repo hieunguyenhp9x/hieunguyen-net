@@ -119,8 +119,8 @@ vi: "20 câu hay gặp kèm câu trả lời mẫu · 5 tình huống tránh va 
 en: "20 common questions with model answers · 5 collision situations with diagrams · garbage and air pollution under MARPOL · the attitude questions that decide it · every rule checked against IMO texts"
 },
 tag: {
-vi: "PDF · 11 trang · Anh–Việt",
-en: "PDF · 11 pages · EN–VI"
+vi: "PDF · 12 trang · Anh–Việt",
+en: "PDF · 12 pages · EN–VI"
 },
 web: "phong-van-cadet",
 id: "1IExpeaoooGkb0Mw88TLzVEFG96-sy3SM"
@@ -152,11 +152,11 @@ en: "The Deck Officer Interview — 70 questions, 3/O & 2/O"
 },
 meta: {
 vi: "Phần 1: 20 câu mình đã gặp trên đường lên ghế Phó ba · Phần 2: 50 câu cho ghế Phó hai, 18 câu trong đó người ta hỏi chính mình ở buổi phỏng vấn Phó hai năm 2022 · mỗi câu có: người phỏng vấn đang thử cái gì và một câu trả lời mẫu hoàn chỉnh để học thuộc",
-en: "Part 1: the twenty questions I was asked on the way to the Third Officer chair · Part 2: fifty for the Second Officer chair, eighteen of them asked in my own 2/O interview in 2022 · for each one: what the interviewer is really testing and a full sample answer to learn by heart"
+en: "Part 1: the twenty questions I was asked on the way to the Third Officer chair · Part 2: fifty for the Second Officer chair, eighteen of them asked in my own 2/O interview in 2022 · for each one: what the interviewer is testing and a full sample answer to learn by heart"
 },
 tag: {
-vi: "PDF · 32 trang · Anh–Việt",
-en: "PDF · 32 pages · EN–VI"
+vi: "PDF · 81 trang · Anh–Việt",
+en: "PDF · 81 pages · EN–VI"
 },
 ma: "70-cau",
 web: "70-cau",
@@ -190,11 +190,11 @@ en: "The AB Interview — 43 questions for Able Seamen"
 },
 meta: {
 vi: "Câu phòng crewing và sĩ quan hay hỏi AB · trực ca, cảnh giới, khẩu lệnh lái, làm dây – thả neo, cầu thang, thang hoa tiêu, không gian kín, drill · mỗi câu có: người phỏng vấn đang thử cái gì và một câu trả lời mẫu ngắn để học thuộc · kèm bảng khẩu lệnh lái theo IMO SMCP",
-en: "What crewing offices and officers ask an AB · watchkeeping, lookout, steering orders, mooring and anchoring, gangway, pilot ladder, enclosed spaces, drills · for each one: what the interviewer is really testing and a short sample answer to learn by heart · with the IMO SMCP steering orders table"
+en: "What crewing offices and officers ask an AB · watchkeeping, lookout, steering orders, mooring and anchoring, gangway, pilot ladder, enclosed spaces, drills · for each one: what the interviewer is testing and a short sample answer to learn by heart · with the IMO SMCP steering orders table"
 },
 tag: {
-vi: "PDF · 15 trang · Anh–Việt",
-en: "PDF · 15 pages · EN–VI"
+vi: "PDF · 46 trang · Anh–Việt",
+en: "PDF · 46 pages · EN–VI"
 },
 web: "ab-43-cau",
 id: "1COZpuXfh086B2yjldq5BqphZM5tyS1wu"
@@ -208,11 +208,11 @@ en: "The Bosun Interview — 39 questions"
 },
 meta: {
 vi: "Câu phòng crewing và sĩ quan hay hỏi Bosun · lên kế hoạch việc và dẫn đội, giờ làm – giờ nghỉ, bảo dưỡng dây cáp và nắp hầm, chuẩn bị hầm hàng, làm dây – thả neo, ghế Bosun, không gian kín, việc nóng, thời tiết xấu · mỗi câu có: người phỏng vấn đang thử cái gì và một câu trả lời mẫu ngắn để học thuộc",
-en: "What crewing offices and officers ask a Bosun · planning the work and leading the team, hours of work and rest, ropes, wires and hatch covers, hold preparation, mooring and anchoring, the bosun's chair, enclosed spaces, hot work, heavy weather · for each one: what the interviewer is really testing and a short sample answer to learn by heart"
+en: "What crewing offices and officers ask a Bosun · planning the work and leading the team, hours of work and rest, ropes, wires and hatch covers, hold preparation, mooring and anchoring, the bosun's chair, enclosed spaces, hot work, heavy weather · for each one: what the interviewer is testing and a short sample answer to learn by heart"
 },
 tag: {
-vi: "PDF · 14 trang · Anh–Việt",
-en: "PDF · 14 pages · EN–VI"
+vi: "PDF · 41 trang · Anh–Việt",
+en: "PDF · 41 pages · EN–VI"
 },
 web: "bosun-39-cau",
 id: "1vtY_V9edO6HyRt-A_5ORjuMKy4Xv-Qj0"
