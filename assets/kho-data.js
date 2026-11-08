@@ -129,12 +129,12 @@ nhom: "cadet",
 pdf: true,
 ico: "&#128213;",
 name: {
-vi: "Bộ đồ nghề cho thực tập sinh boong",
-en: "The Deck Cadet Kit"
+vi: "Bộ đồ nghề cho cadet",
+en: "The Cadet Kit"
 },
 meta: {
-vi: "Tờ đi kèm video một ngày làm việc của thực tập sinh boong · kiểm gì trước khi ký hợp đồng · một ngày trên tàu ra sao · cái sai làm mình mất trắng một năm",
-en: "Companion sheet to the video on a deck cadet's day on board · what to check before you sign · what a day on board looks like · the mistake that cost me a year"
+vi: "Tờ đi kèm video một ngày làm việc của cadet · kiểm gì trước khi ký hợp đồng · một ngày trên tàu ra sao · cái sai làm mình mất trắng một năm",
+en: "Companion sheet to the video on a cadet's day on board · what to check before you sign · what a day on board looks like · the mistake that cost me a year"
 },
 tag: {
 vi: "PDF · 4 trang · Anh–Việt",
