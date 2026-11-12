@@ -2,7 +2,7 @@
 <html lang="en" data-lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Free: English for joining your ship, from the airport to the gangway · Tiếng Anh đi nhận tàu, từ sân bay tới cầu thang mạn</title>
 <meta name="description" content="Sample English lines for seafarers joining a ship abroad: check-in, immigration, the flight, meeting the agent, what to do when nobody meets you, and the first hours on board. Vietnamese translation included. · Câu tiếng Anh mẫu cho thuyền viên đi nhận tàu: làm thủ tục, nhập cảnh, trên máy bay, gặp đại lý, không gặp đại lý thì làm gì, lên tàu.">
 <link rel="canonical" href="https://hieunguyen.net/qua/di-nhan-tau/">
@@ -11,198 +11,557 @@
 <meta property="og:title" content="Free: English for joining your ship, from the airport to the gangway · Tiếng Anh đi nhận tàu, từ sân bay tới cầu thang mạn">
 <meta property="og:description" content="English for joining your ship: airport, plane, agent, gangway. Free.">
 <meta property="og:url" content="https://hieunguyen.net/qua/di-nhan-tau/">
-<!-- TRANG QUÀ "TIẾNG ANH ĐI NHẬN TÀU" (12/11/2026, anh lệnh: PDF sân bay -> máy bay -> đại lý -> lạc -> lên tàu + 1 link để share).
-     Chép khuôn /qua/70-cau/: cổng tên + email -> Kit form 9750089 -> mở trang đọc /doc/?f=di-nhan-tau.
-     PDF dựng ở production/magnet/joining-ship.html (build_pdf.py joining-ship) -> /files/di-nhan-tau.pdf.
-     GA4: gate_open · form_start · sign_up / file_preview (form_location=qua_dinhantau) · kit_loi. -->
-<script>
-(function () {
-  var l = null, m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
-  if (m) { l = m[1]; try { localStorage.setItem('hn_lang', l); } catch (e) {} }
-  if (!l) { try { l = localStorage.getItem('hn_lang'); } catch (e) {} }
-  if (l !== 'vi' && l !== 'en') l = 'en';
-  document.documentElement.setAttribute('data-lang', l);
-  document.documentElement.lang = l;
+
+<script>(function() {
+var l = null, m = /[?&]lang=(vi|en|fil|id|my)(&|$)/.exec(location.search);
+if (m) {
+l = m[1];
+try {
+localStorage.setItem("hn_lang", l);
+} catch (e) {}
+}
+if (!l) {
+try {
+l = localStorage.getItem("hn_lang");
+} catch (e) {}
+}
+if ([ "vi", "en", "fil", "id", "my" ].indexOf(l) < 0) l = "en";
+document.documentElement.setAttribute("data-lang", l);
+document.documentElement.lang = l;
 })();
-(function () {
-  try {
-    var p = new URLSearchParams(location.search);
-    if (p.has('notrack')) localStorage.setItem('hn_notrack', '1');
-    else if (p.has('track')) localStorage.removeItem('hn_notrack');
-    if (localStorage.getItem('hn_notrack') === '1') return;
-  } catch (e) {}
-  var ga = document.createElement('script');
-  ga.async = 1; ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK';
-  document.head.appendChild(ga);
-  window.dataLayer = window.dataLayer || [];
-  window.gtag = function () { dataLayer.push(arguments); };
-  gtag('js', new Date());
-  gtag('config', 'G-TNVKB32ZPK');
-  (function(c,l,a,r,i,t,y){
-      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-  })(window, document, "clarity", "script", "xvzwl9diz8");
-})();
-</script>
-<style>
-  :root{ --navy:#0a1628; --navy-2:#10203a; --navy-3:#1a3050; --gold:#d4a95a; --gold-light:#e8c88a;
-         --text:#e8edf4; --text-dim:#9fb0c4; --line:rgba(212,169,90,.22); }
-  *{box-sizing:border-box; margin:0; padding:0}
-  body{background:var(--navy); color:var(--text); line-height:1.6; font-family:"Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif; -webkit-font-smoothing:antialiased}
-  html[data-lang="vi"] .lg-en, html:not([data-lang="vi"]) .lg-vi{display:none !important}
-  a{color:var(--gold)}
-  .wrap{max-width:720px; margin:0 auto; padding:0 18px}
-  .lang{display:flex; justify-content:center; padding:16px 0 0}
-  .lang .seg{display:inline-flex; background:var(--navy-2); border:1px solid var(--line); border-radius:999px; padding:4px; gap:4px}
-  .lang button{background:none; border:none; color:var(--text-dim); font:inherit; font-weight:700; font-size:13px; padding:6px 14px; border-radius:999px; cursor:pointer}
-  .lang button[aria-pressed="true"]{background:var(--gold); color:var(--navy)}
 
-  section{padding:40px 0; border-bottom:1px solid var(--line)}
-  .kicker{color:var(--gold); font-weight:800; letter-spacing:.12em; font-size:12.5px; text-transform:uppercase; margin-bottom:10px}
-  h1{font-size:30px; line-height:1.22; margin-bottom:14px}
-  h2{font-size:23px; line-height:1.3; margin-bottom:14px}
-  .lead{color:var(--text-dim); font-size:16.5px; margin-bottom:18px}
-  ul.tick{list-style:none; margin:0 0 22px}
-  ul.tick li{position:relative; padding-left:28px; margin-bottom:9px; font-size:15.5px}
-  ul.tick li::before{content:"✓"; position:absolute; left:0; color:var(--gold); font-weight:900}
-  ul.dau{list-style:none}
-  /* 16/10: trước đóng khung y hệt ô mục lục A–H (bấm được) -> khách chạm tưởng nút (Clarity 6 cú bấm hụt). Giờ là dòng gạch đỏ bên trái, không khung. */
-  ul.dau li{border-left:3px solid rgba(224,90,90,.65); padding:6px 0 6px 14px; margin-bottom:12px; font-size:15.5px}
-
-  .form{background:var(--navy-2); border:1px solid var(--gold); border-radius:16px; padding:20px 18px}
-  .form label{display:block; font-size:13.5px; color:var(--text-dim); margin:0 0 5px}
-  .form input{width:100%; background:var(--navy); color:var(--text); border:1px solid rgba(212,169,90,.45); border-radius:10px; padding:13px 14px; font:inherit; font-size:16px; margin-bottom:14px}
-  .form input.sai{border-color:#e05a5a}
-  .form button{width:100%; background:var(--gold); color:var(--navy); border:none; border-radius:12px; padding:15px; font:inherit; font-weight:900; font-size:16.5px; letter-spacing:.03em; cursor:pointer}
-  .form button:disabled{opacity:.85; cursor:default}
-  .form button .xoay{display:inline-block; width:15px; height:15px; margin:0 8px -2px 0; border:2.5px solid rgba(10,22,40,.3); border-top-color:var(--navy); border-radius:50%; animation:xoay .8s linear infinite}
-  @keyframes xoay{to{transform:rotate(360deg)}}
-  .form .nho{color:var(--text-dim); font-size:12.8px; text-align:center; margin-top:10px}
-  .form .loi{color:#ff9a9a; font-size:14px; margin:-6px 0 12px; display:none}
-  .hp{position:absolute; left:-5000px; width:1px; height:1px; overflow:hidden}
-  .xong{text-align:center}
-  .xong .to{font-size:40px}
-  .xong h3{font-size:20px; margin:6px 0 8px}
-  .xong p{color:var(--text-dim); font-size:15px; margin-bottom:14px}
-  .nut{display:inline-block; background:var(--gold); color:var(--navy); font-weight:800; text-decoration:none; border-radius:12px; padding:12px 20px}
-  .lai{background:none; border:none; color:var(--gold); font:inherit; font-size:13.5px; text-decoration:underline; cursor:pointer}
-  .lai:disabled{color:var(--text-dim); text-decoration:none}
-  .roi{margin-top:12px; font-size:14px; color:var(--text-dim); text-align:center}
-
-  .chot{font-size:19px; font-weight:800; line-height:1.4; color:var(--gold-light); margin-bottom:12px}
-  .phan{color:var(--gold); font-weight:800; font-size:14px; letter-spacing:.06em; margin:22px 0 10px; text-transform:uppercase}
-  .muc{cursor:pointer; position:relative; padding-right:34px !important; display:flex; gap:14px; background:var(--navy-2); border:1px solid var(--line); border-radius:12px; padding:14px; margin-bottom:10px}
-  .muc .so{flex:0 0 38px; height:38px; border-radius:10px; background:var(--navy-3); color:var(--gold); font-weight:900; display:flex; align-items:center; justify-content:center; font-size:17px}
-  .muc b{display:block; font-size:15.5px}
-  .muc::after{content:'+'; position:absolute; right:14px; top:14px; color:var(--gold); font-weight:900; font-size:20px; line-height:1}
-  .muc.mo::after{content:'−'}
-  .muc .vd{display:none; margin-top:10px; padding-top:10px; border-top:1px dashed var(--line)}
-  .muc.mo .vd{display:block}
-  .muc .vd i{display:block; font-style:normal; color:var(--text); font-size:14.5px; margin:0 0 6px}
-  .muc .vd i::before{content:'“'; color:var(--gold); margin-right:2px}
-  .muc .vd i::after{content:'”'; color:var(--gold)}
-  .muc .vd .them{display:inline-block; margin-top:4px; color:var(--gold); font-weight:700; font-size:14px; text-decoration:underline}
-  .muc span{color:var(--text-dim); font-size:14.5px}
-  .tac{display:flex; gap:16px; align-items:flex-start}
-  .tac .anh{flex:0 0 92px; height:92px; border-radius:50%; background:var(--navy-3) center/cover; border:2px solid var(--gold)}
-  .faq details{background:var(--navy-2); border:1px solid var(--line); border-radius:12px; padding:12px 15px; margin-bottom:10px}
-  .faq summary{font-weight:700; cursor:pointer}
-  .faq p{color:var(--text-dim); margin-top:8px; font-size:15px}
-  footer{padding:30px 0 40px; color:var(--text-dim); font-size:13.5px; text-align:center}
-  @media (max-width:480px){ h1{font-size:25px} h2{font-size:20.5px} section{padding:30px 0} .tac{flex-direction:column} }
-</style>
-<script src="/assets/kiem-email.js" defer></script>
-<script src="/assets/meta-pixel.js" defer></script>
+(function() {
+try {
+var p = new URLSearchParams(location.search);
+if (p.has("notrack")) localStorage.setItem("hn_notrack", "1"); else if (p.has("track")) localStorage.removeItem("hn_notrack");
+if (localStorage.getItem("hn_notrack") === "1") return;
+} catch (e) {}
+var ga = document.createElement("script");
+ga.async = 1;
+ga.src = "https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK";
+document.head.appendChild(ga);
+window.dataLayer = window.dataLayer || [];
+window.gtag = function() {
+dataLayer.push(arguments);
+};
+gtag("js", new Date);
+gtag("config", "G-TNVKB32ZPK");
+(function(c, l, a, r, i, t, y) {
+c[a] = c[a] || function() {
+(c[a].q = c[a].q || []).push(arguments);
+};
+t = l.createElement(r);
+t.async = 1;
+t.src = "https://www.clarity.ms/tag/" + i;
+y = l.getElementsByTagName(r)[0];
+y.parentNode.insertBefore(t, y);
+})(window, document, "clarity", "script", "xvzwl9diz8");
+})();</script>
+<style>:root {
+  --navy: #0a1628;
+  --navy-2: #10203a;
+  --navy-3: #1a3050;
+  --gold: #d4a95a;
+  --gold-light: #e8c88a;
+  --text: #e8edf4;
+  --text-dim: #9fb0c4;
+  --line: rgba(212,169,90,.22)
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0
+}
+body {
+  background: var(--navy);
+  color: var(--text);
+  line-height: 1.6;
+  font-family: "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  -webkit-font-smoothing: antialiased
+}
+html[data-lang="en"] .lg-fil,
+html[data-lang="en"] .lg-id,
+html[data-lang="en"] .lg-my,
+html[data-lang="en"] .lg-vi,
+html[data-lang="fil"] .lg-en,
+html[data-lang="fil"] .lg-id,
+html[data-lang="fil"] .lg-my,
+html[data-lang="fil"] .lg-vi,
+html[data-lang="id"] .lg-en,
+html[data-lang="id"] .lg-fil,
+html[data-lang="id"] .lg-my,
+html[data-lang="id"] .lg-vi,
+html[data-lang="my"] .lg-en,
+html[data-lang="my"] .lg-fil,
+html[data-lang="my"] .lg-id,
+html[data-lang="my"] .lg-vi,
+html[data-lang="vi"] .lg-en,
+html[data-lang="vi"] .lg-fil,
+html[data-lang="vi"] .lg-id,
+html[data-lang="vi"] .lg-my {
+  display: none!important
+}
+html[data-lang="my"] body {
+  font-family: "Noto Sans Myanmar","Myanmar Text","Padauk",system-ui,sans-serif;
+  line-height: 1.85
+}
+a {
+  color: var(--gold)
+}
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 18px
+}
+.lang {
+  display: flex;
+  justify-content: center;
+  padding: 16px 0 0
+}
+.lang .seg {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 4px;
+  gap: 4px
+}
+.lang button {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  font: inherit;
+  font-weight: 700;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  cursor: pointer
+}
+.lang button[data-set-lang="my"] {
+  font-family: "Noto Sans Myanmar","Myanmar Text","Padauk",sans-serif
+}
+@media (max-width:480px) {
+  .lang .seg {
+    padding: 3px;
+    gap: 3px
+  }
+  .lang button {
+    font-size: 11.5px;
+    padding: 5px 10px
+  }
+}
+.lang button[aria-pressed="true"] {
+  background: var(--gold);
+  color: var(--navy)
+}
+section {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--line)
+}
+.kicker {
+  color: var(--gold);
+  font-weight: 800;
+  letter-spacing: .12em;
+  font-size: 12.5px;
+  text-transform: uppercase;
+  margin-bottom: 10px
+}
+h1 {
+  font-size: 30px;
+  line-height: 1.22;
+  margin-bottom: 14px
+}
+h2 {
+  font-size: 23px;
+  line-height: 1.3;
+  margin-bottom: 14px
+}
+.lead {
+  color: var(--text-dim);
+  font-size: 16.5px;
+  margin-bottom: 18px
+}
+ul.tick {
+  list-style: none;
+  margin: 0 0 22px
+}
+ul.tick li {
+  position: relative;
+  padding-left: 28px;
+  margin-bottom: 9px;
+  font-size: 15.5px
+}
+ul.tick li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--gold);
+  font-weight: 900
+}
+ul.dau {
+  list-style: none
+}
+ul.dau li {
+  border-left: 3px solid rgba(224,90,90,.65);
+  padding: 6px 0 6px 14px;
+  margin-bottom: 12px;
+  font-size: 15.5px
+}
+.form {
+  background: var(--navy-2);
+  border: 1px solid var(--gold);
+  border-radius: 16px;
+  padding: 20px 18px
+}
+.form label {
+  display: block;
+  font-size: 13.5px;
+  color: var(--text-dim);
+  margin: 0 0 5px
+}
+.form input {
+  width: 100%;
+  background: var(--navy);
+  color: var(--text);
+  border: 1px solid rgba(212,169,90,.45);
+  border-radius: 10px;
+  padding: 13px 14px;
+  font: inherit;
+  font-size: 16px;
+  margin-bottom: 14px
+}
+.form input.sai {
+  border-color: #e05a5a
+}
+.form button {
+  width: 100%;
+  background: var(--gold);
+  color: var(--navy);
+  border: none;
+  border-radius: 12px;
+  padding: 15px;
+  font: inherit;
+  font-weight: 900;
+  font-size: 16.5px;
+  letter-spacing: .03em;
+  cursor: pointer
+}
+.form button:disabled {
+  opacity: .85;
+  cursor: default
+}
+.form button .xoay {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  margin: 0 8px -2px 0;
+  border: 2.5px solid rgba(10,22,40,.3);
+  border-top-color: var(--navy);
+  border-radius: 50%;
+  animation: xoay .8s linear infinite
+}
+@keyframes xoay {
+  to {
+    transform: rotate(360deg)
+  }
+}
+.form .nho {
+  color: var(--text-dim);
+  font-size: 12.8px;
+  text-align: center;
+  margin-top: 10px
+}
+.form .loi {
+  color: #ff9a9a;
+  font-size: 14px;
+  margin: -6px 0 12px;
+  display: none
+}
+.hp {
+  position: absolute;
+  left: -5000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden
+}
+.xong {
+  text-align: center
+}
+.xong .to {
+  font-size: 40px
+}
+.xong h3 {
+  font-size: 20px;
+  margin: 6px 0 8px
+}
+.xong p {
+  color: var(--text-dim);
+  font-size: 15px;
+  margin-bottom: 14px
+}
+.nut {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--navy);
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 12px 20px
+}
+.lai {
+  background: none;
+  border: none;
+  color: var(--gold);
+  font: inherit;
+  font-size: 13.5px;
+  text-decoration: underline;
+  cursor: pointer
+}
+.lai:disabled {
+  color: var(--text-dim);
+  text-decoration: none
+}
+.roi {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--text-dim);
+  text-align: center
+}
+.chot {
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.4;
+  color: var(--gold-light);
+  margin-bottom: 12px
+}
+.phan {
+  color: var(--gold);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: .06em;
+  margin: 22px 0 10px;
+  text-transform: uppercase
+}
+.muc {
+  cursor: pointer;
+  position: relative;
+  padding-right: 34px!important;
+  display: flex;
+  gap: 14px;
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 10px
+}
+.muc .so {
+  flex: 0 0 38px;
+  height: 38px;
+  border-radius: 10px;
+  background: var(--navy-3);
+  color: var(--gold);
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 17px
+}
+.muc b {
+  display: block;
+  font-size: 15.5px
+}
+.muc::after {
+  content: '+';
+  position: absolute;
+  right: 14px;
+  top: 14px;
+  color: var(--gold);
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 1
+}
+.muc.mo::after {
+  content: '−'
+}
+.muc .vd {
+  display: none;
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line)
+}
+.muc.mo .vd {
+  display: block
+}
+.muc .vd i {
+  display: block;
+  font-style: normal;
+  color: var(--text);
+  font-size: 14.5px;
+  margin: 0 0 6px
+}
+.muc .vd i::before {
+  content: '“';
+  color: var(--gold);
+  margin-right: 2px
+}
+.muc .vd i::after {
+  content: '”';
+  color: var(--gold)
+}
+.muc .vd .them {
+  display: inline-block;
+  margin-top: 4px;
+  color: var(--gold);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: underline
+}
+.muc span {
+  color: var(--text-dim);
+  font-size: 14.5px
+}
+.tac {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start
+}
+.tac .anh {
+  flex: 0 0 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: var(--navy-3) center/cover;
+  border: 2px solid var(--gold)
+}
+.faq details {
+  background: var(--navy-2);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 15px;
+  margin-bottom: 10px
+}
+.faq summary {
+  font-weight: 700;
+  cursor: pointer
+}
+.faq p {
+  color: var(--text-dim);
+  margin-top: 8px;
+  font-size: 15px
+}
+footer {
+  padding: 30px 0 40px;
+  color: var(--text-dim);
+  font-size: 13.5px;
+  text-align: center
+}
+@media (max-width:480px) {
+  h1 {
+    font-size: 25px
+  }
+  h2 {
+    font-size: 20.5px
+  }
+  section {
+    padding: 30px 0
+  }
+  .tac {
+    flex-direction: column
+  }
+}</style>
+<script src="/assets/kiem-email.js" defer="defer"></script>
+<script src="/assets/meta-pixel.js" defer="defer"></script>
 </head>
 <body>
 <div class="wrap">
   <div class="lang"><div class="seg">
-    <button type="button" data-set-lang="en">ENGLISH</button><button type="button" data-set-lang="vi">TIẾNG VIỆT</button>
+    <button type="button" data-set-lang="en">ENGLISH</button><button type="button" data-set-lang="vi">TIẾNG VIỆT</button><button type="button" data-set-lang="fil">FILIPINO</button><button type="button" data-set-lang="id">BAHASA INDONESIA</button><button type="button" data-set-lang="my">မြန်မာ</button>
   </div></div>
 
-  <!-- ========== 1. ĐẦU TRANG + FORM ========== -->
+  
   <section>
-    <p class="kicker"><span class="lg-en">Free · joining guide</span><span class="lg-vi">Tài liệu miễn phí</span></p>
+    <p class="kicker"><span class="lg-en">Free · joining guide</span><span class="lg-vi">Tài liệu miễn phí</span><span class="lg-fil">Libre · joining guide</span><span class="lg-id">Gratis · panduan naik kapal</span><span class="lg-my">အခမဲ့ · သင်္ဘောတက် လမ်းညွှန်</span></p>
     <h1>
       <span class="lg-en">Joining your ship: the English you need from the airport to the gangway</span>
-      <span class="lg-vi">Tiếng Anh đi nhận tàu: từ sân bay tới lúc bước lên cầu thang mạn</span>
+      <span class="lg-vi">Tiếng Anh đi nhận tàu: từ sân bay tới lúc bước lên cầu thang mạn</span><span class="lg-fil">Pagsampa sa barko: ang English na kailangan mo mula airport hanggang gangway</span><span class="lg-id">Naik kapal: bahasa Inggris yang kamu butuhkan dari bandara sampai gangway</span><span class="lg-my">သင်္ဘောတက်ခြင်း- လေဆိပ်ကနေ gangway အထိ လိုအပ်တဲ့ English</span>
     </h1>
     <p class="lead">
       <span class="lg-en">Five stages in the order they happen: check-in and immigration, the flight, meeting the agent, what to do when nobody meets you, and your first hours on board. Short lines to learn out loud, plus the questions people usually ask you, each with a sample answer.</span>
-      <span class="lg-vi">Năm chặng theo đúng thứ tự: làm thủ tục và xuất nhập cảnh, trên máy bay, gặp đại lý, không gặp được đại lý thì làm gì, và mấy giờ đầu trên tàu. Câu ngắn để học thuộc, kèm những câu người ta hay hỏi bạn và câu trả lời mẫu.</span>
+      <span class="lg-vi">Năm chặng theo đúng thứ tự: làm thủ tục và xuất nhập cảnh, trên máy bay, gặp đại lý, không gặp được đại lý thì làm gì, và mấy giờ đầu trên tàu. Câu ngắn để học thuộc, kèm những câu người ta hay hỏi bạn và câu trả lời mẫu.</span><span class="lg-fil">Limang yugto ayon sa pagkakasunod: check-in at immigration, ang flight, pagkikita sa agent, ano ang gagawin kapag walang sumundo, at ang unang oras mo sa barko. Maiikling linya na aaralin nang malakas, kasama ang mga karaniwang tanong sa iyo, bawat isa may sample answer.</span><span class="lg-id">Lima tahap sesuai urutan: check-in dan imigrasi, penerbangan, bertemu agen, apa yang dilakukan kalau tidak ada yang menjemput, dan jam-jam pertama di kapal. Kalimat pendek untuk dilatih dengan lantang, plus pertanyaan yang biasa ditanyakan, masing-masing dengan contoh jawaban.</span><span class="lg-my">ဖြစ်ပျက်တဲ့ အစဉ်အတိုင်း အဆင့် ၅ ဆင့်- check-in နှင့် immigration၊ လေယာဉ်ခရီး၊ agent နှင့် တွေ့ခြင်း၊ ဘယ်သူမှ လာမကြိုရင် ဘာလုပ်ရမလဲ၊ သင်္ဘောပေါ်က ပထမ နာရီများ။ အသံကျယ်ကျယ် လေ့လာရန် ဝါကျတိုများ၊ လူတွေ မေးလေ့ရှိတဲ့ မေးခွန်းများနှင့် နမူနာ အဖြေများ ပါသည်။</span>
     </p>
     <ul class="tick">
-      <li><span class="lg-en">Every line in English with Vietnamese underneath.</span><span class="lg-vi">Câu nào cũng có tiếng Anh, tiếng Việt bên dưới.</span></li>
-      <li><span class="lg-en">A step-by-step plan for when the agent isn't there, even with no SIM, no wifi or a dead phone.</span><span class="lg-vi">Các bước xử lý khi không gặp được đại lý, kể cả lúc không có SIM, không có wifi hay điện thoại hết pin.</span></li>
-      <li><span class="lg-en">What to say to the gangway watch, the duty officer and the Master, and what to ask at handover.</span><span class="lg-vi">Nói gì với người trực cầu thang, sĩ quan trực và thuyền trưởng, và hỏi gì khi nhận bàn giao.</span></li>
+      <li><span class="lg-en">Every line in English with Vietnamese underneath.</span><span class="lg-vi">Câu nào cũng có tiếng Anh, tiếng Việt bên dưới.</span><span class="lg-fil">Bawat linya ay nasa English, maikli at madaling sabihin.</span><span class="lg-id">Setiap kalimat dalam bahasa Inggris, pendek dan mudah diucapkan.</span><span class="lg-my">ဝါကျတိုင်း English ဖြင့်၊ တိုပြီး ပြောရလွယ်သည်။</span></li>
+      <li><span class="lg-en">A step-by-step plan for when the agent isn't there, even with no SIM, no wifi or a dead phone.</span><span class="lg-vi">Các bước xử lý khi không gặp được đại lý, kể cả lúc không có SIM, không có wifi hay điện thoại hết pin.</span><span class="lg-fil">Hakbang-hakbang na plano kapag wala ang agent, kahit walang SIM, walang wifi o patay ang phone.</span><span class="lg-id">Rencana langkah demi langkah saat agen tidak ada, bahkan tanpa SIM, tanpa wifi, atau HP mati.</span><span class="lg-my">Agent မရှိရင် လုပ်ရမယ့် အဆင့်ဆင့် အစီအစဉ်၊ SIM မရှိ၊ wifi မရှိ၊ ဖုန်းအားကုန်နေရင်တောင်။</span></li>
+      <li><span class="lg-en">What to say to the gangway watch, the duty officer and the Master, and what to ask at handover.</span><span class="lg-vi">Nói gì với người trực cầu thang, sĩ quan trực và thuyền trưởng, và hỏi gì khi nhận bàn giao.</span><span class="lg-fil">Ano ang sasabihin sa gangway watch, sa duty officer at sa Master, at ano ang itatanong sa handover.</span><span class="lg-id">Apa yang dikatakan ke jaga gangway, duty officer, dan Master, serta apa yang ditanyakan saat serah terima.</span><span class="lg-my">Gangway watch၊ duty officer နှင့် Master ကို ဘာပြောရမလဲ၊ handover မှာ ဘာမေးရမလဲ။</span></li>
     </ul>
     <div class="form" data-form></div>
   </section>
 
-  <!-- ========== 2. NỖI ĐAU ========== -->
+  
   <section>
-    <h2><span class="lg-en">First time flying out to join a ship?</span><span class="lg-vi">Lần đầu bay đi nhận tàu?</span></h2>
-    <p class="lead"><span class="lg-en">Maybe one of these is on your mind:</span><span class="lg-vi">Có thể bạn đang lo một trong mấy chuyện này:</span></p>
+    <h2><span class="lg-en">First time flying out to join a ship?</span><span class="lg-vi">Lần đầu bay đi nhận tàu?</span><span class="lg-fil">Unang beses lilipad para sumampa sa barko?</span><span class="lg-id">Pertama kali terbang untuk naik kapal?</span><span class="lg-my">သင်္ဘောတက်ဖို့ ပထမဆုံး လေယာဉ်စီးမှာလား?</span></h2>
+    <p class="lead"><span class="lg-en">Maybe one of these is on your mind:</span><span class="lg-vi">Có thể bạn đang lo một trong mấy chuyện này:</span><span class="lg-fil">Baka isa rito ang iniisip mo:</span><span class="lg-id">Mungkin salah satu ini sedang kamu pikirkan:</span><span class="lg-my">ဒီထဲက တစ်ခုခုကို တွေးနေနိုင်ပါတယ်-</span></p>
     <ul class="dau">
-      <li><span class="lg-en">The check-in staff ask about a return ticket and you don't know how to explain the Letter of Guarantee.</span><span class="lg-vi">Nhân viên quầy hỏi vé khứ hồi, bạn không biết giải thích thư bảo lãnh thế nào.</span></li>
-      <li><span class="lg-en">The immigration officer asks a question and you freeze.</span><span class="lg-vi">Cán bộ nhập cảnh hỏi một câu là bạn đứng hình.</span></li>
-      <li><span class="lg-en">You land and nobody is holding a sign with your name.</span><span class="lg-vi">Hạ cánh rồi mà không thấy ai cầm biển tên mình.</span></li>
-      <li><span class="lg-en">No SIM, no wifi, and the agent's number is only in your phone.</span><span class="lg-vi">Không SIM, không wifi, số đại lý lại chỉ lưu trong điện thoại.</span></li>
-      <li><span class="lg-en">You walk up the gangway and don't know what to say to the Master.</span><span class="lg-vi">Lên tới cầu thang mạn mà không biết nói gì với thuyền trưởng.</span></li>
+      <li><span class="lg-en">The check-in staff ask about a return ticket and you don't know how to explain the Letter of Guarantee.</span><span class="lg-vi">Nhân viên quầy hỏi vé khứ hồi, bạn không biết giải thích thư bảo lãnh thế nào.</span><span class="lg-fil">Tinanong ng check-in staff ang return ticket at hindi mo alam kung paano ipaliwanag ang Letter of Guarantee.</span><span class="lg-id">Petugas check-in tanya tiket pulang dan kamu tidak tahu cara menjelaskan Letter of Guarantee.</span><span class="lg-my">Check-in ဝန်ထမ်းက အပြန်လက်မှတ် မေးတော့ Letter of Guarantee ကို ဘယ်လို ရှင်းပြရမလဲ မသိဘူး။</span></li>
+      <li><span class="lg-en">The immigration officer asks a question and you freeze.</span><span class="lg-vi">Cán bộ nhập cảnh hỏi một câu là bạn đứng hình.</span><span class="lg-fil">May itinanong ang immigration officer at natigilan ka.</span><span class="lg-id">Petugas imigrasi bertanya dan kamu langsung kaku.</span><span class="lg-my">Immigration အရာရှိ မေးလိုက်တော့ ကြောင်သွားတယ်။</span></li>
+      <li><span class="lg-en">You land and nobody is holding a sign with your name.</span><span class="lg-vi">Hạ cánh rồi mà không thấy ai cầm biển tên mình.</span><span class="lg-fil">Lumapag ka at walang may hawak ng karatula na may pangalan mo.</span><span class="lg-id">Kamu mendarat dan tidak ada yang memegang papan bertuliskan namamu.</span><span class="lg-my">လေယာဉ်ဆင်းတော့ သင့်နာမည် ဆိုင်းဘုတ် ကိုင်ထားသူ မရှိဘူး။</span></li>
+      <li><span class="lg-en">No SIM, no wifi, and the agent's number is only in your phone.</span><span class="lg-vi">Không SIM, không wifi, số đại lý lại chỉ lưu trong điện thoại.</span><span class="lg-fil">Walang SIM, walang wifi, at ang numero ng agent ay nasa phone mo lang.</span><span class="lg-id">Tidak ada SIM, tidak ada wifi, dan nomor agen hanya ada di HP.</span><span class="lg-my">SIM မရှိ၊ wifi မရှိ၊ agent ဖုန်းနံပါတ်က ဖုန်းထဲမှာပဲ ရှိတယ်။</span></li>
+      <li><span class="lg-en">You walk up the gangway and don't know what to say to the Master.</span><span class="lg-vi">Lên tới cầu thang mạn mà không biết nói gì với thuyền trưởng.</span><span class="lg-fil">Umakyat ka sa gangway at hindi mo alam kung ano ang sasabihin sa Master.</span><span class="lg-id">Kamu naik gangway dan tidak tahu harus bilang apa ke Master.</span><span class="lg-my">Gangway တက်လာပြီး Master ကို ဘာပြောရမလဲ မသိဘူး။</span></li>
     </ul>
   </section>
 
-  <!-- ========== 3. BÊN TRONG CÓ GÌ ========== -->
+  
   <section>
-    <h2><span class="lg-en">What's inside: 5 stages</span><span class="lg-vi">Bên trong có gì: 5 chặng</span></h2>
-    <div class="muc"><div class="so">1</div><div><b><span class="lg-en">Check-in and immigration</span><span class="lg-vi">Làm thủ tục và xuất nhập cảnh</span></b><span class="lg-en">One-way ticket, Letter of Guarantee, baggage, the immigration questions.</span><span class="lg-vi">Vé một chiều, thư bảo lãnh, hành lý, các câu hỏi ở cửa nhập cảnh.</span></div></div>
-    <div class="muc"><div class="so">2</div><div><b><span class="lg-en">On the plane and in transit</span><span class="lg-vi">Trên máy bay và lúc nối chuyến</span></b><span class="lg-en">Meals, the arrival card, finding your connection, a missed flight.</span><span class="lg-vi">Gọi đồ ăn, tờ khai nhập cảnh, tìm chuyến nối, lỡ chuyến.</span></div></div>
-    <div class="muc"><div class="so">3</div><div><b><span class="lg-en">Meeting the agent</span><span class="lg-vi">Gặp đại lý</span></b><span class="lg-en">What to say, what to ask, what to have on paper before the agent leaves you.</span><span class="lg-vi">Nói gì, hỏi gì, cần ghi lại gì trước khi đại lý để bạn lại.</span></div></div>
-    <div class="muc"><div class="so">4</div><div><b><span class="lg-en">Nobody there to meet you</span><span class="lg-vi">Không gặp được đại lý</span></b><span class="lg-en">Who to call, what to say, and where to wait.</span><span class="lg-vi">Gọi ai, nói gì, đứng đâu chờ.</span></div></div>
-    <div class="muc"><div class="so">5</div><div><b><span class="lg-en">Joining the ship</span><span class="lg-vi">Lên nhận tàu</span></b><span class="lg-en">Gangway, duty officer, the Master, signing on, handover.</span><span class="lg-vi">Cầu thang mạn, sĩ quan trực, thuyền trưởng, ký sign-on, nhận bàn giao.</span></div></div>
+    <h2><span class="lg-en">What's inside: 5 stages</span><span class="lg-vi">Bên trong có gì: 5 chặng</span><span class="lg-fil">Ano ang laman: 5 yugto</span><span class="lg-id">Isinya: 5 tahap</span><span class="lg-my">အထဲမှာ ဘာပါလဲ- အဆင့် 5 ဆင့်</span></h2>
+    <div class="muc"><div class="so">1</div><div><b><span class="lg-en">Check-in and immigration</span><span class="lg-vi">Làm thủ tục và xuất nhập cảnh</span><span class="lg-fil">Check-in at immigration</span><span class="lg-id">Check-in dan imigrasi</span><span class="lg-my">Check-in နှင့် immigration</span></b><span class="lg-en">One-way ticket, Letter of Guarantee, baggage, the immigration questions.</span><span class="lg-vi">Vé một chiều, thư bảo lãnh, hành lý, các câu hỏi ở cửa nhập cảnh.</span><span class="lg-fil">One-way ticket, Letter of Guarantee, bagahe, mga tanong sa immigration.</span><span class="lg-id">Tiket sekali jalan, Letter of Guarantee, bagasi, pertanyaan imigrasi.</span><span class="lg-my">One-way လက်မှတ်၊ Letter of Guarantee၊ ခရီးဆောင်အိတ်၊ immigration မေးခွန်းများ။</span></div></div>
+    <div class="muc"><div class="so">2</div><div><b><span class="lg-en">On the plane and in transit</span><span class="lg-vi">Trên máy bay và lúc nối chuyến</span><span class="lg-fil">Sa eroplano at sa transit</span><span class="lg-id">Di pesawat dan saat transit</span><span class="lg-my">လေယာဉ်ပေါ်နှင့် transit</span></b><span class="lg-en">Meals, the arrival card, finding your connection, a missed flight.</span><span class="lg-vi">Gọi đồ ăn, tờ khai nhập cảnh, tìm chuyến nối, lỡ chuyến.</span><span class="lg-fil">Pagkain, arrival card, paghahanap ng connecting flight, naiwang flight.</span><span class="lg-id">Makanan, kartu kedatangan, mencari penerbangan lanjutan, ketinggalan pesawat.</span><span class="lg-my">အစားအသောက်၊ arrival card၊ ဆက်စီးရမယ့် လေယာဉ် ရှာခြင်း၊ လေယာဉ် လွတ်သွားခြင်း။</span></div></div>
+    <div class="muc"><div class="so">3</div><div><b><span class="lg-en">Meeting the agent</span><span class="lg-vi">Gặp đại lý</span><span class="lg-fil">Pagkikita sa agent</span><span class="lg-id">Bertemu agen</span><span class="lg-my">Agent နှင့် တွေ့ခြင်း</span></b><span class="lg-en">What to say, what to ask, what to have on paper before the agent leaves you.</span><span class="lg-vi">Nói gì, hỏi gì, cần ghi lại gì trước khi đại lý để bạn lại.</span><span class="lg-fil">Ano ang sasabihin, ano ang itatanong, at anong papel ang dapat hawak mo bago ka iwan ng agent.</span><span class="lg-id">Apa yang dikatakan, apa yang ditanyakan, dan apa yang harus kamu pegang tertulis sebelum agen pergi.</span><span class="lg-my">ဘာပြောရမလဲ၊ ဘာမေးရမလဲ၊ agent မထွက်သွားခင် စာရွက်ပေါ်မှာ ဘာရှိထားရမလဲ။</span></div></div>
+    <div class="muc"><div class="so">4</div><div><b><span class="lg-en">Nobody there to meet you</span><span class="lg-vi">Không gặp được đại lý</span><span class="lg-fil">Walang sumundo sa iyo</span><span class="lg-id">Tidak ada yang menjemput</span><span class="lg-my">လာကြိုမယ့်သူ မရှိဘူး</span></b><span class="lg-en">Who to call, what to say, and where to wait.</span><span class="lg-vi">Gọi ai, nói gì, đứng đâu chờ.</span><span class="lg-fil">Sino ang tatawagan, ano ang sasabihin, at saan maghihintay.</span><span class="lg-id">Siapa yang ditelepon, apa yang dikatakan, dan di mana menunggu.</span><span class="lg-my">ဘယ်သူ့ကို ဖုန်းဆက်မလဲ၊ ဘာပြောမလဲ၊ ဘယ်မှာ စောင့်မလဲ။</span></div></div>
+    <div class="muc"><div class="so">5</div><div><b><span class="lg-en">Joining the ship</span><span class="lg-vi">Lên nhận tàu</span><span class="lg-fil">Pagsampa sa barko</span><span class="lg-id">Naik ke kapal</span><span class="lg-my">သင်္ဘောပေါ် တက်ခြင်း</span></b><span class="lg-en">Gangway, duty officer, the Master, signing on, handover.</span><span class="lg-vi">Cầu thang mạn, sĩ quan trực, thuyền trưởng, ký sign-on, nhận bàn giao.</span><span class="lg-fil">Gangway, duty officer, ang Master, signing on, handover.</span><span class="lg-id">Gangway, duty officer, Master, sign on, serah terima.</span><span class="lg-my">Gangway၊ duty officer၊ Master၊ sign on၊ handover။</span></div></div>
   </section>
 
-  <!-- ========== 4. DÀNH CHO AI ========== -->
+  
   <section>
-    <h2><span class="lg-en">This guide is for you if you are</span><span class="lg-vi">Tài liệu này dành cho bạn nếu bạn là</span></h2>
+    <h2><span class="lg-en">This guide is for you if you are</span><span class="lg-vi">Tài liệu này dành cho bạn nếu bạn là</span><span class="lg-fil">Para sa iyo ang guide na ito kung ikaw ay</span><span class="lg-id">Panduan ini untukmu kalau kamu</span><span class="lg-my">သင်ဟာ အောက်ပါအတိုင်း ဖြစ်ရင် ဒီလမ်းညွှန်က သင့်အတွက်ပါ</span></h2>
     <ul class="tick">
-      <li><span class="lg-en">A cadet flying out for your first ship.</span><span class="lg-vi">Cadet sắp bay đi nhận tàu đầu tiên.</span></li>
-      <li><span class="lg-en">A rating or officer joining a foreign ship for the first time.</span><span class="lg-vi">Thuỷ thủ hoặc sĩ quan lần đầu đi tàu nước ngoài.</span></li>
-      <li><span class="lg-en">Anyone who gets nervous speaking English at airports.</span><span class="lg-vi">Người hay run khi phải nói tiếng Anh ở sân bay.</span></li>
+      <li><span class="lg-en">A cadet flying out for your first ship.</span><span class="lg-vi">Cadet sắp bay đi nhận tàu đầu tiên.</span><span class="lg-fil">Cadet na lilipad para sa unang barko mo.</span><span class="lg-id">Kadet yang terbang untuk kapal pertamamu.</span><span class="lg-my">ပထမဆုံး သင်္ဘောအတွက် လေယာဉ်စီးမယ့် cadet။</span></li>
+      <li><span class="lg-en">A rating or officer joining a foreign ship for the first time.</span><span class="lg-vi">Thuỷ thủ hoặc sĩ quan lần đầu đi tàu nước ngoài.</span><span class="lg-fil">Rating o officer na sasampa sa foreign na barko sa unang pagkakataon.</span><span class="lg-id">Rating atau perwira yang pertama kali naik kapal asing.</span><span class="lg-my">နိုင်ငံခြား သင်္ဘောကို ပထမဆုံး တက်မယ့် rating သို့မဟုတ် officer။</span></li>
+      <li><span class="lg-en">Anyone who gets nervous speaking English at airports.</span><span class="lg-vi">Người hay run khi phải nói tiếng Anh ở sân bay.</span><span class="lg-fil">Sinumang kinakabahan magsalita ng English sa airport.</span><span class="lg-id">Siapa saja yang gugup berbahasa Inggris di bandara.</span><span class="lg-my">လေဆိပ်မှာ English ပြောရရင် စိတ်လှုပ်ရှားသူ မည်သူမဆို။</span></li>
     </ul>
   </section>
 
-  <!-- ========== 5. TÁC GIẢ ========== -->
+  
   <section>
     <div class="tac">
       <div class="anh" style="background-image:url('/assets/portrait.jpg'); background-position:center 18%"></div>
       <div>
-        <h2><span class="lg-en">I'm Hieu Nguyen</span><span class="lg-vi">Mình là Nguyễn Chí Hiếu</span></h2>
-        <p class="lead"><span class="lg-en">Deck officer on bulk carriers. I went from cadet to Third Officer to Second Officer, and left school with almost no English.</span><span class="lg-vi">Sĩ quan boong tàu hàng rời. Mình đi từ cadet lên Phó ba rồi Phó hai, hết cấp 3 tiếng Anh gần như bằng không.</span></p>
-        <p class="lead"><span class="lg-en">Learn the lines out loud before you fly, then swap in your own name, rank, ship and port.</span><span class="lg-vi">Học thuộc các câu bằng cách nói thành tiếng trước khi bay, rồi thay tên, chức danh, tên tàu và cảng của bạn vào.</span></p>
+        <h2><span class="lg-en">I'm Hieu Nguyen</span><span class="lg-vi">Mình là Nguyễn Chí Hiếu</span><span class="lg-fil">Ako si Hieu Nguyen</span><span class="lg-id">Saya Hieu Nguyen</span><span class="lg-my">ကျွန်တော် Hieu Nguyen ပါ</span></h2>
+        <p class="lead"><span class="lg-en">Deck officer on bulk carriers. I went from cadet to Third Officer to Second Officer, and left school with almost no English.</span><span class="lg-vi">Sĩ quan boong tàu hàng rời. Mình đi từ cadet lên Phó ba rồi Phó hai, hết cấp 3 tiếng Anh gần như bằng không.</span><span class="lg-fil">Deck officer sa bulk carrier. Mula cadet, naging Third Officer, tapos Second Officer, at halos walang English nang matapos ako sa school.</span><span class="lg-id">Deck officer di kapal bulk carrier. Saya naik dari kadet ke Third Officer lalu Second Officer, dan lulus sekolah dengan bahasa Inggris hampir nol.</span><span class="lg-my">Bulk carrier သင်္ဘောပေါ်က deck officer ပါ။ Cadet ကနေ Third Officer၊ ပြီးတော့ Second Officer ဖြစ်လာခဲ့ပြီး ကျောင်းပြီးချိန်မှာ English လုံးဝနီးပါး မတတ်ခဲ့ပါ။</span></p>
+        <p class="lead"><span class="lg-en">Learn the lines out loud before you fly, then swap in your own name, rank, ship and port.</span><span class="lg-vi">Học thuộc các câu bằng cách nói thành tiếng trước khi bay, rồi thay tên, chức danh, tên tàu và cảng của bạn vào.</span><span class="lg-fil">Aralin nang malakas ang mga linya bago ka lumipad, tapos ilagay ang sarili mong pangalan, rank, barko at port.</span><span class="lg-id">Latih kalimatnya dengan lantang sebelum terbang, lalu ganti dengan nama, jabatan, kapal, dan pelabuhanmu sendiri.</span><span class="lg-my">လေယာဉ်မစီးခင် ဝါကျတွေကို အသံကျယ်ကျယ် လေ့ကျင့်ပြီး ကိုယ့်နာမည်၊ ရာထူး၊ သင်္ဘောနှင့် ဆိပ်ကမ်းကို အစားထိုးပါ။</span></p>
       </div>
     </div>
   </section>
 
-  <!-- ========== 6. FORM LẦN 2 ========== -->
+  
   <section>
-    <h2><span class="lg-en">Get the joining guide</span><span class="lg-vi">Nhận tài liệu đi nhận tàu</span></h2>
-    <p class="lead"><span class="lg-en">Add your name and email and it's yours.</span><span class="lg-vi">Điền tên và email là nhận được.</span></p>
+    <h2><span class="lg-en">Get the joining guide</span><span class="lg-vi">Nhận tài liệu đi nhận tàu</span><span class="lg-fil">Kunin ang joining guide</span><span class="lg-id">Dapatkan panduan naik kapal</span><span class="lg-my">သင်္ဘောတက် လမ်းညွှန်ကို ရယူပါ</span></h2>
+    <p class="lead"><span class="lg-en">Add your name and email and it's yours.</span><span class="lg-vi">Điền tên và email là nhận được.</span><span class="lg-fil">Ilagay ang pangalan at email mo at sa iyo na ito.</span><span class="lg-id">Isi nama dan email, langsung jadi milikmu.</span><span class="lg-my">နာမည်နှင့် email ဖြည့်လိုက်ရင် သင့်ဟာ ဖြစ်ပြီ။</span></p>
     <div class="form" data-form></div>
   </section>
 
-  <!-- ========== 7. HỎI ĐÁP ========== -->
+  
   <section class="faq">
-    <h2><span class="lg-en">Questions</span><span class="lg-vi">Câu hỏi thường gặp</span></h2>
-    <details><summary><span class="lg-en">Does it cost anything?</span><span class="lg-vi">Có mất tiền không?</span></summary>
-      <p><span class="lg-en">No. It's free.</span><span class="lg-vi">Không. Miễn phí.</span></p></details>
-    <details><summary><span class="lg-en">How do I get it?</span><span class="lg-vi">Nhận bằng cách nào?</span></summary>
-      <p><span class="lg-en">Add your name and email above and it opens straight away on this site, with a Download PDF button.</span><span class="lg-vi">Điền tên và email ở trên là tài liệu mở ngay trên web, có nút Tải PDF.</span></p></details>
-    <details><summary><span class="lg-en">My English is weak. Will it still help?</span><span class="lg-vi">Mình mất gốc tiếng Anh, có dùng được không?</span></summary>
-      <p><span class="lg-en">Yes. The lines are short and simple, so you can learn them out loud with basic English.</span><span class="lg-vi">Được. Câu nào cũng ngắn, có tiếng Việt bên dưới, bạn hiểu trước rồi học câu tiếng Anh bằng cách đọc thành tiếng.</span></p></details>
-    <details><summary><span class="lg-en">Can I save it on my phone before I fly?</span><span class="lg-vi">Lưu vào điện thoại trước khi bay được không?</span></summary>
-      <p><span class="lg-en">Yes. Tap Download PDF and keep it on your phone, so you can open it at the airport without internet.</span><span class="lg-vi">Được. Bấm Tải PDF để lưu vào điện thoại, tới sân bay không có mạng vẫn mở ra xem được.</span></p></details>
+    <h2><span class="lg-en">Questions</span><span class="lg-vi">Câu hỏi thường gặp</span><span class="lg-fil">Mga tanong</span><span class="lg-id">Pertanyaan</span><span class="lg-my">မေးလေ့ရှိသော မေးခွန်းများ</span></h2>
+    <details><summary><span class="lg-en">Does it cost anything?</span><span class="lg-vi">Có mất tiền không?</span><span class="lg-fil">May bayad ba?</span><span class="lg-id">Apakah ada biayanya?</span><span class="lg-my">ပိုက်ဆံ ကုန်လား?</span></summary>
+      <p><span class="lg-en">No. It's free.</span><span class="lg-vi">Không. Miễn phí.</span><span class="lg-fil">Wala. Libre ito.</span><span class="lg-id">Tidak. Gratis.</span><span class="lg-my">မကုန်ပါ။ အခမဲ့ပါ။</span></p></details>
+    <details><summary><span class="lg-en">How do I get it?</span><span class="lg-vi">Nhận bằng cách nào?</span><span class="lg-fil">Paano ko ito makukuha?</span><span class="lg-id">Bagaimana cara mendapatkannya?</span><span class="lg-my">ဘယ်လို ရယူရမလဲ?</span></summary>
+      <p><span class="lg-en">Add your name and email above and it opens straight away on this site, with a Download PDF button.</span><span class="lg-vi">Điền tên và email ở trên là tài liệu mở ngay trên web, có nút Tải PDF.</span><span class="lg-fil">Ilagay ang pangalan at email mo sa itaas at bubukas agad ito sa site na ito, may Download PDF button.</span><span class="lg-id">Isi nama dan email di atas, langsung terbuka di web ini, ada tombol Download PDF.</span><span class="lg-my">အပေါ်မှာ နာမည်နှင့် email ဖြည့်လိုက်ရင် ဒီဝဘ်ဆိုက်ပေါ်မှာ ချက်ချင်း ပွင့်လာပြီး Download PDF ခလုတ် ပါသည်။</span></p></details>
+    <details><summary><span class="lg-en">My English is weak. Will it still help?</span><span class="lg-vi">Mình mất gốc tiếng Anh, có dùng được không?</span><span class="lg-fil">Mahina ang English ko. Makakatulong pa rin ba?</span><span class="lg-id">Bahasa Inggris saya lemah. Masih bisa terbantu?</span><span class="lg-my">English အားနည်းတယ်။ အထောက်အကူ ဖြစ်ဦးမလား?</span></summary>
+      <p><span class="lg-en">Yes. The lines are short and simple, so you can learn them out loud with basic English.</span><span class="lg-vi">Được. Câu nào cũng ngắn, có tiếng Việt bên dưới, bạn hiểu trước rồi học câu tiếng Anh bằng cách đọc thành tiếng.</span><span class="lg-fil">Oo. Maiikli at simple ang mga linya, kaya kaya mong aralin nang malakas kahit basic ang English mo. Nasa English ang guide.</span><span class="lg-id">Bisa. Kalimatnya pendek dan sederhana, jadi bisa kamu latih dengan lantang walau bahasa Inggrismu dasar. Panduannya dalam bahasa Inggris.</span><span class="lg-my">ရပါတယ်။ ဝါကျတွေက တိုပြီး ရိုးရှင်းလို့ English အခြေခံလောက်နဲ့ အသံကျယ်ကျယ် လေ့လာနိုင်ပါတယ်။ လမ်းညွှန်ကို English ဖြင့် ရေးထားသည်။</span></p></details>
+    <details><summary><span class="lg-en">Can I save it on my phone before I fly?</span><span class="lg-vi">Lưu vào điện thoại trước khi bay được không?</span><span class="lg-fil">Puwede ko bang i-save sa phone bago lumipad?</span><span class="lg-id">Bisa disimpan di HP sebelum terbang?</span><span class="lg-my">လေယာဉ်မစီးခင် ဖုန်းထဲ သိမ်းထားလို့ ရလား?</span></summary>
+      <p><span class="lg-en">Yes. Tap Download PDF and keep it on your phone, so you can open it at the airport without internet.</span><span class="lg-vi">Được. Bấm Tải PDF để lưu vào điện thoại, tới sân bay không có mạng vẫn mở ra xem được.</span><span class="lg-fil">Oo. I-tap ang Download PDF at itago sa phone, para mabuksan mo sa airport kahit walang internet.</span><span class="lg-id">Bisa. Ketuk Download PDF dan simpan di HP, jadi bisa dibuka di bandara tanpa internet.</span><span class="lg-my">ရပါတယ်။ Download PDF ကို နှိပ်ပြီး ဖုန်းထဲ သိမ်းထားရင် လေဆိပ်မှာ အင်တာနက် မရှိဘဲ ဖွင့်နိုင်ပါတယ်။</span></p></details>
   </section>
 
   <footer>
@@ -212,215 +571,455 @@
 
 <template id="mauForm">
   <form novalidate>
-    <label><span class="lg-en">First name</span><span class="lg-vi">Tên</span></label>
+    <label><span class="lg-en">First name</span><span class="lg-vi">Tên</span><span class="lg-fil">Pangalan</span><span class="lg-id">Nama</span><span class="lg-my">နာမည်</span></label>
     <input type="text" name="ten" autocomplete="given-name" maxlength="40" placeholder="Hieu">
-    <label><span class="lg-en">Email to receive it</span><span class="lg-vi">Email nhận tài liệu</span></label>
+    <label><span class="lg-en">Email to receive it</span><span class="lg-vi">Email nhận tài liệu</span><span class="lg-fil">Email kung saan ipapadala</span><span class="lg-id">Email untuk menerima</span><span class="lg-my">လက်ခံမည့် Email</span></label>
     <input type="email" name="email" autocomplete="email" placeholder="you@example.com">
     <div class="hp" aria-hidden="true"><input type="text" name="hn_hp_7q" tabindex="-1" autocomplete="new-password"></div>
     <p class="loi"></p>
-    <button type="submit"><span class="lg-en">GET THE GUIDE</span><span class="lg-vi">NHẬN TÀI LIỆU</span></button>
-    <p class="nho"><span class="lg-en">Free. No spam. Unsubscribe any time.</span><span class="lg-vi">Miễn phí. Không spam. Không thích thì bấm huỷ nhận thư bất cứ lúc nào.</span></p>
+    <button type="submit"><span class="lg-en">GET THE GUIDE</span><span class="lg-vi">NHẬN TÀI LIỆU</span><span class="lg-fil">KUNIN ANG GUIDE</span><span class="lg-id">DAPATKAN PANDUANNYA</span><span class="lg-my">လမ်းညွှန်ကို ရယူမည်</span></button>
+    <p class="nho"><span class="lg-en">Free. No spam. Unsubscribe any time.</span><span class="lg-vi">Miễn phí. Không spam. Không thích thì bấm huỷ nhận thư bất cứ lúc nào.</span><span class="lg-fil">Libre. Walang spam. Puwedeng mag-unsubscribe anumang oras.</span><span class="lg-id">Gratis. Tanpa spam. Kalau tidak suka, klik berhenti berlangganan kapan saja.</span><span class="lg-my">အခမဲ့။ Spam မပို့ပါ။ မကြိုက်လျှင် အချိန်မရွေး unsubscribe နှိပ်နိုင်သည်။</span></p>
   </form>
   <div class="xong" hidden>
     <div class="to">&#9993;&#65039;</div>
-    <h3><span class="lg-en">It's in your inbox</span><span class="lg-vi">Tài liệu đã nằm trong email của bạn</span></h3>
-    <p><span class="lg-en">Sent to <b class="dc"></b>. Open the email from Hiếu at Sea and tap <b>Open the file</b>.</span><span class="lg-vi">Đã gửi tới <b class="dc"></b>. Mở thư từ Hiếu at Sea, bấm nút <b>Mở tài liệu</b>.</span></p>
-    <a class="nut" data-gmail href="https://mail.google.com/mail/u/0/#search/from%3Ahieunguyen.net" rel="noopener"><span class="lg-en">Open Gmail &rarr;</span><span class="lg-vi">Mở Gmail &rarr;</span></a>
-    <p class="roi"><span class="lg-en">Nothing after a few minutes? Check Promotions or Spam.</span><span class="lg-vi">Vài phút chưa thấy thì xem mục Quảng cáo hoặc Spam.</span>
-      <br><button type="button" class="lai" data-lai disabled><span class="lg-en">Send again</span><span class="lg-vi">Gửi lại</span></button> ·
-      <button type="button" class="lai" data-sua><span class="lg-en">Wrong email?</span><span class="lg-vi">Gõ sai email?</span></button></p>
+    <h3><span class="lg-en">It's in your inbox</span><span class="lg-vi">Tài liệu đã nằm trong email của bạn</span><span class="lg-fil">Nasa inbox mo na</span><span class="lg-id">Sudah ada di inbox kamu</span><span class="lg-my">သင့် inbox ထဲ ရောက်ပြီ</span></h3>
+    <p><span class="lg-en">Sent to <b class="dc"></b>. Open the email from Hiếu at Sea and tap <b>Open the file</b>.</span><span class="lg-vi">Đã gửi tới <b class="dc"></b>. Mở thư từ Hiếu at Sea, bấm nút <b>Mở tài liệu</b>.</span><span class="lg-fil">Ipinadala sa <b class="dc"></b>. Buksan ang email mula sa Hiếu at Sea at i-tap ang <b>Open the file</b>.</span><span class="lg-id">Terkirim ke <b class="dc"></b>. Buka email dari Hiếu at Sea lalu ketuk <b>Open the file</b>.</span><span class="lg-my"><b class="dc"></b> သို့ ပို့ပြီးပါပြီ။ Hiếu at Sea ထံမှ email ကို ဖွင့်ပြီး <b>Open the file</b> ကို နှိပ်ပါ။</span></p>
+    <a class="nut" data-gmail href="https://mail.google.com/mail/u/0/#search/from%3Ahieunguyen.net" rel="noopener"><span class="lg-en">Open Gmail &rarr;</span><span class="lg-vi">Mở Gmail &rarr;</span><span class="lg-fil">Buksan ang Gmail &rarr;</span><span class="lg-id">Buka Gmail &rarr;</span><span class="lg-my">Gmail ဖွင့်ရန် &rarr;</span></a>
+    <p class="roi"><span class="lg-en">Nothing after a few minutes? Check Promotions or Spam.</span><span class="lg-vi">Vài phút chưa thấy thì xem mục Quảng cáo hoặc Spam.</span><span class="lg-fil">Wala pa rin pagkalipas ng ilang minuto? Tingnan ang Promotions o Spam.</span><span class="lg-id">Beberapa menit belum masuk? Cek Promosi atau Spam.</span><span class="lg-my">မိနစ်အနည်းငယ်ကြာလို့ မရောက်သေးရင် Promotions သို့မဟုတ် Spam ထဲ ကြည့်ပါ။</span>
+      <br><button type="button" class="lai" data-lai disabled="disabled"><span class="lg-en">Send again</span><span class="lg-vi">Gửi lại</span><span class="lg-fil">Ipadala ulit</span><span class="lg-id">Kirim ulang</span><span class="lg-my">ပြန်ပို့ရန်</span></button> ·
+      <button type="button" class="lai" data-sua><span class="lg-en">Wrong email?</span><span class="lg-vi">Gõ sai email?</span><span class="lg-fil">Mali ang email?</span><span class="lg-id">Salah ketik email?</span><span class="lg-my">Email မှားသွားလား?</span></button></p>
   </div>
 </template>
 
-<script>
-(function(){
-  var WEB = 'di-nhan-tau', TRACK = 'Tiếng Anh đi nhận tàu — từ sân bay tới cầu thang mạn';
-  var DOC = location.origin + '/doc/?f=' + WEB;
-  var TEN_FILE = { en:'Joining Your Ship — English from the airport to the gangway', vi:'Tiếng Anh đi nhận tàu — từ sân bay tới cầu thang mạn' };
-  var KIT = 'https://app.kit.com/forms/9750089/subscriptions', TL = 'https://app.hieunguyen.net/api/tl/';
-  var MO_TRANG = Date.now();
-  function lang(){ return document.documentElement.getAttribute('data-lang') === 'vi' ? 'vi' : 'en'; }
-  function ga(ev, o){ try { if (window.gtag) gtag('event', ev, o || {}); } catch(e){} }
+<script>(function() {
+var WEB = "di-nhan-tau", TRACK = "Tiếng Anh đi nhận tàu — từ sân bay tới cầu thang mạn";
+var DOC = location.origin + "/doc/?f=" + WEB;
+var TEN_FILE = {
+en: "Joining Your Ship — English from the airport to the gangway",
+vi: "Tiếng Anh đi nhận tàu — từ sân bay tới cầu thang mạn"
+};
+var KIT = "https://app.kit.com/forms/9750089/subscriptions", TL = "https://app.hieunguyen.net/api/tl/";
+var MO_TRANG = Date.now();
+var NN = [ "vi", "en", "fil", "id", "my" ];
+function lang() {
+var l = document.documentElement.getAttribute("data-lang");
+return NN.indexOf(l) < 0 ? "en" : l;
+}
+var CHU = {
+vi: {
+ten: "Bạn điền tên giúp mình nhé.",
+email: "Email trông chưa đúng, kiểm tra lại giúp mình."
+},
+en: {
+ten: "Please add your first name.",
+email: "That email doesn't look right."
+},
+fil: {
+ten: "Pakilagay ang pangalan mo.",
+email: "Mukhang mali ang email, pakicheck ulit."
+},
+id: {
+ten: "Tolong isi nama kamu ya.",
+email: "Email sepertinya belum benar, coba cek lagi."
+},
+my: {
+ten: "ကျေးဇူးပြု၍ နာမည် ဖြည့်ပေးပါ။",
+email: "Email မှားနေပုံရပါတယ်၊ ပြန်စစ်ပေးပါ။"
+}
+};
+function c(k) {
+return (CHU[lang()] || CHU.en)[k];
+}
+function ga(ev, o) {
+try {
+if (window.gtag) gtag("event", ev, o || {});
+} catch (e) {}
+}
+function veLang() {
+document.querySelectorAll("[data-set-lang]").forEach((function(b) {
+b.setAttribute("aria-pressed", b.getAttribute("data-set-lang") === lang() ? "true" : "false");
+}));
+document.querySelectorAll("input[name=ten]").forEach((function(i) {
+i.placeholder = lang() === "vi" ? "Hiếu" : "Hieu";
+}));
+}
+document.querySelectorAll("[data-set-lang]").forEach((function(b) {
+b.addEventListener("click", (function() {
+var l = b.getAttribute("data-set-lang");
+document.documentElement.setAttribute("data-lang", l);
+document.documentElement.lang = l;
+try {
+localStorage.setItem("hn_lang", l);
+} catch (e) {}
+veLang();
+}));
+}));
+function nguon() {
+try {
+var q = new URLSearchParams(location.search), u = q.get("utm_source"), m = q.get("utm_medium");
+var c = q.get("utm_campaign"), ct = q.get("utm_content");
+if (u) {
+u = u + (m ? ":" + m : "") + (c || ct ? "|" + (c || "") + "|" + (ct || "") : "");
+localStorage.setItem("hn_src", u);
+return u;
+}
+return localStorage.getItem("hn_src") || (document.referrer ? "ref:" + new URL(document.referrer).hostname : "direct");
+} catch (e) {
+return "unknown";
+}
+}
+nguon();
+var NHOM = "A";
+var mau = document.getElementById("mauForm");
+document.querySelectorAll("[data-form]").forEach((function(hop, viTri) {
+hop.appendChild(mau.content.cloneNode(true));
+var f = hop.querySelector("form"), xong = hop.querySelector(".xong"), loi = hop.querySelector(".loi");
+var ten = f.ten, email = f.email, btn = f.querySelector("button[type=submit]"), tlId = null;
+var nhanGoc = btn.innerHTML;
+window.addEventListener("pageshow", (function(e) {
+if (e.persisted) {
+btn.disabled = false;
+btn.innerHTML = nhanGoc;
+}
+}));
+var daMo = false;
+function mo() {
+if (!daMo) {
+daMo = true;
+ga("gate_open", {
+file_name: TRACK,
+form_location: "qua_dinhantau"
+});
+}
+}
+if (viTri === 0) mo(); else if ("IntersectionObserver" in window) new IntersectionObserver((function(es, o) {
+if (es[0].isIntersecting) {
+mo();
+o.disconnect();
+}
+})).observe(hop);
+email.addEventListener("focus", (function() {
+ga("form_start", {
+form_location: "qua_dinhantau"
+});
+}), {
+once: true
+});
+function baoLoi(msg, o) {
+loi.textContent = msg;
+loi.style.display = msg ? "block" : "none";
+ten.classList.toggle("sai", o === "ten");
+email.classList.toggle("sai", o === "email");
+}
+var roiTrang = false;
+function moTaiLieu(viTriGA, cho) {
+try {
+localStorage.setItem("hn_lead", "1");
+} catch (e) {}
+ga("sign_up", {
+method: "kit_form",
+form_location: viTriGA,
+file_name: TRACK
+});
+ga("file_preview", {
+file_name: TRACK,
+form_location: viTriGA
+});
+var di = false;
+function chuyen() {
+if (di) return;
+di = true;
+roiTrang = true;
+location.href = DOC;
+}
+setTimeout(chuyen, 2500);
+Promise.resolve(cho).then((function() {
+setTimeout(chuyen, 300);
+}));
+}
+function hnKitDp(fd) {
+var o = {
+id: (Date.now().toString(36) + Math.random().toString(36).slice(2) + "x0x0x0x0").slice(0, 20),
+trang: location.pathname,
+f: {}
+};
+try {
+fd.forEach((function(v, k) {
+var m = /^fields\[(\w+)\]$/.exec(k);
+if (k === "email_address") o.email = v; else if (m && m[1] === "first_name") o.ten = v; else if (m) o.f[m[1]] = v;
+}));
+} catch (e) {}
+function ban(b, ly) {
+try {
+o.b = b;
+o.ly_do = String(ly || "").slice(0, 90);
+var s = JSON.stringify(o), u = "https://app.hieunguyen.net/api/tl/kit-dp";
+if (!(navigator.sendBeacon && navigator.sendBeacon(u, new Blob([ s ], {
+type: "text/plain"
+})))) fetch(u, {
+method: "POST",
+body: s,
+keepalive: true,
+headers: {
+"Content-Type": "text/plain"
+}
+}).catch((function() {}));
+} catch (e) {}
+}
+ban("dau");
+return {
+ok: function() {
+ban("ok");
+},
+loi: ban.bind(null, "loi")
+};
+}
+function guiKit() {
+var fd = new FormData;
+fd.append("fields[first_name]", ten.value || (lang() === "vi" ? "bạn" : "there"));
+fd.append("email_address", email.value);
+fd.append("fields[file_dau_tien]", TRACK);
+fd.append("fields[ngon_ngu]", lang());
+fd.append("fields[nguon]", nguon());
+fd.append("fields[trang]", location.pathname);
+var dp = hnKitDp(fd);
+return fetch(KIT, {
+method: "POST",
+body: fd,
+keepalive: true,
+headers: {
+Accept: "application/json"
+}
+}).then((function(r) {
+return r.json();
+})).then((function(j) {
+if (j && j.status === "success") dp.ok(); else {
+ga("kit_loi", {
+form_location: "loi:qua_dinhantau",
+trang: location.pathname
+});
+dp.loi("qua_dinhantau");
+}
+})).catch((function() {
+var ly = roiTrang ? "qua_dinhantau_cham" : "qua_dinhantau_mang";
+ga("kit_loi", {
+form_location: "loi:" + ly,
+trang: location.pathname
+});
+dp.loi(ly);
+}));
+}
+f.addEventListener("submit", (function(e) {
+e.preventDefault();
+var hp = f.hn_hp_7q.value;
+if (hp && Date.now() - MO_TRANG < 3e3) return;
+ten.value = ten.value.trim().replace(/\s+/g, " ").slice(0, 40);
+email.value = email.value.trim();
+if (!ten.value) {
+baoLoi(c("ten"), "ten");
+ten.focus();
+return;
+}
+if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)) {
+baoLoi(c("email"), "email");
+email.focus();
+return;
+}
+baoLoi("");
+btn.disabled = true;
+btn.innerHTML = '<span class="xoay"></span><span class="lg-en">OPENING YOUR GUIDE…</span><span class="lg-vi">ĐANG MỞ TÀI LIỆU…</span><span class="lg-fil">BINUBUKSAN ANG GUIDE MO…</span><span class="lg-id">SEDANG MEMBUKA PANDUANMU…</span><span class="lg-my">လမ်းညွှန်ကို ဖွင့်နေသည်…</span>';
+if (NHOM !== "B") {
+moTaiLieu("qua_dinhantau", guiKit());
+return;
+}
+var xongRoi = false;
+function veA(ly) {
+if (xongRoi) return;
+xongRoi = true;
+ga("tl_ve_a", {
+ly_do: String(ly || "").slice(0, 40),
+file_name: TRACK
+});
+moTaiLieu("qua_dinhantau_B_ve_A", guiKit());
+}
+var hen = setTimeout((function() {
+veA("cham");
+}), 8e3);
+fetch(TL + "dang-ky", {
+method: "POST",
+headers: {
+"Content-Type": "text/plain"
+},
+body: JSON.stringify({
+email: email.value,
+ten: ten.value,
+file: TEN_FILE[lang()] || TEN_FILE.en,
+track: TRACK,
+url: DOC,
+lang: lang(),
+nguon: nguon(),
+trang: location.pathname,
+hp: hp ? 1 : 0
+})
+}).then((function(r) {
+return r.json();
+})).then((function(j) {
+clearTimeout(hen);
+if (xongRoi) return;
+if (!j || !j.ok) {
+btn.disabled = false;
+if (j && j.goi_y) {
+email.value = j.goi_y;
+baoLoi(lang() === "vi" ? "Email có vẻ gõ nhầm, mình đã sửa thành " + j.goi_y + ". Bấm nút lần nữa để nhận." : "Looks like a typo. We changed it to " + j.goi_y + " — tap the button again.", "email");
+return;
+}
+if (j && j.khong_nhan) {
+baoLoi(lang() === "vi" ? "Email này không nhận được thư (phần sau chữ @ không tồn tại). Kiểm tra lại giúp mình." : "This email can't receive mail (the part after @ doesn't exist). Please check it.", "email");
+return;
+}
+baoLoi(lang() === "vi" ? "Email trông chưa đúng, kiểm tra lại giúp mình." : "That email doesn't look right.", "email");
+return;
+}
+if (!j.gui) {
+veA(j.ly_do || "mo_ngay");
+return;
+}
+xongRoi = true;
+tlId = j.id;
+ga("sign_up", {
+method: "mail",
+form_location: "qua_dinhantau_B",
+file_name: TRACK
+});
+xong.querySelectorAll(".dc").forEach((function(b) {
+b.textContent = email.value;
+}));
+f.hidden = true;
+xong.hidden = false;
+choLai();
+})).catch((function() {
+clearTimeout(hen);
+veA("mang");
+}));
+}));
+var nutLai = xong.querySelector("[data-lai]"), henLai = null;
+function choLai() {
+nutLai.disabled = true;
+clearTimeout(henLai);
+henLai = setTimeout((function() {
+nutLai.disabled = false;
+}), 6e4);
+}
+nutLai.addEventListener("click", (function() {
+if (!tlId) return;
+choLai();
+ga("tl_gui_lai", {
+file_name: TRACK
+});
+fetch(TL + "gui-lai", {
+method: "POST",
+headers: {
+"Content-Type": "text/plain"
+},
+body: JSON.stringify({
+id: tlId
+})
+}).catch((function() {}));
+}));
+xong.querySelector("[data-sua]").addEventListener("click", (function() {
+xong.hidden = true;
+f.hidden = false;
+btn.disabled = false;
+email.focus();
+}));
+}));
+veLang();
+try {
+if (localStorage.getItem("hn_lead") === "1") {
+var hop = document.querySelector("[data-form]"), p = document.createElement("p");
+p.className = "roi";
+p.innerHTML = '<span class="lg-en">Already got it on this device? <a href="' + DOC + '">Read it now &rarr;</a></span><span class="lg-vi">Đã nhận rồi trên máy này? <a href="' + DOC + '">Đọc ngay &rarr;</a></span><span class="lg-fil">Nakuha mo na ito sa device na ito? <a href="' + DOC + '">Basahin na &rarr;</a></span><span class="lg-id">Sudah dapat di perangkat ini? <a href="' + DOC + '">Baca sekarang &rarr;</a></span><span class="lg-my">ဒီစက်မှာ ရပြီးပြီလား? <a href="' + DOC + '">ချက်ချင်း ဖတ်ရန် &rarr;</a></span>';
+hop.appendChild(p);
+}
+} catch (e) {}
+})();</script>
 
-  // ngôn ngữ
-  function veLang(){ document.querySelectorAll('[data-set-lang]').forEach(function(b){ b.setAttribute('aria-pressed', b.getAttribute('data-set-lang') === lang() ? 'true' : 'false'); });
-    document.querySelectorAll('input[name=ten]').forEach(function(i){ i.placeholder = lang() === 'vi' ? 'Hiếu' : 'Hieu'; }); }
-  document.querySelectorAll('[data-set-lang]').forEach(function(b){ b.addEventListener('click', function(){
-    var l = b.getAttribute('data-set-lang'); document.documentElement.setAttribute('data-lang', l); document.documentElement.lang = l;
-    try { localStorage.setItem('hn_lang', l); } catch(e){} veLang(); }); });
-
-  // nguồn: utm trên link thắng, không có thì giữ cái đã nhớ (dùng chung khoá hn_src với /tai-lieu)
-  function nguon(){
-    try { var q = new URLSearchParams(location.search), u = q.get('utm_source'), m = q.get('utm_medium');
-      // 08/11: nối utm_campaign|utm_content (mã bài short list, vd short-list|L0911) để Kit khớp lead với bài -> đơn trả
-      var c = q.get('utm_campaign'), ct = q.get('utm_content');
-      if (u){ u = u + (m ? ':' + m : '') + (c || ct ? '|' + (c || '') + '|' + (ct || '') : ''); localStorage.setItem('hn_src', u); return u; }
-      return localStorage.getItem('hn_src') || (document.referrer ? 'ref:' + new URL(document.referrer).hostname : 'direct');
-    } catch(e){ return 'unknown'; } }
-  nguon();
-  // 16/10: BỎ nhóm B (nhận qua email) — 73 thư gửi, chỉ 49 người bấm mở (67%), nhóm A mở thẳng gần như đủ.
-  // Ai cũng mở tài liệu ngay. Code nhóm B để nguyên phía dưới, không còn đường vào.
-  var NHOM = 'A';
-
-  var mau = document.getElementById('mauForm');
-  document.querySelectorAll('[data-form]').forEach(function(hop, viTri){
-    hop.appendChild(mau.content.cloneNode(true));
-    var f = hop.querySelector('form'), xong = hop.querySelector('.xong'), loi = hop.querySelector('.loi');
-    var ten = f.ten, email = f.email, btn = f.querySelector('button[type=submit]'), tlId = null;
-    var nhanGoc = btn.innerHTML;   // bấm Back từ trang đọc về: trả nút như cũ, không kẹt chữ "Đang mở"
-    window.addEventListener('pageshow', function(e){ if (e.persisted){ btn.disabled = false; btn.innerHTML = nhanGoc; } });
-    var daMo = false;
-    function mo(){ if (!daMo){ daMo = true; ga('gate_open', { file_name: TRACK, form_location: 'qua_dinhantau' }); } }
-    // mốc "đã thấy form": form đầu = lúc vào trang, form cuối = lúc cuộn tới
-    if (viTri === 0) mo(); else if ('IntersectionObserver' in window) new IntersectionObserver(function(es, o){ if (es[0].isIntersecting){ mo(); o.disconnect(); } }).observe(hop);
-    email.addEventListener('focus', function(){ ga('form_start', { form_location: 'qua_dinhantau' }); }, { once:true });
-    function baoLoi(msg, o){ loi.textContent = msg; loi.style.display = msg ? 'block' : 'none'; ten.classList.toggle('sai', o === 'ten'); email.classList.toggle('sai', o === 'email'); }
-    var roiTrang = false;
-    // 15/10: chờ Kit trả lời (tối đa 2,5s) rồi mới chuyển trang. Trước đây chuyển sau 350ms → trình duyệt
-    // cắt ngang lời gọi Kit, GA4 báo "loi:qua_dinhantau_mang" 30 lần/2 ngày dù Kit có thể đã nhận (không phân biệt được).
-    function moTaiLieu(viTriGA, cho){
-      try { localStorage.setItem('hn_lead', '1'); } catch(e){}
-      ga('sign_up', { method:'kit_form', form_location: viTriGA, file_name: TRACK });
-      ga('file_preview', { file_name: TRACK, form_location: viTriGA });
-      var di = false;
-      function chuyen(){ if (di) return; di = true; roiTrang = true; location.href = DOC; }   // cùng tab, không bị chặn popup
-      setTimeout(chuyen, 2500);
-      Promise.resolve(cho).then(function(){ setTimeout(chuyen, 300); });
-    }
-    // 28/10 EMAIL DỰ PHÒNG: báo máy chủ app 3 nhịp bằng sendBeacon (sống sót cả khi trang xuống nền / bị đóng):
-    // 'dau' lúc bấm · 'ok' Kit nhận · 'loi' Kit lỗi. Kit lỗi hoặc 15 phút không thấy 'ok' -> máy chủ tự đẩy email sang Kit
-    // (may-chu/src/tailieu.js kitDp). Trước đó 30 ngày 175 lượt kit_loi, ước ~50 email rơi mất.
-    function hnKitDp(fd){
-      var o = { id: (Date.now().toString(36) + Math.random().toString(36).slice(2) + 'x0x0x0x0').slice(0, 20), trang: location.pathname, f: {} };
-      try { fd.forEach(function(v, k){ var m = /^fields\[(\w+)\]$/.exec(k);
-        if (k === 'email_address') o.email = v; else if (m && m[1] === 'first_name') o.ten = v; else if (m) o.f[m[1]] = v; }); } catch(e){}
-      function ban(b, ly){
-        try {
-          o.b = b; o.ly_do = String(ly || '').slice(0, 90);
-          var s = JSON.stringify(o), u = 'https://app.hieunguyen.net/api/tl/kit-dp';
-          if (!(navigator.sendBeacon && navigator.sendBeacon(u, new Blob([s], { type: 'text/plain' }))))
-            fetch(u, { method: 'POST', body: s, keepalive: true, headers: { 'Content-Type': 'text/plain' } }).catch(function(){});
-        } catch(e){}
-      }
-      ban('dau');
-      return { ok: function(){ ban('ok'); }, loi: ban.bind(null, 'loi') };
-    }
-    function guiKit(){
-      var fd = new FormData();
-      fd.append('fields[first_name]', ten.value || (lang() === 'vi' ? 'bạn' : 'there'));
-      fd.append('email_address', email.value);
-      fd.append('fields[file_dau_tien]', TRACK); fd.append('fields[ngon_ngu]', lang());
-      fd.append('fields[nguon]', nguon()); fd.append('fields[trang]', location.pathname);
-      var dp = hnKitDp(fd);
-      return fetch(KIT, { method:'POST', body:fd, keepalive:true, headers:{ 'Accept':'application/json' } })
-        .then(function(r){ return r.json(); })
-        .then(function(j){ if (j && j.status === 'success') dp.ok(); else { ga('kit_loi', { form_location: 'loi:qua_dinhantau', trang: location.pathname }); dp.loi('qua_dinhantau'); } })
-        .catch(function(){ var ly = roiTrang ? 'qua_dinhantau_cham' : 'qua_dinhantau_mang'; ga('kit_loi', { form_location: 'loi:' + ly, trang: location.pathname }); dp.loi(ly); });
-    }
-    f.addEventListener('submit', function(e){
-      e.preventDefault();
-      var hp = f.hn_hp_7q.value;
-      if (hp && Date.now() - MO_TRANG < 3000) return;
-      ten.value = ten.value.trim().replace(/\s+/g, ' ').slice(0, 40); email.value = email.value.trim();
-      if (!ten.value){ baoLoi(lang() === 'vi' ? 'Bạn điền tên giúp mình nhé.' : 'Please add your first name.', 'ten'); ten.focus(); return; }
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)){ baoLoi(lang() === 'vi' ? 'Email trông chưa đúng, kiểm tra lại giúp mình.' : "That email doesn't look right.", 'email'); email.focus(); return; }
-      baoLoi('');
-      btn.disabled = true;
-      // 16/10: Clarity 25% phiên bấm hụt — nút khoá tới 2,5s mà chữ không đổi, khách tưởng chưa ăn nên bấm lại
-      btn.innerHTML = '<span class="xoay"></span><span class="lg-en">OPENING YOUR GUIDE…</span><span class="lg-vi">ĐANG MỞ TÀI LIỆU…</span>';
-      if (NHOM !== 'B'){ moTaiLieu('qua_dinhantau', guiKit()); return; }
-      var xongRoi = false;
-      function veA(ly){ if (xongRoi) return; xongRoi = true; ga('tl_ve_a', { ly_do: String(ly || '').slice(0, 40), file_name: TRACK }); moTaiLieu('qua_dinhantau_B_ve_A', guiKit()); }
-      var hen = setTimeout(function(){ veA('cham'); }, 8000);
-      fetch(TL + 'dang-ky', { method:'POST', headers:{ 'Content-Type':'text/plain' }, body: JSON.stringify({
-          email: email.value, ten: ten.value, file: TEN_FILE[lang()], track: TRACK, url: DOC, lang: lang(),
-          nguon: nguon(), trang: location.pathname, hp: hp ? 1 : 0 }) })
-        .then(function(r){ return r.json(); })
-        .then(function(j){
-          clearTimeout(hen); if (xongRoi) return;
-          if (!j || !j.ok){ btn.disabled = false;
-            // 18/10: máy chủ bắt email gõ nhầm đuôi -> sửa sẵn vào ô; tên miền không nhận thư -> báo đúng lỗi
-            if (j && j.goi_y){ email.value = j.goi_y; baoLoi(lang() === 'vi' ? 'Email có vẻ gõ nhầm, mình đã sửa thành ' + j.goi_y + '. Bấm nút lần nữa để nhận.' : 'Looks like a typo. We changed it to ' + j.goi_y + ' — tap the button again.', 'email'); return; }
-            if (j && j.khong_nhan){ baoLoi(lang() === 'vi' ? 'Email này không nhận được thư (phần sau chữ @ không tồn tại). Kiểm tra lại giúp mình.' : "This email can't receive mail (the part after @ doesn't exist). Please check it.", 'email'); return; }
-            baoLoi(lang() === 'vi' ? 'Email trông chưa đúng, kiểm tra lại giúp mình.' : "That email doesn't look right.", 'email'); return; }
-          if (!j.gui){ veA(j.ly_do || 'mo_ngay'); return; }
-          xongRoi = true; tlId = j.id;
-          ga('sign_up', { method:'mail', form_location:'qua_dinhantau_B', file_name: TRACK });
-          xong.querySelectorAll('.dc').forEach(function(b){ b.textContent = email.value; });
-          f.hidden = true; xong.hidden = false; choLai();
-        })
-        .catch(function(){ clearTimeout(hen); veA('mang'); });
-    });
-    var nutLai = xong.querySelector('[data-lai]'), henLai = null;
-    function choLai(){ nutLai.disabled = true; clearTimeout(henLai); henLai = setTimeout(function(){ nutLai.disabled = false; }, 60000); }
-    nutLai.addEventListener('click', function(){
-      if (!tlId) return; choLai(); ga('tl_gui_lai', { file_name: TRACK });
-      fetch(TL + 'gui-lai', { method:'POST', headers:{ 'Content-Type':'text/plain' }, body: JSON.stringify({ id: tlId }) }).catch(function(){});
-    });
-    xong.querySelector('[data-sua]').addEventListener('click', function(){ xong.hidden = true; f.hidden = false; btn.disabled = false; email.focus(); });
-  });
-  veLang();
-
-  // người đã nhận rồi (máy này đã để email) -> thêm lối đọc ngay, không bắt điền lại
-  try { if (localStorage.getItem('hn_lead') === '1'){
-    var hop = document.querySelector('[data-form]'), p = document.createElement('p');
-    p.className = 'roi';
-    p.innerHTML = '<span class="lg-en">Already got it on this device? <a href="' + DOC + '">Read it now &rarr;</a></span><span class="lg-vi">Đã nhận rồi trên máy này? <a href="' + DOC + '">Đọc ngay &rarr;</a></span>';
-    hop.appendChild(p);
-  } } catch(e){}
-})();
-</script>
-
-<script>
-/* 15/10: Clarity soi 3 ngày — 47 cú bấm hụt trên trang này, 2 ổ chính:
-   (1) ô mục lục A–H: khách chạm để xem câu bên trong → nay chạm là mở 2 câu ví dụ + "nhận đủ";
-   (2) nút Mở Gmail: 2/3 khách ở trình duyệt trong app Facebook, tab mới bị chặn → mở thẳng app Gmail. */
-(function(){
-  var VD = {
-    '1':[1,["No, I'm on a one-way ticket because I'm joining a ship. This is the Letter of Guarantee from my company.","I'm a seafarer. I'm joining the bulk carrier Ocean Star at the port of Singapore."],13],
-    '2':[2,["I didn't fill in the online arrival card. Where can I do it?","I missed my connection because my first flight was late. I'm a seafarer joining a ship. Can you put me on the next flight?"],9],
-    '3':[3,["Hello, I'm Nam, Third Officer, joining the Ocean Star. Are you from Star Shipping Agency?","So, seven o'clock tomorrow, in the lobby. Correct?"],7],
-    '4':[4,["I'm at the arrival hall, next to the Information desk. I can't find the agent. Where should I wait?","Could you call this number for me, please?"],6],
-    '5':[5,["Good morning. I'm Nam, the new Third Officer. I'm joining today.","What jobs are still open? Any defects I should know about?"],16]
-  };
-
-  function ga(ev, o){ try { if (window.gtag) gtag('event', ev, o || {}); } catch(e){} }
-  [].forEach.call(document.querySelectorAll('.muc'), function(m){
-    var k = (m.querySelector('.so') || {}).textContent, d = VD[k]; if (!d) return;
-    var box = document.createElement('div'); box.className = 'vd';
-    box.innerHTML = d[1].map(function(q){ return '<i></i>'; }).join('') +
-      '<a class="them" href="#"><span class="lg-en">+ ' + d[2] + ' more lines in this stage → get the guide</span>' +
-      '<span class="lg-vi">+ ' + d[2] + ' câu nữa trong chặng này → nhận tài liệu</span></a>';
-    [].forEach.call(box.querySelectorAll('i'), function(el, i){ el.textContent = d[1][i]; });
-    m.lastElementChild.appendChild(box);
-    m.addEventListener('click', function(e){
-      if (e.target.closest('.them')){
-        e.preventDefault(); e.stopPropagation();
-        ga('muc_nhan', { form_location: 'muc_' + k });
-        var f = document.querySelector('form'); if (f){ f.scrollIntoView({ behavior:'smooth', block:'center' }); setTimeout(function(){ try { f.ten.focus({ preventScroll:true }); } catch(x){} }, 600); }
-        return;
-      }
-      var mo = m.classList.toggle('mo');
-      if (mo) ga('muc_mo', { form_location: 'muc_' + k });
-    });
-  });
-  [].forEach.call(document.querySelectorAll('[data-gmail]'), function(a){
-    a.addEventListener('click', function(e){
-      var ua = navigator.userAgent, web = a.href;
-      ga('mo_gmail', { form_location: /Android/i.test(ua) ? 'android' : /iPhone|iPad/i.test(ua) ? 'ios' : 'may_tinh' });
-      if (/Android/i.test(ua)){
-        e.preventDefault();
-        location.href = 'intent://#Intent;scheme=googlegmail;package=com.google.android.gm;S.browser_fallback_url=' + encodeURIComponent(web) + ';end';
-      } else if (/iPhone|iPad/i.test(ua)){
-        e.preventDefault();
-        var t = Date.now(); location.href = 'googlegmail://';
-        setTimeout(function(){ if (Date.now() - t < 2000 && !document.hidden) location.href = web; }, 1200);
-      } else {
-        e.preventDefault(); window.open(web, '_blank', 'noopener') || (location.href = web);
-      }
-    });
-  });
-})();
-</script>
+<script>(function() {
+var VD = {
+1: [ 1, [ "No, I'm on a one-way ticket because I'm joining a ship. This is the Letter of Guarantee from my company.", "I'm a seafarer. I'm joining the bulk carrier Ocean Star at the port of Singapore." ], 13 ],
+2: [ 2, [ "I didn't fill in the online arrival card. Where can I do it?", "I missed my connection because my first flight was late. I'm a seafarer joining a ship. Can you put me on the next flight?" ], 9 ],
+3: [ 3, [ "Hello, I'm Nam, Third Officer, joining the Ocean Star. Are you from Star Shipping Agency?", "So, seven o'clock tomorrow, in the lobby. Correct?" ], 7 ],
+4: [ 4, [ "I'm at the arrival hall, next to the Information desk. I can't find the agent. Where should I wait?", "Could you call this number for me, please?" ], 6 ],
+5: [ 5, [ "Good morning. I'm Nam, the new Third Officer. I'm joining today.", "What jobs are still open? Any defects I should know about?" ], 16 ]
+};
+function ga(ev, o) {
+try {
+if (window.gtag) gtag("event", ev, o || {});
+} catch (e) {}
+}
+[].forEach.call(document.querySelectorAll(".muc"), (function(m) {
+var k = (m.querySelector(".so") || {}).textContent, d = VD[k];
+if (!d) return;
+var box = document.createElement("div");
+box.className = "vd";
+box.innerHTML = d[1].map((function(q) {
+return "<i></i>";
+})).join("") + '<a class="them" href="#"><span class="lg-en">+ ' + d[2] + " more lines in this stage → get the guide</span>" + '<span class="lg-fil">+ ' + d[2] + " pang linya sa yugtong ito → kunin ang guide</span>" + '<span class="lg-id">+ ' + d[2] + " kalimat lagi di tahap ini → dapatkan panduannya</span>" + '<span class="lg-my">+ ' + d[2] + " ဝါကျ ဒီအဆင့်မှာ ထပ်ရှိသည် → လမ်းညွှန်ကို ရယူပါ</span>" + '<span class="lg-vi">+ ' + d[2] + " câu nữa trong chặng này → nhận tài liệu</span></a>";
+[].forEach.call(box.querySelectorAll("i"), (function(el, i) {
+el.textContent = d[1][i];
+}));
+m.lastElementChild.appendChild(box);
+m.addEventListener("click", (function(e) {
+if (e.target.closest(".them")) {
+e.preventDefault();
+e.stopPropagation();
+ga("muc_nhan", {
+form_location: "muc_" + k
+});
+var f = document.querySelector("form");
+if (f) {
+f.scrollIntoView({
+behavior: "smooth",
+block: "center"
+});
+setTimeout((function() {
+try {
+f.ten.focus({
+preventScroll: true
+});
+} catch (x) {}
+}), 600);
+}
+return;
+}
+var mo = m.classList.toggle("mo");
+if (mo) ga("muc_mo", {
+form_location: "muc_" + k
+});
+}));
+}));
+[].forEach.call(document.querySelectorAll("[data-gmail]"), (function(a) {
+a.addEventListener("click", (function(e) {
+var ua = navigator.userAgent, web = a.href;
+ga("mo_gmail", {
+form_location: /Android/i.test(ua) ? "android" : /iPhone|iPad/i.test(ua) ? "ios" : "may_tinh"
+});
+if (/Android/i.test(ua)) {
+e.preventDefault();
+location.href = "intent://#Intent;scheme=googlegmail;package=com.google.android.gm;S.browser_fallback_url=" + encodeURIComponent(web) + ";end";
+} else if (/iPhone|iPad/i.test(ua)) {
+e.preventDefault();
+var t = Date.now();
+location.href = "googlegmail://";
+setTimeout((function() {
+if (Date.now() - t < 2e3 && !document.hidden) location.href = web;
+}), 1200);
+} else {
+e.preventDefault();
+window.open(web, "_blank", "noopener") || (location.href = web);
+}
+}));
+}));
+})();</script>
 </body>
 </html>

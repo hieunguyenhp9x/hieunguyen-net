@@ -13,7 +13,7 @@
 <meta property="og:url" content="https://hieunguyen.net/qua/70-cau/">
 
 <script>(function() {
-var l = null, m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
+var l = null, m = /[?&]lang=(vi|en|fil|id|my)(&|$)/.exec(location.search);
 if (m) {
 l = m[1];
 try {
@@ -25,7 +25,7 @@ try {
 l = localStorage.getItem("hn_lang");
 } catch (e) {}
 }
-if (l !== "vi" && l !== "en") l = "en";
+if ([ "vi", "en", "fil", "id", "my" ].indexOf(l) < 0) l = "en";
 document.documentElement.setAttribute("data-lang", l);
 document.documentElement.lang = l;
 })();
@@ -79,9 +79,31 @@ body {
   font-family: "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
   -webkit-font-smoothing: antialiased
 }
-html:not([data-lang="vi"]) .lg-vi,
-html[data-lang="vi"] .lg-en {
+html[data-lang="en"] .lg-fil,
+html[data-lang="en"] .lg-id,
+html[data-lang="en"] .lg-my,
+html[data-lang="en"] .lg-vi,
+html[data-lang="fil"] .lg-en,
+html[data-lang="fil"] .lg-id,
+html[data-lang="fil"] .lg-my,
+html[data-lang="fil"] .lg-vi,
+html[data-lang="id"] .lg-en,
+html[data-lang="id"] .lg-fil,
+html[data-lang="id"] .lg-my,
+html[data-lang="id"] .lg-vi,
+html[data-lang="my"] .lg-en,
+html[data-lang="my"] .lg-fil,
+html[data-lang="my"] .lg-id,
+html[data-lang="my"] .lg-vi,
+html[data-lang="vi"] .lg-en,
+html[data-lang="vi"] .lg-fil,
+html[data-lang="vi"] .lg-id,
+html[data-lang="vi"] .lg-my {
   display: none!important
+}
+html[data-lang="my"] body {
+  font-family: "Noto Sans Myanmar","Myanmar Text","Padauk",system-ui,sans-serif;
+  line-height: 1.85
 }
 a {
   color: var(--gold)
@@ -98,6 +120,9 @@ a {
 }
 .lang .seg {
   display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 100%;
   background: var(--navy-2);
   border: 1px solid var(--line);
   border-radius: 999px;
@@ -114,6 +139,19 @@ a {
   padding: 6px 14px;
   border-radius: 999px;
   cursor: pointer
+}
+.lang button[data-set-lang="my"] {
+  font-family: "Noto Sans Myanmar","Myanmar Text","Padauk",sans-serif
+}
+@media (max-width:480px) {
+  .lang .seg {
+    padding: 3px;
+    gap: 3px
+  }
+  .lang button {
+    font-size: 11.5px;
+    padding: 5px 10px
+  }
 }
 .lang button[aria-pressed="true"] {
   background: var(--gold);
@@ -439,72 +477,72 @@ footer {
 <body>
 <div class="wrap">
   <div class="lang"><div class="seg">
-    <button type="button" data-set-lang="en">ENGLISH</button><button type="button" data-set-lang="vi">TIẾNG VIỆT</button>
+    <button type="button" data-set-lang="en">ENGLISH</button><button type="button" data-set-lang="vi">TIẾNG VIỆT</button><button type="button" data-set-lang="fil">FILIPINO</button><button type="button" data-set-lang="id">BAHASA INDONESIA</button><button type="button" data-set-lang="my">မြန်မာ</button>
   </div></div>
 
   
   <section>
-    <p class="kicker"><span class="lg-en">Free · interview guide</span><span class="lg-vi">Tài liệu miễn phí</span></p>
+    <p class="kicker"><span class="lg-en">Free · interview guide</span><span class="lg-vi">Tài liệu miễn phí</span><span class="lg-fil">Libre · interview guide</span><span class="lg-id">Gratis · panduan interview</span><span class="lg-my">အခမဲ့ · အင်တာဗျူး လမ်းညွှန်</span></p>
     <h1>
       <span class="lg-en">70 Deck Officer interview questions, with the answers I'd give</span>
-      <span class="lg-vi">70 câu phỏng vấn Phó ba, Phó hai, kèm câu trả lời mẫu để học thuộc</span>
+      <span class="lg-vi">70 câu phỏng vấn Phó ba, Phó hai, kèm câu trả lời mẫu để học thuộc</span><span class="lg-fil">70 interview questions para sa Deck Officer, kasama ang sagot na ibibigay ko</span><span class="lg-id">70 pertanyaan interview Deck Officer, lengkap dengan jawaban yang akan saya berikan</span><span class="lg-my">Deck Officer အင်တာဗျူး မေးခွန်း 70 နှင့် ကျွန်တော် ဖြေမည့် အဖြေများ</span>
     </h1>
     <p class="lead">
       <span class="lg-en">The questions I collected on my way to Third Officer and then Second Officer. Eighteen of them were asked in my own 2/O interview in 2022. For every question: what the interviewer is testing, and a full answer you can learn.</span>
-      <span class="lg-vi">Bộ câu mình gom trên đường lên ghế Phó ba rồi Phó hai, trong đó 18 câu là người ta hỏi chính mình ở buổi phỏng vấn Phó hai năm 2022. Câu nào cũng có giải thích người phỏng vấn đang thử cái gì, và một câu trả lời mẫu hoàn chỉnh để học.</span>
+      <span class="lg-vi">Bộ câu mình gom trên đường lên ghế Phó ba rồi Phó hai, trong đó 18 câu là người ta hỏi chính mình ở buổi phỏng vấn Phó hai năm 2022. Câu nào cũng có giải thích người phỏng vấn đang thử cái gì, và một câu trả lời mẫu hoàn chỉnh để học.</span><span class="lg-fil">Mga tanong na naipon ko habang umaakyat ako sa Third Officer at pagkatapos sa Second Officer. Labing-walo rito ang tinanong mismo sa akin sa 2/O interview ko noong 2022. Sa bawat tanong: kung ano ang sinusubok ng interviewer, at isang buong sagot na puwede mong aralin.</span><span class="lg-id">Pertanyaan yang saya kumpulkan dalam perjalanan naik ke Third Officer lalu Second Officer. Delapan belas di antaranya ditanyakan langsung di interview 2/O saya tahun 2022. Untuk setiap pertanyaan: apa yang sedang diuji interviewer, dan jawaban lengkap yang bisa kamu pelajari.</span><span class="lg-my">Third Officer၊ ပြီးတော့ Second Officer ဖြစ်လာသည့် လမ်းတစ်လျှောက် ကျွန်တော် စုထားသော မေးခွန်းများ ဖြစ်သည်။ ၎င်းတို့ထဲမှ ၁၈ ခုကို ၂၀၂၂ ခုနှစ် ကျွန်တော့် 2/O အင်တာဗျူးတွင် တကယ် မေးခဲ့သည်။ မေးခွန်းတိုင်းတွင် အင်တာဗျူးသူ ဘာကို စမ်းနေသလဲ နှင့် လေ့လာနိုင်သော အဖြေအပြည့်အစုံ ပါသည်။</span>
     </p>
     <ul class="tick">
-      <li><span class="lg-en">A full sample answer for all 70, in plain English you can say out loud.</span><span class="lg-vi">Đủ câu trả lời mẫu cho cả 70 câu, tiếng Anh có tiếng Việt bên dưới.</span></li>
-      <li><span class="lg-en">You'll know what each question is testing, so you stop giving general answers.</span><span class="lg-vi">Biết câu hỏi đang thử cái gì, nên không còn trả lời chung chung.</span></li>
-      <li><span class="lg-en">Split by rank: 20 for Third Officer, 50 for Second Officer.</span><span class="lg-vi">Chia theo chức danh: 20 câu Phó ba, 50 câu Phó hai.</span></li>
+      <li><span class="lg-en">A full sample answer for all 70, in plain English you can say out loud.</span><span class="lg-vi">Đủ câu trả lời mẫu cho cả 70 câu, tiếng Anh có tiếng Việt bên dưới.</span><span class="lg-fil">Buong sample answer para sa lahat ng 70, sa simpleng English na kaya mong sabihin nang malakas.</span><span class="lg-id">Contoh jawaban lengkap untuk ke-70 pertanyaan, dalam bahasa Inggris sederhana yang bisa kamu ucapkan dengan lantang.</span><span class="lg-my">မေးခွန်း 70 လုံးအတွက် နမူနာ အဖြေအပြည့်အစုံ၊ အသံကျယ်ကျယ် ပြောနိုင်သော ရိုးရှင်းသည့် English ဖြင့်။</span></li>
+      <li><span class="lg-en">You'll know what each question is testing, so you stop giving general answers.</span><span class="lg-vi">Biết câu hỏi đang thử cái gì, nên không còn trả lời chung chung.</span><span class="lg-fil">Malalaman mo kung ano ang sinusubok ng bawat tanong, kaya hindi ka na magbibigay ng pangkalahatang sagot.</span><span class="lg-id">Kamu tahu apa yang diuji setiap pertanyaan, jadi tidak lagi menjawab secara umum.</span><span class="lg-my">မေးခွန်းတစ်ခုချင်း ဘာကို စမ်းနေသလဲ သိလာမည်ဖြစ်၍ ယေဘုယျ အဖြေမျိုး မဖြေတော့ပါ။</span></li>
+      <li><span class="lg-en">Split by rank: 20 for Third Officer, 50 for Second Officer.</span><span class="lg-vi">Chia theo chức danh: 20 câu Phó ba, 50 câu Phó hai.</span><span class="lg-fil">Hinati ayon sa rank: 20 para sa Third Officer, 50 para sa Second Officer.</span><span class="lg-id">Dibagi per jabatan: 20 untuk Third Officer, 50 untuk Second Officer.</span><span class="lg-my">ရာထူးအလိုက် ခွဲထားသည်- Third Officer အတွက် 20၊ Second Officer အတွက် 50။</span></li>
     </ul>
     <div class="form" data-form></div>
   </section>
 
   
   <section>
-    <h2><span class="lg-en">Interview coming up and you still don't feel ready?</span><span class="lg-vi">Sắp phỏng vấn mà vẫn thấy chưa chắc?</span></h2>
-    <p class="lead"><span class="lg-en">Maybe one of these sounds like you:</span><span class="lg-vi">Có thể bạn đang gặp một trong mấy chuyện này:</span></p>
+    <h2><span class="lg-en">Interview coming up and you still don't feel ready?</span><span class="lg-vi">Sắp phỏng vấn mà vẫn thấy chưa chắc?</span><span class="lg-fil">Malapit na ang interview at hindi ka pa rin handa?</span><span class="lg-id">Interview sudah dekat tapi masih merasa belum siap?</span><span class="lg-my">အင်တာဗျူး နီးလာပြီ၊ အဆင်သင့် မဖြစ်သေးဘူးလို့ ခံစားရနေသလား?</span></h2>
+    <p class="lead"><span class="lg-en">Maybe one of these sounds like you:</span><span class="lg-vi">Có thể bạn đang gặp một trong mấy chuyện này:</span><span class="lg-fil">Baka isa rito ang nangyayari sa iyo:</span><span class="lg-id">Mungkin salah satu ini mirip denganmu:</span><span class="lg-my">ဒီထဲက တစ်ခုခုက သင်နဲ့ တူနေနိုင်ပါတယ်-</span></p>
     <ul class="dau">
-      <li><span class="lg-en">You learned a whole stack of questions, then blanked on the first one in the room.</span><span class="lg-vi">Học thuộc cả xấp câu hỏi, vào phòng nghe câu đầu đã quên sạch.</span></li>
-      <li><span class="lg-en">You know the answer, but in English it won't come out as a sentence.</span><span class="lg-vi">Biết câu trả lời bằng tiếng Việt, nói ra tiếng Anh thì không thành câu.</span></li>
-      <li><span class="lg-en">Your answer was right and you still failed, because it sounded like a textbook.</span><span class="lg-vi">Trả lời đúng mà vẫn trượt, vì nghe như đọc sách.</span></li>
-      <li><span class="lg-en">You've been ashore a while and worry they'll ask about something you've forgotten.</span><span class="lg-vi">Nghỉ tàu lâu, sợ bị hỏi đúng thứ mình đã quên.</span></li>
-      <li><span class="lg-en">Everything online is questions only, no answers from someone who sat in that chair.</span><span class="lg-vi">Tài liệu trên mạng toàn câu hỏi, không có câu trả lời của người đã ngồi ghế đó.</span></li>
-      <li><span class="lg-en">You don't know which questions companies ask, so you study everything.</span><span class="lg-vi">Không biết công ty hay hỏi câu nào, nên học tràn lan.</span></li>
+      <li><span class="lg-en">You learned a whole stack of questions, then blanked on the first one in the room.</span><span class="lg-vi">Học thuộc cả xấp câu hỏi, vào phòng nghe câu đầu đã quên sạch.</span><span class="lg-fil">Kinabisado mo ang isang tambak na tanong, tapos nablangko ka sa unang tanong pa lang sa loob ng kuwarto.</span><span class="lg-id">Sudah hafal setumpuk pertanyaan, tapi di ruangan langsung blank di pertanyaan pertama.</span><span class="lg-my">မေးခွန်းတွေ အများကြီး ကျက်ထားပေမဲ့ အခန်းထဲ ရောက်တော့ ပထမ မေးခွန်းမှာတင် ခေါင်းထဲ ဗလာ ဖြစ်သွားသည်။</span></li>
+      <li><span class="lg-en">You know the answer, but in English it won't come out as a sentence.</span><span class="lg-vi">Biết câu trả lời bằng tiếng Việt, nói ra tiếng Anh thì không thành câu.</span><span class="lg-fil">Alam mo ang sagot, pero sa English hindi ito lumalabas bilang buong pangungusap.</span><span class="lg-id">Kamu tahu jawabannya, tapi dalam bahasa Inggris tidak keluar jadi kalimat.</span><span class="lg-my">အဖြေကို သိပေမဲ့ English လို ဝါကျ မဖြစ်လာဘူး။</span></li>
+      <li><span class="lg-en">Your answer was right and you still failed, because it sounded like a textbook.</span><span class="lg-vi">Trả lời đúng mà vẫn trượt, vì nghe như đọc sách.</span><span class="lg-fil">Tama ang sagot mo pero bumagsak ka pa rin, dahil parang galing sa libro ang tunog.</span><span class="lg-id">Jawabanmu benar tapi tetap gagal, karena terdengar seperti membaca buku.</span><span class="lg-my">အဖြေ မှန်ပေမဲ့ စာအုပ်ဖတ်နေသလို ဖြစ်နေလို့ ကျသွားသည်။</span></li>
+      <li><span class="lg-en">You've been ashore a while and worry they'll ask about something you've forgotten.</span><span class="lg-vi">Nghỉ tàu lâu, sợ bị hỏi đúng thứ mình đã quên.</span><span class="lg-fil">Matagal ka nang nasa bahay at nag-aalala kang itanong nila ang bagay na nakalimutan mo na.</span><span class="lg-id">Sudah lama di darat dan khawatir ditanya hal yang sudah kamu lupa.</span><span class="lg-my">ကုန်းပေါ်မှာ ကြာနေပြီဖြစ်လို့ မေ့နေတဲ့ အကြောင်းကို မေးမှာ စိုးရိမ်နေသည်။</span></li>
+      <li><span class="lg-en">Everything online is questions only, no answers from someone who sat in that chair.</span><span class="lg-vi">Tài liệu trên mạng toàn câu hỏi, không có câu trả lời của người đã ngồi ghế đó.</span><span class="lg-fil">Puro tanong lang ang nasa internet, walang sagot mula sa taong talagang umupo sa upuang iyon.</span><span class="lg-id">Di internet isinya cuma pertanyaan, tidak ada jawaban dari orang yang pernah duduk di kursi itu.</span><span class="lg-my">အွန်လိုင်းမှာ မေးခွန်းတွေချည်းပဲ၊ အဲဒီ ကုလားထိုင်မှာ တကယ် ထိုင်ခဲ့ဖူးသူရဲ့ အဖြေ မရှိဘူး။</span></li>
+      <li><span class="lg-en">You don't know which questions companies ask, so you study everything.</span><span class="lg-vi">Không biết công ty hay hỏi câu nào, nên học tràn lan.</span><span class="lg-fil">Hindi mo alam kung anong mga tanong ang itinatanong ng kumpanya, kaya inaaral mo lahat.</span><span class="lg-id">Tidak tahu perusahaan biasa tanya apa, jadi belajar semuanya.</span><span class="lg-my">ကုမ္ပဏီတွေ ဘာမေးလေ့ရှိလဲ မသိလို့ အကုန် လေ့လာနေရသည်။</span></li>
     </ul>
   </section>
 
   
   <section>
-    <p class="chot"><span class="lg-en">The interviewer isn't checking whether you memorised the book. He's checking whether you've done the job yourself.</span><span class="lg-vi">Người phỏng vấn không chấm xem bạn thuộc sách. Họ chấm xem bạn đã tự tay làm việc đó chưa.</span></p>
-    <p class="lead"><span class="lg-en">And it's decided in your first sentence. If he asks which group, your first sentence is the group. If he asks how long, your first sentence is the number. Then two or three points, then stop.</span><span class="lg-vi">Và nó được quyết ngay ở câu đầu tiên. Hỏi nhóm nào thì câu đầu nói nhóm. Hỏi bao lâu thì câu đầu nói con số. Sau đó hai, ba ý, rồi dừng.</span></p>
-    <p class="lead"><span class="lg-en">Every answer in this guide is written that way, so you learn the shape as well as the words.</span><span class="lg-vi">Câu trả lời nào trong bộ này cũng viết theo cách đó, để bạn học cả cái khung chứ không chỉ học chữ.</span></p>
+    <p class="chot"><span class="lg-en">The interviewer isn't checking whether you memorised the book. He's checking whether you've done the job yourself.</span><span class="lg-vi">Người phỏng vấn không chấm xem bạn thuộc sách. Họ chấm xem bạn đã tự tay làm việc đó chưa.</span><span class="lg-fil">Hindi tinitingnan ng interviewer kung kabisado mo ang libro. Tinitingnan niya kung nagawa mo na mismo ang trabaho.</span><span class="lg-id">Interviewer tidak menilai apakah kamu hafal buku. Dia menilai apakah kamu sudah pernah mengerjakan tugas itu sendiri.</span><span class="lg-my">အင်တာဗျူးသူက စာအုပ် အလွတ်ရလား မစစ်ပါ။ အဲဒီ အလုပ်ကို ကိုယ်တိုင် လုပ်ဖူးလား စစ်တာပါ။</span></p>
+    <p class="lead"><span class="lg-en">And it's decided in your first sentence. If he asks which group, your first sentence is the group. If he asks how long, your first sentence is the number. Then two or three points, then stop.</span><span class="lg-vi">Và nó được quyết ngay ở câu đầu tiên. Hỏi nhóm nào thì câu đầu nói nhóm. Hỏi bao lâu thì câu đầu nói con số. Sau đó hai, ba ý, rồi dừng.</span><span class="lg-fil">At napagpapasyahan ito sa unang pangungusap mo. Kung itinanong kung anong grupo, ang unang pangungusap mo ay ang grupo. Kung itinanong kung gaano katagal, ang unang pangungusap mo ay ang numero. Tapos dalawa o tatlong punto, tapos tumigil.</span><span class="lg-id">Dan itu ditentukan di kalimat pertamamu. Kalau ditanya kelompok yang mana, kalimat pertama adalah kelompoknya. Kalau ditanya berapa lama, kalimat pertama adalah angkanya. Lalu dua atau tiga poin, lalu berhenti.</span><span class="lg-my">ပြီးတော့ အဲဒါကို သင့်ရဲ့ ပထမ ဝါကျမှာတင် ဆုံးဖြတ်သည်။ ဘယ်အုပ်စုလဲ မေးရင် ပထမ ဝါကျက အုပ်စု။ ဘယ်လောက်ကြာလဲ မေးရင် ပထမ ဝါကျက ကိန်းဂဏန်း။ ပြီးရင် အချက် နှစ်ချက် သုံးချက်၊ ပြီးရင် ရပ်။</span></p>
+    <p class="lead"><span class="lg-en">Every answer in this guide is written that way, so you learn the shape as well as the words.</span><span class="lg-vi">Câu trả lời nào trong bộ này cũng viết theo cách đó, để bạn học cả cái khung chứ không chỉ học chữ.</span><span class="lg-fil">Ganyan isinulat ang bawat sagot sa guide na ito, kaya natututunan mo ang hugis ng sagot, hindi lang ang mga salita.</span><span class="lg-id">Setiap jawaban di panduan ini ditulis dengan cara itu, jadi kamu belajar polanya, bukan cuma kata-katanya.</span><span class="lg-my">ဒီလမ်းညွှန်ထဲက အဖြေတိုင်းကို အဲဒီပုံစံနဲ့ ရေးထားလို့ စကားလုံးတင်မက ပုံစံကိုပါ သင်ယူရသည်။</span></p>
   </section>
 
   
   <section>
-    <h2><span class="lg-en">What's inside: 2 parts, 8 sections</span><span class="lg-vi">Bên trong có gì: 2 phần, 8 nhóm câu</span></h2>
-    <p class="phan"><span class="lg-en">Part 1 · Third Officer · questions 1–20</span><span class="lg-vi">Phần 1 · Phó ba · câu 1–20</span></p>
-    <div class="muc"><div class="so">A</div><div><b><span class="lg-en">Opening and your role</span><span class="lg-vi">Mở màn và vai trò</span></b><span class="lg-en">"Tell me about yourself" and what a Third Officer is responsible for.</span><span class="lg-vi">"Giới thiệu bản thân" và Phó ba chịu trách nhiệm những gì.</span></div></div>
-    <div class="muc"><div class="so">B</div><div><b><span class="lg-en">Watchkeeping and COLREG</span><span class="lg-vi">Trực ca và COLREG</span></b><span class="lg-en">Where most people fail.</span><span class="lg-vi">Chỗ rớt nhiều nhất.</span></div></div>
-    <div class="muc"><div class="so">C</div><div><b><span class="lg-en">Bridge equipment and GMDSS</span><span class="lg-vi">Thiết bị buồng lái và GMDSS</span></b><span class="lg-en">The checks and tests they expect you to know by heart.</span><span class="lg-vi">Những lần kiểm, lần thử người ta muốn bạn thuộc lòng.</span></div></div>
-    <div class="muc"><div class="so">D</div><div><b><span class="lg-en">Lifesaving and firefighting</span><span class="lg-vi">Cứu sinh và chữa cháy (LSA / FFA)</span></b><span class="lg-en">The core of the Third Officer's job.</span><span class="lg-vi">Lõi nghề của Phó ba.</span></div></div>
-    <p class="phan"><span class="lg-en">Part 2 · Second Officer · questions 21–70</span><span class="lg-vi">Phần 2 · Phó hai · câu 21–70</span></p>
-    <div class="muc"><div class="so">E</div><div><b><span class="lg-en">Your record, documents and availability</span><span class="lg-vi">Hồ sơ, giấy tờ và ngày sẵn sàng</span></b><span class="lg-en">The questions crewing asks before anything technical.</span><span class="lg-vi">Những câu phòng crewing hỏi trước cả chuyên môn.</span></div></div>
-    <div class="muc"><div class="so">F</div><div><b><span class="lg-en">Multinational crew and life on board</span><span class="lg-vi">Thuyền viên nhiều quốc tịch, đời sống trên tàu</span></b><span class="lg-en">How you work with people, not just with equipment.</span><span class="lg-vi">Bạn làm việc với người ra sao, không chỉ với máy móc.</span></div></div>
-    <div class="muc"><div class="so">G</div><div><b><span class="lg-en">The Second Officer's job and the passage plan</span><span class="lg-vi">Việc của Phó hai và kế hoạch chuyến đi</span></b><span class="lg-en">The questions that decide a 2/O interview.</span><span class="lg-vi">Nhóm câu quyết định buổi phỏng vấn Phó hai.</span></div></div>
-    <div class="muc"><div class="so">H</div><div><b><span class="lg-en">ECDIS and charts</span><span class="lg-vi">ECDIS và hải đồ</span></b><span class="lg-en">Safety settings, chart corrections, what to do when it fails.</span><span class="lg-vi">Cài đặt an toàn, tu chỉnh hải đồ, máy hỏng thì làm gì.</span></div></div>
+    <h2><span class="lg-en">What's inside: 2 parts, 8 sections</span><span class="lg-vi">Bên trong có gì: 2 phần, 8 nhóm câu</span><span class="lg-fil">Ano ang laman: 2 bahagi, 8 seksyon</span><span class="lg-id">Isinya: 2 bagian, 8 kelompok</span><span class="lg-my">အထဲမှာ ဘာပါလဲ- အပိုင်း 2၊ အုပ်စု 8</span></h2>
+    <p class="phan"><span class="lg-en">Part 1 · Third Officer · questions 1–20</span><span class="lg-vi">Phần 1 · Phó ba · câu 1–20</span><span class="lg-fil">Bahagi 1 · Third Officer · tanong 1–20</span><span class="lg-id">Bagian 1 · Third Officer · pertanyaan 1–20</span><span class="lg-my">အပိုင်း 1 · Third Officer · မေးခွန်း 1–20</span></p>
+    <div class="muc"><div class="so">A</div><div><b><span class="lg-en">Opening and your role</span><span class="lg-vi">Mở màn và vai trò</span><span class="lg-fil">Pagbubukas at ang papel mo</span><span class="lg-id">Pembukaan dan peranmu</span><span class="lg-my">အစပိုင်းနှင့် သင့်တာဝန်</span></b><span class="lg-en">"Tell me about yourself" and what a Third Officer is responsible for.</span><span class="lg-vi">"Giới thiệu bản thân" và Phó ba chịu trách nhiệm những gì.</span><span class="lg-fil">"Tell me about yourself" at kung ano ang responsibilidad ng Third Officer.</span><span class="lg-id">"Tell me about yourself" dan apa saja tanggung jawab Third Officer.</span><span class="lg-my">"Tell me about yourself" နှင့် Third Officer ၏ တာဝန်များ။</span></div></div>
+    <div class="muc"><div class="so">B</div><div><b><span class="lg-en">Watchkeeping and COLREG</span><span class="lg-vi">Trực ca và COLREG</span><span class="lg-fil">Watchkeeping at COLREG</span><span class="lg-id">Tugas jaga dan COLREG</span><span class="lg-my">Watchkeeping နှင့် COLREG</span></b><span class="lg-en">Where most people fail.</span><span class="lg-vi">Chỗ rớt nhiều nhất.</span><span class="lg-fil">Dito pinakamaraming bumabagsak.</span><span class="lg-id">Bagian yang paling banyak membuat gagal.</span><span class="lg-my">လူအများဆုံး ကျတဲ့နေရာ။</span></div></div>
+    <div class="muc"><div class="so">C</div><div><b><span class="lg-en">Bridge equipment and GMDSS</span><span class="lg-vi">Thiết bị buồng lái và GMDSS</span><span class="lg-fil">Bridge equipment at GMDSS</span><span class="lg-id">Peralatan anjungan dan GMDSS</span><span class="lg-my">Bridge စက်ပစ္စည်းများနှင့် GMDSS</span></b><span class="lg-en">The checks and tests they expect you to know by heart.</span><span class="lg-vi">Những lần kiểm, lần thử người ta muốn bạn thuộc lòng.</span><span class="lg-fil">Ang mga check at test na inaasahan nilang kabisado mo.</span><span class="lg-id">Pemeriksaan dan pengujian yang mereka harap kamu hafal.</span><span class="lg-my">သင် အလွတ်ရရမယ်လို့ သူတို့ မျှော်လင့်တဲ့ စစ်ဆေးမှုနှင့် စမ်းသပ်မှုများ။</span></div></div>
+    <div class="muc"><div class="so">D</div><div><b><span class="lg-en">Lifesaving and firefighting</span><span class="lg-vi">Cứu sinh và chữa cháy (LSA / FFA)</span><span class="lg-fil">Lifesaving at firefighting</span><span class="lg-id">Alat keselamatan dan pemadam kebakaran</span><span class="lg-my">အသက်ကယ်နှင့် မီးသတ်</span></b><span class="lg-en">The core of the Third Officer's job.</span><span class="lg-vi">Lõi nghề của Phó ba.</span><span class="lg-fil">Ang puso ng trabaho ng Third Officer.</span><span class="lg-id">Inti dari pekerjaan Third Officer.</span><span class="lg-my">Third Officer အလုပ်ရဲ့ အဓိကအပိုင်း။</span></div></div>
+    <p class="phan"><span class="lg-en">Part 2 · Second Officer · questions 21–70</span><span class="lg-vi">Phần 2 · Phó hai · câu 21–70</span><span class="lg-fil">Bahagi 2 · Second Officer · tanong 21–70</span><span class="lg-id">Bagian 2 · Second Officer · pertanyaan 21–70</span><span class="lg-my">အပိုင်း 2 · Second Officer · မေးခွန်း 21–70</span></p>
+    <div class="muc"><div class="so">E</div><div><b><span class="lg-en">Your record, documents and availability</span><span class="lg-vi">Hồ sơ, giấy tờ và ngày sẵn sàng</span><span class="lg-fil">Ang record mo, mga dokumento at availability</span><span class="lg-id">Riwayat, dokumen, dan kesiapan berangkat</span><span class="lg-my">သင့်မှတ်တမ်း၊ စာရွက်စာတမ်းများနှင့် ထွက်နိုင်မည့်ရက်</span></b><span class="lg-en">The questions crewing asks before anything technical.</span><span class="lg-vi">Những câu phòng crewing hỏi trước cả chuyên môn.</span><span class="lg-fil">Ang mga tanong ng crewing bago pa ang anumang teknikal.</span><span class="lg-id">Pertanyaan dari crewing sebelum masuk ke hal teknis.</span><span class="lg-my">နည်းပညာမေးခွန်း မတိုင်ခင် crewing က မေးတဲ့ မေးခွန်းများ။</span></div></div>
+    <div class="muc"><div class="so">F</div><div><b><span class="lg-en">Multinational crew and life on board</span><span class="lg-vi">Thuyền viên nhiều quốc tịch, đời sống trên tàu</span><span class="lg-fil">Multinational crew at buhay sa barko</span><span class="lg-id">Kru multinasional dan kehidupan di kapal</span><span class="lg-my">နိုင်ငံစုံ သင်္ဘောသားများနှင့် သင်္ဘောပေါ် ဘဝ</span></b><span class="lg-en">How you work with people, not just with equipment.</span><span class="lg-vi">Bạn làm việc với người ra sao, không chỉ với máy móc.</span><span class="lg-fil">Kung paano ka makisama sa tao, hindi lang sa makina.</span><span class="lg-id">Bagaimana kamu bekerja dengan orang, bukan cuma dengan mesin.</span><span class="lg-my">စက်ပစ္စည်းတင်မက လူနဲ့ ဘယ်လို အလုပ်လုပ်သလဲ။</span></div></div>
+    <div class="muc"><div class="so">G</div><div><b><span class="lg-en">The Second Officer's job and the passage plan</span><span class="lg-vi">Việc của Phó hai và kế hoạch chuyến đi</span><span class="lg-fil">Ang trabaho ng Second Officer at ang passage plan</span><span class="lg-id">Tugas Second Officer dan passage plan</span><span class="lg-my">Second Officer ၏ အလုပ်နှင့် passage plan</span></b><span class="lg-en">The questions that decide a 2/O interview.</span><span class="lg-vi">Nhóm câu quyết định buổi phỏng vấn Phó hai.</span><span class="lg-fil">Ang mga tanong na nagpapasya sa 2/O interview.</span><span class="lg-id">Pertanyaan yang menentukan interview 2/O.</span><span class="lg-my">2/O အင်တာဗျူးကို ဆုံးဖြတ်ပေးတဲ့ မေးခွန်းများ။</span></div></div>
+    <div class="muc"><div class="so">H</div><div><b><span class="lg-en">ECDIS and charts</span><span class="lg-vi">ECDIS và hải đồ</span><span class="lg-fil">ECDIS at charts</span><span class="lg-id">ECDIS dan peta laut</span><span class="lg-my">ECDIS နှင့် ပင်လယ်မြေပုံ</span></b><span class="lg-en">Safety settings, chart corrections, what to do when it fails.</span><span class="lg-vi">Cài đặt an toàn, tu chỉnh hải đồ, máy hỏng thì làm gì.</span><span class="lg-fil">Safety settings, chart corrections, at ano ang gagawin kapag nasira.</span><span class="lg-id">Pengaturan keselamatan, koreksi peta, dan apa yang dilakukan saat rusak.</span><span class="lg-my">Safety settings၊ chart correction နှင့် ပျက်သွားရင် ဘာလုပ်ရမလဲ။</span></div></div>
   </section>
 
   
   <section>
-    <h2><span class="lg-en">This guide is for you if you are</span><span class="lg-vi">Bộ này dành cho bạn nếu bạn là</span></h2>
+    <h2><span class="lg-en">This guide is for you if you are</span><span class="lg-vi">Bộ này dành cho bạn nếu bạn là</span><span class="lg-fil">Para sa iyo ang guide na ito kung ikaw ay</span><span class="lg-id">Panduan ini untukmu kalau kamu</span><span class="lg-my">သင်ဟာ အောက်ပါအတိုင်း ဖြစ်ရင် ဒီလမ်းညွှန်က သင့်အတွက်ပါ</span></h2>
     <ul class="tick">
-      <li><span class="lg-en">A cadet about to interview for Third Officer.</span><span class="lg-vi">Cadet sắp phỏng vấn lên Phó ba.</span></li>
-      <li><span class="lg-en">A Third Officer getting ready for Second.</span><span class="lg-vi">Phó ba đang chuẩn bị lên Phó hai.</span></li>
-      <li><span class="lg-en">Sailing on coastal or domestic ships and aiming for a foreign-going company.</span><span class="lg-vi">Đang đi tàu nội địa, muốn ra tàu nước ngoài.</span></li>
-      <li><span class="lg-en">Back from a long break ashore and need to get your answers back in shape.</span><span class="lg-vi">Nghỉ tàu lâu, cần ôn lại trước buổi phỏng vấn.</span></li>
+      <li><span class="lg-en">A cadet about to interview for Third Officer.</span><span class="lg-vi">Cadet sắp phỏng vấn lên Phó ba.</span><span class="lg-fil">Cadet na malapit nang mag-interview para sa Third Officer.</span><span class="lg-id">Kadet yang sebentar lagi interview untuk Third Officer.</span><span class="lg-my">Third Officer အင်တာဗျူး ဖြေတော့မယ့် cadet။</span></li>
+      <li><span class="lg-en">A Third Officer getting ready for Second.</span><span class="lg-vi">Phó ba đang chuẩn bị lên Phó hai.</span><span class="lg-fil">Third Officer na naghahanda para sa Second.</span><span class="lg-id">Third Officer yang bersiap naik ke Second.</span><span class="lg-my">Second ဖြစ်ဖို့ ပြင်ဆင်နေတဲ့ Third Officer။</span></li>
+      <li><span class="lg-en">Sailing on coastal or domestic ships and aiming for a foreign-going company.</span><span class="lg-vi">Đang đi tàu nội địa, muốn ra tàu nước ngoài.</span><span class="lg-fil">Nasa coastal o domestic na barko at gustong lumipat sa foreign-going na kumpanya.</span><span class="lg-id">Sedang berlayar di kapal domestik dan ingin pindah ke perusahaan pelayaran internasional.</span><span class="lg-my">ပြည်တွင်း သင်္ဘောမှာ လုပ်နေပြီး နိုင်ငံခြား ကုမ္ပဏီကို သွားချင်သူ။</span></li>
+      <li><span class="lg-en">Back from a long break ashore and need to get your answers back in shape.</span><span class="lg-vi">Nghỉ tàu lâu, cần ôn lại trước buổi phỏng vấn.</span><span class="lg-fil">Bumalik mula sa mahabang bakasyon sa bahay at kailangang ihanda ulit ang mga sagot mo.</span><span class="lg-id">Baru kembali setelah lama di darat dan perlu menyiapkan lagi jawabanmu.</span><span class="lg-my">ကုန်းပေါ်မှာ အကြာကြီး နားပြီးမှ ပြန်လာလို့ အဖြေတွေကို ပြန်ပြင်ဆင်ဖို့ လိုသူ။</span></li>
     </ul>
   </section>
 
@@ -513,33 +551,33 @@ footer {
     <div class="tac">
       <div class="anh" style="background-image:url('/assets/portrait.jpg'); background-position:center 18%"></div>
       <div>
-        <h2><span class="lg-en">I'm Hieu Nguyen</span><span class="lg-vi">Mình là Nguyễn Chí Hiếu</span></h2>
-        <p class="lead"><span class="lg-en">Deck officer on bulk carriers. I went from cadet to Third Officer to Second Officer, and left school with almost no English. I taught myself to TOEIC 600+ and then through interviews with international companies.</span><span class="lg-vi">Sĩ quan boong tàu hàng rời. Mình đi từ cadet lên Phó ba rồi Phó hai, hết cấp 3 tiếng Anh gần như bằng không, tự học tới TOEIC hơn 600 rồi qua phỏng vấn các công ty nước ngoài.</span></p>
-        <p class="lead"><span class="lg-en">I wrote these answers the way I'd say them in the room. Learn the shape, then swap in your own ship, cargo and sea time.</span><span class="lg-vi">Mình viết câu trả lời đúng như mình sẽ nói trong phòng. Học cái khung, rồi thay tàu, loại hàng, số tháng đi biển của chính bạn vào.</span></p>
+        <h2><span class="lg-en">I'm Hieu Nguyen</span><span class="lg-vi">Mình là Nguyễn Chí Hiếu</span><span class="lg-fil">Ako si Hieu Nguyen</span><span class="lg-id">Saya Hieu Nguyen</span><span class="lg-my">ကျွန်တော် Hieu Nguyen ပါ</span></h2>
+        <p class="lead"><span class="lg-en">Deck officer on bulk carriers. I went from cadet to Third Officer to Second Officer, and left school with almost no English. I taught myself to TOEIC 600+ and then through interviews with international companies.</span><span class="lg-vi">Sĩ quan boong tàu hàng rời. Mình đi từ cadet lên Phó ba rồi Phó hai, hết cấp 3 tiếng Anh gần như bằng không, tự học tới TOEIC hơn 600 rồi qua phỏng vấn các công ty nước ngoài.</span><span class="lg-fil">Deck officer sa bulk carrier. Mula cadet, naging Third Officer, tapos Second Officer, at halos walang English nang matapos ako sa school. Nag-self-study ako hanggang TOEIC 600+ at nakapasa sa mga interview ng international na kumpanya.</span><span class="lg-id">Deck officer di kapal bulk carrier. Saya naik dari kadet ke Third Officer lalu Second Officer, dan lulus sekolah dengan bahasa Inggris hampir nol. Saya belajar sendiri sampai TOEIC 600+ lalu lolos interview di perusahaan internasional.</span><span class="lg-my">Bulk carrier သင်္ဘောပေါ်က deck officer ပါ။ Cadet ကနေ Third Officer၊ ပြီးတော့ Second Officer ဖြစ်လာခဲ့ပြီး ကျောင်းပြီးချိန်မှာ English လုံးဝနီးပါး မတတ်ခဲ့ပါ။ ကိုယ့်ဘာသာ လေ့လာပြီး TOEIC 600+ ရခဲ့ကာ နိုင်ငံတကာ ကုမ္ပဏီ အင်တာဗျူးတွေကို အောင်ခဲ့သည်။</span></p>
+        <p class="lead"><span class="lg-en">I wrote these answers the way I'd say them in the room. Learn the shape, then swap in your own ship, cargo and sea time.</span><span class="lg-vi">Mình viết câu trả lời đúng như mình sẽ nói trong phòng. Học cái khung, rồi thay tàu, loại hàng, số tháng đi biển của chính bạn vào.</span><span class="lg-fil">Isinulat ko ang mga sagot na ito kung paano ko sasabihin sa loob ng kuwarto. Aralin ang hugis, tapos ilagay ang sarili mong barko, cargo at sea time.</span><span class="lg-id">Saya menulis jawaban ini persis seperti yang akan saya ucapkan di ruangan. Pelajari polanya, lalu ganti dengan kapal, muatan, dan masa layarmu sendiri.</span><span class="lg-my">ဒီအဖြေတွေကို အခန်းထဲမှာ ကျွန်တော် ပြောမယ့်အတိုင်း ရေးထားပါတယ်။ ပုံစံကို လေ့လာပြီး ကိုယ့်သင်္ဘော၊ ကုန်နှင့် ပင်လယ်သက်တမ်းကို အစားထိုးပါ။</span></p>
       </div>
     </div>
   </section>
 
   
   <section>
-    <h2><span class="lg-en">Get the 70 questions</span><span class="lg-vi">Nhận bộ 70 câu</span></h2>
-    <p class="lead"><span class="lg-en">Add your name and email and it's yours.</span><span class="lg-vi">Điền tên và email là nhận được.</span></p>
+    <h2><span class="lg-en">Get the 70 questions</span><span class="lg-vi">Nhận bộ 70 câu</span><span class="lg-fil">Kunin ang 70 tanong</span><span class="lg-id">Dapatkan 70 pertanyaan</span><span class="lg-my">မေးခွန်း 70 ကို ရယူပါ</span></h2>
+    <p class="lead"><span class="lg-en">Add your name and email and it's yours.</span><span class="lg-vi">Điền tên và email là nhận được.</span><span class="lg-fil">Ilagay ang pangalan at email mo at sa iyo na ito.</span><span class="lg-id">Isi nama dan email, langsung jadi milikmu.</span><span class="lg-my">နာမည်နှင့် email ဖြည့်လိုက်ရင် သင့်ဟာ ဖြစ်ပြီ။</span></p>
     <div class="form" data-form></div>
   </section>
 
   
   <section class="faq">
-    <h2><span class="lg-en">Questions</span><span class="lg-vi">Câu hỏi thường gặp</span></h2>
-    <details><summary><span class="lg-en">Does it cost anything?</span><span class="lg-vi">Có mất tiền không?</span></summary>
-      <p><span class="lg-en">No. It's free.</span><span class="lg-vi">Không. Miễn phí.</span></p></details>
-    <details><summary><span class="lg-en">How do I get it?</span><span class="lg-vi">Nhận bằng cách nào?</span></summary>
-      <p><span class="lg-en">Add your name and email above and it opens straight away on this site, with a Download PDF button.</span><span class="lg-vi">Điền tên và email ở trên là tài liệu mở ngay trên web, có nút Tải PDF.</span></p></details>
-    <details><summary><span class="lg-en">Can I read it on my phone?</span><span class="lg-vi">Đọc trên điện thoại được không?</span></summary>
-      <p><span class="lg-en">Yes. It opens on the page, you scroll down to read, and there is a Download PDF button at the top.</span><span class="lg-vi">Được. Mở ra ngay trên trang, kéo xuống để đọc, có nút Tải PDF ở trên cùng.</span></p></details>
-    <details><summary><span class="lg-en">My English is weak. Will it still help?</span><span class="lg-vi">Mình mất gốc tiếng Anh, có dùng được không?</span></summary>
-      <p><span class="lg-en">Yes. The answers are short, simple sentences, so you can learn them out loud even with basic English. (Vietnamese seafarer? Every answer also has a Vietnamese translation. Tap TIẾNG VIỆT at the top.)</span><span class="lg-vi">Được. Câu nào cũng có tiếng Việt bên dưới, bạn hiểu trước rồi mới học câu tiếng Anh, đọc thành tiếng.</span></p></details>
-    <details><summary><span class="lg-en">Should I learn the answers word for word?</span><span class="lg-vi">Có nên học thuộc nguyên văn không?</span></summary>
-      <p><span class="lg-en">Learn the shape word for word, then change the details to your own ship, cargo and months at sea. An answer that's obviously someone else's story gets caught on the first follow-up.</span><span class="lg-vi">Học thuộc cái khung, rồi đổi chi tiết thành tàu, loại hàng, số tháng đi biển của bạn. Câu trả lời mà rõ là chuyện của người khác thì bị vặn một câu là lộ.</span></p></details>
+    <h2><span class="lg-en">Questions</span><span class="lg-vi">Câu hỏi thường gặp</span><span class="lg-fil">Mga tanong</span><span class="lg-id">Pertanyaan</span><span class="lg-my">မေးလေ့ရှိသော မေးခွန်းများ</span></h2>
+    <details><summary><span class="lg-en">Does it cost anything?</span><span class="lg-vi">Có mất tiền không?</span><span class="lg-fil">May bayad ba?</span><span class="lg-id">Apakah ada biayanya?</span><span class="lg-my">ပိုက်ဆံ ကုန်လား?</span></summary>
+      <p><span class="lg-en">No. It's free.</span><span class="lg-vi">Không. Miễn phí.</span><span class="lg-fil">Wala. Libre ito.</span><span class="lg-id">Tidak. Gratis.</span><span class="lg-my">မကုန်ပါ။ အခမဲ့ပါ။</span></p></details>
+    <details><summary><span class="lg-en">How do I get it?</span><span class="lg-vi">Nhận bằng cách nào?</span><span class="lg-fil">Paano ko ito makukuha?</span><span class="lg-id">Bagaimana cara mendapatkannya?</span><span class="lg-my">ဘယ်လို ရယူရမလဲ?</span></summary>
+      <p><span class="lg-en">Add your name and email above and it opens straight away on this site, with a Download PDF button.</span><span class="lg-vi">Điền tên và email ở trên là tài liệu mở ngay trên web, có nút Tải PDF.</span><span class="lg-fil">Ilagay ang pangalan at email mo sa itaas at bubukas agad ito sa site na ito, may Download PDF button.</span><span class="lg-id">Isi nama dan email di atas, langsung terbuka di web ini, ada tombol Download PDF.</span><span class="lg-my">အပေါ်မှာ နာမည်နှင့် email ဖြည့်လိုက်ရင် ဒီဝဘ်ဆိုက်ပေါ်မှာ ချက်ချင်း ပွင့်လာပြီး Download PDF ခလုတ် ပါသည်။</span></p></details>
+    <details><summary><span class="lg-en">Can I read it on my phone?</span><span class="lg-vi">Đọc trên điện thoại được không?</span><span class="lg-fil">Mababasa ko ba ito sa phone?</span><span class="lg-id">Bisa dibaca di HP?</span><span class="lg-my">ဖုန်းနဲ့ ဖတ်လို့ ရလား?</span></summary>
+      <p><span class="lg-en">Yes. It opens on the page, you scroll down to read, and there is a Download PDF button at the top.</span><span class="lg-vi">Được. Mở ra ngay trên trang, kéo xuống để đọc, có nút Tải PDF ở trên cùng.</span><span class="lg-fil">Oo. Bubukas ito sa page, mag-scroll pababa para magbasa, at may Download PDF button sa itaas.</span><span class="lg-id">Bisa. Terbuka di halaman, gulir ke bawah untuk membaca, dan ada tombol Download PDF di atas.</span><span class="lg-my">ရပါတယ်။ စာမျက်နှာပေါ်မှာ ပွင့်လာပြီး အောက်ကို ဆွဲဖတ်ရုံပါပဲ၊ အပေါ်ဆုံးမှာ Download PDF ခလုတ် ရှိသည်။</span></p></details>
+    <details><summary><span class="lg-en">My English is weak. Will it still help?</span><span class="lg-vi">Mình mất gốc tiếng Anh, có dùng được không?</span><span class="lg-fil">Mahina ang English ko. Makakatulong pa rin ba?</span><span class="lg-id">Bahasa Inggris saya lemah. Masih bisa terbantu?</span><span class="lg-my">English အားနည်းတယ်။ အထောက်အကူ ဖြစ်ဦးမလား?</span></summary>
+      <p><span class="lg-en">Yes. The answers are short, simple sentences, so you can learn them out loud even with basic English. (Vietnamese seafarer? Every answer also has a Vietnamese translation. Tap TIẾNG VIỆT at the top.)</span><span class="lg-vi">Được. Câu nào cũng có tiếng Việt bên dưới, bạn hiểu trước rồi mới học câu tiếng Anh, đọc thành tiếng.</span><span class="lg-fil">Oo. Maiikli at simple ang mga sagot, kaya kaya mong aralin nang malakas kahit basic lang ang English mo. Nasa English ang guide.</span><span class="lg-id">Bisa. Jawabannya kalimat pendek dan sederhana, jadi bisa kamu pelajari dengan lantang walau bahasa Inggrismu dasar. Panduannya dalam bahasa Inggris.</span><span class="lg-my">ရပါတယ်။ အဖြေတွေက တိုတိုနဲ့ ရိုးရိုးရှင်းရှင်း ဖြစ်လို့ English အခြေခံလောက်နဲ့တောင် အသံကျယ်ကျယ် လေ့လာနိုင်ပါတယ်။ လမ်းညွှန်ကို English ဖြင့် ရေးထားသည်။</span></p></details>
+    <details><summary><span class="lg-en">Should I learn the answers word for word?</span><span class="lg-vi">Có nên học thuộc nguyên văn không?</span><span class="lg-fil">Dapat ko bang kabisaduhin nang salita por salita?</span><span class="lg-id">Haruskah saya hafal jawabannya kata per kata?</span><span class="lg-my">အဖြေတွေကို စာလုံးတိုင်း အလွတ်ကျက်သင့်လား?</span></summary>
+      <p><span class="lg-en">Learn the shape word for word, then change the details to your own ship, cargo and months at sea. An answer that's obviously someone else's story gets caught on the first follow-up.</span><span class="lg-vi">Học thuộc cái khung, rồi đổi chi tiết thành tàu, loại hàng, số tháng đi biển của bạn. Câu trả lời mà rõ là chuyện của người khác thì bị vặn một câu là lộ.</span><span class="lg-fil">Kabisaduhin ang hugis, tapos palitan ang detalye ng sarili mong barko, cargo at buwan sa dagat. Ang sagot na halatang kuwento ng iba ay mabubuko sa unang follow-up na tanong.</span><span class="lg-id">Hafalkan polanya, lalu ganti detailnya dengan kapal, muatan, dan bulan layarmu sendiri. Jawaban yang jelas cerita orang lain langsung ketahuan di pertanyaan lanjutan pertama.</span><span class="lg-my">ပုံစံကို အလွတ်ကျက်ပြီး အသေးစိတ်ကို ကိုယ့်သင်္ဘော၊ ကုန်နှင့် ပင်လယ်ပေါ်က လအရေအတွက်နဲ့ ပြောင်းပါ။ တခြားသူ့ အကြောင်းမှန်း သိသာတဲ့ အဖြေက ပထမ ဆက်မေးခွန်းမှာတင် ပေါ်သွားမယ်။</span></p></details>
   </section>
 
   <footer>
@@ -549,23 +587,23 @@ footer {
 
 <template id="mauForm">
   <form novalidate>
-    <label><span class="lg-en">First name</span><span class="lg-vi">Tên</span></label>
+    <label><span class="lg-en">First name</span><span class="lg-vi">Tên</span><span class="lg-fil">Pangalan</span><span class="lg-id">Nama</span><span class="lg-my">နာမည်</span></label>
     <input type="text" name="ten" autocomplete="given-name" maxlength="40" placeholder="Hieu">
-    <label><span class="lg-en">Email to receive it</span><span class="lg-vi">Email nhận tài liệu</span></label>
+    <label><span class="lg-en">Email to receive it</span><span class="lg-vi">Email nhận tài liệu</span><span class="lg-fil">Email kung saan ipapadala</span><span class="lg-id">Email untuk menerima</span><span class="lg-my">လက်ခံမည့် Email</span></label>
     <input type="email" name="email" autocomplete="email" placeholder="you@example.com">
     <div class="hp" aria-hidden="true"><input type="text" name="hn_hp_7q" tabindex="-1" autocomplete="new-password"></div>
     <p class="loi"></p>
-    <button type="submit"><span class="lg-en">GET IT FREE</span><span class="lg-vi">NHẬN TÀI LIỆU MIỄN PHÍ</span></button>
-    <p class="nho"><span class="lg-en">Free. No spam. Unsubscribe any time.</span><span class="lg-vi">Miễn phí. Không spam. Không thích thì bấm huỷ nhận thư bất cứ lúc nào.</span></p>
+    <button type="submit"><span class="lg-en">GET IT FREE</span><span class="lg-vi">NHẬN TÀI LIỆU MIỄN PHÍ</span><span class="lg-fil">KUNIN NANG LIBRE</span><span class="lg-id">DAPATKAN GRATIS</span><span class="lg-my">အခမဲ့ ရယူမည်</span></button>
+    <p class="nho"><span class="lg-en">Free. No spam. Unsubscribe any time.</span><span class="lg-vi">Miễn phí. Không spam. Không thích thì bấm huỷ nhận thư bất cứ lúc nào.</span><span class="lg-fil">Libre. Walang spam. Puwedeng mag-unsubscribe anumang oras.</span><span class="lg-id">Gratis. Tanpa spam. Kalau tidak suka, klik berhenti berlangganan kapan saja.</span><span class="lg-my">အခမဲ့။ Spam မပို့ပါ။ မကြိုက်လျှင် အချိန်မရွေး unsubscribe နှိပ်နိုင်သည်။</span></p>
   </form>
   <div class="xong" hidden>
     <div class="to">&#9993;&#65039;</div>
-    <h3><span class="lg-en">It's in your inbox</span><span class="lg-vi">Tài liệu đã nằm trong email của bạn</span></h3>
-    <p><span class="lg-en">Sent to <b class="dc"></b>. Open the email from Hiếu at Sea and tap <b>Open the file</b>.</span><span class="lg-vi">Đã gửi tới <b class="dc"></b>. Mở thư từ Hiếu at Sea, bấm nút <b>Mở tài liệu</b>.</span></p>
-    <a class="nut" data-gmail href="https://mail.google.com/mail/u/0/#search/from%3Ahieunguyen.net" rel="noopener"><span class="lg-en">Open Gmail &rarr;</span><span class="lg-vi">Mở Gmail &rarr;</span></a>
-    <p class="roi"><span class="lg-en">Nothing after a few minutes? Check Promotions or Spam.</span><span class="lg-vi">Vài phút chưa thấy thì xem mục Quảng cáo hoặc Spam.</span>
-      <br><button type="button" class="lai" data-lai disabled="disabled"><span class="lg-en">Send again</span><span class="lg-vi">Gửi lại</span></button> ·
-      <button type="button" class="lai" data-sua><span class="lg-en">Wrong email?</span><span class="lg-vi">Gõ sai email?</span></button></p>
+    <h3><span class="lg-en">It's in your inbox</span><span class="lg-vi">Tài liệu đã nằm trong email của bạn</span><span class="lg-fil">Nasa inbox mo na</span><span class="lg-id">Sudah ada di inbox kamu</span><span class="lg-my">သင့် inbox ထဲ ရောက်ပြီ</span></h3>
+    <p><span class="lg-en">Sent to <b class="dc"></b>. Open the email from Hiếu at Sea and tap <b>Open the file</b>.</span><span class="lg-vi">Đã gửi tới <b class="dc"></b>. Mở thư từ Hiếu at Sea, bấm nút <b>Mở tài liệu</b>.</span><span class="lg-fil">Ipinadala sa <b class="dc"></b>. Buksan ang email mula sa Hiếu at Sea at i-tap ang <b>Open the file</b>.</span><span class="lg-id">Terkirim ke <b class="dc"></b>. Buka email dari Hiếu at Sea lalu ketuk <b>Open the file</b>.</span><span class="lg-my"><b class="dc"></b> သို့ ပို့ပြီးပါပြီ။ Hiếu at Sea ထံမှ email ကို ဖွင့်ပြီး <b>Open the file</b> ကို နှိပ်ပါ။</span></p>
+    <a class="nut" data-gmail href="https://mail.google.com/mail/u/0/#search/from%3Ahieunguyen.net" rel="noopener"><span class="lg-en">Open Gmail &rarr;</span><span class="lg-vi">Mở Gmail &rarr;</span><span class="lg-fil">Buksan ang Gmail &rarr;</span><span class="lg-id">Buka Gmail &rarr;</span><span class="lg-my">Gmail ဖွင့်ရန် &rarr;</span></a>
+    <p class="roi"><span class="lg-en">Nothing after a few minutes? Check Promotions or Spam.</span><span class="lg-vi">Vài phút chưa thấy thì xem mục Quảng cáo hoặc Spam.</span><span class="lg-fil">Wala pa rin pagkalipas ng ilang minuto? Tingnan ang Promotions o Spam.</span><span class="lg-id">Beberapa menit belum masuk? Cek Promosi atau Spam.</span><span class="lg-my">မိနစ်အနည်းငယ်ကြာလို့ မရောက်သေးရင် Promotions သို့မဟုတ် Spam ထဲ ကြည့်ပါ။</span>
+      <br><button type="button" class="lai" data-lai disabled="disabled"><span class="lg-en">Send again</span><span class="lg-vi">Gửi lại</span><span class="lg-fil">Ipadala ulit</span><span class="lg-id">Kirim ulang</span><span class="lg-my">ပြန်ပို့ရန်</span></button> ·
+      <button type="button" class="lai" data-sua><span class="lg-en">Wrong email?</span><span class="lg-vi">Gõ sai email?</span><span class="lg-fil">Mali ang email?</span><span class="lg-id">Salah ketik email?</span><span class="lg-my">Email မှားသွားလား?</span></button></p>
   </div>
 </template>
 
@@ -578,8 +616,35 @@ vi: "70 câu phỏng vấn sĩ quan boong — Phó ba & Phó hai"
 };
 var KIT = "https://app.kit.com/forms/9750089/subscriptions", TL = "https://app.hieunguyen.net/api/tl/";
 var MO_TRANG = Date.now();
+var NN = [ "vi", "en", "fil", "id", "my" ];
 function lang() {
-return document.documentElement.getAttribute("data-lang") === "vi" ? "vi" : "en";
+var l = document.documentElement.getAttribute("data-lang");
+return NN.indexOf(l) < 0 ? "en" : l;
+}
+var CHU = {
+vi: {
+ten: "Bạn điền tên giúp mình nhé.",
+email: "Email trông chưa đúng, kiểm tra lại giúp mình."
+},
+en: {
+ten: "Please add your first name.",
+email: "That email doesn't look right."
+},
+fil: {
+ten: "Pakilagay ang pangalan mo.",
+email: "Mukhang mali ang email, pakicheck ulit."
+},
+id: {
+ten: "Tolong isi nama kamu ya.",
+email: "Email sepertinya belum benar, coba cek lagi."
+},
+my: {
+ten: "ကျေးဇူးပြု၍ နာမည် ဖြည့်ပေးပါ။",
+email: "Email မှားနေပုံရပါတယ်၊ ပြန်စစ်ပေးပါ။"
+}
+};
+function c(k) {
+return (CHU[lang()] || CHU.en)[k];
 }
 function ga(ev, o) {
 try {
@@ -767,18 +832,18 @@ if (hp && Date.now() - MO_TRANG < 3e3) return;
 ten.value = ten.value.trim().replace(/\s+/g, " ").slice(0, 40);
 email.value = email.value.trim();
 if (!ten.value) {
-baoLoi(lang() === "vi" ? "Bạn điền tên giúp mình nhé." : "Please add your first name.", "ten");
+baoLoi(c("ten"), "ten");
 ten.focus();
 return;
 }
 if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email.value)) {
-baoLoi(lang() === "vi" ? "Email trông chưa đúng, kiểm tra lại giúp mình." : "That email doesn't look right.", "email");
+baoLoi(c("email"), "email");
 email.focus();
 return;
 }
 baoLoi("");
 btn.disabled = true;
-btn.innerHTML = '<span class="xoay"></span><span class="lg-en">OPENING YOUR GUIDE…</span><span class="lg-vi">ĐANG MỞ TÀI LIỆU…</span>';
+btn.innerHTML = '<span class="xoay"></span><span class="lg-en">OPENING YOUR GUIDE…</span><span class="lg-vi">ĐANG MỞ TÀI LIỆU…</span><span class="lg-fil">BINUBUKSAN ANG GUIDE MO…</span><span class="lg-id">SEDANG MEMBUKA PANDUANMU…</span><span class="lg-my">လမ်းညွှန်ကို ဖွင့်နေသည်…</span>';
 if (NHOM !== "B") {
 moTaiLieu("qua_70cau", guiKit());
 return;
@@ -804,7 +869,7 @@ headers: {
 body: JSON.stringify({
 email: email.value,
 ten: ten.value,
-file: TEN_FILE[lang()],
+file: TEN_FILE[lang()] || TEN_FILE.en,
 track: TRACK,
 url: DOC,
 lang: lang(),
@@ -889,7 +954,7 @@ try {
 if (localStorage.getItem("hn_lead") === "1") {
 var hop = document.querySelector("[data-form]"), p = document.createElement("p");
 p.className = "roi";
-p.innerHTML = '<span class="lg-en">Already got it on this device? <a href="' + DOC + '">Read it now &rarr;</a></span><span class="lg-vi">Đã nhận rồi trên máy này? <a href="' + DOC + '">Đọc ngay &rarr;</a></span>';
+p.innerHTML = '<span class="lg-en">Already got it on this device? <a href="' + DOC + '">Read it now &rarr;</a></span><span class="lg-vi">Đã nhận rồi trên máy này? <a href="' + DOC + '">Đọc ngay &rarr;</a></span><span class="lg-fil">Nakuha mo na ito sa device na ito? <a href="' + DOC + '">Basahin na &rarr;</a></span><span class="lg-id">Sudah dapat di perangkat ini? <a href="' + DOC + '">Baca sekarang &rarr;</a></span><span class="lg-my">ဒီစက်မှာ ရပြီးပြီလား? <a href="' + DOC + '">ချက်ချင်း ဖတ်ရန် &rarr;</a></span>';
 hop.appendChild(p);
 }
 } catch (e) {}
@@ -918,7 +983,7 @@ var box = document.createElement("div");
 box.className = "vd";
 box.innerHTML = d[1].map((function(q) {
 return "<i></i>";
-})).join("") + '<a class="them" href="#"><span class="lg-en">+ ' + d[2] + " more in this section, each with a full answer → get them free</span>" + '<span class="lg-vi">+ ' + d[2] + " câu nữa trong phần này, câu nào cũng có đáp án → nhận miễn phí</span></a>";
+})).join("") + '<a class="them" href="#"><span class="lg-en">+ ' + d[2] + " more in this section, each with a full answer → get them free</span>" + '<span class="lg-fil">+ ' + d[2] + " pang tanong sa seksyong ito, bawat isa may buong sagot → kunin nang libre</span>" + '<span class="lg-id">+ ' + d[2] + " pertanyaan lagi di bagian ini, semuanya dengan jawaban lengkap → dapatkan gratis</span>" + '<span class="lg-my">+ ' + d[2] + " မေးခွန်း ဒီအပိုင်းမှာ ထပ်ရှိပြီး အဖြေအပြည့်အစုံ ပါသည် → အခမဲ့ ရယူပါ</span>" + '<span class="lg-vi">+ ' + d[2] + " câu nữa trong phần này, câu nào cũng có đáp án → nhận miễn phí</span></a>";
 [].forEach.call(box.querySelectorAll("i"), (function(el, i) {
 el.textContent = d[1][i];
 }));
