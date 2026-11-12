@@ -79,8 +79,8 @@ var FILES = [
     meta: { vi: "Làm thủ tục và nhập cảnh với vé một chiều + thư bảo lãnh · trên máy bay và lúc nối chuyến · gặp đại lý · không gặp được đại lý thì gọi ai, nói gì, đứng đâu chờ (kể cả khi không SIM, không mạng, hết pin) · lên tàu: cầu thang mạn, sĩ quan trực, thuyền trưởng, ký sign-on, nhận bàn giao",
             en: "Check-in and immigration on a one-way ticket with a Letter of Guarantee · the flight and your connection · meeting the agent · when nobody meets you: who to call, what to say, where to wait (even with no SIM, no internet or a dead phone) · joining: gangway, duty officer, the Master, signing on, handover" },
     tag:  { vi: "PDF · Anh–Việt", en: "PDF · EN–VI" },
-    web: "di-nhan-tau",   // trang đọc /doc/?f=di-nhan-tau + file /files/di-nhan-tau.pdf; PASTE_ = ẨN tới khi sửa xong 6 điểm anh trả lời 12/11 (anh: "sửa các thứ bên trên trước. rồi cho hiện sau")
-    id: "PASTE_web-di-nhan-tau" },
+    web: "di-nhan-tau",   // trang đọc /doc/?f=di-nhan-tau + file /files/di-nhan-tau.pdf; 12/11: đã sửa 6 điểm anh trả lời + khung tắt mạng, hiện trong kho (anh: "sửa các thứ bên trên trước. rồi cho hiện sau"); chưa có Drive nên id giữ chỗ
+    id: "web-di-nhan-tau" },
 
   { nhom:"cadet", pdf:true, ico:"&#127919;",
     name: { vi: "Phỏng vấn cadet — COLREG, MARPOL Phụ lục V & VI, thái độ",
