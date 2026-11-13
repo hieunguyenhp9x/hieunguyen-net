@@ -297,6 +297,42 @@ h1 .hl {
 .note-line {
   cursor: pointer
 }
+.tat {
+  margin: 0 0 20px
+}
+.tat .tat-h {
+  font-size: 14.5px;
+  font-weight: 700;
+  margin-bottom: 9px
+}
+.tat .tat-ds {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px
+}
+.tat a {
+  display: inline-block;
+  text-decoration: none;
+  color: var(--navy);
+  background: var(--gold);
+  font-weight: 800;
+  font-size: 14px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  line-height: 1.2
+}
+.tat a.phu {
+  background: none;
+  color: var(--gold);
+  border: 1px solid rgba(212,169,90,.6)
+}
+.file.sang {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 2px rgba(212,169,90,.45)
+}
+.file {
+  scroll-margin-top: 14px
+}
 .file .meta {
   color: var(--text-dim);
   font-size: 14px;
@@ -624,6 +660,10 @@ button[type=submit]:disabled {
     font-size: 13.8px;
     margin-bottom: 18px
   }
+  .tat a {
+    font-size: 13.5px;
+    padding: 10px 12px
+  }
   .file {
     padding: 14px 14px;
     margin-bottom: 10px;
@@ -679,6 +719,12 @@ button[type=submit]:disabled {
     <span class="lg-en">The tools I use <span class="hl">on board</span></span>
   </h1>
 
+  <p class="note-line">
+    <span class="lg-vi">Tài liệu nằm ngay bên dưới &darr; Điền tên và email một lần là mở cả kho, các file sau bấm là lấy thẳng, không hỏi lại.</span>
+    <span class="lg-en">The files are right below &darr; Name and email once opens the whole library, every file after that opens straight away.</span>
+  </p>
+
+
   <p class="sub lg-vi">Tất cả tài liệu mình chia sẻ trên kênh đều nằm ở đây — đều là những tài liệu mình tự dựng để học tập và làm việc trên tàu. Sẽ còn update thêm.</p>
   <p class="sub lg-en">Everything I share on the channel is in here &mdash; the working files I built for myself at sea. The library keeps growing; just come back.</p>
 
@@ -691,10 +737,6 @@ button[type=submit]:disabled {
     </div>
   </div>
 
-  <p class="note-line">
-    <span class="lg-vi">Tài liệu nằm ngay bên dưới &darr; Điền tên và email một lần là mở cả kho, các file sau bấm là lấy thẳng, không hỏi lại.</span>
-    <span class="lg-en">The files are right below &darr; Name and email once opens the whole library, every file after that opens straight away.</span>
-  </p>
 
   <div id="list">
     <div class="state"><span class="lg-vi">Đang tải danh sách tài liệu…</span><span class="lg-en">Loading the file list…</span></div>
@@ -1017,6 +1059,8 @@ p.textContent = p.classList.contains("lg-en") ? "Read it now in your browser, or
 }));
 var nl = document.querySelector(".note-line");
 if (nl) nl.hidden = true;
+var tat = document.getElementById("tat");
+if (tat) tat.hidden = true;
 var lb = document.querySelector('label[for="leadName"]');
 if (lb) lb.innerHTML = '<span class="lg-vi">Tên</span><span class="lg-en">First name</span>';
 var nf = document.getElementById("leadName");
@@ -1034,7 +1078,7 @@ var ten = ngonNgu(f.name), mota = ngonNgu(f.meta), tag = ngonNgu(f.tag);
 var doc = (f.pdf || f.nghe) && f.id ? '<a class="btn" href="' + esc(urlDoc(f)) + '" target="_blank" rel="noopener" ' + 'data-act="preview" data-fname="' + esc(tenTheoDoi(f)) + '" data-label="' + esc(ten) + '">' + esc(f.nghe ? t.ngheChinh : t.viewChinh) + "</a>" : "";
 var nut = doc + '<a class="btn' + (doc ? " ghost" : "") + '" href="' + esc(urlTai(f)) + '" ' + 'target="_blank" rel="noopener" data-act="download" ' + 'data-fname="' + esc(tenTheoDoi(f)) + '" data-label="' + esc(ten) + '">' + esc(doc ? t.dlPhu : t.dl) + "</a>";
 var khungApp = f.app && curLang() === "vi" ? '<div class="app-dong">' + esc(f.app.chu) + ' <a href="' + esc(f.app.url) + '" target="_blank" rel="noopener">' + esc(f.app.nut) + "</a></div>" : "";
-return '<div class="file">' + (f.ico ? '<div class="ico">' + f.ico + "</div>" : "") + '<div class="body"><div class="name">' + esc(ten) + "</div>" + (mota ? '<div class="meta">' + esc(mota) + "</div>" : "") + (tag ? '<div class="tag">' + esc(tag) + "</div>" : "") + khungApp + '</div><div class="acts">' + nut + "</div></div>";
+return '<div class="file"' + (f.web ? ' id="' + esc(f.web) + '"' : "") + ">" + (f.ico ? '<div class="ico">' + f.ico + "</div>" : "") + '<div class="body"><div class="name">' + esc(ten) + "</div>" + (mota ? '<div class="meta">' + esc(mota) + "</div>" : "") + (tag ? '<div class="tag">' + esc(tag) + "</div>" : "") + khungApp + '</div><div class="acts">' + nut + "</div></div>";
 }
 
 var daBaoList = false;
@@ -1080,7 +1124,49 @@ listEl.innerHTML = html;
 listEl.querySelectorAll("a.btn").forEach((function(a) {
 a.addEventListener("click", onBamFile);
 }));
+denNeo();
 }
+
+var daDenNeo = false;
+
+function denNeo() {
+if (daDenNeo) return;
+var h = (location.hash || "").slice(1).replace(/[^\w-]/g, "");
+if (!h) return;
+var the = document.getElementById(h);
+if (!the || !the.classList.contains("file")) return;
+daDenNeo = true;
+the.classList.add("sang");
+setTimeout((function() {
+try {
+the.scrollIntoView({
+block: "start",
+behavior: "smooth"
+});
+} catch (x) {
+the.scrollIntoView();
+}
+}), 80);
+baoGA("neo_mo", {
+file_name: h
+});
+}
+
+document.querySelectorAll("#tat a[data-tat]").forEach((function(a) {
+a.addEventListener("click", (function(e) {
+var ma = a.getAttribute("data-tat");
+baoGA("loi_tat", {
+file_name: ma
+});
+if (ma === "vhf") return;
+var the = document.getElementById(ma);
+var nut = the && the.querySelector(".acts a.btn");
+if (!nut) return;
+e.preventDefault();
+the.classList.add("sang");
+nut.click();
+}));
+}));
 
 var gate = document.getElementById("gate");
 
