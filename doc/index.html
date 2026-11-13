@@ -312,6 +312,7 @@ var w = (new URLSearchParams(location.search).get("f") || "").replace(/[^\w-]/g,
 w = {
 "114-cau-dai-pho": "118-cau-dai-pho"
 }[w] || w;
+w = w.replace(/-quocte$/, "");
 if (!w) return;
 var b = document.getElementById("bia"), i = b.querySelector("img");
 i.onerror = function() {
@@ -357,8 +358,9 @@ try {
 history.replaceState(null, "", "?" + q.toString() + location.hash);
 } catch (e) {}
 }
+var GOC = WEB.replace(/-quocte$/, "");
 var f = (window.FILES || []).filter((function(x) {
-return x && x.web === WEB;
+return x && x.web === GOC;
 }))[0];
 var vung = document.getElementById("vung"), book = document.getElementById("book");
 function chu(v) {

@@ -1,6 +1,13 @@
 (function() {
 var PIXEL = "1640492557473756";
 if (/[?&#](email|e|ma|otp|token|k|vao)=/i.test(location.search + location.hash)) return;
+try {
+var q = new URLSearchParams(location.search);
+if (q.has("notrack")) localStorage.setItem("hn_notrack", "1"); else if (q.has("track")) localStorage.removeItem("hn_notrack");
+if (q.has("notrack") || localStorage.getItem("hn_notrack") === "1") return;
+} catch (e) {
+if (/[?&]notrack/.test(location.search)) return;
+}
 !function(f, b, e, v, n, t, s) {
 if (f.fbq) return;
 n = f.fbq = function() {

@@ -149,6 +149,15 @@ var p = o.form && o.form.querySelector(".kiem-email");
 if (p) p.remove();
 }
 function bao(o, msg, sua) {
+try {
+o.form.querySelectorAll(".loi, .err, .lead-error, #leadErr").forEach((function(x) {
+x.textContent = "";
+x.style.display = "none";
+}));
+o.form.querySelectorAll(".sai, .invalid").forEach((function(x) {
+x.classList.remove("sai", "invalid");
+}));
+} catch (e) {}
 var p = hop(o), c = CHU[lg()];
 p.textContent = msg;
 if (sua) {

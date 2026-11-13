@@ -4,20 +4,33 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>You scanned the code — open the library</title>
-<meta name="description" content="Real working files from a deck officer, free. Leave your email once and download. · Tài liệu thật từ một sĩ quan boong, để lại email một lần là tải miễn phí.">
+<meta name="description" content="Files a deck officer uses at sea, free. Leave your email once and download. · Tài liệu một sĩ quan boong dùng trên tàu, để lại email một lần là tải miễn phí.">
 <link rel="canonical" href="https://hieunguyen.net/tai-lieu.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="hieunguyen.net">
 <meta property="og:title" content="Free materials for seafarers — Kho tài liệu thuyền viên miễn phí">
-<meta property="og:description" content="Real working files from a deck officer, free. Leave your email once and download. · Tài liệu thật từ một sĩ quan boong, để lại email một lần là tải miễn phí.">
+<meta property="og:description" content="Files a deck officer uses at sea, free. Leave your email once and download. · Tài liệu một sĩ quan boong dùng trên tàu, để lại email một lần là tải miễn phí.">
 <meta property="og:url" content="https://hieunguyen.net/tai-lieu.html">
+<meta property="og:image" content="https://hieunguyen.net/assets/og/kho.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 
 
 <script type="text/javascript">(function() {
 var l = null;
+var m = /[?&]lang=(vi|en)(&|$)/.exec(location.search);
+if (m) {
+l = m[1];
+try {
+localStorage.setItem("hn_lang", l);
+} catch (e) {}
+}
+if (!l) {
 try {
 l = localStorage.getItem("hn_lang") || localStorage.getItem("pomo_lang");
 } catch (e) {}
+}
 if (l !== "vi" && l !== "en") l = "en";
 document.documentElement.setAttribute("data-lang", l);
 document.documentElement.lang = l;
@@ -451,8 +464,7 @@ button[type=submit]:disabled {
 
       
       <div class="hp" aria-hidden="true">
-        <label for="leadWebsite">Website</label>
-        <input id="leadWebsite" type="text" name="website" tabindex="-1" autocomplete="off">
+        <input id="leadWebsite" type="text" name="hn_hp_7q" tabindex="-1" autocomplete="new-password">
       </div>
 
       <p class="err" id="leadErr" role="alert"></p>
@@ -460,6 +472,7 @@ button[type=submit]:disabled {
       <p class="promise" id="leadPromise">
         <span class="lg-vi">Email của bạn chỉ dùng để gửi đường link kho. Khoảng một thư mỗi tháng, huỷ nhận bằng một chạm.</span>
         <span class="lg-en">Your email is only used to send you the library link. About one email a month, unsubscribe in one click.</span>
+        <a href="/privacy.html">Privacy</a>
       </p>
 
       <button type="submit">
@@ -470,9 +483,13 @@ button[type=submit]:disabled {
     <div class="done" id="leadDone">
       <div class="tick">&#128218;</div>
       <h2><span class="lg-vi">Xong — kho mở rồi</span><span class="lg-en">Done &mdash; the library is open</span></h2>
-      <p>
+      <p id="daGuiMsg">
         <span class="lg-vi">Bấm nút dưới để vào lấy file ngay. Mình cũng gửi link này vào email của bạn, để lần sau khỏi phải đi tìm.</span>
         <span class="lg-en">Tap below to go straight in. I've also emailed you this link so you can find it again later.</span>
+      </p>
+      <p id="kitHongMsg" style="display:none;">
+        <span class="lg-vi">Bạn bấm nút bên dưới để vào kho tài liệu.</span>
+        <span class="lg-en">Tap below to open the library.</span>
       </p>
       <a class="btn-kho" id="khoBtn" href="/kho.html">
         <span class="lg-vi">Vào kho tài liệu &rarr;</span><span class="lg-en">Open the library &rarr;</span>
@@ -570,11 +587,13 @@ var TXT = {
 vi: {
 errEmail: "Email trông chưa đúng — kiểm tra lại giúp mình nhé.",
 errBoth: "Điền giúp mình tên và email hợp lệ.",
+errName: "Bạn điền tên giúp mình nhé.",
 working: "Đang mở kho…"
 },
 en: {
 errEmail: "That email doesn't look right — mind checking it?",
 errBoth: "Please enter a name and a valid email.",
+errName: "Please enter your name.",
 working: "Opening…"
 }
 };
@@ -632,6 +651,8 @@ var mailF = document.getElementById("leadEmail");
 
 var hp = document.getElementById("leadWebsite");
 
+var MO_TRANG = Date.now();
+
 function showError(msg, bad) {
 errEl.textContent = msg || "";
 errEl.style.display = msg ? "block" : "none";
@@ -660,7 +681,7 @@ if (window.clarity) clarity("set", "signup", "qr_pdf");
 
 form.addEventListener("submit", (function(e) {
 var t = TXT[curLang()];
-if (hp.value !== "") {
+if (hp.value !== "" && Date.now() - MO_TRANG < 3e3) {
 e.preventDefault();
 return false;
 }
@@ -670,7 +691,7 @@ if (!name) bad.push("name");
 if (!validEmail(mailF.value)) bad.push("email");
 if (bad.length) {
 e.preventDefault();
-showError(bad.length === 1 && bad[0] === "email" ? t.errEmail : t.errBoth, bad);
+showError(bad.length === 2 ? t.errBoth : bad[0] === "email" ? t.errEmail : t.errName, bad);
 return false;
 }
 nameF.value = name;
@@ -695,6 +716,10 @@ trang: location.pathname
 });
 } catch (x) {}
 dp.loi(ly);
+try {
+document.getElementById("daGuiMsg").style.display = "none";
+document.getElementById("kitHongMsg").style.display = "";
+} catch (x) {}
 }
 var xong = false;
 function moKho() {

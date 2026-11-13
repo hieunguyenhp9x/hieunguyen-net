@@ -10,6 +10,10 @@
 <meta property="og:title" content="Bài tiếng Anh bên máy · Engine room English: get notified">
 <meta property="og:description" content="Để lại email, khi có bài bên máy mình gửi thư báo. Leave your email and we'll let you know when the engine lessons are ready.">
 <meta property="og:url" content="https://hieunguyen.net/cho-ban-may/">
+<meta property="og:image" content="https://hieunguyen.net/assets/og/cho-ban-may.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="robots" content="noindex">
 
 <script>(function() {
@@ -272,6 +276,7 @@ footer {
     font-size: 23px
   }
 }</style>
+<script src="/assets/kiem-email.js" defer="defer"></script>
 </head>
 <body>
 <div class="wrap">
@@ -303,7 +308,7 @@ footer {
       <div class="hp" aria-hidden="true"><input name="hn_hp_7q" tabindex="-1" autocomplete="off"></div>
       <p class="loi" role="alert"></p>
       <button type="submit"><span class="lg-vi">BÁO MÌNH KHI CÓ BÀI</span><span class="lg-en">NOTIFY ME</span></button>
-      <p class="nho"><span class="lg-vi">Mình chỉ gửi thư khi có bài bên máy, không gửi linh tinh.</span><span class="lg-en">We only email you about the engine lessons. No spam.</span></p>
+      <p class="nho"><span class="lg-vi">Mình chỉ gửi thư khi có bài bên máy, không gửi linh tinh.</span><span class="lg-en">We only email you about the engine lessons. No spam.</span> <a href="/privacy.html">Privacy</a></p>
     </form>
   </section>
 
@@ -376,12 +381,18 @@ veLang();
 function nguon() {
 try {
 var q = new URLSearchParams(location.search), u = q.get("utm_source"), m = q.get("utm_medium");
-if (u) return u + (m ? ":" + m : "");
-return document.referrer ? "ref:" + new URL(document.referrer).hostname : "direct";
+var c = q.get("utm_campaign"), ct = q.get("utm_content");
+if (u) {
+u = u + (m ? ":" + m : "") + (c || ct ? "|" + (c || "") + "|" + (ct || "") : "");
+localStorage.setItem("hn_src", u);
+return u;
+}
+return localStorage.getItem("hn_src") || (document.referrer ? "ref:" + new URL(document.referrer).hostname : "direct");
 } catch (e) {
 return "unknown";
 }
 }
+nguon();
 var f = document.getElementById("fCho"), loi = f.querySelector(".loi"), btn = f.querySelector("button");
 var chuNut = btn.innerHTML;
 if (!document.documentElement.classList.contains("xong")) ga("gate_open", {

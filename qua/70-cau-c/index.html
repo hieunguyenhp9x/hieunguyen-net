@@ -14,6 +14,10 @@
 <meta property="og:title" content="Free: 70 Deck Officer interview questions with sample answers · 70 câu phỏng vấn tiếng Anh Phó ba, Phó hai kèm đáp mẫu">
 <meta property="og:description" content="70 interview questions for 3/O and 2/O with sample answers. Free.">
 <meta property="og:url" content="https://hieunguyen.net/qua/70-cau/">
+<meta property="og:image" content="https://hieunguyen.net/assets/og/70-cau.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 
 <script>(function() {
 var l = null, m = /[?&]lang=(vi|en|fil|id|my)(&|$)/.exec(location.search);
@@ -667,6 +671,9 @@ footer {
 <script>(function() {
 var WEB = "70-cau", TRACK = "70 câu phỏng vấn sĩ quan boong — Phó ba & Phó hai, kèm câu trả lời";
 var DOC = location.origin + "/doc/?f=" + WEB;
+function docUrl() {
+return DOC + ([ "fil", "id", "my" ].indexOf(lang()) >= 0 ? "-quocte" : "");
+}
 var TEN_FILE = {
 en: "The Deck Officer Interview — 70 questions, 3/O & 2/O",
 vi: "70 câu phỏng vấn sĩ quan boong — Phó ba & Phó hai"
@@ -803,7 +810,7 @@ function chuyen() {
 if (di) return;
 di = true;
 roiTrang = true;
-location.href = DOC;
+location.href = docUrl();
 }
 setTimeout(chuyen, 2500);
 Promise.resolve(cho).then((function() {
@@ -928,7 +935,7 @@ email: email.value,
 ten: ten.value,
 file: TEN_FILE[lang()] || TEN_FILE.en,
 track: TRACK,
-url: DOC,
+url: docUrl(),
 lang: lang(),
 nguon: nguon(),
 trang: location.pathname,
@@ -1011,7 +1018,7 @@ try {
 if (localStorage.getItem("hn_lead") === "1") {
 var hop = document.querySelector("[data-form]"), p = document.createElement("p");
 p.className = "roi";
-p.innerHTML = '<span class="lg-en">Already got it on this device? <a href="' + DOC + '">Read it now &rarr;</a></span><span class="lg-vi">Đã nhận rồi trên máy này? <a href="' + DOC + '">Đọc ngay &rarr;</a></span><span class="lg-fil">Nakuha mo na ito sa device na ito? <a href="' + DOC + '">Basahin na &rarr;</a></span><span class="lg-id">Sudah dapat di perangkat ini? <a href="' + DOC + '">Baca sekarang &rarr;</a></span><span class="lg-my">ဒီစက်မှာ ရပြီးပြီလား? <a href="' + DOC + '">ချက်ချင်း ဖတ်ရန် &rarr;</a></span>';
+p.innerHTML = '<span class="lg-en">Already got it on this device? <a href="' + docUrl() + '">Read it now &rarr;</a></span><span class="lg-vi">Đã nhận rồi trên máy này? <a href="' + docUrl() + '">Đọc ngay &rarr;</a></span><span class="lg-fil">Nakuha mo na ito sa device na ito? <a href="' + docUrl() + '">Basahin na &rarr;</a></span><span class="lg-id">Sudah dapat di perangkat ini? <a href="' + docUrl() + '">Baca sekarang &rarr;</a></span><span class="lg-my">ဒီစက်မှာ ရပြီးပြီလား? <a href="' + docUrl() + '">ချက်ချင်း ဖတ်ရန် &rarr;</a></span>';
 hop.appendChild(p);
 }
 } catch (e) {}
@@ -1025,7 +1032,7 @@ C: [ 3, [ "How do you check the gyro error?", "You transmit a DSC distress alert
 D: [ 4, [ "You are in charge of LSA and FFA. How do you organise your monthly inspection?", "Which extinguisher for which fire?" ], 3 ],
 E: [ 5, [ "You applied for bulk carriers. What cargoes have you carried?", "Are your documents valid — certificates, visas, vaccination?" ], 8 ],
 F: [ 6, [ "Have you had problems with a multinational crew? How do you handle them?", "The cook may be of another nationality. Can you live with the food?" ], 1 ],
-G: [ 7, [ "What are the four stages of passage planning?", '"Berth to berth" — what does that actually mean?' ], 8 ],
+G: [ 7, [ "What are the four stages of passage planning?", '"Berth to berth" — what does that mean?' ], 8 ],
 H: [ 8, [ "What safety settings do you set in the ECDIS before departure, and why?", "One ECDIS fails. Then both fail. What does your SMS say, and what do you do?" ], 25 ]
 };
 function ga(ev, o) {
