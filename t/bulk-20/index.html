@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Opening the file — hieunguyen.net</title>
+
+<meta name="robots" content="noindex,nofollow">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="hieunguyen.net">
+<meta property="og:title" content="Bulk Carrier Cargo Operations: 20 English Dialogues · 20 hội thoại làm hàng tàu hàng rời">
+<meta property="og:description" content="Sample English-Vietnamese dialogues for cargo operations on a bulk carrier. PDF, 24 pages.">
+<meta property="og:url" content="https://hieunguyen.net/t/bulk-20/">
+<script type="text/javascript">(function() {
+var MA = "bulk-20";
+var DICH = "https://drive.google.com/file/d/18W98iRWw3P5583YILkS53qpvRykg4pGd/view";
+var di = false, t0 = Date.now(), xem = false;
+function sang(ly_do) {
+if (di) return;
+di = true;
+if (xem) {
+document.title = (ly_do || "het-gio") + " " + (Date.now() - t0) + "ms";
+return;
+}
+location.replace(DICH);
+}
+try {
+var p = new URLSearchParams(location.search);
+xem = p.has("xem");
+if (p.has("notrack")) localStorage.setItem("hn_notrack", "1"); else if (p.has("track")) localStorage.removeItem("hn_notrack");
+if (localStorage.getItem("hn_notrack") === "1") {
+sang();
+return;
+}
+} catch (e) {}
+var ga = document.createElement("script");
+ga.async = 1;
+ga.src = "https://www.googletagmanager.com/gtag/js?id=G-TNVKB32ZPK";
+document.head.appendChild(ga);
+window.dataLayer = window.dataLayer || [];
+window.gtag = function() {
+dataLayer.push(arguments);
+};
+gtag("js", new Date);
+gtag("config", "G-TNVKB32ZPK");
+gtag("event", "mo_tai_lieu", {
+file_name: MA,
+transport_type: "beacon",
+event_callback: function() {
+sang("ga-ok");
+},
+event_timeout: 2500
+});
+setTimeout(sang, 3e3);
+})();</script>
+<style>body {
+  background: #0a1628;
+  color: #e8edf4;
+  line-height: 1.6;
+  margin: 0;
+  padding: 48px 22px;
+  font-family: "Segoe UI",system-ui,-apple-system,Roboto,Arial,sans-serif;
+  text-align: center
+}
+a {
+  color: #d4a95a;
+  font-weight: 700
+}</style>
+</head>
+<body>
+<p>Opening the file… / Đang mở tài liệu…</p>
+<p><a href="https://drive.google.com/file/d/18W98iRWw3P5583YILkS53qpvRykg4pGd/view">Tap here if nothing happens / Bấm vào đây nếu trang không tự chuyển</a></p>
+</body>
+</html>
