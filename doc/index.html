@@ -546,22 +546,39 @@ file_name: TRACK
 });
 }
 }
+var XA = 6;
 var rong = Math.min(1600, Math.max(1100, Math.round(book.clientWidth * Math.min(2, window.devicePixelRatio || 1))));
 var xong = {}, dangVe = false, hang = [];
 function uuTien(i) {
-for (var k = i + 3; k >= i; k--) if (k >= 1 && k <= N && !xong[k]) hang.unshift(k);
+hang = [];
+for (var k = i - 1; k <= i + 3; k++) if (k >= 1 && k <= N && !xong[k]) hang.push(k);
+donXa(i);
 chay();
+}
+function donXa(i) {
+for (var k in xong) {
+k = +k;
+if (Math.abs(k - i) <= XA) continue;
+var el = book.querySelector('.page[data-i="' + k + '"]');
+if (!el) continue;
+var im = el.querySelector("img");
+if (im.src && im.src.indexOf("blob:") === 0) {
+try {
+URL.revokeObjectURL(im.src);
+} catch (x) {}
+}
+im.removeAttribute("src");
+el.classList.add("cho");
+el.querySelectorAll("a.lk").forEach((function(a) {
+a.remove();
+}));
+delete xong[k];
+}
 }
 function chay() {
 if (dangVe) return;
 var so = hang.shift();
 while (so && xong[so]) so = hang.shift();
-if (!so) {
-for (var t = 1; t <= N; t++) if (!xong[t]) {
-so = t;
-break;
-}
-}
 if (!so) return;
 dangVe = true;
 xong[so] = 1;
@@ -569,6 +586,9 @@ pdf.getPage(so).then((function(pg) {
 var el = book.querySelector('.page[data-i="' + so + '"]');
 return veTrang(pg, rong).then((function(url) {
 if (el) {
+el.querySelectorAll("a.lk").forEach((function(a) {
+a.remove();
+}));
 el.querySelector("img").src = url;
 el.classList.remove("cho");
 }
